@@ -1,0 +1,41 @@
+---
+layout: baseof
+---
+
+<section id="main">
+    <div class="container">
+        <div class="container-edge-border">
+
+            {% include sidebar_head.html %}
+
+            <article class="post">
+                <div class="post-body">
+                    <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+                    <h6 class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }} | UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</h6>
+                    <div class="markdown-body highlight">
+                        <p>{{ content }}</p>
+                    </div>
+
+                    <!-- License -->
+                    <div style="text-align:center; margin:0 0 10px 0;"></div>
+                    {% if page.license %}
+                        {% include license.html %}
+                    {% endif %}
+
+                    <!-- Disqus -->
+                    <div style="text-align:center; margin:0 0 50px 0;"></div>
+                    {% if jekyll.environment == 'production' and page.comments %}
+                        {% include disqus.html %}
+                    {% endif %}
+                    <br>
+                </div>
+            </article>
+
+            {% include sidebar_tail.html %}
+
+            <aside class="sidebar" style="margin-top:-25px;@media(max-width:1177px){margin-top:0;}">
+            </aside>
+
+        </div><!-- container-edge-border -->
+    </div><!-- main container -->
+</section><!-- main -->

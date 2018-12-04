@@ -1,0 +1,29 @@
+<footer id="footer">
+    <div class="container">
+        <div class="footer-line">
+            <p style="font-size:20px;"><a href="/"><strong>{{ site.title }}</strong></a> &copy; 2012 - {{ site.time | date: '%Y' }}</p>
+            <p style="font-size:11px;margin-top:-35px;color:#404040;">Blog ini dibuat di atas distribusi sistem operasi <b>Arch Linux</b>.<br>Source code dan artikel-artikel ditulis menggunakan <b>Vim</b> text editor.<br>Semua elemen gambar dikerjakan menggunakan <b>Inkscape</b> dan <b>GIMP</b>.<br>Menggunakan <b>Jekyll</b> untuk mengenerate static site.<br>Dihosting menggunakan <b>GitHub</b>.</p>
+            <p style="margin-top:-25px;">BitCoin: <code>1ozyTenXAq7FhzSJ26CaNKtXSDpbzz52S</code><br>
+                PayPal: <a href="https://paypal.me/bandithijo" target="_blank" rel="noreferrer">paypal.me/bandithijo</a><br>
+                <br>
+                <a href="/about">About</a> |&nbsp;
+                <a href="/contact">Contact</a> |&nbsp;
+                <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer">Twitter</a> | &nbsp;
+                <a href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
+                {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
+                    <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+                {% elsif page.permalink == '/vlog/' or page.permalink == '/vlog/:title' %}
+                    <a href="/feed/vlog.xml" target="_blank">RSS</a></p>
+                {% elsif page.permalink == '/python/' or page.permalink == '/python/:title' %}
+                    <a href="/feed/python.xml" target="_blank">RSS</a></p>
+                {% else %}
+                    <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+                {% endif %}
+            <a href="https://client.dewaweb.com/aff.php?aff=22096" target="_blank" rel="noopener"><img class="footer-img-1"src="/assets/img/logo/logo_dewaweb.png" alt="logo_dewaweb"></a>
+            <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer"><img class="footer-img-2"src="/assets/img/logo/logo_github.png" alt="logo_dewaweb"></a>
+            <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer"><img class="footer-img-3"src="/assets/img/logo/logo_jekyll.png" alt="logo_jekyll"></a>
+        </div><!-- footer-line -->
+    </div><!-- footer container -->
+</footer>
+
+{% include scripts.html %}

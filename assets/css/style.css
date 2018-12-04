@@ -1,0 +1,1220 @@
+/* ---------------------------------------------------------------------------
+Template: BanyuBiru
+Author  : Rizqi Nur Assyaufi
+Email   : bandithijo@gmail.com
+
+Template ini terinspirasi dari TechJunkie dari Styleshout.
+--------------------------------------------------------------------------- */
+
+body {
+    background: #F3EBE0;
+    font: 15px/1.5 'Ubuntu';
+    letter-spacing: 0;
+    width: 100%;
+    margin: 0;
+}
+
+/* Global ----------------------------------------------------------------- */
+.container {
+    background: #FFF;
+    /* width: menggunakan % untuk responsif design */
+    max-width: 67%;
+    /* max-width: 74%; */
+    /* untuk membuat halaman menjadi center */
+    margin: auto;
+    /* untuk mencegah parameter float terabaikan */
+    overflow: hidden;
+}
+
+img {
+    border-radius: 4px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2, h6 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-position: outside;
+    color: #999999;
+}
+
+p {
+    text-align: justify;
+    margin: auto;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: #00603C;
+}
+
+a:hover {
+    border-bottom: 1px dashed #008352;
+}
+
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 13px monospace;
+    font-weight: normal;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #c6cbd1;
+    border-radius: 4px;
+    box-shadow: inset 0 -1px 0 #c6cbd1;
+}
+
+/* Header ----------------------------------------------------------------- */
+#header {
+    background: #DAD0C4;
+    border-bottom: 1px solid #C4BBB0;
+    margin: 0;
+    padding-top: 10px;
+}
+
+#header .container {
+    background: #008352;
+    border-width: 20px 20px 0 20px;
+    border-style: solid;
+    border-color: #FFF;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* untuk menghilangkan border-bottom dari header */
+    margin-bottom: -1px;
+}
+
+#header .container .title {
+    font-weight: bold;
+    text-align: right;
+    letter-spacing: -2px;
+    color: #FFF;
+    margin: 10px 20px;
+}
+
+#header .container .title h1 {
+    font-size: 370%;
+}
+
+#header .container .description {
+    font-size: 8px;
+    font-weight: normal;
+    text-align: right;
+    color: #FFF;
+    margin: -20px 20px 70px 25px;
+}
+
+/* Navigation Bar --------------------------------------------------------- */
+#header .nav ul {
+    background: #0C4B33;
+    margin-top: 50px;
+    padding: 13px 15px;
+    min-height: 22px;
+    text-align: right;
+    /* navbar fixed */
+    /* position: fixed; */
+    /* right: 16.5%; */
+    /* left: 16.5%; */
+}
+
+#header .nav li {
+    list-style: none;
+    display: inline-block;
+}
+
+#header .nav li a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none;
+    padding: 0 7.5px;
+    border-bottom: none;
+}
+
+#header .nav li a:hover,
+#header .nav li a:active {
+    background: #FFF;
+    color: #00603C;
+    border-radius: 5px;
+    padding: 5px 7.5px;
+}
+
+/* untuk media queries */
+.toggle {
+    background: #0C4B33;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 30px;
+    font-weight: bold;
+    display: none;
+}
+
+/* Header Logo ------------------------------------------------------------ */
+#header .logo {
+    float: left;
+    /* margin: 1.5% 5.5% 0 0; */
+    margin: 1.1% 0 0 0;
+}
+
+#header .logo img {
+    width: 80%;
+    /* width: 200px; */
+
+}
+
+/* Main ------------------------------------------------------------------- */
+#main .container {
+    border-width: 0 20px 0 20px;
+    border-style: solid;
+    border-color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#main .container-edge-border {
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: #B8B8B8;
+    /* untuk memunculkan properties di atas */
+    overflow: hidden;
+}
+
+/* Post ------------------------------------------------------------------- */
+article.homepage {
+    padding: 15px 0;
+}
+
+article.homepage p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+article.post {
+    padding: 21px 20px;
+    width: 66.2%;
+    /* width: 600px; */
+    float: left;
+}
+
+img.post-header-img {
+    width: 30px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    clear: both;
+}
+
+.post-title {
+    font-size: 28px;
+    color: #000;
+    border-bottom: 1px dashed #B8B8B8;
+    text-align: left;
+    /* untuk indentasi title*/
+    /* padding-left: 40px; */
+    /* text-indent: -35px; */
+}
+
+.post-title a {
+    color: #000;
+}
+
+.post-title a:hover {
+    color: #00603C;
+    border-bottom: none;
+}
+
+p.post-title-index {
+    font-size: 14px;
+    color: #000;
+    border-bottom: 1px dashed #B8B8B8;
+    text-align: left;
+    padding-top: 10px;
+    /* untuk indentasi title*/
+    padding-left: 0.8em;
+    text-indent: -0.8em;
+    /* untuk mempersingkat title-index */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+p.post-title-index a {
+    color: #000;
+}
+
+p.post-title-index a:hover {
+    /* color: #00603C; */
+    /* font-weight: bold; */
+    color: #0C4B33;
+    border-bottom: none;
+}
+
+.post-details {
+    background: #9E9E9E;
+    color: #FFF;
+    text-align: center;
+    font-weight: normal;
+    width: 26em;
+    /* margin-left: 43px; */
+    margin-top: -1px;
+    padding: 0 2px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #9E9E9E;
+}
+
+p.post-details-index {
+    color: #000;
+    font-size: 12px;
+    text-align: right;
+    background: #B8B8B8;
+    top: -34px;
+    padding: 3px 4px;
+    position: relative;
+    float: right;
+    margin: 0;
+}
+
+p.post-details-index-pin {
+    color: #000;
+    font-size: 12px;
+    text-align: right;
+    background: #FF7700;
+    top: -34px;
+    padding: 3px 4px;
+    position: relative;
+    float: right;
+    margin: 0;
+}
+
+.post-title-spacer {
+    padding: 7px;
+}
+
+/* GUNAKAN INI! untuk image kecil menjadi full width */
+.post-body-img {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+/* untuk image dalam sidebar */
+.post-body-img-sidebar {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    border-radius: 10px;
+}
+
+/* untuk image diatur otomatis oleh template */
+.post-body img {
+    max-width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+/* Text Formating on Post */
+.post-body p {
+    margin: 10px 0;
+}
+
+.post-body li {
+    color: #000;
+    margin: 0;
+    padding: 0 0 0 10px;
+}
+
+/* Sidebar ---------------------------------------------------------------- */
+aside.sidebar {
+    width: 27%;
+    /* width: 245px; */
+    float: right;
+}
+
+aside p.sidebar-isi {
+    text-align: left;
+    /* untuk indentasi title*/
+    padding-left: 30px;
+    text-indent: -30px;
+}
+
+aside .sidebar-body {
+    /* background:#E9FCF4; */
+    background:#F5FFDA;
+    border-radius: 10px;
+    width: 91%;
+    margin: 25px 20px 25px -20px;
+    padding: 5px 10px;
+}
+
+aside .sidebar-body-img {
+    /* background:#E9FCF4; */
+    border-radius: 10px;
+    width: 99%;
+    margin: 25px 20px 25px -20px;
+    /* padding: 5px 10px; */
+}
+
+aside.sidebar h1 {
+    font-size: 100%;
+    border-bottom: 1px dashed #C4BBB0;
+}
+
+aside.sidebar ul {
+    list-style-type: disc;
+    color: #0C4B33;
+    margin: 0 0 0 15px;
+    padding: 5px 2px 5px 5px;
+}
+
+aside.sidebar li {
+    text-align: left;
+    font-size: 12px;
+    margin-left: -5px;
+}
+
+aside.sidebar li span {
+    margin-left: -2px;
+}
+
+aside.sidebar p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+/* Footer ----------------------------------------------------------------- */
+#footer {
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+#footer .container {
+    background: #B8B8B8;
+    border-width: 0 20px 20px 20px;
+    border-style: solid;
+    border-color: #FFF;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* untuk merapatkan footer dengan #post */
+    margin-top: -1px;
+}
+
+.footer-line {
+    /* untuk garis di dalma kotak footer bawah */
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #999999;
+}
+
+#footer .container p {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 20px 0 20px 20px;
+}
+
+img.footer-img-1 {
+    float: right;
+    margin: -170px 210px 0 0;
+    width: 82px;
+}
+
+img.footer-img-2 {
+    float: right;
+    margin: -170px 90px 0 0;
+    width: 128px;
+}
+
+img.footer-img-3 {
+    float: right;
+    margin: -170px 40px 0 0;
+    width: 60px;
+}
+
+
+/* Image ------------------------------------------------------------------ */
+.img-caption {
+    text-align: center;
+    font-size: 12px;
+}
+
+/* Title Quote ------------------------------------------------------------ */
+.title-quote {
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 1.5%;
+    border-bottom: 1px dashed #00603C;
+}
+
+/* Post Navigation -------------------------------------------------------- */
+.post-nav {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a.btn-blue-l {
+    color: white;
+    border-bottom: none;
+}
+
+.btn-blue-l {
+    background: #008352;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 10%;
+}
+
+.btn-blue-l:active {
+    color: white;
+    transform: translateY(2px)
+}
+
+a.btn-blue-r {
+    color: white;
+    border-bottom: none;
+}
+
+.btn-blue-r {
+    background: #008352;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10%;
+}
+
+.btn-blue-r:active {
+    color: white;
+    transform: translateY(2px)
+}
+
+a.btn-blue-c {
+    color: white;
+    border-bottom: none;
+}
+
+.btn-blue-c {
+    background: #008352;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.btn-blue-c:active {
+    color: white;
+    transform: translateY(2px)
+}
+
+.disabled,
+.disabled a,
+.disabled:active {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Scrollbar -------------------------------------------------------------- */
+/* ::-webkit-scrollbar { width: 15px; height: 5px; } */
+/* ::-webkit-scrollbar-track { background: #FFF; } */
+/* ::-webkit-scrollbar-thumb { background: #0087AF; border-radius: 15px; } */
+/* ::-webkit-scrollbar-thumb:hover { background: #0087AF; } */
+/* ::-webkit-scrollbar-corner { background: #FFF; } */
+/* ::-webkit-scrollbar-button { border-radius: 10px; } */
+
+/* Embed Container -------------------------------------------------------- */
+/* Such as: YouTube, dll -------------------------------------------------- */
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Notification Box ------------------------------------------------------- */
+article.homepage .notif-home {
+    width: 50%;
+    padding: 1em 1em;
+    font-size: 95%;
+    font-weight: normal;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #00603C;
+    border-radius: 5px;
+    /* background:#EBFFB4; */
+}
+
+article.homepage .notif-home p,
+article.homepage .notif-home a {
+    color: #000;
+    font-size: 95%;
+    font-weight: normal;
+    border-bottom: none;
+    text-align: left;
+    /* untuk indentasi title*/
+    padding-left: 57px;
+    text-indent: -115px;
+}
+
+p.notif-post {
+    margin: auto;
+    width: 100%;
+    padding: 1em 1em;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #F82C3B;
+    border-radius: 5px;
+    background:#FBD7D2;
+}
+
+/* HOT TUGAS -------------------------------------------------------------- */
+.hot {
+    background: red;
+    border-radius: 4px;
+    padding: 5px;
+    color: #FFF;
+    animation: 1s blink infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+/* BOX -------------------------------------------------------------------- */
+.box-container {
+    width: 100%;
+    margin: auto;
+    /* untuk membuat box berada di center dan rata atas */
+    display: flex;
+    justify-content: center;
+}
+
+.box {
+    width: 27.5%;
+    margin: 0 20px 40px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.box-img {
+    background: #F5FFDA;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.box-img:hover {
+    background: #EBFFB4;
+}
+
+.box-text {
+    text-align: center;
+    color: #FFF;
+    padding: 10px;
+    background: #008352;
+    border-radius: 0 0 5px 5px;
+    font-size: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* banner-home ------------------------------------------------------------ */
+.banner-home {
+    margin: auto;
+    padding: 5px 1.2em;
+}
+
+.banner-home img {
+    background: #000;
+    width: 100%;
+    /* border-bottom: 40px solid #000; */
+    border-radius: 6px;
+    /* border-radius: 0; */
+    justify-content: center;
+    /* position: relative; */
+    /* right: 3px; */
+    /* top: -20px; */
+}
+
+/* font-latin ------------------------------------------------------------- */
+.font-latin {
+    font: 18px 'Give You Glory';
+}
+
+.font-pixel {
+    font-family: 'VT323';
+}
+
+/* stabilo ---------------------------------------------------------------- */
+.stabilo {
+    background: yellow;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+/* blockquote red --------------------------------------------------------- */
+.blockquote-red {
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0.7em 0.7em;
+    color: #444d56;
+    /* background color quote */
+    background: #FBD7D2;
+    border-left: 0.35em solid #F82C3B;
+    border-radius: 0 5px 5px 0;
+}
+
+.blockquote-red-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444d56 !important;
+    border-bottom: 1px dashed #BE7000 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* blockquote blue -------------------------------------------------------- */
+.blockquote-blue {
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0.7em 0.7em;
+    color: #444d56;
+    /* background color quote */
+    background: #BDDFF1;
+    border-left: 0.35em solid #2C76F8;
+    border-radius: 0 5px 5px 0;
+}
+
+.blockquote-blue-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444d56 !important;
+    border-bottom: 1px dashed #0B4AB9 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* blockquote yellow ------------------------------------------------------ */
+.blockquote-yellow {
+    margin: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding: 0.7em 0.7em;
+    color: #444d56;
+    /* background color quote */
+    background: #F3E681;
+    border-left: 0.35em solid #F8A52C;
+    border-radius: 0 5px 5px 0;
+}
+
+.blockquote-yellow-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444d56 !important;
+    border-bottom: 1px dashed #BE7000 !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+/* license ---------------------------------------------------------------- */
+.ccbysa {
+    float: left;
+    margin: 8px 10px 0 0;
+}
+
+.ccbysa-text {
+    font-size: 14px;
+}
+
+/* collapsible ------------------------------------------------------------ */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/* dotfriends-page -------------------------------------------------------- */
+.dotfriends-page {
+    background: red;
+    width: 100%;
+}
+
+.dotfriends-page-img img {
+    /* background: yellow; */
+    border-radius: 50%;
+    float: left;
+    width: 25%;
+    top: 10%;
+    position: relative;
+    top: 1.5em;
+}
+
+.dotfriends-page-detail {
+    /* background: green; */
+    float: left;
+    width: 72%;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 1px dashed #A09991;
+}
+
+/* 2 kata tidak terpisah ---------------------------------------------------*/
+.nobr {
+    white-space: nowrap;
+}
+
+/* log-page --------------------------------------------------------------- */
+.log-page {
+    /* background: red; */
+    width: 100%;
+    margin-left: 0;
+    padding-left: 20px;
+    /* border-left: 1px dashed #A09991; */
+}
+
+.log-page ul {
+    margin-left: -30px;
+}
+
+.log-page ul li {
+    /* float:left; */
+    text-align: left;
+    padding-left: 85px;
+    text-indent: -75px;
+}
+
+.log-page a {
+    color: #505154;
+}
+
+.log-page a:hover {
+    color: #00653F;
+    border-bottom: none;
+}
+
+/* Remove dotted outline border selected Firefox -------------------------- */
+button:focus,
+a:focus, a:active,
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+select::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+  outline: none !important;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+select:focus::-ms-value {
+  background-color: $input-bg;
+  color: $input-color;
+}
+
+
+/* ------------------------------------------------------------------------ */
+/*
+████     ████              ██ ██
+░██░██   ██░██             ░██░░
+░██░░██ ██ ░██  █████      ░██ ██  ██████
+░██ ░░███  ░██ ██░░░██  ██████░██ ░░░░░░██
+░██  ░░█   ░██░███████ ██░░░██░██  ███████
+░██   ░    ░██░██░░░░ ░██  ░██░██ ██░░░░██
+░██        ░██░░██████░░██████░██░░████████
+░░         ░░  ░░░░░░  ░░░░░░ ░░  ░░░░░░░░
+
+   ███████                           ██
+  ██░░░░░██                         ░░
+ ██     ░░██  ██   ██  █████  ██████ ██  █████   ██████
+░██      ░██ ░██  ░██ ██░░░██░░██░░█░██ ██░░░██ ██░░░░
+░██    ██░██ ░██  ░██░███████ ░██ ░ ░██░███████░░█████
+░░██  ░░ ██  ░██  ░██░██░░░░  ░██   ░██░██░░░░  ░░░░░██
+ ░░███████ ██░░██████░░██████░███   ░██░░██████ ██████
+  ░░░░░░░ ░░  ░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░ ░░░░░░
+*/
+/* ------------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+    }
+
+    #header {
+        padding-top: 0;
+    }
+
+    #footer {
+        padding-bottom: 0;
+    }
+
+    #header .container,
+    #main .container,
+    #footer .container {
+        border-width: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #header .container {
+        background: #008352 url('') no-repeat;
+    }
+
+    #header .container .logo {
+        float: none;
+        text-align: center;
+        width: 220px;
+        margin: auto;
+        padding-top: 20px;
+    }
+
+    #header .container .title {
+        text-align: center;
+        margin: 5px 20px;
+    }
+
+    #header .container .title h1 {
+        font-size: 220%;
+    }
+
+
+    #header .container .description {
+        text-align: center;
+        margin: 5px 20px 30px 20px;
+    }
+
+    #header .nav .toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    #header .nav ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: none;
+    }
+
+    #header .nav ul.active {
+        display: block;
+    }
+
+    #header .nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+        border-top: 1px dashed #00603C;
+    }
+
+    #header .nav ul li a {
+        font-size: 22px;
+    }
+
+    h1.post-title {
+        margin-top: 20px;
+    }
+
+    p.post-title-index {
+        width: 93%;
+        padding-right: 10%;
+        margin-top: -30px;
+        /* untuk membuat title index full */
+        white-space: unset;
+        overflow: unset;
+        text-overflow: unset;
+    }
+
+    p.post-title-index a {
+        /* padding-right: 20%; */
+        word-break: keep-all;
+    }
+
+    article.post {
+        float: none;
+        text-align: justify;
+        width: 90%;
+        margin: auto;
+        padding: 0;
+    }
+
+    article .post-body {
+        margin: 10px 0;
+    }
+
+    aside.sidebar {
+        float: none;
+        width: 100%;
+        margin: -10px 0;
+    }
+
+    aside.sidebar h1,
+    aside.sidebar p {
+        text-align: justify;
+        margin: 0;
+        padding: 0.5% 5% 0 5%;
+    }
+
+    aside.sidebar ul {
+        list-style-type: disc;
+        margin: 0 0 0 25px;
+        padding: 0;
+    }
+
+    aside.sidebar ol {
+        margin: 0 0 0 3.5em;
+        padding: 0;
+    }
+
+    aside.sidebar li {
+        text-align: left;
+        margin: 0;
+        padding: 0;
+    }
+
+    aside p.sidebar-isi,
+    aside p.sidebar-isi a {
+        text-align: left;
+        margin: 0 0 0 2.0%;
+    }
+
+
+    aside .sidebar-body {
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 0 20px 0;
+        border-radius: 0;
+        position: static;
+    }
+
+
+    aside .sidebar-body-img {
+        float: none;
+        /* background:#E9FCF4; */
+        /* border-radius: 10px; */
+        width: 100%;
+        margin: -20px 0 10px 0;
+        padding: 0;
+        position: static;
+        /* padding: 5px 10px; */
+    }
+
+    aside .sidebar-body p {
+        /* padding-top: 10px; */
+    }
+
+    img.post-body-img-sidebar {
+        border-radius: 0;
+        display: none;
+    }
+
+    article.homepage .notif-home {
+        width: 67%;
+        padding: 1em 1em;
+        font-size: 95%;
+        font-weight: normal;
+        margin: auto;
+        margin-bottom: 10px;
+        border: 1px solid #00603C;
+        border-radius: 5px;
+        background:#FFF;
+    }
+
+    #footer .container p {
+        font-size: 12px;
+        letter-spacing:0;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    img.footer-img-1 {
+        width: 56px;
+        float: none;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+        position: relative;
+        right: 65px;
+    }
+
+    img.footer-img-2 {
+        width: 80px;
+        float: none;
+        margin: auto;
+        margin-top: -85px;
+        margin-bottom: 20px;
+        position: relative;
+        left: 0;
+    }
+
+    img.footer-img-3 {
+        width: 40px;
+        float: none;
+        margin: auto;
+        margin-top: -86px;
+        margin-bottom: 20px;
+        position: relative;
+        left: 55px;
+    }
+
+    .toc {
+        margin: 0 0 0 4.0%;
+    }
+
+/* dotfriends-page -------------------------------------------------------- */
+    .dotfriends-page {
+        background: none;
+        width: 100%;
+        /* border: 1px dashed #A09991; */
+    }
+
+    .dotfriends-page-img img {
+        /* background: yellow; */
+        border-radius: 50%;
+        float: none;
+        width: 180px;
+        position: relative;
+        top: 0;
+        padding: 15px;
+    }
+
+    .dotfriends-page-detail {
+        /* background: green; */
+        float: none;
+        width: 100%;
+        /* padding-top: 15px; */
+        margin-left: 0;
+        padding: 10px;
+        border-top: 1px dashed #A09991;
+        border-left: none;
+    }
+
+/* log-page --------------------------------------------------------------- */
+
+    .log-page ul {
+        margin-left: -40px;
+    }
+
+    .log-page ul li {
+        /* float:left; */
+        text-align: left;
+        padding-left: 75px;
+        text-indent: -75px;
+    }
+
+}
+
+/* ------------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    .box-container {
+        margin: auto;
+        display: block;
+        padding: 0 0 10px 0;
+    }
+
+    .box {
+        width: 75%;
+        /* untuk membuat box berada di center */
+        margin: auto;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    .ccbysa {
+        float: none;
+    }
+
+    .ccbysa-text {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    aside p.sidebar-isi,
+    aside p.sidebar-isi a {
+        text-align: left;
+        margin: 0 0 0 3.0%;
+    }
+
+    .toc {
+        margin: 0 0 0 4.0%;
+    }
+
+    .box-container-github {
+        visibility: hidden;
+        display: none;
+    }
+}
+
+/* ------------------------------------------------------------------------ */
+@media (max-width: 320px) {
+    aside p.sidebar-isi,
+    aside p.sidebar-isi a {
+        text-align: left;
+        margin: 0 0 0 5.0%;
+    }
+}

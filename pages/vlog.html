@@ -1,0 +1,72 @@
+---
+layout: 'page'
+title: 'Daftar Log: Vlog'
+author: 'BanditHijo'
+permalink: '/vlog/'
+---
+
+<div class="post-body">
+
+<!-- PINNED POSTS -->
+<img class="post-header-img" src="/assets/img/logo/logo_pin.svg" style="width:35px;">
+<h3 style="font-size:2.5em;margin-bottom:0;">Pinned Post</h3>
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/vlog/:title'" %}
+{% for post in posts reversed %}
+{% if post.pin == true  %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index-pin">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endif %}
+{% endfor %}
+
+<!-- REGULAR POSTS -->
+{% comment %}
+<!-- VLOG 2019 -->
+<img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_cal.svg">
+<h3 style="font-size:2.5em;margin:45px 0 0 0;">&nbsp;2019</h3>
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/vlog/:title'" %}
+{% for post in posts reversed %}
+{% assign year = post.date | date: '%Y' %}
+{% if year == '2019' and post.pin != true %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endif %}
+{% endfor %}
+{% endcomment %}
+
+<!-- VLOG 2018 -->
+<img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_cal.svg">
+<h3 style="font-size:2.5em;margin:45px 0 0 0;">&nbsp;2018</h3>
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/vlog/:title'" %}
+{% for post in posts reversed %}
+{% assign year = post.date | date: '%Y' %}
+{% if year == '2018' and post.pin != true %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endif %}
+{% endfor %}
+
+<!-- VLOG 2017 -->
+<img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_cal.svg">
+<h3 style="font-size:2.5em;margin:45px 0 0 0;">&nbsp;2017</h3>
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/vlog/:title'" %}
+{% for post in posts reversed %}
+{% assign year = post.date | date: '%Y' %}
+{% if year == '2017' and post.pin != true %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endif %}
+{% endfor %}
+
+<!-- VLOG 2016 -->
+<img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_cal.svg">
+<h3 style="font-size:2.5em;margin:45px 0 0 0;">&nbsp;2016</h3>
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/vlog/:title'" %}
+{% for post in posts reversed %}
+{% assign year = post.date | date: '%Y' %}
+{% if year == '2016' and post.pin != true %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endif %}
+{% endfor %}
+
+</div><!-- post-body -->

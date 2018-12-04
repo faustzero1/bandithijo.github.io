@@ -1,0 +1,94 @@
+# ----------------------------------------------------------------------------
+# INFORMASI
+# Tambah baru data diletakkan di paling atas
+# ----------------------------------------------------------------------------
+
+- tanggal: '18/12/04'
+  url:
+  detail: |
+      Menambahkan GitHub contribution pada homepage
+
+- tanggal: '18/12/04'
+  url:
+  detail: |
+      Menghapus dotted outline selected untuk browser Firefox
+
+- tanggal: '18/12/04'
+  url: /log-update/
+  detail: |
+      Menambahkan page Log Update
+
+- tanggal: '18/12/03'
+  url: /dotfriends/
+  detail: |
+      Menambahkan page dotFriends
+
+- tanggal: '18/12/02'
+  url: /vlog/
+  detail: |
+      Menambahkan menu Vlog
+
+- tanggal: '18/12/01'
+  url:
+  detail: |
+      Menggantikan format gambar PNG dengan SVG
+
+- tanggal: '18/11/25'
+  url:
+  detail: |
+      Mengkategorikan RSS feed URL
+
+- tanggal: '18/11/23'
+  url:
+  detail: |
+      Mengganti sudut pandang orang ketiga menjadi orang pertama
+
+- tanggal: '18/11/20'
+  url: /troubleshoot/
+  detail: |
+      Menambahkan halaman Groups
+
+- tanggal: '18/10/29'
+  url:
+  detail: |
+      Menambahkan lisensi CC-NC-SA pada halaman post
+
+- tanggal: '18/10/01'
+  url:
+  detail: |
+      Menambahkan parameter url {:target="_blank"} pada setiap URL
+
+- tanggal: '18/09/25'
+  url:
+  detail: |
+      Memisahkan Develop Env. dengan Production Env. dengan menambahkan if statemen ENV=production
+
+- tanggal: '18/09/21'
+  url:
+  detail: |
+      Merubah dan membagi box quote menjadi 3 prioritas (Perhatian, Pertanyaan, Informasi)
+
+- tanggal: '18/09/21'
+  url:
+  detail: |
+      Mengganti H3 denga P pada page 157
+
+- tanggal: '18/08/21'
+  url:
+  detail: |
+      Mengganti Table of Content JS dengan Table of Content GEM (jekyll-toc)
+
+- tanggal: '18/04/05'
+  url:
+  detail: |
+      Mengganti warna blog dari Biru menjadi Hijau
+
+- tanggal: '18/04/04'
+  url:
+  detail: |
+      Memberikan hamburger menu pada Mobile layout
+
+- tanggal: '18/03/18'
+  url: /blog/migrasi-blog-2-0
+  detail: |
+      Blog ini baru saja berpindah domain, dari Blogspot dan beralih menggunakan GitHub

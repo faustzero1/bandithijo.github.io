@@ -1,0 +1,27 @@
+---
+layout: 'page'
+title: 'dotFriends'
+author: 'BanditHijo'
+permalink: '/dotfriends/'
+toc: true
+---
+
+{% for friend in site.data.dotfriends.dotfriends-detail %}
+<div class="dotfriends-page">
+<div style="margin-top:10px;"></div>
+<div class="dotfriends-page-img">
+<img src="/assets/img/dotfriends/{{ friend.photo }}.jpg" alt="profile_picture">
+</div><!-- dotfriends-box-img -->
+<div class="dotfriends-page-detail">
+<h3 style="font-weight:bold;font-size:22pt;margin-top:10px;">{{ friend.nama }}</h3>
+<p>{{ friend.detail }}</p>
+{% if friend.url2 == nil %}
+<p><a href="{{ friend.url1 }}" target="_blank">{{ friend.url1 }}</a></p>
+{% else %}
+<p><a href="{{ friend.url1 }}" target="_blank">{{ friend.url1 }}</a></p>
+<p><a href="{{ friend.url2 }}" target="_blank">{{ friend.url2 }}</a></p>
+{% endif %}
+<div style="margin-bottom:30px;"></div>
+</div><!-- dotfriends-box-detail -->
+</div><!-- dotfriends-box -->
+{% endfor %}

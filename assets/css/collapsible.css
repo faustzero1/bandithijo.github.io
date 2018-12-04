@@ -1,0 +1,123 @@
+.wrap-collabsible {
+    /* margin-bottom: 1.2rem 0; */
+    margin-bottom: 10px;
+}
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.lbl-toggle {
+    display: block;
+
+    font-weight: bold;
+    font-family: Ubuntu;
+    font-size: 1.2rem;
+    /* text-transform: uppercase; */
+    text-align: left;
+
+    padding: 0.5rem;
+
+    color: #000;
+    background: #D6D6D6;
+
+    cursor: pointer;
+
+    border-radius: 7px;
+    /* transition: all 0.25s ease-out; */
+
+    /* untuk indentasi title*/
+    padding-left: 30px;
+    text-indent: -16px;
+}
+
+.lbl-toggle:hover {
+    color: #FFF;
+    background: #2A5E84;
+}
+
+.lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+
+    /* transition: transform .2s ease-out; */
+}
+
+.toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    /* transition: max-height .25s ease-in-out; */
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100%;
+}
+
+.toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+
+    color: #FFF;
+    background: #5682A3;
+}
+
+.collapsible-content .content-inner {
+    font-family: monospace;
+    text-align: justify;
+    text-align-last: center;
+    background: #E7EBF0 url('') repeat fixed;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+}
+
+.top {
+    float: right;
+    margin-top: 8px;
+    padding-top: 2px;
+    text-align: center;
+    border-radius: 0 0 50% 50%;
+    background: #5682A3;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 23px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+a.top, a.top:visited {
+    color: #FFF;
+    text-decoration: none;
+}
+
+a.top:hover {
+    background: #2A5E84;
+}
+
+a.tele {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 0;
+}
+
+a.tele:visited {
+    color: #5682A3;
+}
+
+a.tele:hover {
+    color: #FFF;
+    background: #5682A3;
+    text-decoration: none;
+}

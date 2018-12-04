@@ -1,0 +1,25 @@
+---
+layout: 'post'
+title: 'Saya dalam Menggunakan Kdenlive'
+date: 2017-09-16 17:00
+permalink: '/vlog/:title'
+author: 'BanditHijo'
+license: true
+comments: true
+toc: true
+category: 'vlog'
+tags:
+pin:
+---
+
+<div style="margin-top:30px;"></div>
+<!-- EMBED CONTAINER: YOUTUBE -->
+<div class='embed-container'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MPe4lipWFUE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+# Deskripsi
+
+Workflow saya dalam mengedit video menggunakan Kdenlive, mengkonversi ke divx menggunakan FF-MultiConverter dan mengkonversi ke MP3 dengan SoundConverter.
+
+Setelah setahun belakangan mempercayakan video editing di sistem operasi GNU/Linux dengan Lightworks namun rasa-rasanya untuk mengerjakan projek kecil kurang begitu praktis dan terlalu teknis. Pilihan saat ini jatuh ke Kdenlive yang sudah lebih stabil dan powerful terlebih lagi unsur praktis yang saya butuhkan sudah terpenuhi.

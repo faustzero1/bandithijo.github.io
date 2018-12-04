@@ -1,0 +1,7 @@
+<div class="sidebar-body">
+    <h1 style="font-size:1.5em;">Silabus Kelas</h1>
+    {% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/python/:title'" %}
+    {% for post in posts %}
+    <p class="sidebar-isi"><a href="{{ post.url }}">+&nbsp;{{ post.title }}</a></p>
+    {% endfor %}
+</div>

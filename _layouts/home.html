@@ -1,0 +1,101 @@
+---
+layout: baseof
+permalink: :title
+---
+
+<section id="main">
+    <div class="container">
+        <div class="container-edge-border">
+
+            <article class="homepage">
+                <!-- <div class="banner&#45;home"> -->
+                <!--     <img src="/assets/img/banner/banner.png" alt="banner"> -->
+                <!-- </div> -->
+
+                <div class="post-body"><br>
+                    <h1 style="text-align:center;font:50px 'Give You Glory';margin-top:-10px;"><b>Hello, <span class="nobr">Mas Bro !</span></b></h1>
+
+                    <div style="margin:auto;display:flex;align-items:center;justify-content:center;">
+                        <p><img style="width:50%; border-radius:50%;" src="/assets/img/logo/logo_author.png" alt="logo_author"></p>
+                    </div>
+
+                    <p style="margin:auto;padding:10px;font-size:30px;">Selamat datang <span class="nobr">di <a href="/blog/">blog</a></span> saya =)</p>
+
+                    <style scoped>
+                    .whatis-bandithijo {
+                        margin: auto;
+                        width: 60%;
+                    }
+                    @media (max-width: 768px) {
+                        .whatis-bandithijo {
+                            width: 85%;
+                        }
+                    }
+                    </style>
+                    <div class="whatis-bandithijo">
+                        <p style="font-size:16px;font-weight:normal;"><b>Bandithijo.com</b> adalah blog pribadi yang ditulis oleh <span class="nobr"><b>Rizqi Nur Assyaufi</b>.</span> <span class="nobr">Sebagian besar</span> artikel berisi catatan hasil bereksplorasi dalam menggunakan sistem operasi <span class="nobr">GNU/Linux.<span class="nobr"></p>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="homepage">
+                <div class="notif-home">
+                    <span style="font-size:16px;font-weight:bold;">Update terbaru...</span>
+                    {% for log in site.data.log-update limit: 5 %}
+                    {% if log.url == nill %}
+                        <p><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
+                    {% else %}
+                        <p><a href="{{ log.url }}">{{ log.tanggal }}: {{ log.detail }}</a></p>
+                    {% endif %}
+                    {% endfor %}
+                    <div style="margin:10px 0 10px 0;border-bottom:1px dashed #B8B8B8;"></div>
+                    <p style="text-align:right;"><a style="border-bottom:0;" href="/log-update/"><b>Selengkapnya =></b></a></p>
+                </div>
+            </article>
+
+            <div style="margin:20px;"></div>
+
+            <article class="box-container">
+                <div class="box">
+                    <a href="{{ site.url }}/blog/">
+                        <img class="box-img" src="/assets/img/cards/card_blog.svg" alt="blog">
+                        <div class="box-text">
+                            <p style="font-size:20px;font-weight:bold;">Log: Blog</p>
+                            <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
+                            <p>Halaman yang berisikan dokumentasi-dokumentasi proses belajar saya dalam bidang komputer dan teknologi yang sengaja dibuat sebagai catatan pribadi saya.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="box">
+                    <a href="{{ site.url }}/book/">
+                        <img class="box-img" src="/assets/img/cards/card_book.svg" alt="buku">
+                        <div class="box-text">
+                            <p style="font-size:20px;font-weight:bold;">Buku</p>
+                            <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
+                            <p>Sebuah buku elektronik yang saya buka untuk publik. Apalah guna ilmu kalo tidak bermanfaat bagi orang lain. Saya mencoba membernaikan menulis buku demi generasi yang akan datang.</p>
+                        </div>
+                </div>
+
+                <div class="box">
+                    <a href="{{ site.url }}/157/">
+                        <img class="box-img" src="/assets/img/cards/card_157.svg" alt="book">
+                        <div class="box-text">
+                            <p style="font-size:20px;font-weight:bold;">Log: 157</p>
+                            <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
+                            <p>Ini adalah halaman yang dibuat khusus untuk mendokumentasikan materi-materi dan tugas-tugas perkuliahan yang saya dan teman-teman kumpulkan selama proses perkuliahan.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </article>
+
+            <article class="box-container-github">
+                {% include github_calendar.html %}
+            </article>
+
+            <br>
+        </div><!-- container-edge-border -->
+    </div><!-- main container -->
+</section><!-- main -->

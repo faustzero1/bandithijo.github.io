@@ -1,0 +1,26 @@
+---
+layout: 'post'
+title: 'Mengatasi Error Failed to set xfermode Saat Booting'
+date: 2017-10-07
+permalink: '/vlog/:title'
+author: 'BanditHijo'
+license: true
+comments: true
+toc: true
+category: 'vlog'
+tags:
+pin:
+---
+
+<div style="margin-top:30px;"></div>
+<!-- EMBED CONTAINER: YOUTUBE -->
+<div class='embed-container'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dOqB0ybFlNM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+# Deskripsi
+
+Mengatasi error saat boot "failed to set xfermode".Yaitu dengan menambahkan "irqpoll" pada kernel paramater.
+
+Referensi:
+[How to Failed to set xfermode solved](https://fak3r.com/2007/06/22/howto-failed-to-set-xfermode-solved/?fbclid=IwAR0We3lc3CHpnewvB7iK38yimwXthEmkLktNK-Aqf76qLoRr9WM8Ppx_HUM){:target="_blank"}

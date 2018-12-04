@@ -1,0 +1,29 @@
+---
+layout: 'page'
+title: 'Kategori'
+author: 'BanditHijo'
+permalink: '/category/'
+---
+
+<div class="post-body">
+
+{% for category in site.categories %}
+  <h2 style="text-transform:capitalize;"id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }}</h2>
+  <ul>
+    {% assign pages_list = category[1] %}
+    {% for post in pages_list %}
+      {% if post.title != null %}
+      {% if group == null or group == post.group %}
+      <li><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></a></li>
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% assign pages_list = nil %}
+    {% assign group = nil %}
+  </ul>
+{% endfor %}
+
+
+
+
+</div><!-- post-body -->

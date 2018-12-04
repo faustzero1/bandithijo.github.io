@@ -1,0 +1,19 @@
+---
+layout: 'page'
+title: 'Dokumentasi Instalasi ARCH Linux'
+author: 'BanditHijo'
+permalink: '/arch/'
+---
+
+<div class="post-body">
+<!-- PYTHON POSTS -->
+
+{% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/arch/:title'" %}
+{% for post in posts %}
+<p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+{% endfor %}
+
+<br>
+<p><i>Sedang dalam proses penulisan ...</i></p>
+</div>

@@ -1,0 +1,14 @@
+<div class="sidebar-body" style="background-color: #EBFFB4;">
+    <h1 style="font-size:1.5em;">Daftar Kategori</h1>
+    {% assign categories_list = site.categories %}
+    {% if categories_list.first[0] == null %}
+        {% for category in categories_list %}
+        <p style="text-transform:capitalize;">+&nbsp;<a href="#{{ category | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category | camelcase }} ({{ site.tags[category].size }})</a></p>
+        {% endfor %}
+    {% else %}
+        {% for category in categories_list %}
+        <p style="text-transform:capitalize;">+&nbsp;<a href="#{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ category[0] | camelcase }} ({{ category[1].size }})</a></p>
+        {% endfor %}
+    {% endif %}
+    {% assign categories_list = nil %}
+</div>

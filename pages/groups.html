@@ -1,0 +1,324 @@
+---
+layout: 'page'
+title: 'Rekam Jejak Saya di Group Telegram'
+author: 'BanditHijo'
+permalink: '/groups/'
+---
+
+<b>Catatan</b>: <i>Nomor id chat yang paling baru adalah yang paling atas</i>.
+
+
+<!-- deklarasi sumber data untuk semua for loop nilai in data.collX  -->
+{% assign data = site.data.groups %}
+
+<!-- Belajar GNU/Linux Indonesia -->
+<div id="coll1" class="wrap-collabsible">
+<input id="collapsible1" class="toggle" type="checkbox">
+<label for="collapsible1" class="lbl-toggle">Belajar GNU/Linux Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- masukkan nomor dari bubble chat -->
+{% assign group = 'GNULinuxIndonesia' %}
+{% for nilai in data.coll-bgli reversed %}
+{% if nilai.id.size < 6 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible1" class="toggle" type="checkbox">
+<label for="collapsible1" class="top" onClick="document.getElementById('coll1').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Arch Linux Indonesia -->
+<div id="coll2" class="wrap-collabsible">
+<input id="collapsible2" class="toggle" type="checkbox">
+<label for="collapsible2" class="lbl-toggle">Arch Linux Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'ArchLinuxID' %}
+{% for nilai in data.coll-archlinuxid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible2" class="toggle" type="checkbox">
+<label for="collapsible2" class="top" onClick="document.getElementById('coll2').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Fedora Indonesia -->
+<div id="coll3" class="wrap-collabsible">
+<input id="collapsible3" class="toggle" type="checkbox">
+<label for="collapsible3" class="lbl-toggle">Fedora Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'FedoraID' %}
+{% for nilai in data.coll-fedoraid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible3" class="toggle" type="checkbox">
+<label for="collapsible3" class="top" onClick="document.getElementById('coll3').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- CentOS.ID -->
+<div id="coll4" class="wrap-collabsible">
+<input id="collapsible4" class="toggle" type="checkbox">
+<label for="collapsible4" class="lbl-toggle">CentOS.ID</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'centosID' %}
+{% for nilai in data.coll-centosid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible4" class="toggle" type="checkbox">
+<label for="collapsible4" class="top" onClick="document.getElementById('coll4').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- openSUSE Indonesia -->
+<div id="coll5" class="wrap-collabsible">
+<input id="collapsible5" class="toggle" type="checkbox">
+<label for="collapsible5" class="lbl-toggle">openSUSE Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'openSUSE_ID' %}
+{% for nilai in data.coll-opensuseid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible5" class="toggle" type="checkbox">
+<label for="collapsible5" class="top" onClick="document.getElementById('coll5').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- GimpScape ID -->
+<div id="coll6" class="wrap-collabsible">
+<input id="collapsible6" class="toggle" type="checkbox">
+<label for="collapsible6" class="lbl-toggle">GimpScape ID</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'gimpscape' %}
+{% for nilai in data.coll-gimpscapeid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible6" class="toggle" type="checkbox">
+<label for="collapsible6" class="top" onClick="document.getElementById('coll6').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Dotfiles Indonesia -->
+<div id="coll7" class="wrap-collabsible">
+<input id="collapsible7" class="toggle" type="checkbox">
+<label for="collapsible7" class="lbl-toggle">Dotfiles Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'dotfiles_id' %}
+{% for nilai in data.coll-dotfilesid reversed %}
+{% if nilai.id.size < 3 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '000' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible7" class="toggle" type="checkbox">
+<label for="collapsible7" class="top" onClick="document.getElementById('coll7').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Vim Indonesia -->
+<div id="coll8" class="wrap-collabsible">
+<input id="collapsible8" class="toggle" type="checkbox">
+<label for="collapsible8" class="lbl-toggle">Vim Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'VimID' %}
+{% for nilai in data.coll-vimid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 5 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible8" class="toggle" type="checkbox">
+<label for="collapsible8" class="top" onClick="document.getElementById('coll8').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Python Indonesia -->
+<div id="coll9" class="wrap-collabsible">
+<input id="collapsible9" class="toggle" type="checkbox">
+<label for="collapsible9" class="lbl-toggle">Python Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'pythonID' %}
+{% for nilai in data.coll-pythonid reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible9" class="toggle" type="checkbox">
+<label for="collapsible9" class="top" onClick="document.getElementById('coll9').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Django Indonesia -->
+<div id="coll10" class="wrap-collabsible">
+<input id="collapsible10" class="toggle" type="checkbox">
+<label for="collapsible10" class="lbl-toggle">Django Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = '' %}
+{% for nilai in data.coll10 reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible10" class="toggle" type="checkbox">
+<label for="collapsible10" class="top" onClick="document.getElementById('coll10').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Javascript Indonesia -->
+<div id="coll11" class="wrap-collabsible">
+<input id="collapsible11" class="toggle" type="checkbox">
+<label for="collapsible11" class="lbl-toggle">Javascript Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = '' %}
+{% for nilai in data.coll11 reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible11" class="toggle" type="checkbox">
+<label for="collapsible11" class="top" onClick="document.getElementById('coll11').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Golang Indonesia -->
+<div id="coll12" class="wrap-collabsible">
+<input id="collapsible12" class="toggle" type="checkbox">
+<label for="collapsible12" class="lbl-toggle">Golang Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = '' %}
+{% for nilai in data.coll12 reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible12" class="toggle" type="checkbox">
+<label for="collapsible12" class="top" onClick="document.getElementById('coll12').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Hugo Indonesia -->
+<div id="coll13" class="wrap-collabsible">
+<input id="collapsible13" class="toggle" type="checkbox">
+<label for="collapsible13" class="lbl-toggle">Hugo Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<!-- looping untuk bubble chat -->
+{% assign group = 'gohugoid' %}
+{% for nilai in data.coll-gohugoid reversed %}
+{% if nilai.id.size < 4 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
+{% else %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
+{% endif %}
+{% endfor %}
+</p>
+<input id="collapsible13" class="toggle" type="checkbox">
+<label for="collapsible13" class="top" onClick="document.getElementById('coll13').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Blender Indonesia -->
+<div id="coll14" class="wrap-collabsible">
+<input id="collapsible14" class="toggle" type="checkbox">
+<label for="collapsible14" class="lbl-toggle">Blender Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = '' %}
+{% for nilai in data.coll14 reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible14" class="toggle" type="checkbox">
+<label for="collapsible14" class="top" onClick="document.getElementById('coll14').scrollIntoView();">^</label>
+</div></div></div>
+
+<!-- Vue.JS Indonesia -->
+<div id="coll15" class="wrap-collabsible">
+<input id="collapsible15" class="toggle" type="checkbox">
+<label for="collapsible15" class="lbl-toggle">Vue.JS Indonesia</label>
+<div class="collapsible-content">
+<div class="content-inner">
+<p>
+<p class="font-latin"><b>Belum ada data...</b></p>
+<!-- looping untuk bubble chat -->
+{% assign group = '' %}
+{% for nilai in data.coll15 reversed %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>&nbsp;
+{% endfor %}
+</p>
+<input id="collapsible15" class="toggle" type="checkbox">
+<label for="collapsible15" class="top" onClick="document.getElementById('coll15').scrollIntoView();">^</label>
+</div></div></div>
+
