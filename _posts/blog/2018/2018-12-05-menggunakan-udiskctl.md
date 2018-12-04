@@ -2,7 +2,7 @@
 layout: 'post'
 title: 'Menggunakan Udiskctl untuk Mount, Unmount, dan Power Off Drive'
 date: 2018-11-05 06:25
-permalink: '/blog/:title'
+permalink: '/:categories/:title'
 author: 'BanditHijo'
 license: true
 comments: true
