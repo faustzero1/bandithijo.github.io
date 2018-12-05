@@ -3,6 +3,11 @@
 # Tambah baru data diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '18/12/05'
+  url:
+  detail: |
+      Menambahkan profil penulis pada blog post
+
 - tanggal: '18/12/04'
   url:
   detail: |

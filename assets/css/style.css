@@ -763,12 +763,23 @@ p.notif-post {
 }
 
 /* license ---------------------------------------------------------------- */
-.ccbysa {
+.ccbysa-img {
     float: left;
     margin: 8px 10px 0 0;
 }
 
 .ccbysa-text {
+    font-size: 14px;
+}
+
+/* penulis ---------------------------------------------------------------- */
+.penulis-img {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 15%;
+}
+
+.penulis-text {
     font-size: 14px;
 }
 
@@ -1167,6 +1178,17 @@ select:focus::-ms-value {
         text-indent: -75px;
     }
 
+    .penulis-img {
+        float: none;
+        width:15%;
+        margin: 0 auto;
+    }
+
+    .penulis-text {
+        /* text-align: center; */
+        /* padding-top: 10px; */
+    }
+
 }
 
 /* ------------------------------------------------------------------------ */
@@ -1185,7 +1207,7 @@ select:focus::-ms-value {
         border-radius: 5px;
     }
 
-    .ccbysa {
+    .ccbysa-img {
         float: none;
     }
 
@@ -1194,6 +1216,18 @@ select:focus::-ms-value {
         padding-top: 10px;
     }
 
+    .penulis-img {
+        float: none;
+        width:25%;
+        margin: 0 auto;
+    }
+
+    .penulis-text {
+        /* text-align: center; */
+        /* padding-top: 10px; */
+    }
+
+    aside p.sidebar-isi,
     aside p.sidebar-isi,
     aside p.sidebar-isi a {
         text-align: left;
