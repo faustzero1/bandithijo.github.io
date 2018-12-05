@@ -2,7 +2,7 @@
 layout: 'post'
 title: 'Menggunakan Udiskctl untuk Mount, Unmount, dan Power Off Drive'
 date: 2018-12-05 06:25
-permalink: '/:categories/:title'
+permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true
 comments: true
@@ -23,7 +23,7 @@ Karena alasan tersebut di atas, saya sampai pada tahap memigrasikan _File Manage
 
 # Permasalahan
 
-Salah satu kemampuan dari _file manger_ adalah _mounting/unmounting external drive_, seperti: _Flash Drive_, _External Hard Drive_, _SD Card_, dll. Yang menjadi permasalahan adalah aplikasi _file manager_ pengganti PCManFM yang saya gunakan, **Ranger**, tidak memiliki kemampuan ini. Tentu saja ini tidak sebanding dengan banyak kelebihan yang dimiliki oleh Ranger, maka dari itu saya tetap bersikeras menggunakan Ranger sebagai _file manager_ utama saya.
+Salah satu kemampuan dari _file manager_ adalah _mounting/unmounting external drive_, seperti: _Flash Drive_, _External Hard Drive_, _SD Card_, dll. Yang menjadi permasalahan adalah aplikasi _file manager_ pengganti PCManFM yang saya gunakan, **Ranger**, tidak memiliki kemampuan ini. Tentu saja ini tidak sebanding dengan banyak kelebihan yang dimiliki oleh Ranger, maka dari itu saya tetap bersikeras menggunakan Ranger sebagai _file manager_ utama saya.
 
 # Solusi
 
@@ -122,7 +122,17 @@ sda      8:0    0 447.1G  0 disk
 ```
 Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berhasil.
 
+# Video Ilustrasi
+
+<!-- EMBED CONTAINER: YOUTUBE -->
+<div class='embed-container'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nixRL8esSa8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+# Akhir Kata
+
 Untuk penjelasan lebih lengkap dan literatur tambahan silahkan membaca dari referensi yang saya sertakan di bawah. Karena sebaik-baiknya dokumentasi adalah dokumentasi yang ditulis sendiri oleh developer yang membuat aplikasi.
+
 
 # Referensi
 

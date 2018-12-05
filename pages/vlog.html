@@ -24,7 +24,7 @@ permalink: '/vlog/'
 {% for year in postsByYear reversed %}
 <img class="post-header-img" src="/assets/img/logo/logo_cal.svg">
 <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;">&nbsp;{{ year.name }}</h3>
-{% for post in year.items %}
+{% for post in year.items reversed %}
 {% if post.category == 'vlog' and post.pin == nil %}
 <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
 <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
