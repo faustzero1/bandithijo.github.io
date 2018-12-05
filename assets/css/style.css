@@ -153,6 +153,13 @@ kbd {
     padding: 5px 7.5px;
 }
 
+#header .nav .active {
+    background: #FFF;
+    color: #00603C;
+    border-radius: 5px;
+    padding: 5px 7.5px;
+}
+
 /* untuk media queries */
 .toggle {
     background: #0C4B33;

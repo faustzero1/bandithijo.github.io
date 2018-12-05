@@ -3,6 +3,11 @@
 # Tambah baru data diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '18/12/06'
+  url:
+  detail: |
+      Menambahkan class active button pada menu navigation
+
 - tanggal: '18/12/05'
   url:
   detail: |

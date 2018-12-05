@@ -46,6 +46,19 @@ default:
     values:
       layout: post
 
+# Navigation Menu on Header
+navigation:
+  - title: Blog
+    url: /blog/
+  - title: Vlog
+    url: /vlog/
+  - title: Books
+    url: /book/
+  - title: Groups
+    url: /groups/
+  - title: 157
+    url: /157/
+
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
 sitemap:
