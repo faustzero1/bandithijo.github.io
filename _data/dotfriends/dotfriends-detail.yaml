@@ -1,4 +1,4 @@
-
+friends:
 - nama: "Sucipto"
   photo: "sucipto"
   url1: https://sucipto.net
@@ -36,8 +36,8 @@
 
 - nama: "Nanda Okitavera"
   photo: "nanda"
-  url1: https://yuune.github.io
-  url2: https://github.com/yuune
+  url1: https://okitavera.github.io
+  url2: https://github.com/okitavera
   detail: |
       Hello!
       I am a psychologist and Android developer.
