@@ -31,6 +31,33 @@ Untuk memecahkan permasalahan di atas, saya menggunakan aplikasi [**udisck2**](h
 
 Cara menggunakannya sangat mudah.
 
+```
+Usage:
+  udisksctl COMMAND
+
+Commands:
+  help            Shows this information
+  info            Shows information about an object
+  dump            Shows information about all objects
+  status          Shows high-level status
+  monitor         Monitor changes to objects
+  mount           Mount a filesystem
+  unmount         Unmount a filesystem
+  unlock          Unlock an encrypted device
+  lock            Lock an encrypted device
+  loop-setup      Set-up a loop device
+  loop-delete     Delete a loop device
+  power-off       Safely power off a drive
+  smart-simulate  Set SMART data for a drive
+
+Options:
+  -p, --object-path         Object path for ATA device
+  -b, --block-device        Device file for ATA device
+  --no-user-interaction     Do not authenticate the user if needed
+
+Use "udisksctl COMMAND --help" to get help on each command.
+```
+
 ## Mounting
 
 Untuk me-*mounting* _flash drive_ atau _external hard drive_, hal yang perlu kita lakukan cukup dengan :
