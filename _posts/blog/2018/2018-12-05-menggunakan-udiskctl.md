@@ -76,7 +76,7 @@ Setelah kita selesai berurusan dengan _drive_, sebelum mencabutnya sangat direko
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
-Pastikan <i>file manager</i> tidak sedang membuka direkotri yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i>
+Pastikan <i>file manager</i> tidak sedang membuka direktori yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i>
 </div>
 
 1. Jalankan `udisk2` untuk proses _unmounting_

@@ -4,3 +4,11 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 ---
+
+{% if page.paginator %}
+{% assign paginator = page.paginator %}
+{% endif %}
+
+{% for post in paginator.posts %}
+...
+{% endfor %}

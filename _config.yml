@@ -51,9 +51,10 @@ default:
 sitemap:
     filename: "/sitemap.xml"
     exclude:
-        - "/atom.xml"
         - "/feed.xml"
-        - "/feed/index.xml"
+        - "/feed/blog.xml"
+        - "/feed/vlog.xml"
+        - "/feed/python.xml"
     include_posts:
         - "/index.html"
 
