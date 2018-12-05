@@ -13,7 +13,7 @@ toc: true
 <img src="/assets/img/dotfriends/{{ friend.photo }}.jpg" alt="profile_picture">
 </div><!-- dotfriends-box-img -->
 <div class="dotfriends-page-detail">
-<h3 style="font-weight:bold;font-size:22pt;margin-top:10px;">{{ friend.nama }}</h3>
+    <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="{{ friend.nama | downcase }}">{{ friend.nama }}</h3>
 <p>{{ friend.detail }}</p>
 {% if friend.url2 == nil %}
 <p><a href="{{ friend.url1 }}" target="_blank">{{ friend.url1 }}</a></p>
