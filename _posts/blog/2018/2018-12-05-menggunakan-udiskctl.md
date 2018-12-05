@@ -62,7 +62,7 @@ Use "udisksctl COMMAND --help" to get help on each command.
 
 Untuk me-*mounting* _flash drive_ atau _external hard drive_, hal yang perlu kita lakukan cukup dengan :
 
-1. Cek alamat dari _drive_ yang akan kita _mounting_ dengan `lsblk`
+1. Cek block dari _drive_ yang akan kita _mounting_ dengan `lsblk`
 ```
 $ lsblk
 ```
@@ -74,7 +74,8 @@ sda      8:0    0 447.1G  0 disk
 └─sda3   8:3    0     2G  0 part [SWAP]
 sdX      8:16   1   7.2G  0 disk
 ```
-Periksa nama/alamat `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
+Periksa nama/block `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
+
 2. Selanjutnya tinggal kita _mount_ menggunakan `udisk2`
 ```
 $ udiskctl mount -b /dev/sdX
@@ -113,6 +114,7 @@ $ udiskctl unmount -b /dev/sdX
 ```
 Unmounted /dev/sdX
 ```
+
 2. Selanjutnya lakukan pengecekan dengan `lsblk` untuk memastikan
 ```
 $ lsblk
@@ -139,6 +141,7 @@ Agar lebih yakin sebaiknya kita mematikan _external drive_ tersebut, kemudian ba
 ```
 $ udiskctl power-off -b /dev/sdX
 ```
+
 2. Cek lagi apakah _external drive_ sudah berhasil di _power-off_
 ```
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
