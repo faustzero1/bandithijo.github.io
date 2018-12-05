@@ -1,6 +1,6 @@
 ---
 layout: 'page'
-title: 'Tentang Penulis'
+title: 'Tentang Blog'
 permalink: '/about/'
 ---
 
@@ -14,10 +14,15 @@ Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren p
 
 _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah wadah untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
-Saya juga tidak menulis untuk sengaja saya *share*. Karena saya pernah berniat seperti itu, dan malah mempengaruhi saya dalam menulis. Menulis jadi lebih banyak pertimbangan apakah tulisan yang saya buat akan layak untuk dishare atau tidak. Hahahaha. Karena alasan ini, saya tidak lagi mempunyai niat menulis untuk sengaja saya *share*.
+# Apa Alasan Menulis Blog ?
+Saya menulis tidak untuk menjadi terkenal. Saya juga tidak menulis untuk sengaja saya *share*. Karena saya pernah berniat seperti itu, dan malah mempengaruhi saya dalam menulis. Menulis jadi lebih banyak pertimbangan apakah tulisan yang saya buat akan layak untuk dishare atau tidak. Hahahaha. Karena alasan ini, saya tidak lagi mempunyai niat menulis untuk sengaja saya *share*. Saya menulis untuk mengembangkan diri dan mendokumentasikan hal-hal yang sudah saya pelajari.
 
-Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu masalah yang saya alami saat menggunakan sistem operasi GNU/Linux. Namun, perlu digaris bawahi, bahwa **saya bukan seorang pakar bersertifikat dalam sistem operasi GNU/Linux. Saya hanya seorang penggemar sekaligus pemakai**. Mohon untuk dapat dimaklumi keterbatasan saya, hehehe.
+# Apa yang Ditulis di dalam Blog ?
+Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu masalah yang saya alami saat menggunakan sistem operasi GNU/Linux. Namun, perlu digaris bawahi, bahwa **saya bukan seorang pakar bersertifikat dalam sistem operasi GNU/Linux. Saya hanya seorang penggemar sekaligus pemakai**. Apabila terdapat kesalahan dalam penulisan, mohon untuk dapat dimaklumi keterbatasan saya, hehehe.
 
+Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer aplikasi yang bersangkutan. Karenanya, saya selalu menyertakan sumber literatur yang saya gunakan dalam membuat tulisan.
+
+# Akhir Kata
 Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
 
 Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
@@ -25,7 +30,7 @@ Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
 Best Regards **BanditHijo**
 
 
-## Spesifikasi Mesin Ketik
+# Spesifikasi Mesin Ketik
 
 Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama mengukir tulisan di blog ini.
 
