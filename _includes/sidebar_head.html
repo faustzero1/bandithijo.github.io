@@ -4,20 +4,20 @@
             <h1 style="font-size:1.5em;">Daftar Isi</h1>
             <p>Halaman ini tidak memiliki Daftar Isi.</p>
         </div>
-    {% elsif page.permalink == '/blog/:title' and page.toc == true %}
+    {% elsif page.category == 'blog' and page.toc == true %}
         {% include _sidebar/sidebar_rambu.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
-    {% elsif page.permalink == '/vlog/:title' and page.toc == true %}
+    {% elsif page.category == 'vlog' and page.toc == true %}
         {% include _sidebar/sidebar_vlog.html %}
-    {% elsif page.permalink == '/python/:title' and page.toc == true %}
+    {% elsif page.category == 'python' and page.toc == true %}
         {% include _sidebar/sidebar_rambu.html %}
         {% include _sidebar/book/python/sidebar_python_silabus.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
-    {% elsif page.permalink == '/arch/:title' and page.toc == true %}
+    {% elsif page.category == 'arch' and page.toc == true %}
         {% include _sidebar/sidebar_rambu.html %}
         {% include _sidebar/book/arch/sidebar_arch_daftarisi.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
-    {% elsif page.permalink == '/157/:title' and page.toc == true %}
+    {% elsif page.category == '157' and page.toc == true %}
         {% include _sidebar/157/sidebar_157_detail.html %}
     {% elsif page.permalink == '/blog/' %}
         {% include _sidebar/sidebar_blog.html %}
