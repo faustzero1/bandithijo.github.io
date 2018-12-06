@@ -979,6 +979,8 @@ select:focus::-ms-value {
 
     #header .nav ul.active {
         display: block;
+        background: #0C4B33;
+        margin-left: -10px;
     }
 
     #header .nav ul li {
@@ -992,6 +994,14 @@ select:focus::-ms-value {
     #header .nav ul li a {
         font-size: 22px;
     }
+
+    #header .nav .active {
+        background: #FFF;
+        color: #00603C;
+        border-radius: 5px;
+        padding: 5px 7.5px;
+    }
+
 
     h1.post-title {
         margin-top: 20px;
