@@ -46,7 +46,7 @@ ul {
 
 li {
     list-style-position: outside;
-    color: #999999;
+    /* color: #999999; */
 }
 
 p {
@@ -982,7 +982,7 @@ select:focus::-ms-value {
     #header .nav ul.active {
         display: block;
         background: #0C4B33;
-        margin-left: -10px;
+        margin: -5px 0 0 -10px;
     }
 
     #header .nav ul li {

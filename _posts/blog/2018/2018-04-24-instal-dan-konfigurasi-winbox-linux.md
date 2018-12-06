@@ -114,9 +114,8 @@ Solusi 2: Meminjam laptop teman yang memiliki sistem operasi Windows dan melakuk
 </div>
 
 # Video Sample
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/2DVKiNiCiI8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+
+{% youtube 2DVKiNiCiI8 %}
 
 # Referensi
 

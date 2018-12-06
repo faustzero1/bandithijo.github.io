@@ -42,7 +42,7 @@ Berikut adalah daftar kompatibilitas yang sudah di-support dengan baik oleh Fedo
 | Support Read/Write HFS+ | Dengan pengaturan pada "Mount Option" dan perubahan UID pada user, kita dapat melakukan Read/Write pada partisi hfs+ Macintosh HD. * |
 | Airport Card / Wifi adapter | Tidak berjalan baik. Kita perlu melakukan peng-install-an driver agar dapat menggunakan Airport Card. * |
 
-*akan dijelaskan lebih lanjut
+_akan dijelaskan lebih lanjut_
 
 # Airport Card / Wifi Adapter
 Airport card / Wifi adapter tidak langsung dapat berfungsi. Kita membutuhkan driver broadcom-wl dari internet. Untuk itu, jangan terlebih dahulu sebaiknya anda men-download terlebih dulu sebelum melakukan peng-install-an Fedora 21.

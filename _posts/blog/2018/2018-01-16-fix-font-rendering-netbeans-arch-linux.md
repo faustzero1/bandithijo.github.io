@@ -68,6 +68,5 @@ Apakah _font rendering_ sudah lebih bagus dan _smooth_ ?
 
 
 # Video Dokumentasi :
-<div class='embed-container'>
-  <iframe src="https://www.youtube.com/embed/Bw1RYFkCXYs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+
+{% youtube Bw1RYFkCXYs %}

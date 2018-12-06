@@ -23,9 +23,7 @@ pin:
 
 # Video Dokumentasi
 
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/X59On7MV0Co" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+{% youtube X59On7MV0Co %}
 
 > | Nama | **Rizqi Nur Assyaufi** |
 > | NIM | **15.01.157** |

@@ -27,9 +27,7 @@ pin:
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 <!-- EMBED CONTAINER: YOUTUBE -->
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/Bw1RYFkCXYs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+{% youtube ID_YOUTUBE %}
 
 <!-- KEYBOARD -->
 <kbd>SPACE</kbd> + <kbd>ALT</kbd>

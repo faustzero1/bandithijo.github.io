@@ -13,10 +13,8 @@ pin:
 ---
 
 <div style="margin-top:30px;"></div>
-<!-- EMBED CONTAINER: YOUTUBE -->
-<div class='embed-container'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JCNUV_u0Tik" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+
+{% youtube JCNUV_u0Tik %}
 
 # Deskripsi
 

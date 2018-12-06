@@ -13,10 +13,8 @@ pin:
 ---
 
 <div style="margin-top:30px;"></div>
-<!-- EMBED CONTAINER: YOUTUBE -->
-<div class='embed-container'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fyBgNy9PO8g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+
+{% youtube fyBgNy9PO8g %}
 
 # Deskripsi
 
@@ -29,8 +27,6 @@ Penomoran versi juga sudah mulai diterapkan pada cheatsheet infographic kali ini
 Cheatsheet ver. 002
 
 Download >> [https://goo.gl/AyCiT5](https://goo.gl/AyCiT5){:target="_blank"}
-
-#cisco #ccna #packettracer
 
 Background music :
 [scenarioart - sayonara moon town](https://www.youtube.com/watch?v=E4Wri8ZNvMY){:target="_blank"}

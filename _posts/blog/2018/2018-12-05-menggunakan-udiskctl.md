@@ -154,10 +154,7 @@ Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berha
 
 # Video Ilustrasi
 
-<!-- EMBED CONTAINER: YOUTUBE -->
-<div class='embed-container'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nixRL8esSa8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{% youtube nixRL8esSa8 %}
 
 # Akhir Kata
 

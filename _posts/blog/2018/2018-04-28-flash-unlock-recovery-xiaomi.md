@@ -192,9 +192,7 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 <br>
 **Video Demonstrasi Proses Flashing ROM**
 
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/IwZZbfXzNWA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+{% youtube IwZZbfXzNWA %}
 
 <br>
 ## Unlock Bootloader
@@ -358,9 +356,7 @@ Saya rasa cukup seperti ini saja proses *flash*, *unlock bootloader*, *install c
 <br>
 **Video Demonstrasi Proses Unlock Bootloader, Install TWRP**
 
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/CGyxdElPPcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+{% youtube CGyxdElPPcQ %}
 
 # Referensi
 

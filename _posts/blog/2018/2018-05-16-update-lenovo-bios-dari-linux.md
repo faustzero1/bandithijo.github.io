@@ -220,9 +220,7 @@ Dengan begini, *flash drive* sudah siap untuk kita gunakan untuk mengupdate BIOS
 
 Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini terlalu lama, sekitar 6 menit. Saya tidak ingin memotong bagian-bagian penting dari proses update ini.
 
-<div class='embed-container'>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/VjPw1RP0fYc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+{% youtube VjPw1RP0fYc %}
 
 # Referensi
 1. [https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/](https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/){:target="_blank"}
