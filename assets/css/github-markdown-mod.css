@@ -224,7 +224,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body strong {
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body hr {
@@ -271,32 +272,38 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body h1 {
   font-size: 32px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body h2 {
   font-size: 24px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body h3 {
   font-size: 20px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body h4 {
   font-size: 16px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body h5 {
   font-size: 14px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body h6 {
   font-size: 12px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body p {
@@ -481,7 +488,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body h6 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
   line-height: 1.25;
   cursor: pointer;
 }
@@ -579,7 +587,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   margin-top: 16px;
   font-size: 1em;
   font-style: italic;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
 .markdown-body dl dd {
@@ -594,7 +603,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body table th {
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
   /* background color table header */
   background: #C5D796;
 }

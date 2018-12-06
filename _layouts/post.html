@@ -17,13 +17,21 @@ layout: baseof
                     </div>
 
                     <!-- Penulis -->
-                    <div style="text-align:center; margin:0 0 10px 0;"></div>
-                    {% include penulis.html %}
+                    {% if page.category == 'blog'
+                       or page.category == 'vlog'
+                       or page.category == 'arch'
+                       or page.category == 'python' %}
+                        <div style="text-align:center; margin:0 0 10px 0;"></div>
+                        {% include penulis.html %}
+                    {% endif %}
 
                     <!-- License -->
-                    <div style="text-align:center; margin:0 0 10px 0;"></div>
-                    {% if page.license %}
-                        {% include license.html %}
+                    {% if page.category == 'blog'
+                       or page.category == 'vlog' %}
+                        <div style="text-align:center; margin:0 0 10px 0;"></div>
+                        {% if page.license %}
+                            {% include license.html %}
+                        {% endif %}
                     {% endif %}
 
                     <!-- Disqus -->

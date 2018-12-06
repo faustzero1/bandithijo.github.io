@@ -34,11 +34,25 @@ pin:
 
 ## KELOMPOK
 
-<span class="hot">**Tugas BESAR**</span>
+**Tugas BESAR (02)**
 
-Start:2018/11/2 - End:2018/11/09
+~~Start:2018/11/2 - End:2018/11/09~~
 
 1. **SOAL:** [SOAL](https://drive.google.com/open?id=10-vKcV9IeWBzCDHO6NwevpBGkoU83gkz){:target="_blank"}
+<br><br>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<span class="hot"><strong>Tugas 03</strong></span>
+<br><br>
+Start:2018/11/30 - End:2018/12/14
+<br><br>
+Kerjakan tugas presentasi ini kelompok 3 orang.
+<br><br>
+<ol>
+<li> <strong>SOAL</strong>: <a href="https://drive.google.com/open?id=1YVIBplpq7aDKTWHzZc-21zOxbiLA6Sly" target="_blank">SOAL</a></li>
+</ol>
+</div>
 
 # KUIS
 ...
