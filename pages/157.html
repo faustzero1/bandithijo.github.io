@@ -6,6 +6,7 @@ permalink: '/157/'
 ---
 
 <div class="post-body">
+
 <!-- 157 POSTS -->
 
 <div style="margin-top:-40px;"></div>
@@ -14,6 +15,21 @@ permalink: '/157/'
 <br>
 <img class="post-header-img" src="/assets/img/logo/logo_toga.svg" style="width:70px;position:relative;top:13px;">
 <p style="font-size:1.25em;font-weight:bold;margin-top:10px;margin-bottom:0;">SEMESTER <span style="font-size:2.5em">7</span></p>
+<!-- NOTIF TUGAS -->
+<article class="homepage">
+<div class="notif-157">
+<span style="font-size:16px;font-weight:bold;">Deadline Tugas Terbaru</span>
+<div style="margin:10px 0 10px 0;border-bottom:1px dashed #C00000;"></div>
+{% for log in site.data.deadline-tugas limit: 5 %}
+{% if log.url == nill %}
+<p><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
+{% else %}
+<p><a href="/157/{{ log.url }}#tugas">{{ log.tanggal }}: {{ log.detail }}</a></p>
+{% endif %}
+{% endfor %}
+</div><!-- notif-157 -->
+</article><!-- homepage -->
+<!-- END NOTIF TUGAS -->
 {% assign posts = site.posts | sort | where_exp:"page", "page.category == '157'" %}
 {% for post in posts %}
 {% if forloop.index0 >= 46 and forloop.index0 <= 51  %}

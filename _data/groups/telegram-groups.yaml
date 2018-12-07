@@ -1,0 +1,48 @@
+groups:
+  - id: GNULinuxIndonesia
+    nama: Belajar GNU/Linux Indonesia
+
+  - id: ArchLinuxID
+    nama: Arch Linux Indonesia
+
+  - id: FedoraID
+    nama: Fedora Indonesia
+
+  - id: centosID
+    nama: CentOS.ID
+
+  - id: openSUSE_ID
+    nama: openSUSE Indonesia
+
+  - id: gimpscape
+    nama: GimpScape ID
+
+  - id: dotfiles_id
+    nama: Dotfiles Indonesia
+
+  - id: VimID
+    nama: Vim Indonesia
+
+  - id: pythonID
+    nama: Python Indonesia
+
+  - id: DjangoID
+    nama: Django Indonesia
+
+  - id: js_id
+    nama: Javascript Indonesia
+
+  - id: golangID
+    nama: Golang Indonesia
+
+  - id: gohugoid
+    nama: Hugo Indonesia
+
+  - id: Blender3DIndonesia
+    nama: Blender Indonesia
+
+  - id: vuejsid
+    nama: Vue.JS Indonesia
+
+  - id: jekyll_id
+    nama: Jekyll Indonesia

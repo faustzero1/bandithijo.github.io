@@ -603,6 +603,31 @@ article.homepage .notif-home a {
     text-indent: -115px;
 }
 
+article.homepage .notif-157 {
+    width: 100%;
+    padding: 1em 1em;
+    font-size: 95%;
+    font-weight: normal;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 0;
+    border: 1px solid #C00000;
+    border-radius: 5px;
+    background:#FBD7D2;
+}
+
+article.homepage .notif-157 p,
+article.homepage .notif-157 a {
+    color: #000;
+    font-size: 95%;
+    font-weight: normal;
+    border-bottom: none;
+    text-align: left;
+    /* untuk indentasi title*/
+    padding-left: 64px;
+    text-indent: -128px;
+}
+
 p.notif-post {
     margin: auto;
     width: 100%;
@@ -1114,6 +1139,33 @@ select:focus::-ms-value {
         border-radius: 5px;
         background:#FFF;
     }
+
+    article.homepage .notif-157 {
+        width: 100%;
+        padding: 1em 1em;
+        font-size: 95%;
+        font-weight: normal;
+        margin: auto;
+        margin-top: -10px;
+        margin-bottom: 0;
+        border: 1px solid #C00000;
+        border-radius: 5px;
+        background:#FBD7D2;
+    }
+
+
+    article.homepage .notif-157 p,
+    article.homepage .notif-157 a {
+        color: #000;
+        font-size: 95%;
+        font-weight: normal;
+        border-bottom: none;
+        text-align: left;
+        /* untuk indentasi title*/
+        padding-left: 65px;
+        text-indent: -130px;
+    }
+
 
     #footer .container p {
         font-size: 12px;

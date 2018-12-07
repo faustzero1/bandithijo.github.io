@@ -1,6 +1,6 @@
 <div class="sidebar-body" style="background-color:#EBFFB4">
     <h1 style="font-size:1.5em;">Telegram Groups</h1>
-    {% for group in site.data.groups.telegram-groups %}
+    {% for group in site.data.groups.telegram-groups.groups %}
     <p>+&nbsp;<a href="https://t.me/{{ group.id }}" target="_blank">{{ group.nama }}</a></p>
     {% endfor %}
 </div>

@@ -45,10 +45,11 @@ pin:
 <div class="blockquote-red">
 <span class="hot"><strong>Tugas 03</strong></span>
 <br><br>
-Start:2018/11/30 - End:2018/12/14
+<strong>Start:2018/11/30 - End:2018/12/14</strong>
 <br><br>
 Kerjakan tugas presentasi ini kelompok 3 orang.
-<br><br>
+<br>
+<div style="margin:10px 0 10px 0;border-bottom:1px dashed #C00000;"></div>
 <ol>
 <li> <strong>SOAL</strong>: <a href="https://drive.google.com/open?id=1YVIBplpq7aDKTWHzZc-21zOxbiLA6Sly" target="_blank">SOAL</a></li>
 </ol>

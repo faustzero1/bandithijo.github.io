@@ -27,8 +27,9 @@ pin:
 <div class="blockquote-red">
 <span class="hot"><b>Tugas 01</b></span>
 <br><br>
-Start:2018/12/06 - End:2018/12/13
-<br><br>
+<strong>Start:2018/12/06 - End:2018/12/13</strong>
+<br>
+<div style="margin:10px 0 10px 0;border-bottom:1px dashed #C00000;"></div>
 <ol>
 <li> <strong>SOAL:</strong> </li>
 </ol>
