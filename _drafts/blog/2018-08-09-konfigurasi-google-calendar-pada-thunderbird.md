@@ -8,8 +8,8 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
-pin: true
+tags: 'Thunderbird'
+pin:
 ---
 
 <!-- BANNER OF THE POST -->
