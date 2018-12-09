@@ -24,6 +24,5 @@ pin:
 Sambil ngebenerin tulisan terakhir yang failed karena belum diuji coba, sembari screen recording untuk mengecek apakah terdapat screen tearing.
 
 Background music:
-
-Gamushara - Miyuna (Black Clover Opening 5)
-[https://youtu.be/MQSIRyyDpYE](https://youtu.be/MQSIRyyDpYE){:target="_blank"}
+[Gamushara - Miyuna (Black Clover Opening 5)]
+(https://youtu.be/MQSIRyyDpYE){:target="_blank"}
