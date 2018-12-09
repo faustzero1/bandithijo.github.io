@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Megenerate Private / Public GPG Key Sendiri'
+title: 'Generate Private dan Public GPG Key Sendiri'
 date: 2018-12-09 07:43
 permalink: '/blog/:title'
 author: 'BanditHijo'

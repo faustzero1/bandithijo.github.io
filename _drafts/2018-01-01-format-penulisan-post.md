@@ -16,7 +16,7 @@ pin:
 
 ## OUTDATED POST
 <!-- OUTDATED POST -->
-<p class="notif-post">Post ini sudah tidak up to date !</p>
+<p class="notif-post" style="margin-bottom: -20px;">Post ini sudah tidak up to date !</p>
 
 ## BANNER OF THE POST
 <!-- BANNER OF THE POST -->

@@ -15,6 +15,18 @@ pin:
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="" alt="banner"> -->
 
+<!-- OUTDATED POST -->
+<p class="notif-post">Post ini Gagal dalam Tahap Pengujian!<br>
+Sebaiknya Tidak Diaplikasikan pada Sistem Anda.
+</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p><code>tlp</code> sepertinya membuat efisiensi manajemen fan pada ThinkPad. Sehingga saya tidak lagi khawatir mengenai hasil output dari perintah <code>$ sensors</code> bernilai <code>0</code> karena mungkin memang saat bernilai <code>0</code> fan benar-benar tidak diperlukan untuk berputar. Karena sekali waktu saya melihat dari indikator fanspeed pada <code>Conky</code> yang saya pasang di desktop menunjukkan angka tertentu. (dalam keadaan tidak menggunakan paket <code>thinkfan</code>).</p>
+<p><strong>Kesimpulannya, tulisan ini tidak benar-benar saya perlukan.</strong></p>
+</div>
+
 # Prakata
 
 Hari ini saya me-*ricing* tampilan Conky karena sudah merasa jenuh dengan tampilan yang lama. Sembari menyusun _script_ Conky, saya berpindah-pindah tempat duduk. Saya mendapati, saat _power adapter_ saya lepas, _output_ dari _fan speed monitor_ saya _blank_ (tidak menampilkan _output_ apapun). Lantas saya coba jalankan `$ sensors` dan hasilnya pun _nihil_.
