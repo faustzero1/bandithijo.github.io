@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: 'ThinkPad'
+tags: 'thinkpad'
 pin:
 ---
 
@@ -107,7 +107,12 @@ Isikan dengan.
 ```
 START=yes
 ```
-Kemudian *enable*-kan *service*-nya.
+5. Kemudian, _copy_ konfigurasi default `/usr/share/doc/thinkfan/examples/thinkfan.conf.simple` ke `/etc/thinkfan.conf`.
+```
+$ sudo cp /usr/share/doc/thinkfan/examples/thinkfan.conf.simple /etc/thinkfan.conf
+```
+**Perhatian!** Langkah di atas perlu dilakukan. Apabila tidak, maka _service_ dari thinkfan.service akan kebingungan mencari file konfigurasi default yang diperlukan setelah _system reboot_.
+6. Langkah terakhir, tinggal meng-*enable*-kan *service*-nya.
 ```
 $ sudo systemctl enable thinkfan
 ```
@@ -125,4 +130,4 @@ Apakah sudah berhasil terdeteksi?
 # Referensi
 
 1. [https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops](https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops){:target="_blank"}
-<br>Diakses tanggal: 2018/11/08
+<br>Diakses tanggal: 2018/12/08

@@ -1,11 +1,11 @@
-# Sitemap.xml Generator is a Jekyll plugin that generates a sitemap.xml file by 
+# Sitemap.xml Generator is a Jekyll plugin that generates a sitemap.xml file by
 # traversing all of the available posts and pages.
-# 
+#
 # See readme file for documenation
-# 
+#
 # Updated to use config file for settings by Daniel Groves
 # Site: http://danielgroves.net
-# 
+#
 # Author: Michael Levin
 # Site: http://www.kinnetica.com
 # Distributed Under A Creative Commons License
@@ -53,13 +53,13 @@ module Jekyll
     # Config defaults
     SITEMAP_FILE_NAME = "/sitemap.xml"
     EXCLUDE = ["/atom.xml", "/feed.xml", "/feed/index.xml"]
-    INCLUDE_POSTS = ["/index.html"] 
+    INCLUDE_POSTS = ["/index.html"]
     CHANGE_FREQUENCY_NAME = "change_frequency"
     PRIORITY_NAME = "priority"
-    
+
     # Valid values allowed by sitemap.xml spec for change frequencies
     VALID_CHANGE_FREQUENCY_VALUES = ["always", "hourly", "daily", "weekly",
-      "monthly", "yearly", "never"] 
+      "monthly", "yearly", "never"]
 
     # Goes through pages and posts and generates sitemap.xml file
     #
@@ -77,7 +77,7 @@ module Jekyll
       sitemap = REXML::Document.new << REXML::XMLDecl.new("1.0", "UTF-8")
 
       urlset = REXML::Element.new "urlset"
-      urlset.add_attribute("xmlns", 
+      urlset.add_attribute("xmlns",
         "http://www.sitemaps.org/schemas/sitemap/0.9")
 
       @last_modified_post_date = fill_posts(site, urlset)
@@ -150,9 +150,9 @@ module Jekyll
 
 
       if (page_or_post.data[@config['change_frequency_name']])
-        change_frequency = 
+        change_frequency =
           page_or_post.data[@config['change_frequency_name']].downcase
-          
+
         if (valid_change_frequency?(change_frequency))
           changefreq = REXML::Element.new "changefreq"
           changefreq.text = change_frequency
@@ -176,7 +176,7 @@ module Jekyll
       url
     end
 
-    # Get URL location of page or post 
+    # Get URL location of page or post
     #
     # Returns the location of the page or post
     def fill_location(site, page_or_post)
@@ -233,10 +233,10 @@ module Jekyll
     #
     # Returns latest of two dates
     def greater_date(date1, date2)
-      if (date1 >= date2) 
+      if (date1 >= date2)
         date1
-      else 
-        date2 
+      else
+        date2
       end
     end
 
