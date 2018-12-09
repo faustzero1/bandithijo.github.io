@@ -111,7 +111,7 @@ START=yes
 ```
 $ sudo cp /usr/share/doc/thinkfan/examples/thinkfan.conf.simple /etc/thinkfan.conf
 ```
-**Perhatian!** Langkah di atas perlu dilakukan. Apabila tidak, maka _service_ dari thinkfan.service akan kebingungan mencari file konfigurasi default yang diperlukan setelah _system reboot_.
+**Perhatian!** Langkah di atas perlu dilakukan. Apabila tidak, maka _service_ dari `thinkfan.service` akan kebingungan mencari file konfigurasi default yang diperlukan setelah _system reboot_.
 6. Langkah terakhir, tinggal meng-*enable*-kan *service*-nya.
 ```
 $ sudo systemctl enable thinkfan
