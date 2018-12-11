@@ -27,7 +27,7 @@ $ lsusb
 ```
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 001 Device 004: ID 138a:0017 Validity Sensors, Inc. VFS 5011 fingerprint sensor
-Bus 001 Device 003: ID 04f2:b52c Chicony Electronics Co., Ltd 
+Bus 001 Device 003: ID 04f2:b52c Chicony Electronics Co., Ltd
 Bus 001 Device 005: ID 046d:c52b Logitech, Inc. Unifying Receiver
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
@@ -53,7 +53,7 @@ Kalian dapat melihat pada Gambar 1, terdapat _Fingerprint Login option_ dengan n
 Untuk dapat mengaktifkan _fingerprint login_, kalian perlu membuka kunci dari Settings dengan meng-klik tombol “_Unlock_” yang terdapat pada _top bar window Settings_ terlebih dahulu. Kemudian pilih _Fingerprint Login_, dan ikuti petunjuk untuk melakukan _enroll_ terhadap sidik jari kalian.
 
 ><p class="title-quote"> [ ! ] Perhatian </p>
->Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group. Dengan cara, 
+>Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group. Dengan cara,
 >
 >`$ sudo usermod -aG input username`
 >

@@ -682,7 +682,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   font-size: 85%;
   font-family: monospace;
   line-height: 1.45;
-  /* background color code ``` */
+  /* background color pre ``` */
   background-color: #F3FAD8;
   border-radius: 4px;
 }
