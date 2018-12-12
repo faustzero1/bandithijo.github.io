@@ -177,6 +177,15 @@ alias presentationmode-off="xfconf-query -c xfce4-power-manager -p /xfce4-power-
 
 ```
 
+Bisa juga ditambahkan notification.
+```
+
+# Presentation Mode XFCE4-POWER-MANAGER
+alias presentationmode-on="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true; echo 'Presentation Mode ON'; notify-send '[ON] Presentation Mode'"
+alias presentationmode-off="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false; echo 'Presentation Mode OFF'; notify-send '[OFF] Presentation Mode'"
+
+```
+
 Saya rasa cukup seperti ini saja.
 
 
