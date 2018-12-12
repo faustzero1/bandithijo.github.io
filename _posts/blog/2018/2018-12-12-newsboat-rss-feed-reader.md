@@ -152,7 +152,7 @@ Langkah konfigurasi file `config` hanya seperti ini saja.
 Silahkan disesuaikan dengan preferensi masing-masing.
 
 
-## Membuat File Daftar URLS
+## Membuat File Daftar RSS Feeds
 
 Selanjutnya, kita akan membuat file `urls` yang digunakan untuk mendaftar link dari RSS feed favorit kita.
 
