@@ -188,6 +188,28 @@ https://rss-feed-url "tag"
 
 Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
+# Bagaimana Mendapatkan RSS Feed URL?
+
+Biasanya pemilik website/blog tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.
+
+<!-- IMAGE CAPTION -->
+![gambar_4](https://i.postimg.cc/nzRT1sRY/gambar-04.png)
+<p class="img-caption">Gambar 9 - Icon dari RSS Feed</p>
+
+Teman-teman bisa mencari dan menelusuri *layout* dari website/blog yang teman-teman incar.
+
+Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah website/blog. Tinggal cari saja untuk *browser* masing-masing.
+
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Bertepatan dengan artikel ini saya tulis, Firefox baru-baru saja mengeluarkan update versi <b>64.0</b>. Dan sangat disayangkan pada update versi ini, Firefox memutuskan untuk <a href="https://support.mozilla.org/en-US/kb/feed-reader-replacements-firefox" target="_blank">menghentikan dukungan terhadap fitur <b>web feeds</b> dan <b>Live Bookmarks</b></a>.</p>
+<p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah website/blog.</p>
+</div>
+
+
+
 # Tampilan Newsboat
 
 <!-- IMAGE CAPTION -->
@@ -207,8 +229,6 @@ Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
 
 # Mengapa Memilih Newsboat?
-
-**Kenapa saya memilih menggunakan Newsboat?**
 
 *Resource* yang kecil. Meskipun laptop saya i5, 8 GB of RAM, 480 GB of SSD, tapi menggunakan aplikasi di atas Terminal apabila semua tujuan kita sudah tercapai, maka sudah lebih dari cukup.
 
