@@ -188,6 +188,24 @@ https://rss-feed-url "tag"
 
 Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
+# Tampilan Newsboat
+
+<!-- IMAGE CAPTION -->
+![gambar_1](https://i.postimg.cc/Vs3fvJ7t/gambar-01.png)
+<p class="img-caption">Gambar 1 - Tampilan Depan, daftar RSS feed</p>
+
+<br>
+<!-- IMAGE CAPTION -->
+![gambar_2](https://i.postimg.cc/fW3WMcvZ/gambar-02.png)
+<p class="img-caption">Gambar 2 - Daftar Artikel dari Salah Satu Blog</p>
+
+<br>
+<!-- IMAGE CAPTION -->
+![gambar_3](https://i.postimg.cc/DyL2X7DM/gambar-03.png)
+<p class="img-caption">Gambar 3 - Tampilan Isi</p>
+
+
+
 # Mengapa Memilih Newsboat?
 
 **Kenapa saya memilih menggunakan Newsboat?**
