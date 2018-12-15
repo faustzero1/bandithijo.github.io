@@ -445,6 +445,7 @@ Masih terdapat beberapa hal yang belum saya sempat tuliskan.
 
 1. Perintah-perintah dasar menggunakan IRC
 2. Beberapa permasalahan yang pernah saya hadapi selama menggunakan Irssi
+3. Me-request **Cloack** untuk menutupi ip address kita yang terlihat
 3. dll.
 
 
