@@ -439,6 +439,8 @@ Menggunakan IRC di jaman modern seperti saat ini tidak juga tidak berarti apa-ap
 
 Saya sendiri masih suka nongkrong di channel #archlinux dan #freenode. Sempat juga pernah bertanya di channel #ranger mengenai permasalahan tag direktori yang tidak sengaja saya aktifkan.
 
+Apabila dirasa-rasa Irssi terlalu sulit untuk dikonfigurasi, ada satu lagi alternatif IRC client di Terminal, yaitu [**WeeChat**](https://weechat.org/){:target="_blank"}.
+
 # Rencana Kedepan
 
 Masih terdapat beberapa hal yang belum saya sempat tuliskan.
