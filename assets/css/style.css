@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------
-Template: BanyuBiru
+Template: RumputIjo
 Author  : Rizqi Nur Assyaufi
 Email   : bandithijo@gmail.com
 
@@ -797,7 +797,7 @@ p.notif-post {
 /* license ---------------------------------------------------------------- */
 .ccbysa-img {
     float: left;
-    margin: 8px 10px 0 0;
+    margin: 6px 10px 0 0;
 }
 
 .ccbysa-text {
@@ -812,7 +812,7 @@ p.notif-post {
 }
 
 .penulis-text {
-    padding-top: 5px;
+    padding-top: 0;
     font-size: 14px;
 }
 

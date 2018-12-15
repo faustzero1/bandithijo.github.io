@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Mendapatkan Info Update Artikel Terbaru Website/Blog dengan Newsboat'
+title: 'Mendapatkan Info Update Artikel Terbaru Blog/Website dengan Newsboat'
 date: 2018-12-12 06:44
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -17,13 +17,22 @@ pin:
 
 # Prakata
 
-Setelah sejak 2015, di rumah saya sudah di pasang akses internet, saya mulai konstan untuk menjelajah berbagai macam informasi. Terkadang ada beberapa website menarik yang selalu saya ikuti. Saya selalu kunjungi setiap hari. Terntu saja saya memanfaatkan fitur **bookmark** yang ada pada *browser*.
+Sejak di rumah sudah dipasang akses internet, saya mulai konstan untuk menjelajah berbagai macam website. Terkadang ada beberapa website menarik yang selalu saya ikuti. Semakin lama, jumlah website yang saya kunjungi semakin banyak, dan sangat melelahkan membukanya satu-persatu. Terkadang saat saya berkunjung, tidak terdapat informasi terbaru (biasanya pada blog/news). Misalkan ada 10 saja website yang ingin kita kunjungi satu per satu, namun sayangnya tidak dari semuanya sudah memiliki artikel baru. Tidak efisien bukan? Bayangkan bila 10, 20, 50 website yang harus kita kunjungi.
 
-Semakin lama, jumlah website yang saya kunjungi semakin banyak, dan sangat melelahkan membuka website tersebut satu-persatu. Terkadang saya datang, namun tidak terdapat informasi terbaru (biasanya pada blog/news). Misalkan ada 10 saja website yang ingin kita kunjungi satu per satu, namun sayangnya tidak dari semuanya sudah memiliki artikel baru. Tidak efisien bukan? Bayangkan bila 10, 20, 50 website yang harus kita kunjungi.
+Dari masalah di atas, tentu saja saya menggunakan *bookmark* yang ada di *browser* untuk mencatat alamat-alamat website favorit saya. Hanya saja, lama-kelamaan menjadi kegiatan yang tidak efektif karena saya harus membuka dulu website serta me-*load* konten-konten yang ada di dalamnya, namun tidak menemukan update artikel terbaru.
 
 # Pemecahan Masalah
 
 Kita dapat menggunakan fitur **RSS** (*RDF Site Summary*/*Rich Site Summary*/*Really Simple Syndication*). RSS adalah salah satu tipe dari web feed yang memungkinkan pengguna untuk mendapatkan akses dari update konten online. Dengan menggunakan RSS reader kita akan dengan mudah mendapatkan pemberitahuan mengenai artikel terbaru dari website yang kita favoritkan.
+
+**Hari gini siapa yang masih menggunakan RSS?**
+
+Entahlah, namun saya masih menggunakannya karena sangat memudahkan aktifitas saya dalam hal memanajemen aset-aset informasi dari blog/website yang banyak.
+
+Setelah melihat beberapa YouTuber yang *concent* terhadap GNU/Linux memanfaatkan fitur RSS feed reader untuk memanajeman daftar website yang mereka ikuti, saya pun baru mengerti kegunaan dari RSS feed ini.
+
+Saya sendiri termasuk yang *aware* terhadap keberadaan RSS feed pada sebuah blog/website.
+
 
 # Instalasi
 
@@ -190,23 +199,27 @@ Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
 # Bagaimana Mendapatkan RSS Feed URL?
 
-Biasanya pemilik website/blog tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.
+Biasanya pemilik blog/website tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.
 
 <!-- IMAGE CAPTION -->
 ![gambar_4](https://i.postimg.cc/nzRT1sRY/gambar-04.png)
-<p class="img-caption">Gambar 9 - Icon dari RSS Feed</p>
+<p class="img-caption">Gambar 0 - Icon dari RSS Feed</p>
 
-Teman-teman bisa mencari dan menelusuri *layout* dari website/blog yang teman-teman incar.
+Teman-teman bisa mencari dan menelusuri *layout* dari blog/website yang teman-teman incar.
 
-Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah website/blog. Tinggal cari saja untuk *browser* masing-masing.
+Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah blog/website. Tinggal cari saja untuk *browser* masing-masing.
 
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
 <p>Bertepatan dengan artikel ini saya tulis, Firefox baru-baru saja mengeluarkan update versi <b>64.0</b>. Dan sangat disayangkan pada update versi ini, Firefox memutuskan untuk <a href="https://support.mozilla.org/en-US/kb/feed-reader-replacements-firefox" target="_blank">menghentikan dukungan terhadap fitur <b>web feeds</b> dan <b>Live Bookmarks</b></a>.</p>
-<p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah website/blog.</p>
+<p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah blog/website.</p>
 </div>
+
+Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabila menggunakan Google Chrome. Maka tidak ada jalan lain selain menambahkan add-ons pada Firefox.
+
+Firefox add-ons yang saya pergunakan adalah [**Easy to RSS**](https://addons.mozilla.org/en-US/firefox/addon/easy-to-rss){:target="_blank"}. Add-ons ini juga saya pergunakan di Google Chrome. Fungsinya sederhana, untuk mengambil RSS feed dari website. Tanpa Web Interface.
 
 
 
