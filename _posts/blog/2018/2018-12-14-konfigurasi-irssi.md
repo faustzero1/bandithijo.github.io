@@ -439,7 +439,7 @@ Menggunakan IRC di jaman modern seperti saat ini tidak juga tidak berarti apa-ap
 
 Saya sendiri masih suka nongkrong di channel #archlinux dan #freenode. Sempat juga pernah bertanya di channel #ranger mengenai permasalahan tag direktori yang tidak sengaja saya aktifkan.
 
-## Rencana Kedepan
+# Rencana Kedepan
 
 Masih terdapat beberapa hal yang belum saya sempat tuliskan.
 
