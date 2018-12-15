@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags:
-pin:
+pin: true
 ---
 
 <!-- BANNER OF THE POST -->
