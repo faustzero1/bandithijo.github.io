@@ -443,12 +443,15 @@ Apabila dirasa-rasa Irssi terlalu sulit untuk dikonfigurasi, ada satu lagi alter
 
 # Rencana Kedepan
 
-Masih terdapat beberapa hal yang belum saya sempat tuliskan.
+Masih terdapat banyak sekali hal yang belum dapat tercover oleh tulisan ini. Beberapa diantaranya :
 
 1. Perintah-perintah dasar menggunakan IRC
 2. Beberapa permasalahan yang pernah saya hadapi selama menggunakan Irssi
 3. Me-request **Cloack** untuk menutupi ip address kita yang terlihat
-3. dll.
+4. Terkoneksi dengan multiple server
+5. Logging
+6. Proxy
+7. dll.
 
 
 # Referensi
@@ -468,6 +471,10 @@ Masih terdapat beberapa hal yang belum saya sempat tuliskan.
 5. [https://irssi-import.github.io/themes/](https://irssi-import.github.io/themes/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-6. [https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged](https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged){:target="_blank"}
+6. [https://irssi.org/documentation/startup/](https://irssi.org/documentation/startup/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
+
+7. [https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged](https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged){:target="_blank"}
+<br>Diakses tanggal: 2018/12/14
+
 
