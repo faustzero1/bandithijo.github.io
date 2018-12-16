@@ -1,7 +1,7 @@
 friends:
 - nama: "Sucipto"
   photo: "sucipto"
-  url1: https://sucipto.net
+  url1: "https://sucipto.net"
   url2:
   detail: |
       Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.
@@ -9,8 +9,8 @@ friends:
 
 - nama: "Agung Setiawan"
   photo: "agungsetiawan"
-  url1: https://agung-setiawan.com
-  url2: https://www.idrails.com
+  url1: "https://agung-setiawan.com"
+  url2: "https://www.idrails.com"
   detail: |
       Saya bekerja sebagai software developer di BukaLapak.
       Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.
@@ -18,16 +18,16 @@ friends:
 
 - nama: "Epsi"
   photo: "epsi"
-  url1: https://epsi-rns.github.io
-  url2: https://epsi-rns.gitlab.io
+  url1: "https://epsi-rns.github.io"
+  url2: "https://epsi-rns.gitlab.io"
   detail: |
       I'm an open source enthusiast.
       This site is mainly discuss about linux distribution, desktop customization, window manager tweak, And sometimes other interesting issue as well, such as package manager, file system and init.
 
 - nama: "Fikri Omar"
   photo: "fikriomar"
-  url1: https://github.com/fikriomar16
-  url2: https://www.deviantart.com/fikriomar16
+  url1: "https://github.com/fikriomar16"
+  url2: "https://www.deviantart.com/fikriomar16"
   detail: |
       Hi all…My name is Fikri, also u can call me Omar.
       I came from Indonesia, and i use Ubuntu as my favorite OS.
@@ -36,8 +36,8 @@ friends:
 
 - nama: "Nanda Okitavera"
   photo: "nanda"
-  url1: https://okitavera.github.io
-  url2: https://github.com/okitavera
+  url1: "https://okitavera.me"
+  url2: "https://github.com/okitavera"
   detail: |
       Hello!
       I am a psychologist and Android developer.
@@ -46,23 +46,23 @@ friends:
 
 - nama: "Aflasio"
   photo: "aflasio"
-  url1: https://www.aflasio.com
-  url2: https://blog.aflasio.com
+  url1: "https://www.aflasio.com"
+  url2: "https://blog.aflasio.com"
   detail: |
       Aflasio is just an acronym of “Argia Flat Design Motion” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.
       The only reason that i’m not change that name is because i love it and easy to find on google.
 
 - nama: "Addy"
   photo: "addy"
-  url1: https://addy-dclxvi.github.io
-  url2: https://github.com/addy-dclxvi
+  url1: "https://addy-dclxvi.github.io"
+  url2: "https://github.com/addy-dclxvi"
   detail: |
       Hi! I’m Addy.
       Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.
 
 - nama: "Rania Amina"
   photo: "rania"
-  url1: https://raniaamina.github.io
+  url1: "https://raniaamina.github.io"
   url2:
   detail: |
       Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.
@@ -70,23 +70,23 @@ friends:
 
 - nama: "Fathurhoho"
   photo: "fathurhoho"
-  url1: https://www.fathurhoho.id
-  url2: https://ngonfig.net
+  url1: "https://www.fathurhoho.id"
+  url2: "https://ngonfig.net"
   detail: |
       Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.
       Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.
 
 - nama: "Muktazam Hasbi Ashidiqi"
   photo: "reorr"
-  url1: https://chamelemon.wordpress.com
-  url2: https://github.com/reorr
+  url1: "https://chamelemon.wordpress.com"
+  url2: "https://github.com/reorr"
   detail: |
       Saya seorang manusia, anak kuliah tipikal yang gemar hal-hal berbau jepang dan teknologi, terutama yang menyangkut FLOSS dan Linux.
       Gemar makan mie instant, namun sejak ngekos malah makin jarang makan mie instan. Jangan tanya yang aneh-aneh, karena hidup saya sudah cukup dikelilingi keabsurdan.
 
 - nama: "Muhammad Yuga"
   photo: "black4t"
-  url1: https://github.com/black4t
+  url1: "https://github.com/black4t"
   url2:
   detail: |
       I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.
