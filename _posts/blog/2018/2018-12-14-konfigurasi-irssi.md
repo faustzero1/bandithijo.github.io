@@ -38,11 +38,11 @@ Sejujurnya baru beberapa bulan ini saya menggunakan Irssi. Sebelumnya, saya semp
 
 Oke, cukup dengan curhatnya. Kita langsung bahas konfigurasi Irssi.
 
-# Mengkonfigurasi Irssi
+# Konfigurasi Irssi
 
 Mengkonfigurasi Irssi sebenarnya terbilang mudah apabila kita sudah pernah melakukannya. Untuk yang pertama kali mengkonfigurasi Irssi memang sedikit membuat frustasi. Hehehe.
 
-Saya sudah menuliskan cara-cara yang saya kumpulkan dan saya pergunakan agar Irssi dapat saya pergunakan dengan nyaman. Sejujurnya mengumpulkan semua materi konfigurasi agar Irssi dapat digunakan sesuai kemauan kita, memang melelahkan. Namun, jangan khawatir, kalian dapat mengikuti dan memodifikasi konfigurasi yang sudah saya tuliskan di bawah.
+Saya sudah menuliskan cara-cara yang saya kumpulkan agar Irssi dapat saya pergunakan dengan nyaman. Sejujurnya mengumpulkan semua materi konfigurasi agar Irssi dapat digunakan sesuai kemauan kita, memang melelahkan. Namun, jangan khawatir, kalian dapat mengikuti dan memodifikasi konfigurasi yang sudah saya tuliskan di bawah.
 
 ## Instalasi
 
