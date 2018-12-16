@@ -191,7 +191,7 @@ Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arro
 
 Terdapat banyak sekali *clipboard management* yang dapat kita pergunakan. Saat ini saya sedang mengunakan clipmenu, entah besok akan mencoba yang mana lagi.
 
-Catatan dokumentasi ini masih jauh dari kata sempurna. Sebaik-baik dokumentasi adalah dokumentasi resmi yang ditulis oleh developer pengembang aplikasi. Silahkan bereksplorasi terhadap clipmenu dengna merujuk pada referensi yang saya sertakan di bawah.
+Catatan dokumentasi ini masih jauh dari kata sempurna. Sebaik-baik dokumentasi adalah dokumentasi resmi yang ditulis oleh developer pengembang aplikasi. Silahkan bereksplorasi terhadap clipmenu dengan merujuk pada referensi yang saya sertakan di bawah.
 
 Karena keterbatasan pengetahuan, Saya masih mengalami kegagalan dalam menjalankan clipmenud daemon melalui systemd service. Hehehe.
 
