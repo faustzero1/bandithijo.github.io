@@ -19,8 +19,6 @@ pin:
 
 # Deskripsi
 
-Batch Crop Images with ImageMagick.
-
 Saat membuat slide presentasi atau aset gambar untuk tulisan di blog. Terkadang harus ngecrop banyak gambar dalam ukuran yang sama. Lah repetisi? Sikat miring lah!
 
 Rumus:
@@ -28,6 +26,7 @@ Rumus:
 $ mogrify -crop WxH+X+Y gambar_0*.png
 ```
 
+<br>
 Background music:
 
 [Dewa Budjana - HYANG GIRI feat. Soimah Pancawati (From Mahandini)](https://youtu.be/fXs_6exAZG4){:target="_blank"}
