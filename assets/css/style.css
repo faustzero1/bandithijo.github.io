@@ -1143,8 +1143,8 @@ select:focus::-ms-value {
     article.homepage .notif-home p,
     article.homepage .notif-home a {
         /* untuk indentasi title*/
-        padding-left: 58px;
-        text-indent: -116px;
+        padding-left: 60px;
+        text-indent: -120px;
     }
 
     article.homepage .notif-157 {
