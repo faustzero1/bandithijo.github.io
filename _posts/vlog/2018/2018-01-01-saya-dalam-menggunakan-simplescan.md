@@ -26,3 +26,9 @@ Entah ini kemudahan, kelebihan atau kekurangan dari Arch Linux. Ketika package d
 
 Background music:
 [Camila Cabello - Havana ( cover by J.Fla )](https://youtu.be/i1R4R84-EPA){:target="_blank"}
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Pada `simple-scan` versi 3.30 sudah kembali dapat digunakan dengan normal.</p>
+</div>
