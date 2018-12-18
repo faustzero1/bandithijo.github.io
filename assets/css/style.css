@@ -1140,6 +1140,13 @@ select:focus::-ms-value {
         background:#FFF;
     }
 
+    article.homepage .notif-home p,
+    article.homepage .notif-home a {
+        /* untuk indentasi title*/
+        padding-left: 58px;
+        text-indent: -116px;
+    }
+
     article.homepage .notif-157 {
         width: 100%;
         padding: 1em 1em;
@@ -1153,7 +1160,6 @@ select:focus::-ms-value {
         background:#FBD7D2;
     }
 
-
     article.homepage .notif-157 p,
     article.homepage .notif-157 a {
         color: #000;
@@ -1165,7 +1171,6 @@ select:focus::-ms-value {
         padding-left: 65px;
         text-indent: -130px;
     }
-
 
     #footer .container p {
         font-size: 12px;
@@ -1313,6 +1318,7 @@ select:focus::-ms-value {
         visibility: hidden;
         display: none;
     }
+
 }
 
 /* ------------------------------------------------------------------------ */
