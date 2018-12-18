@@ -15,7 +15,7 @@ Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren p
 _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah wadah untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 # Nama Asli, Status, dan Pekerjaan?
-Berdasarkan catatan akta kelahiran, saya mempunyai nama **Rizqi Nur Assyaufi**. Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
+Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
 
 # Apa Alasan Menulis Blog?
 Saya menulis tidak untuk menjadi terkenal. Saya juga tidak menulis untuk sengaja saya *share*. Karena saya pernah berniat seperti itu, dan malah mempengaruhi saya dalam menulis. Menulis jadi lebih banyak pertimbangan apakah tulisan yang saya buat akan layak untuk dishare atau tidak.
