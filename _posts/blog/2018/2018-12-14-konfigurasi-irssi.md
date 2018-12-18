@@ -216,6 +216,7 @@ Apabila teman-teman mengecek isi dari `~/.irssi/config`. Akan terdapat baris sep
     port = "6697";
     use_tls = "yes";
     tls_cert = "~/.irssi/irssi.pem";
+    tls_capath = "/etc/ssl/certs";
     tls_pass = "386b6c1eb8efb3a3617d1ffe7e6c0489e71a63be";
     tls_verify = "yes";
     autoconnect = "yes";
