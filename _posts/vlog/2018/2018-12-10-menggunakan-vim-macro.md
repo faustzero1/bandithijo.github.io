@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: 'Membuat dan Menggunakan Vim Macro'
-date: 2018-12-10A 11:14
+date: 2018-12-10 11:14
 permalink: '/vlog/:title'
 author: 'BanditHijo'
 license: true
