@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: 'cli'
 pin:
 ---
 
@@ -66,7 +66,7 @@ Pada bagian `Exec=`, (harus) dapat menggati `urxvt` dengan Terminal emulator yan
 
 # Konfigurasi
 
-Sebelum kita jalankan, sebaiknya kita konfigurasi terlebih dahulu. Karena newsboat tidak dapat menjalankan apa-apa tanpa ada alamt feed di dalamnya. Kamu dapat meletakkan file konfigurasi pada direktori `~/.newsboat/`, namun saya lebih menyukai meletakkan file konfigurasi pada direktori `~/.config/newsboat/`.
+Sebelum kita jalankan, sebaiknya kita konfigurasi terlebih dahulu. Karena newsboat tidak dapat menjalankan apa-apa tanpa ada alamat RSS feed di dalamnya. Kalian dapat meletakkan file konfigurasi pada direktori `~/.newsboat/`, namun saya lebih menyukai meletakkan file konfigurasi pada direktori `~/.config/newsboat/`.
 
 ```
 $ mkdir -p ~/.config/newsboat
@@ -240,6 +240,10 @@ Firefox add-ons yang saya pergunakan adalah [**Easy to RSS**](https://addons.moz
 <p class="img-caption">Gambar 3 - Tampilan Isi</p>
 
 
+# Lokasi Cache Data dari Newsboat
+
+Ada satu lagi lokasi yang perlu teman-teman ketahui. Yaitu, lokasi di mana data-data seperti cache dan history disimpan. Newsboat secara default meletakkan pada direktori `~/.local/share/newsboat/`. Tujuannya, tidak lain dan tidak bukan, "Jangan lupakan aku saat proses backup." Hahahaha. Karena tidak semua RSS feed akan terdownload semua apabila kita memasang Newsboat pada sistem yang baru atau yang lain. Terkadang terdapat RSS feed yang membatasi hanya 10 judul artikel saja. Meskipun ada juga yang semua RSS feed dari waktu ke waktu.
+
 
 # Mengapa Memilih Newsboat?
 
@@ -251,7 +255,7 @@ Saya sudah pernah menggunakan RSS feed reader tipe web apps, yaitu **Commafeed**
 
 Saya melihat masih banyak potensi yang dapat dimanfaatkan dari tools RSS feed reader ini. Namun, saya hanya menggunakan sebatas untuk mengetahui update terbaru artikel dari website favorit saya.
 
-Dokumentasi lebih lengkap silahkan dilihat pada `man newsboat` ataupun tips-tips pada referensi yang saya sertakan di bawah.
+Dokumentasi lebih lengkap dapat dilihat pada `man newsboat`. Coba periksa, banyak hal-hal menarik yang belum saya bahasa karena keterbatasan waktu dan ilmu saya saat ini.
 
 
 # Referensi

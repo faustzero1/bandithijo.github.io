@@ -173,6 +173,8 @@ Karena menggunakan i3wm, maka caranya sangat mudah sekali, tinggal tambahkan bar
 bindsym $mod+p exec --no-startup-id clipmenu
 bindsym $mod+Shift+p exec --no-startup-id rm -rf /tmp/clipmenu/*
 ```
+Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ rm -rvf /tmp/clipmenu/*`. Sebenarnya Clipmenu sudah menyediakan `clipdel` namun tidak saya pergunakan. Alternatif lain dapatpula menggunakan `trash-cli`.
+
 Sesuaikan keyboard shortcut sesuai preferensi kalian.
 
 Saya menggunakan :

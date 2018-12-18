@@ -3,6 +3,11 @@
 # Tambah baru data diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '18/12/18'
+  url:
+  detail: |
+      Menambahkan notif update 5 judul blog dan vlog terbaru pada Homepage
+
 - tanggal: '18/12/07'
   url: /157/
   detail: |

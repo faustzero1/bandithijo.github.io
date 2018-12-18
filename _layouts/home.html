@@ -31,8 +31,25 @@ permalink: :title
 
             <article class="homepage">
                 <div class="notif-home">
-                    <span style="font-size:16px;font-weight:bold;">Update terbaru...</span>
-                    {% for log in site.data.log-update limit: 5 %}
+                    <!-- Judul Blog Terbaru -->
+                    <span style="font-size:16px;font-weight:bold;">Judul Blog Terbaru :</span>
+                    {% assign posts = site.posts | where_exp:"page", "page.category == 'blog'" %}
+                    {% for post in posts limit: 5 %}
+                        <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
+                    {% endfor %}
+                    <div style="margin:10px 0 10px 0;border-bottom:1px dashed #B8B8B8;"></div>
+                    <!-- Judul Vlog Terbaru -->
+                    <span style="font-size:16px;font-weight:bold;">Judul Vlog Terbaru :</span>
+                    {% assign posts = site.posts | where_exp:"page", "page.category == 'vlog'" %}
+                    {% for post in posts limit: 5 %}
+                        <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
+                    {% endfor %}
+                </div><!-- notif-home -->
+
+                <div class="notif-home">
+                    <!-- Blog Feature Update -->
+                    <span style="font-size:16px;font-weight:bold;">Blog Features Update :</span>
+                    {% for log in site.data.blog-features-update limit: 5 %}
                     {% if log.url == nill %}
                         <p><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
                     {% else %}
