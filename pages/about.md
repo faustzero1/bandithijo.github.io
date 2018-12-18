@@ -1,6 +1,6 @@
 ---
 layout: 'page'
-title: 'Tentang Blog'
+title: 'Tentang Blog dan Penulis'
 permalink: '/about/'
 ---
 
@@ -14,10 +14,17 @@ Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren p
 
 _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah wadah untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
-# Apa Alasan Menulis Blog ?
-Saya menulis tidak untuk menjadi terkenal. Saya juga tidak menulis untuk sengaja saya *share*. Karena saya pernah berniat seperti itu, dan malah mempengaruhi saya dalam menulis. Menulis jadi lebih banyak pertimbangan apakah tulisan yang saya buat akan layak untuk dishare atau tidak. Hahahaha. Karena alasan ini, saya tidak lagi mempunyai niat menulis untuk sengaja saya *share*. Saya menulis untuk mengembangkan diri dan mendokumentasikan hal-hal yang sudah saya pelajari.
+# Nama Asli, Status, dan Pekerjaan?
+Berdasarkan catatan akta kelahiran, saya mempunyai nama **Rizqi Nur Assyaufi**. Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
 
-# Apa yang Ditulis di dalam Blog ?
+# Apa Alasan Menulis Blog?
+Saya menulis tidak untuk menjadi terkenal. Saya juga tidak menulis untuk sengaja saya *share*. Karena saya pernah berniat seperti itu, dan malah mempengaruhi saya dalam menulis. Menulis jadi lebih banyak pertimbangan apakah tulisan yang saya buat akan layak untuk dishare atau tidak.
+
+Saya menulis untuk mengembangkan diri dan mendokumentasikan hal-hal yang sudah saya pelajari.
+
+Menulis juga sebagai bahan persiapan di hari tua, saat usia senja, pikiran dan ingatan sudah tidak lagi setajam saat muda. Meski masih meraba-raba bagaimana nanti di hari tua. Namun, saat usia saya mencapai seperempat abad, saya mulai memikirkan bagaimana di hari tua saya akan berkomputasi dengan gaya berkomputasi yang saya lakukan saat ini. Mengingat sistem operasi dan *environment* sistem yang saya pergunakan benar-benar bertumpu pada ingatan dan *muscle memory*. Saya tidak tahu bagaimana nantinya di hari tua. Maka saya persiapkan dengan tulisan-tulisan ini sebagai berkas-berkas ingatan di masa muda yang akan saya pergunakan kembali di hari tua.
+
+# Apa yang Ditulis di dalam Blog?
 Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu masalah yang saya alami saat menggunakan sistem operasi GNU/Linux. Namun, perlu digaris bawahi, bahwa **saya bukan seorang pakar bersertifikat dalam sistem operasi GNU/Linux. Saya hanya seorang penggemar sekaligus pemakai**. Apabila terdapat kesalahan dalam penulisan, mohon untuk dapat dimaklumi keterbatasan saya, hehehe.
 
 Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer aplikasi yang bersangkutan. Karenanya, saya selalu menyertakan sumber literatur yang saya gunakan dalam membuat tulisan.
