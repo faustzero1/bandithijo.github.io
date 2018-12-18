@@ -62,7 +62,7 @@ StartupNotify=true
 Categories=Network;News;
 Keywords=news;feed;aggregator;blog;podcast;
 ```
-Pada bagian `Exec=`, (harus) dapat menggati `urxvt` dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya.
+Pada bagian `Exec=`, Terminal emulator `urxvt` mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya. Perhatikan `-e` tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan `-x`.
 
 # Konfigurasi
 
@@ -74,7 +74,7 @@ $ mkdir -p ~/.config/newsboat
 
 Setelah itu di dalam direktori `~/.config/newsboat/` ini, kita perlu membuat 2 buah file, yaitu `config` dan `urls`.
 
-File `config` diperlukan untuk pengaturan dari newsboat, seperti: *keyboard shortcuts*, *colorscheme*, dll. Sedangkan file `urls` diperlukan untuk mendaftarkan alamat dari RSS feed yang kita favoritkan.
+File `config` diperlukan untuk pengaturan dari newsboat, seperti: *keyboard shortcuts*, *colorscheme*, dll. Sedangkan file `urls` diperlukan untuk menempakatan semua koleksi alamat RSS feed yang kita favoritkan.
 
 ## Membuat File Konfigurasi
 
@@ -161,7 +161,7 @@ Langkah konfigurasi file `config` hanya seperti ini saja.
 Silahkan disesuaikan dengan preferensi masing-masing.
 
 
-## Membuat File Daftar RSS Feeds
+## Membuat File URL RSS Feeds
 
 Selanjutnya, kita akan membuat file `urls` yang digunakan untuk mendaftar link dari RSS feed favorit kita.
 
@@ -220,7 +220,6 @@ Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed
 Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabila menggunakan Google Chrome. Maka tidak ada jalan lain selain menambahkan add-ons pada Firefox.
 
 Firefox add-ons yang saya pergunakan adalah [**Easy to RSS**](https://addons.mozilla.org/en-US/firefox/addon/easy-to-rss){:target="_blank"}. Add-ons ini juga saya pergunakan di Google Chrome. Fungsinya sederhana, untuk mengambil RSS feed dari website. Tanpa Web Interface.
-
 
 
 # Tampilan Newsboat
