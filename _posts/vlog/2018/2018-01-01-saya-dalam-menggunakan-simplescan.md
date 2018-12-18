@@ -30,5 +30,5 @@ Background music:
 <!-- INFORMATION -->
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Pada `simple-scan` versi 3.30 sudah kembali dapat digunakan dengan normal.</p>
+<p>Pada <code>simple-scan</code> versi 3.30 sudah kembali dapat digunakan dengan normal.</p>
 </div>
