@@ -159,9 +159,27 @@ $ vim ~/.profile
 ```
 ```
 # Clipmenu Environment Variables
-export CM_LAUNCHER=rofi
+export CM_LAUNCHER=rofi-clipmenu
 export CM_DIR=/tmp/clipmenu
 ```
+**Perhatian!** Pada `CM_LAUNCHER=` di atas, saya membuat *custom* bash script yang bernama `rofi-clipmenu` untuk memanggil perintah rofi yang sudah saya modif agar menampilkan tulisan "CLIPBOARD" dengan baris dan lebar tertentu.
+
+Maka kita akan membuatnya. Kalian bisa membuatnya di lokal `~/.local/bin/` (kalau punya), atau langsung saja di `/usr/bin/`.
+```
+$ sudo vim /usr/bin/rofi-clipmenu
+```
+```
+#!/usr/bin/env bash
+
+rofi -dmenu -p 'CLIPBOARD' -lines 8 -width 500
+```
+Sesuaikan dengan preferensi yang kalian inginkan.
+
+Jangan lupa buat menjadi excutable.
+```
+$ sudo chmod +x /usr/bin/rofi-clipmenu
+```
+
 
 ## Keyboard Shortcuts
 

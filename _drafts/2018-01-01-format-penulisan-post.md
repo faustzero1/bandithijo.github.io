@@ -99,6 +99,8 @@ Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.
 <br>[dateaccessed:2018/01/18]
 
 
+&#x25a8;
+
 ---
 
 <link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png">

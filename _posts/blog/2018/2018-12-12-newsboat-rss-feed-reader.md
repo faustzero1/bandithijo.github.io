@@ -221,6 +221,8 @@ Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabil
 
 Firefox add-ons yang saya pergunakan adalah [**Easy to RSS**](https://addons.mozilla.org/en-US/firefox/addon/easy-to-rss){:target="_blank"}. Add-ons ini juga saya pergunakan di Google Chrome. Fungsinya sederhana, untuk mengambil RSS feed dari website. Tanpa Web Interface.
 
+Namun, cara di atas tidak sepenuhnya berhasil. Hanya berhasil terhadap blog/website yang meletakkan RSS feed pada head markup html. Sebagai contoh, add-ons Easy to RSS tidak dapat mendeteksi RSS feed milik saya, karena saya letakkan di bagian footer.
+
 
 # Tampilan Newsboat
 
