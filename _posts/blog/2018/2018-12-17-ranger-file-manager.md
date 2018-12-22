@@ -396,6 +396,13 @@ Apabila sedang di dalam Ranger dapat memanggil pilihan bantuan dengan menekan to
 
 Sekian catatan ini saya tulis. Mudah-mudahan catatan yang masih belum sempurna ini dapat sedikit membantu memberikan gambaran, seperti apa *Terminal based file manager* yang bernama Ranger.
 
+# Update Berikutnya
+
+Masih terdapat beberapa hal yang belum sempat saya tuliskan. Seperti:
+1. Permasalahan menampilkan gambar pada Terminal emulator tertentu
+2. Fungsi-fungsi yang sama dengan GUI *file manager*, seperti: *copy paste*, *selected*, *tab*, *symbolic link*, dll.
+3. dll.
+
 
 # Referensi
 
