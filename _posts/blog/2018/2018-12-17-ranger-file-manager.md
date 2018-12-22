@@ -75,16 +75,14 @@ Tentukan pilihanmu, Bro.
 <p>Namun bagi saya, itu pendapat mereka, dan ini pilihan saya. Pasti ada alasan dan tujuan yang baik, mengapa Ranger sudah membawa banyak fitur secara <i>default</i>.</p>
 </div>
 
-# Instal dan Konfigurasi
-
-## Instalasi
+# Instalasi
 
 Proses instalasi Ranger, saya rasa sudah pasti sangat mudah. Hanya tinggal menggunakan paket manajer dari distribusi sistem operasi teman-teman.
 ```
 $ sudo pacman -S ranger
 ```
 
-### Membuat App Launcher
+## Membuat App Launcher
 
 Seperti biasa kita perlu membuat `.desktop` agar mudah dipaggil dengan *application launcher* seperti dmenu dan rofi sehingga tidak perlu membuka Terminal terlebih dahulu.
 ```
@@ -104,7 +102,7 @@ MimeType=inode/directory;
 ```
 Pada bagian `Exec=`, sesuaikan dengan Terminal emulator yang teman-teman pergunakan
 
-## Konfigurasi File Config
+# Konfigurasi
 
 Apabila kita langsung menjalankan Ranger saat ini, maka Ranger akan menggunakan *default config*. Saya lebih *prefer* untuk menggunakan konfigurasi saya sendiri, karena lebih bebas untuk dimodifikasi dalam hal *colorscheme*, *key bindings*, dll.
 
@@ -143,7 +141,7 @@ drwxr-xr-x 238 bandithijo users 49152 Dec 21 11:40 ..
 ```
 Langkah selanjutnya, kita akan mengkonfigurasi file `rc.conf`.
 
-### rc.conf - Konfigurasi Options
+## rc.conf - Konfigurasi Options
 
 Oke, sekarang kita sudah memiliki file configurasi dasar. Selanjutnya coba periksa terlebih dahulu bagaimana bentuk dari isi file `rc.conf`.
 ```
@@ -163,7 +161,7 @@ Tidak banyak yang harus saya rubah. Tapi saya akan bahas, apa saja yang saya mod
 
 Tentunya teman-teman tidak harus mengikuti konfigurasi saya. Silahkan bereksplorasi sendiri.
 
-#### Konfirmasi Saat Delete
+### Konfirmasi Saat Delete
 
 Terdapat *key bindings* untuk melakukan *recursive delete* seperti `rm`. Tentunya kita perlu hati-hati terhadap hal ini. Kita menghindari apabila suatu waktu kita mengalami *human error*. Untuk itu perlu sekali membuat langkah antisipasi. Salah satunya dengan mmberikan konfirmasi saat akan melakukan *recursive delete/remove*.
 ```
@@ -175,7 +173,7 @@ set confirm_on_delete always
 Secara *default* bernilai `multiple`, hanya menampilkan konfirmasi saat menghapus banyak file/direktori. Namun, saya lebih *prefer* untuk menggunakan value `always`. Agar setiap file/direktori yang akan saya *recursive delete* selalu ditampilkan konfirmasi untuk saya tinjau kembali. Dengan begini dapat meminimalisir dampak dari *human error*. Hehehe.
 
 
-#### Aktifkan Preview Script
+### Aktifkan Preview Script
 
 Saya merekeomendasikan untuk mengaktifkan variabel ini `preview_script`.
 ```
@@ -231,7 +229,7 @@ Dengan mengaktifkan kedua *section* di atas, yaitu `SVG` dan `PDF`, Ranger akan 
 Sengaja saya tidak mengaktifkan `VIDEO`. Tidak ada alasan apa-apa, hanya masalah selera saja.
 
 
-#### Menampilkan Gambar
+### Menampilkan Gambar
 
 Untuk menampilkan gambar, Ranger memerlukan paket bernama `w3m`. Silahkan dipasang terlebih dahulu apabila belum.
 ```
@@ -252,7 +250,7 @@ set w3m_delay 0.01
 
 ```
 
-#### Memilih Colorscheme
+### Memilih Colorscheme
 
 Secara *default*, Ranger sudah menyertakan *colorscheme* bawaan, yaitu: default, jungle, snow, solarized. Saat ini kita masih menggunakan *colorscheme* default. Coba ganti dengan *colorscheme* lain yang disediakan.
 ```
@@ -280,7 +278,7 @@ Saya sendiri menggunakan *colorscheme* solarized hasil modifan sendiri. Karena t
 Mengenai memodifikasi warna dalam *colorscheme*, sepertinya tidak ingin saya tulis dulu saat ini. Terlalu panjang.
 
 
-#### Mengaktifkan Border
+### Mengaktifkan Border
 
 Kalian juga dapat mengaktifkan border, karena secara *default*, variable ini dalan keadaan `none`.
 ```
@@ -293,7 +291,7 @@ set draw_borders none
 Saya sendiri termasuk yang tidak begitu senang menggunakan border.
 
 
-#### Mengaktifkan Line Number
+### Mengaktifkan Line Number
 
 Untuk dapat memudahkan kita dalam bernavigasi antar baris, berlompat-lompat antar baris seperti pada Vim, Ranger memberikan kita fitur untuk menampilkan *line numbers*. Terdapat tiga pilihan: *false*, *absolute*, dan *relative*.
 ```
@@ -303,7 +301,7 @@ set line_numbers relative
 ```
 Saya lebih senang menggunakan realtive.
 
-#### Scroll Wrapping
+### Scroll Wrapping
 
 Untuk memudahkan navigasi juga, saya lebih senang mengaktifkan fitur *scroll wrapping*, agar ketika saya sudah melakukan *scrolling* sampai bawah, saya dapat dengan mudah menuju ke atas.
 ```
@@ -312,7 +310,7 @@ Untuk memudahkan navigasi juga, saya lebih senang mengaktifkan fitur *scroll wra
 set wrap_scroll true
 ```
 
-### rc.conf - Konfigurasi Key Bindings
+## rc.conf - Konfigurasi Key Bindings
 
 Tidak banyak modifikasi *key bindings* yang saya modifikasi. Karena saya berusaha untuk membiasakan dengan *key bindings* yang sudah ada. Toh dalam hal navigasi dasar mirip-mirip dengan Vim.
 
@@ -336,7 +334,7 @@ $ sudo pacman -S trash-cli
 ```
 Untuk penggunaan `trash-cli`, seperti: *restore*, *empty-trash*, dll. dapat dieksplorasi sendiri yaa.
 
-### rifle.conf - Konfigurasi File Executor/Opener
+## rifle.conf - Konfigurasi File Executor/Opener
 
 File `rifle.conf` ini adalah file konfigurasi yang digunakan untuk mendaftarkan file tipe apa saja dan akan dieksekusi oleh aplikasi/prgram apa file tersebut.
 
