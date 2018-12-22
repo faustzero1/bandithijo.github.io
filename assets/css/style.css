@@ -579,7 +579,8 @@ a.btn-blue-c {
 
 /* Notification Box ------------------------------------------------------- */
 article.homepage .notif-home {
-    width: 55%;
+    /* width: 55%; */
+    width: 530px;
     padding: 1em 1em;
     font-size: 95%;
     font-weight: normal;
