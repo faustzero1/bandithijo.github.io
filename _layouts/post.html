@@ -14,7 +14,6 @@ layout: baseof
                     <h6 class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }} | UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</h6>
                     <div class="markdown-body highlight">
                         <p>{{ content }}</p>
-                    </div>
 
                     <!-- Penulis -->
                     {% if page.category == 'blog'
@@ -33,6 +32,8 @@ layout: baseof
                             {% include license.html %}
                         {% endif %}
                     {% endif %}
+
+                    </div><!-- markdown-body -->
 
                     <!-- Disqus -->
                     <div style="text-align:center; margin:0 0 50px 0;"></div>
