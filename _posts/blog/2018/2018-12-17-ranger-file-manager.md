@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Ranger, Terminal Based File Manger yang Ternyata Sangat Memudahkan'
+title: 'Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan'
 date: 2018-12-17 09:18
 permalink: '/blog/:title'
 author: 'BanditHijo'
