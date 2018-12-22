@@ -70,7 +70,7 @@ Tentukan pilihanmu, Bro.
 <!-- INFORMATION -->
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Ranger bukan merupakan <i>Terminal based file manager</i> yang paling cepat dan terbaik. Sebagian orang menyebutnya sangat <i>bloated</i> (buncit) maksudnya, banyak fitur-fitur yang sebenarnya kita tidak membutuhkan.</p>
+<p>Ranger bukan merupakan <i>Terminal based file manager</i> yang paling cepat dan terbaik. Sebagian orang menyebutnya sangat <i>bloated</i> (buncit) maksudnya, banyak fitur-fitur yang sebenarnya tidak kita perlukan. Karena kebutuhan setiap orang berbeda-beda.</p>
 <p>Sebagaian orang juga mengatakan Ranger lambat karena ditulis dengan bahasa pemrograman Python.</p>
 <p>Namun bagi saya, itu pendapat mereka, dan ini pilihan saya. Pasti ada alasan dan tujuan yang baik, mengapa Ranger sudah membawa banyak fitur secara <i>default</i>.</p>
 </div>
