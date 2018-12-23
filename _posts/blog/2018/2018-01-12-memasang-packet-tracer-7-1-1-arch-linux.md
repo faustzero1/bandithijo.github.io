@@ -80,6 +80,16 @@ Meskipun proses instalasi Cisco Packet Tracer 7.1.1 ini tidak biasa, namun terny
 <br>
 Ikuti proses instalasi hingga sampai akhir. Maka proses instalasi Cisco Packet Tracer 7.1.1 dengan menggunakan PKGBUILD dari AUR telah selesai.
 
+# Upgrade
+
+Mungkin akan timbul pertanyaan bagaimana nanti apabila sudah keluar versi packet tracer yang baru?
+
+Tidak masalah. Proses upgradenya tetap sama mudahnya seperti proses instalasinya.
+
+Proses upgrade 7.1.1 ke 7.2 tidak sempat di dokumentasikan. Sebagai gantinya pada upgrade 7.2.1 saya sudah membuatkan video dokumentasinya.
+
+{% youtube Soox7yWWRqo %}
+
 # Referensi
 1. [https://aur.archlinux.org/packages/packettracer](https://aur.archlinux.org/packages/packettracer){:target="_blank"}
 <br>Diakses tanggal : 2018/01/19
