@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: 'Mengupgrade Packet Tracer 7.2 ke 7.2.1 pada Arch Linux'
-date: 2018-12-23
+date: 2018-12-23 08:00
 permalink: '/vlog/:title'
 author: 'BanditHijo'
 license: true
