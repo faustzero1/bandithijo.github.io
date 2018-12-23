@@ -54,7 +54,7 @@ Sejauh ini, fitur-fitur yang saya pergunakan adalah:
 7. Tabs
 8. dll.
 
-Kekerenan nomor tiga adalah, nama Ranger itu sendiri. Ini subjektif saya memang. Hahahaha. Tapi iya bukan? Keren kan? Ranger. Ndak malu-maulin lah kalo ditanya sama temen, "Kamu pake apa itu, Bro?" Dengan bangga kita persembahkan jawaban, "Ranger."
+Kekerenan nomor tiga adalah, nama Ranger itu sendiri. Ini subjektif saya memang. Hahahaha. Tapi iya bukan? Keren kan? Ranger. Ndak malu-maluin lah kalo ditanya sama temen, "Kamu pake apa itu, Bro?" Dengan bangga kita persembahkan jawaban, "Ranger."
 
 Masih banyak fitur-fitur dari Ranger yang belum saya manfaatkan. Tapi saya tidak khawatir dan terburu-buru, biarlah proses belajar yang akan menuntun saya mencoba fitur-fitur lain yang dimiliki oleh Ranger.
 
