@@ -946,7 +946,7 @@ select:focus::-ms-value {
 */
 /* ------------------------------------------------------------------------ */
 /* Untuk mengcover layar fullhd */
-@media (min-width: 1024px) {
+@media (min-width: 1920px) {
 
     .penulis-img {
         float: left;
