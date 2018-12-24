@@ -7,6 +7,7 @@ friends:
       Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.
       Recently interesting with NodeJS ecosystem, so I migrate my blog from Wordpress to Hexo.
 
+
 - nama: "Agung Setiawan"
   photo: "agungsetiawan"
   url1: "https://agung-setiawan.com"
@@ -16,6 +17,7 @@ friends:
       Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.
       Sedangkan untuk teknologi pemrograman yang saya gunakan adalah utamanya bahasa Ruby dan framework Ruby on Rails.
 
+
 - nama: "Epsi"
   photo: "epsi"
   url1: "https://epsi-rns.github.io"
@@ -23,6 +25,7 @@ friends:
   detail: |
       I'm an open source enthusiast.
       This site is mainly discuss about linux distribution, desktop customization, window manager tweak, And sometimes other interesting issue as well, such as package manager, file system and init.
+
 
 - nama: "Fikri Omar"
   photo: "fikriomar"
@@ -34,15 +37,17 @@ friends:
       In this blog, i’ll post my Linux Daily Shot.
       Hope you like it.
 
+
 - nama: "Nanda Okitavera"
   photo: "nanda"
   url1: "https://okitavera.me"
   url2: "https://github.com/okitavera"
   detail: |
-      Hello!
-      I am a psychologist and Android developer.
+      I am an Indonesian UX Designer and Kotlin-Android Developer.
+      Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.
       Primarily use Kotlin for Android development, but also do a bash and python for scripting.
-      Also I drink coffee, and love chocolate.
+      Also I am the master of mixing chocolate and coffee.
+
 
 - nama: "Aflasio"
   photo: "aflasio"
@@ -52,6 +57,7 @@ friends:
       Aflasio is just an acronym of “Argia Flat Design Motion” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.
       The only reason that i’m not change that name is because i love it and easy to find on google.
 
+
 - nama: "Addy"
   photo: "addy"
   url1: "https://addy-dclxvi.github.io"
@@ -59,6 +65,7 @@ friends:
   detail: |
       Hi! I’m Addy.
       Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.
+
 
 - nama: "Rania Amina"
   photo: "rania"
@@ -68,6 +75,7 @@ friends:
       Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.
       Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.
 
+
 - nama: "Fathurhoho"
   photo: "fathurhoho"
   url1: "https://www.fathurhoho.id"
@@ -76,6 +84,7 @@ friends:
       Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.
       Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.
 
+
 - nama: "Muktazam Hasbi Ashidiqi"
   photo: "reorr"
   url1: "https://chamelemon.wordpress.com"
@@ -83,6 +92,7 @@ friends:
   detail: |
       Saya seorang manusia, anak kuliah tipikal yang gemar hal-hal berbau jepang dan teknologi, terutama yang menyangkut FLOSS dan Linux.
       Gemar makan mie instant, namun sejak ngekos malah makin jarang makan mie instan. Jangan tanya yang aneh-aneh, karena hidup saya sudah cukup dikelilingi keabsurdan.
+
 
 - nama: "Muhammad Yuga"
   photo: "black4t"
