@@ -79,6 +79,21 @@ cd {srcDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
 echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
-sleep 5
+sleep 2
 # -----------------------------------------------------------------------------
 ''')
+
+
+# Print Output ----------------------------------------------------------------
+print(f'''
+d8888b.  .d88b.  d8b   db d88888b db
+88  `8D .8P  Y8. 888o  88 88'     88
+88   88 88    88 88V8o 88 88ooooo YP
+88   88 88    88 88 V8o88 88~~~~~
+88  .8D `8b  d8' 88  V888 88.     db
+Y8888D'  `Y88P'  VP   V8P Y88888P YP
+''')
+print('\n>> AUTOBUILD PROCESS COMPLETED !!')
+
+
+# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
