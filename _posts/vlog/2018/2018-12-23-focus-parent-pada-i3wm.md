@@ -19,7 +19,7 @@ pin:
 
 # Deskripsi
 
-Dalam menggunakan i3wm, terkadang kita harus melompati antar Window Container.
+Dalam menggunakan i3wm, terkadang kita harus berpindah antar Window Container. Lantas bagaimana apabila kita ingin melompati satu Window Container? Apakah bisa?
 
 Untuk dapat melakukan hal tersebut, i3wm menyediakan fitur yang bernama [**Focus Parent**](https://i3wm.org/docs/userguide.html#_focus_parent){:target="_blank"}.
 
