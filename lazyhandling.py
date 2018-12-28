@@ -44,29 +44,35 @@ os.system(f'''
 # -----------------------------------------------------------------------------
 # #### PROSES JEKYLL BUILD
 # -----------------------------------------------------------------------------
+echo '### PROSES JEKYLL BUILD ###'
 cd {srcDir}
 JEKYLL_ENV=production jekyll build
 
-echo '[ DONE ] Jekyll Build Env=production'
+echo '\n[ DONE ] Jekyll Build Env=production'
+sleep 5
 # -----------------------------------------------------------------------------
 
 
 # -----------------------------------------------------------------------------
 # #### PROSES ADD, COMMIT, PUSH PUBLIC REPO
 # -----------------------------------------------------------------------------
+echo '\n### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
 cd {pubDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
 echo '[ DONE ] Add, Commit, and Push to GitHub Repo'
+sleep 5
 # -----------------------------------------------------------------------------
 
 
 # -----------------------------------------------------------------------------
 # #### PROSES ADD, COMMIT, PUSH SOURCE REPO
 # -----------------------------------------------------------------------------
+echo '\n### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
 cd {srcDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
 echo '[ DONE ] Add, Commit, and Push to GitLab Repo'
+sleep 5
 # -----------------------------------------------------------------------------
 ''')
