@@ -65,6 +65,7 @@ cd {srcDir}
 git add .; git commit -m "{msgCom}"; git push origin master
 
 echo '\n[DONE] Proses Git Add, Commit, dan Commit ke GitLab\n'
+sleep 3
 # -----------------------------------------------------------------------------
 ''')
 
