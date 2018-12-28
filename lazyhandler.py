@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python3
 
 #  ██████                           ██ ██   ██   ██      ██ ██    ██
 # ░█░░░░██                         ░██░░   ░██  ░██     ░██░░    ░░
@@ -9,82 +9,64 @@
 # ░███████ ░░████████ ███  ░██░░██████░██  ░░██ ░██     ░██░██░░███ ░░██████
 # ░░░░░░░   ░░░░░░░░ ░░░   ░░  ░░░░░░ ░░    ░░  ░░      ░░ ░░  ░░░   ░░░░░░
 
-# Copyright (C) 2018 BanditHijo
-#
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-# more details.
-#
-# You should have received a copy of the GNU General Public License along with
-# this program. If not, see http://www.gnu.org/licenses/.
-
-# author : BanditHijo
-# website: https://bandithijo.com
+# author : Rizqi Nur Assyaufi
 # email  : bandithijo@gmail.com
+# web    : https://bandithijo.com
 
-# lazyhandling.py, adalah python script sederhana untuk menghandle Jekyll Build
-# , git commit dan git push ke dalam GitHub dan GitLab repository.
+# lazyhandler.py, adalah python script sederhana yang bertujuan untuk
+# menghandle proses jekyll build, git add, git commit dan git push ke dalam dua
+# repository GitLab dan GitHub untuk blog bandithijo.com
 
 import os
 
-# Daftar direktori
 srcDir = "$HOME/dex/bandithijo.com"
 pubDir = "$HOME/dex/bandithijo.com/_site"
 
-# Meminta commit message kepada user
-comMsg = input("Masukkan pesan COMMIT: ")
+msgCom = input("Masukkan pesan COMMIT: ")
 
 os.system(f'''
 # -----------------------------------------------------------------------------
 # #### PROSES JEKYLL BUILD
 # -----------------------------------------------------------------------------
-echo '\n###########################'
-echo '### PROSES JEKYLL BUILD ###'
-echo '###########################'
+echo '###############################'
+echo '##### PROSES JEKYLL BUILD #####'
+echo '###############################'
 cd {srcDir}
 JEKYLL_ENV=production jekyll build
 
-echo '\n[ DONE ] Jekyll Build Env=production\n'
-sleep 5
+echo '\n[DONE] Proses Jekyll Build\n'
+sleep 3
 # -----------------------------------------------------------------------------
 
 
 # -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH PUBLIC REPO
+# #### PROSES GIT ADD COMMIT PUSH KE GITHUB
 # -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
-echo '######################################################'
+echo '################################################'
+echo '##### PROSES GIT ADD COMMIT PUSH KE GITHUB #####'
+echo '################################################'
 cd {pubDir}
-rm {pubDir}/lazyhandling.py
 rm {pubDir}/feed.xml
-git add .; git commit -m "{comMsg}"; git push origin master
+rm {pubDir}/lazyhandler.py
+git add .; git commit -m "{msgCom}"; git push origin master
 
-echo '\n[ DONE ] Add, Commit, and Push to GitHub Repo\n'
-sleep 5
+echo '\n[DONE] Proses Git Add, Commit, dan Commit ke GitHub\n'
+sleep 3
 # -----------------------------------------------------------------------------
 
 
 # -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH SOURCE REPO
+# #### PROSES GIT ADD COMMIT PUSH KE GITLAB
 # -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
-echo '######################################################'
+echo '################################################'
+echo '##### PROSES GIT ADD COMMIT PUSH KE GITLAB #####'
+echo '################################################'
 cd {srcDir}
-git add .; git commit -m "{comMsg}"; git push origin master
+git add .; git commit -m "{msgCom}"; git push origin master
 
-echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
-sleep 2
+echo '\n[DONE] Proses Git Add, Commit, dan Commit ke GitLab\n'
 # -----------------------------------------------------------------------------
 ''')
-
 
 # Print Output ----------------------------------------------------------------
 print(f'''
@@ -95,7 +77,7 @@ d8888b.  .d88b.  d8b   db d88888b db
 88  .8D `8b  d8' 88  V888 88.     db
 Y8888D'  `Y88P'  VP   V8P Y88888P YP
 ''')
-print('\n>> AUTOBUILD PROCESS COMPLETED !!')
+print('\n>> LAZYHANDLER PROCESS COMPLETED !!')
 
 
 # vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
