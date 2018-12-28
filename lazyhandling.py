@@ -44,11 +44,13 @@ os.system(f'''
 # -----------------------------------------------------------------------------
 # #### PROSES JEKYLL BUILD
 # -----------------------------------------------------------------------------
+echo '###########################'
 echo '### PROSES JEKYLL BUILD ###'
+echo '###########################'
 cd {srcDir}
 JEKYLL_ENV=production jekyll build
 
-echo '\n[ DONE ] Jekyll Build Env=production'
+echo '\n[ DONE ] Jekyll Build Env=production\n'
 sleep 5
 # -----------------------------------------------------------------------------
 
@@ -56,11 +58,13 @@ sleep 5
 # -----------------------------------------------------------------------------
 # #### PROSES ADD, COMMIT, PUSH PUBLIC REPO
 # -----------------------------------------------------------------------------
-echo '\n### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
+echo '######################################################'
+echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
+echo '######################################################'
 cd {pubDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
-echo '[ DONE ] Add, Commit, and Push to GitHub Repo'
+echo '\n[ DONE ] Add, Commit, and Push to GitHub Repo\n'
 sleep 5
 # -----------------------------------------------------------------------------
 
@@ -68,11 +72,13 @@ sleep 5
 # -----------------------------------------------------------------------------
 # #### PROSES ADD, COMMIT, PUSH SOURCE REPO
 # -----------------------------------------------------------------------------
-echo '\n### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
+echo '######################################################'
+echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
+echo '######################################################'
 cd {srcDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
-echo '[ DONE ] Add, Commit, and Push to GitLab Repo'
+echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
 sleep 5
 # -----------------------------------------------------------------------------
 ''')
