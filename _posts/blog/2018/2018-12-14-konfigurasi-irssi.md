@@ -370,7 +370,7 @@ Kita akan menggunakan [`irssi-libnotify`](https://github.com/stickster/irssi-lib
     $ sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/notify-listener.py
     $ sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/irssi-notifier.sh
     ```
-5. Modifikasi pada file `notify-listener.py`, untuk membuat penyesuaian karena Python yang digunakan masih versi 2.
+5. Modifikasi pada file `notify-listener.py`, untuk membuat penyesuaian karena Python yang digunakan masih versi 2. Sedangkan Arch sudah menggunakan Python versi 3 secara *default*.
     ```
     $ sudo vim /usr/bin/notify-listener.py
     ```
@@ -433,6 +433,22 @@ Tahap notifikasi suara telah Selesai. Coba jalankan Irssi dan lakukan pengujian.
 Konfigurasi tambahan segini dulu aja yaa. Untuk kegunaan *script* yang lain dapat dicoba sendiri.
 
 Repositori untuk *scripts* Irssi dapat dilihat [di sini](https://scripts.irssi.org/){:target="_blank"}.
+
+# Beberapa Pemecahan Masalah
+
+## Error Closing Link
+
+Selama menggunakan Irssi, saya mengalami hal ini beberapa kali.
+```
+ERROR Closing Link: 36.80.031.08 (SASL access only)
+```
+Awalnya saya langsung mengutak atik file konfigurasi, googling sana sini untuk mencari kasus yang sama dengan yang saya alami. Sampai akhirnya putus asa dan mencoba jalan terakhir. <mark><b>Turn OFF then Turn ON your Router</b></mark> adalah jawaban dari permasalahan ini.
+
+Kecurigaan saya adalah, Freenode memblokir alamat IP publik saya. Karena saya selalu menyalan Irssi dan terhubung secara konstan dengan Freenode. Sepanjang hari, sepanjang minggu. Mungkin ada limitasi trafik keluar dan masuk dari sebuah IP. Mungkin...Hanya asumsi.
+
+<!-- IMAGE CAPTION -->
+![gambar_5](https://i.postimg.cc/JzqMX79N/gambar-05.png)
+<p class="img-caption">Gambar 5 - Error Closing Link</p>
 
 # Pesan Penulis
 
