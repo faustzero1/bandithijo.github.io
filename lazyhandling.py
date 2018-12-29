@@ -32,13 +32,19 @@
 # , git commit dan git push ke GitHub dan GitLab repository bandithijo.com
 
 import os
+import sys
 
 # Daftar direktori
 srcDir = "$HOME/dex/bandithijo.com"
 pubDir = "$HOME/dex/bandithijo.com/_site"
 
 # Meminta commit message kepada user
-comMsg = input("Masukkan pesan COMMIT: ")
+try:
+    sys.argv[1]
+except IndexError:
+    comMsg = input('Masukkan pesan COMMIT: ')
+else:
+    comMsg = sys.argv[1]
 
 os.system(f'''
 # -----------------------------------------------------------------------------
