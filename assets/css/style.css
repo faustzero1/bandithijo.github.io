@@ -366,7 +366,7 @@ aside p.sidebar-isi {
 
 aside .sidebar-body {
     /* background:#E9FCF4; */
-    background:#F5FFDA;
+    background:#EBFFB4;
     border-radius: 10px;
     width: 91%;
     margin: 25px 20px 25px -20px;
@@ -374,8 +374,7 @@ aside .sidebar-body {
 }
 
 aside .sidebar-body-rss {
-    /* background:#E9FCF4; */
-    background:#F5FFDA;
+    background:#F3E681;
     border-radius: 10px;
     width: 91%;
     margin: 25px 20px 25px -20px;

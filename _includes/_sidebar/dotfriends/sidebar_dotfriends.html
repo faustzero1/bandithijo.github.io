@@ -1,10 +1,11 @@
-<div class="sidebar-body">
+<div class="sidebar-body" style="background-color: #E9FCF4;">
     <h1 style="font-size:1.5em;">dotFriends</h1>
     <!-- untuk random dotfriends list sebanyak 5 -->
     {% assign friends = site.data.dotfriends.dotfriends.friends | sample: 8 %}
     {% for friend in friends limit: 8 %}
         <p>+&nbsp;<a href="https://{{ friend.url }}/" target="_blank">{{ friend.nama }}</a></p>
     {% endfor %}
+    <p style="font-size:10px;color:#00603C;margin-top:10px;">*8 daftar blog di atas dipilih acak oleh program</p>
     <div style="margin:10px 0 10px 0;border-bottom:1px dashed #B8B8B8;"></div>
     <p style="text-align:right;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
 </div>
