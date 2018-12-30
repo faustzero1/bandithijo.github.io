@@ -405,8 +405,8 @@ Masih terdapat beberapa hal yang belum sempat saya tuliskan. Seperti:
 # Referensi
 
 1. [https://github.com/ranger/ranger](https://github.com/ranger/ranger){:target="_blank"}
-<br>Diakses tanggal: 2018/12/17:
+<br>Diakses tanggal: 2018/12/17
 
 2. [https://wiki.archlinux.org/index.php/Ranger](https://wiki.archlinux.org/index.php/Ranger){:target="_blank"}
-<br>Diakses tanggal: 2018/12/17:
+<br>Diakses tanggal: 2018/12/17
 
