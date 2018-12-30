@@ -29,7 +29,7 @@
 # email   : bandithijo@gmail.com
 
 # lazyhandling.py, adalah python script sederhana untuk menghandle Jekyll Build
-# , git commit dan git push ke GitHub dan GitLab repository bandithijo.com
+# , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
 
 import os
 import sys
