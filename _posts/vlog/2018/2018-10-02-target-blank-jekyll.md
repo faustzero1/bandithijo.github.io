@@ -14,7 +14,7 @@ pin:
 
 <div style="margin-top:30px;"></div>
 
-{% youtube e4YMmKdhCww %}
+{% youtube UfnfBCxD9EY %}
 
 # Deskripsi
 
@@ -22,7 +22,7 @@ Yay! baru ketemu cara nambahin properties target blank pada url di Jekyll.
 
 Setelah 6 bulan ngebuild dan baru nyadar ternyata bisa juga diimplementasikan. Dampak kurang jeli membaca dokumentasi penggunaan Kramdown ini membuat saya harus menambahkan manual di semua hyperlink pada artikel blog. (lagi rajin)
 
-Disempet-sempetin sebelum capcus 
+Disempet-sempetin sebelum capcus
 
 | OS: | archlinux |
 | WM: | i3wm |
