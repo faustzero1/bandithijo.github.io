@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'vlog'
 tags:
-pin:
+pin: true
 ---
 
 <div style="margin-top:30px;"></div>
