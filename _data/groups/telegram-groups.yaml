@@ -8,9 +8,6 @@ groups:
   - id: FedoraID
     nama: Fedora Indonesia
 
-  - id: centosID
-    nama: CentOS.ID
-
   - id: openSUSE_ID
     nama: openSUSE Indonesia
 
@@ -32,17 +29,11 @@ groups:
   - id: js_id
     nama: Javascript Indonesia
 
-  - id: golangID
-    nama: Golang Indonesia
-
   - id: gohugoid
     nama: Hugo Indonesia
 
-  - id: Blender3DIndonesia
-    nama: Blender Indonesia
-
-  - id: vuejsid
-    nama: Vue.JS Indonesia
-
   - id: jekyll_id
     nama: Jekyll Indonesia
+
+  - id: JAMstackID
+    nama: JAM Stack Indonesia
