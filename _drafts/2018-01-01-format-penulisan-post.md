@@ -29,22 +29,22 @@ pin:
 
 ## BLOCKQUOTE
 <!-- PERHATIAN -->
-    <div class="blockquote-red">
-    <div class="blockquote-red-title">[ ! ] Perhatian</div>
-    Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad. Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a>
-    </div>
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad. Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a>
+</div>
 
 <!-- INFORMATION -->
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
-    Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
-    </div>
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
+</div>
 
 <!-- PERTANYAAN -->
-    <div class="blockquote-yellow">
-    <div class="blockquote-yellow-title">Apakah ?</div>
-    Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
-    </div>
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Apakah ?</div>
+Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
+</div>
 
 ## IMAGE CAPTION
 <!-- IMAGE CAPTION -->
@@ -62,7 +62,7 @@ pin:
 <!-- EMBED CONTAINER: YOUTUBE -->
 {% youtube ID_YOUTUBE %}
 
-## MULTIPLE POST
+## MULTIPLE POST CONTROLER
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
 <a class="btn-blue-l" href="/python/00-pengenalan-python"><</a>
@@ -96,17 +96,46 @@ multi line code
 
 ## STABILO
 Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.
+atau <mark>ini juga bisa, lebih praktis</mark>.
 
-
+## DAFTAR ISI
 <!-- REFERENCES -->
 1. [https://wiki.archlinux.org/](https://wiki.archlinux.org/){:target="_blank"}
-<br>[dateaccessed:2018/01/18]
+<br>Diakses tanggal: 2018/01/18
 2. [https://bbs.archlinux.org/](https://bbs.archlinux.org/){:target="_blank"}
-<br>[dateaccessed:2018/01/18]
+<br>Diakses tanggal: 2018/01/18
 
-
-&#x25a8;
-
----
 
 <link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png">
+
+## HTML ENTITIES
+
+| Mark | Character | Construct | Result |
+| --- | --- | --- | --- |
+|  	| non-breaking space | &nbsp; | &#160; |
+| < | less than | &lt; | &#60; |
+| > | greater than | &gt; | &#62; |
+| & | ampersand | &amp; | &#38; |
+| " | double quotation mark | &quot; | &#34; |
+| ' | single quotation mark (apostrophe) | &apos; | &#39; |
+| ¢ | cent | &cent; | &#162; |
+| £ | pound | &pound; | &#163; |
+| ¥ | yen | &yen; | &#165; |
+| € | euro | &euro; | &#8364; |
+| © | copyright | &copy; | &#169; |
+| ® | registered trademark | &reg; | &#174; |
+| ▨ | unknown box | | &#x25a8; |
+
+| Char | Number | Entity | Description |
+| --- | --- | --- | --- |
+| © | &#169; | &copy; | COPYRIGHT SIGN |
+| ® | &#174; | &reg; | REGISTERED SIGN |
+| ™ | &#8482; | &trade; | TRADEMARK SIGN |
+| ← | &#8592; |	&larr; | LEFTWARDS ARROW |
+| ↑ | &#8593; | &uarr; | UPWARDS ARROW |
+| → | &#8594; | &rarr; | RIGHTWARDS ARROW |
+| ↓ | &#8595; | &darr; 	 | DOWNWARDS ARROW |
+
+[Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
+<br>
+[Full symbol references](https://www.w3schools.com/charsets/ref_utf_symbols.asp){:target="_blank"}
