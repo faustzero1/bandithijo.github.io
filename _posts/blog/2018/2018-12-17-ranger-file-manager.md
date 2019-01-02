@@ -88,18 +88,17 @@ Seperti biasa kita perlu membuat `.desktop` agar mudah dipaggil dengan *applicat
 ```
 $ vim ~/.local/share/applications/ranger.desktop
 ```
-```
+<pre>
 [Desktop Entry]
 Type=Application
 Name=ranger
 Comment=Launches the ranger file manager
 Icon=ranger
 Terminal=false
-Exec=termite -e ranger
-#Exec=xfce4-terminal -x ranger
+<mark>Exec=termite -e ranger</mark>
 Categories=ConsoleOnly;System;FileTools;FileManager
 MimeType=inode/directory;
-```
+</pre>
 Pada bagian `Exec=`, sesuaikan dengan Terminal emulator yang teman-teman pergunakan
 
 # Konfigurasi
@@ -195,35 +194,35 @@ Nah, sekarang tinggal teman-teman cari dan pilih ekstensi dari file apa yang aka
 Sebagai gambaran saya mengaktifkan fitur untuk menampilkan file dengan ekstensi `SVG` dan `PDF`. Secara *default* masih dalam keadaan ter-*comment*. Kita perlu meng-*enable*-kannya.
 
 Lihat saja contoh di bawah untuk mengetahui bagian mana saja yang perlu di-*uncomment*.
-```
+<pre>
 ...
 ...
 
 # SVG
-image/svg+xml)
+<mark>image/svg+xml)
     convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-    exit 1;;
+    exit 1;;</mark>
 
 ...
 ...
-```
-```
+</pre>
+<pre>
 ...
 ...
 
 # PDF
-application/pdf)
+<mark>application/pdf)
     pdftoppm -f 1 -l 1 \
                 -scale-to-x 1920 \
                 -scale-to-y -1 \
                 -singlefile \
                 -jpeg -tiffcompression jpeg \
                 -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
-        && exit 6 || exit 1;;
+                && exit 6 || exit 1;;</mark>
 
 ...
 ...
-```
+</pre>
 Dengan mengaktifkan kedua *section* di atas, yaitu `SVG` dan `PDF`, Ranger akan memiliki kemampuan untuk menampilkan *preview* dalam bentuk gambar dari file `.png` dan `.pdf`. Sehinggal kita tidak perlu untuk membukanya terlebih dahulu. Sangat *convenient* sekali bukan?
 
 Sengaja saya tidak mengaktifkan `VIDEO`. Tidak ada alasan apa-apa, hanya masalah selera saja.
@@ -315,17 +314,17 @@ set wrap_scroll true
 Tidak banyak modifikasi *key bindings* yang saya modifikasi. Karena saya berusaha untuk membiasakan dengan *key bindings* yang sudah ada. Toh dalam hal navigasi dasar mirip-mirip dengan Vim.
 
 Saya hanya merubah pada tombol <kbd>DELETE</kbd>.
-```
+<pre>
 # In case you work on a keyboard with dvorak layout
 ...
 ...
 ...
 
-#map <DELETE>   console delete
-map <DELETE>   shell -s trash-put %s
+#map &lt;DELETE&gt;   console delete
+<mark>map &lt;DELETE&gt;   shell -s trash-put %s</mark>
 ...
 ...
-```
+</pre>
 Saya menggunakan aplikasi `trash-cli`, agar file/direktori yang saya hapus dengan tombol <kbd>DELETE</kbd> tidak langsung lenyap, tetapi masuk ke Trash. Sayangnya saya belum dapat membuatnya menampilkan konfirmasi terlebih dahulu.
 
 Untuk memasang aplikasi `trash-cli` cukup psaang dengan paket manager masing-masing.

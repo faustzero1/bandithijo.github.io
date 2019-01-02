@@ -58,19 +58,19 @@ Karena Irssi adalah program untuk dijalankan di atas Terminal, biasanya belum di
 ```
 $ vim ~/.local/share/applications/irssi.desktop
 ```
-```
+<pre>
 [Desktop Entry]
 Name=irssi
 Comment=Chat with other people online
 Keywords=IM;Chat;
-Exec=termite -e irssi
+<mark>Exec=termite -e irssi</mark>
 Icon=hexchat
 Terminal=false
 Type=Application
 Encoding=UTF-8
 Categories=Network;IRCClient;
 NoDisplay=false
-```
+</pre>
 Pada bagian `Exec=` bagian `termite` dapat disesuaikan dengan Terminal Emulator yang teman-teman pergunakan. Perhatikan juga option `-e`. Beberpa Terminal memiliki option yang berbeda. Coba jalankan terlebih dahulu pada Terminal.
 
 Sekarang coba jalankan. Kalian akan bertemu dengan tampilan awal dari Irssi.
@@ -109,28 +109,28 @@ Selanjutnya registerkan username kamu.
 Nanti akan terbuat window baru pada window nomor 2, coba periksa dengan berpindah ke window 2 menggunakan <kbd>ALT</kbd> + <kbd>2</kbd>.
 
 Perhatikan output-output yang diberikan. Apabila menampilkan seperti di bawah, maka proses registrasi terlah berhasil.
-```
+<pre>
 00.00 bandithijo REGISTER mukaijo bandithijo@bandithijo.com
 00.00 NickServ NickServ@services. An email containing nickname activation instructions has been sent to bandithijo@bandithijo.com.
 00.00 NickServ NickServ@services. If you do not complete registration within one day, your nickname will expire.
-00.00 NickServ NickServ@services. bandithijo is now registered to bandithijo@bandithijo.com, with the password mukakuda.
+00.00 NickServ NickServ@services. <mark>bandithijo is now registered to bandithijo@bandithijo.com, with the password mukaijo.</mark>
 00.00 NickServ NickServ@services.
 00.00 NickServ NickServ@services. For frequently-asked questions about the network, please see the
 00.00 NickServ NickServ@services. Knowledge Base page (http://freenode.net/kb/all). Should you need more
 00.00 NickServ NickServ@services. help you can /join #freenode to find network staff.
-```
+</pre>
 
 Periksa kotak masuk email kita, akan terdapat email verifikasi dari Freenode (noreply.support@freenode.net)
-```
+<pre>
 bandithijo,
 
 In order to complete your account registration, you must type the following
 command on IRC:
 
-   /msg NickServ VERIFY REGISTER bandithijo xfvqrfxpjxrj
+    <mark>/msg NickServ VERIFY REGISTER bandithijo xfvqrfxpjxrj</mark>
 
 Thank you for registering your account on the freenode IRC network!
-```
+</pre>
 Jalankan perintah yang diberikan di Irssi.
 ```
 /msg NickServ VERIFY REGISTER bandithijo xfvqrfxpjxrj
@@ -272,10 +272,10 @@ Nah, saat kita menjalankan Irssi, maka akan terbuat window 1 untuk #freenode dan
 $ vim ~/.irssi/config
 ```
 Cari bagian seperti di bawah.
-```
+<pre>
 channels = (
   { name = "#lobby"; chatnet = "EsperNet"; autojoin = "No"; },
-  { name = "#freenode"; chatnet = "Freenode"; autojoin = "yes"; },
+  <mark>{ name = "#freenode"; chatnet = "Freenode"; autojoin = "yes"; },</mark>
   { name = "#irssi"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#gamesurge"; chatnet = "GameSurge"; autojoin = "No"; },
   { name = "#irssi"; chatnet = "IRCNet"; autojoin = "No"; },
@@ -283,9 +283,9 @@ channels = (
   { name = "#netfuze"; chatnet = "NetFuze"; autojoin = "No"; },
   { name = "#oftc"; chatnet = "OFTC"; autojoin = "No"; },
   { name = "silc"; chatnet = "SILC"; autojoin = "No"; },
-  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; }
+  <mark>{ name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; }</mark>
 );
-```
+</pre>
 Perhatikan, terdapat #freenode pada urutan kedua dan #archlinux pada urutan terakhir yang memiliki nilai `autojoin= "yes"`. Teman-teman dapat merubah urutan-urutanya, sesuaikan dengan preferensi masing-masing.
 
 Jangan lupa disimpan, `/save`.
@@ -324,11 +324,11 @@ Kita akan menggunakan [`irssi-libnotify`](https://github.com/stickster/irssi-lib
     $ vim notify.pl
     ```
     Cari pada sekitar baris 41 bagian `sub notify_linux {` dan sekitar baris 73 bagian `sub notify {` terdapat baris yang berisi *path* dari file `irssi-notifier.sh` yang tidak sesuai dengan konfigurasi yang akan kita sesuaikan.
-    ```
+    <pre>
     sub notify_linux {
         ...
         ...
-            " ~/bin/irssi-notifier.sh".
+            <mark>" ~/bin/irssi-notifier.sh" .</mark>
             ...
         ...
     }
@@ -338,17 +338,17 @@ Kita akan menggunakan [`irssi-libnotify`](https://github.com/stickster/irssi-lib
     sub notify {
         ...
         ...
-            " ~/bin/irssi-notifier.sh".
+            <mark>" ~/bin/irssi-notifier.sh" .</mark>
             ...
         ...
     }
-    ```
+    </pre>
     Ganti menjadi.
-    ```
+    <pre>
     sub notify_linux {
         ...
         ...
-            " /usr/bin/irssi-notifier.sh".
+            <mark>" /usr/bin/irssi-notifier.sh" .</mark>
             ...
         ...
     }
@@ -358,11 +358,11 @@ Kita akan menggunakan [`irssi-libnotify`](https://github.com/stickster/irssi-lib
     sub notify {
         ...
         ...
-            " /usr/bin/irssi-notifier.sh".
+            <mark>" /usr/bin/irssi-notifier.sh" .</mark>
             ...
         ...
     }
-    ```
+    </pre>
     Simpan.
 4. Download file `notify-listener.py` dan `irssi-notifies.sh`.
     ```
@@ -411,13 +411,13 @@ Selanjutnya kita juga memerlukan notifikais dalam bentuk suara. Biar tidak sepi 
     ```
     $ vim beep_beep.pl
     ```
-    ```
-    Irssi::settings_add_str("lookandfeel", "beep_cmd", "play ~/.irssi/scripts/beep_beep.wav > /dev/null &");
-    ```
+    <pre>
+    Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play ~/.irssi/scripts/beep_beep.wav</mark> > /dev/null &");
+    </pre>
     Ganti menjadi.
-    ```
-    Irssi::settings_add_str("lookandfeel", "beep_cmd", "play -q ~/.irssi/scripts/gnome_beep.opus > /dev/null &");
-    ```
+    <pre>
+    Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play -q ~/.irssi/scripts/gnome_beep.opus</mark> > /dev/null &");
+    </pre>
 3. Selanjutnya tinggal memasukkan nilai dari `beep_msg_level` pada Irssi.
 
     Jalankan Irssi.
