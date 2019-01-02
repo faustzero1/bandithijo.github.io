@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/01/02'
+  url:
+  detail: |
+      Menambahkan Jekyll-pwa plugin
+
 - tanggal: '18/12/18'
   url:
   detail: |

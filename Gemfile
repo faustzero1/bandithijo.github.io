@@ -23,6 +23,7 @@ group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.11.0'
   gem 'jekyll-sitemap', '~> 1.2.0'
   gem 'jekyll-seo-tag', '~> 2.5.0'
+  gem 'jekyll-pwa-plugin', '~> 2.2'
   gem 'jekyll-last-modified-at', '~> 1.0.1'
 end
 

@@ -58,7 +58,11 @@ $ yay scrcpy
 
 ## Build Sendiri
 
-Sebelum kita
+<span class="font-latin">Sedang dalam proses penulisan...</span>
+
+Atau,
+
+Silahkan dibuild sendiri mengikuti petunjuk yang ditulis langsung oleh developer pada halaman repository Scrcpy, [di sini](https://github.com/Genymobile/scrcpy/blob/master/BUILD.md){:target="_blank"}.
 
 
 # Referensi
