@@ -51,6 +51,13 @@ pin:
 ![gambar_1](gambar_1.png)
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
+## LIST CHECKBOX
+<!-- LIST CHECKBOX -->
+<ul class="chkbox">
+<li class="chkbox-checked">Melihat layar <i>smartphone</i> langsung dari laptop dan dapat berinteraksi, seperti menggerak-gerakkan menu dan mengetik</li>
+<li>Terhubung dengan WiFi tanpa perlu kabel data</li>
+</ul>
+
 ## EMBED VIDEO YOUTUBE
 <!-- EMBED CONTAINER: YOUTUBE -->
 {% youtube ID_YOUTUBE %}
@@ -62,7 +69,6 @@ pin:
 <a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
 <a class="btn-blue-r" href="/python/">></a>
 </div>
-
 
 ## KEYBOARD
 <!-- KEYBOARD -->

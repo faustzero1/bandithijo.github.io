@@ -1,5 +1,5 @@
 <div class="sidebar-body">
-    <h1 style="font-size:1.5em;">Silabus Kelas</h1>
+    <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">Silabus Kelas</h1>
     {% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/python/:title'" %}
     {% for post in posts %}
     <p class="sidebar-isi"><a href="{{ post.url }}">+&nbsp;{{ post.title }}</a></p>
