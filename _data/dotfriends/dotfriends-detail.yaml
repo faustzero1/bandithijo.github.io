@@ -87,11 +87,11 @@ friends:
 
 - nama: "Muktazam Hasbi Ashidiqi"
   photo: "reorr"
-  url1: "https://chamelemon.wordpress.com"
+  url1: "https://chamelemon.site"
   url2: "https://github.com/reorr"
   detail: |
-      Saya seorang manusia, anak kuliah tipikal yang gemar hal-hal berbau jepang dan teknologi, terutama yang menyangkut FLOSS dan Linux.
-      Gemar makan mie instant, namun sejak ngekos malah makin jarang makan mie instan. Jangan tanya yang aneh-aneh, karena hidup saya sudah cukup dikelilingi keabsurdan.
+    Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.
+    Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.
 
 
 - nama: "Muhammad Yuga"
@@ -105,7 +105,15 @@ friends:
 
 - nama: "Yunindyo Prabowo"
   photo: "ypraw"
-  url1: "https://ypraw.github.io"
+  url1: "https://ypraw.gitlab.io"
   url2: "https://github.com/ypraw"
   detail: |
       Noob Programmer , always getting errors everywhere when typing the codes. Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.
+
+
+- nama: "Habib Mustofa"
+  photo: "habibmustofa"
+  url1: "https://www.habib-mustofa.com/"
+  url2: "https://github.com/habibmustofa"
+  detail: |
+      Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript. Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.
