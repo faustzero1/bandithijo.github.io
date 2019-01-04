@@ -34,7 +34,7 @@ Coba jalankan perintah `xfconf-query` di Terminal.
 ```
 $ xfconf-query
 ```
-```
+<pre>
 Channels:
   xfce4-session
   ristretto
@@ -44,7 +44,7 @@ Channels:
   displays
   xfce4-mime-settings
   xfce4-settings-editor
-  xfce4-power-manager
+  <mark>xfce4-power-manager</mark>
   xsettings
   xfce4-settings-manager
   xfce4-desktop
@@ -58,7 +58,7 @@ Channels:
   xfce4-volumed-pulse
   xfce4-panel
   xfcethemer
-```
+  </pre>
 Kalo saya tidak salah menebak, `xfconf` ini diambil dari kata *xf configuration*. Dan kita dapat melihat *channels* yang terdiri dari aplikasi-aplikasi bawaan XFCE yang dapat kita konfigurasi menggunakan *xfconf*. Dalam hal ini, kita akan menggunakan *channel* `xfce4-power-manager`.
 
 Lalu, coba jalankan `xfconf-query` dengan menambah *option* `-h`.
@@ -93,36 +93,37 @@ Sekarang, coba lihat file `.xml` yang digunakan untuk mengkonfigurasi *xfconf* p
 ```
 $ vim ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 ```
-```
-<?xml version="1.0" encoding="UTF-8"?>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
-<channel name="xfce4-power-manager" version="1.0">
-  <property name="xfce4-power-manager" type="empty">
-    <property name="brightness-switch-restore-on-exit" type="int" value="0"/>
-    <property name="brightness-switch" type="int" value="0"/>
-    <property name="show-tray-icon" type="bool" value="false"/>
-    <property name="general-notification" type="bool" value="true"/>
-    <property name="critical-power-action" type="uint" value="1"/>
-    <property name="inactivity-on-battery" type="uint" value="15"/>
-    <property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/>
-    <property name="lid-action-on-battery" type="uint" value="1"/>
-    <property name="logind-handle-lid-switch" type="bool" value="true"/>
-    <property name="lid-action-on-ac" type="uint" value="0"/>
-    <property name="presentation-mode" type="bool" value="false"/>
-    <property name="dpms-on-ac-sleep" type="uint" value="31"/>
-    <property name="blank-on-ac" type="int" value="30"/>
-    <property name="dpms-on-ac-off" type="uint" value="32"/>
-    <property name="lock-screen-suspend-hibernate" type="bool" value="true"/>
-    <property name="power-button-action" type="uint" value="3"/>
-    <property name="handle-brightness-keys" type="bool" value="true"/>
-    <property name="brightness-on-battery" type="uint" value="9"/>
-    <property name="blank-on-battery" type="int" value="10"/>
-    <property name="dpms-on-battery-sleep" type="uint" value="11"/>
-    <property name="dpms-on-battery-off" type="uint" value="12"/>
-    <property name="show-panel-label" type="int" value="1"/>
-  </property>
-</channel>
-```
+&lt;channel name="xfce4-power-manager" version="1.0">
+    &lt;property name="xfce4-power-manager" type="empty"&gt;
+    &lt;property name="brightness-switch-restore-on-exit" type="int" value="0"/&gt;
+    &lt;property name="brightness-switch" type="int" value="0"/&gt;
+    &lt;property name="show-tray-icon" type="bool" value="false"/&gt;
+    &lt;property name="general-notification" type="bool" value="true"/&gt;
+    &lt;property name="critical-power-action" type="uint" value="1"/&gt;
+    &lt;property name="inactivity-on-battery" type="uint" value="15"/&gt;
+    &lt;property name="inactivity-sleep-mode-on-battery" type="uint" value="1"/&gt;
+    &lt;property name="lid-action-on-battery" type="uint" value="1"/&gt;
+    &lt;property name="logind-handle-lid-switch" type="bool" value="true"/&gt;
+    &lt;property name="lid-action-on-ac" type="uint" value="0"/&gt;
+    <mark>&lt;property name="presentation-mode" type="bool" value="false"/&gt;</mark>
+    &lt;property name="dpms-on-ac-sleep" type="uint" value="31"/&gt;
+    &lt;property name="blank-on-ac" type="int" value="30"/&gt;
+    &lt;property name="dpms-on-ac-off" type="uint" value="32"/&gt;
+    &lt;property name="lock-screen-suspend-hibernate" type="bool" value="true"/&gt;
+    &lt;property name="power-button-action" type="uint" value="3"/&gt;
+    &lt;property name="handle-brightness-keys" type="bool" value="true"/&gt;
+    &lt;property name="brightness-on-battery" type="uint" value="9"/&gt;
+    &lt;property name="blank-on-battery" type="int" value="10"/&gt;
+    &lt;property name="dpms-on-battery-sleep" type="uint" value="11"/&gt;
+    &lt;property name="dpms-on-battery-off" type="uint" value="12"/&gt;
+    &lt;property name="show-panel-label" type="int" value="1"/&gt;
+  &lt;/property&gt;
+&lt;/channel&gt;
+</pre>
+
 Kita dapat lihat di atas, terdapat *property name* **presentation-mode** dengan *type boolean* bernilai *false*. Artinya, saat ini *presentation-mode* dalam keadaan tidak aktif.
 
 Nah, kita dapat merubah nilai yang ada di dalam isi file `.xml` ini dengan menggunakan `xfconf-query`.
