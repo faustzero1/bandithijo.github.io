@@ -50,18 +50,18 @@ Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.
 ```
 $ vim .local/share/applications/newsboat.desktop
 ```
-```
+<pre>
 [Desktop Entry]
 Name=newsboat
 Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
-Exec=urxvt -e newsboat
+<mark>Exec=urxvt -e newsboat</mark>
 Icon=liferea
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=Network;News;
 Keywords=news;feed;aggregator;blog;podcast;
-```
+</pre>
 Pada bagian `Exec=`, Terminal emulator `urxvt` mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya. Perhatikan `-e` tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan `-x`.
 
 # Konfigurasi
@@ -169,19 +169,15 @@ Selanjutnya, kita akan membuat file `urls` yang digunakan untuk mendaftar link d
 $ vim ~/.config/newsboat/urls
 ```
 ```
-------------------------------------------------------------------------------
-DOTFRIENDS
-------------------------------------------------------------------------------
+--------------------------------------------------------------------DOTFRIENDS
 https://bandithijo.com/feed/blog.xml "~BanditHijo Blog" "dotfriends"
 https://bandithijo.com/feed/vlog.xml "~BanditHijo Vlog" "dotfriends"
 
-------------------------------------------------------------------------------
-LINUX_MAGAZINES
-------------------------------------------------------------------------------
+---------------------------------------------------------------LINUX_MAGAZINES
 https://www.archlinux.org/feeds/news/ "Tech News"
-http://planet.gnome.org/atom.xml "Tech News"
 https://kabarlinux.id/feed/ "Tech News"
 https://fedoramagazine.org/feed/ "Tech News"
+http://planet.gnome.org/atom.xml "Tech News"
 
 ```
 Selesai.

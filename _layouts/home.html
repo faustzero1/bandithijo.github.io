@@ -38,7 +38,11 @@ permalink: :title
           {% for post in posts limit: 5 %}
             <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
           {% endfor %}
-          <br>
+          <div style="margin:10px 0 10px 0;"></div>
+          <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+        </div><!-- notif-home -->
+
+        <div class="notif-home">
           <!-- Judul Vlog Terbaru -->
           <span style="font-size:16px;font-family:'Ubuntu Condensed';font-weight:bold;">Judul Vlog Terbaru :</span>
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #00603C;"></div>
@@ -46,6 +50,8 @@ permalink: :title
           {% for post in posts limit: 5 %}
             <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
           {% endfor %}
+          <div style="margin:10px 0 10px 0;"></div>
+          <p style="text-align:left;"><a style="border-bottom:0;" href="/vlog/"><b>Selengkapnya >></b></a></p>
         </div><!-- notif-home -->
 
         <div class="notif-home">
@@ -73,7 +79,7 @@ permalink: :title
             <div class="box-text">
               <p style="font-size:20px;font-weight:bold;">Log: Blog</p>
               <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
-              <p>Dokumentasi-dokumentasi proses belajar saya dalam bidang komputer dan teknologi yang sengaja dibuat sebagai catatan pribadi saya.</p>
+              <p>Dokumentasi-dokumentasi proses belajar saya dalam bidang komputer dan teknologi yang sengaja dibuat sebagai catatan pribadi.</p>
             </div>
           </a>
         </div>
@@ -84,7 +90,7 @@ permalink: :title
             <div class="box-text">
               <p style="font-size:20px;font-weight:bold;">Log: Vlog</p>
               <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
-              <p>Video-video dokumentasi proses belajar saya dalam bidang komputer dan teknologi yang sengaja dibuat sebagai catatan pribadi saya.</p>
+              <p>Video-video dokumentasi proses belajar saya dalam bidang komputer dan teknologi yang sengaja dibuat sebagai catatan pribadi.</p>
             </div>
           </a>
         </div>

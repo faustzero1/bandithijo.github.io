@@ -286,11 +286,12 @@ permalink: '/groups/'
 <div class="collapsible-content">
 <div class="content-inner">
 <p>
-<p class="font-latin"><b>Belum ada data...</b></p>
 <!-- looping untuk bubble chat -->
 {% assign group = 'JAMstackID' %}
 {% for nilai in data.coll-jamstackid reversed %}
-{% if nilai.id.size < 4 %}
+{% if nilai.id.size < 2 %}
+<a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '00' | append: nilai.id }}</a>
+{% elsif nilai.id.size < 3 %}
 <a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ '0' | append: nilai.id }}</a>
 {% else %}
 <a class="tele" href="https://t.me/{{ group }}/{{ nilai.id }}" target="_blank">{{ nilai.id }}</a>
