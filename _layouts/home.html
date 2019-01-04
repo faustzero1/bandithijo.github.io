@@ -16,7 +16,7 @@ permalink: :title
             <p><img style="width:50%; border-radius:50%;" src="/assets/img/logo/logo_author.png" alt="logo_author"></p>
           </div>
 
-          <p style="margin:auto;padding:10px;font-size:30px;">Selamat datang <span class="nobr">di <a href="/blog/">blog</a> saya =)</span></p>
+          <p style="margin:auto;padding:10px;font-size:30px;font-family:'Ubuntu Condensed';">Selamat datang <span class="nobr">di <a href="/blog/">blog</a> saya =)</span></p>
 
           <style scoped>
             .whatis-bandithijo { margin: auto; width: 60%;}
@@ -32,7 +32,7 @@ permalink: :title
       <article class="homepage">
         <div class="notif-home">
           <!-- Judul Blog Terbaru -->
-          <span style="font-size:16px;font-weight:bold;">Judul Blog Terbaru :</span>
+          <span style="font-size:16px;font-family:'Ubuntu Condensed';font-weight:bold;">Judul Blog Terbaru :</span>
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #00603C;"></div>
           {% assign posts = site.posts | where_exp:"page", "page.category == 'blog'" %}
           {% for post in posts limit: 5 %}
@@ -40,7 +40,7 @@ permalink: :title
           {% endfor %}
           <br>
           <!-- Judul Vlog Terbaru -->
-          <span style="font-size:16px;font-weight:bold;">Judul Vlog Terbaru :</span>
+          <span style="font-size:16px;font-family:'Ubuntu Condensed';font-weight:bold;">Judul Vlog Terbaru :</span>
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #00603C;"></div>
           {% assign posts = site.posts | where_exp:"page", "page.category == 'vlog'" %}
           {% for post in posts limit: 5 %}
@@ -50,7 +50,7 @@ permalink: :title
 
         <div class="notif-home">
           <!-- Blog Feature Update -->
-          <span style="font-size:16px;font-weight:bold;">Fitur Blog Terbaru :</span>
+          <span style="font-size:16px;font-family:'Ubuntu Condensed';font-weight:bold;">Fitur Blog Terbaru :</span>
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #00603C;"></div>
           {% for log in site.data.blog-features-update limit: 5 %}
             {% if log.url == nill %}

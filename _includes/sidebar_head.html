@@ -5,16 +5,16 @@
             <p>Halaman ini tidak memiliki Daftar Isi.</p>
         </div>
     {% elsif page.category == 'blog' and page.toc == true %}
-        {% include _sidebar/sidebar_rambu.html %}
+        {% include _sidebar/sidebar_bantuan.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
     {% elsif page.category == 'vlog' and page.toc == true %}
         {% include _sidebar/sidebar_vlog.html %}
     {% elsif page.category == 'python' and page.toc == true %}
-        {% include _sidebar/sidebar_rambu.html %}
+        {% include _sidebar/sidebar_bantuan.html %}
         {% include _sidebar/book/python/sidebar_python_silabus.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
     {% elsif page.category == 'arch' and page.toc == true %}
-        {% include _sidebar/sidebar_rambu.html %}
+        {% include _sidebar/sidebar_bantuan.html %}
         {% include _sidebar/book/arch/sidebar_arch_daftarisi.html %}
         {% include _sidebar/sidebar_toc_gem.html %}
     {% elsif page.category == '157' and page.toc == true %}

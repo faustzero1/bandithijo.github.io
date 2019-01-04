@@ -230,6 +230,7 @@ img.post-header-img {
 }
 
 .post-title {
+    font-family: 'Ubuntu Condensed';
     font-size: 28px;
     color: #000;
     border-bottom: 1px dashed #B8B8B8;
@@ -390,6 +391,7 @@ aside .sidebar-body-img {
 }
 
 aside.sidebar h1 {
+    font-family: 'Ubuntu Condensed';
     font-size: 100%;
     border-bottom: 1px dashed #C4BBB0;
 }
