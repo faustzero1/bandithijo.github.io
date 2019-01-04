@@ -4,6 +4,7 @@
         {% include _sidebar/sidebar_rss_feed.html %}
         {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
     {% elsif page.permalink == '/blog/:title' %}
+        {% include _sidebar/sidebar_blog_terbaru.html %}
         {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
     {% elsif page.permalink == '/vlog/' %}
@@ -11,6 +12,7 @@
         {% include _sidebar/sidebar_rss_feed.html %}
         {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
     {% elsif page.permalink == '/vlog/:title' %}
+        {% include _sidebar/sidebar_vlog_terbaru.html %}
         {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
     {% elsif page.permalink == '/groups/' %}

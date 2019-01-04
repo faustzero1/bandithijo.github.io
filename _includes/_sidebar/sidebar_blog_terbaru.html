@@ -1,0 +1,13 @@
+<div class="sidebar-body" style="background-color: #EBFFB4;">
+    <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">Tulisan Terbaru</h1>
+    <div class="toc">
+    <ul>
+    {% assign posts = site.posts | where_exp:"page", "page.category == 'blog'" %}
+    {% for post in posts limit: 5 %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+    </div>
+    <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+    <p style="text-align:right;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
