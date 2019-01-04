@@ -456,6 +456,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body blockquote h4,
 .markdown-body blockquote h5,
 .markdown-body blockquote h6 {
+  font-family: 'Ubuntu Condensed';
   border-bottom: 1px dashed #00603C;
 }
 

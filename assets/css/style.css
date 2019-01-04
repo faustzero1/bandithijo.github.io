@@ -743,6 +743,7 @@ p.notif-post {
 }
 
 .blockquote-red-title {
+    font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
     color: #444d56 !important;
@@ -766,6 +767,7 @@ p.notif-post {
 }
 
 .blockquote-blue-title {
+    font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
     color: #444d56 !important;
@@ -789,6 +791,7 @@ p.notif-post {
 }
 
 .blockquote-yellow-title {
+    font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
     color: #444d56 !important;
