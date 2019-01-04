@@ -180,7 +180,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre {
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 1em;
   /* border: 1px solid #289C70; */
 }
@@ -340,14 +340,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body code {
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 12px;
 }
 
 .markdown-body pre {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   font-size: 12px;
   /* background color border ``` */
   border-color: #D6E5AC;
@@ -681,7 +681,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   padding: 10px;
   overflow: auto;
   font-size: 85%;
-  font-family: monospace;
+  font-family: 'Ubuntu Mono', monospace;
   line-height: 1.45;
   /* background color pre ``` */
   background-color: #F3FAD8;
@@ -707,7 +707,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 13px monospace;
+  font-size: 13px;
+  font-family: 'Ubuntu Mono', monospace;
   font-weight: normal;
   line-height: 13px;
   color: #444d56;

@@ -96,7 +96,11 @@ multi line code
 
 ## STABILO
 Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.
+
 atau <mark>ini juga bisa, lebih praktis</mark>.
+
+## NO BREAK ELEMENT
+<span class="nobr">Mas Bro !</span>
 
 ## DAFTAR ISI
 <!-- REFERENCES -->

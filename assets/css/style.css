@@ -137,6 +137,7 @@ kbd {
 }
 
 #header .nav li a {
+    /* font-family: 'Ubuntu Condensed'; */
     font-size: 16px;
     font-weight: bold;
     color: #FFF;
@@ -1051,7 +1052,7 @@ ul.chkbox li.chkbox-checked:before {
     #header .nav ul.active {
         display: block;
         background: #0C4B33;
-        margin: -5px 0 0 -10px;
+        margin: -5px 0 0 -8px;
     }
 
     #header .nav ul li {
