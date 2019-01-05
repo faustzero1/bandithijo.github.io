@@ -23,7 +23,7 @@ Saat tulisan ini dibuat, Arch Linux secara *default* sudah membawa Python versi 
 
 Apabila saya menjalankan,
 ```
-$ virtualenv Env
+$ virtualenv venv
 ```
 Maka saat saya aktifkan dan saya lihat versi Pythonnya, masih menggunakan Python 3.7.
 ```
