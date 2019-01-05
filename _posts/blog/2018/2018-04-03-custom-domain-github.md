@@ -124,7 +124,7 @@ Untuk membuat GitHub dapat menerima _traffic_ dari _custom domain_ yang sudah ki
 
 Buat file bernama `CNAME` pada direktori root dari website kita.
 
-```
+<pre>
 ├── _drafts
 ├── _includes
 ├── _layouts
@@ -135,13 +135,13 @@ Buat file bernama `CNAME` pada direktori root dari website kita.
 ├── pages
 ├── 404.html
 ├── _config.yml
-├── CNAME  <----- Tambahkan file ini
+├── <mark>CNAME</mark>  <----- Tambahkan file ini
 ├── favicon.ico
 ├── Gemfile
 ├── Gemfile.lock
 ├── index.html
 └── LICENSE
-```
+</pre>
 
 Kemudian, isi dengan nama domain yang ingin kita tampilkan.
 
@@ -275,20 +275,44 @@ Saya memilih menggunakan APEX domain, dengan nama **bandithijo.com**, sehingga u
 Dikarenakan saya menggunakan nama domain **bandithijo.com**, maka saya perlu melakukan _forwarding URL_. Tujuannya, apabila terdapat pengunjung yang mengetikkan **www.bandithijo.com** akan langsung diarahkan ke URL **https://bandithijo.com**.
 
 <br>
-**Cache Everything**
+**Cache Level**
 
-![gambar17](https://s20.postimg.cc/walqwuail/gambar_17.png)
+![gambar17](https://i.postimg.cc/wMxbT1Xw/gambar-17.png)
 
-Karena kita menggunakan _static website_ sehingga ada baiknya kita melakukan konfigurasi Cache. Ini akan memungkinkan website kita di-cache dan ditampilkan langsung dari CDN Cloudflare. Tentu saja hal ini akan membuat _page load_ dari website kita menjadi lebih cepat.
+Mungkin teman-teman ingin menggunakan fitur cache level yang diberikan oleh CloudFlare.
 
-Kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, ~~mungkin~~ kita dapat melakukan pembersihan cache dengan **Purge Everything**.
+Berikut ini adalah kutipan yang saya ambil dari halaman [support.cloudflare.com](https://support.cloudflare.com/hc/en-us/articles/200172266){:target="_blank"} yang akan menjelaskan setiap properties dari Cache Level.
+<pre>
+<b>No overrides</b>
+Defaults to the caching level option you have in your Cloudflare performance settings for the domain.
+
+<b>Bypass cache</b>
+Will not cache at all
+
+<b>Standard / Aggressive caching</b>
+Caches all static content that has a query string in it
+
+<b>Ignore query string</b>
+Caches static content that has a query string and treats it as one file
+
+<b>Cache everything</b>
+Caches all file types on your site, including static content and HTML. Cloudflare Cache Everything will automatically respect any default cache headers set by the web server or CMS software like WordPress. See this article for more details on how headers affect this setting.
+
+**NOTE: When using "Cache everything" you might have trouble with login forms on your site. A common one is WordPress. To correct this you'll need to add another rule as the first rule for the wp-login.php  file that is set to "bypass cache"**
+</pre>
+
+Konfigurasi cache level ini akan memungkinkan website kita di-cache dan ditampilkan langsung dari CDN Cloudflare. Tentu saja hal ini akan membuat _page load_ dari website kita menjadi lebih cepat lagi.
+
+Sebagai contoh di atas, saya menggunakan "No Query String".
+
+Sebelumnya saya menggunakan "Cache Everything", namun kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, ~~mungkin~~ kita dapat melakukan pembersihan cache dengan **Purge Everything**.
 
 ![gambar20](https://s20.postimg.cc/h4fp62kjh/gambar_20.png)
 
 <br>
 Nah! setelah selesai melakukan 3 konfigurasi **Page Rules** di atas, maka, tampilan akhir dari konfigurasi **Page Rules** akan seperti ini.
 
-![gambar18](https://s20.postimg.cc/s2qyny3wd/gambar_18.png)
+![gambar18](https://i.postimg.cc/J0TYyRKM/gambar-18.png)
 
 *Perhatikan! **Always Use HTTPS**, harus berada di layer paling atas.
 
