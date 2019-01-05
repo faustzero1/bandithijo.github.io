@@ -167,7 +167,7 @@ Apabila Vokoscreen berhasil terbuka, berarti kita dapat lanjut mengkonfigurasi *
 
 ## 2. Memindahkan Application Launcher
 
-Di dalam direktori `../vokoscreen/applications/` sudah terdapat file `vokoscreen.desktop`. Ini adalah file *launcher* untuk memanggil aplikasi. Tinggal kita pindahkan ke tempat yang benar.
+Beruntungnya di dalam direktori `../vokoscreen/applications/` sudah terdapat file `vokoscreen.desktop`. Ini adalah file *launcher* untuk memanggil aplikasi. Tinggal kita pindahkan ke tempat yang benar.
 
 ```
 $ cd applications/
@@ -190,7 +190,7 @@ Nah, kira-kira seperti ini dulu yang dapat saya tuliskan.
 
 # Pesan Penulis
 
-Saat ini Vokoscreen 2.5.8 sudah tidak lagi dilanjutkan pengembangannya. Vokoscreen dilanjutkan ke project [**VokoscreeNG**](https://github.com/vkohaupt/vokoscreenNG){:target="_blak"} yang merupakan akronim dari Vokoscreen Next Generation.
+Saat ini Vokoscreen 2.5.8-beta sudah tidak lagi dilanjutkan pengembangannya. Vokoscreen dilanjutkan ke project [**VokoscreeNG**](https://github.com/vkohaupt/vokoscreenNG){:target="_blak"} yang merupakan akronim dari Vokoscreen Next Generation. Saat tulisan ini ditulis VokoscrenNG sudah memasuki versi 2.9.5-beta.
 
 # Referensi
 
