@@ -188,6 +188,10 @@ Hasilnya seperti ini.
 
 Nah, kira-kira seperti ini dulu yang dapat saya tuliskan.
 
+# Pesan Penulis
+
+Saat ini Vokoscreen 2.5.8 sudah tidak lagi dilanjutkan pengembangannya. Vokoscreen dilanjutkan ke project [**VokoscreeNG**](https://github.com/vkohaupt/vokoscreenNG){:target="_blak"} yang merupakan akronim dari Vokoscreen Next Generation.
+
 # Referensi
 
 1. [http://linuxecke.volkoh.de/vokoscreen/vokoscreen.html](http://linuxecke.volkoh.de/vokoscreen/vokoscreen.html){:target="_blank"}
