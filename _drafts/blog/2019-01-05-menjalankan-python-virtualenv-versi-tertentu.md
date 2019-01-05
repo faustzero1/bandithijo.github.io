@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Menjalankan Python Virtualenv Versi Python yang Spesifik'
+title: 'Menjalankan Python Virtualenv Versi Python yang Spesifik pada Arch Linux'
 date: 2019-01-05 12:07
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -17,7 +17,23 @@ pin:
 
 # Latar Belakang Masalah
 
-Saat akan belajar salah satu
+Saya kesulitan saat akan menjalankan Python versi tertentu pada Python Virtual Environment.
+
+Saat tulisan ini dibuat, Arch Linux secara *default* sudah membawa Python versi 3.7. Sedangkan saya memerlukan Python versi 3.6 dalam project yang ingin saya kerjakan. Lantas saya membutuhkan Python Virtual Environment yang menggunakan Python 3.6.
+
+Apabila saya menjalankan,
+```
+$ virtualenv Env
+```
+Maka saat saya aktifkan dan saya lihat versi Pythonnya, masih menggunakan Python 3.7.
+```
+$ python -V
+```
+```
+Python 3.7.2
+```
+
+Bagaimana caranya agar di dalam Python Environment yang saya buat dapat menggunakan Python 3.6?
 
 # Solusi
 
@@ -62,10 +78,17 @@ Python 3.6.7
 ```
 Yak, kita sudah berada pada versi Python yang saya inginkan, yaitu versi 3.6.
 
+    Kalau sudah begini tinggal kita sikat miring.
+
 
 # Pesan Penulis
 
-Masih banyak fitur-fitur dari Scrcpy yang belum sempat saya tuliskan di sini. Silahkan bereksplorasi lebih dalam dan lebih jauh, merujuk pada daftar referensi yang saya sertakan di bawah.
+Seperti judul tulisan ini, saya membuatnya spesifik untuk distribusi Arch Linux, karena bisa saja proses instalasi yang berbeda, nama paket binary yang berbeda dan lokasi PATH yang berbeda.
+
+Silahkan bereksplorasi sendiri untuk yang menggunakan distribusi sistem opeasi GNU/Linux yang lain.
+
+Terima kasih.
+
 
 
 # Referensi
