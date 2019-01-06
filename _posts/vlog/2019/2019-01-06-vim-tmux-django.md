@@ -22,7 +22,7 @@ pin:
 
 Menggunakan Vim + Tmux untuk menghandle Django Python Web Framework.
 
-Akhirnya setelah selama ini menggunakan Code OSS dan tidak menghiraukan Autocpmplete Django di Vim, sekarang sudah berhasil mengkonfigurasi autocomplete untuk memanggil fungsi-fungsi di Django dalam Vim.
+Akhirnya setelah selama ini menggunakan Code OSS dan tidak menghiraukan Autocomplete Django di Vim, sekarang sudah berhasil mengkonfigurasi autocomplete untuk memanggil fungsi-fungsi di Django dalam Vim.
 
 Autocomplete Plugin:
 [Valloric/YoutCompleteMe](https://github.com/Valloric/YouCompleteMe){:target="_blank"}
