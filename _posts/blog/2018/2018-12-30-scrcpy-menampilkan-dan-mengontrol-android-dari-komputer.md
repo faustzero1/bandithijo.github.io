@@ -33,7 +33,7 @@ Apakah ada aplikasi yang dapat melakukan hal seperti itu di GNU/Linux? Kalaupun 
 
 Jawabannya, **ada**.
 
-Lebih keren lagi, **Gratis dan *Open Sources***.
+Lebih keren lagi, **Gratis** dan ***Open Sources***.
 
 [**SCRCPY**](https://github.com/Genymobile/scrcpy){:target="_blank"}, adalah akronim dari *screen copy*, sebuah aplikasi yang dikembangkan oleh [**Genymobile**](https://www.genymobile.com){:target="_blank"} yang berfungsi untuk menampilkan dan mengontrol Android *device*. Dibangun menggunakan bahasa C, Java dan Meson. Berlisensi Apache 2.0.
 
@@ -136,7 +136,7 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
     Smartphone: 192.168.1.2
     Laptop    : 192.168.1.4
     ```
-    Kesimpulannya, laptop dan *smartphone* berada pada *network* yang sama, yaitu *network* `192.168.56.0/24`.
+    Kesimpulannya, laptop dan *smartphone* berada pada *network* yang sama, yaitu *network* `192.168.1.0/24`.
 2. Buka Terminal dan jalankan perintah di bawah untuk mengaktifkan `adb` over TCP/IP pada *smartphone* kita.
 ```
 $ adb tcpip 5555
