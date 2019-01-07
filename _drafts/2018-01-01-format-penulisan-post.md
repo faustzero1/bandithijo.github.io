@@ -131,14 +131,14 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 | ▨ | unknown box | | &#x25a8; |
 
 | Char | Number | Entity | Description |
-| --- | --- | --- | --- |
-| © | &#169; | &copy; | COPYRIGHT SIGN |
-| ® | &#174; | &reg; | REGISTERED SIGN |
-| ™ | &#8482; | &trade; | TRADEMARK SIGN |
-| ← | &#8592; |	&larr; | LEFTWARDS ARROW |
-| ↑ | &#8593; | &uarr; | UPWARDS ARROW |
-| → | &#8594; | &rarr; | RIGHTWARDS ARROW |
-| ↓ | &#8595; | &darr; 	 | DOWNWARDS ARROW |
+| ---- | ------ | ------ | ----------- |
+| © | &#169; | &copy; | Copyright Sign |
+| ® | &#174; | &reg; | Registered Sgn |
+| ™ | &#8482; | &trade; | Trademark Sign |
+| ← | &#8592; |	&larr; | Leftwards Arrow |
+| ↑ | &#8593; | &uarr; | Upwards Arrow |
+| → | &#8594; | &rarr; | Rightwards Arrow |
+| ↓ | &#8595; | &darr; 	 | Downwards Arrow |
 
 [Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
 <br>
