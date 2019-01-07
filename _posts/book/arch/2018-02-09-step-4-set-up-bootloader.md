@@ -174,3 +174,10 @@ Langkah di atas kita lakukan karena kita menggunakan `systemd-boot`. Untuk _boot
 
 Sampai di sini, apabila kita _reboot_, sebenarnya kita sudah dapat masuk ke dalam Arch sistem. Namun sistem kita masih belum lengkap karena kita perlu melakukan beberapa konfigurasi dasar yang diperlukan oleh sebuah sistem operasi. Seperti, _locale_, _hostname_, _username_, _password_, _zoneinfo_ _time_, dll. Untuk itu, sementara kita lanjutkan saja pada _session_ ini.
 
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-3-installing-arch-linux-base-packages"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-r" href="/arch/step-5-set-language-and-time-zone"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+</div>

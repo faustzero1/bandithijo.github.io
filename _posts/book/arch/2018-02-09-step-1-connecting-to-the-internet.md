@@ -91,3 +91,9 @@ Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali,
 *output cat /etc/pacman.d/mirrorlis
 ```
 
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-0-introduction"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-r" href="/arch/step-2-disk-partitioning"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+</div>

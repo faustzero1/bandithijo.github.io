@@ -77,4 +77,10 @@ Target yang akan kita capai dari dokumentasi ini adalah :
 | **Encryption** | /dev/sda =&gt; root & /home |
 
 
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l disabled" href="#"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-r" href="/arch/step-1-connecting-to-the-internet"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+</div>
 

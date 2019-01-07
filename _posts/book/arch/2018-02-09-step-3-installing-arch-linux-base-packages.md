@@ -91,3 +91,10 @@ Caranya dengan menggunakan `chroot` \(_change root_\).
 
 Apabila perintah di atas berhasil, makan kalian dapat melihat perubahan pada `username` dan `hostname`. Artinya kita telah masuk ke dalam `root` sistem yang baru saja kita _install_. Pada tahap ini, kita dapat bergerak ke _step_ selanjutnya.
 
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-2-disk-partitioning"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-r" href="/arch/step-4-set-up-bootloader"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+</div>

@@ -6,7 +6,6 @@ permalink: '/arch/'
 ---
 
 <div class="post-body">
-<!-- PYTHON POSTS -->
 
 {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'arch'" %}
 {% for post in posts %}
@@ -14,6 +13,4 @@ permalink: '/arch/'
 <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
 {% endfor %}
 
-<br>
-<p><i>Sedang dalam proses penulisan ...</i></p>
 </div>
