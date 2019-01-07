@@ -91,6 +91,18 @@ Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali,
 *output cat /etc/pacman.d/mirrorlis
 ```
 
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+Penggunaan <code>rankmirrors</code> sudah tidak direkomendasikan lagi oleh Arch Wiki.<br>
+Saat ini sudah menggunakan <code>reflector</code>.
+<br><br>
+<pre>
+# pacman -S reflector
+# reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist</pre>
+</div>
+
+
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
 <a class="btn-blue-l" href="/arch/step-0-introduction"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
