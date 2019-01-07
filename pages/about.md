@@ -56,6 +56,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | Distribusi | **Arch Linux** |
 | Static Site Generator | **Jekyll** |
 | Hosting | **GitHub** |
+| CDN | **CloudFlare** |
 | Format Text | **Markdown** |
 | Text Editor | **Vim** |
 | Image Editor | **GIMP** & **Inkscape** |
