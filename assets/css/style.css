@@ -37,6 +37,7 @@ img {
 
 h1, h2, h6 {
     margin: 0;
+    font-family: 'Ubuntu Condensed';
 }
 
 ul {
@@ -1268,6 +1269,14 @@ ul.chkbox li.chkbox-checked:before {
     .toc {
         margin: 5px 20px 0 4.0%;
     }
+
+    .post-nav {
+        margin-top: 30px;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
 
 /* dotfriends-page -------------------------------------------------------- */
     .dotfriends-page {
