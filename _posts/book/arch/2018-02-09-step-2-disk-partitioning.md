@@ -29,11 +29,13 @@ Kemudian perhatikan apakah terdapat direktori `efivars` atau tidak. Jika ada, be
 
 Kita akan membuat **dua** partisi. Yang pertama adalah partisi ESP \(_EFI System Partition_\) dan partisi `/` \(baca: _root_\). Saya lebih _prefer_ menggunakan **satu** partisi `/` dan tidak memisahkan partisi `/home` dari `/`.
 
-> **Mengapa saya tidak memisahkan partisi /home ?**
->
-> Karena saya tidak berniat untuk memasang distribusi sistem operasi GNU/Linux yang lain.
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa saya tidak memisahkan partisi /home ?</div>
+<p>Karena saya tidak berniat untuk memasang distribusi sistem operasi GNU/Linux yang lain.</p>
+</div>
 
-Pertama-tama kita harus mengetahui nama dari _storage device_ kita.
+Pertama-tama kita harus mengetahui alamat blok dari _hard drive_ yang akan kita partisi.
 
 ```
 # lsblk -p
@@ -64,9 +66,12 @@ Akan terdapat detail keterangan bahwa kita menggunakan **gpt** dan terdapat 2 pa
 
 `sda1` akan kita gunakan sebagai partisi `/boot` dan `sda2` akan kita gunakan sebagai partisi `/`.
 
-> **Mengapa saya tidak menggunakan partisi SWAP ?**
->
-> Karena saya menggunakan SSD. Kalo ingin menggunakan SWAP bisa kita tambahkan belakangan, setelah sistem kita jadi.
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa saya tidak menggunakan partisi SWAP ?</div>
+<p>Karena saya menggunakan SSD. Kalau ingin menggunakan SWAP, dapat kita tambahkan belakangan, setelah sistem kita jadi.</p>
+</div>
+
 
 ## 2.3 Mengenkripsi Partisi /dev/sda2
 
@@ -147,7 +152,7 @@ sda                   8:0     0      8G   0  disk
 sr0                  11:0     1    523M   0  rom   /run/archiso/bootmnt
 ```
 
-Apabila telah sesuai, akan menampilkan susunan `/dev/sda` pada kolom NAME, seperti yang terdapat pada tabel di atas.
+Apabila telah sesuai, akan menampilkan susunan `/dev/sda` pada kolom **NAME**, seperti yang terdapat pada tabel di atas.
 
 
 

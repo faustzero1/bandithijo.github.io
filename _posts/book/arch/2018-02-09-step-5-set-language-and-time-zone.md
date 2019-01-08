@@ -29,18 +29,18 @@ Untuk memilih _locale_, terlebih dahulu kita perlu membuka akses _locale_ yang m
 
 _Scroll_ ke bawah dan cari baris yang mengandung isi `en_US.UTF-8 UTF-8`, lalu hilangkan tanda `#` yang ada di depan baris tersebut.
 
-```
+<pre>
 ...
 ...
 
 #en_SG.UTF-8 UTF-8
 #en_SG ISO-8859-1
-en_US.UTF-8 UTF-8
+<mark>en_US.UTF-8 UTF-8</mark>
 #en_US ISO-8859-1
 #en_ZA.UTF-8 UTF-8
 ...
 ...
-```
+</pre>
 
 Kamu dapat juga memilih bahasa **Indonesia**, dengan _scrolling_ ke bawah dan hilangkan tanda `#` pada `id_ID.UTF-8 UTF-8`. Namun, saya pribadi lebih _prefer_ hanya menggunakan **English** saja.
 

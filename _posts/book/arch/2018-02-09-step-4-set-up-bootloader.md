@@ -61,11 +61,12 @@ default arch
 timeout 3
 ```
 
-> **\[ ! \] PERHATIAN**
->
-> Secara _default_, _file_ `loader.conf` sudah terdapat isi di dalamnya. Kita dapat menghapus isi sebelumnya dan mengganti atau isikan persis sama seperti contoh di atas. Untuk isi dari `default` penamaan harus sama dengan _file_ preferensi yang akan kita buat pada langkah selanjutnya \(di bawah\). Saya menggunakan nama yang simple, yaitu `arch` , yang nantinya akan dibuatkan _file_ bernama `arch.conf`.
->
-> `timeout 3` nilai ini dapat kalian sesuaikan dengan preferensi kalian masing-masing. Penulis biasanya menggunakan nilai `1` atau bahkan `0`.
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Secara <i>default</i>, file <code>loader.conf</code> sudah terdapat isi di dalamnya. Kita dapat menghapus isi sebelumnya dan mengganti atau isikan persis sama seperti contoh di atas. Untuk isi dari <code>default</code> penamaan harus sama dengan file preferensi yang akan kita buat pada langkah selanjutnya (di bawah). Saya menggunakan nama yang simple, yaitu <code>arch</code> , yang nantinya akan dibuatkan file bernama <code>arch.conf</code>.</p>
+<p><code>timeout 3</code> nilai ini dapat kalian sesuaikan dengan preferensi kalian masing-masing. Penulis biasanya menggunakan nilai <code>1</code> atau bahkan <code>0</code>.</p>
+</div>
 
 Apabila sudah dipastikan tidak terdapat _typo_, kalian dapat keluar dari Nano dengan menekan tombol `CTRL`+`X`. Kemudian konfirmasi perubahan dengan menekan tombol `Y`, setelah itu `↲`.
 
@@ -110,25 +111,25 @@ Karena kita menggunakan partis LVM yang terenkripsi untuk itu kita perlu mengedi
 
 Cari baris yang bertuliskan `HOOKS=(base udev dst... )`
 
-```
+<pre>
 ...
 ...
 
-HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)
+HOOKS=(base udev autodetect modconf block filesystems <mark>keyboard</mark> fsck)
 ...
 ...
-```
+</pre>
 
 Pindahkan `keyboard` setelah `block` dan tambahkan `encrypt` dan `lvm2`, seperti contoh di bawah ini.
 
-```
+<pre>
 ...
 ...
 
-HOOKS=(base udev autodetect modconf block keyboard encrypt lvm2 filesystems fsck)
+HOOKS=(base udev autodetect modconf block <mark>keyboard encrypt lvm2</mark> filesystems fsck)
 ...
 ...
-```
+</pre>
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat keluar dari Nano dengan menekan tombol `CTRL`+`X`. Kemudian konfirmasi perubahan dengan menekan tombol `Y`, setelah itu `↲`.
 
@@ -150,13 +151,13 @@ Kemudian tambahkan `initrd /intel-ucode.img` pada file `/boot/loader/entries/arc
 # nano /boot/loader/entries/arch.conf
 ```
 
-```
+<pre>
 title Arch Linux
 linux /vmlinuz-linux
-initrd /intel-ucode.img
+<mark>initrd /intel-ucode.img</mark>
 initrd /initramfs-linux.img
 options cryptdevice=UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a:volume root=/dev/mapper/volume-root rw
-```
+</pre>
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat keluar dari Nano dengan menekan tombol `CTRL`+`X`. Kemudian konfirmasi perubahan dengan menekan tombol `Y`, setelah itu `↲`.
 

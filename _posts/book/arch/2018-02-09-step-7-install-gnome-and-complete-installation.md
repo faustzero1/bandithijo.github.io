@@ -156,7 +156,7 @@ $ sudo nano /etc/pacman.conf
 
 Kemudian _scrolling_ ke bawah, cari bagian `[multilib]`, lalu aktifkan \(_uncommenting_\) baris tersebut dengan cara menghapus tanda pagar `#`.
 
-```
+<pre>
 ...
 ...
 # If you want to run 32 bit applications on your x86_64 system,
@@ -165,11 +165,12 @@ Kemudian _scrolling_ ke bawah, cari bagian `[multilib]`, lalu aktifkan \(_uncomm
 #[multilib-testing]
 #Include = /etc/pacman.d/mirrorlist
 
-[multilib]
-Include = /etc/pacman.d/mirrorlist
+<mark>[multilib]
+Include = /etc/pacman.d/mirrorlist</mark>
+
 ...
 ...
-```
+</pre>
 
 Setelah disimpan, lakukan _update repository_.
 
@@ -209,9 +210,21 @@ Untuk dapat melakukan instalasi paket-paket yang terdapat pada AUR, kita memerlu
 $ sudo pacman -S yaourt rsync customizepkg
 ```
 
-Setelah paket-paket di atas selesai di-_install_, saya merekomendasikan untuk men-_disable_ kembali _archlinuxfr repository_, agar tidak terjadi bentrokan atau tumpang tindih paket antar _official repository_ dengan _archlinuxfr repository_.
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Paket <b>Yaourt</b> sudah <i>deprecated</i> (usang). Saya lebih merekomendasikan untuk menggunakan <b>Yay</b>.</p>
+<p>Untuk menginstall Yay, sangat mudah, dan tidak perlu menambahkan repo <code>[archlinuxfr]</code> seperti di atas.</p>
+<pre>
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+</pre>
+</div>
 
-Selanjutnya kita perlu untuk melakukan pengaturan pada `yaourt` sebelum dapat kita gunakan. Kita akan menjadikan Vim sebagai _default_ text editor untuk melihat PKGBUILD dari paket AUR yang kita _install_ dengan `yaourt`. PKGBUILD ini semacam resep yang berisi bahan-bahan dan cara meng-_install_ paket ke dalam sistem Arch Linux kita.
+Setelah paket-paket di atas selesai di-*install*, saya merekomendasikan untuk men-*disable* kembali _archlinuxfr repository_, agar tidak terjadi bentrokan atau tumpang tindih paket antar _official repository_ dengan _archlinuxfr repository_.
+
+Selanjutnya kita perlu untuk melakukan pengaturan pada `yaourt` sebelum dapat kita gunakan. Kita akan menjadikan Vim sebagai _default_ text editor untuk melihat PKGBUILD dari paket AUR yang kita _install_ dengan `yaourt`. PKGBUILD ini semacam resep yang berisi bahan-bahan dan cara meng-*install* paket ke dalam sistem Arch Linux kita.
 
 Untuk BASH _shell_,
 
@@ -232,9 +245,13 @@ Cara di atas dimaksudkan apabila nanti `yaourt` menampilkan PKGBUILD saat proses
 
 Proses instalasi paket/aplikasi dengan menggunakan `yaourt` ini sedikit berbeda dengan menggunakan `pacman`. Mungkin kalian dapat mencari informasi pada dokumentasi Archer lain di Google atau Youtube tentang bagaimana proses instalasi paket/aplikasi menggunakan `yaourt`.
 
-> **Mengapa perlu meng-enable-kan AUR ?**
->
-> Karena kita membutuhkan paket-paket yang belum tersedia pada _official repositry_, sedangkah sudah tersedia pada AUR _repository_. Beberapa paket pada AUR terkadang dibutuhkan untuk keleluasaan kita menggunakan distribusi sistem operasi Arch Linux. Contohnya paket yang tidak terdapat pada _official repository_ adalah: Google Chrome, Spotify, Telegram, dan masih banyak lagi.
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa perlu meng-enable-kan AUR ?</div>
+<p>Karena kita membutuhkan paket-paket yang belum tersedia pada <i>official repositry</i>, sedangkah sudah tersedia pada AUR <i>repository</i>.</p>
+<p>Beberapa paket pada AUR terkadang dibutuhkan untuk keleluasaan kita menggunakan distribusi sistem operasi Arch Linux.</p>
+<p>Contohnya paket yang tidak terdapat pada <i>official repository</i> adalah: Google Chrome, Spotify, dan masih banyak lagi.</p>
+</div>
 
 ## 7.7 ZSH Shell
 
@@ -303,9 +320,12 @@ $ sudo pacman -S mesa
 
 Untuk dukungan terhadapr DDX driver \(yang menyediakan akselarasi gambar 2D pada `Xorg`\), kita membutuhkan `xf86-video-intel` _package_.
 
-> **\[ ! \] PERHATIAN**
->
-> Debian & Ubuntu, Fedora, KDE, merekomendasikan untuk tidak meng-_install_ `xf86-video-intel`. Dan tetap menggunakan _modesetting driver_ yang sudah disertakan pada Intel GPU generasi ke 4 dan yang lebih baru. Namun, bagaimanapun juga _modesetting driver_ ini dapat pula menyebabkan _problem_ seperti [Chromium Issue 370022](https://bugs.chromium.org/p/chromium/issues/detail?id=370022).
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Debian & Ubuntu, Fedora, KDE, merekomendasikan untuk tidak meng-<i>install</i> <code>xf86-video-intel</code>. Dan tetap menggunakan <i>modesetting driver</i> yang sudah disertakan pada Intel GPU generasi ke 4 dan yang lebih baru.</p>
+<p>Namun, bagaimanapun juga <i>modesetting</i> driver ini dapat pula menyebabkan problem seperti <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=370022" target="_blank">Chromium Issue 370022</a>.</p>
+</div>
 
 ```
 $ sudo pacman -S xf86-video-intel
@@ -426,9 +446,12 @@ Selanjutnya, proses menggunakan `ecryptfs` untuk mengenkripsi direktori `/home`.
 
 **archer** adalah nama `username` saya, ganti dengan `username` kalian.
 
-> **\[ ! \] PERHATIAN**
->
-> **Masukkan **_**password**_** yang sama dengan **_**password username**_** kalian**.
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Masukkan <b>password</b> yang sama dengan <b>login password username</b> kalian.</p>
+</div>
+
 
 ```
 INFO: Checking disk space, this may take a few minutes. Please be patient.
@@ -473,7 +496,7 @@ Kemudian mungkin kalian ingin melihat `wrapped-passphrase` dalam bentuk yang tid
 $ ecryptfs-unwrap-passphrase
 ```
 
-Kalian dapat mencatatnya pada secarik kertas dan simpan baik-baik. Kalian dapat menggunakannya untuk me-_recovery_ data-data yang terenkripsi pada kasus misalkan `wrapped-passphrase` tiba-tiba hilang atau _corrputed_ atau bahkan kalian lupa _login password_.
+Kalian dapat mencatatnya pada secarik kertas dan simpan baik-baik. Kalian dapat menggunakannya untuk me-*recovery* data-data yang terenkripsi pada kasus misalkan `wrapped-passphrase` tiba-tiba hilang atau _corrputed_ atau bahkan kalian lupa _login password_.
 
 Selanjutnya lakukan pengecekan `auto-mount`, `auto-unmount`, `wrapped-passphrase`.
 
@@ -487,11 +510,7 @@ Private.mnt Private.sig auto-mount auto-unmount wrapped-passphrase
 
 Apabila ada, akan menunjukkan _output_ seperti di atas.
 
-Kemudian kita perlu menambahkan tiga baris propertis pada `/etc/pam.d/system-auth`. Ketiga baris propertis ini masing-masing memiliki penempatan yang berbeda-beda. Jadi tolong untuk dibaca dengan seksama.
-
-1. **Setelah** `auth required pam_unix.so` +=&gt; `auth required pam_ecryptfs.so unwrap`
-2. **Sebelum** `password required pam_unix.so` +=&gt; `password optional pam_ecryptfs.so`
-3. **Setelah** `session required pam_unix.so` +=&gt; `session  optional pam_ecryptfs.so unwrap`
+Kemudian kita perlu menambahkan tiga baris propertis pada `/etc/pam.d/system-auth`. Ketiga baris propertis ini masing-masing memiliki penempatan yang berbeda-beda. Perhatikan dengan baik susunannya dan tidak boleh asal.
 
 Gunakan _text editor_ Vim atau Nano.
 
@@ -499,11 +518,11 @@ Gunakan _text editor_ Vim atau Nano.
 $ sudo nano /etc/pam.d/system-auth
 ```
 
-```
+<pre>
 #%PAM-1.0
 
 auth      required  pam_unix.so     try_first_pass nullok
-auth      required  pam_ecryptfs.so unwrap
+<mark>auth      required  pam_ecryptfs.so unwrap</mark>
 auth      optional  pam_permit.so
 auth      required  pam_env.so
 
@@ -511,15 +530,15 @@ account   required  pam_unix.so
 account   optional  pam_permit.so
 account   required  pam_time.so
 
-password  optional  pam_ecryptfs.so
+<mark>password  optional  pam_ecryptfs.so</mark>
 password  required  pam_unix.so     try_first_pass nullok sha512 shadow
 password  optional  pam_permit.so
 
 session   required  pam_limits.so
 session   required  pam_unix.so
-session   optional  pam_ecryptfs.so unwrap
+<mark>session   optional  pam_ecryptfs.so unwrap</mark>
 session   optional  pam_permit.so
-```
+</pre>
 
 _Reboot system_, dan pastikan kalian dapat _login_ ke _user desktop_ kalian.
 

@@ -67,9 +67,11 @@ Apabila masih belum dapat terhubung dengan Internet, maka proses instalasi akan 
 
 Karena _base package_ yang diperlukan untuk menjadikan sistem operasi seutuhnya harus kita unduh dari _server_ repositori, maka kita perlu memilih daftar _mirror server_. Tujuannya untuk mempercepat proses pengunduhan paket-paket aplikasi dari _server_ repositori.
 
-> **Mengapa tidak menggunakan _mirror-mirror_ lokal Indonesia ?**
->
-> Karena belum tentu apabila kita memilih _server_ repositori di Indonesia sudah pasti akan mendapatkan kecepatan yang maksimal. Maka biarkan program yang memilihkan untuk kita.
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa tidak menggunakan <i>mirror-mirror</i> lokal Indonesia ?</div>
+<p>Karena belum tentu apabila kita memilih _server_ repositori di Indonesia sudah pasti akan mendapatkan kecepatan yang maksimal. Maka biarkan program yang memilihkan untuk kita.</p>
+</div>
 
 Buat _backup_ `mirrorlist` terlebih dahulu.
 
