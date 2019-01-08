@@ -90,8 +90,8 @@ friends:
   url1: "https://chamelemon.site"
   url2: "https://github.com/reorr"
   detail: |
-    Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.
-    Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.
+      Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.
+      Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.
 
 
 - nama: "Muhammad Yuga"
@@ -105,7 +105,7 @@ friends:
 
 - nama: "Yunindyo Prabowo"
   photo: "ypraw"
-  url1: "https://ypraw.gitlab.io"
+  url1: "https://yupraw.me/"
   url2: "https://github.com/ypraw"
   detail: |
       Noob Programmer , always getting errors everywhere when typing the codes. Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.
