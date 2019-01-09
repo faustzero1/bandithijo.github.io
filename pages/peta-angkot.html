@@ -5,102 +5,133 @@ author: 'BanditHijo'
 permalink: '/peta-angkot/'
 ---
 
+<link rel="stylesheet" href="/assets/css/peta-angkot.css">
+
 <section id="main">
   <div class="container" style="background:#F4F4E0;">
     <div class="container-edge-border">
 
-<!-- START MAP -->
+      <!-- START MAP -->
 
-<iframe name="peta" id="peta" src="/peta-angkot-landing/" width="100%" height="420" frameBorder="0"></iframe>
+      <iframe name="peta" id="peta" src="/peta-angkot-landing/" width="100%" height="420" frameBorder="0"></iframe>
 
-<!-- END MAP -->
+      <!-- END MAP -->
 
-<div style="margin-top:-20px;"></div>
-<div style="padding:20px;">
+      <div style="margin-top:-20px;"></div>
+      <div style="padding:20px;">
 
-<p style="font-size:18px;font-weight:bold;text-align:center;">Pilih Trayek Angkot</p>
+        <p style="font-size:18px;font-weight:bold;text-align:center;">Pilih Trayek Angkot</p>
 
-</div><!-- post container -->
+      </div><!-- post container -->
 
-{% assign url = 'https://www.google.com/maps/d/u/0/embed?mid=' %}
-{% assign angkot0 = '/peta-angkot-landing/' %}
-{% assign angkot1 = '1qhEy_k6TCOFuFbxBinSZcWmb_yUbA5Ty' %}
-{% assign angkot2A = '19EJLRHTXJrQgmujNiIBeaBT5eEMRRubQ' %}
-{% assign angkot3 = '1T3nD1EyiDkcrcjvS6kXX0Rf3GsE6JdQF' %}
-{% assign angkot5 = '1Vhb1715xjSGgvDK3enRzgkJp2Z7Uy9vf' %}
-{% assign angkot6 = '10DVWTjW78XcXn2HRSRRh2R3TZ4WQBvCa' %}
-{% assign angkot7 = '19bs4bkLTl73QZ33bxGrB38cVlQj30fKm' %}
-{% assign angkot8 = '1LYPM2JIJor-BwSjPDAwTYL6YdwMElBas' %}
+      {% assign url = 'https://www.google.com/maps/d/u/0/embed?mid=' %}
+      {% assign angkot0 = '/peta-angkot-landing/' %}
+      {% assign angkot1 = '1qhEy_k6TCOFuFbxBinSZcWmb_yUbA5Ty' %}
+      {% assign angkot2A = '19EJLRHTXJrQgmujNiIBeaBT5eEMRRubQ' %}
+      {% assign angkot3 = '1T3nD1EyiDkcrcjvS6kXX0Rf3GsE6JdQF' %}
+      {% assign angkot5 = '1Vhb1715xjSGgvDK3enRzgkJp2Z7Uy9vf' %}
+      {% assign angkot6 = '10DVWTjW78XcXn2HRSRRh2R3TZ4WQBvCa' %}
+      {% assign angkot7 = '19bs4bkLTl73QZ33bxGrB38cVlQj30fKm' %}
+      {% assign angkot8 = '1LYPM2JIJor-BwSjPDAwTYL6YdwMElBas' %}
 
-<div style="margin-top:-50px;"></div>
-<div style="text-align:center;">
-<div class="post-nav" style="background:#F4F4E0;margin:20px;padding:20px;">
-  <span class="nobr">
-  <a class="btn-blue-c nobr" href="{{ angkot0 }}" style="margin:5px;padding:10px 25px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">☰</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot1 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">1</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot2A }}" style="margin:5px;padding:10px 20px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">2 A</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot3 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">3</a>
-  </span>
-  <div style="margin:13px 3px;"></div>
-  <span class="nobr">
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot5 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">5</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot6 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">6</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot7 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">7</a>
-  <a class="btn-blue-c nobr" href="{{ url }}{{ angkot8 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="document.getElementById('peta').scrollIntoView();">8</a>
-  </span>
-</div>
+      <div style="margin-top:-50px;"></div>
+      <div style="text-align:center;">
+        <div class="post-nav" style="background:#F4F4E0;margin:20px;padding:20px;">
+          <span class="nobr">
+            <a class="btn nobr tablinks" href="{{ angkot0 }}" style="margin:5px;padding:10px 25px;" target="peta" onClick="openTrayek(event, '0')" id="defaultOpen">☰</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot1 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '1')">1</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot2A }}" style="margin:5px;padding:10px 20px;" target="peta" onClick="openTrayek(event, '2 A')">2 A</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot3 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '3')">3</a>
+          </span>
+          <div style="margin:13px 3px;"></div>
+          <span class="nobr">
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot5 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '5')">5</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot6 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '6')">6</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot7 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '7')">7</a>
+            <a class="btn nobr tablinks" href="{{ url }}{{ angkot8 }}" style="margin:5px;padding:10px 28px;" target="peta" onClick="openTrayek(event, '8')">8</a>
+          </span>
+        </div>
 
-<div style="margin-top:-50px;"></div>
+        <div style="margin-top:-50px;"></div>
 
-</div><!-- text-align center -->
+      </div><!-- text-align center -->
 
-<div class="markdown-body highlight">
-<div style="padding:20px;">
+      <div class="markdown-body highlight">
+        <div style="padding:20px;">
 
-<h1>Keterangan</h1>
+          <h1>Keterangan</h1>
 
-</div><!-- post container -->
-</div><!-- markdown-body highlight -->
+          <div id="0" class="tabcontent">
+            <h3>Pilih Nomor Angkot untuk melihat detail.</h3>
+          </div><!-- div id -->
 
+          <!-- deklarasi sumber data untuk semua for loop -->
+          {% for data in site.data.peta-angkot %}
 
-</div><!-- container-edge-border -->
-</div><!-- main container -->
+            <!-- ANGKOT NO.  1 -->
+            {% if data.id == '1' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  2 A -->
+            {% if data.id == '2 A' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  3 -->
+            {% if data.id == '3' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  5 -->
+            {% if data.id == '5' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  6 -->
+            {% if data.id == '6' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  7 -->
+            {% if data.id == '7' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+            <!-- ANGKOT NO.  8 -->
+            {% if data.id == '8' %}
+              <div id="{{ data.id }}" class="tabcontent">
+                <h3>ANGKOT No. {{ data.id }}</h3>
+                {% include tabel_peta_angkot.html %}
+              </div><!-- div id -->
+            {% endif %}
+
+          {% endfor %} <!-- site.data.peta-angkot -->
+
+        </div><!-- post container -->
+      </div><!-- markdown-body highlight -->
+
+      <script src="/assets/js/peta-angkot.js"></script>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
 </section><!-- main -->
 
-
-<!-- <section id="main">
-<div class="container" style="background:#F4F4E0;">
-<div class="container-edge-border">
-<div style="text-align:center;">
-
-<br>
-<iframe src="https://www.google.com/maps/d/embed?mid=1yyKTakoznb3Pr8_fen4fiY4UzN2xjCeW" width="100%" height="480"></iframe>
-
-<div class="post-nav" style="background:#F4F4E0;margin-top:-20px;padding:20px;">
-<a class="btn-blue-c" href="/poll-hasil/" target="_blank">CARI LAIN</a>
-</div> -->
-
-
-
-<!-- sumber: https://wiki.openstreetmap.org/wiki/OpenLayers_Simple_Example -->
-<!-- <div id="Map" style="height:400px"></div> -->
-<!-- <script src="/assets/js/OpenLayers.js"></script> -->
-<!-- <script> -->
-<!--     var lat            = &#45;1.2444; -->
-<!--     var lon            = 116.8763; -->
-<!--     var zoom           = 13; -->
-<!--  -->
-<!--     var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984 -->
-<!--     var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection -->
-<!--     var position       = new OpenLayers.LonLat(lon, lat).transform( fromProjection, toProjection); -->
-<!--  -->
-<!--     map = new OpenLayers.Map("Map"); -->
-<!--     var mapnik         = new OpenLayers.Layer.OSM(); -->
-<!--     map.addLayer(mapnik); -->
-<!--  -->
-<!--     var markers = new OpenLayers.Layer.Markers( "Markers" ); -->
-<!--     map.addLayer(markers); -->
-<!--     markers.addMarker(new OpenLayers.Marker(position)); -->
-<!--  -->
-<!--     map.setCenter(position, zoom); -->
-<!-- </script> -->

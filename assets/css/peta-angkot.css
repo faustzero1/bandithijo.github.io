@@ -1,0 +1,141 @@
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  /* padding: 6px 12px;
+  border: 1px solid #ccc; */
+  border-top: none;
+}
+
+a.btn {
+    color: white;
+    border-bottom: none;
+}
+
+a.btn.active {
+  background: #004F31;
+}
+
+a.btn {
+    background: #008352;
+    border-radius: 5px;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+a.btn:active {
+    color: white;
+    transform: translateY(2px)
+}
+
+a.btn:hover {
+  background: #004F31;
+}
+
+
+.tabel > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-family: Ubuntu;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.tabel > div > p {
+    padding: 20px 10px 10px 10px;
+}
+
+.tabel > div:nth-child(1n) {
+    background-color: #96cdb4;
+}
+
+.tabel > div:nth-child(2n) {
+    background-color: #96cdb4;
+}
+
+.tabel > div:nth-child(3n) {
+    background-color: #88d8b0;
+}
+
+.tabel > div:nth-child(4n) {
+    background-color: #88d8b0;
+}
+
+.tabel > div:nth-child(5n) {
+    /* background-color: #ff6f69; */
+    background-color: #F4F4E0;
+    color: #000;
+}
+
+.tabel > div:nth-child(6n) {
+    background-color: #ffcc6c;
+}
+
+.tabel > div:nth-child(7n) {
+    background-color: #ffcc6c;
+}
+
+.tabel {
+    height: 100%;
+    display: grid;
+    grid-gap: 3px;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: 10% 65% 25%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "tn tt pp"
+        "tn tt pp"
+        "jn jj qn"
+        "jn jj qq"
+}
+
+.trayek {
+    grid-area: tt;
+}
+
+.trayeknama {
+    grid-area: tn;
+}
+
+.jalur {
+    grid-area: jj;
+}
+
+.jalurnama {
+    grid-area: jn;
+}
+
+.photo {
+    grid-area: pp;
+}
+
+.qty {
+    grid-area: qq;
+}
+
+.qtynama {
+    grid-area: qn;
+}
+
+
+@media (max-width: 440px) {
+
+    .tabel {
+        height: 100%;
+        display: grid;
+        grid-gap: 3px;
+        /* grid-template-columns: repeat(4, 1fr); */
+        grid-template-columns: 20% 80%;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas:
+            "pp pp"
+            "tn tt"
+            "jn jj"
+            "qn qq"
+    }
+
+}
