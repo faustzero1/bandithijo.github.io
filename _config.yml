@@ -58,6 +58,8 @@ navigation:
     url: /groups/
   - title: 157
     url: /157/
+  - title: PeTaKot
+    url: /peta-angkot/
 
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
