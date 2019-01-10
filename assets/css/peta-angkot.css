@@ -50,33 +50,33 @@ a.btn:hover {
 }
 
 .tabel > div:nth-child(1n) {
-    background-color: #96cdb4;
+    background-color: #95B8A8; /* tn */
 }
 
 .tabel > div:nth-child(2n) {
-    background-color: #96cdb4;
+    background-color: #96cdb4; /* tt */
 }
 
 .tabel > div:nth-child(3n) {
-    background-color: #88d8b0;
+    background-color: #8CBFA5; /* jn */
 }
 
 .tabel > div:nth-child(4n) {
-    background-color: #88d8b0;
+    background-color: #88d8b0; /* jj */
 }
 
 .tabel > div:nth-child(5n) {
     /* background-color: #ff6f69; */
-    background-color: #F4F4E0;
+    background-color: #E7E7E7; /* pp */
     color: #000;
 }
 
 .tabel > div:nth-child(6n) {
-    background-color: #ffcc6c;
+    background-color: #E6C077; /* qn */
 }
 
 .tabel > div:nth-child(7n) {
-    background-color: #ffcc6c;
+    background-color: #ffcc6c; /* qq */
 }
 
 .tabel {
