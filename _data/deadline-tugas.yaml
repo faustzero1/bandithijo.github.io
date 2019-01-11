@@ -2,19 +2,24 @@
 # INFORMASI
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
+# Uncomment code below if didn't have any new task.
+- tanggal: '00/00/00'
+  url:
+  detail: 'Belum ada tugas terbaru...'
+# ----------------------------------------------------------------------------
 
-- tanggal: '18/12/13'
-  url: s7-02-integrasi-informasi-dan-aplikasi-enterprise
-  detail: |
-      Tugas 01 - Integrasi Informasi dan Aplikasi Enterprise
-
-- tanggal: '18/12/14'
-  url: s7-01-cloud-computing
-  detail: |
-      Tugas 03 - Cloud Computing
-
-- tanggal: '18/12/24'
-  url: s7-03-proyek-sistem-informasi
-  detail: |
-      Tugas 02 - Proyek Sistem Informasi
-
+# - tanggal: '19/01/10'
+#   url: s7-03-proyek-sistem-informasi
+#   detail: |
+#       Tugas 02 - Proyek Sistem Informasi
+#
+# - tanggal: '18/12/14'
+#   url: s7-01-cloud-computing
+#   detail: |
+#       Tugas 03 - Cloud Computing
+#
+# - tanggal: '18/12/13'
+#   url: s7-02-integrasi-informasi-dan-aplikasi-enterprise
+#   detail: |
+#       Tugas 01 - Integrasi Informasi dan Aplikasi Enterprise
+#

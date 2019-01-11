@@ -21,8 +21,10 @@ permalink: '/157/'
 <span style="font-size:16px;font-family:'Ubuntu Condensed';font-weight:bold;">Deadline Tugas Terbaru</span>
 <div style="margin:10px 0 10px 0;border-bottom:1px dashed #C00000;"></div>
 {% for log in site.data.deadline-tugas limit: 5 %}
-{% if log.url == nill %}
-<p><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
+{% if log.tanggal == '00/00/00' %}
+<p class="budi"><a href="" onclick="return false;"><i>{{ log.detail }}</i></a></p>
+{% elsif log.url == nill %}
+<p class="ani"><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
 {% else %}
 <p><a href="/157/{{ log.url }}#tugas">{{ log.tanggal }}: {{ log.detail }}</a></p>
 {% endif %}
