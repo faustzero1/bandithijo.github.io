@@ -999,12 +999,34 @@ ul.chkbox li.chkbox-checked:before {
         font-size: 350%;
     }
 
+    #header .logo {
+        float: left;
+        /* margin: 1.5% 5.5% 0 0; */
+        margin: 1.5% 0 0 0;
+    }
+
+    #header .logo img {
+        width: 76%;
+        /* width: 200px; */
+    }
+
 }
 
 @media (max-width: 1150px) {
 
     #header .container .title h1 {
         font-size: 300%;
+    }
+
+    #header .logo {
+        float: left;
+        /* margin: 1.5% 5.5% 0 0; */
+        margin: 1.5% 0 0 0;
+    }
+
+    #header .logo img {
+        width: 73%;
+        /* width: 200px; */
     }
 
 }

@@ -31,6 +31,9 @@ Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu
 
 Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer aplikasi yang bersangkutan. Karenanya, saya selalu menyertakan sumber literatur yang saya gunakan dalam membuat tulisan.
 
+# Mengapa menggunakan bahasa Indonesia?
+Sederhana saja. Agar dapat bermanfaat bagi bangsa dan negara guna ikut berpartisipasi dalam mencerdaskan kehidupan bangsa.
+
 # Akhir Kata
 Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
 
