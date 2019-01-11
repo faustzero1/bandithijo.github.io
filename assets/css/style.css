@@ -107,7 +107,8 @@ kbd {
 }
 
 #header .container .title h1 {
-    font-size: 370%;
+    /* font-size: 370%; */
+    font-size: 400%;
 }
 
 #header .container .description {
@@ -989,6 +990,23 @@ ul.chkbox li.chkbox-checked:before {
         position: relative;
         top: 1.5em;
     }
+}
+
+
+@media (max-width: 1268px) {
+
+    #header .container .title h1 {
+        font-size: 350%;
+    }
+
+}
+
+@media (max-width: 1150px) {
+
+    #header .container .title h1 {
+        font-size: 300%;
+    }
+
 }
 
 /* Untuk mengcover layar di bawah hd */
