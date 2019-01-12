@@ -736,7 +736,8 @@ p.notif-post {
     margin-top: 0;
     margin-bottom: 10px;
     padding: 0.7em 0.7em;
-    color: #444d56;
+    /* color: #444d56; */
+    color: #24292E;
     /* background color quote */
     background: #FBD7D2;
     border-left: 0.35em solid #F82C3B;
@@ -747,7 +748,8 @@ p.notif-post {
     font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
-    color: #444d56 !important;
+    /* color: #444d56 !important; */
+    color: #24292E !important;
     border-bottom: 1px dashed #BE7000 !important;
     margin-top: 0 !important;
     margin-bottom: 10px !important;
@@ -760,7 +762,8 @@ p.notif-post {
     margin-top: 0;
     margin-bottom: 10px;
     padding: 0.7em 0.7em;
-    color: #444d56;
+    /* color: #444d56; */
+    color: #24292E;
     /* background color quote */
     background: #BDDFF1;
     border-left: 0.35em solid #2C76F8;
@@ -771,7 +774,8 @@ p.notif-post {
     font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
-    color: #444d56 !important;
+    /* color: #444d56 !important; */
+    color: #24292E !important;
     border-bottom: 1px dashed #0B4AB9 !important;
     margin-top: 0 !important;
     margin-bottom: 10px !important;
@@ -784,7 +788,8 @@ p.notif-post {
     margin-top: 0;
     margin-bottom: 10px;
     padding: 0.7em 0.7em;
-    color: #444d56;
+    /* color: #444d56; */
+    color: #24292E;
     /* background color quote */
     background: #F3E681;
     border-left: 0.35em solid #F8A52C;
@@ -795,7 +800,8 @@ p.notif-post {
     font-family: 'Ubuntu Condensed';
     font-size: 1.5em;
     font-weight: bold;
-    color: #444d56 !important;
+    /* color: #444d56 !important; */
+    color: #24292E !important;
     border-bottom: 1px dashed #BE7000 !important;
     margin-top: 0 !important;
     margin-bottom: 10px !important;

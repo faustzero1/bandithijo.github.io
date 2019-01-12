@@ -144,9 +144,10 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   /* fill: #1b1f23; */
 }
 
-/* .markdown-body a {
-  background-color: transparent;
-} */
+.markdown-body a {
+  /* background-color: transparent; */
+  border-bottom: 1px dotted #798780;
+}
 
 .markdown-body a:active,
 .markdown-body a:hover {
@@ -443,7 +444,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body blockquote {
   padding: 0.7em 0.7em;
-  color: #444d56;
+  /* color: #444d56; */
+  color: #24292E;
   /* background color quote */
   background: #D8E7B4;
   border-left: 0.35em solid #00603C;
