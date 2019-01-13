@@ -222,6 +222,16 @@ Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini
 
 {% youtube VjPw1RP0fYc %}
 
+# Pesan Penulis
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saat ini proses BIOS <i>firmware</i> sudah menjadi lebih mudah pada sistem operasi GNU/Linux, karena sudah tedapat aplikasi yang bernama <b>fwupd</b> dengan <i>command</i> pada Terminal, <code>fwupdmgr</code>.</p>
+<p>Penjelasan lebih lanjut tentang cara penggunaan fwupd dapat dilihat pada dokumentasi Arch Wiki, <a href="https://wiki.archlinux.org/index.php/Fwupd" target="_blank">di sini</a>.</p>
+</div>
+
+
 # Referensi
 1. [https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/](https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/){:target="_blank"}
 <br>Diakses tanggal : 2018/05/16

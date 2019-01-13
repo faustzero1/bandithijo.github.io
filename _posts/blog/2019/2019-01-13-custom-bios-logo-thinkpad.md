@@ -44,7 +44,7 @@ Ini adalah langkah yang penting, agar kita dapat fleksibel untuk mengupdate dan 
 1. Masuk ke BIOS Firmware Setup (ThinkPad Setup)
 2. Pindah ke tab **Security**
 3. Pergi ke bagian **UEFI BIOS Update Option**
-4. Pada option **Secure RollBack Prevention** rubah valuenya menjadi <mark><b>Disabled</b></mark>
+4. Pada option **Secure RollBack Prevention** ubah valuenya menjadi <mark><b>Disabled</b></mark>
 
 ## Racik Bahan-bahan
 
@@ -209,7 +209,7 @@ Kira-kira seperti ini hasilnya.
 ![gambar_5](https://i.postimg.cc/C5dN6VBN/gambar-03.png)
 <p class="img-caption">Gambar 5 - Gambar kedua dengan ukuran (440x600)</p>
 
-Gambar kedua ini berukuran masih 440px dan tinggi yang saya rubah menjadi 600px. Dapat dilihat pada iliustrasi di atas. Tujuannya agar logo terlihat lebih di tengah dari screen laptop.
+Gambar kedua ini berukuran masih 440px dan tinggi yang saya ubah menjadi 600px. Dapat dilihat pada iliustrasi di atas. Tujuannya agar logo terlihat lebih di tengah dari screen laptop.
 
 Kemudian saya ulangin langkah memasukkan gambar ke dalam *bootable flash drive* seperti di atas dan melakukan proses *firmware update* seperti sebelumnya.
 
@@ -221,9 +221,9 @@ Hasilnya seperti ini.
 
 # Pesan Penulis
 
-Meskipun proses mengkustomisasi BIOS logo ini terdengar sangat "berbahaya" namun aslinya tidak. Dapat dilihat di atas prosesnya sangat mudah.
+Meskipun proses mengkustomisasi BIOS logo ini terdengar sangat "berbahaya" namun aslinya tidak seseram kedengarannya. Dapat dilihat di atas prosesnya sangat mudah.
 
-Bagian paling ***crucial*** adalah pada saat pembuatan *bootable flash drive* yang ada pada tulisan saya yang lain. Apabila pada proses tersebut tidak tepat, saya juga kurang begitu paham akan seperti apa laptop kita. Mungkin saya *bricked*.
+Bagian paling ***crucial*** adalah pada saat pembuatan *bootable flash drive* yang ada pada tulisan saya berjudul "[Update BIOS Lenovo di GNU/Linux Tanpa Menggunakan Windows]({{ site.url }}/blog/update-lenovo-bios-dari-linux){:target="_blank"}". Apabila pada proses tersebut tidak tepat, saya juga kurang begitu paham akan seperti apa laptop kita. Mungkin saja *bricked*.
 
 Meskipun demikian, apabila berhasil, ada kepuasan tersendiri karena laptop akan terasa lebih *personal* dengan *custom BIOS logo* yang kita buat sendiri.
 
