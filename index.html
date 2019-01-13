@@ -5,6 +5,7 @@
 layout: home
 ---
 
+{% comment %}
 {% if page.paginator %}
 {% assign paginator = page.paginator %}
 {% endif %}
@@ -12,3 +13,4 @@ layout: home
 {% for post in paginator.posts %}
 ...
 {% endfor %}
+{% endcomment %}

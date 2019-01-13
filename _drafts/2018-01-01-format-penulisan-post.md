@@ -46,6 +46,10 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
 </div>
 
+## SUPERSUP FOR REFERENSI
+<!-- SUPERSUP -->
+<sup>[2]({{ site.url }}/blog/custom-bios-logo-thinkpad#referensi)</sup>
+
 ## IMAGE CAPTION
 <!-- IMAGE CAPTION -->
 ![gambar_1](gambar_1.png)
