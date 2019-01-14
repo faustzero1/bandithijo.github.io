@@ -17,7 +17,7 @@ pin:
 
 # Prakata
 
-Mungkin teman-teman melihat struktur direktori home yang saya miliki nama yang hanya mengandung 3 kata.
+Mungkin teman-teman melihat struktur direktori home milik saya, yang hanya mengandung 3 huruf.
 ```
 /home/bandithijo/
  tree -d -L 1
@@ -44,7 +44,7 @@ Mungkin teman-teman melihat struktur direktori home yang saya miliki nama yang h
 ```
 Sepintas bentuk penamaan seperti di atas, hampir sama dengan penamaan pada direktori root.
 
-Saya memang membuat penamaan pada direktori home ini menjadi lebih singkat. Minimal 3 kata bahkan kalau bisa hanya 3 kata.
+Saya memang membuat penamaan pada direktori home ini menjadi lebih singkat. Minimal 3 huruf bahkan kalau bisa hanya 3 huruf.
 
 Apabila sejak awal teman-teman sudah memiliki File Manager seperti Thunar, PCManFM, Nautilus, dll. Saya rasa nama dari direktori-direktori di Home akan tertulis secara lengkap. Kemudian apabila kita coba menggantinya (me-*rename*) maka akan terbuat direktori baru dengan nama awal.
 
