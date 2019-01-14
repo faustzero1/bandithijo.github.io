@@ -54,6 +54,8 @@ Proses merubah BIOS logo ini sebenarnya hampir sama dengan proses update firmwar
 
 Untuk proses pembuatan *bootable flash drive* yang sudah berisi *firmware update* bisa disimak pada post [di sini]({{ site.url }}/blog/update-lenovo-bios-dari-linux){:target="_blank"}.
 
+Ikuti langkah-langkah yang diberikan sampai pada "**Step 4: Bakar Image ke dalam Flash Drive**" selesai. Kemudian kembali lagi ke sini, yaa.
+
 Saya akan langsung lompat pada tahap memodifikasi *bootable flash drive*.
 
 ### Mempersiapkan File Gambar
