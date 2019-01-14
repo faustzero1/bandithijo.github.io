@@ -208,7 +208,7 @@ Dari kolom **Size** saya dapat mengetahui bahwa *flash drive* saya adalah `/dev/
 
 Kemudian, kita akan membakar file `x260.img` yang sudah kita ekstrak dari ISO ke dalam *flash drive* menggunakan perintah `dd`.
 ```
-$ sudo dd if=x260.img of=/dev/sdb bs=64K
+$ sudo dd if=x260.img of=/dev/sdb bs=64k status=progress
 ```
 Kalian sesuaikan dengan nama image dan alamat dari *flash drive* yang kalian miliki.
 
