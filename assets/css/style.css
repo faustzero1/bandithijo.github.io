@@ -14,6 +14,10 @@ body {
     margin: 0;
 }
 
+pre, code {
+    color: #000;
+}
+
 /* Global ----------------------------------------------------------------- */
 .container {
     background: #FFF;
