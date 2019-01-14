@@ -1,29 +1,29 @@
 <header id="header">
-    <div class="container">
-        <div class="logo">
-            <img src="/assets/img/logo/logo_bandithijo.png" alt="logo_bandithijo">
-        </div>
+  <div class="container">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png" alt="logo_bandithijo">
+    </div>
 
-        <div class="title">
-            <h1><span class="nobr">BANDITHIJO.COM</span></h1>
-        </div>
-        <div class="description">
-            <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
-        </div>
+    <div class="title">
+      <h1><span class="nobr">BANDITHIJO.COM</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+    </div>
 
-        <nav class="nav">
-            <div class="toggle"><div class="menu"><img style="width:30px;" src="/assets/img/logo/logo_menu.png" alt="Menu"></div></div>
-            <ul>
-                <li><a href="/">Home</a></li>
-            <!-- konfignya ada di _config.yaml -->
-            {% for item in site.navigation %}
-                {% assign class = nil %}
-                {% if page.url contains item.url %}
-                    {% assign class = 'active' %}
-                {% endif %}
-                    <li><a href="{{ item.url }}" class="{{ class }}">{{ item.title }}</a></li>
-            {% endfor %}
-            </ul>
-        </nav>
-    </div><!-- header container -->
+    <nav class="nav">
+      <div class="toggle"><div class="menu"><img style="width:30px;" src="/assets/img/logo/logo_menu.png" alt="Menu"></div></div>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <!-- konfignya ada di _config.yaml -->
+        {% for item in site.navigation %}
+        {% assign class = nil %}
+        {% if page.url contains item.url %}
+        {% assign class = 'active' %}
+        {% endif %}
+        <li><a href="{{ item.url }}" class="{{ class }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div><!-- header container -->
 </header>

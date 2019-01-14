@@ -147,3 +147,5 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 [Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
 <br>
 [Full symbol references](https://www.w3schools.com/charsets/ref_utf_symbols.asp){:target="_blank"}
+
+<!-- vim: set ft=liquid conceallevel=0: -->

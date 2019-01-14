@@ -77,6 +77,13 @@ XDG_VIDEOS_DIR="$HOME/<mark>Videos</mark>"
 </pre>
 Nah, tinggal ubah nama direktori sesuai dengan yang teman-teman inginkan.
 
+Setelah itu jalankan perintah.
+```
+$ xdg-user-dirs-update
+```
+
+Kemudian jangan lupa untuk merubah <mark><b>Destination</b></mark> direktori dari semua aplikasi secara manual satu persatu. Kalau tidak, akan berantakan semuanya. Hahaha.
+
 
 # Referensi
 
