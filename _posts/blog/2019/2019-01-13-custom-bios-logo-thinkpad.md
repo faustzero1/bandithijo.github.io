@@ -19,7 +19,7 @@ pin:
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
 <p>Proses <i>firmware update</i> merupakan hal yang beresiko tinggi.</p>
-<p>Kesalahan dalam melakukan proses ini, dapat mengakibatkan laptop menjadi <i>bricked</i>.</p>
+<p>Kesalahan dalam melakukan proses ini, (mungkin) dapat mengakibatkan laptop menjadi <i>bricked</i>.</p>
 <p><i>Do with your own risk!</i></p>
 </div>
 
