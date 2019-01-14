@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Mengganti BIOS Logo ThinkPad pada GNU/Linux'
+title: 'Mengganti BIOS Logo ThinkPad pada GNU/Linux <span class="new">BARU</span>'
 date: 2019-01-13 10:59
 permalink: '/blog/:title'
 author: 'BanditHijo'
