@@ -56,6 +56,13 @@ Untuk proses pembuatan *bootable flash drive* yang sudah berisi *firmware update
 
 Ikuti langkah-langkah yang diberikan sampai pada "**Step 4: Bakar Image ke dalam Flash Drive**" selesai. Kemudian kembali lagi ke sini, yaa.
 
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>File BIOS <i>firmware</i> yang digunakan tidak harus selalu yang terbaru. Menggunakan versi yang sama dengan yang kita gunakan saat ini pun juga akan berhasil.</p>
+</div>
+
+
 Saya akan langsung lompat pada tahap memodifikasi *bootable flash drive*.
 
 ### Mempersiapkan File Gambar
