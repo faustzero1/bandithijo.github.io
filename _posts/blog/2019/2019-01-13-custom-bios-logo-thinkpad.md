@@ -48,7 +48,7 @@ Ini adalah langkah yang penting, agar kita dapat fleksibel untuk mengupdate dan 
 
 ## Racik Bahan-bahan
 
-Proses merubah BIOS logo ini sebenarnya hampir sama dengan proses update firmware BIOS yang sudah pernah saya tuliskan - [Update BIOS Lenovo di GNU/Linux Tanpa Menggunakan Windows]({{ site.url }}/blog/update-lenovo-bios-dari-linux){:target="_blank"}. Hanya ada sedikit modifikasi pada *bootable flash drive* yang sudah kita buat.
+Proses merubah BIOS logo ini sebenarnya hampir sama dengan proses update firmware BIOS yang sudah pernah saya tuliskan - [Update BIOS Lenovo di GNU/Linux Tanpa Menggunakan Windows]({{ site.url }}/blog/update-lenovo-bios-dari-linux){:target="_blank"}. Hanya ada sedikit modifikasi pada *bootable flash drive* yang sudah kita buat. Kita hanya perlu memasukkan file gambar ke dalam direktori FLASH/. Just it!
 
 ### Membuat Bootable Flash Drive
 
