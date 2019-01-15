@@ -242,6 +242,8 @@ Unified Remote ini memiliki dua versi, yaitu Free dan Full. Kalian dapat mencoba
 
 Kenali baik-baik kebutuhan kalian, agar tidak ada penyesalan diantara kita.
 
+Sedap!
+
 
 
 # Referensi
