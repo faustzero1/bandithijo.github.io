@@ -18,6 +18,10 @@ pre, code {
     color: #000;
 }
 
+pre {
+    margin-top: 10px !important;
+}
+
 /* Global ----------------------------------------------------------------- */
 .container {
     background: #FFF;
