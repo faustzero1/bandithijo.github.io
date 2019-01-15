@@ -170,6 +170,15 @@ Apabila menunjukkan *output* seperti di atas, berarti file `sdp` sudah berhasil 
     <p>Menjalankan script di atas akan memerlukan password <b>sudo</b>.</p>
     <p>Hal ini diperlukan untuk mengubah file <b>bluez.service</b> dan melakukan reload serta restart pada <b>bluetooth.service</b>.</p>
     </div><!-- PERHATIAN -->
+    <!-- PERTANYAAN -->
+    <div class="blockquote-yellow">
+    <div class="blockquote-yellow-title">Kapan saatnya kita perlu menjalankan script ini kembali sebelum menjalankan urserver ?</div>
+    <p>Tergantung dua kondisi:</p>
+    <ul style="list-style-type:disk;">
+    <li>file <code>/var/run/sdp</code>, apabila ownernya kembali menjadi milik <b>root</b> (biasanya setelah restart)</li>
+    <li>Setelah paket <code>bluez</code> update, biasanya <code>--compat</code> akan menghilang</li>
+    </ul>
+    </div><!-- PERTANYAAN -->
     </div><!-- INFORMASI -->
 
 ## Jalankan Unified Remote Server
