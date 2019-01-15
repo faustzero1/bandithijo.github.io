@@ -169,6 +169,7 @@ ready (waiting for connection or debug command)
 enter 'help' to see a list of available commands
 enter 'exit' to terminate server
 ></pre>
+Kalau server sudah berjalan seperti ini, kita biarkan saja. Karena jarang sekali kita berurusan dengan server kecuali untuk menjalankan perintah **restart**. Itupun juga bisa dilakukan di web interfacenya.
 3. Buka ip address yang diberikan dengan browser.
     <!-- IMAGE CAPTION -->
     ![gambar_1](https://i.postimg.cc/yxM1qzjK/gambar-01.png)
