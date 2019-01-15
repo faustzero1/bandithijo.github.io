@@ -67,11 +67,11 @@ Nanti akan terbuat sebuah direktori dengan nama `urserver-3.6.0.745`
 Nah, Unified Remote server sudah ada di dalam direktori `urserver-3.6.0.745` tersebut dengan nama `urserver`, namun jangan dulu dijalankan, karena kita perlu melakukan beberapa konfigurasi koneksi untuk Wifi dan Bluetooth.
 
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Distro saya ada di dalam tipe paket yang di sediakan. Sebaiknya saya pilih yang mana ?</div>
-<p>Kalau saya, tentu saja akan tetap memilih <b>Portable Archive</b>.</p>
-</div>
+    <!-- PERTANYAAN -->
+    <div class="blockquote-yellow">
+    <div class="blockquote-yellow-title">Distro saya ada di dalam tipe paket yang di sediakan. Sebaiknya saya pilih yang mana ?</div>
+    <p>Kalau saya, tentu saja akan tetap memilih <b>Portable Archive</b>.</p>
+    </div>
 
 ## Konfigurasi Koneksi
 
@@ -134,6 +134,43 @@ srw-rw---- 1 bandithijo users 0 Jan 15 00:52 /var/run/sdp
 ```
 Apabila menunjukkan *output* seperti di atas, berarti file `sdp` sudah berhasil berpindah tangan.
     Dengan begini, Unified Remote Server sudah dapat kita jalankan.
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue">
+    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <p>Ketiga langkah di atas, dapat kita sederhanakan dengan menjalankan Python script sederhana yang sudah saya buat.</p>
+    <p>Download: <a href="https://raw.githubusercontent.com/bandithijo/scriptbox/master/preconfig_urserver.py" target="_blank"><b>preconfigure_urserver.py</b></a>*</p>
+    <p style="font-size:10pt;"><i>*Download dengan menggunakan klik kanan "<b>Save Link As...</b>"</i></p>
+    <br>
+    <p>Contohnya akan seperti ini.</p>
+    <pre>
+    $ python preconfig_urserver.py '<mark>bandithijo</mark>'
+    </pre>
+    <pre>
+    [ DONE ] Adding compatibility mode to Bluez5
+    [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+    [ DONE ] User: bandithijo has owned the SDP files
+    </pre>
+    <p>Atau kalau kalian lupa memasukkan username, akan seperti di bawah ini.</p>
+    <pre>
+    $ python preconfig_urserver.py
+    </pre>
+    <pre>
+    Masukkan username kamu: <mark>bandithijo</mark>
+    &nbsp;
+    [ DONE ] Adding compatibility mode to Bluez5
+    [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+    [ DONE ] User: bandithijo has owned the SDP files
+    </pre>
+    <p>Ganti <code>bandithijo</code> dengan username kalian.</p>
+    <br>
+    <!-- PERHATIAN -->
+    <div class="blockquote-red">
+    <div class="blockquote-red-title">[ ! ] Perhatian</div>
+    <p>Menjalankan script di atas akan memerlukan password <b>sudo</b>.</p>
+    <p>Hal ini diperlukan untuk mengubah file <b>bluez.service</b> dan melakukan reload serta restart pada <b>bluetooth.service</b>.</p>
+    </div><!-- PERHATIAN -->
+    </div><!-- INFORMASI -->
 
 ## Jalankan Unified Remote Server
 
