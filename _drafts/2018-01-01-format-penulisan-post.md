@@ -88,6 +88,11 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 multi line code
 ```
 
+<!-- CODE MULTILINE -->
+{% highlight python %}
+x = ('a', 1, False)
+{% endhighlight %}
+
 ## RAW CODE MULTILINE
 <!-- LIQUID CODE MULTILINE -->
 {% raw %}
@@ -147,5 +152,6 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 [Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
 <br>
 [Full symbol references](https://www.w3schools.com/charsets/ref_utf_symbols.asp){:target="_blank"}
+
 
 <!-- vim: set ft=liquid conceallevel=0: -->
