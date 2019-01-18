@@ -132,7 +132,7 @@ $ sudo ssh -l bandithijo 10.1.41.200
 
 <!-- QUESTION -->
 <div class="blockquote-yellow">
-<h2 class="blockquote-yellow-title">Apakah nama dari private dan public key dapat kita ganti ?</h2>
+<h2 class="blockquote-yellow-title">Apakah nama private dan public key dapat kita ganti ?</h2>
 Tentu saja kita dapat mengganti nama dari file <i>private</i> dan <i>public key</i> tersebut, namun sangat direkomendasikan untuk memberikan nama yang sama diantara keduanya. Agar tetap berpasangan.. So sweet kan gaes ^_^, mereka aja berpasangan, kamu kapan ?
 </div>
 
