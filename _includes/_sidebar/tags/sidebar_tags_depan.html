@@ -1,6 +1,6 @@
 <div class="sidebar-body" style="background-color: #EBFFB4;">
   <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a></h1>
-  <div class="toc" style="margin:5px 0;">
+  <div class="toc">
     {% assign tag_list = site.tags | sort %}
     {% if tag_list.first[0] == null %}
       {% for tag in tag_list %}
@@ -12,5 +12,5 @@
       {% endfor %}
     {% endif %}
     {% assign tag_list = nil %}
-  </div><!-- margin:5px 0 -->
+  </div><!-- toc -->
 </div><!-- sidebar-body -->
