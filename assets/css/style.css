@@ -664,13 +664,26 @@ p.notif-post {
 
 .new {
     background: red;
-    border-radius: 4px;
-    padding: 2px;
+    border-radius: 3px;
+    padding: 2px 3px;
     margin-left: 2px;
     color: #FFF;
     font-size: 10px;
     font-weight: bold;
     /* animation: 1s blink infinite; */
+}
+
+.tags {
+    background: #008352;
+    border-radius: 3px;
+    padding: 2px 3px;
+    font-size: 11px;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.tags a {
+    color: #fff;
 }
 
 @keyframes blink {

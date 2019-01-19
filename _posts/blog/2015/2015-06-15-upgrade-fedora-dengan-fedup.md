@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: ['Fedora']
 pin:
 ---
 
@@ -50,7 +50,7 @@ $ sudo dnf distro-sync
 Disarankan sebelum meng-upgrade OS ke Fedora 22, anda telah menggunakan versi kernel terbaru.
 Kemudian setelah proses update selesai, silahkan restart komputer anda dan kembali ke desktop.
 
-## Install fedup 
+## Install fedup
 Buka Terminal dan ketik
 ```
 $ sudo dnf install fedup

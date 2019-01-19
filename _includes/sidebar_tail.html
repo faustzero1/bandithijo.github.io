@@ -1,19 +1,21 @@
 <aside class="sidebar" style="margin-top:-25px;">
     {% if page.permalink == '/blog/' %}
+        {% include _sidebar/tags/sidebar_tags_depan.html %}
         {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
         {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
     {% elsif page.permalink == '/blog/:title' %}
         {% include _sidebar/sidebar_blog_terbaru.html %}
+        {% include _sidebar/tags/sidebar_tags_depan.html %}
         {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
     {% elsif page.permalink == '/vlog/' %}
+        {% include _sidebar/tags/sidebar_tags_depan.html %}
         {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
         {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
     {% elsif page.permalink == '/vlog/:title' %}
         {% include _sidebar/sidebar_vlog_terbaru.html %}
-        {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
         {% include _sidebar/sidebar_rss_feed.html %}
     {% elsif page.permalink == '/groups/' %}
         {% include _sidebar/groups/sidebar_groups_telegram.html %}

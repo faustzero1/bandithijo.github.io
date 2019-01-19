@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: ['OSX', 'Tools']
 pin:
 ---
 
@@ -81,7 +81,7 @@ Bagi pengguna Ubuntu & Windows, tutorial pada artikel ini bisa digunakan untuk m
 7. Jadi dengan kata lain kita bisa men-nahan dahulu untuk mendownload dan mengumpulkan file-file link lalu mendownload setelah semua file yang kita inginkan terkumpul.
 
 # Error No Connection !
-1. Banyak faktor, bisa jadi server situsnya sedang trouble, atau 
+1. Banyak faktor, bisa jadi server situsnya sedang trouble, atau
 
 2. Yang paling menyebalkan terjadi Error No Connection kalau internet kita "LEMODDD" seperti punya saya.
 

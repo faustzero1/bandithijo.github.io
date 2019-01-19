@@ -46,8 +46,12 @@
     {% elsif page.permalink == '/contact/' %}
         {% include _sidebar/sidebar_blog.html %}
     {% elsif page.permalink == '/category/' %}
-        {% include _sidebar/sidebar_category.html %}
         {% include _sidebar/sidebar_search.html %}
         {% include _sidebar/sidebar_outdated.html %}
+        {% include _sidebar/category/sidebar_category.html %}
+    {% elsif page.permalink == '/tags/' %}
+        {% include _sidebar/sidebar_search.html %}
+        {% include _sidebar/sidebar_outdated.html %}
+        {% include _sidebar/tags/sidebar_tags.html %}
     {% endif %}
 </aside>

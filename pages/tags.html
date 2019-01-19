@@ -1,0 +1,28 @@
+---
+layout: 'page'
+title: 'Daftar: Tags'
+permalink: '/tags/'
+---
+
+<div class="post-body">
+
+  {% assign tag_list = site.tags | sort %}
+  {% for tag in tag_list %}
+    <div style="clear:both;">
+      <img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_tags.svg">
+      <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;text-transform:capitalize;"id="{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">&nbsp;{{ tag[0] | camelcase }}</h3>
+    </div>
+    {% assign pages_list = tag[1] %}
+    {% for post in pages_list %}
+      {% if post.title != null %}
+        {% if group == null or group == post.group %}
+          <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+          <p class="post-details-index">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</p>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% assign pages_list = nil %}
+    {% assign group = nil %}
+  {% endfor %}
+
+</div><!-- post-body -->

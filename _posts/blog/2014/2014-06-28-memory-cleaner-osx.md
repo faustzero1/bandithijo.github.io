@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: false
 category: 'blog'
-tags:
+tags: ['OSX']
 pin:
 ---
 

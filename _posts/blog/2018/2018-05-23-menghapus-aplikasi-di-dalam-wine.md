@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: ['Wine', 'Tips']
 pin:
 ---
 

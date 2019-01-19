@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags:
+tags: ['Vim', 'Security']
 pin:
 ---
 
@@ -18,4 +18,4 @@ pin:
 
 # Deskripsi
 
-Bagaimana cara menyimpan account username & password kita dengan cara yang sedikit sakit, eh sakti 
+Bagaimana cara menyimpan account username & password kita dengan cara yang sedikit sakit, eh sakti

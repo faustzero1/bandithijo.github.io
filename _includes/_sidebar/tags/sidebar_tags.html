@@ -1,0 +1,14 @@
+<div class="sidebar-body" style="background-color: #EBFFB4;">
+    <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">Tags</h1>
+    {% assign tag_list = site.tags | sort %}
+    {% if tag_list.first[0] == null %}
+        {% for tag in tag_list %}
+        <p style="text-transform:capitalize;">+&nbsp;<a href="/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag | camelcase }} ({{ site.tags.size }})</a></p>
+        {% endfor %}
+    {% else %}
+        {% for tag in tag_list %}
+        <p style="text-transform:capitalize;">+&nbsp;<a href="/tags/#{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag[0] | camelcase }} ({{ tag[1].size }})</a></p>
+        {% endfor %}
+    {% endif %}
+    {% assign tag_list = nil %}
+</div>

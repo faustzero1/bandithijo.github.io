@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags:
+tags: ['Rails', 'Arch Linux', 'Tips']
 pin:
 ---
 

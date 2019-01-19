@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: ['Fedora']
 pin:
 ---
 
@@ -239,7 +239,7 @@ $ su -c 'yum install gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gs
 ```
 
 # Instal Paket-paket Tambahan
-Dalam hal ini, setiap pengguna memiliki kebutuhan yang berbeda-beda. Ada beberapa hal yang mungkin terlewatkan untuk pengguna yang masih awam. Seperti, bagaimana cara membuka file ber-ekstensi .rar. 
+Dalam hal ini, setiap pengguna memiliki kebutuhan yang berbeda-beda. Ada beberapa hal yang mungkin terlewatkan untuk pengguna yang masih awam. Seperti, bagaimana cara membuka file ber-ekstensi .rar.
 
 Caranya, buka Terminal dan copy paste perintah di bawah ini.
 ```

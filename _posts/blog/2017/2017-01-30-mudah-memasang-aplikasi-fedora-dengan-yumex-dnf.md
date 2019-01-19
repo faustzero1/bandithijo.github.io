@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags:
+tags: ['Fedora', 'Tools', 'Tips']
 pin:
 ---
 
@@ -37,7 +37,7 @@ Agar lebih mudah dalam menggunakan YumEx-DNF maka saya akan mengenalkan anatomi 
 
 <p class="img-caption">Gambar 1.0 – YumEx-DNF</p>
 
-Keterangan Gambar 1.0 : 
+Keterangan Gambar 1.0 :
 1. Tab Group Window
 2. Tombol Search (Ctrl+F)
 3. Tombol Apply Pending Actions
