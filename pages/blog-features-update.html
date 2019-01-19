@@ -6,13 +6,13 @@ permalink: '/blog-features-update/'
 ---
 
 <div class="log-page">
-<ul>
-{% for log in site.data.blog-features-update %}
-{% if log.url == nill %}
-    <li><span style="color:#00653F;">{{ log.tanggal }}</span>: <a style="color:#000;border-bottom:none;" href="" onclick="return false;">{{ log.detail }}</a></p>
-{% else %}
-    <li><span style="color:#00653F;">{{ log.tanggal }}</span>: <a style="color:#000;border-bottom:none;" href="{{ log.url }}">{{ log.detail }}</a></p>
-{% endif %}
-{% endfor %}
-</ul>
+  <ul>
+    {% for log in site.data.blog-features-update %}
+      {% if log.url == nill %}
+        <li><span style="color:#00653F;">{{ log.tanggal }}</span>: <a style="color:#000;border-bottom:none;" href="" onclick="return false;">{{ log.detail }}</a></p>
+      {% else %}
+        <li><span style="color:#00653F;">{{ log.tanggal }}</span>: <a style="color:#000;border-bottom:none;" href="{{ log.url }}">{{ log.detail }}</a></p>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </div>

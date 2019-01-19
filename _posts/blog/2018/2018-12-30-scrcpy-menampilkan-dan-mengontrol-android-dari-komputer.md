@@ -178,19 +178,19 @@ $ scrcpy
 
  | Action                                 |   Shortcut                    |
  | -------------------------------------- |:----------------------------  |
- | switch fullscreen mode                 | `Ctrl`+`f`                    |
- | resize window to 1:1 (pixel-perfect)   | `Ctrl`+`g`                    |
- | resize window to remove black borders  | `Ctrl`+`x` \| _Double-click¹_ |
- | click on `HOME`                        | `Ctrl`+`h` \| _Middle-click_  |
- | click on `BACK`                        | `Ctrl`+`b` \| _Right-click²_  |
- | click on `APP_SWITCH`                  | `Ctrl`+`s`                    |
- | click on `MENU`                        | `Ctrl`+`m`                    |
- | click on `VOLUME_UP`                   | `Ctrl`+`↑` _(up)_   (`Cmd`+`↑` on MacOS) |
- | click on `VOLUME_DOWN`                 | `Ctrl`+`↓` _(down)_ (`Cmd`+`↓` on MacOS) |
- | click on `POWER`                       | `Ctrl`+`p`                    |
+ | switch fullscreen mode                 | <kbd>Ctrl</kbd>+<kbd>f</kbd>                    |
+ | resize window to 1:1 (pixel-perfect)   | <kbd>Ctrl</kbd>+<kbd>g</kbd>                    |
+ | resize window to remove black borders  | <kbd>Ctrl</kbd>+<kbd>x</kbd> \| _Double-click¹_ |
+ | click on <kbd>HOME</kbd>               | <kbd>Ctrl</kbd>+<kbd>h</kbd> \| _Middle-click_  |
+ | click on <kbd>BACK</kbd>               | <kbd>Ctrl</kbd>+<kbd>b</kbd> \| _Right-click²_  |
+ | click on <kbd>APP_SWITCH</kbd>         | <kbd>Ctrl</kbd>+<kbd>s</kbd>                    |
+ | click on <kbd>MENU</kbd>               | <kbd>Ctrl</kbd>+<kbd>m</kbd>                    |
+ | click on <kbd>VOLUME_UP</kbd>          | <kbd>Ctrl</kbd>+<kbd>↑</kbd>  (<kbd>Cmd</kbd>+<kbd>↑</kbd> on MacOS) |
+ | click on <kbd>VOLUME_DOWN</kbd>        | <kbd>Ctrl</kbd>+<kbd>↓</kbd>  (<kbd>Cmd</kbd>+<kbd>↓</kbd> on MacOS) |
+ | click on <kbd>POWER</kbd>              | <kbd>Ctrl</kbd>+<kbd>p</kbd>                    |
  | turn screen on                         | _Right-click²_                |
- | paste computer clipboard to device     | `Ctrl`+`v`                    |
- | enable/disable FPS counter (on stdout) | `Ctrl`+`i`                    |
+ | paste computer clipboard to device     | <kbd>Ctrl</kbd>+<kbd>v</kbd>                    |
+ | enable/disable FPS counter (on stdout) | <kbd>Ctrl</kbd>+<kbd>i</kbd>                    |
 
 *¹Double-click on black borders to remove them.*
 

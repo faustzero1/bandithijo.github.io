@@ -8,7 +8,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   /* -ms-text-size-adjust: 100%; */
   /* -webkit-text-size-adjust: 100%; */
   line-height: 1.5;
-  color: #24292e;
+  /* color: #24292e; */
+  color: #000;
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -30,7 +31,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .pl-smi,
 .markdown-body .pl-s .pl-s1 {
-  color: #24292e;
+  /* color: #24292e; */
+  color: #000;
 }
 
 .markdown-body .pl-ent {
@@ -92,12 +94,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .pl-mi {
   font-style: italic;
-  color: #24292e;
+  /* color: #24292e; */
+  color: #000;
 }
 
 .markdown-body .pl-mb {
   font-weight: bold;
-  color: #24292e;
+  /* color: #24292e; */
+  color: #000;
 }
 
 .markdown-body .pl-md {
@@ -445,7 +449,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body blockquote {
   padding: 0.7em 0.7em;
   /* color: #444d56; */
-  color: #24292E;
+  /* color: #24292E; */
+  color: #000;
   /* background color quote */
   background: #D8E7B4;
   border-left: 0.35em solid #00603C;
@@ -570,7 +575,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body li {
   word-wrap: break-all;
-  color: #24292e;
+  /* color: #24292e; */
+  color: #000;
   text-align: justify;
 }
 
