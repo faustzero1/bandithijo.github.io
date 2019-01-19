@@ -6,23 +6,23 @@ permalink: '/category/'
 
 <div class="post-body">
 
-{% assign category_list = site.categories %}
-{% for category in category_list %}
-  <div style="clear:both;">
-    <img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_category.svg">
-    <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;text-transform:capitalize;"id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">&nbsp;{{ category[0] | camelcase }}</h3>
-  </div>
+  {% assign category_list = site.categories %}
+  {% for category in category_list %}
+    <div style="clear:both;">
+      <img class="post-header-img" style="margin-top:10px;" src="/assets/img/logo/logo_category.svg">
+      <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;text-transform:capitalize;"id="{{ category[0] | downcase | url_escape | strip | replace: ' ', '-' }}">&nbsp;{{ category[0] | camelcase }}</h3>
+    </div>
     {% assign pages_list = category[1] %}
     {% for post in pages_list %}
       {% if post.title != null %}
-      {% if group == null or group == post.group %}
-      <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
-      <p class="post-details-index">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</p>
-      {% endif %}
+        {% if group == null or group == post.group %}
+          <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+          <p class="post-details-index">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</p>
+        {% endif %}
       {% endif %}
     {% endfor %}
     {% assign pages_list = nil %}
     {% assign group = nil %}
-{% endfor %}
+  {% endfor %}
 
 </div><!-- post-body -->
