@@ -1012,8 +1012,7 @@ ul.chkbox li.chkbox-checked:before {
 
 /* BREADCRUMBS ------------------------------------------------------------ */
 .breadcrumbs {
-    margin-top: 20px;
-    margin-bottom: -10px;
+    margin-top: 10px;
     font-size: 11px;
 }
 
