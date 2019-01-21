@@ -1,9 +1,9 @@
 # Jekyll - Easy Youtube Embed
-#
 # Katie Harron - https://github.com/pibby
 #
 #   Input:
 #     {% youtube Al9FOtZcadQ %}
+#
 #   Output:
 #   <div class="video">
 #     <figure>
