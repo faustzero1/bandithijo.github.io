@@ -501,6 +501,13 @@ img.footer-img-3 {
     justify-content: center;
 }
 
+.post-nav-peta-angkot {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 a.btn-blue-l {
     color: white;
     border-bottom: none;
@@ -1367,10 +1374,11 @@ ul.chkbox li.chkbox-checked:before {
     }
 
     .post-nav {
-        margin-top: 30px;
         display: flex;
-        align-items: center;
-        justify-content: center;
+    }
+
+    .post-nav-peta-angkot {
+        display: grid;
     }
 
 
