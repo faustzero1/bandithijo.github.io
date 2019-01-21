@@ -1368,7 +1368,7 @@ ul.chkbox li.chkbox-checked:before {
 
     .post-nav {
         margin-top: 30px;
-        display: grid;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
