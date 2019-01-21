@@ -53,4 +53,4 @@ onRevokeChoice: function() {
   */
   //end of cookie consent callback hook
 
-  })});
+})});

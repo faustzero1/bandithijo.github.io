@@ -290,8 +290,6 @@ Kenali baik-baik kebutuhan kalian, agar tidak ada penyesalan diantara kita.
 
 Sedap!
 
-
-
 # Referensi
 
 1. [unifiedremote.com/tutorials](https://www.unifiedremote.com/tutorials){:target="_blank"}
