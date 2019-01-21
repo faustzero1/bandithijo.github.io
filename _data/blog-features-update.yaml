@@ -6,6 +6,11 @@
 - tanggal: '19/01/21'
   url:
   detail: |
+      Menambahkan breadcrumbs pada halaman post
+
+- tanggal: '19/01/21'
+  url:
+  detail: |
       Menambahkan 'lazyloading' pada semua elemen gambar di halaman post
 
 - tanggal: '19/01/19'

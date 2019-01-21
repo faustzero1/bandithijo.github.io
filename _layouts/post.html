@@ -3,49 +3,50 @@ layout: baseof
 ---
 
 <section id="main">
-    <div class="container">
-        <div class="container-edge-border">
+  <div class="container">
+    <div class="container-edge-border">
 
-            {% include sidebar_head.html %}
+      {% include sidebar_head.html %}
 
-            <article class="post">
-                <div class="post-body">
-                    <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
-                    <h6 class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }} | UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</h6>
-                    <div class="markdown-body highlight">
-                        <p>{{ content }}</p>
+      <article class="post">
+        <div class="post-body">
+          <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+          <h6 class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }} | UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</h6>
+          {% include breadcrumbs.html %}
+          <div class="markdown-body highlight">
+            <p>{{ content }}</p>
 
-                    <!-- Penulis -->
-                    {% if page.category == 'blog'
-                       or page.category == 'vlog'
-                       or page.category == 'arch'
-                       or page.category == 'python' %}
-                        <div style="text-align:center; margin:0 0 10px 0;"></div>
-                        {% include penulis.html %}
-                    {% endif %}
+            <!-- Penulis -->
+            {% if page.category == 'blog'
+              or page.category == 'vlog'
+              or page.category == 'arch'
+              or page.category == 'python' %}
+              <div style="text-align:center; margin:0 0 10px 0;"></div>
+              {% include penulis.html %}
+            {% endif %}
 
-                    <!-- License -->
-                    {% if page.category == 'blog'
-                       or page.category == 'vlog' %}
-                        <div style="text-align:center; margin:0 0 10px 0;"></div>
-                        {% if page.license %}
-                            {% include license.html %}
-                        {% endif %}
-                    {% endif %}
+            <!-- License -->
+            {% if page.category == 'blog'
+              or page.category == 'vlog' %}
+              <div style="text-align:center; margin:0 0 10px 0;"></div>
+              {% if page.license %}
+                {% include license.html %}
+              {% endif %}
+            {% endif %}
 
-                    </div><!-- markdown-body -->
+          </div><!-- markdown-body -->
 
-                    <!-- Disqus -->
-                    <div style="text-align:center; margin:0 0 50px 0;"></div>
-                    {% if jekyll.environment == 'production' and page.comments %}
-                        {% include disqus.html %}
-                    {% endif %}
-                    <br>
-                </div>
-            </article>
+          <!-- Disqus -->
+          <div style="text-align:center; margin:0 0 50px 0;"></div>
+          {% if jekyll.environment == 'production' and page.comments %}
+            {% include disqus.html %}
+          {% endif %}
+          <br>
+        </div>
+      </article>
 
-            {% include sidebar_tail.html %}
+      {% include sidebar_tail.html %}
 
-        </div><!-- container-edge-border -->
-    </div><!-- main container -->
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
 </section><!-- main -->
