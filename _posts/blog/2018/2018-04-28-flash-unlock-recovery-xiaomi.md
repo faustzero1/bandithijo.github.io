@@ -78,7 +78,7 @@ Kita perlu menurunkan versi ROM MIUI atau memasang MIUI ver. 6 ke dalam ROM *sma
 
 Untuk melakukan *flashing* pada ROM *smartphone* pada sistem operasi Windows, kita menggunakan MiFlash atau MiPhone2015 yang terlebih dahulu harus kita pasang di sistem kita.
 
-![gambar1](https://s20.postimg.cc/4beeipcv1/gambar_01.jpg)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/4beeipcv1/gambar_01.jpg"}
 <p class="img-caption">Gambar 1 - MiFlash 2015 Windows</p>
 
 Sejujurnya, proses *flashing* menggunakan aplikasi ini lebih ribet, karena kita harus memasang driver Qualcom dan berpindah ke mode EDL (*Emergency Download Mode*) agar kita mendapatkan akses level tertinggi dari sistem. Untuk masuk ke dalam mode EDL seingat saya menggunakan perintah `$ sudo fastboot oem edl`.
@@ -156,7 +156,7 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 
 3. Buat *smartphone* kamu dalam mode **Fastboot** dengan menekan kombinasi tombol. Tekan dan tahan <kbd>Volume Down</kbd> + <kbd>Power</kbd> secara berurutan.
 
-    ![gambar2](https://s20.postimg.cc/sbu6t0nfx/gambar_02.png)
+    ![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png"}
     <p class="img-caption">Gambar 2 - Mode Fastboot</p>
     Setelah *smartphone* kita sudah dalam mode *fastboot*, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.
 
@@ -213,15 +213,14 @@ Prosesnya simple saja, ndak rumit.
     ```
     $ sudo fastboot oem device-info
     ```
-    ```
+    <pre>
     ...
     (bootloader) 	Device tampered: false
-    (bootloader) 	Device unlocked: false
+    (bootloader) 	<mark>Device unlocked: false</mark>
     (bootloader) 	Charger screen enabled: false
     (bootloader) 	Display panel:
     OKAY [  0.060s]
-    finished. total time: 0.060s
-    ```
+    finished. total time: 0.060s</pre>
     Apabila **Device unlocked: false**, lakukan perintah di bawah untuk membuatnya menjadi **true**.
     ```
     $ sudo fastboot oem unlock
@@ -230,15 +229,14 @@ Prosesnya simple saja, ndak rumit.
     ```
     $ sudo fastboot oem device-info
     ```
-    ```
+    <pre>
     ...
     (bootloader) 	Device tampered: false
-    (bootloader) 	Device unlocked: true
+    (bootloader) 	<mark>Device unlocked: true</mark>
     (bootloader) 	Charger screen enabled: false
     (bootloader) 	Display panel:
     OKAY [  0.060s]
-    finished. total time: 0.060s
-    ```
+    finished. total time: 0.060s</pre>
     Apabila **Device unlocked:** sudah menjadi **true**, maka kita dapat memasangkan **Custom Recovery**.
 
 <br>
@@ -285,7 +283,7 @@ Proses instalasinya sangat mudah.
     ```
     Tunggu beberapa detik, sampai *smartphone* kita akan *reboot* dan masuk ke dalam mode **Recovery**.
 
-    ![gambar3](https://s20.postimg.cc/kgjnegtbh/gambar_03.png)
+    ![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png"}
     <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
 
     Cara lain untuk masuk ke dalam mode **Recovery** dengan menggunakan kombinasi tombol.
@@ -299,7 +297,7 @@ Proses instalasinya sangat mudah.
 
 Kita melakukan instalasi *custom* ROM dengan bantuan TWRP. Untuk itu kita perlu memasukkan semua bahan-bahan yang akan kita pasang ke dalam *internal memory* dengan bantuan **File Manager**. Dalam hal ini saya menggunakan **Thunar** atau **PCMANFM**.
 
-![gambar4](https://s20.postimg.cc/fzrafmmrh/gambar_04.png)
+![gambar4](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/fzrafmmrh/gambar_04.png"}
 <p class="img-caption">Gambar 4 - Bahan-bahan yang diperlukan</p>
 
 Ini adalah bahan-bahan untuk memasang sistem operasi **LineageOS** beserta **OpenGAPS** (*Google Apps packages*) arm64 - 7.1 - nano. Saya juga menambahkan **SuperSU** untuk mendapatkan akses root. Apabila teman-teman tidak ingin menggunakan root, **SuperSU** tidak perlu ikut diinstal.
@@ -314,11 +312,11 @@ Download semua bahan-bahan yang diperlukan. Sesuaikan dengan kebutuhan dan tipe 
 
 Selanjutnya, masukkan ke dalam *internal memory* *smartphone* XiaoMi kita. Letakkan saja di luar, agar lebih mudah di akses dari TWRP. Untuk melihat file-file tersebut, masuk ke dalam menu **Install**.
 
-![gambar6](https://s20.postimg.cc/8eo9k7wwt/gambar_06.png)
+![gambar6](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/8eo9k7wwt/gambar_06.png"}
 
 Hasilnya akan seperti di bawah.
 
-![gambar5](https://s20.postimg.cc/4iaxoc6t9/gambar_05.png)
+![gambar5](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/4iaxoc6t9/gambar_05.png"}
 <p class="img-caption">Gambar 5 - Bahan-bahan yang sudah dimasukkan</p>
 
 ## Instalasi Custom ROM
@@ -331,17 +329,17 @@ Masih pada menu **Install**, pilih file **.zip** secara berurutan :
 
 Untuk menambahkan lebih dari 1 **.zip**, pilih **Add more Zips**.
 
-![gambar7](https://s20.postimg.cc/nne6y7o31/gambar_07.png)
+![gambar7](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/nne6y7o31/gambar_07.png"}
 
 Lakukan terus menerus sampai keempat semua bahan yang diperlukan masuk ke dalam daftar **queued** instalasi.
 
 Kemudian lakukan eksekusi, dengan menggeser tombol biru yang ada di paling bawah.
 
-![gambar8](https://s20.postimg.cc/zds4f31al/gambar_08.png)
+![gambar8](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/zds4f31al/gambar_08.png"}
 
 Proses instalasi akan seperti di bawah ini.
 
-![gambar9](https://s20.postimg.cc/c28m47x4d/gambar_09.png)
+![gambar9](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/c28m47x4d/gambar_09.png"}
 
 Tunggu sampai proses instalasi dari semua file selesai di eksekusi.
 
@@ -360,13 +358,13 @@ Saya rasa cukup seperti ini saja proses *flash*, *unlock bootloader*, *install c
 
 # Referensi
 
-1. [http://en.miui.com/thread-285121-1-1.html](http://en.miui.com/thread-285121-1-1.html){:target="_blank"}
+1. [en.miui.com/thread-285121-1-1.html](http://en.miui.com/thread-285121-1-1.html){:target="_blank"}
 <br>Diakses tanggal: 2018/04/28
 
-2. [https://forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18](https://forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18){:target="_blank"}
+2. [forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18](https://forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18){:target="_blank"}
 <br>Diakses tanggal: 2018/04/28
 
-3. [https://wiki.lineageos.org/devices/libra/install](https://wiki.lineageos.org/devices/libra/install){:target="_blank"}
+3. [wiki.lineageos.org/devices/libra/install](https://wiki.lineageos.org/devices/libra/install){:target="_blank"}
 <br>Diakses tanggal: 2018/04/28
 
 

@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Arch Linux', 'Network']
+tags: ['Arch Linux', 'Network', 'Tips']
 pin:
 ---
 
@@ -31,7 +31,7 @@ Meskipun proses instalasi Cisco Packet Tracer 7.1.1 ini tidak biasa, namun terny
 
     Kita perlu mendownload “_snapshot_”, _snapshot_ ini berisi bahan-bahan untuk proses instalasi, di dalamnya sudah termasuk PKGBUILD, semacam resep untuk meracik bahan-bahan yang tersedia. Hehe
 
-    _Download snapshot_ dari Cisco Packet Tracer 7.1.1 yang tersedia di AUR pada tautan ini [[Download Snapshot](https://aur.archlinux.org/cgit/aur.git/snapshot/packettracer.tar.gz){:target="_blank"}].
+    _Download snapshot_ dari Cisco Packet Tracer 7.1.1 yang tersedia di AUR pada tautan ini >> [Download Snapshot](https://aur.archlinux.org/cgit/aur.git/snapshot/packettracer.tar.gz){:target="_blank"}.
 
     Nanti akan terdownload satu buah file bernama `packettracer.tar.gz`.
 
@@ -50,13 +50,15 @@ Meskipun proses instalasi Cisco Packet Tracer 7.1.1 ini tidak biasa, namun terny
 
     <div class="blockquote-red">
     <div class="blockquote-red-title">[ ! ] Perhatian</div>
-    Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad. Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a>
+    <p>Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad.</p>
+    <p>Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a></p>
     </div>
 
     <div class="blockquote-blue">
     <div class="blockquote-blue-title">[ i ] Informasi</div>
     <!-- <h2 style="color: #444d56;border&#45;bottom: 1px dashed #BE7000;margin&#45;top:0;margin&#45;bottom:10px;padding&#45;bottom:10px;">[ i ] Informasi</h2> -->
-    Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html" target="_blank"><b>Cara Mendaftar Akun Netacad</b></a>
+    <p>Kabar gembira!</p>
+    <p>Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html" target="_blank"><b>Cara Mendaftar Akun Netacad</b></a></p>
     </div>
 
     Setelah Cisco Packet Tracer 7.1.1 selesai didownload, jangan lupa masukkan ke dalam direktori packettracer (direktori hasil ekstrak _snapshot_ packettracer.tar.gz)
@@ -91,9 +93,9 @@ Proses upgrade 7.1.1 ke 7.2 tidak sempat di dokumentasikan. Sebagai gantinya pad
 {% youtube Soox7yWWRqo %}
 
 # Referensi
-1. [https://aur.archlinux.org/packages/packettracer](https://aur.archlinux.org/packages/packettracer){:target="_blank"}
-<br>Diakses tanggal : 2018/01/19
-2. [https://www.netacad.com/courses/packet-tracer-download](https://www.netacad.com/courses/packet-tracer-download/){:target="_blank"}
-<br>Diakses tanggal : 2018/01/19
-3. [https://ngonfig.net/akun-netacad.html](https://ngonfig.net/akun-netacad.html){:target="_blank"}
-<br>Diakses tanggal : 2018/08/20
+1. [aur.archlinux.org/packages/packettracer](https://aur.archlinux.org/packages/packettracer){:target="_blank"}
+<br>Diakses tanggal: 2018/01/19
+2. [netacad.com/courses/packet-tracer-download](https://www.netacad.com/courses/packet-tracer-download/){:target="_blank"}
+<br>Diakses tanggal: 2018/01/19
+3. [ngonfig.net/akun-netacad.html](https://ngonfig.net/akun-netacad.html){:target="_blank"}
+<br>Diakses tanggal: 2018/08/20

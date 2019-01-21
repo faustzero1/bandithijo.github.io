@@ -5,7 +5,7 @@ author: 'BanditHijo'
 permalink: '/contact/'
 ---
 
-<img class="post-body-img"  src="/assets/img/banner/about.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank.png" data-echo="/assets/img/banner/about.png" alt="banner">
 
 Pergunakan form yang telah saya sediakan di bawah untuk dapat menghubungi saya secara langsung via email.
 

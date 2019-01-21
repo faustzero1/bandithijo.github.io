@@ -184,7 +184,7 @@ Gedit adalah aplikasi texteditor yang secara default sudah terinstal pada Fedora
 ```
 rw,force,x-gvfs-show,noauto
 ```
-![gambar1](https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png"}
 Kemudian klik tombol OK. Sekarang anda bisa mencoba dengan meng-klik Macintosh HD pada file manager Nautilus pada aplikasi Files, kemudian anda akan diminta memasukkan password username anda.
 13. Kemudian check apakah anda dapat membuat folder baru, me-rename, men-delete, dan meng-copy pada direktori `/User/namauseranda/Desktop/`.
 
@@ -260,10 +260,10 @@ $ su -c "curl https://satya164.github.io/fedy/fedy-installer -o fedy-installer &
 ```
 Saya merekomendasikan untuk menginstal aplikasi dan paket-paket yang anda inginkan di Fedy satu-persatu.
 
-# Daftar Pustaka
-1. [http://www.denniskanbier.nl/blog/fedora/fedora-20-on-a-macbook-82/](http://www.denniskanbier.nl/blog/fedora/fedora-20-on-a-macbook-82/){:target="_blank"}
-2. [http://id.fedoracommunity.org/2013/12/instal-fedora.html](http://id.fedoracommunity.org/2013/12/instal-fedora.html){:target="_blank"}
-3. [http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin){:target="_blank"}
-4. [http://forums.fedoraforum.org/showpost.php?p=1686425&postcount=3](http://forums.fedoraforum.org/showpost.php?p=1686425&postcount=3){:target="_blank"}
-5. [http://satya164.github.io/fedy/](http://satya164.github.io/fedy/){:target="_blank"}
-6. [http://techblog.tthu.net/2015/01/apple-trackpadtouchpad-sensitivity-under-linux/#more-7](http://techblog.tthu.net/2015/01/apple-trackpadtouchpad-sensitivity-under-linux/#more-7){:target="_blank"}
+# Referensi
+1. [www.denniskanbier.nl/blog/fedora/fedora-20-on-a-macbook-82/](http://www.denniskanbier.nl/blog/fedora/fedora-20-on-a-macbook-82/){:target="_blank"}
+2. [id.fedoracommunity.org/2013/12/instal-fedora.html](http://id.fedoracommunity.org/2013/12/instal-fedora.html){:target="_blank"}
+3. [askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin){:target="_blank"}
+4. [forums.fedoraforum.org/showpost.php?p=1686425&postcount=3](http://forums.fedoraforum.org/showpost.php?p=1686425&postcount=3){:target="_blank"}
+5. [satya164.github.io/fedy/](http://satya164.github.io/fedy/){:target="_blank"}
+6. [techblog.tthu.net/2015/01/apple-trackpadtouchpad-sensitivity-under-linux/#more-7](http://techblog.tthu.net/2015/01/apple-trackpadtouchpad-sensitivity-under-linux/#more-7){:target="_blank"}

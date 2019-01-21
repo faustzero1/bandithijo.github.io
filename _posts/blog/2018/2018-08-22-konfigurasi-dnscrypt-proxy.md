@@ -77,11 +77,10 @@ Cek status socket, apakah sudah *active (running)* atau *inactive*.
 ```
 $ sudo systemctl status dnscrypt-proxy.socket
 ```
-Apabila terlihat status sudah **active (running)**, artinya service sudah berjalan dengan baik.
-    ```
+    <pre>
     ● dnscrypt-proxy.socket - DNSCrypt-proxy socket
     Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.socket; enabled; vendor preset: disabled)
-    Active: active (running) since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
+    Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
     Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
     Listen: 127.0.0.1:53 (Stream)
             127.0.0.1:53 (Datagram)
@@ -91,8 +90,8 @@ Apabila terlihat status sudah **active (running)**, artinya service sudah berjal
 
     Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_DEFER_ACCEPT failed: Protocol not available
     Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_NODELAY failed: Protocol not available
-    Aug 22 09:12:01 BanditHijo-X260 systemd[1]: Listening on DNSCrypt-proxy socket.
-    ```
+    Aug 22 09:12:01 BanditHijo-X260 systemd[1]: Listening on DNSCrypt-proxy socket.</pre>
+Apabila terlihat status sudah **active (running)**, artinya service sudah berjalan dengan baik.
 
 ## Konfigurasi resolv.conf
 Mengapa kita perlu mengkonfigurasi file `/etc/resolv.conf` ?
@@ -161,7 +160,7 @@ PING internetpositif.uzone.id (36.86.63.185) 56(84) bytes of data.
 5 packets transmitted, 5 received, 0% packet loss, time 9ms
 rtt min/avg/max/mdev = 29.596/30.352/31.551/0.755 ms
 ```
-Sekarang buka browser *favorite* kalian, dan buka halaman [https://www.reddit.com](https://www.reddit.com){:target="_blank"}.
+Sekarang buka browser *favorite* kalian, dan buka halaman [www.reddit.com](https://www.reddit.com){:target="_blank"}.
 
 # Kesimpulan
 Yang dibutuhkan untuk dapat mennggunakan `dnscrypt-proxy` adalah :
@@ -170,15 +169,15 @@ Yang dibutuhkan untuk dapat mennggunakan `dnscrypt-proxy` adalah :
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/DNSCrypt](https://wiki.archlinux.org/index.php/DNSCrypt){:target="_blank"}
+1. [wiki.archlinux.org/index.php/DNSCrypt](https://wiki.archlinux.org/index.php/DNSCrypt){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
-2. [https://wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head](https://wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head){:target="_blank"}
+2. [wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head](https://wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
-3. [https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux](https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux){:target="_blank"}
+3. [superuser.com/questions/442096/change-default-dns-server-in-arch-linux](https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
-4. [https://github.com/jedisct1/dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy){:target="_blank"}
+4. [github.com/jedisct1/dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 

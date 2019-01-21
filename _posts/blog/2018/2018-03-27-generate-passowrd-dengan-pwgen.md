@@ -148,8 +148,8 @@ ip0|bE+&\S`-XvA fv8eRE>@.BVd/v) 09TFUyqyFnHqZH/ Y>`u*O^2WfHd"[7 XPus5[&mEb0y3Oz
 Kemudian, saya akan pilih satu dari 100 _random password_ yang sudah berhasil di _generate_. Setelah itu saya akan simpan pada alat yang saya khususkan untuk menyimpan _password_. Untuk pembahasan alat apa yang saya gunakan untuk menyimpan _password_ ([_Password Manager_](https://wiki.archlinux.org/index.php/List_of_applications/Security#Password_managers){:target="_blank"}) akan saya bahas pada dokumentasi yang lain.
 
 # Referensi
-1. [https://support.google.com/accounts/answer/32040?hl=en](https://support.google.com/accounts/answer/32040?hl=en){:target="_blank"}
+1. [support.google.com/accounts/answer/32040?hl=en](https://support.google.com/accounts/answer/32040?hl=en){:target="_blank"}
 <br>Diakses tanggal: 2018/03/27
 
-2. [https://wiki.archlinux.org/index.php/Security](https://wiki.archlinux.org/index.php/Security){:target="_blank"}
+2. [wiki.archlinux.org/index.php/Security](https://wiki.archlinux.org/index.php/Security){:target="_blank"}
 <br>Diakses tanggal: 2018/03/27

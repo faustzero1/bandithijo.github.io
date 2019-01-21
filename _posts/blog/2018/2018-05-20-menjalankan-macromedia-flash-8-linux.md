@@ -51,14 +51,14 @@ Selanjutnya, kamu harus memiliki instalasi Macromedia Flash 8 beserta serial num
 
 Oke, setelah memasang Wine dan menyediakan Macromedia Flash 8 installer, saatnya kita pasang.
 
-![gambar1](https://s20.postimg.cc/qhximyfwd/gambar_01.gif)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/qhximyfwd/gambar_01.gif"}
 <p class="img-caption">Gambar 1 - Instalasi Macromedia Flash 8 di atas Wine</p>
 
 Nah, setelah berhasil di pasang, saatnya kita menjalankanya.
 
 Saat proses instalasi, kita mencentang pilihan untuk membuat *shortcut* di dekstop. Kita tinggal pergi ke Desktop dan mencari *shortcut* bertuliskan **Macromedia Flash 8**.
 
-![gambar_shortcut](https://s20.postimg.cc/u1jgd3qfh/Screenshot_from_2018-05-20_13-18-33.png)
+![gambar_shortcut](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/u1jgd3qfh/Screenshot_from_2018-05-20_13-18-33.png"}
 
 Akan terdapat file satu lagi bernama **Macromedia Flash 8.lnk**, ini adalah file wine loader, tapi pada prakteknya saya tidak pernah menggunakan file ini, sehingga saya hapus saja, hehehe.
 
@@ -66,7 +66,7 @@ Kalau kalian ingin memindahkan file shortcut **Macromedia Flash 8** ini keluar d
 
 Sekarang, kita coba menjalankannya.
 
-![gambar2](https://s20.postimg.cc/4vii6c20t/gambar_02.gif)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/4vii6c20t/gambar_02.gif"}
 <p class="img-caption">Gambar 2 - Menjalankan Shortcut Macromedia Flash 8</p>
 
 # Pengujian
@@ -77,7 +77,7 @@ Pengujian ini berdasarkan subjektif saya saja, apakah saya dapat mengerjakan ani
 
 Berikut adalah hasilnya.
 
-![gambar3](https://s20.postimg.cc/lkjy1vo7x/gambar_03.gif)
+![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/lkjy1vo7x/gambar_03.gif"}
 <p class="img-caption">Gambar 3 - SneakPeek timeline dan scene</p>
 
 Selama proses pengerjaan, tidak ada kendala yang mengganggu.
@@ -95,21 +95,16 @@ Aspek-aspek yang jadi penilaian subjektif saya adalah sebagai berikut:
 
 Ketika di publish, hasilnya akan seperti ini.
 
-![gambar4](https://s20.postimg.cc/evdelw5gt/gambar_04.gif)
+![gambar4](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/evdelw5gt/gambar_04.gif"}
 <p class="img-caption">Gambar 4 - Setelah di Publish</p>
 
 # Kesimpulan
 
-Setelah menggunakan Macromedia Flash 8 untuk mengerjakan proyek ini, saya merasa tidak ada kendala yang mengganggu proses kreatiftas saya.
-
-
-
-
-
+Setelah menggunakan Macromedia Flash 8 menggunakan Wine pada sistem operasi GNU/Linux, saya merasa tidak ada kendala yang mengganggu selama proses pengerjaan tugas ini.
 
 
 # Referensi
 
-1. [https://appdb.winehq.org/objectManager.php?sClass=version&iId=3673&iTestingId=57604](https://appdb.winehq.org/objectManager.php?sClass=version&iId=3673&iTestingId=57604){:target="_blank"}
+1. [appdb.winehq.org/objectManager.php?sClass=version&iId=3673&iTestingId=57604](https://appdb.winehq.org/objectManager.php?sClass=version&iId=3673&iTestingId=57604){:target="_blank"}
 <br>Diakses tanggal: 2018/05/20
 

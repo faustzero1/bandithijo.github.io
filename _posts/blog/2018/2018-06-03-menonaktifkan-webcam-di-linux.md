@@ -58,15 +58,17 @@ blacklist uvcvideo
 ```
 Simpan dan keluar.
 
-Untuk melihat hasilnya, kita perlu melakukan *reboot*. Setelah itu, coba buka aplikasi *webcam* seperti **Cheese** atau **guvcview**.
+<mark>Untuk melihat hasilnya, kita perlu melakukan <b><i>reboot</i></b></mark>.
+
+Setelah itu, coba buka aplikasi *webcam* seperti **Cheese** atau **guvcview**.
 
 Apabila berhasil, akan seperti ini jadinya.
 
-![gambar1](https://s20.postimg.cc/tjfo069zx/gambar_01.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/tjfo069zx/gambar_01.png"}
 <p class="img-caption">Gambar 1 - Cheese yang sudah tidak dapat digunakan</p>
 
 <br>
-![gambar2](https://s20.postimg.cc/rrmp59ix9/gambar_02.png)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/rrmp59ix9/gambar_02.png"}
 <p class="img-caption">Gambar 2 - guvcview yang sudah tidak dapat digunakan</p>
 
 <br>
@@ -98,11 +100,11 @@ Saya sendiri belum tahu, apakah cara ini efektif dan benar dapat menangkal penyu
 >```
 >Dan coba panggil `alias` yang sudah kita buat tadi.
 >
->![gambar3](https://s20.postimg.cc/ty871znbh/gambar_03.gif)
+>![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif"}
 >
 >Mudah bukan ? ^_^
 
 # Referensi
 
-1. [https://www.ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/](https://www.ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/){:target="_blank"}
+1. [ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/](https://www.ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/){:target="_blank"}
 <br>Diakses tanggal: 2018/06/03

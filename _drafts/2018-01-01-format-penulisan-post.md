@@ -52,7 +52,7 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 
 ## IMAGE CAPTION
 <!-- IMAGE CAPTION -->
-![gambar_1](gambar_1.png)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo=""}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 ## LIST CHECKBOX

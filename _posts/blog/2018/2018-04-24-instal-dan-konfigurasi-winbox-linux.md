@@ -106,11 +106,16 @@ Dengan demikian proses instalasi dan konfigurasi WinBox pada GNU/Linux saya rasa
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
-Apabila kita akan melakukan konfigurasi Router MikroTik yang sudah di <b>Reset Configuration</b>, biasanya akan <b>sangat lama sekali</b> untuk mendapatkan MAC Address.
-<br><br>
-Solusi 1: sementara hanya melakukan scan Mac Address berulang-ulang sampai WinBox mendapatkan MAC Address. Hahahaha sedih =(
-<br><br>
-Solusi 2: Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(
+<p>Apabila kita akan melakukan konfigurasi Router MikroTik yang sudah di <b>Reset Configuration</b>, biasanya akan <b>sangat lama sekali</b> untuk mendapatkan MAC Address.</p>
+<br>
+<p><b>Solusi 1</b>:</p>
+<p>Sementara hanya melakukan scan Mac Address berulang-ulang sampai WinBox mendapatkan MAC Address. Hahahaha sedih =(</p>
+<br>
+<p><b>Solusi 2</b>:</p>
+<p>Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(</p>
+<br>
+<p><b>Solusi 3</b>:</p>
+<p><img src="/assets/img/logo/logo_blank.png" data-echo="https://i.postimg.cc/zf8KN0zy/komentar-01.png"></p>
 </div>
 
 # Video Sample

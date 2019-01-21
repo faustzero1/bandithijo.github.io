@@ -29,7 +29,7 @@ IRC client yang saya pergunakan adalah **Irssi**.
 Hal pertama adalah, Irssi berjalan di atas Terminal yang dibuat dengan library ncurses sehingga dapat menampilkan "GUI-like" di dalam Terminal.
 
 <!-- IMAGE CAPTION -->
-![gambar_1](https://i.postimg.cc/vBxPZQ8Y/gambar-01.png)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/vBxPZQ8Y/gambar-01.png"}
 <p class="img-caption">Gambar 1 - Antarmuka dari Irssi</p>
 
 Hal kedua adalah, Irssi bersifat modular. Saya kurang begitu memahami maksud dari modular ini, namun apabila tidak salah menafsirkan, modular disini berarti kita bebas mencabut-pasang fitur-fitur yang kita ingin pergunakan. Enak sekali bukan. Fitur-fitur ini dapat kita tambahkan dengan menggunakan *scripts* yang ditulis dengan bahasa Perl.
@@ -76,7 +76,7 @@ Pada bagian `Exec=` bagian `termite` dapat disesuaikan dengan Terminal Emulator 
 Sekarang coba jalankan. Kalian akan bertemu dengan tampilan awal dari Irssi.
 
 <!-- IMAGE CAPTION -->
-![gambar_2](https://i.postimg.cc/h4VsVszD/gambar-02.png)
+![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/h4VsVszD/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Antarmuka Default dari Irssi</p>
 
 
@@ -243,13 +243,13 @@ Perlu diperhatikan, terkadang tampilan yang ada pada *screenshot* tidak sesuai d
 Saya menggunakan tema hasil modifikasi dari [`solarized.theme`](https://github.com/huyz/irssi-colors-solarized){:target="_blank"} dari **Huy Z**.
 
 <!-- IMAGE CAPTION -->
-![gambar_3](https://i.postimg.cc/Dzh0YRqZ/gambar-03.png)
+![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/Dzh0YRqZ/gambar-03.png"}
 <p class="img-caption">Gambar 3 - Theme Solarized dari Huy Z</p>
 
 Karena terdapat beberapa bagian yang kurang sesuai dengan selera saya, seperti indentasi pada username dan beberapa color, saya memodifikasi sesuai dengan preferensi saya.
 
 <!-- IMAGE CAPTION -->
-![gambar_4](https://i.postimg.cc/P5s1T3WG/gambar-04.png)
+![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/P5s1T3WG/gambar-04.png"}
 <p class="img-caption">Gambar 4 - Theme Solarized setelah dimodifikasi</p>
 
 Tema ini dapat diunduh [di sini](https://raw.githubusercontent.com/bandithijo/dotfiles/master/.irssi/solarized-bandit.theme){:target="_blank"}.
@@ -447,7 +447,7 @@ Awalnya saya langsung mengutak atik file konfigurasi, googling sana sini untuk m
 Kecurigaan saya adalah, Freenode memblokir alamat IP publik saya. Karena saya selalu menyalan Irssi dan terhubung secara konstan dengan Freenode. Sepanjang hari, sepanjang minggu. Mungkin ada limitasi trafik keluar dan masuk dari sebuah IP. Mungkin...Hanya asumsi.
 
 <!-- IMAGE CAPTION -->
-![gambar_5](https://i.postimg.cc/JzqMX79N/gambar-05.png)
+![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/JzqMX79N/gambar-05.png"}
 <p class="img-caption">Gambar 5 - Error Closing Link</p>
 
 # Pesan Penulis
@@ -473,25 +473,24 @@ Masih terdapat banyak sekali hal yang belum dapat tercover oleh tulisan ini. Beb
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/Irssi](https://wiki.archlinux.org/index.php/Irssi){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Irssi](https://wiki.archlinux.org/index.php/Irssi){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-2. [http://freenode.net/kb/answer/registration](http://freenode.net/kb/answer/registration){:target="_blank"}
+2. [freenode.net/kb/answer/registration](http://freenode.net/kb/answer/registration){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-3. [https://irssi.org/documentation/](https://irssi.org/documentation/){:target="_blank"}
+3. [irssi.org/documentation/](https://irssi.org/documentation/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-4. [https://scripts.irssi.org/](https://scripts.irssi.org/){:target="_blank"}
+4. [scripts.irssi.org/](https://scripts.irssi.org/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-5. [https://irssi-import.github.io/themes/](https://irssi-import.github.io/themes/){:target="_blank"}
+5. [irssi-import.github.io/themes/](https://irssi-import.github.io/themes/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-6. [https://irssi.org/documentation/startup/](https://irssi.org/documentation/startup/){:target="_blank"}
+6. [irssi.org/documentation/startup/](https://irssi.org/documentation/startup/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
 
-7. [https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged](https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged){:target="_blank"}
+7. [askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged](https://askubuntu.com/questions/470944/irssi-no-terminal-notification-sound-while-pinged){:target="_blank"}
 <br>Diakses tanggal: 2018/12/14
-
 

@@ -39,5 +39,5 @@ Ganti nilai dari _transpose parameter_, sesuai dengan yang kalian butuhkan.
 Ganti `in.mp4` dengan nama file dari video kalian, dan berikan sembarang nama pada file `out.mp4`.
 
 # Referensi
-1. [https://www.archlinux.org/packages/extra/x86_64/ffmpeg/](https://www.archlinux.org/packages/extra/x86_64/ffmpeg/){:target="_blank"}
-Diakses tanggal : 2018/01/19
+1. [archlinux.org/packages/extra/x86_64/ffmpeg/](https://www.archlinux.org/packages/extra/x86_64/ffmpeg/){:target="_blank"}
+<br>Diakses tanggal: 2018/01/19

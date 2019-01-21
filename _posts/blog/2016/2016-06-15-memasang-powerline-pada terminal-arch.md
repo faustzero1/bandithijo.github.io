@@ -145,6 +145,6 @@ source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf
 # Kesimpulan
 Cara yang saya tuliskan di atas, telah saya gunakan saat saya masih pada masa-masa dimana saya mencari distribusi yang cocok dengan prinsip saya. Fedora, Debian, Manjaro, dan terakhir Arch Linux.
 
-# Daftar Referensi
-1. [http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin){:target="_blank"}
-<br>[dateaccessed:12/07/2016]
+# Referensi
+1. [askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin){:target="_blank"}
+<br>Diakses tanggal: 12/07/2016

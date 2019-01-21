@@ -43,7 +43,7 @@ Pada akhir dari baris tersebut, kita akan menambahkan 2 _properties_ lain,
 
 Maka akan berbentuk seperti ini,
 
-Sebelum,
+**Sebelum**,
 ```
 ...
 ...
@@ -51,22 +51,22 @@ netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMe
 ...
 ```
 
-Sesudah,
-```
+**Sesudah**,
+<pre>
 ...
 ...
-netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true -J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on"
+netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true <mark>-J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on</mark>"
 ...
-```
+</pre>
 
 Sekarang, coba buka kembali, atau _restart_ Netbeans.
 Apakah _font rendering_ sudah lebih bagus dan _smooth_ ?
 
-# References
-1. [https://thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/](https://thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/)
-<br>Diakses tanggal: 2018/01/16
-
-
-# Video Dokumentasi :
+# Video Dokumentasi
 
 {% youtube Bw1RYFkCXYs %}
+
+# Referensi
+1. [thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/](https://thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/)
+<br>Diakses tanggal: 2018/01/16
+

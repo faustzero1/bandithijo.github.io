@@ -38,13 +38,13 @@ Ubah nama direktori user `bandithijo` menjadi nama direktori user kalian.
 
 Lalu edit isi dari `vim.desktop` atau `nvim.desktop` yang berada pada direktori lokal seperti contoh di bawah.
 
-```
+<pre>
 [Desktop Entry]
 Name=Neovim
 Comment=Edit text files
 #TryExec=nvim
 #Exec=nvim %F
-Exec=xfce4-terminal -x nvim %F
+Exec=<mark>xfce4-terminal -x nvim %F</mark>
 Terminal=false
 Type=Application
 Keywords=Text;editor;
@@ -52,15 +52,15 @@ Icon=nvim
 Categories=Utility;TextEditor;
 StartupNotify=false
 MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
-```
+</pre>
 Perhatikan pada bagian `Exec=`. Saya men-disable yang lama dengan menjadikannya komentar -- memberi tanda `#` pada bagian awal dari baris. Kemudian membuat `Exec=` baru pada baris di bawahnya yang berisi `xfce4-terminal -x nvim %F`.
 
 Apabila berhasil, nanti akan seperti ini hasilnya.
 
-![gambar1](https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif"}
 <p class="img-caption">Gambar 1 - Open With Text Format pada PCMANFM File Manager</p>
 
 # Referensi
 
-1. [https://askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar](https://askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar){:target="_blank"}
+1. [askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar](https://askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar){:target="_blank"}
 <br>Diakses tanggal: 2018/04/28

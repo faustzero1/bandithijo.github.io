@@ -22,19 +22,19 @@ Ranger adalah *text-based file manager* (aplikasi untuk memanajemen file bebasis
 Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom, yaitu: kolom direktori sebelumnya, direktori sekarang, dan file preview atau direktori selanjutnya.
 
 <!-- IMAGE CAPTION -->
-![gambar_1](https://i.postimg.cc/TY3F2Fbw/gambar-01.gif)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/TY3F2Fbw/gambar-01.gif"}
 <p class="img-caption">Gambar 1 - Antar muka Ranger. (1) Direktori sebelumnya, (2) Direktori Sekarang, (3) Direktori Selanjutnya atau file preview</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_2](https://i.postimg.cc/02X3znGC/gambar-02.png)
+![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/02X3znGC/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Kolom ke-3 menampilkan konten dari file teks</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_3](https://i.postimg.cc/y8wbPNbg/gambar-03.png)
+![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/y8wbPNbg/gambar-03.png"}
 <p class="img-caption">Gambar 3 - Kolom ke-3 menampilkan preview dari gambar</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_4](https://i.postimg.cc/rwdHx4Q2/gambar-04.png)
+![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/rwdHx4Q2/gambar-04.png"}
 <p class="img-caption">Gambar 4 - Kolom ke-3 menampilkan detail dari audio atau video file</p>
 
 <br>
@@ -355,7 +355,7 @@ Dari konfigurasi di atas, sederhananya, saya membuat file `.pdf` akan terbuka de
 Nah, apabila saya ingin membukanya dengan `calibre`, kita dapat menekan tombol <kbd>R</kbd>. Ranger akan menampilkan pilihan yang mirip sseperti menu *Open with...*.
 
 <!-- IMAGE CAPTION -->
-![gambar_5](https://i.postimg.cc/QC91qj2M/gambar-05.gif)
+![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/QC91qj2M/gambar-05.gif"}
 <p class="img-caption">Gambar 5 - Ilustrasi penggunaan tombol R, seperti menu <i>Open with...</i></p>
 
 Jika ingin memilih `calibre`, pilih `1`, lalu tekan <kbd>ENTER</kbd>. Maka, file `.pdf` tersebut akan terbuka dengan `calibre`.
@@ -403,9 +403,9 @@ Masih terdapat beberapa hal yang belum sempat saya tuliskan. Seperti:
 
 # Referensi
 
-1. [https://github.com/ranger/ranger](https://github.com/ranger/ranger){:target="_blank"}
+1. [github.com/ranger/ranger](https://github.com/ranger/ranger){:target="_blank"}
 <br>Diakses tanggal: 2018/12/17
 
-2. [https://wiki.archlinux.org/index.php/Ranger](https://wiki.archlinux.org/index.php/Ranger){:target="_blank"}
+2. [wiki.archlinux.org/index.php/Ranger](https://wiki.archlinux.org/index.php/Ranger){:target="_blank"}
 <br>Diakses tanggal: 2018/12/17
 

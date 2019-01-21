@@ -112,5 +112,5 @@ Saya rasa cukup seperti ini dulu.
 
 # Referensi
 
-1. [https://unix.stackexchange.com/questions/74151/fully-disable-prntscr-key](https://unix.stackexchange.com/questions/74151/fully-disable-prntscr-key){:target="_blank"}
+1. [unix.stackexchange.com/questions/74151/fully-disable-prntscr-key](https://unix.stackexchange.com/questions/74151/fully-disable-prntscr-key){:target="_blank"}
 <br>Diakses tanggal: 18/08/02

@@ -161,11 +161,11 @@ Catatan ini masih sangat jauh dari sempurna. Apabila mengalami kesulitan dan keg
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/GnuPG](https://wiki.archlinux.org/index.php/GnuPG){:target="_blank"}
+1. [wiki.archlinux.org/index.php/GnuPG](https://wiki.archlinux.org/index.php/GnuPG){:target="_blank"}
 <br>Diakses tanggal: 2018/12/09
 
-2. [https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/){:target="_blank"}
+2. [docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/09
 
-3. [https://help.github.com/articles/generating-a-new-gpg-key/](https://help.github.com/articles/generating-a-new-gpg-key/){:target="_blank"}
+3. [help.github.com/articles/generating-a-new-gpg-key/](https://help.github.com/articles/generating-a-new-gpg-key/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/09

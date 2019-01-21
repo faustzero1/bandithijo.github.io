@@ -38,29 +38,29 @@ Perintah **Upower** pada Terminal hampir sudah terdapat pada sebagian besar dist
 $ upower -i /org/freedesktop/UPower/devices/battery_BAT0
 ```
 ```
-  native-path:          BAT0
-  vendor:               SONY
-  model:                45N1111
-  serial:               14768
-  power supply:         yes
-  updated:              Fri 26 Oct 2018 10:45:16 PM WITA (16 seconds ago)
-  has history:          yes
-  has statistics:       yes
-  battery
-    present:             yes
-    rechargeable:        yes
-    state:               discharging
-    warning-level:       none
-    energy:              19.89 Wh
-    energy-empty:        0 Wh
-    energy-full:         22.97 Wh
-    energy-full-design:  23.2 Wh
-    energy-rate:         0 W
-    voltage:             12.234 V
-    percentage:          86%
-    capacity:            99.0086%
-    technology:          lithium-polymer
-    icon-name:          'battery-full-symbolic'
+native-path:           BAT0
+vendor:                SONY
+model:                 45N1111
+serial:                14768
+power supply:          yes
+updated:               Fri 26 Oct 2018 10:45:16 PM WITA (16 seconds ago)
+has history:           yes
+has statistics:        yes
+battery
+  present:             yes
+  rechargeable:        yes
+  state:               discharging
+  warning-level:       none
+  energy:              19.89 Wh
+  energy-empty:        0 Wh
+  energy-full:         22.97 Wh
+  energy-full-design:  23.2 Wh
+  energy-rate:         0 W
+  voltage:             12.234 V
+  percentage:          86%
+  capacity:            99.0086%
+  technology:          lithium-polymer
+  icon-name:          'battery-full-symbolic'
 ```
 Apabila perintah di atas tidak bekerja karena alasan tertentu, kalian dapat melakukan perintah di bawah.
 ```
@@ -217,5 +217,5 @@ Nah, dengan demikian, hanya seperti ini dulu catatan saya mengenai perintah-peri
 Semoga bermanfaat buat yang membutuhkan.
 
 # Referensi
-1. [https://www.ostechnix.com/how-to-check-laptop-battery-status-in-terminal-in-linux/](https://www.ostechnix.com/how-to-check-laptop-battery-status-in-terminal-in-linux/){:target="_blank"}
+1. [ostechnix.com/how-to-check-laptop-battery-status-in-terminal-in-linux/](https://www.ostechnix.com/how-to-check-laptop-battery-status-in-terminal-in-linux/){:target="_blank"}
 <br>Diakses tanggal: 2018/10/17

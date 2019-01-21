@@ -37,11 +37,11 @@ Lalu pergi ke **org** > **gnome** > **gnome-screenshot**.
 
 Klik dua kali pada bagian **auto-save-directory**.
 
-![gambar1](https://s20.postimg.cc/kq7vc3vyl/gambar_01.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png"}
 
 Nanti akan terbuka *section* seperti di bawah.
 
-![gambar2](https://s20.postimg.cc/rhyaek099/gambar_02.png)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png"}
 
 Pada bagian paling bawah, **Custom value**, ganti ke direktori tempat dimana kalian ingin menyimpan hasil *screenshot*.
 
@@ -53,6 +53,6 @@ Pada contoh di atas, saya meletakkan hasil *screenshot* pada direktori `file:///
 
 # Referensi
 
-1. [https://askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot](https://askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot){:target="_blank"}
+1. [askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot](https://askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot){:target="_blank"}
 <br>Diakses tanggal: 2018/04/28
 

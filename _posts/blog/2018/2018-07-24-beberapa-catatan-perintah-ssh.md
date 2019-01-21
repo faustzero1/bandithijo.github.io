@@ -87,24 +87,29 @@ Saya menggunakan beberapa bentuk format perintah `ssh-keygen` untuk mengenerate 
 
 ### Generate Key untuk User Biasa
 
+Yang sederhana,
 ```
 $ ssh-keygen
-
+```
+Atau agak kompleks,
+```
 $ ssh-keygen -t rsa -b 4096
-
+```
+Yang lebih kompleks,
+```
 $ ssh-keygen -t rsa -b 4096 -C "bandithijo@rumah"
 ```
 
 Hasil dari perintah di atas adalah dua buah file dengan nama yang sama, namun yang tidak memiliki ekstensi disebut sebagai **Private Key** dan yang memiliki ekstensi **.pub** disebut sebagai **Public Key**.
 
-```
+<pre>
 $ ls -l $HOME/.ssh/
 /home/bandithijo/.ssh/
 ├── authorized_keys
-├── id_rsa
-├── id_rsa.pub
+├── <mark>id_rsa</mark>
+├── <mark>id_rsa.pub</mark>
 └── known_hosts
-```
+</pre>
 Sebagai catatan, apabila kita melakukan perintah `ssh-keygen` pada user biasa, maka otomatis file *private* dan *public key* akan diletakkan pada direktori `.ssh/` milik user biasa tersebut. Seperti contoh di atas, terletak pada direktori `.ssh` milik user **bandithijo**.
 
 ### Generate Key untuk Root dari User Biasa
@@ -114,14 +119,14 @@ Kita dapat mengenerate key untuk user root melalui user biasa, dengan cara menam
 $ sudo ssh-keygen
 ```
 Apabila seperti di atas, maka file *private* dan *public key* akan terdapat pada direktori `.ssh/` milik root, yaitu `/root/.ssh/`.
-```
+<pre>
 $ sudo ls -l /root/.ssh/
 /root/.ssh/
 ├── authorized_keys
-├── id_rsa
-├── id_rsa.pub
+├── <mark>id_rsa</mark>
+├── <mark>id_rsa.pub</mark>
 └── known_hosts
-```
+</pre>
 Tentu saja, apabila *private* dan *public key* yang kita generate berada pada direktori `/root/`, maka untuk mengakses SSH Gateway kita juga harus mengawalinya dengan menambahkan perintah `sudo` di awal baris perintah.
 
 ```
@@ -132,7 +137,7 @@ $ sudo ssh -l bandithijo 10.1.41.200
 
 <!-- QUESTION -->
 <div class="blockquote-yellow">
-<h2 class="blockquote-yellow-title">Apakah nama private dan public key dapat kita ganti ?</h2>
+<h2 class="blockquote-yellow-title">Apakah private dan public key dapat kita rename ?</h2>
 Tentu saja kita dapat mengganti nama dari file <i>private</i> dan <i>public key</i> tersebut, namun sangat direkomendasikan untuk memberikan nama yang sama diantara keduanya. Agar tetap berpasangan.. So sweet kan gaes ^_^, mereka aja berpasangan, kamu kapan ?
 </div>
 
@@ -151,5 +156,5 @@ Oke, saya rasa untuk saat ini, cukup seperti ini saja. Saya tidak berhenti menul
 Terima kasih. ^_^
 
 # Referensi
-1. [https://wiki.archlinux.org/index.php/Secure_Shell](https://wiki.archlinux.org/index.php/Secure_Shell){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Secure_Shell](https://wiki.archlinux.org/index.php/Secure_Shell){:target="_blank"}
 <br>Diakses tanggal: 18/07/24

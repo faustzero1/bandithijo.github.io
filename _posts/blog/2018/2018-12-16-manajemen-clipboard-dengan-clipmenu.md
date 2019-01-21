@@ -27,7 +27,7 @@ Hal yang saya alami tidak akan terjadi apabila saya menggunakan *clipboard manag
 
 Clipmenu adalah *clipboard manager* yang menggunakan dmenu atau Rofi sebagai antar muka.
 <!-- IMAGE CAPTION -->
-![gambar_1](https://i.postimg.cc/J08d4wSg/gambar-01.png)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png"}
 <p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
 
 
@@ -206,7 +206,7 @@ Saya menggunakan :
 Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arrow key <kbd> ↓ </kbd> / <kbd> ↑ </kbd> untuk memilih, tekan <kbd>ENTER</kbd> untuk memasukkannya pada PRIMARY. Kemudian, tinggal kita *paste* di mana saja.
 
 <!-- IMAGE CAPTION -->
-![gambar_2](https://i.postimg.cc/MTkmShLQ/gambar-02.gif)
+![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif"}
 <p class="img-caption">Gambar 2 - Ilustrasi penggunaan Clipmenu dengan Rofi</p>
 
 # Pesan Penulis
@@ -220,9 +220,9 @@ Karena keterbatasan pengetahuan, Saya masih mengalami kegagalan dalam menjalanka
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/Clipboard](https://wiki.archlinux.org/index.php/Clipboard){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Clipboard](https://wiki.archlinux.org/index.php/Clipboard){:target="_blank"}
 <br>Diakses tanggal: 2018/12/16
 
-2. [https://github.com/cdown/clipmenu](https://github.com/cdown/clipmenu){:target="_blank"}
+2. [github.com/cdown/clipmenu](https://github.com/cdown/clipmenu){:target="_blank"}
 <br>Diakses tanggal: 2018/12/16
 

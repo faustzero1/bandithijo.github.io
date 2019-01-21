@@ -65,22 +65,22 @@ Yang memiliki isi seperti di bawah ini.
 Pada bagian tag **defaults**, kita akan merubah nilai dari **allow_any** dan **allow_inactive** menjadi bernilai **yes**.
 
 **Sebelum**
-```
-<defaults>
-  <allow_any>auth_admin_keep</allow_any>
-  <allow_inactive>auth_admin_keep</allow_inactive>
-  <allow_active>yes</allow_active>
-</defaults>
-```
+<pre>
+&lt;defaults&gt;
+  &lt;allow_any&gt;<mark>auth_admin_keep</mark>&lt;/allow_any&gt;
+  &lt;allow_inactive&gt;<mark>auth_admin_keep</mark>&lt;/allow_inactive&gt;
+  &lt;allow_activey&gt;es&lt;/allow_active&gt;
+&lt;/defaults&gt;
+</pre>
 
 **Sesudah**
-```
-<defaults>
-  <allow_any>yes</allow_any>
-  <allow_inactive>yes</allow_inactive>
-  <allow_active>yes</allow_active>
-</defaults>
-```
+<pre>
+&lt;defaults&gt;
+  &lt;allow_any&gt;<mark>yes</mark>&lt;/allow_any&gt;
+  &lt;allow_inactive&gt;<mark>yes</mark>&lt;/allow_inactive&gt;
+  &lt;allow_active&gt;yes&lt;/allow_active&gt;
+&lt;/defaults&gt;
+</pre>
 
 ## Hasil setelah diedit
 
@@ -105,8 +105,8 @@ Maka setelah kita rubah, keseluruhan kodenya kan tampak seperti ini.
 
 
 # Referensi
-1. [https://askubuntu.com/questions/543921/authentication-required-before-suspend](https://askubuntu.com/questions/543921/authentication-required-before-suspend)
+1. [askubuntu.com/questions/543921/authentication-required-before-suspend](https://askubuntu.com/questions/543921/authentication-required-before-suspend)
 <br>Diakses tanggal: 2018/04/28
 
-2. [https://ubuntuforums.org/showthread.php?t=2276864](https://ubuntuforums.org/showthread.php?t=2276864<Paste>)
+2. [ubuntuforums.org/showthread.php?t=2276864](https://ubuntuforums.org/showthread.php?t=2276864<Paste>)
 <br>Diakses tanggal: 2018/04/28

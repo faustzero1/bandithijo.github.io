@@ -29,7 +29,7 @@ Mayoritas teman-teman yang mempunyai urusan dengan saya belum menggunakan platfo
 
 Sebenarnya, WhatsApp menyediakan layanan [WhatsApp-Web](https://web.whatsapp.com/){:target="_blank"} untuk pengguna Linux -- sedangkan untuk Windows dan macOS, mereka memberikan aplikasi *native desktop*.
 
-![gambar2](https://s20.postimg.cc/cd9zmy9lp/gambar_02.png)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/cd9zmy9lp/gambar_02.png"}
 
 Namun, saya merasa kurang praktis karena sebagian besar saya beraktifitas menggunakan browser yang saya tidak ingin diganggu oleh hal-hal lain selain pekerjaan yang sedang saya kerjakan.
 
@@ -40,7 +40,7 @@ Pada tahun 2016 - 2017 saya masih sempat menggunakan aplikasi *unofficial* yang 
 
 Beberapa waktu lalu saya menemukan sebuah aplikasi yang mirip dengan Whatsie. Aplikasi yang berbasis Whatsapp Web dan dibangun menggunakan [Electron](http://electron.atom.io/){:target="_blank"} juga. Aplikasi ini bernama **Whatsapp-Desktop** yang dikelola oleh **Enrico204** yang semula dikelola oleh **bcalik**.
 
-![gambar1](https://s20.postimg.cc/ujj3orbst/gambar_01.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/ujj3orbst/gambar_01.png"}
 <p class="img-caption">Gambar 1 - User Interface dari Whatsapp-Desktop</p>
 
 Whatsapp-Desktop ini juga mempunyai *tray icon* dan memiliki notifikasi yang terintegrasi dengan sistem.
@@ -141,12 +141,12 @@ $ touch ~/.local/share/applications/whatsapp-desktop.desktop
 ```
 
 Buka file `whatsapp-desktop.desktop` yang baru saja kita buat menggunakan *text editor* favorit kalian dan copy paste kode di bawah.
-```
+<pre>
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Whatsapp-Desktop
 Comment=A simple & beautiful desktop client for WhatsApp Web.
-Exec=/home/bandithijo/app/whatsapp/Whatsapp-Desktop/dist/WhatsApp-linux-x64/WhatsApp
+Exec=<mark>/home/bandithijo/app/whatsapp/Whatsapp-Desktop/dist/WhatsApp-linux-x64/WhatsApp</mark>
 Icon=whatsapp
 Terminal=false
 Type=Application
@@ -155,13 +155,13 @@ StartupWMClass=whatsapp
 Keywords=WhatsApp;Whats;
 Categories=Network;InstantMessaging;
 X-GNOME-UsesNotifications=true
-```
+</pre>
 Perhatikan pada bagian `Exec=`, berisi lokasi dimana file `WhatsApp` tersimpan. Pada kasus saya, saya menyimpan direktori *cloning* dari Whatsapp-Desktop berada pada lokasi `/home/bandithijo/app/whatsapp`, kamu harus menyesuaikan lokasi ini dengan lokasi dimana kamu menyimpan hasil *clone* Whatsapp-Desktop dari GitHub.
 
 # Referensi
 
-1. [https://github.com/Enrico204/Whatsapp-Desktop/blob/master/readme.md](https://github.com/Enrico204/Whatsapp-Desktop/blob/master/readme.md){:target="_blank"}
+1. [github.com/Enrico204/Whatsapp-Desktop/blob/master/readme.md](https://github.com/Enrico204/Whatsapp-Desktop/blob/master/readme.md){:target="_blank"}
 <br>Diakses tanggal: 2018/04/25
 
-2. [https://yarnpkg.com/en/docs](https://yarnpkg.com/en/docs){:target="_blank"}
+2. [yarnpkg.com/en/docs](https://yarnpkg.com/en/docs){:target="_blank"}
 <br>Diakses tanggal: 2018/04/25

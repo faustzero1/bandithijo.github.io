@@ -70,7 +70,7 @@ Sebagai contoh, *Summary of Change* saat dokumentasi ini ditulis, untuk BIOS upd
 
 sumber : [**r02uj64w.txt**](https://download.lenovo.com/pccbbs/mobiles/r02uj64w.txt){:target="_blank"} (diakses tanggal: 2018/05/18)
 
-![gambar7](https://s20.postimg.cc/fywlvhi25/gambar_07.gif)
+![gambar7](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/fywlvhi25/gambar_07.gif"}
 <p class="img-caption">Ilustrasi membuka Summary of Change</p>
 
 Nah, dengan adanya informasi di atas, mudah-mudahan dapat memberikan gambaran kepada teman-teman untuk membantu memberikan informasi sebagai bahan pertimbangan apakah update BIOS dirasa perlu atau tidak. Kira-kira seperti itu. Hehehe.
@@ -78,17 +78,20 @@ Nah, dengan adanya informasi di atas, mudah-mudahan dapat memberikan gambaran ke
 *terima kasih untuk kang [Sucipto](https://sucipto.net/){:target="_blank"}.
 
 # Disclaimer
-><p class="title-quote">[ ! ] Perhatian</p>
->Perlu saya garis bawahi, bahwa saya sebagai penulis tidak bertangung jawab atas segala bentuk resiko kerusakan, kehilangan data, *hard brick* dan lain sebagainya. Yang diakibatkan karena proses mengikuti tulisan dokumentasi ini.
->
->***Do with your own risk, Dude***.
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Perlu saya garis bawahi, bahwa saya sebagai penulis tidak bertangung jawab atas segala bentuk resiko kerusakan, kehilangan data, <i>hard brick</i> dan lain sebagainya, yang diakibatkan karena proses mengikuti tulisan dokumentasi ini.</p>
+<p><b><i>Do with your own risk, Dude</i></b></p>
+</div>
+
 
 # Langkah-langkah
 
 ## Step 1: Download Lenovo BIOS
 Kita perlu mendownload BIOS image/iso dari [support.lenovo.com](https://support.lenovo.com/id/en/){:target="_blank"}, untuk tipe spesifik dari Lenovo kalian. Dalam dokumentasi ini saya menggunakan Lenovo ThinkPad x260, maka saya akan mencari dengan kata kunci "x260 bios".
 
-![gambar1](https://s20.postimg.cc/5h63g407h/gambar_01.gif)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/5h63g407h/gambar_01.gif"}
 <p class="img-caption">Gambar 1 - Mencari BIOS x260</p>
 
 Pilih hasil dengan awalan **[Driver] BIOS Update ...** Dan pastikan tanggalnya adalah tanggal paling terakhir atau terbaru.
@@ -97,12 +100,12 @@ Pada Gambar 1, saya memilih pilihan pertama, maka akan diarahkan ke Gambar 2, di
 
 Apabila kamu memilih pilihan kedua, langsung saja ke Gambar 3.
 
-![gambar2](https://s20.postimg.cc/3kdypiyzx/gambar_02.gif)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/3kdypiyzx/gambar_02.gif"}
 <p class="img-caption">Gambar 2 - Mencari ISO image</p>
 
 Gambar 2 di atas, menunjukkan saya mencari **Bootable CD**, yang akan di lanjutkan ke Gambar 3 di bawah.
 
-![gambar3](https://s20.postimg.cc/gsdchzyyl/gambar_03.gif)
+![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/gsdchzyyl/gambar_03.gif"}
 <p class="img-caption">Gambar 3 - Copy download link dari ISO</p>
 
 Gambar 3 di atas, saya melakukan **Copy link address**, pada BIOS Update (Bootable CD) ISO.
@@ -116,7 +119,7 @@ $ wget https://download.lenovo.com/pccbbs/mobiles/r02uj64d.iso
 
 Perhatikan baik-baik, akhir dari link yang kita *copy* tersebut harusnya berakhiran dengan **.iso**.
 
-![gambar4](https://s20.postimg.cc/s5zvta1sd/gambar_04.gif)
+![gambar4](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/s5zvta1sd/gambar_04.gif"}
 
 Setelah selesai,
 
@@ -187,7 +190,7 @@ $ geteltorito -o x260.img r02uj64d.iso
 Berikan *output name* .img sesuka kalian.
 
 <br>
-![gambar5](https://s20.postimg.cc/o9mjxqji5/gambar_05.gif)
+![gambar5](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/o9mjxqji5/gambar_05.gif"}
 
 ## Step 4: Bakar Image ke dalam Flash Drive
 
@@ -195,14 +198,14 @@ Kalian dapat mengidentifikasi alamat dari Flash Drive dengan menggunakan perinta
 ```
 $ lsblk
 ```
-```
+<pre>
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    0 447.1G  0 disk
 ├─sda1   8:1    0   511M  0 part /boot
 └─sda2   8:2    0 446.6G  0 part /
-sdb      8:16   1   7.2G  0 disk
+<mark>sdb      8:16   1   7.2G  0 disk</mark>
 └─sdb1   8:17   1    21M  0 part
-```
+</pre>
 
 Dari kolom **Size** saya dapat mengetahui bahwa *flash drive* saya adalah `/dev/sdb`.
 
@@ -210,9 +213,9 @@ Kemudian, kita akan membakar file `x260.img` yang sudah kita ekstrak dari ISO ke
 ```
 $ sudo dd if=x260.img of=/dev/sdb bs=64K
 ```
-Kalian sesuaikan dengan nama image dan alamat dari *flash drive* yang kalian miliki.
+Kalian sesuaikan dengan nama image dan alamat blok dari *flash drive* yang kalian miliki.
 
-![gambar6](https://s20.postimg.cc/tnlc52jgd/gambar_06.gif)
+![gambar6](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/tnlc52jgd/gambar_06.gif"}
 
 Dengan begini, *flash drive* sudah siap untuk kita gunakan untuk mengupdate BIOS Lenovo kita.
 
@@ -233,5 +236,5 @@ Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini
 
 
 # Referensi
-1. [https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/](https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/){:target="_blank"}
-<br>Diakses tanggal : 2018/05/16
+1. [cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/](https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/){:target="_blank"}
+<br>Diakses tanggal: 2018/05/16

@@ -27,7 +27,7 @@ Salah satu kemampuan dari _file manager_ adalah _mounting/unmounting external dr
 
 # Solusi
 
-Untuk memecahkan permasalahan di atas, saya menggunakan aplikasi [**udisck2**](https://www.archlinux.org/packages/?name=udisks2){:target="_blank"}.
+Untuk memecahkan permasalahan di atas, saya menggunakan aplikasi [**udisks2**](https://www.archlinux.org/packages/?name=udisks2){:target="_blank"}.
 
 Cara menggunakannya sangat mudah.
 
@@ -62,21 +62,20 @@ Use "udisksctl COMMAND --help" to get help on each command.
 
 Untuk me-*mounting* _flash drive_ atau _external hard drive_, hal yang perlu kita lakukan cukup dengan :
 
-1. Cek block dari _drive_ yang akan kita _mounting_ dengan `lsblk`
+1. Cek nama/alamat block dari _drive_ yang akan kita _mounting_ dengan `lsblk`
 ```
 $ lsblk
 ```
-```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 447.1G  0 disk
-├─sda1   8:1    0   511M  0 part /boot
-├─sda2   8:2    0 444.6G  0 part /
-└─sda3   8:3    0     2G  0 part [SWAP]
-sdX      8:16   1   7.2G  0 disk
-```
-Periksa nama/block `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
+    <pre>
+    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+    sda      8:0    0 447.1G  0 disk
+    ├─sda1   8:1    0   511M  0 part /boot
+    ├─sda2   8:2    0 444.6G  0 part /
+    └─sda3   8:3    0     2G  0 part [SWAP]
+    <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
+Periksa nama/lamat block `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
 
-2. Selanjutnya tinggal kita _mount_ menggunakan `udisk2`
+2. Selanjutnya tinggal kita _mount_ menggunakan `udisksctl`
 ```
 $ udiskctl mount -b /dev/sdX
 ```
@@ -87,14 +86,13 @@ Kemudian cek lagi dengan `lsblk` apakah sudah berhasil di-*mounting*
 ```
 $ lsblk
 ```
-```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 447.1G  0 disk
-├─sda1   8:1    0   511M  0 part /boot
-├─sda2   8:2    0 444.6G  0 part /
-└─sda3   8:3    0     2G  0 part [SWAP]
-sdX      8:16   1   7.2G  0 disk /run/media/username/AAAA-0000
-```
+    <pre>
+    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+    sda      8:0    0 447.1G  0 disk
+    ├─sda1   8:1    0   511M  0 part /boot
+    ├─sda2   8:2    0 444.6G  0 part /
+    └─sda3   8:3    0     2G  0 part [SWAP]
+    <mark>sdX      8:16   1   7.2G  0 disk /run/media/username/AAAA-0000</mark></pre>
 Apabila mengeluarkan tampilan seperti di atas, artinya _mounting_ berhasil.
 
 ## Unmounting
@@ -104,10 +102,10 @@ Setelah kita selesai berurusan dengan _drive_, sebelum mencabutnya sangat direko
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
-Pastikan <i>file manager</i> tidak sedang membuka direktori yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i>
+<p>Pastikan <i>file manager</i> tidak sedang membuka direktori yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i> karena proses <i>unmounting</i> akan gagal dikarenakan partisi yang akan kita <i>unmount</i> dianggap sibuk.</p>
 </div>
 
-1. Jalankan `udisk2` untuk proses _unmounting_
+1. Jalankan `udisksctl` untuk proses _unmounting_
 ```
 $ udiskctl unmount -b /dev/sdX
 ```
@@ -119,14 +117,13 @@ Unmounted /dev/sdX
 ```
 $ lsblk
 ```
-```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 447.1G  0 disk
-├─sda1   8:1    0   511M  0 part /boot
-├─sda2   8:2    0 444.6G  0 part /
-└─sda3   8:3    0     2G  0 part [SWAP]
-sdX      8:16   1   7.2G  0 disk
-```
+    <pre>
+    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+    sda      8:0    0 447.1G  0 disk
+    ├─sda1   8:1    0   511M  0 part /boot
+    ├─sda2   8:2    0 444.6G  0 part /
+    └─sda3   8:3    0     2G  0 part [SWAP]
+    <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
 Apabila mengeluarkan tampilan seperti di atas, artinya _unmounting_ berhasil.
 
 ## Power Off
@@ -137,7 +134,7 @@ Jawabannya,"saya juga kurang yakin."
 
 Agar lebih yakin sebaiknya kita mematikan _external drive_ tersebut, kemudian baru kita lepas. Caranya ada pada tahap di bawah.
 
-1. Jalankan kembali perintah `udisk2`
+1. Jalankan kembali perintah `udisksctl`
 ```
 $ udiskctl power-off -b /dev/sdX
 ```
@@ -163,8 +160,8 @@ Untuk penjelasan lebih lengkap dan literatur tambahan silahkan membaca dari refe
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/Udisks](https://wiki.archlinux.org/index.php/Udisks){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Udisks](https://wiki.archlinux.org/index.php/Udisks){:target="_blank"}
 <br>Diakses tanggal: 2018/11/05
 
-2. [https://www.freedesktop.org/wiki/Software/udisks/](https://www.freedesktop.org/wiki/Software/udisks/){:target="_blank"}
+2. [freedesktop.org/wiki/Software/udisks/](https://www.freedesktop.org/wiki/Software/udisks/){:target="_blank"}
 <br>Diakses tanggal: 2018/11/05

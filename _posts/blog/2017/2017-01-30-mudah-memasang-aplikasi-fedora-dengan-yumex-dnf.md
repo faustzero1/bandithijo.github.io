@@ -33,7 +33,7 @@ Sebelumnya saya mencari tahu lewat Google, aplikasi apa yang saya butuhkan untuk
 # Anatomi dari YumEx-DNF
 Agar lebih mudah dalam menggunakan YumEx-DNF maka saya akan mengenalkan anatomi (bagian-bagian) dari YumEx-DNF.
 
-![Gambar1](https://2.bp.blogspot.com/-WfLRR64IQ8w/WI5mGxDBydI/AAAAAAAAEMc/xSm_8GySBO4lf_4ZerS3cv9rDfWzuyOgQCLcB/s1600/Gambar%2B1.0.png)
+![Gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://2.bp.blogspot.com/-WfLRR64IQ8w/WI5mGxDBydI/AAAAAAAAEMc/xSm_8GySBO4lf_4ZerS3cv9rDfWzuyOgQCLcB/s1600/Gambar%2B1.0.png"}
 
 <p class="img-caption">Gambar 1.0 – YumEx-DNF</p>
 

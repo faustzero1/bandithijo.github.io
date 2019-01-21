@@ -49,5 +49,5 @@ Kalau sudah mencoba dan ketagihan, jangan salahkan saya yaa. Hahahaha.
 Senang bisa berbagi informasi.
 
 # Referensi
-1. [http://jdownloader.org/](http://jdownloader.org/){:target="_blank"}
-2. [http://bandithijo.github.io/posts/download-client-osx-with-jdownloader](http://bandithijo.github.io/posts/download-client-osx-with-jdownloader){:target="_blank"}
+1. [jdownloader.org/](http://jdownloader.org/){:target="_blank"}
+2. [bandithijo.github.io/posts/download-client-osx-with-jdownloader](http://bandithijo.github.io/posts/download-client-osx-with-jdownloader){:target="_blank"}

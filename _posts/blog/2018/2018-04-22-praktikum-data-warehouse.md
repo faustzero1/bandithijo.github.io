@@ -44,7 +44,7 @@ Aplikasi dan soal dapat diunduh pada tautan di bawah.
 <br>
 # Step 03: Membuat Skema Bintang
 
-![gambar3](https://s20.postimg.cc/4ftedv2m5/thumbnails_dw_3_ud.png)
+![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/4ftedv2m5/thumbnails_dw_3_ud.png"}
 <div style="margin-top:-10px;"></div>
 ><p class="title-quote">Resources:</p>
 >**ERD Skema Bintang**

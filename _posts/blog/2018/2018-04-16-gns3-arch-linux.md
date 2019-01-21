@@ -375,11 +375,11 @@ Saya rasa cukup seperti ini saja proses instal dan konfigurasi GNS3 pada distrib
 
 # Referensi
 
-1. [http://binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html](http://binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html){:target="_blank"}
+1. [binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html](http://binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html){:target="_blank"}
 <br>Diakses tanggal: 2018/04/16
 
-2. [http://sourceforge.net/projects/vpcs/](http://sourceforge.net/projects/vpcs/){:target="_blank"}
+2. [sourceforge.net/projects/vpcs/](http://sourceforge.net/projects/vpcs/){:target="_blank"}
 <br>Diakses tanggal: 2018/04/16
 
-3. [https://wiki.archlinux.org/index.php/VirtualBox](https://wiki.archlinux.org/index.php/VirtualBox){:target="_blank"}
+3. [wiki.archlinux.org/index.php/VirtualBox](https://wiki.archlinux.org/index.php/VirtualBox){:target="_blank"}
 <br>Diakses tanggal: 2018/04/19

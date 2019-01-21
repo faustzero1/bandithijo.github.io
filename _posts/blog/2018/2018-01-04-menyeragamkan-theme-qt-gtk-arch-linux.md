@@ -59,7 +59,7 @@ Untuk penerapan konfigurasi ini, dampaknya adalah semua aplikasi yang menggunaka
 
 Konfigurasinya cukup mudah karena kita menggunakan aplikasi GUI yang bernama Qt5 Settings (`qt5ct`).
 
-![gambar_1](https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png"}
 <p class="img-caption">Gambar 1 - Qt5 Settings</p>
 
 Tampilan GUI Qt5 Settings seperti pada Gambar 1. Kalian dapat melihat pada bagian “_Style_” saya menggunakan Adwaita _theme_.
@@ -115,27 +115,25 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
     >Untuk aplikasi yang menggunakan GTK+3 tambahkan,
     >
-    >`... env GTK_THEME=namatema ...`
+    ><code>Exec=<mark>env GTK_THEME=namatema</mark> ...</code>
 
     Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.
     ```
     $ vim .local/share/applications/org.gnome.Nautilus.desktop
     ```
-    ```
+    <pre>
     #!/usr/bin/env xdg-open
     [Desktop Entry]
     Name=Nautilus
     ...
     ...
-    Exec=env GTK_THEME=Adwaita nautilus --new-window %U
+    Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
     ...
-    ...
-    ```
+    ...</pre>
 
     Adwaita juga memiliki _dark theme_, kita dapat menggunakannya dengan cara seperti ini.
-    ```
-    Exec=env GTK_THEME=Adwaita-dark nautilus --new-window %U
-    ```
+    <pre>
+    Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U</pre>
 
 ### GTK+2
 
@@ -156,21 +154,20 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
     >Untuk aplikasi yang menggunakan GTK+2 tambahkan,
     >
-    >`... env GTK2_RC_FILES=/tema yang mempunyai/gtkrc ...`
+    ><code>Exec=<mark>env GTK2_RC_FILES=/tema_yang_mempunyai/gtkrc</mark> ...</code>
 
     Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.
     ```
     $ vim .local/share/applications/inkscape.desktop
     ```
-    ```
+    <pre>
     [Desktop Entry]
     Name=Inkscape
     ...
     ...
-    Exec=env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc inkscape %F
+    Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F
     ...
-    ...
-    ```
+    ...</pre>
 
 ### Qt5
 
@@ -191,21 +188,20 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
     >Untuk aplikasi yang menggunakan Qt5 tambahkan,
     >
-    >`... env QT_STYLE_OVERRIDE=Adwaita ...`
+    ><code>Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> ...</code>
 
     Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.
     ```
     $ vim .local/share/applications/vokoscreen.desktop
     ```
-    ```
+    <pre>
     [Desktop Entry]
     Name=vokoscreen
     ...
     ...
-    Exec=env QT_STYLE_OVERRIDE=Adwaita vokoscreen
+    Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen
     ...
-    ...
-    ```
+    ...</pre>
 
     ><p class="title-quote">[ ! ] Perhatian</p>
     >Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket `adwaita-qt4` dan `adwaita-qt5`, saya ikut sertakan untuk dipasang.
@@ -218,5 +214,5 @@ Nah, mudah bukan ?
 Kebebasan seperti ini yang membuat saya betah menggunakan sistem operasi GNU/Linux.
 
 # Referensi
-1. [https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications](https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications){:target="_blank"}
-<br>Diakses tanggal : 2018/01/22
+1. [wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications](https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications){:target="_blank"}
+<br>Diakses tanggal: 2018/01/22

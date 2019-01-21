@@ -141,5 +141,5 @@ Apakah sudah berhasil terdeteksi?
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops](https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops](https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops){:target="_blank"}
 <br>Diakses tanggal: 2018/12/08

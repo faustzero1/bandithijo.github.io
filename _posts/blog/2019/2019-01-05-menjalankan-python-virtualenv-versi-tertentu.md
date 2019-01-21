@@ -93,6 +93,6 @@ Terima kasih.
 
 # Referensi
 
-1. [https://www.reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/](https://www.reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/){:target="_blank"}
+1. [reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/](https://www.reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/){:target="_blank"}
 <br>Diakses tanggal: 2019/01/05
 

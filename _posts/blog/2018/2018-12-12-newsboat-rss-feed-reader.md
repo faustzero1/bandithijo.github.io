@@ -50,18 +50,17 @@ Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.
 ```
 $ vim .local/share/applications/newsboat.desktop
 ```
-<pre>
-[Desktop Entry]
-Name=newsboat
-Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
-<mark>Exec=urxvt -e newsboat</mark>
-Icon=liferea
-Terminal=false
-Type=Application
-StartupNotify=true
-Categories=Network;News;
-Keywords=news;feed;aggregator;blog;podcast;
-</pre>
+    <pre>
+    [Desktop Entry]
+    Name=newsboat
+    Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
+    <mark>Exec=urxvt -e newsboat</mark>
+    Icon=liferea
+    Terminal=false
+    Type=Application
+    StartupNotify=true
+    Categories=Network;News;
+    Keywords=news;feed;aggregator;blog;podcast;</pre>
 Pada bagian `Exec=`, Terminal emulator `urxvt` mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya. Perhatikan `-e` tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan `-x`.
 
 # Konfigurasi
@@ -193,12 +192,18 @@ https://rss-feed-url "tag"
 
 Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Untuk mengedit URL di dalam Newsboat (pada saat Newsboat sedang terbuka), gunakan <kbd>Shift</kbd>+<kbd>E</kbd>.</p>
+</div>
+
 # Bagaimana Mendapatkan RSS Feed URL?
 
 Biasanya pemilik blog/website tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.
 
 <!-- IMAGE CAPTION -->
-![gambar_4](https://i.postimg.cc/nzRT1sRY/gambar-04.png)
+![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/nzRT1sRY/gambar-04.png"}
 <p class="img-caption">Gambar 0 - Icon dari RSS Feed</p>
 
 Teman-teman bisa mencari dan menelusuri *layout* dari blog/website yang teman-teman incar.
@@ -223,17 +228,17 @@ Namun, cara di atas tidak sepenuhnya berhasil. Hanya berhasil terhadap blog/webs
 # Tampilan Newsboat
 
 <!-- IMAGE CAPTION -->
-![gambar_1](https://i.postimg.cc/Vs3fvJ7t/gambar-01.png)
+![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/Vs3fvJ7t/gambar-01.png"}
 <p class="img-caption">Gambar 1 - Tampilan Depan, daftar RSS feed</p>
 
 <br>
 <!-- IMAGE CAPTION -->
-![gambar_2](https://i.postimg.cc/fW3WMcvZ/gambar-02.png)
+![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/fW3WMcvZ/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Daftar Artikel dari Salah Satu Blog</p>
 
 <br>
 <!-- IMAGE CAPTION -->
-![gambar_3](https://i.postimg.cc/DyL2X7DM/gambar-03.png)
+![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/DyL2X7DM/gambar-03.png"}
 <p class="img-caption">Gambar 3 - Tampilan Isi</p>
 
 
@@ -257,9 +262,9 @@ Dokumentasi lebih lengkap dapat dilihat pada `man newsboat`. Coba periksa, banya
 
 # Referensi
 
-1. [https://en.wikipedia.org/wiki/RSS](https://en.wikipedia.org/wiki/RSS){:target="_blank"}
+1. [en.wikipedia.org/wiki/RSS](https://en.wikipedia.org/wiki/RSS){:target="_blank"}
 <br>Diakses tanggal: 2018/12/12
 
-2. [https://wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat){:target="_blank"}
+2. [wiki.archlinux.org/index.php/Newsboat](https://wiki.archlinux.org/index.php/Newsboat){:target="_blank"}
 <br>Diakses tanggal: 2018/12/12
 

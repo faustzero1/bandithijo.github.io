@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['XFCE', 'Tips']
+tags: ['XFCE', 'Tips', 'Terminal']
 pin:
 ---
 
@@ -23,7 +23,7 @@ Jadi, yang dimaksud dengan *presentation mode* adalah mode dimana laptop kita ti
 
 Kenapa harus mengaktifkan **Presentation Mode** pada aplikasi **xfce4-power-manager** melalui Terminal? Bukankah sudah terdapat GUI?
 
-![gambar1](https://s20.postimg.cc/awi675yml/gambar_01.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/awi675yml/gambar_01.png"}
 <p class="img-caption">Gambar 1 - xfce4-power-manager graphical user interface</p>
 
 Sederhana saja jawabannya. Kita pasti selalu mencari cara untuk melakukan hal-hal yang rumit agar menjadi lebih praktis. Yaa, praktis.
@@ -96,7 +96,7 @@ $ vim ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
-&lt;channel name="xfce4-power-manager" version="1.0">
+&lt;channel name="xfce4-power-manager" version="1.0"&gt;
     &lt;property name="xfce4-power-manager" type="empty"&gt;
     &lt;property name="brightness-switch-restore-on-exit" type="int" value="0"/&gt;
     &lt;property name="brightness-switch" type="int" value="0"/&gt;
@@ -167,7 +167,7 @@ Dapat dilihat pada baris *alias* di atas, saya menggunakan nama `presentationmod
 
 Untuk mencobanya, kalian bisa membuka Terminal baru, atau merefresh Terminal yang saat ini sedang terbuka. `$ exec $SHELL`
 
-![gambar2](https://s20.postimg.cc/wze9g4mr1/gambar_02.gif)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif"}
 
 Kalian juga dapat menambahkan *output* berupa `echo` agar menampilkan tulisan seperti yang saya lakukan pada contoh di atas.
 ```
@@ -192,6 +192,6 @@ Saya rasa cukup seperti ini saja.
 
 # Referensi
 
-1. [https://askubuntu.com/questions/407287/change-xfce4-power-manager-option-from-terminal/407298#407298](https://askubuntu.com/questions/407287/change-xfce4-power-manager-option-from-terminal/407298#407298){:target="_blank"}
+1. [askubuntu.com/questions/407287/change-xfce4-power-manager-option-from-terminal/407298#407298](https://askubuntu.com/questions/407287/change-xfce4-power-manager-option-from-terminal/407298#407298){:target="_blank"}
 <br>Diakses tanggal: 18/06/11
 

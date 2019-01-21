@@ -17,9 +17,9 @@ pin:
 
 # Hasil
 
-![gambar1](https://s20.postimg.cc/ev897h365/gambar_01.png)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/ev897h365/gambar_01.png"}
 
-![gambar2](https://s20.postimg.cc/6xn0xertp/gambar_02.png)
+![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/6xn0xertp/gambar_02.png"}
 
 # Video Dokumentasi
 

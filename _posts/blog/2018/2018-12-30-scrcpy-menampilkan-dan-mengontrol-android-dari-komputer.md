@@ -98,7 +98,7 @@ Apabila `adb` belum pernah di jalankan maka perintah di atas akan memanggil dan 
 
     Pada saat ini, akan muncul *window* baru yang akan menampilkan tampilan dari layar *smartphone* Andorid kita.
     <!-- IMAGE CAPTION -->
-    ![gambar_1](https://i.postimg.cc/Ls6GBwK5/gambar-01.png)
+    ![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/Ls6GBwK5/gambar-01.png"}
     <p class="img-caption">Gambar 1 - Scrcpy saat dijalankan</p>
 
 ## Menggunakan Wifi
@@ -107,7 +107,7 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
 
 1. Langkah pertama, kita harus mengetahui **IP address** yang dimilii oleh *smartphone* kita. Langkah paling mudah menurut saya, buka menu **Settings → About Phone → Status**.
     <!-- IMAGE CAPTION -->
-    ![gambar_2](https://i.postimg.cc/wxZHxqKV/gambar-02.jpg)
+    ![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wxZHxqKV/gambar-02.jpg"}
     <p class="img-caption">Gambar 2 - Melihat IP address dari smartphone</p>
     Dapat dilihat pada gambar di atas, area yang saya kotak merah adalah IP address yang dimiliki oleh *smartphone*.
 
@@ -208,15 +208,15 @@ Masih banyak fitur-fitur dari Scrcpy yang belum sempat saya tuliskan di sini. Si
 
 # Referensi
 
-1. [https://github.com/Genymobile/scrcpy](https://github.com/Genymobile/scrcpy){:target="_blank"}
+1. [github.com/Genymobile/scrcpy](https://github.com/Genymobile/scrcpy){:target="_blank"}
 <br>Diakses tanggal: 2018/12/30
 
-2. [https://blog.rom1v.com/2018/03/introducing-scrcpy/](https://blog.rom1v.com/2018/03/introducing-scrcpy/){:target="_blank"}
+2. [blog.rom1v.com/2018/03/introducing-scrcpy/](https://blog.rom1v.com/2018/03/introducing-scrcpy/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/30
 
-3. [https://www.genymotion.com/blog/open-source-project-scrcpy-now-works-wirelessly/](https://www.genymotion.com/blog/open-source-project-scrcpy-now-works-wirelessly/){:target="_blank"}
+3. [www.genymotion.com/blog/open-source-project-scrcpy-now-works-wirelessly/](https://www.genymotion.com/blog/open-source-project-scrcpy-now-works-wirelessly/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/30
 
-4. [https://wiki.archlinux.org/index.php/Android_Debug_Bridge](https://wiki.archlinux.org/index.php/Android_Debug_Bridge){:target="_blank"}
+4. [wiki.archlinux.org/index.php/Android_Debug_Bridge](https://wiki.archlinux.org/index.php/Android_Debug_Bridge){:target="_blank"}
 <br>Diakses tanggal: 2018/12/30
 

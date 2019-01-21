@@ -42,11 +42,11 @@ $ wine uninstaller
 
 Berikut saya sertakan ilustrasinya.
 
-![gambar1](https://s20.postimg.cc/b3uovt4zx/gambar_01.gif)
+![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/b3uovt4zx/gambar_01.gif"}
 
 Gimana? Sangat mudah sekali bukan?
 
 # Referensi
 
-1. [https://wiki.winehq.org/Uninstaller](https://wiki.winehq.org/Uninstaller){:target="_blank"}
+1. [wiki.winehq.org/Uninstaller](https://wiki.winehq.org/Uninstaller){:target="_blank"}
 <br>Diakses tanggal: 2018/05/23

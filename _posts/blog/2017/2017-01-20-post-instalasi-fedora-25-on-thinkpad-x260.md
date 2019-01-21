@@ -57,7 +57,7 @@ Kita membutuhkan tambahan repository dari pihak ketiga dengan tujuan memperkaya 
 ```
 $ su -c 'dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
 ```
-Sumber : [https://rpmfusion.org/Configuration](https://rpmfusion.org/Configuration){:target="_blank"}
+Sumber : [rpmfusion.org/Configuration](https://rpmfusion.org/Configuration){:target="_blank"}
 
 Jangan lupa, _update_ sistem kembali setelah menambahkan RPM Fusion repositori.
 ```
@@ -115,7 +115,7 @@ Untuk menginstal Fedy, buka Terminal dan _copy paste_ kode perintah di bawah ini
 ```
 $ sudo sh -c 'curl https://www.folkswithhats.org/installer | bash'
 ```
-Source : [https://folkswithhats.org/](https://folkswithhats.org/){:target="_blank"}
+Source : [folkswithhats.org/](https://folkswithhats.org/){:target="_blank"}
 
 Setelah Fedy berhasil diinstal, saatnya kita menginstal aplikasi-aplikasi yang sudah dikemas oleh Fedy, seperti :
 
@@ -156,7 +156,7 @@ $ sudo dnf install tlp
 Kesan setelah melakukan instalasi Fedora 25 Workstation pada mesin Lenovo ThinkPad x260 menurut saya sangat-sangat mudah dan tidak ribet. Kompatibilitas hardware yang sudah terpenuhi semua, tidak perlu repot-repot setting seperti yang saya lakukan pada MacBook Pro 8.1 late 2011 saya sebelumnya.
 
 # Daftar Referensi
-1. [https://rpmfusion.org/Configuration](https://rpmfusion.org/Configuration){:target="_blank"}
-<br>[dateaccessed : 2017/01/20]
-2. [https://folkswithhats.org/](https://folkswithhats.org/){:target="_blank"}
-<br>[dateaccessed : 2017/01/20]
+1. [rpmfusion.org/Configuration](https://rpmfusion.org/Configuration){:target="_blank"}
+<br>Diakses tanggal: 2017/01/20
+2. [folkswithhats.org/](https://folkswithhats.org/){:target="_blank"}
+<br>Diakses tanggal: 2017/01/20

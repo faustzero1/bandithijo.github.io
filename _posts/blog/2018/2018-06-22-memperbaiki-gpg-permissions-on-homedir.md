@@ -56,12 +56,15 @@ Saya rasa cukup seperti ini saja.
 
 # Referensi
 
-1. [https://gnupg.org/](https://gnupg.org/){:target="_blank"}
+1. [gnupg.org/](https://gnupg.org/){:target="_blank"}
 <br>Diakses tanggal: 18/06/22
-2. [https://superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning](https://superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning){:target="_blank"}
+
+2. [superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning](https://superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning){:target="_blank"}
 <br>Diakses tanggal: 18/06/22
-3. [https://en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions](https://en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions){:target="_blank"}
+
+3. [en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions](https://en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions){:target="_blank"}
 <br>Diakses tanggal: 18/06/22
-4. [https://lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html](https://lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html){:target="_blank"}
+
+4. [lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html](https://lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html){:target="_blank"}
 <br>Diakses tanggal: 18/06/22
 

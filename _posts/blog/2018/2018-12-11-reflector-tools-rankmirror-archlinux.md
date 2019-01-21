@@ -107,7 +107,7 @@ Contoh ini akan menjalankan `reflector.service` setelah network service up and o
 ```
 $ sudo vim /etc/systemd/system/reflector.service
 ```
-```
+<pre>
 [Unit]
 Description=Pacman mirrorlist update
 Wants=network-online.target
@@ -115,11 +115,11 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/reflector --protocol https --latest 30 --number 20 --sort rate --save /etc/pacman.d/mirrorlist
+ExecStart=<mark>/usr/bin/reflector --protocol https --latest 30 --number 20 --sort rate --save /etc/pacman.d/mirrorlist</mark>
 
 [Install]
 RequiredBy=multi-user.target
-```
+</pre>
 
 Parameter dari `ExecStart=` dapat teman-teman rubah sesuai preferensi masing-masing.
 
@@ -160,11 +160,11 @@ Apabila menemukan kesalahan dan kegagalan sekali lagi saya berpesan, tulisan ini
 
 # Referensi
 
-1. [https://wiki.archlinux.org/index.php/Reflector](https://wiki.archlinux.org/index.php/Reflector){:target="_blank"}
+1. [wiki.archlinux.org/index.php/Reflector](https://wiki.archlinux.org/index.php/Reflector){:target="_blank"}
 <br>Diakses tanggal: 2018/12/11
 
-2. [https://xyne.archlinux.ca/projects/reflector/](https://xyne.archlinux.ca/projects/reflector/){:target="_blank"}
+2. [xyne.archlinux.ca/projects/reflector/](https://xyne.archlinux.ca/projects/reflector/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/11
 
-3. [https://www.archlinux.org/packages/community/any/reflector/](https://www.archlinux.org/packages/community/any/reflector/){:target="_blank"}
+3. [archlinux.org/packages/community/any/reflector/](https://www.archlinux.org/packages/community/any/reflector/){:target="_blank"}
 <br>Diakses tanggal: 2018/12/11
