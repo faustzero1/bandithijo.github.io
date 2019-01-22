@@ -14,7 +14,7 @@ pin:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="https://4.bp.blogspot.com/-YjUgk-I-xV8/VXstgLAFV_I/AAAAAAAABpk/YFOiY8VCCt0/s1600/Default%2BHeader%2BTemplate%2BPost%2B19.jpg" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://4.bp.blogspot.com/-YjUgk-I-xV8/VXstgLAFV_I/AAAAAAAABpk/YFOiY8VCCt0/s1600/Default%2BHeader%2BTemplate%2BPost%2B19.jpg" alt="banner">
 
 # Pendahuluan
 Mei 26, 2015. Fedora 22 telah resmi dirilis. Ini pertama kali bagi saya melakukan _upgrade_ sistem operasi Fedora dengan menggunakan tool. Karena sebelumnya saya adalah pengguna Ubuntu. Dan _upgrade_ sistem operasi pada lingkungan Ubuntu benar-benar sangat mudah. Karena developer sudah menyediakan aplikasi GUI (_Graphic User Interface_).

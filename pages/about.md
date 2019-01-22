@@ -4,7 +4,7 @@ title: 'Tentang Blog dan Penulis'
 permalink: '/about/'
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank.png" data-echo="/assets/img/banner/contact.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="/assets/img/banner/contact.png" alt="banner">
 
 **BanditHijo**, tidak seperti yang anda ketahui Bandit (kata ganti orang untuk konotasi yang bersifat negatif) dan Hijo (kata plesetan dari warna hijau).
 

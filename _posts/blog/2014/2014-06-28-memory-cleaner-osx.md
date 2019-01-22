@@ -14,7 +14,7 @@ pin:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="https://3.bp.blogspot.com/-OLcnhF6woME/U635xta9JRI/AAAAAAAABXs/zlzwJ12VoVg/w425-h114-no/Default+Header+Template+Post+15.jpg" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://3.bp.blogspot.com/-OLcnhF6woME/U635xta9JRI/AAAAAAAABXs/zlzwJ12VoVg/w425-h114-no/Default+Header+Template+Post+15.jpg" alt="banner">
 
 Menggunakan komputer dalam waktu lama dan merasa sistem sudah terasa semakin berat ? Bisa jadi dikarenakan chache dan log yang menumpuk, bisa juga dikarenakan aplikasi-aplikasi yang berjalan di  belakang layar (backgroudn process).
 

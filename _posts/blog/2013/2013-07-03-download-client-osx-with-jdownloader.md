@@ -14,7 +14,7 @@ pin:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="https://3.bp.blogspot.com/-Rwnz4BKPMJA/UdMVgTfGWeI/AAAAAAAABAM/8QDqK8DfU08/s1600/Default+Header+Template+Post+10.jpg" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://3.bp.blogspot.com/-Rwnz4BKPMJA/UdMVgTfGWeI/AAAAAAAABAM/8QDqK8DfU08/s1600/Default+Header+Template+Post+10.jpg" alt="banner">
 
 # Latar Belakang
 Sudah beralih ke OS X dan masih berharap bisa download video di Youtube, donwload kontent-kontetn di website yang tidak terdapat menu download, download dari situs-situs yang membutuhkan account premium, ketergantungan dengan IDM (Internet Download Manager) di Windows ? Tapi sudah benar-benar terpojok dengan OS X ? Jangan khawatir. Saya akan memperkenalkan sebuah software sebagai alternatif bagi anda sebagai pengganti IDM di Windows.

@@ -14,7 +14,7 @@ pin:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="https://s20.postimg.cc/g07ex98dp/Default_Header_Template_Post_18_D2.jpg">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/g07ex98dp/Default_Header_Template_Post_18_D2.jpg">
 
 # Pendahuluan
 Tujuan dari penulisan dokumentasi ini untuk memudahkan pengguna mesin Apple khususnya Macbook Pro 8.1 (Late 2011) dalam menginstalasi sistem operasi Fedora 21. Untuk itu, saya mendokumentasikan proses setup Fedora 21 ini agar memudahkan pengguna Apple yang ingin beralih menggunakan sistem operasi Fedora 21.

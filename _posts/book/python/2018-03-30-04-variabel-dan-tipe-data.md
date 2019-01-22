@@ -12,7 +12,7 @@ tags:
 pin:
 ---
 
-<img class="post-body-img" src="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
 
 # Intro
 Hampir di setiap program Python yang nanti kamu tulis, kamu akan menggunakan **variable**. Variable dapat diibaratkan sebuah ember yang digunakan untuk menampung data. Variable dalam Python dapat menampun bermacam-macam data. Data yang ditampung dapat berupa string, integer, float, boolean, array, function, dan mungkin masih banyak lagi.

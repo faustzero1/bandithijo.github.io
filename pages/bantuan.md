@@ -5,7 +5,7 @@ permalink: '/bantuan/'
 toc: true
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank.png" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
 
 Selamat datang, mas Bro!
 

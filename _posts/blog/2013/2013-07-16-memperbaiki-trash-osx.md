@@ -15,7 +15,7 @@ pin:
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="https://1.bp.blogspot.com/-Jrz4qxlN9JQ/UeVCPh-mUCI/AAAAAAAABOs/XXW6t3UxH-s/s1600/Default+Header+Template+Post+14.jpg" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://1.bp.blogspot.com/-Jrz4qxlN9JQ/UeVCPh-mUCI/AAAAAAAABOs/XXW6t3UxH-s/s1600/Default+Header+Template+Post+14.jpg" alt="banner">
 
 # Latar Belakang
 Beberapa hari yang lalu, teman saya yang bernama Ichsan mengalami permasalahan pada Trash OS X nya. Trash tidak berfungsi sebagaimana mestinya. Setiap mendelete file / folder selalu diminta untuk memasukkan password dan setelah itu file / folder tidak muncul pada folder Trash.

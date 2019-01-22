@@ -12,7 +12,7 @@ tags:
 pin:
 ---
 
-<img class="post-body-img" src="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
 
 # Intro
 Matematika adalah topik yang cukup populer, sehingga kita perlu juga untuk mempelajari operasi matematika dasar dengan menggunakan Python. Beruntungnya, kita mempelajari bahasa pemrograman Python, dimana bahasan matematika sangat populer, khususnya ilmu terapan dari matematika seperti statistik, metode numerik, aljabar linier, dll. Sehingga membuat matematika dalam bahasa pemrograman Python menjadi sangat sederhana.

@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="https://s20.postimg.cc/kcm94ki19/banner_post_12.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/kcm94ki19/banner_post_12.png" alt="banner">
 
 # Pendahuluan
 Sewaktu pertama kali memiliki laptop ini (Lenovo ThinkPad x260), saya berfikir bagaimana nantinya saya harus meng-update BIOS, apabila saya menghapus sistem operasi Windows dan hanya menggunakan satu sistem operasi GNU/Linux?

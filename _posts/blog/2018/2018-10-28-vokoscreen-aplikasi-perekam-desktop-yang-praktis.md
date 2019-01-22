@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="https://i.postimg.cc/VLKJrrjj/banner-post-22.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://i.postimg.cc/VLKJrrjj/banner-post-22.png" alt="banner">
 
 # Prakata
 

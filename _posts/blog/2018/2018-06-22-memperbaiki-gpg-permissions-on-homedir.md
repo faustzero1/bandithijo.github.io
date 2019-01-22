@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="https://s20.postimg.cc/6vuksuzgt/banner_post_17.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/6vuksuzgt/banner_post_17.png" alt="banner">
 
 # Pendahuluan
 

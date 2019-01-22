@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Network', 'Tips']
 pin:
 ---
 
-<img class="post-body-img" src="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
 
 # Latar Belakang
 Oktober 2017, saya menglami kepanikan dikarenakan aplikasi penunjang perkuliahan Jaringan Komunikasi 2 (CCNA 2) yaitu [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer-download/){:target="_blank"} versi 7.1.1, yang secara tiba-tiba tidak dapat dibuka di sistem saya (Arch Linux).

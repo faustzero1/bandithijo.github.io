@@ -12,7 +12,7 @@ tags: ['ThinkPad', 'Arch Linux', 'Tips']
 pin:
 ---
 
-<img class="post-body-img" src="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
 
 # Latar Belakang
 Untuk dapat menggunakan _fingerprint scanner_, terlebih dahulu kalian harus memastikan apakah tipe dari _fingerprint scanner_ yang kalian miliki telah didukung atau tidak. Kalian dapat melakukan pengecekan dengan mengunjungi link berikut ini: [libfprint_supported_devices](https://www.freedesktop.org/wiki/Software/fprint/libfprint/Supported_devices/){:target="_blank"}.

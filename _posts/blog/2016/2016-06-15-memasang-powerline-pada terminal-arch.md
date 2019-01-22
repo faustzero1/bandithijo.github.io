@@ -12,7 +12,7 @@ tags: ['Terminal', 'Arch Linux']
 pin:
 ---
 
-<img class="post-body-img" src="https://1.bp.blogspot.com/-KF2Kx7Lid-A/V2F0WfmSFnI/AAAAAAAADTs/xQ1Xu0qqI74ckHyXueXOgPD_4VL9lECNACPcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B21.1.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://1.bp.blogspot.com/-KF2Kx7Lid-A/V2F0WfmSFnI/AAAAAAAADTs/xQ1Xu0qqI74ckHyXueXOgPD_4VL9lECNACPcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B21.1.png" alt="banner">
 
 >Powerline adalah plugin vim yang menyediakan statusline dan prompts dan juga untuk beberapa aplikasi lainnya, termasuk zsh, bash, tmux, IPython, Awesome, i3, dan Qtile.
 >

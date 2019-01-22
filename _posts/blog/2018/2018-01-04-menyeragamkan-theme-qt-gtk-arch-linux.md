@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 ---
 
-<img class="post-body-img" src="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
 
 # Latar Belakang
 Sebagai pengguna GNU/Linux, tentu pernah mendapati beberapa aplikasi membawa _default theme_ yang terkadang tidak sesuai dengan _theme_ yang sedang kita gunakan. Sekedar informasi sedikit, tampilan _engine_ untuk GUI (_Graphical User Interface_) pada GNU/Linux yang banyak digunakan biasanya **GTK+** atau **Qt**. GTK+ biasanya digunakan oleh aplikasi yang dipaketkan bersama Gnome, sedangkan Qt biasanya digunakan oleh aplikasi yang dipaketkan bersama KDE.

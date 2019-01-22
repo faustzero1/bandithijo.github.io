@@ -14,7 +14,7 @@ pin:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="https://3.bp.blogspot.com/-FigjG_LNp7I/WI51ZWdr7gI/AAAAAAAAEOw/MsEHYJhXqT0qqEVjnKp9Lwo_Ms5DFthvACLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B23.5.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://3.bp.blogspot.com/-FigjG_LNp7I/WI51ZWdr7gI/AAAAAAAAEOw/MsEHYJhXqT0qqEVjnKp9Lwo_Ms5DFthvACLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B23.5.png" alt="banner">
 
 # Latar Belakang
 ## Apa itu YumEx-DNF ?

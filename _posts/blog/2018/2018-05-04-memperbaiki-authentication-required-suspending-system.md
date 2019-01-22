@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="https://s20.postimg.cc/j770ed1tp/banner_post_11.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/j770ed1tp/banner_post_11.png" alt="banner">
 
 # Permasalahan
 

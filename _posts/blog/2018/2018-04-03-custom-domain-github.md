@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 ---
 
-<img class="post-body-img" src="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" alt="banner">
 
 # Latar Belakang
 Tepat tiga minggu yang lalu, [saya memigrasikan blog ini dari .blogspot.com ke .github.io](http://bandithijo.com/blog/migrasi-blog-2-0){:target="_blank"}. Saya pikir, saya tidak akan tertarik untuk membeli _custom domain_ .com untuk blog ini, karena menurut saya .github.io sudah sangat keren.

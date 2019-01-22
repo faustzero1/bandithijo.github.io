@@ -12,7 +12,7 @@ tags:
 pin:
 ---
 
-<img class="post-body-img" src="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
 
 # Print() Function
 Seperti yang sudah saya _mention_ sedikit di _post_ sebelumnya, **print()** _function_ ini digunakan utnuk menampilkan _output_ ke dalam _console_. _Console_ disini tergantung dari sistem operasi yang kita gunakan. Dalam sistem operasi Windows dikenal dengan sebutan Command Prompt (CMD.exe) sedangkan dalam sistem operasi GNU/Linux dikenal dengan sebutan Terminal.

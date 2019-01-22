@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips']
 pin:
 ---
 
-<img class="post-body-img" src="https://4.bp.blogspot.com/-8Zdbis7q7Zg/WmLxSO4-GHI/AAAAAAAAG64/NtBEawlhLpcXQiDANDzezBpBMjd_8jJWQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://4.bp.blogspot.com/-8Zdbis7q7Zg/WmLxSO4-GHI/AAAAAAAAG64/NtBEawlhLpcXQiDANDzezBpBMjd_8jJWQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
 
 # Latar Belakang
 Pernah mendapati video yang saat diputar, axisnya tidak sesuai dengan seharusnya ?
