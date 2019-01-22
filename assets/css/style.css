@@ -680,6 +680,11 @@ p.notif-post {
     /* animation: 1s blink infinite; */
 }
 
+.tags-in-post {
+    margin-top: 5px;
+    color: #FFF;
+}
+
 .tags {
     background: #008352;
     border-radius: 3px;
