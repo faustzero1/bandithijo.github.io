@@ -893,7 +893,8 @@ p.notif-post {
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+/* .active, .collapsible:hover { */
+.collapsible:hover {
   background-color: #ccc;
 }
 
