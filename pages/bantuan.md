@@ -7,6 +7,10 @@ toc: true
 
 <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
 
+<div class="doa-awal">
+  <p>بسم الله الرحمن الرحيم</p>
+</div>
+
 Selamat datang, mas Bro!
 
 Halaman bantuan BanditHijo (R)-Chive. Ini adalah halaman yang berisi beberapa penjelasan dan keterangan mengenai bentuk-bentuk tanda baca, atau saya sebut rambu-rambu, yang mungkin diperlukan untuk memahami dalam membaca artikel yang ada di dalam blog ini.
