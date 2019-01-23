@@ -1,6 +1,6 @@
 friends:
 - nama: "Sucipto"
-  photo: "sucipto"
+  photo: "https://github.com/showcheap.png?size=200"
   url1: "https://sucipto.net"
   url2: "https://github.com/showcheap"
   detail: |
@@ -9,7 +9,7 @@ friends:
 
 
 - nama: "Agung Setiawan"
-  photo: "agungsetiawan"
+  photo: "https://github.com/agungsetiawan.png?size=200"
   url1: "https://agung-setiawan.com"
   url2: "https://www.idrails.com"
   detail: |
@@ -19,7 +19,7 @@ friends:
 
 
 - nama: "Epsi"
-  photo: "epsi"
+  photo: "https://github.com/epsi-rns.png?size=200"
   url1: "https://epsi-rns.github.io"
   url2: "https://epsi-rns.gitlab.io"
   detail: |
@@ -28,7 +28,7 @@ friends:
 
 
 - nama: "Fikri Omar"
-  photo: "fikriomar"
+  photo: "https://github.com/fikriomar16.png?size=200"
   url1: "https://github.com/fikriomar16"
   url2: "https://www.deviantart.com/fikriomar16"
   detail: |
@@ -39,7 +39,7 @@ friends:
 
 
 - nama: "Nanda Okitavera"
-  photo: "nanda"
+  photo: "https://github.com/okitavera.png?size=200"
   url1: "https://okitavera.me"
   url2: "https://github.com/okitavera"
   detail: |
@@ -50,7 +50,7 @@ friends:
 
 
 - nama: "Aflasio"
-  photo: "aflasio"
+  photo: "https://lh3.googleusercontent.com/ZZbXUNek_OHxGIzBwvr0NSJPc5NrcBNzVvYpGSZKiooHTW4-3w0Dw3jzq-IGmrETEC1HuOvD6_hvPw=s2048-no"
   url1: "https://www.aflasio.com"
   url2: "https://blog.aflasio.com"
   detail: |
@@ -59,7 +59,7 @@ friends:
 
 
 - nama: "Addy"
-  photo: "addy"
+  photo: "https://github.com/addy-dclxvi.png?size=200"
   url1: "https://addy-dclxvi.github.io"
   url2: "https://github.com/addy-dclxvi"
   detail: |
@@ -68,16 +68,16 @@ friends:
 
 
 - nama: "Rania Amina"
-  photo: "rania"
+  photo: "https://github.com/raniaamina.png?size=200"
   url1: "https://raniaamina.github.io"
-  url2:
+  url2: "https://github.com/raniaamina"
   detail: |
       Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.<br>
       Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.
 
 
 - nama: "Fathurhoho"
-  photo: "fathurhoho"
+  photo: "https://3.bp.blogspot.com/-irLdkJt9Yr4/WcJ3EJDCq6I/AAAAAAAABGA/K4fNuF64WdIEI6GKmEkI49whnuuWhekkwCPcBGAYYCw/s200/fathurhoho.png"
   url1: "https://www.fathurhoho.id"
   url2: "https://ngonfig.net"
   detail: |
@@ -86,7 +86,7 @@ friends:
 
 
 - nama: "Muktazam Hasbi Ashidiqi"
-  photo: "reorr"
+  photo: "https://github.com/reorr.png?size=200"
   url1: "https://chamelemon.site"
   url2: "https://github.com/reorr"
   detail: |
@@ -95,7 +95,7 @@ friends:
 
 
 - nama: "Muhammad Yuga"
-  photo: "black4t"
+  photo: "https://github.com/black4t.png?size=200"
   url1: "https://github.com/black4t"
   url2:
   detail: |
@@ -104,7 +104,7 @@ friends:
 
 
 - nama: "Yunindyo Prabowo"
-  photo: "ypraw"
+  photo: "https://github.com/ypraw.png?size=200"
   url1: "https://yupraw.me/"
   url2: "https://github.com/ypraw"
   detail: |
@@ -113,7 +113,7 @@ friends:
 
 
 - nama: "Habib Mustofa"
-  photo: "habibmustofa"
+  photo: "https://github.com/habibmustofa.png?size=200"
   url1: "https://www.habib-mustofa.com/"
   url2: "https://github.com/habibmustofa"
   detail: |
