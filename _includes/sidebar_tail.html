@@ -21,5 +21,9 @@
         {% include _sidebar/groups/sidebar_groups_telegram.html %}
     {% elsif page.permalink == '/dotfriends/' %}
         {% comment %}{% include _sidebar/dotfriends/sidebar_dotfriends_list.html %}{% endcomment %}
+    {% elsif page.permalink == '/about/' %}
+        {% include _sidebar/sidebar_blog_terbaru.html %}
+        {% include _sidebar/tags/sidebar_tags_depan.html %}
+        {% include _sidebar/sidebar_rss_feed.html %}
     {% endif %}
 </aside>
