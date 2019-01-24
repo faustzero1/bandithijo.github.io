@@ -58,7 +58,6 @@ cd {srcDir}
 JEKYLL_ENV=production jekyll build
 
 echo '\n[ DONE ] Jekyll Build Env=production\n'
-sleep 5
 # -----------------------------------------------------------------------------
 
 
@@ -74,7 +73,6 @@ rm {pubDir}/feed.xml
 git add .; git commit -m "{comMsg}"; git push origin master
 
 echo '\n[ DONE ] Add, Commit, and Push to GitHub Repo\n'
-sleep 5
 # -----------------------------------------------------------------------------
 
 
@@ -88,7 +86,6 @@ cd {srcDir}
 git add .; git commit -m "{comMsg}"; git push origin master
 
 echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
-sleep 2
 # -----------------------------------------------------------------------------
 ''')
 
