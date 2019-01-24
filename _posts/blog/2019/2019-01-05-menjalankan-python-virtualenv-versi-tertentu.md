@@ -39,7 +39,7 @@ Bagaimana caranya agar di dalam Python Environment yang saya buat dapat mengguna
 
 1. Install Python 3.6 dari AUR
 ```
-$ yay python3.6
+$ yay python36
 ```
 2. Buat virtualenv dari versi python 3.6
     <pre>
