@@ -2,6 +2,7 @@
 layout: 'page'
 title: 'Tentang Blog dan Penulis'
 permalink: '/about/'
+toc: true
 ---
 
 <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="/assets/img/banner/contact.png" alt="banner">
