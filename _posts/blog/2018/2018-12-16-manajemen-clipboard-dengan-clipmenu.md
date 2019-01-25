@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags: ['Tips', 'Terminal', 'Tools', 'I3WM']
-pin: true
+pin:
 ---
 
 <!-- BANNER OF THE POST -->

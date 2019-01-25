@@ -1,20 +1,21 @@
 ---
 layout: 'page'
-title: 'Daftar Log: Vlog'
+title: 'Daftar Log: Blog'
 author: 'BanditHijo'
-permalink: '/vlog/'
+permalink: '/blog/'
 ---
 
 <div class="post-body">
 
+
   <!-- PINNED POSTS -->
-  {% assign pin = true %}
-  {% if pin == true %}
+  {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'blog'" %}
+  {% if posts.pin.size > 0 %}
   <div style="clear:both;">
     <img class="post-header-img" src="/assets/img/logo/logo_pin.svg" style="width:35px;">
-    <h3 style="font-size:2.5em;margin-bottom:0;">Pinned Post</h3>
+    <h3 class="post-header" style="font-size:2.5em;margin-bottom:0;">Pinned Post</h3>
   </div><!-- clear:both -->
-  {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'vlog'" %}
+  {% endif %}
   {% for post in posts reversed %}
   {% if post.pin == true  %}
     <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
@@ -22,22 +23,24 @@ permalink: '/vlog/'
   {% elsif post.pin == nil %}
   {% endif %}
   {% endfor %}
-  {% endif %}<!-- pin == true -->
 
   <!-- REGULAR POSTS -->
-  {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'vlog'" %}
-  {% assign postsByYear = posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-  {% for year in postsByYear reversed %}
+  {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear %}
     <div style="clear:both;">
       <img class="post-header-img" src="/assets/img/logo/logo_cal.svg">
       <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;">&nbsp;{{ year.name }}</h3>
     </div><!-- clear:both -->
-    {% for post in year.items reversed %}
-      {% if post.category == 'vlog' and post.pin == nil %}
+    {% for post in year.items %}
+      {% if post.category == 'blog' and post.pin == nil %}
         <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
         <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
       {% endif %}
     {% endfor %}
   {% endfor %}
+
+  <img class="post-header-img" src="/assets/img/logo/logo_cal.svg">
+  <h3 style="font-size:2.5em;margin:40px 0 0 0;">&nbsp;2012</h3>
+  <p class="post-title-index" style="border-bottom:none;">+&nbsp;<span class="font-latin" style="font-size:16px;">Saya kehilangan semua tulisan di tahun ini, <span class="nobr">my bad  =(</span></span></p>
 
 </div><!-- post-body -->

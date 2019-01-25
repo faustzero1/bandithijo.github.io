@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags: ['Terminal', 'Tools', 'Tips']
-pin: true
+pin:
 ---
 
 <!-- BANNER OF THE POST -->
