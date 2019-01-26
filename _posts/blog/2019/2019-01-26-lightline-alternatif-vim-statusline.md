@@ -205,6 +205,10 @@ Saya mengganti `'close': 'raw'` menjadi seperti di atas.
 ![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
 <p class="img-caption">Gambar 3 - Lightline + Lightline-Bufferline</p>
 
+<!-- IMAGE CAPTION -->
+![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
+<p class="img-caption">Gambar 4 - Tampilan saat tidak sibuk</p>
+
 # Pesan Penulis
 
 Saya memutuskan untuk bermigrasi bukan berarti `vim-airline` tidak bagus dan berat. Hanya saja, pada kasus saya, saya mengalami "startup delay" yang entah dari mana datangnya tiba-tiba menghampiri Vim saya.
