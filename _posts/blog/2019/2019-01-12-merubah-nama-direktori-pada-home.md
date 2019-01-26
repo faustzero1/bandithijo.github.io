@@ -54,9 +54,9 @@ Lantas bagaimana caranya untuk membuat *custom name* pada direktori-direktori in
 
 Mudah sekali.
 
-Tinggal buka Terminal, dan edit file `.config/user-dirs.dirs`.
+Tinggal buka Terminal, dan edit file `~/.config/user-dirs.dirs`.
 ```
-$ vim .config/user-dirs.dirs
+$ vim ~/.config/user-dirs.dirs
 ```
 <pre>
 # This file is written by xdg-user-dirs-update
