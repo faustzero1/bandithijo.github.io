@@ -29,14 +29,6 @@ Coba perhatikan perbandingan Vim pada user biasa dan pada user root di bawah ini
 ![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/JzcBJfsM/gambar-01.gif"}
 <p class="img-caption">Gambar 1 - Perbandingan startup Vim pada root dan Vim pada user</p>
 
-<!-- IMAGE CAPTION -->
-![gambar_7](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif"}
-<p class="img-caption">Gambar 2 - Startup dengan Vim-Airline</p>
-
-<!-- IMAGE CAPTION -->
-![gambar_8](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif"}
-<p class="img-caption">Gambar 3 - Startup dengan Lightline</p>
-
 Sisi kanan adalah Vim pada user biasa, perhatikan delay yang terjadi pada Vim-Airline saat proses *startup* berlangsung. Bandingkan dengan sisi kiri, yaitu Vim pada root.
 
 **User biasa**&nbsp;: Statusline terlambat keluar setelah bufferline
@@ -57,7 +49,15 @@ Berikut ini adalah gambar perbandingan tampilan antara **Vim-Airline** versus **
 
 <!-- IMAGE CAPTION -->
 ![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/05dcfybJ/gambar-02.png"}
-<p class="img-caption">Gambar 4 - Vim-Airline (Kiri), Lightline (Kanan)</p>
+<p class="img-caption">Gambar 2 - Vim-Airline (Kiri), Lightline (Kanan)</p>
+
+<!-- IMAGE CAPTION -->
+![gambar_7](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif"}
+<p class="img-caption">Gambar 3 - Startup dengan Vim-Airline</p>
+
+<!-- IMAGE CAPTION -->
+![gambar_8](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif"}
+<p class="img-caption">Gambar 4 - Startup dengan Lightline</p>
 
 <!-- IMAGE CAPTION -->
 ![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/2SDs8SVk/gambar-05.png"}
