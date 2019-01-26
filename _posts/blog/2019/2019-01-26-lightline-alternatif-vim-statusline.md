@@ -209,6 +209,18 @@ Saya mengganti `'close': '%999X X'` menjadi seperti di atas.
 </pre>
 Saya mengganti `'close': 'raw'` menjadi seperti di atas.
 
+<br>
+Setelah merubah 3 baris pada file `lightline.vim` di atas, **jangan lupa mengganti nilai** `'tabline'` pada bagian `'right':` yang ada pada `~/.vimrc`.
+
+Ubah dari `close` menjadi `string1`, dan `string2`.
+
+```
+let g:lightline.tabline = {
+\   'left': [ ['buffers'] ],
+\   'right': [ ['string1'], ['string2'] ]
+\}
+```
+
 # Hasilnya
 <!-- IMAGE CAPTION -->
 ![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
