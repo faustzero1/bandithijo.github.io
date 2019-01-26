@@ -31,11 +31,11 @@ Coba perhatikan perbandingan Vim pada user biasa dan pada user root di bawah ini
 
 <!-- IMAGE CAPTION -->
 ![gambar_7](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif"}
-<p class="img-caption">Gambar 7 - Startup dengan Vim-Airline</p>
+<p class="img-caption">Gambar 2 - Startup dengan Vim-Airline</p>
 
 <!-- IMAGE CAPTION -->
 ![gambar_8](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif"}
-<p class="img-caption">Gambar 8 - Startup dengan Lightline</p>
+<p class="img-caption">Gambar 3 - Startup dengan Lightline</p>
 
 Sisi kanan adalah Vim pada user biasa, perhatikan delay yang terjadi pada Vim-Airline saat proses *startup* berlangsung. Bandingkan dengan sisi kiri, yaitu Vim pada root.
 
@@ -57,7 +57,7 @@ Berikut ini adalah gambar perbandingan tampilan antara **Vim-Airline** versus **
 
 <!-- IMAGE CAPTION -->
 ![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/05dcfybJ/gambar-02.png"}
-<p class="img-caption">Gambar 2 - Vim-Airline (Kiri), Lightline (Kanan)</p>
+<p class="img-caption">Gambar 4 - Vim-Airline (Kiri), Lightline (Kanan)</p>
 
 <!-- IMAGE CAPTION -->
 ![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/2SDs8SVk/gambar-05.png"}
@@ -232,11 +232,11 @@ let g:lightline.tabline = {
 # Hasilnya
 <!-- IMAGE CAPTION -->
 ![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
-<p class="img-caption">Gambar 3 - Lightline + Lightline-Bufferline</p>
+<p class="img-caption">Gambar 7 - Lightline + Lightline-Bufferline</p>
 
 <!-- IMAGE CAPTION -->
 ![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
-<p class="img-caption">Gambar 4 - Tampilan saat tidak sibuk</p>
+<p class="img-caption">Gambar 8 - Tampilan saat tidak sibuk</p>
 
 # Pesan Penulis
 
