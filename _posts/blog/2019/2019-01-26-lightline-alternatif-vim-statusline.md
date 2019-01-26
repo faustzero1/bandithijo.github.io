@@ -29,6 +29,14 @@ Coba perhatikan perbandingan Vim pada user biasa dan pada user root di bawah ini
 ![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/JzcBJfsM/gambar-01.gif"}
 <p class="img-caption">Gambar 1 - Perbandingan startup Vim pada root dan Vim pada user</p>
 
+<!-- IMAGE CAPTION -->
+![gambar_7](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif"}
+<p class="img-caption">Gambar 7 - Startup dengan Vim-Airline</p>
+
+<!-- IMAGE CAPTION -->
+![gambar_8](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif"}
+<p class="img-caption">Gambar 8 - Startup dengan Lightline</p>
+
 Sisi kanan adalah Vim pada user biasa, perhatikan delay yang terjadi pada Vim-Airline saat proses *startup* berlangsung. Bandingkan dengan sisi kiri, yaitu Vim pada root.
 
 **User biasa**&nbsp;: Statusline terlambat keluar setelah bufferline
