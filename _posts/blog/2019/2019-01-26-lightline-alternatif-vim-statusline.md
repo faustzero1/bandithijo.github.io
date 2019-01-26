@@ -143,7 +143,7 @@ Beberapa modifikasi yang saya lakukan adalah,
 
 Modifikasi terhadap `solarized` colorscheme, saya membuat cetak tebal pada mode dan beberapa bagian.
 ```
-$ vim .vim/plugged/lightline.vim/autoload/lightline/colorscheme/solarized_bandit.vim
+$ vim .vim/plugged/lightline.vim/autoload/lightline/colorscheme/solarized.vim
 ```
 <pre>
 ...
