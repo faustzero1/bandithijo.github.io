@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android <span class="new">BARU</span>'
+title: 'Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android'
 date: 2019-01-14 19:35
 permalink: '/blog/:title'
 author: 'BanditHijo'
