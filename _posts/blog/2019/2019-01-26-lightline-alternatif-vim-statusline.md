@@ -46,9 +46,18 @@ Setelah mencoba beberapa statusline, pilihan saya jatuh pada [**itchyny/lightlin
 Dan untuk menghandle bufferline, saya menggunakan [**mengelbrecht/lightline-bufferline**](https://github.com/mengelbrecht/lightline-bufferline){:target="_blank"}.
 
 Berikut ini adalah gambar perbandingan tampilan antara **Vim-Airline** versus **Lightline** dan **Lightline-Bufferline**.
+
 <!-- IMAGE CAPTION -->
 ![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/05dcfybJ/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Vim-Airline (Kiri), Lightline (Kanan)</p>
+
+<!-- IMAGE CAPTION -->
+![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/2SDs8SVk/gambar-05.png"}
+<p class="img-caption">Gambar 5 - Vim-Airline</p>
+
+<!-- IMAGE CAPTION -->
+![gambar_6](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/52SZHWCw/gambar-06.png"}
+<p class="img-caption">Gambar 6 - Lightline</p>
 
 
 # Instalasi
