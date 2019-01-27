@@ -24,7 +24,17 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Rizqi Nur Assyaufi</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>bandithijo.com</dc:title>
+          </cc:Agent>
+        </dc:publisher>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,9 +53,9 @@
      inkscape:window-height="480"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="1.8700001"
-     inkscape:cx="-59.678862"
-     inkscape:cy="92.051547"
+     inkscape:zoom="3.74"
+     inkscape:cx="75"
+     inkscape:cy="75"
      inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
