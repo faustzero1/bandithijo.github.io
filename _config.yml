@@ -52,6 +52,9 @@ default:
     values:
       layout: post
 
+include:
+  - netlify.toml
+
 # Navigation Menu on Header
 navigation:
   - title: Blog
