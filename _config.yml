@@ -52,8 +52,14 @@ default:
     values:
       layout: post
 
-include:
-  - netlify.toml
+# include:
+#   - netlify.toml
+#
+# [[redirects]]
+#   from = "https://bandithijo.netlify.com/*"
+#   to = "https://bandithijo.com/:splat"
+#   status = 301
+#   force = true
 
 # Navigation Menu on Header
 navigation:
