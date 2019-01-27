@@ -259,6 +259,8 @@ Saya melihat masih banyak potensi yang dapat dimanfaatkan dari tools RSS feed re
 
 Dokumentasi lebih lengkap dapat dilihat pada `man newsboat`. Coba periksa, banyak hal-hal menarik yang belum saya bahasa karena keterbatasan waktu dan ilmu saya saat ini.
 
+Oh iya, apabila kamu punya blog juga, saya sangat mengharapkan untuk tetap mempertahankan RSS feed urlnya. Saya yakin, pasti ada yang memanfaatkan RSS feed tersebut. Seperti saya contohnya. (^_^)
+
 
 # Referensi
 
