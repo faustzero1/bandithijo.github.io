@@ -20,7 +20,7 @@ Arch Linux, distribusi sistem operasi GNU/Linux yang sudah saya pergunakan sejak
 
 Salah satu kesenangan menggunakan distribusi Arch adalah kemudahan dalam hal menelusuri paket di repository.
 
-Beberapa waktu lalu 'dunstify' masih terdapat di AUR, namun begitu sudah di merge dari upstream, repo 'dunst' official pun ikut membawa 'dunstify'.
+Beberapa waktu lalu `dunstify` masih terdapat di AUR, namun begitu sudah di merge dari upstream, repo `dunst` official pun ikut membawa `dunstify`.
 
 <!-- IMAGE CAPTION -->
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Jn5zQgJW/gambar-01.png"}
@@ -45,10 +45,12 @@ $ sudo pacman -S dunst
 ```
 
 <hr>
-Saya menggunakan 'dunstify' untuk keperluan menampilkan 'HELP' dari daftar keyboard shortcut pada masing-masing aplikasi yang saya pergunakan.
+Saya menggunakan `dunstify` untuk keperluan menampilkan **HELP** dari daftar keyboard shortcut pada masing-masing aplikasi yang saya pergunakan.
 <!-- IMAGE CAPTION -->
 ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gjcktDqL/gambar-03.gif"}
 <p class="img-caption">Gambar 3 - Salah satu pemanfaatan dunstify</p>
+
+Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi fitur **HELP**" seperti yang saya pergunakan ini.
 
 
 # Referensi
