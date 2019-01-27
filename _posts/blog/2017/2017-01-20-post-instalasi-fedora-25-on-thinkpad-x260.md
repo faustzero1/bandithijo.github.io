@@ -8,13 +8,13 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Fedora', 'ThinkPad']
+tags: ['Fedora', 'ThinkPad', 'Ulasan']
 pin:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://2.bp.blogspot.com/-x_2guEqX7Gc/WINOrVRgocI/AAAAAAAAEI0/bWUuprh3yaI4c_Z755uTIfZqsMKnx-2XgCLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B22.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-x_2guEqX7Gc/WINOrVRgocI/AAAAAAAAEI0/bWUuprh3yaI4c_Z755uTIfZqsMKnx-2XgCLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B22.png" alt="banner">
 
 # Latar Belakang
 Sudah banyak yang membuat artikel semacam ini, “Apa yang dilakukan setelah menginstal Ubuntu, Linux Mint, Fedora, Debian, Kali Linux, Arch Linux” di Internet. Pada artikel kali ini saya akan membuat hal yang sama. Sebenarnya artikel ini lebih baik saya sebut sebagai “dokumentasi”.

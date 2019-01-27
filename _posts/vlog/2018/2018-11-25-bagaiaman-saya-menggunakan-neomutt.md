@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['Tips', 'Tools', 'Terminal']
+tags: ['Tips', 'Tools', 'Terminal', 'Ulasan']
 pin:
 ---
 

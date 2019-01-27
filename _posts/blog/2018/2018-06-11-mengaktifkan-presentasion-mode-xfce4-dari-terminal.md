@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/5q63tl41p/banner_post_16.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/5q63tl41p/banner_post_16.png" alt="banner">
 
 # Pendahuluan
 
@@ -23,7 +23,7 @@ Jadi, yang dimaksud dengan *presentation mode* adalah mode dimana laptop kita ti
 
 Kenapa harus mengaktifkan **Presentation Mode** pada aplikasi **xfce4-power-manager** melalui Terminal? Bukankah sudah terdapat GUI?
 
-![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/awi675yml/gambar_01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/awi675yml/gambar_01.png"}
 <p class="img-caption">Gambar 1 - xfce4-power-manager graphical user interface</p>
 
 Sederhana saja jawabannya. Kita pasti selalu mencari cara untuk melakukan hal-hal yang rumit agar menjadi lebih praktis. Yaa, praktis.
@@ -167,7 +167,7 @@ Dapat dilihat pada baris *alias* di atas, saya menggunakan nama `presentationmod
 
 Untuk mencobanya, kalian bisa membuka Terminal baru, atau merefresh Terminal yang saat ini sedang terbuka. `$ exec $SHELL`
 
-![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif"}
 
 Kalian juga dapat menambahkan *output* berupa `echo` agar menampilkan tulisan seperti yang saya lakukan pada contoh di atas.
 ```

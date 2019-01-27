@@ -8,13 +8,13 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Ubuntu', 'Tools']
+tags: ['Ubuntu', 'Tools', 'Ulasan']
 pin:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://2.bp.blogspot.com/-UBmvBCC3EJ0/UdMJakiqSQI/AAAAAAAAA_8/t90Rt6IGukw/s1600/Default+Header+Template+Post+9.jpg" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-UBmvBCC3EJ0/UdMJakiqSQI/AAAAAAAAA_8/t90Rt6IGukw/s1600/Default+Header+Template+Post+9.jpg" alt="banner">
 
 # Latar Belakang
 Sudah beralih ke Ubuntu Linux dan masih berharap bisa download video di Youtube, donwload kontent-kontetn di website yang tidak terdapat menu download, download dari situs-situs yang membutuhkan account premium, ketergantungan dengan IDM (Internet Download Manager) di Windows ? Tapi sudah benar-benar terpojok dengan Ubuntu ? Jangan khawatir. Saya akan memperkenalkan sebuah software sebagai alternatif bagi anda sebagai pengganti IDM di Windows.

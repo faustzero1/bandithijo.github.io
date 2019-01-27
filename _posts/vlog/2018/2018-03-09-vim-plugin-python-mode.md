@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['Vim', 'Python']
+tags: ['Vim', 'Python', 'Ulasan']
 pin:
 ---
 

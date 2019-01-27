@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/dwqipcfgd/banner_post_18.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/dwqipcfgd/banner_post_18.png" alt="banner">
 
 # Pendahuluan
 Sudah hampir dua minggu ini saya terpilih sebagai peserta untuk mengikuti kelas yang membahas tentang *Cloud Computing*. Ini merupakan bidang yang sangat baru pertama kali saya sentuh. Sebelumnya, memang saya sering membaca (meski hanya judul) di beberapa blog GNU/Linux yang membahas tentang teknologi-teknologi yang digunakan dalam *cloud computing*. Meskipun sama-sama dalam bidang teknologi, namun jujur saja, istilah-istilah yang digunakan sangat asing buat saya pahami.

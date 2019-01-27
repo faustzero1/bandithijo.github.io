@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tools', 'Tips']
+tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="#" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner"> -->
 
 # Latar Belakang Masalah
 
@@ -98,7 +98,7 @@ Apabila `adb` belum pernah di jalankan maka perintah di atas akan memanggil dan 
 
     Pada saat ini, akan muncul *window* baru yang akan menampilkan tampilan dari layar *smartphone* Andorid kita.
     <!-- IMAGE CAPTION -->
-    ![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/Ls6GBwK5/gambar-01.png"}
+    ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Ls6GBwK5/gambar-01.png"}
     <p class="img-caption">Gambar 1 - Scrcpy saat dijalankan</p>
 
 ## Menggunakan Wifi
@@ -107,7 +107,7 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
 
 1. Langkah pertama, kita harus mengetahui **IP address** yang dimilii oleh *smartphone* kita. Langkah paling mudah menurut saya, buka menu **Settings → About Phone → Status**.
     <!-- IMAGE CAPTION -->
-    ![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/wxZHxqKV/gambar-02.jpg"}
+    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wxZHxqKV/gambar-02.jpg"}
     <p class="img-caption">Gambar 2 - Melihat IP address dari smartphone</p>
     Dapat dilihat pada gambar di atas, area yang saya kotak merah adalah IP address yang dimiliki oleh *smartphone*.
 

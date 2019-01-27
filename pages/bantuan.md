@@ -5,7 +5,7 @@ permalink: '/bantuan/'
 toc: true
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
 
 <div class="doa-awal">
   <p>بسم الله الرحمن الرحيم</p>
@@ -17,7 +17,7 @@ Halaman bantuan BanditHijo (R)-Chive. Ini adalah halaman yang berisi beberapa pe
 
 # Anatomi Blog
 
-![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/68ae6sty5/gambar_03.png"}
+![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/68ae6sty5/gambar_03.png"}
 
 1. **Navigation Menu**
 2. **Body Blog**: Dapat berubah-ubah sesuai dengan judul dari halaman
@@ -128,11 +128,11 @@ Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak menga
 
 # Gambar
 ## Gambar Besar
-![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/r7q1eu6y5/gambar_01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/r7q1eu6y5/gambar_01.png"}
 <p class="img-caption">Gambar 1 - Contoh gambar besar</p>
 
 ## Gambar Kecil
-![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/5y2f3zixp/gambar_02.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/5y2f3zixp/gambar_02.png"}
 <p class="img-caption">Gambar 2 - Contoh gambar kecil</p>
 
 # Bullets & Numbering

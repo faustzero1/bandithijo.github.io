@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/40nbmxl8d/banner_post_15.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/40nbmxl8d/banner_post_15.png" alt="banner">
 
 # Pendahuluan
 
@@ -64,11 +64,11 @@ Setelah itu, coba buka aplikasi *webcam* seperti **Cheese** atau **guvcview**.
 
 Apabila berhasil, akan seperti ini jadinya.
 
-![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/tjfo069zx/gambar_01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/tjfo069zx/gambar_01.png"}
 <p class="img-caption">Gambar 1 - Cheese yang sudah tidak dapat digunakan</p>
 
 <br>
-![gambar2](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/rrmp59ix9/gambar_02.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rrmp59ix9/gambar_02.png"}
 <p class="img-caption">Gambar 2 - guvcview yang sudah tidak dapat digunakan</p>
 
 <br>
@@ -100,7 +100,7 @@ Saya sendiri belum tahu, apakah cara ini efektif dan benar dapat menangkal penyu
 >```
 >Dan coba panggil `alias` yang sudah kita buat tadi.
 >
->![gambar3](/assets/img/logo/logo_blank.png){:data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif"}
+>![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif"}
 >
 >Mudah bukan ? ^_^
 

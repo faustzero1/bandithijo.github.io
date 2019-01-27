@@ -12,7 +12,7 @@ tags:
 pin:
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
 
 # Pre-Class
 

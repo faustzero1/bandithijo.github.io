@@ -5,7 +5,7 @@ permalink: '/about/'
 toc: true
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="/assets/img/banner/contact.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="/assets/img/banner/contact.png" alt="banner">
 
 <div class="doa-awal">
   <p>بسم الله الرحمن الرحيم</p>

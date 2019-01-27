@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="#" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner">
 
 
 # Referensi

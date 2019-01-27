@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Terminal', 'Tools', 'I3WM']
+tags: ['Tips', 'Terminal', 'Tools', 'I3WM', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="#" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner"> -->
 
 # Prakata
 
@@ -27,7 +27,7 @@ Hal yang saya alami tidak akan terjadi apabila saya menggunakan *clipboard manag
 
 Clipmenu adalah *clipboard manager* yang menggunakan dmenu atau Rofi sebagai antar muka.
 <!-- IMAGE CAPTION -->
-![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png"}
 <p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
 
 
@@ -206,7 +206,7 @@ Saya menggunakan :
 Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arrow key <kbd> ↓ </kbd> / <kbd> ↑ </kbd> untuk memilih, tekan <kbd>ENTER</kbd> untuk memasukkannya pada PRIMARY. Kemudian, tinggal kita *paste* di mana saja.
 
 <!-- IMAGE CAPTION -->
-![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif"}
 <p class="img-caption">Gambar 2 - Ilustrasi penggunaan Clipmenu dengan Rofi</p>
 
 # Pesan Penulis

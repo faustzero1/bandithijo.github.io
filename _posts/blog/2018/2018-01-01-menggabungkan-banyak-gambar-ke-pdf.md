@@ -8,11 +8,11 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tools', 'Tips']
+tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://4.bp.blogspot.com/-vjyMAweQN0s/WmK8err6iRI/AAAAAAAAG6c/xqNj-dLuKkUFH9eJnVNnMQ-fRPneyYxJACLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-vjyMAweQN0s/WmK8err6iRI/AAAAAAAAG6c/xqNj-dLuKkUFH9eJnVNnMQ-fRPneyYxJACLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
 
 # Latar Belakang
 _Scanning_ berlembar-lembar dokumen dalam bentuk gambar dan harus menggabungkannya menjadi satu _bundle file_ PDF, apakah bisa dilakukan GNU/Linux ?

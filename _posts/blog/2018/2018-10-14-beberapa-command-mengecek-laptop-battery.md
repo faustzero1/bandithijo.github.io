@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://i.postimg.cc/TwdxFcR8/banner-post-21.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://i.postimg.cc/TwdxFcR8/banner-post-21.png" alt="banner">
 
 # Prakata
 Karena tidak memiliki PC dan keseharian saya menggunakan laptop dalam menyelesaikan pekerjaan, saya merasa butuh untuk mencatat beberapa hal penting terkait dengan perintah-perintah yang biasa digunakan untuk membantu menegakkan diagnosis dalam pemeriksaan kondisi laptop.

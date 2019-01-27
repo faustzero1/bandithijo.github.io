@@ -8,13 +8,13 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Fedora']
+tags: ['Fedora', 'Ulasan']
 pin:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/g07ex98dp/Default_Header_Template_Post_18_D2.jpg">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/g07ex98dp/Default_Header_Template_Post_18_D2.jpg">
 
 # Pendahuluan
 Tujuan dari penulisan dokumentasi ini untuk memudahkan pengguna mesin Apple khususnya Macbook Pro 8.1 (Late 2011) dalam menginstalasi sistem operasi Fedora 21. Untuk itu, saya mendokumentasikan proses setup Fedora 21 ini agar memudahkan pengguna Apple yang ingin beralih menggunakan sistem operasi Fedora 21.
@@ -184,7 +184,7 @@ Gedit adalah aplikasi texteditor yang secara default sudah terinstal pada Fedora
 ```
 rw,force,x-gvfs-show,noauto
 ```
-![gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png"}
 Kemudian klik tombol OK. Sekarang anda bisa mencoba dengan meng-klik Macintosh HD pada file manager Nautilus pada aplikasi Files, kemudian anda akan diminta memasukkan password username anda.
 13. Kemudian check apakah anda dapat membuat folder baru, me-rename, men-delete, dan meng-copy pada direktori `/User/namauseranda/Desktop/`.
 

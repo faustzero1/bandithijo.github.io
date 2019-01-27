@@ -8,11 +8,11 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Security', 'Tips', 'Terminal', 'Tools']
+tags: ['Security', 'Tips', 'Terminal', 'Tools', 'Ulasan']
 pin:
 ---
 
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/t810ca5cd/banner_post_00.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/t810ca5cd/banner_post_00.png" alt="banner">
 
 # Latar Belakang
 _Password_ atau dalam bahasa Indonesia disebut kata sandi, merupakan hal yang penting untuk menjaga kerahasiaan sesuatu yang kita simpan di balik _password_ tersebut. Namun _password_ itu sendiri juga merupakan hal yang rahasia. Sebuah kunci rahasia untuk membuka sesuatu yang rahasia. Yang artinya, selain sesuatu yang dilindungin oleh _password_ tersebut harus aman, _password_ itu sendiri pun harus diamankan.

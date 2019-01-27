@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['I3WM', 'Tips']
+tags: ['I3WM', 'Tips', 'Ulasan']
 pin:
 ---
 

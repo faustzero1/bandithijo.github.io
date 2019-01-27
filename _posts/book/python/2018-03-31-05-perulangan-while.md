@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner">
 
 # Intro
 Kamu pernah merasa jenuh untuk melakukan pekerjaan yang berulang-ulang ? Untungnya dalam bahasa pemrograman kita dapat membuat proses perulangan itu berjalan secara otomatis. Pada dasarnya, kita hanya perlu mengatur dan menentukan kapan perulangan itu dimulai dan kapan harus berhenti berulang, bahkan kita bisa menentukan pola perulangannya.

@@ -10,8 +10,8 @@ toc: true
   <div class="dotfriends-page">
     <div style="margin-top:10px;"></div>
     <div class="dotfriends-page-img">
-      <!-- <img src="/assets/img/logo/logo_blank.png" data&#45;echo="/assets/img/dotfriends/{{ friend.photo }}.jpg" alt="profile_picture"> -->
-      <img src="/assets/img/logo/logo_blank.png" data-echo="{{ friend.photo }}" alt="">
+    <!-- <img src="{{ site.lazyload.logo_blank }}" data&#45;echo="/assets/img/dotfriends/{{ friend.photo }}.jpg" alt="profile_picture"> -->
+      <img src="{{ site.lazyload.logo_blank }}" data-echo="{{ friend.photo }}" alt="">
     </div><!-- dotfriends-box-img -->
     <div class="dotfriends-page-detail">
       <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="{{ friend.nama | downcase }}">{{ friend.nama }}</h3>

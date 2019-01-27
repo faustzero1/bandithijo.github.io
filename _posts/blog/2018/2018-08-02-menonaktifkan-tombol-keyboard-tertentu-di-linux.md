@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://s20.postimg.cc/9myvdtav1/banner_post_19.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/9myvdtav1/banner_post_19.png" alt="banner">
 
 # Permasalahan
 Terkadang kita ingin membuat tombol tertentu pada keyboard untuk tidak aktif atau mengganti fungsinya menjadi fungsi yang lain. Misal, menonaktifkan tombol <kbd>PrtSc</kbd> pada keyboard ThinkPad keluaran 2014 ke atas karena letaknya yang diapit dua tombol lain, <kbd>Right Alt</kbd> <kbd>PrtSc</kbd> <kbd>Right Ctrl</kbd> sehingga lebih sering salah pencet saat akan menekan Alt atau Ctrl.

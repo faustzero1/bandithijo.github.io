@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal']
+tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.png" data-echo="" alt="banner"> -->
+<!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="" alt="banner"> -->
 
 # Prakata
 

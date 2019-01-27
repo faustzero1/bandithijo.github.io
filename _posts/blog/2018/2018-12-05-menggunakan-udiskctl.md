@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tools', 'Tips', 'Terminal']
+tags: ['Tools', 'Tips', 'Terminal', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.png" data&#45;echo="" alt="banner"> -->
+<!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="" alt="banner"> -->
 
 # Prakata
 

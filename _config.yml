@@ -25,10 +25,16 @@ timezone: Asia/Makassar
 
 # Opengraph
 locale: id_ID
-logo: /assets/img/logo/logo_author.png
+logo_author: /assets/img/logo/logo_author.png
 
 # Google Analytics
 google_analytics: UA-116004889-1
+
+# LazyLoad
+lazyload:
+    logo_blank: /assets/img/logo/logo_blank.svg
+    logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
+
 
 # Build settings
 markdown: kramdown

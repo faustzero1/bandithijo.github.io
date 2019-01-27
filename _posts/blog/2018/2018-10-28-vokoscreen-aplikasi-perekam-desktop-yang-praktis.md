@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tools']
+tags: ['Tools', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="https://i.postimg.cc/VLKJrrjj/banner-post-22.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://i.postimg.cc/VLKJrrjj/banner-post-22.png" alt="banner">
 
 # Prakata
 
@@ -44,7 +44,7 @@ Kesemua fungsi dari *shortcut keys* di atas sudah sangat memenuhi kebutuhan saya
 
 Vokoscreen memiliki *user interface* yang apabila kita baru pertama kali menggunakannya, kita sudah langsung dapat mengerti bagaimana cara mengoperasikan aplikasi ini.
 
-![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/nrWtw4xq/gambar-1.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nrWtw4xq/gambar-1.png"}
 <p class="img-caption">Gambar 1 - Tab Video</p>
 
 Pada **Tab Video** kita dapat mengatur :
@@ -57,7 +57,7 @@ Pada **Tab Video** kita dapat mengatur :
 6. **Countdown**. Kita dapat menentukan berapa detik lamanya proses hitung mundur sampai proses perekaman dimulai
 
 <br>
-![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/JnCRccqg/gambar-2.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JnCRccqg/gambar-2.png"}
 <p class="img-caption">Gambar 2 - Tab Audio</p>
 
 Pada **Tab Audio** kita dapat mengatur :
@@ -66,7 +66,7 @@ Pada **Tab Audio** kita dapat mengatur :
 2. Memilih driver Pulse atau Alsa
 
 <br>
-![gambar_3](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/3Nn7hMT5/gambar-3.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/3Nn7hMT5/gambar-3.png"}
 <p class="img-caption">Gambar 3 - Tab Format</p>
 
 Pada **Tab Format** kita dapat mengatur :
@@ -79,7 +79,7 @@ Pada **Tab Format** kita dapat mengatur :
 6. Kita juga dapat memilih untuk ingin merekam mouse cursor atau tidak
 
 <br>
-![gambar_4](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/0QGPtMXN/gambar-4.png"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0QGPtMXN/gambar-4.png"}
 <p class="img-caption">Gambar 4 - Tab Preferences</p>
 
 Pada **Tab Preferences** kita dapat mengatur :
@@ -90,7 +90,7 @@ Pada **Tab Preferences** kita dapat mengatur :
 4. Dan fitur-fitur lain yang dapat dilihat sendiri pada Gambar 4
 
 <br>
-![gambar_5](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/FsHNZKy9/gambar-5.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/FsHNZKy9/gambar-5.png"}
 <p class="img-caption">Gambar 5 - Tab Webcam</p>
 
 Pada **Tab Webcam** kita dapat mengatur :
@@ -102,13 +102,13 @@ Pada **Tab Webcam** kita dapat mengatur :
 Namun, fitur ini jarang sekali saya gunakan. Saya biasa mengkombinasikan dengan aplikasi **Guvcview** untuk menampilkan webcam ke dalam layar.
 
 <br>
-![gambar_6](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/7hxDjHjn/gambar-6.png"}
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7hxDjHjn/gambar-6.png"}
 <p class="img-caption">Gambar 6 - Tab Ekstension</p>
 
 Saya belum pernah sama sekali menggunakan tab Ekstension ini.
 
 <br>
-![gambar_7](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/h4rKTm7y/gambar-7.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/h4rKTm7y/gambar-7.png"}
 <p class="img-caption">Gambar 7 - Tab About</p>
 
 # Instalasi
@@ -180,11 +180,11 @@ Apabila berhasil, sekarang coba panggil Vokoscreen menggunakan *application laun
 
 Kira-kira seperti ini kebiasaan saya dalam menggunakan Vokoscreen.
 
-![voko_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/90XgytmP/voko-1.gif"}
+![voko_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/90XgytmP/voko-1.gif"}
 
 Hasilnya seperti ini.
 
-![voko_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/jSB1B7cK/voko-2.gif"}
+![voko_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jSB1B7cK/voko-2.gif"}
 
 Nah, kira-kira seperti ini dulu yang dapat saya tuliskan.
 

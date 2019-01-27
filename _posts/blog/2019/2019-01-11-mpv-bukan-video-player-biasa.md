@@ -8,12 +8,12 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Tools']
+tags: ['Tips', 'Tools', 'Ulasan']
 pin:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.png" data-echo="#" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner"> -->
 
 # Prakata
 
@@ -324,11 +324,11 @@ Berikut ini adalah beberapa alasan saya:
 </div>
 
 <!-- IMAGE CAPTION -->
-![gambar_1](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif"}
 <p class="img-caption">Gambar 1 - MPV menampilkan output dari banyak WebCam</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_2](/assets/img/logo/logo_blank.png){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif"}
 <p class="img-caption">Gambar 2 - Demonstrasi Horizontal Flip dan Rotate menggunakan keyboard Shortcut</p>
 
 
