@@ -52,16 +52,6 @@ default:
     values:
       layout: post
 
-# If using GitHub
-#
-# include:
-#   - netlify.toml
-#
-# [[redirects]]
-#   from = "https://bandithijo.netlify.com/*"
-#   to = "https://bandithijo.com/:splat"
-#   status = 301
-#   force = true
 
 # Navigation Menu on Header
 navigation:
@@ -76,6 +66,7 @@ navigation:
   - title: 157
     url: /157/
 
+
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
 sitemap:
@@ -88,6 +79,7 @@ sitemap:
     include_posts:
         - "/index.html"
 
+
 # Jekyll-Feed
 # Url : https://github.com/jekyll/jekyll-feed
 feed:
@@ -95,6 +87,7 @@ feed:
         - blog
         - vlog
         - python
+
 
 # Jekyll PWA Plugin
 # Url: https://github.com/lavas-project/jekyll-pwa
@@ -110,6 +103,11 @@ pwa:
   precache_glob_ignores: # Optional
     - sw-register.js
     - "fonts/**/*"
+
+
+# include:
+#   - netlify.toml
+
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
