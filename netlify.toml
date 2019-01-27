@@ -1,3 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+
 [[redirects]]
   from = "https://bandithijo.netlify.com/*"
   to = "https://bandithijo.com/:splat"
