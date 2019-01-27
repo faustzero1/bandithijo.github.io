@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Ulasan']
 pin:
 ---
 
-<!-- BANNER OF THE POST -->
+<!-- banner of the post -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
 <hr>
@@ -35,7 +35,7 @@ $ sudo pacman -Ql dunst
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ydHNcBDP/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Kemduahan mengecek paket pada pacman</p>
 
-Karena `dunstify` sudah terdapat pada paket `dunst`, saya harus menguninstal paket `dunstify` yang saya pasang melalui AUR.
+Karena `dunstify` sudah terdapat pada paket `dunst`, saya harus menghapus paket `dunstify` yang saya pasang melalui AUR.
 ```
 $ sudo pacman -R dunsitfy
 ```
@@ -51,7 +51,7 @@ Saya menggunakan `dunstify` untuk keperluan menampilkan **HELP** dari daftar key
 <p class="img-caption">Gambar 3 - Salah satu pemanfaatan dunstify</p>
 
 Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi fitur **HELP**" seperti yang saya pergunakan ini.
-
+<!-- text-align:center -->
 
 # Referensi
 
