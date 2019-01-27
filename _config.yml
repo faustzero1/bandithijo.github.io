@@ -52,6 +52,9 @@ default:
     values:
       layout: post
 
+include:
+  - _redirects # for redirect Netlify default subdomain to primary domain
+
 # Navigation Menu on Header
 navigation:
   - title: Blog

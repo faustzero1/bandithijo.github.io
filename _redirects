@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://bandithijo.netlify.com/* https://bandithijo.com/:splat 301!
