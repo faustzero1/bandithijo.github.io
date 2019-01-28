@@ -33,7 +33,7 @@ Pokoknya, saat ini, saya hanya butuh konfigurasi DNS dan Nameservers-nya saja un
 
 # Proses Migrasi
 
-Proses-proses di bawah ini tidak harus selalu berurutan. Saya mencoba menyusun dan mengurutkan berdasarkan hal-hal yang saya anggap paling mudah dilakukan terlebih dahulu.
+Proses-proses di bawah ini ~~tidak~~ harus berurutan. Saya mencoba menyusun dan mengurutkan berdasarkan sekenario yang saya alami.
 
 ## GitHub
 
