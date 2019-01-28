@@ -224,6 +224,8 @@ Saya menggunakan cara ini karena, saat menggunakan file `_redirects`, pada bagia
 
 ## Dewaweb
 
+### Menambahkan Netlify Nameservers
+
 1. Buka Client Area pada Dewaweb.
 
 2. Saya hanya perlu mengganti default Dewaweb Nameserver dengan 4 buah Nameserver yang sudah diberikan oleh Netlify.
@@ -238,7 +240,7 @@ Apabila gagal, ulangi sampai Nameserver benar-benar tersimpan.
 ![gambar_29]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qM2tgd8B/gambar-29.png"}
 Karena saya sudah menggunakan DNS management milik Netlify.
 
-### Konfigurasi HTTPS
+# Konfigurasi HTTPS
 
 Sebenarnya tahap ini tidak perlu saya lakukan.
 
@@ -261,6 +263,16 @@ Tinggal menunggu (paling lama 24 jam) hingga Netlify memberikan sertifikat Let's
 
 5. Saya coba cek di browser.
 ![gambar_33]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/63N5GMCs/gambar-33.png"}
+
+# WWW or not WWW?
+
+Untuk masalah ini, Belum akan saya bahas di sini.
+
+Namun apabila ingin berpindah dari "tanpa WWW (apex domain)" dan ingin menggunakan "WWW (subdomain)" caranya sangat mudah.
+
+Cukup klik menu pada domain **www.bandithijo.com**.
+![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png"}
+Lalu klik **Set as primary domain**.
 
 # Pesan Penulis
 
