@@ -25,6 +25,9 @@ Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Riz
 Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
 
 # Apa Alasan Menulis Blog?
+
+Karena Allah *Subhanahu Wa Ta'ala*.
+
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
 # Apa yang Ditulis di dalam Blog?

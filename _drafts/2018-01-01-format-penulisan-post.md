@@ -9,8 +9,11 @@ comments: true
 toc: true
 category: 'blog'
 tags:
+# Arch Linux, Database, Django, Fedora, I3WM, Java, Javascript, Jekyll, Network, Script,
+# Security, Terminal, ThinkPad, Tips, Tools, Ubuntu, Ulasan, Vim, Web, Wine, XFCE
 pin:
 ---
+
 ## COMMENT ON MARKDOWN
 [comment]: # (PERBAIKI BAGIAN INI)
 
