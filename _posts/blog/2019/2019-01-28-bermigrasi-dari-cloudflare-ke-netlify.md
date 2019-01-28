@@ -302,7 +302,10 @@ Sangat terasa sekali perbedaan dalam hal kecepatan akses. Meskipun saya tidak me
 
 Migrasi ke Netlify ini juga membawa semangat baru untuk saya, karena melihat (meskipun belum memahami) dari sepintas membaca menu dan fitur-fitur yang terdapat di dalam Netlify, seperti dapat menjadi hal yang baik bagi bandithijo.com ke depannya.
 
-Oke, rasanya sudah cukup. Ini adalah catatan yang sangat panjang. Mudah-mudahan pengalaman saya dapat bermanfaat bagi teman-teman yang memerlukan.
+Oke, rasanya sudah cukup seperti ini dulu.
+
+Ini adalah catatan yang sangat panjang. Mudah-mudahan pengalaman saya dapat bermanfaat bagi teman-teman yang memerlukan.
+
 
 # Terima Kasih
 
