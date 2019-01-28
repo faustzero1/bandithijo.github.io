@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Lightline, Alternatif Vim Statusline selain Vim-Airline <span class="new">BARU</span>'
+title: 'Lightline, Alternatif Vim Statusline selain Vim-Airline'
 date: 2019-01-26 14:34
 permalink: '/blog/:title'
 author: 'BanditHijo'
