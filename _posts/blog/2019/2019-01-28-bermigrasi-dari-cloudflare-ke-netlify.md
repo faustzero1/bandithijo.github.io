@@ -134,10 +134,13 @@ Saya menggunakan **Build command** yang sudah dimodifikasi untuk membuat *enviro
 
     Apabila repository GitHub kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.
 
+    **Tips!** Apabila kalian memiliki aturan variabel *environment* seperti yang saya miliki, kita dapat menggunakan fitur [Build environment variables]({{ site.url }}/blog/bermigrasi-dari-cloudflare-ke-netlify#menggunakan-build-environment-variables){:target="_blank"}.
+
     Kalau sudah yakin, klik **Deploy site**.
 
-6. Saya di bawa halaman ini.
+6. Akan keluar tampilan seperti ini.
 ![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JntfdM1b/gambar-10.png"}
+Saat ini statusnya project kita sedang di build dan di deploy oleh Netlify.
 
 ### Konfigurasi Custom Domain
 
@@ -264,7 +267,9 @@ Tinggal menunggu (paling lama 24 jam) hingga Netlify memberikan sertifikat Let's
 5. Saya coba cek di browser.
 ![gambar_33]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/63N5GMCs/gambar-33.png"}
 
-# WWW or not WWW?
+# Tips
+
+## WWW or not WWW?
 
 Untuk masalah ini, Belum akan saya bahas di sini.
 
@@ -274,9 +279,24 @@ Cukup klik menu pada domain **www.bandithijo.com**.
 ![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png"}
 Lalu klik **Set as primary domain**.
 
+## Menggunakan Build Environment Variables
+
+Pada pembahasa di atas, saya memasukkan **Build command** dengan perintah custom.
+```
+JEKYLL_ENV=production jekyll build
+```
+Nah, dari pada begini, saya dapat memanfaatkan fitur yang disediakan oleh Netlify untuk mendefiniskan variabel build environment.
+![gambar_35]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/R0dwPJdD/gambar-35.png"}
+Klik **Save** untuk menyimpan
+
+Kalau sudah seperti ini, kita perlu merubah kembali **Build command** menjadi `jekyll build`.
+![gambar_36]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m2h1Y2PT/gambar-36.png"}
+
+
+
 # Pesan Penulis
 
-Masih banyak yang saya bisa eksplorasi dari Netlify. Namun untuk saat ini, saya hanya menggunakan Netlify sebagai DNS management saja sebagai ganti dari Cloudflare yang saya pergunakan sebelumnya.
+Masih banyak yang saya dapat eksplorasi dari Netlify. Namun untuk saat ini, saya hanya menggunakan Netlify sebagai DNS management saja sebagai ganti dari Cloudflare yang saya pergunakan sebelumnya.
 
 Sangat terasa sekali perbedaan dalam hal kecepatan akses. Meskipun saya tidak melakukan pencatatan secara angka, namun secara rasa, mengunjungi bandithijo.com pasca menggunakan Netlify, sama cepatnya seperti yang saya rasakan saat mengakses bandithijo.com pada *development environment*.
 
