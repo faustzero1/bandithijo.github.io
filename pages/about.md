@@ -50,20 +50,24 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 <br>
 **Tabel Mesin**
 
+| Tahun | Mesin |
+| :--- | :--- |
 | 2012 - 2016 | **Apple Macbook Pro 8.1** |
 | 2017 - Sekarang | **Lenovo ThinkPad X260** |
 
 <br>
 **Tabel Aplikasi**
 
+| Data | Keterangan |
+| :--- | :--- |
 | Sistem Operasi | **GNU/Linux** |
 | Distribusi | **Arch Linux** |
 | Static Site Generator | **Jekyll** |
-| Hosting | **GitHub** |
-| CDN | **CloudFlare** |
+| Hosting | **GitHub** & **GitLab** |
+| CDN | **Netlify** |
 | Format Text | **Markdown** |
-| Text Editor | **Vim** |
+| Text Editor | **Neovim** |
 | Image Editor | **GIMP** & **Inkscape** |
-| Video Editor | **Blender** & **Kdenlive** |
+| Video Editor | **Kdenlive** |
 | Screen Recorder | **Vokoscreen** |
 
