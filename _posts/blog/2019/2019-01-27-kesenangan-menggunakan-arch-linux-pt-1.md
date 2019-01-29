@@ -67,3 +67,7 @@ Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi 
 4. [wiki.archlinux.org/index.php/Dunst](https://wiki.archlinux.org/index.php/Dunst){:target="_blank"}
 <br>Diakses tanggal: 2019/01/27
 
+
+<spoiler>
+Masa bisa sih pakai spiler
+</spoiler>

@@ -342,4 +342,3 @@ Ini adalah catatan yang sangat panjang. Mudah-mudahan pengalaman saya dapat berm
 
 6. [github.com/jayvdb/jekyll-netlify](https://github.com/jayvdb/jekyll-netlify){:target="_blank"}
 <br>Diakses tanggal: 2019/01/28
-

@@ -15,7 +15,6 @@
       <div class="toggle"><div class="menu"><img style="width:30px;" src="/assets/img/logo/logo_menu.png" alt="Menu"></div></div>
       <ul>
         <li><a href="/">Home</a></li>
-        <!-- konfignya ada di _config.yaml -->
         {% for item in site.navigation %}
         {% assign class = nil %}
         {% if page.url contains item.url %}

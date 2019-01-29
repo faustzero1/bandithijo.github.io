@@ -1066,6 +1066,28 @@ ul.chkbox li.chkbox-checked:before {
     text-align: center;
 }
 
+/* DISQUS ----------------------------------------------------------------- */
+#disqus_thread {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.disqus_button {
+    background: #008352;
+    border-radius: 5px;
+    padding: 5px 10px;
+    white-space: nowrap;
+}
+
+a.disqus_button {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
 /* ------------------------------------------------------------------------ */
 /*
 ████     ████              ██ ██
