@@ -762,6 +762,7 @@ p.notif-post {
 /* font-latin ------------------------------------------------------------- */
 .font-latin {
     font: 18px 'Give You Glory';
+    font-weight: bold;
 }
 
 .font-pixel {

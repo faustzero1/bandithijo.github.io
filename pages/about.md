@@ -7,9 +7,7 @@ toc: true
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="/assets/img/banner/contact.png" alt="banner">
 
-<div class="doa-awal">
-  <p>بسم الله الرحمن الرحيم</p>
-</div>
+{% include doa_awal.html %}
 
 **BanditHijo**, tidak seperti yang anda ketahui Bandit (kata ganti orang untuk konotasi yang bersifat negatif) dan Hijo (kata plesetan dari warna hijau).
 

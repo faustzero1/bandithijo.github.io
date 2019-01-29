@@ -7,6 +7,8 @@ permalink: '/contact/'
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="/assets/img/banner/about.png" alt="banner">
 
+{% include doa_awal.html %}
+
 Pergunakan form yang telah saya sediakan di bawah untuk dapat menghubungi saya secara langsung via email.
 
 Form ini akan membantu anda menulis bentuk dari format email yang sudah rapi dan langsung ditujukan ke email saya **bandithijo@gmail.com** tanpa anda perlu membuka email client.
