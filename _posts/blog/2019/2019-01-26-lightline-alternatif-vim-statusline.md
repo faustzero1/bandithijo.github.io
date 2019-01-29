@@ -122,7 +122,7 @@ let g:lightline.component_type = {
 \}
 ```
 
-[comment]: # (testing font)
+[comment]: # (testing font 2)
 
 Untuk melihat colorscheme dapat menggunakan `:h g:lightline.colorscheme`.
 
