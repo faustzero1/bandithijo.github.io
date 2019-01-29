@@ -14,6 +14,9 @@ tags:
 pin:
 ---
 
+# REREFENSI
+1. [kramdown.gettalong.org/syntax.html](https://kramdown.gettalong.org/syntax.html){:target="_blank}
+
 # COMMENT ON MARKDOWN
 <!-- SINGLE COMMENT -->
 [comment]: # (PERBAIKI BAGIAN INI)
