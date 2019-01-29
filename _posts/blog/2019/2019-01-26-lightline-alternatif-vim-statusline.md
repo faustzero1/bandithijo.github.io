@@ -122,6 +122,8 @@ let g:lightline.component_type = {
 \}
 ```
 
+[comment]: # (testing font)
+
 Untuk melihat colorscheme dapat menggunakan `:h g:lightline.colorscheme`.
 
 Berikut ini adalah daftar colorscheme yang tersedia:
