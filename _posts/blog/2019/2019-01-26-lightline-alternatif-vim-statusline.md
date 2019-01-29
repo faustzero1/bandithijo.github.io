@@ -89,7 +89,7 @@ Pada konfigurasi `lightline` ini saya hanya menambahkan:
 
 Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 
-```python
+```
 let g:lightline = {
 \   'colorscheme': 'solarized',
 \   'active': {
