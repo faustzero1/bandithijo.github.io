@@ -126,15 +126,35 @@ Asiknya dengan Netlify, saya dapat berganti-ganti **resource**.
 4. Pada tahap ini, saya diminta untuk memilih repository GitHub.
 ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QvVHZdt/gambar-08.png"}
 
-5. Padah tahap ini saya diminta untuk melakukan setting konfiguriasi untuk mendeploy repository.
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SNHfcVMD/gambar-09.png"}
-Saya menggunakan **Build command** yang sudah dimodifikasi untuk membuat *environment* pada proses build menjadi **production**, ini berhubungan dengan beberapa bagian-bagian pada website yang hanya akan dipanggil apabila berapa pada *production environment*. Seperti Disqus, Google Analytics, dll.
+5. Padah tahap ini saya diminta untuk melakukan setting untuk mendeploy repository.
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png"}
+Saya menambahkan `;rm _site/feed.xml` karena saya tidak menggunakan `feed.xml`.
 
-    Intinya, pada bagian ini, saya mengisi dengan perintah saat saya mem-*build* Jekyll di Terminal.
+    Pada langkah ini, sebenarnya di laptop (*local*/*development*), saya membuild Jekyll dengan menggunakan *custom command*.
+    ```
+    $ JEKYLL_ENV=production jekyll build; rm _site/feed.xml
+    ```
 
-    Apabila repository GitHub kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.
+    Terdapat `JEKYLL_ENV=production` yang mendefiniskan bahwa build ini untuk **production environment**.
 
-    **Tips!** Apabila kalian memiliki aturan variabel *environment* seperti yang saya miliki, kita dapat menggunakan fitur [Build environment variables]({{ site.url }}/blog/bermigrasi-dari-cloudflare-ke-netlify#menggunakan-build-environment-variables){:target="_blank"}.
+    Kegunaan dari *variabels* ini adalah saya membagi *environment* menjadi dua, *development* dan *production*. Yang mana terdapat beberapa elemen yang tidak akan ditampilkan pada *development environment* seperti: Disqus, Google Analytics, dan SEO support.
+
+    Netlify menyediakan [Build Environment Variables](https://www.netlify.com/docs/build-settings/){:target="_blank"}, namun tidak support untuk Jekyll, hanya mensupport: Node, NPM, dan Yarn.
+
+    Untuk mengatasi hal ini pada Netlify, saya perlu menambahkan gem bernama `jekyll-netlify`.
+
+    Tambahkan pada jajaran plugins di `gemfile`.
+    ```
+    gem 'jekyll-netlify', '~> 0.2.0'
+    ```
+    Kemudian, tambahkan pada jajaran plugins di `_config.yaml`.
+    ```
+    plugins:
+      - jekyll-netlify
+    ```
+    Dengan begini, saya tetap dapat menggunakan dua *environment*. Saat dibuild di Netlify, akan menjadi *production environment*.
+
+    Namun, apabila repositori GitHub/GitLab kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.
 
     Kalau sudah yakin, klik **Deploy site**.
 
@@ -279,21 +299,6 @@ Cukup klik menu pada domain **www.bandithijo.com**.
 ![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png"}
 Lalu klik **Set as primary domain**.
 
-{::comment}
-## Menggunakan Build Environment Variables
-
-Pada pembahasa di atas, saya memasukkan **Build command** dengan perintah custom.
-```
-JEKYLL_ENV=production jekyll build
-```
-Nah, dari pada begini, saya dapat memanfaatkan fitur yang disediakan oleh Netlify untuk mendefiniskan variabel build environment.
-![gambar_35]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/R0dwPJdD/gambar-35.png"}
-Klik **Save** untuk menyimpan
-
-Kalau sudah seperti ini, kita perlu merubah kembali **Build command** menjadi `jekyll build`.
-![gambar_36]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m2h1Y2PT/gambar-36.png"}
-{:/}
-
 
 # Pesan Penulis
 
@@ -333,5 +338,8 @@ Ini adalah catatan yang sangat panjang. Mudah-mudahan pengalaman saya dapat berm
 <br>Diakses tanggal: 2019/01/28
 
 5. [www.netlify.com/docs/netlify-toml-reference/](https://www.netlify.com/docs/netlify-toml-reference/){:target="_blank"}
+<br>Diakses tanggal: 2019/01/28
+
+6. [github.com/jayvdb/jekyll-netlify](https://github.com/jayvdb/jekyll-netlify){:target="_blank"}
 <br>Diakses tanggal: 2019/01/28
 

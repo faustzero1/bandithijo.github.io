@@ -25,6 +25,7 @@ group :jekyll_plugins do
   gem 'jekyll-seo-tag', '~> 2.5.0'
   gem 'jekyll-pwa-plugin', '~> 2.2'
   gem 'jekyll-last-modified-at', '~> 1.0.1'
+  gem 'jekyll-netlify', '~> 0.2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
