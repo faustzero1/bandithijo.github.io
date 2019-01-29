@@ -63,7 +63,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | Sistem Operasi | **GNU/Linux** |
 | Distribusi | **Arch Linux** |
 | Static Site Generator | **Jekyll** |
-| Hosting | **GitHub** & **GitLab** |
+| Hosting | **GitHub** |
 | CDN | **Netlify** |
 | Format Text | **Markdown** |
 | Text Editor | **Neovim** |

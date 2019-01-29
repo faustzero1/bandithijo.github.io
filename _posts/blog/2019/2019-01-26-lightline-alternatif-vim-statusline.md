@@ -12,6 +12,7 @@ tags: ['Vim', 'Tips', 'Ulasan']
 pin:
 ---
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css">
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
