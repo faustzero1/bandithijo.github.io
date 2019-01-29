@@ -122,7 +122,19 @@ let g:lightline.component_type = {
 \}
 ```
 
-[comment]: # (testing font 2)
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Beberapa karakter <b>Powerline</b> mungkin mengalami gagal rendering pada Browser. Namun apabila dicopy-paste ke Terminal, tetap dapat ditampilkan dengan benar.</p>
+<p>Apabila tidak berhasil, coba copy-paste secara manual output dari command di bawah ke dalam <code>.vimrc</code> di atas.</p>
+<pre>
+$ echo -e "\ue0a1 \ue0b0 \ue0b1 \ue0b2 \ue0b3"
+</pre>
+</div>
+
+
+
+
 
 Untuk melihat colorscheme dapat menggunakan `:h g:lightline.colorscheme`.
 
