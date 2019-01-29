@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags: ['Security', 'Tips', 'Arch Linux']
-pin: true
+pin:
 ---
 
 <!-- BANNER OF THE POST -->
