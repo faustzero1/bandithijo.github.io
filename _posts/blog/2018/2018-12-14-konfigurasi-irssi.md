@@ -208,23 +208,32 @@ Apabila berhasil, akan terdapat output pada window ke 2 [Freenode/NickServ].
 Selanjutnya jangan lupa di `/save`.
 
 Apabila teman-teman mengecek isi dari `~/.irssi/config`. Akan terdapat baris seperti di bawah.
-```
+<pre>
 ...
   {
     address = "chat.freenode.net";
     chatnet = "Freenode";
     port = "6697";
-    use_tls = "yes";
-    tls_cert = "~/.irssi/irssi.pem";
-    tls_capath = "/etc/ssl/certs";
-    tls_pass = "386b6c1eb8efb3a3617d1ffe7e6c0489e71a63be";
-    tls_verify = "yes";
+    </mark>use_tls = "yes";</mark>
+    <mark>tls_cert = "~/.irssi/irssi.pem";</mark>
+    <mark>tls_verify = "yes";</mark>
+    <mark>tls_capath = "/etc/ssl/certs";</mark>
     autoconnect = "yes";
   },
 ...
-```
+</pre>
 
 Maka proses dari konfigurasi utama telah selesai.
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Apabila suatu hari, saat kalian login Irssi dan mengalami
+<pre>Irssi: warning The client certificate is expired</pre>
+Cukup mengulangi langkah pembuatan sertifikat klien di atas.</p>
+<p><b>2019/01/29</b>, Saya baru mengalami masalah ini, dan berhasil mengatasinya dengan mengulangi langkah pembuatan sertifikat klien di atas.</p>
+</div>
+
 
 ## Konfigurasi Tambahan
 

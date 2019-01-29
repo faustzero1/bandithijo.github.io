@@ -128,7 +128,7 @@ Asiknya dengan Netlify, saya dapat berganti-ganti **resource**.
 
 5. Padah tahap ini saya diminta untuk melakukan setting konfiguriasi untuk mendeploy repository.
 ![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SNHfcVMD/gambar-09.png"}
-Saya menggunakan **Build command** yang sudah dimodifikasi untuk membuat *environment* pada proses build menjadi **production**, ini berhubungan dengan beberapa bagian-bagian pada website yang hanya akan dipanggil apabila berapa pada *production environment*.
+Saya menggunakan **Build command** yang sudah dimodifikasi untuk membuat *environment* pada proses build menjadi **production**, ini berhubungan dengan beberapa bagian-bagian pada website yang hanya akan dipanggil apabila berapa pada *production environment*. Seperti Disqus, Google Analytics, dll.
 
     Intinya, pada bagian ini, saya mengisi dengan perintah saat saya mem-*build* Jekyll di Terminal.
 
