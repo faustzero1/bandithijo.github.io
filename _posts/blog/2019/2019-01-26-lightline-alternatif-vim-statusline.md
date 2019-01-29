@@ -132,10 +132,6 @@ $ echo -e "\ue0a1 \ue0b0 \ue0b1 \ue0b2 \ue0b3"
 </pre>
 </div>
 
-
-
-
-
 Untuk melihat colorscheme dapat menggunakan `:h g:lightline.colorscheme`.
 
 Berikut ini adalah daftar colorscheme yang tersedia:
