@@ -279,6 +279,7 @@ Cukup klik menu pada domain **www.bandithijo.com**.
 ![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png"}
 Lalu klik **Set as primary domain**.
 
+{::comment}
 ## Menggunakan Build Environment Variables
 
 Pada pembahasa di atas, saya memasukkan **Build command** dengan perintah custom.
@@ -291,7 +292,7 @@ Klik **Save** untuk menyimpan
 
 Kalau sudah seperti ini, kita perlu merubah kembali **Build command** menjadi `jekyll build`.
 ![gambar_36]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m2h1Y2PT/gambar-36.png"}
-
+{:/}
 
 
 # Pesan Penulis

@@ -14,23 +14,32 @@ tags:
 pin:
 ---
 
-## COMMENT ON MARKDOWN
+# COMMENT ON MARKDOWN
+<!-- SINGLE COMMENT -->
 [comment]: # (PERBAIKI BAGIAN INI)
 
-## OUTDATED POST
+<!-- MULTILINE COMMENT -->
+{::comment}
+Ini adalah
+contoh dari
+multi line
+comment
+{:/}
+
+# OUTDATED POST
 <!-- OUTDATED POST -->
 <p class="notif-post" style="margin-bottom: -20px;">Post ini sudah tidak up to date !</p>
 
-## BANNER OF THE POST
+# BANNER OF THE POST
 <!-- BANNER OF THE POST -->
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner">
 
-## QUESTION
+# QUESTION
 <!-- QUESTION -->
 ><p class="title-quote">Apakah penulis juga menggunakan fingerprint scanner saat login ?</p>
 >Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem.
 
-## BLOCKQUOTE
+# BLOCKQUOTE
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
@@ -49,27 +58,27 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
 </div>
 
-## SUPERSUP FOR REFERENSI
+# SUPERSUP FOR REFERENSI
 <!-- SUPERSUP -->
 <sup>[2]({{ site.url }}/blog/custom-bios-logo-thinkpad#referensi)</sup>
 
-## IMAGE CAPTION
+# IMAGE CAPTION
 <!-- IMAGE CAPTION -->
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo=""}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
-## LIST CHECKBOX
+# LIST CHECKBOX
 <!-- LIST CHECKBOX -->
 <ul class="chkbox">
 <li class="chkbox-checked">Melihat layar <i>smartphone</i> langsung dari laptop dan dapat berinteraksi, seperti menggerak-gerakkan menu dan mengetik</li>
 <li>Terhubung dengan WiFi tanpa perlu kabel data</li>
 </ul>
 
-## EMBED VIDEO YOUTUBE
+# EMBED VIDEO YOUTUBE
 <!-- EMBED CONTAINER: YOUTUBE -->
 {% youtube ID_YOUTUBE %}
 
-## MULTIPLE POST CONTROLER
+# MULTIPLE POST CONTROLER
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
 <a class="btn-blue-l" href="/python/00-pengenalan-python"><</a>
@@ -77,15 +86,15 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 <a class="btn-blue-r" href="/python/">></a>
 </div>
 
-## KEYBOARD
+# KEYBOARD
 <!-- KEYBOARD -->
 <kbd>SPACE</kbd> + <kbd>ALT</kbd>
 
-## CODE IN P
+# CODE IN P
 <!-- CODE in P -->
 `single line code`
 
-## CODE IN MULTILINE
+# CODE IN MULTILINE
 <!-- CODE MULTILINE -->
 ```
 multi line code
@@ -96,7 +105,7 @@ multi line code
 x = ('a', 1, False)
 {% endhighlight %}
 
-## RAW CODE MULTILINE
+# RAW CODE MULTILINE
 <!-- LIQUID CODE MULTILINE -->
 {% raw %}
 ```
@@ -106,15 +115,15 @@ x = ('a', 1, False)
 ```
 {% endraw %}
 
-## STABILO
+# STABILO
 Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.
 
 atau <mark>ini juga bisa, lebih praktis</mark>.
 
-## NO BREAK ELEMENT
+# NO BREAK ELEMENT
 <span class="nobr">Mas Bro !</span>
 
-## DAFTAR ISI
+# DAFTAR ISI
 <!-- REFERENCES -->
 1. [https://wiki.archlinux.org/](https://wiki.archlinux.org/){:target="_blank"}
 <br>Diakses tanggal: 2018/01/18
@@ -124,7 +133,7 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 
 <link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png">
 
-## HTML ENTITIES
+# HTML ENTITIES
 
 | Mark | Character | Construct | Result |
 | --- | --- | --- | --- |
@@ -155,6 +164,7 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 [Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
 <br>
 [Full symbol references](https://www.w3schools.com/charsets/ref_utf_symbols.asp){:target="_blank"}
+
 
 
 <!-- vim: set ft=liquid conceallevel=0: -->
