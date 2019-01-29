@@ -134,6 +134,10 @@ material, OldHope, nord, 16color and deus are available.
 
 ## Lightline-Bufferline
 
+Buat apa kita perlu `Lightline-Bufferline` ?
+
+Apabila kita hanya menggunakan `lightline` saja, maka buffer yang terdapat di pojok kiri hanya akan ditampilkan satu buah. Karena ini, kita memerlukan `Lightline-Bufferline` untuk menampilkan buffer yang terbuka.
+
 Untuk mengaktifkan bufferline (tabline), tambahkan di bawahnya.
 ```
 set showtabline=2  " Show tabline

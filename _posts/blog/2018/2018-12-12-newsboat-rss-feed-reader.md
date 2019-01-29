@@ -33,6 +33,21 @@ Setelah melihat beberapa YouTuber yang *concent* terhadap GNU/Linux memanfaatkan
 
 Saya sendiri termasuk yang *aware* terhadap keberadaan RSS feed pada sebuah blog/website.
 
+**Kenapa?**
+
+Keuntungan dalam menggunakan RSS feed bagi Blog author dan Pengguna RSS feed, menurut saya adalah kita, baik Blog author maupun Blog reader, sama-sama memiliki kebebasan dalam hal waktu mempublish dan membaca artikel.
+
+**Maksudnya gimana?**
+
+Maksud saya, dengan adanya platform media sosial yang dimanfaatkan untuk menulis sebuah artikel terkadang membuat Blog author harus menentukan kapan waktu yang tepat untuk mempublish tulisan mereka. Karena apabila tidak pada waktu yang tepat, maka target pembaca atau pengunjung akan sangat kurang.
+
+**Mengapa bisa begitu?**
+
+Karena sosial media menggunakan ***Timeline***.
+
+Timeline inilah yang akan menggeser tulisan-tulisan anda dengna postingan orang lain yang lebih baru. Kecuali, si pembaca menggunakan fitur favorit.
+
+Bagaimanapun juga hal ini tidak akan dialami oleh Blog apabila memanfaatkan fitur Rss feed. Blog author dapat mempublish artikel kapanpun, Blog reader pun dapat membaca artikel kapanpun. Tidak akan tergeser atau tergusur oleh artikel Blog yang lain. Sudah memiliki porsi dan tempatnya masing-masing.
 
 # Instalasi
 
@@ -260,6 +275,7 @@ Saya melihat masih banyak potensi yang dapat dimanfaatkan dari tools RSS feed re
 Dokumentasi lebih lengkap dapat dilihat pada `man newsboat`. Coba periksa, banyak hal-hal menarik yang belum saya bahasa karena keterbatasan waktu dan ilmu saya saat ini.
 
 Oh iya, apabila kamu punya blog juga, saya sangat mengharapkan untuk tetap mempertahankan RSS feed urlnya. Saya yakin, pasti ada yang memanfaatkan RSS feed tersebut. Seperti saya contohnya. (^_^)
+
 
 
 # Referensi
