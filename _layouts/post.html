@@ -40,8 +40,8 @@ layout: baseof
 
           <!-- Disqus -->
           <div style="text-align:center; margin:0 0 50px 0;"></div>
+          {% include disqus.html %}
           {% if jekyll.environment == 'production' and page.comments %}
-            {% include disqus.html %}
           {% endif %}
           <br>
         </div>

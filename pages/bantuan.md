@@ -7,9 +7,7 @@ toc: true
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/6y5oddqtp/banner_bantuan.png" alt="banner">
 
-<div class="doa-awal">
-  <p>بسم الله الرحمن الرحيم</p>
-</div>
+{% include doa_awal.html %}
 
 Selamat datang, mas Bro!
 
