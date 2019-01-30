@@ -3,6 +3,16 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/01/28'
+  url:
+  detail: |
+      Merubah build resource dari GitHub ke GitLab
+
+- tanggal: '19/01/27'
+  url: /blog/bermigrasi-dari-cloudflare-ke-netlify
+  detail: |
+      Bermigrasi dari Cloudflare ke Netlify
+
 - tanggal: '19/01/22'
   url:
   detail: |
