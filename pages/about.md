@@ -69,3 +69,26 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | Video Editor | **Kdenlive** |
 | Screen Recorder | **Vokoscreen** |
 
+# Ilustrasi Workflow
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-01.png"}
+<p class="img-caption">Tools yang saya pergunakan untuk menulis, Vim + Tmux</p>
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8CZqQmmQ/gambar-02.png"}
+<p class="img-caption">Tools yang saya pergunakan untuk membuat vector image, Inkscape</p>
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/251xydff/gambar-03.png"}
+<p class="img-caption">Tools yang saya pergunakan untuk membuat banner image, GIMP</p>
+
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-04.png"}
+<p class="img-caption">Tools yang saya pergunakan untuk image croping, gThumb</p>
+
+# Dahulu
+
+Dahulu saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
+
+2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun semua kesan itu berubah sejak negara api menyerang.
+
+Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik menggunakan OSX.
+
+Sekarang, lagi seneng sama programming.

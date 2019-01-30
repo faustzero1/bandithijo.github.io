@@ -298,7 +298,7 @@ Untuk dapat memudahkan kita dalam bernavigasi antar baris, berlompat-lompat anta
 # Possible values: false, absolute, relative.
 set line_numbers relative
 ```
-Saya lebih senang menggunakan realtive.
+Saya lebih senang menggunakan `relative` karena lebih memudahkan untuk navigasi.
 
 ### Scroll Wrapping
 
@@ -313,15 +313,30 @@ set wrap_scroll true
 
 Tidak banyak modifikasi *key bindings* yang saya modifikasi. Karena saya berusaha untuk membiasakan dengan *key bindings* yang sudah ada. Toh dalam hal navigasi dasar mirip-mirip dengan Vim.
 
-Saya hanya merubah pada tombol <kbd>DELETE</kbd>.
+Saya hanya merubah dua buah *keyborad shortcut*.
+
+Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default* apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.
+<pre>
+...
+...
+map @  console -p6 shell  %%s
+#map s  console shell%space
+<mark>map s  terminal</mark>
+map r  chain draw_possible_programs; console open_with%%space
+..
+..
+</pre>
+
+Modifikasi *keyboard* yang lain adalah saya merubah fungsi tombol <kbd>DELETE</kbd>.
 <pre>
 # In case you work on a keyboard with dvorak layout
 ...
 ...
 ...
-
+map &lt;CR&gt;       move right=1
 #map &lt;DELETE&gt;   console delete
 <mark>map &lt;DELETE&gt;   shell -s trash-put %s</mark>
+map $lt;INSERT&gt;   console touch%space
 ...
 ...
 </pre>
