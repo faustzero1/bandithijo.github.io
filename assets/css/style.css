@@ -462,20 +462,25 @@ aside.sidebar p {
 
 img.footer-img-1 {
     float: right;
-    margin: -170px 210px 0 0;
+    margin: -130px 200px 0 0;
     width: 82px;
 }
 
 img.footer-img-2 {
     float: right;
-    margin: -170px 90px 0 0;
+    margin: -130px 80px 0 0;
     width: 128px;
 }
 
 img.footer-img-3 {
     float: right;
-    margin: -170px 40px 0 0;
+    margin: -130px 30px 0 0;
     width: 60px;
+}
+
+img.footer-bedge-1 {
+    float: right;
+    margin: -200px 30px 0 0;
 }
 
 
@@ -1439,6 +1444,13 @@ a.disqus_button {
         position: relative;
         left: 55px;
     }
+
+    img.footer-bedge-1 {
+        float: none;
+        margin: 0 auto;
+        margin-top: 8px;
+    }
+
 
     .toc {
         margin: 5px 20px 0 4.0%;
