@@ -252,7 +252,7 @@ let g:lightline.tabline = {
 ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
 <p class="img-caption">Gambar 8 - Tampilan saat tidak sibuk</p>
 
-# Tambahan Fugitive dan Readonly
+# Tambahan Fugitive, Readonly dan Modified
 
 Kita juga dapat menambahkan simbol untuk **vim-fugitive** dan **readonly** agar lebih mirip lagi dengan **vim-airline**.
 
@@ -270,6 +270,7 @@ let g:lightline = {
 \   'component_function': {
 \     <mark>'fugitive': 'LightlineFugitive',</mark>
 \     <mark>'readonly': 'LightlineReadonly',</mark>
+\     <mark>'modified': 'LightlineModified',</mark>
 \   }
 \}
 let g:lightline.separator = {
@@ -289,6 +290,10 @@ let g:lightline.component_type = {
 \   'buffers': 'tabsel'
 \}
 
+<mark>function! LightlineModified()
+    return &modified ? '●' : ''
+endfunction</mark>
+
 <mark>function! LightlineReadonly()
     return &readonly ? '' : ''
 endfunction</mark>
@@ -302,6 +307,8 @@ endfunction</mark>
 endfunction</mark>
 </pre>
 Pada bagian `'right': [['string1'], ['string2']]` juga sudah saya lakukan modifikasi dari yang sebelumnya `'right': [[close]]` pada bagian [Tabline]({{ site.url }}/blog/lightline-alternatif-vim-statusline#tabline){:target="_blank"}.
+
+Saya juga melakukan modifikasi terhadap `modified` indikator yang tadinya `+` saya ubah agar lebih terlihat jelas menjadi `●`.
 
 **Hasilnya**,
 <!-- IMAGE CAPTION -->

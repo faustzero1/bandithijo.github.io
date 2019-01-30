@@ -35,7 +35,6 @@ lazyload:
     logo_blank: /assets/img/logo/logo_blank.svg
     logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
 
-
 # Build settings
 markdown: kramdown
 plugins:
