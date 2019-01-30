@@ -96,11 +96,13 @@ Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti P
 
 Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
-Sekarang, lagi seneng sama programming. Belajar dari video-video di YouTube.
+# Sekarang
 
-Sebenarnya, seneng juga dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi pending dulu.
+Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
+
+Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi dipending dulu.
 ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BQjBZc5c/gambar-06.png"}
 <p class="img-caption">Raport pada Daftar Pelatihan NolSatu</p>
-Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} bener-bener tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
+Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
 
 Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai ada kesempatan.
