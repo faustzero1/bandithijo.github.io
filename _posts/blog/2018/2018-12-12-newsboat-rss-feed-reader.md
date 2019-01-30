@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Mendapatkan Info Update Artikel Terbaru Blog/Website dengan Newsboat'
+title: 'Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website'
 date: 2018-12-12 06:44
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -45,7 +45,7 @@ Maksud saya, dengan adanya platform media sosial yang dimanfaatkan untuk menulis
 
 Karena sosial media menggunakan ***Timeline***.
 
-Timeline inilah yang akan menggeser tulisan-tulisan anda dengna postingan orang lain yang lebih baru. Kecuali, si pembaca menggunakan fitur favorit.
+*Timeline* inilah yang akan menggeser tulisan-tulisan kalian dengan postingan orang lain yang lebih baru. Kecuali, si pembaca menggunakan fitur "*Turn on notifications for post*".
 
 Bagaimanapun juga hal ini tidak akan dialami oleh Blog apabila memanfaatkan fitur Rss feed. Blog author dapat mempublish artikel kapanpun, Blog reader pun dapat membaca artikel kapanpun. Tidak akan tergeser atau tergusur oleh artikel Blog yang lain. Sudah memiliki porsi dan tempatnya masing-masing.
 
@@ -108,23 +108,23 @@ external-url-viewer "urlview"
 # ----------------------------------------------------------------------------
 bind-key j down
 bind-key k up
-#bind-key j next articlelist
-#bind-key k prev articlelist
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
-bind-key G end
 bind-key g home
-bind-key d pagedown
+bind-key G end
 bind-key u pageup
+bind-key d pagedown
 bind-key l open
-bind-key h quit
 bind-key a toggle-article-read
+bind-key A mark-feed-read
 bind-key n next-unread
 bind-key N prev-unread
-bind-key D pb-download
 bind-key U show-urls
-bind-key x pb-delete
-bind-key $ delete-article
+bind-key o open-in-browser
+bind-key D delete-article
+bind-key E edit-urls
+bind-key r reload
+bind-key q quit
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
