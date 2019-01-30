@@ -7,8 +7,8 @@ permalink: '/blog/'
 
 <div class="post-body">
 
-
   <!-- PINNED POSTS -->
+  {% comment %}
   {% assign pin = false %}<!-- change to false if no pinned post -->
   {% if pin == true %}
   <div style="clear:both;">
@@ -24,6 +24,7 @@ permalink: '/blog/'
   {% endif %}
   {% endfor %}
   {% endif %}<!-- pin == true -->
+  {% endcomment %}
 
   <!-- REGULAR POSTS -->
   {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
