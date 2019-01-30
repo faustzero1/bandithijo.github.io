@@ -71,24 +71,36 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 
 # Ilustrasi Workflow
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3wM3s7N/gambar-01.png"}
+<p class="img-caption">i3 Window Manger + Polybar + Conky + Solarized Dark = My Perfect Desktop</p>
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-02.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk menulis, Vim + Tmux</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8CZqQmmQ/gambar-02.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8CZqQmmQ/gambar-03.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk membuat vector image, Inkscape</p>
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/251xydff/gambar-03.png"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/251xydff/gambar-04.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk membuat banner image, GIMP</p>
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-04.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-05.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk image croping, gThumb</p>
+
+
 
 # Dahulu
 
-Dahulu saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
+Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
-2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun semua kesan itu berubah sejak negara api menyerang.
+2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
 
-Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik menggunakan OSX.
+Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
-Sekarang, lagi seneng sama programming.
+Sekarang, lagi seneng sama programming. Belajar dari video-video di YouTube.
+
+Sebenarnya, seneng juga dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi pending dulu.
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BQjBZc5c/gambar-06.png"}
+<p class="img-caption">Raport pada Daftar Pelatihan NolSatu</p>
+Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} bener-bener tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
+
+Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai ada kesempatan.
