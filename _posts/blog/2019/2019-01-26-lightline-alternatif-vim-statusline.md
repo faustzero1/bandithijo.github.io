@@ -94,9 +94,8 @@ Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 let g:lightline = {
 \   'colorscheme': 'solarized',
 \   'active': {
-\     'left':[ [ 'mode', 'paste' ],
-\              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-\     ]
+\     'left':[[ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
 \   },
 \   'component': {
 \     'lineinfo': ' %3l:%-2v',
@@ -112,8 +111,8 @@ let g:lightline.subseparator = {
 \   'left': '', 'right': ''
 \}
 let g:lightline.tabline = {
-\   'left': [ ['buffers'] ],
-\   'right': [ ['close']]
+\   'left': [['buffers']],
+\   'right': [['close']]
 \}
 let g:lightline.component_expand = {
 \   'buffers': 'lightline#bufferline#buffers'
@@ -246,12 +245,69 @@ let g:lightline.tabline = {
 
 # Hasilnya
 <!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
 <p class="img-caption">Gambar 7 - Lightline + Lightline-Bufferline</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
 <p class="img-caption">Gambar 8 - Tampilan saat tidak sibuk</p>
+
+# Tambahan Fugitive dan Readonly
+
+Kita juga dapat menambahkan simbol untuk **vim-fugitive** dan **readonly** agar lebih mirip lagi dengan **vim-airline**.
+
+Perhatikan baik-baik, saya melakukan modifikasi pada beberapa bagian. Bagian yang saya *marking* kuning adalah bagian-bagian yang saya modifikasi dari konfigurasi sebelumnya (di atas).
+<pre>
+let g:lightline = {
+\   'colorscheme': 'solarized',
+\   'active': {
+\     'left':[[ 'mode', 'paste' ],
+\             [ '<mark>fugitive</mark>', 'readonly', 'filename', 'modified' ]]
+\   },
+\   'component': {
+\     'lineinfo': ' %3l:%-2v',
+\   },
+\   'component_function': {
+\     <mark>'fugitive': 'LightlineFugitive',</mark>
+\     <mark>'readonly': 'LightlineReadonly',</mark>
+\   }
+\}
+let g:lightline.separator = {
+\   'left': '', 'right': ''
+\}
+let g:lightline.subseparator = {
+\   'left': '', 'right': ''
+\}
+let g:lightline.tabline = {
+\   'left': [['buffers']],
+\   'right': [['string1'], ['string2']]
+\}
+let g:lightline.component_expand = {
+\   'buffers': 'lightline#bufferline#buffers'
+\}
+let g:lightline.component_type = {
+\   'buffers': 'tabsel'
+\}
+
+<mark>function! LightlineReadonly()
+    return &readonly ? '' : ''
+endfunction</mark>
+
+<mark>function! LightlineFugitive()
+    if exists('*fugitive#head')
+        let branch = fugitive#head()
+        return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
+endfunction</mark>
+</pre>
+Pada bagian `'right': [['string1'], ['string2']]` juga sudah saya lakukan modifikasi dari yang sebelumnya `'right': [[close]]` pada bagian [Tabline]({{ site.url }}/blog/lightline-alternatif-vim-statusline#tabline){:target="_blank"}.
+
+**Hasilnya**,
+<!-- IMAGE CAPTION -->
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TPc2p3Zj/gambar-09.png"}
+<p class="img-caption">Gambar 9 - Dengan tambahan powerline symbol untuk master dan readonly</p>
+
 
 # Pesan Penulis
 
