@@ -68,7 +68,7 @@ echo '######################################################'
 echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
 echo '######################################################'
 cd {pubDir}
-rm {pubDir}/lazyhandling.py
+#rm {pubDir}/lazyhandling.py
 rm {pubDir}/feed.xml
 git add .; git commit -m "{comMsg}"; git push origin master
 
