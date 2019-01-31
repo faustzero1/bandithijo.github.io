@@ -39,6 +39,8 @@ Proses-proses di bawah ini ~~tidak~~ harus berurutan. Saya mencoba menyusun dan 
 
 ### Menghapus GitHub Page
 
+Sebenarnya langkah ini tidak diperlukan. Ini hanya preferensi saya saja.
+
 1. Buka tab **Settings** pada repository GitHub.
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kgV8Y97C/gambar-01.png"}
 
@@ -174,7 +176,7 @@ Saat ini statusnya project kita sedang di build dan di deploy oleh Netlify.
 ![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png"}
 Tekan **Verify**.
 
-4. Saya akan ditanya bahwa bandithijo.com sudah ada yang punya, apakah pemiliknya adalah saya?
+4. Netlify akan mengkonfirmasi bahwa "bandithijo.com" sudah ada yang punya, apakah pemiliknya adalah saya?
 ![gambar_14]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y00QWDz2/gambar-14.png"}
 Tentu saja, **Yes, add domain**.
 
