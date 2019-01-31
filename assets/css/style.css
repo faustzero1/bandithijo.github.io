@@ -1258,6 +1258,11 @@ a.disqus_button {
         padding: 5px 7.5px;
     }
 
+    #main .container-edge-border {
+        border: none;
+        /* untuk memunculkan properties di atas */
+        overflow: hidden;
+    }
 
     h1.post-title {
         margin-top: 20px;
