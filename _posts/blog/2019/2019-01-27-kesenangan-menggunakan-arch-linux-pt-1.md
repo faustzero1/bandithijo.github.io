@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Kesenangan Dalam Menggunakan Arch Linux Pt. 1 <span class="new">BARU</span>'
+title: 'Kesenangan Dalam Menggunakan Arch Linux Pt. 1'
 date: 2019-01-27 08:56
 permalink: '/blog/:title'
 author: 'BanditHijo'
