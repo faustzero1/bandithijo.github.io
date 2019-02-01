@@ -70,39 +70,36 @@ Karena _base package_ yang diperlukan untuk menjadikan sistem operasi seutuhnya 
 <!-- PERTANYAAN -->
 <div class="blockquote-yellow">
 <div class="blockquote-yellow-title">Mengapa tidak menggunakan <i>mirror-mirror</i> lokal Indonesia ?</div>
-<p>Karena belum tentu apabila kita memilih _server_ repositori di Indonesia sudah pasti akan mendapatkan kecepatan yang maksimal. Maka biarkan program yang memilihkan untuk kita.</p>
+<p>Karena belum tentu apabila kita memilih server repositori di Indonesia sudah pasti akan mendapatkan kecepatan yang maksimal. Maka biarkan program yang memilihkan untuk kita.</p>
 </div>
 
 Buat _backup_ `mirrorlist` terlebih dahulu.
 
-```
+<pre>
 # cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-```
+</pre>
 
-Kemudian kita akan menggunakan `rankmirrors` untuk memilih alamat _mirror_ mana yang paling cepat.
+~~Kemudian kita akan menggunakan `rankmirrors` untuk memilih alamat _mirror_ mana yang paling cepat.~~
 
-```
-# rankmirrors -n 5 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
-```
+<pre>
+<s># rankmirrors -n 5 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist</s>
+</pre>
 
-Proses ini akan memakan waktu ~~sebentar~~. Karena `rankmirrors` akan melakukan filter pada ratusan alamat _mirror server_ yang ada pada daftar _file_ `mirrorlist`.
-
-Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali, hanya akan terseleksi dan tersisa menjadi 5 _server_ paling cepat saja. Kalian dapat melihatnya dengan mengetikkan `$ cat /etc/pacman.d/mirrorlist`.
-
-```
-*output cat /etc/pacman.d/mirrorlis
-```
+~~Proses ini akan memakan waktu sebentar. Karena `rankmirrors` akan melakukan filter pada ratusan alamat _mirror server_ yang ada pada daftar _file_ `mirrorlist`.~~
 
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
 Penggunaan <code>rankmirrors</code> sudah tidak direkomendasikan lagi oleh Arch Wiki.<br>
 Saat ini sudah menggunakan <code>reflector</code>.
-<br><br>
+<br>
 <pre>
+# pacman -Syy
 # pacman -S reflector
 # reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist</pre>
 </div>
+
+Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali, hanya akan terseleksi dan tersisa menjadi 5 _server_ paling cepat saja. Kalian dapat melihatnya dengan mengetikkan `$ cat /etc/pacman.d/mirrorlist`.
 
 
 <!-- NEXT PREV BUTTON -->
