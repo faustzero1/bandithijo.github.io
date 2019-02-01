@@ -74,6 +74,9 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3wM3s7N/gambar-01.png"}
 <p class="img-caption">i3 Window Manger + Polybar + Conky + Solarized Dark = My Perfect Desktop</p>
 
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/x8vrsbC7/gambar-07.png"}
+<p class="img-caption">Another Desktop with Wallpaper and Vim</p>
+
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-02.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk menulis, Vim + Tmux</p>
 
