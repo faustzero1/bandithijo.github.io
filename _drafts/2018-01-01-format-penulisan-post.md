@@ -123,6 +123,13 @@ Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.
 
 atau <mark>ini juga bisa, lebih praktis</mark>.
 
+# STRIKE
+~~Ini adalah contoh artikel yang dicoret~~
+
+<s>Ini juga contoh artikel yang dicoret menggunakan tag html5 s</s>
+
+<del>Ini juga contoh artikel yang dicoret menggunakan tag html5 del</del>
+
 # NO BREAK ELEMENT
 <span class="nobr">Mas Bro !</span>
 

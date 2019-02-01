@@ -101,6 +101,11 @@ Saat ini sudah menggunakan <code>reflector</code>.
 
 Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali, hanya akan terseleksi dan tersisa menjadi 5 _server_ paling cepat saja. Kalian dapat melihatnya dengan mengetikkan `$ cat /etc/pacman.d/mirrorlist`.
 
+Setelah itu, kita perlu memperbaharui metadata repository kita untuk dapat sinkron dengan repositori yang baru kita tambahkan.
+```
+$ pacman -Syy
+```
+
 
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
