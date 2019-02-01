@@ -121,7 +121,7 @@ Kita telah berhasil mengkonfigurasi LVM pada `/dev/sda2` yang terenkripsi.
 
 ## 2.4 Memformat Partisi
 
-Setelah kita mengkonfigurasi partisi tabel, langkah selanjutnya adalah mem-_format_ partisi sesuai tipe partisi yang telah kita buat. Terdapat dua _file_ sistem yang akan kita gunakan, yaitu `FAT32` dan `EXT4`. _File_ sistem `FAT32` akan kita gunakan untuk `/dev/sda1` yang merupakan partisi ESP \(_EFI System Partition_\). Sedangkan _file_ sistem `EXT4` akan kita gunakan untuk `/dev/sda2` yang merupakan `/` partisi.
+Setelah kita mengkonfigurasi partisi tabel, langkah selanjutnya adalah mem-*format* partisi sesuai tipe partisi yang telah kita buat. Terdapat dua _file_ sistem yang akan kita gunakan, yaitu `FAT32` dan `EXT4`. _File_ sistem `FAT32` akan kita gunakan untuk `/dev/sda1` yang merupakan partisi ESP \(_EFI System Partition_\). Sedangkan _file_ sistem `EXT4` akan kita gunakan untuk `/dev/sda2` yang merupakan `/` partisi.
 
 Mem-_format_ partisi `/dev/sda1`.
 

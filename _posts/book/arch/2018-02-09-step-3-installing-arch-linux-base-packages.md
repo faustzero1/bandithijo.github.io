@@ -81,7 +81,7 @@ UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a    / ext4  rw,relatime,data=ordered   
 UUID=3394-9E03 /boot vfat rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro    0 2
 ```
 
-Kita dapat melihat `/dev/sda1` dan `/dev/mapper/volume-root`, artinya _mounting_ partisi dan _generate_ `fstab` telah berhasil dan benar. Karena apabila proses _mouting_ pada Step 3.1 salah, maka hasil _generate_ `fstab` juga akan salah. Misal, tidak terdapat partisi `/boot` yaitu `/dev/sda1`, maka apabila terjadi seperti ini, maka akan berdampak pada kegagalan saat proses instalasi `bootloader`.
+Kita dapat melihat `/dev/sda1` dan `/dev/mapper/volume-root`, artinya _mounting_ partisi dan _generate_ `fstab` telah berhasil dan benar. Karena apabila proses _mouting_ pada Step 3.1 salah, maka hasil _generate_ `fstab` juga akan salah. Misal, tidak terdapat partisi `/boot` yaitu `/dev/sda1`, maka apabila terjadi seperti ini, akan berdampak pada kegagalan saat proses instalasi `bootloader`.
 
 Setelah kita selesai meng-*install* _base package_, langkah selanjutnya adalah konfigurasi komponen-komponen lain yang diperlukan oleh sistem operasi seperti _Bootloader_, _Time Zone_, _Locale_, _Hostname_, _Username_, _Passwords_, dll.
 
@@ -93,7 +93,19 @@ Caranya dengan menggunakan `chroot` \(_change root_\).
 # arch-chroot /mnt
 ```
 
-Apabila perintah di atas berhasil, makan kalian dapat melihat perubahan pada `username` dan `hostname`. Artinya kita telah masuk ke dalam `root` sistem yang baru saja kita _install_. Pada tahap ini, kita dapat bergerak ke _step_ selanjutnya.
+Apabila perintah di atas berhasil, makan kalian dapat melihat perubahan pada `username` dan `hostname` yang terbungkus oleh tanda `[ ... ]`. Artinya kita telah masuk ke dalam `root` sistem yang baru saja kita _install_.
+
+Sebelum `arch-chroot`.
+<pre>
+<span style="color:red;">root</span>@archiso ~ #
+</pre>
+
+Setelah `arch-chroot`.
+<pre>
+[root@archiso /]#
+</pre>
+
+Pada tahap ini, kita dapat bergerak ke _step_ selanjutnya.
 
 
 <!-- NEXT PREV BUTTON -->

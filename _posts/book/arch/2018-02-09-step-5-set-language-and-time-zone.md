@@ -24,7 +24,7 @@ _locale_, sejauh yang saya gunakan adalah untuk mengatur _language_ \(bahasa\), 
 Untuk memilih _locale_, terlebih dahulu kita perlu membuka akses _locale_ yang masih ter-_disable_ pada _file_ `/etc/locale.gen`. Dalam hal ini saya akan mengaktifkan / _uncommenting_ `en_US.UTF-8`.
 
 ```
-# nano /etc/locale.gen
+# vim /etc/locale.gen
 ```
 
 _Scroll_ ke bawah dan cari baris yang mengandung isi `en_US.UTF-8 UTF-8`, lalu hilangkan tanda `#` yang ada di depan baris tersebut.
@@ -48,6 +48,11 @@ Kemudian _generate_ `locale` dengan perintah.
 
 ```
 # locale-gen
+```
+```
+Generating locales...
+    en_US.UTF-8... done
+Generating complete.
 ```
 
 Mengeset _locale_ yang sudah kita _generate_ ke dalam _file_ `/etc/locale.conf`.

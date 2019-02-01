@@ -17,13 +17,18 @@ pin:
 
 ## 6.1 User and Password
 
-Secara _default_, Arch Linux yang telah kita _install_ telah memiliki akun, yaitu `root`. Yang ditandai dengan tanda `#` pada Terminal. Dan saat ini pun kita sedang menggunakan akun `root`. Namun akun ini secara _default_ **belum memiliki password**. Oleh karena itu kita perlu \(**harus**\) mengeset _password_ untuk akun `root`.
+Secara _default_, Arch Linux yang telah kita _install_ telah memiliki akun, yaitu `root`. Yang ditandai dengan tanda `#` pada Terminal. Dan saat ini pun kita sedang menggunakan akun `root`. Namun akun ini secara _default_ **belum memiliki password**. Oleh karena itu kita perlu bahkan lebih ke-**harus** mengeset _password_ untuk akun `root`.
 
 ```
 # passwd root
 ```
 
-Kemudian, masukkan _password_ untuk akun `root`. Karakter _password_ memang tidak akan ditampilkan. Kamu akan diminta memasukkan _password_ yang sama, sebanyak dua kali. Dan jangan sampai lupa, karena akun `root` ini adalah akun yang sangat penting.
+Kemudian, masukkan _password_ untuk akun `root`. Karakter _password_ memang tidak akan ditampilkan. Kamu akan diminta memasukkan _password_ yang sama, sebanyak dua kali. Dan **jangan sampai lupa**, karena akun `root` ini adalah akun yang sangat penting.
+```
+New password:
+Retype new password:
+passwd: password updated successfully
+```
 
 Kita sudah membuat _password_ untuk akun `root`. Namun, untuk pengunaan sehari-hari sebaiknya kita tidak menggunakan akun ini. Sangat direkomendasikan untuk membuat akun `user`. Caranya sebagai berikut.
 
@@ -36,25 +41,30 @@ Buat _group_ `sudo` terlebih dahulu.
 Kemudian buat _username_.
 
 ```
-# useradd -m -g users -G sudo,storage,wheel,power archer
+# useradd -m -g users -G sudo,storage,wheel,power bandithijo
 ```
 
-Saya menggunakan _username_ **archer**. Kamu dapat mengganti dengan _username_ yang kamu inginkan. Sebagai catatan _username_ haruslah berupa karakter huruf, _lowercase_ \(huruf kecil\), dan tidak boleh ada spasi.
+Saya menggunakan _username_ **bandithijo**. Kamu dapat mengganti dengan _username_ yang kamu inginkan. Sebagai catatan _username_ haruslah berupa karakter huruf, _lowercase_ \(huruf kecil\), dan tidak boleh ada spasi.
 
-Setelah membuat akun `user`, kita akan mengeset _password_-nya.
+Setelah membuat akun `user`, kita akan mengeset _password_ untuk user baru ini.
 
 ```
-# passwd archer
+# passwd bandithijo
+```
+```
+New password:
+Retype new password:
+passwd: password updated successfully
 ```
 
-Masukkan _password_ untuk akun **archer**.
+Masukkan _password_ untuk akun **bandithijo**.
 
 Selanjutnya, mengeset `/etc/sudoers`. Kita akan mengaktifkan perintah `sudo` agar dapat memiliki kemampuan seperti _superuser_.
 
-Kemudian, _edit_ dengan `nano` _text editor_ `/etc/sudoers`.
+Kemudian, _edit_ file `/etc/sudoers`.
 
 ```
-# nano /etc/sudoers
+# vim /etc/sudoers
 ```
 
 _Scrolling_ ke bawah dan cari `# %sudo ALL = (ALL) ALL`. Lalu hapus tanda pagar `#` untuk meng-_enable_-kan user yang termasuk dalam _group_ `sudo` dapat mengeksekusi semua _command_ \(perintah\) pada Terminal. Hasilnya seperti contoh di bawah.
@@ -68,6 +78,10 @@ _Scrolling_ ke bawah dan cari `# %sudo ALL = (ALL) ALL`. Lalu hapus tanda pagar 
 ...
 </pre>
 
+Simpan dan keluar.
+
+Untuk Vim, simpan dengan `:w!` untuk memaksa menyimpan perubahan pada file dengan *read only permisson*.
+
 ## 6.2 Hostname
 
 Pada _step_ ini, kita akan memberikan _hostname_ pada sistem kita. Sebenarnya ini bukan hal yang _crucial_, namun karena ini komputer atau laptop pribadi kita, ada baiknya kita memberikan preferensi tersendiri.
@@ -75,18 +89,28 @@ Pada _step_ ini, kita akan memberikan _hostname_ pada sistem kita. Sebenarnya in
 Untuk mengkonfigurasi `hostname`,
 
 ```
-# echo “Archer-Computer” > /etc/hostname
+# echo “Arch-Machine” > /etc/hostname
 ```
 
-Perintah di atas akan menambahkan `Archer-Computer` pada _file_ `/etc/hostname`. Kita dapat mengecek isi dari `/etc/hostname` dengan menggunakan perintah `$ cat /etc/hostname`.
+Perintah di atas akan menambahkan `Arch-Machine` pada _file_ `/etc/hostname`. Kita dapat mengecek isi dari `/etc/hostname` dengan menggunakan perintah `$ cat /etc/hostname`.
 
 Penamaan `hostname` berbeda dengan penamaan pada `username`. Pada `hostname`, kita dapat menggunakan _uppercase_ \(kapital\), angka, simbol dan tanpa spasi.
 
+<hr>
 Oke, saat ini proses konfigurasi dasar dari sistem operasi Arch Linux sudah selesai. Namun, kita membutuhkan sistem operasi yang pengoperasiannya menggunakan GUI \(_Graphical User Interface_\) atau biasa dikenal dengan DE \(_Desktop Environment_\) agar kita dapat menggunakan sistem operasi ini dengan mudah. Karena saat ini, sudah sangat jarang ditemukan user yang masih menggunakan _text mode_ atau WM \(_Window Manager_\) pada komputer atau laptop pribadinya. Meskipun saya termasuk yang malah ketagihan menggunakan WM.
 
 Langkah selanjutnya adalah melihat apakah proses instalasi kita berhasil atau tidak. Kita akan melakukan _reboot system_ untuk mengeceknya.
 
-_Exit_ dari `chroot`.
+Namun sebelumnya, tambahkan dulu paket-paket di bawah ini. Agar memudahkan konektifitas jaringan. Saat kita sudah memasuki sistem dasar yang sudah kita bangun.
+```
+# pacman -S networkmanager network-manager-applet wpa_supplicant wpa_actiond dialog
+```
+Aktifkan servicenya.
+```
+# systemctl enable NetworkManager.service
+```
+
+Setelah itu _exit_ dari `chroot`.
 
 ```
 # exit
