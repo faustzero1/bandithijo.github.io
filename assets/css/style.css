@@ -291,12 +291,15 @@ p.post-title-index a:hover {
     background: #9E9E9E;
     color: #FFF;
     text-align: center;
+    font-size: 11px;
     font-weight: normal;
     width: 26em;
     /* margin-left: 43px; */
-    margin-top: -1px;
+    /* margin-top: -1px; */
+    position: relative;
+    top: -6px;
     padding: 0 2px;
-    border-width: 0 1px 1px 1px;
+    border-width: 1px 1px 1px 1px;
     border-style: solid;
     border-color: #9E9E9E;
 }
@@ -1025,7 +1028,7 @@ ul.chkbox li.chkbox-checked:before {
 
 /* BREADCRUMBS ------------------------------------------------------------ */
 .breadcrumbs {
-    margin-top: 10px;
+    /* margin-top: 5px; */
     font-size: 11px;
 }
 

@@ -385,7 +385,7 @@ Sampai pada tahap ini mungkin kita bisa melakukan _restart system_ terlebih dahu
 $ reboot
 ```
 
-![](/assets/Gambar 1.png)
+![]()
 
 Gambar 1 - Tampilan GNOME _Desktop Environment_
 

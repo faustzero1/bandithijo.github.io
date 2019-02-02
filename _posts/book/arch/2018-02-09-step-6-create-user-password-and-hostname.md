@@ -103,12 +103,17 @@ Langkah selanjutnya adalah melihat apakah proses instalasi kita berhasil atau ti
 
 Namun sebelumnya, tambahkan dulu paket-paket di bawah ini. Agar memudahkan konektifitas jaringan. Saat kita sudah memasuki sistem dasar yang sudah kita bangun.
 ```
-# pacman -S networkmanager network-manager-applet wpa_supplicant wpa_actiond dialog
+# pacman -S networkmanager network-manager-applet dialog
 ```
 Aktifkan servicenya.
 ```
 # systemctl enable NetworkManager.service
 ```
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saya tidak memasang <code>network-manager-applet</code> karena lebih terbiasa menggunakan <code>nmtui</code> (Network Manager Terminal User Interface) yang sudah disertakan bersama paket <code>networkmanager</code>.</p>
+</div>
 
 Setelah itu _exit_ dari `chroot`.
 
@@ -132,14 +137,14 @@ Setelah berhasil menampilkan halaman _login_.
 
 ```
 Arch Linux 4.13.12-1-ARCH (tty1)
-Archer-Computer login: _
+Arch-Machine login: _
 ```
 
 _Login_ dengan akun yang telah kita buat pada Step 6.1.
 
 ```
 Last login: Thu Nov 16 14:57:01 on tty1
-[archer@Archer-Computer ~]$ _
+[bandithijo@Arch-Machine ~]$ _
 ```
 
 Kalau pada tahap ini kalian berhasil. **Welcome to the BrotherHood !**

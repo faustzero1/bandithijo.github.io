@@ -108,4 +108,4 @@ Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang
 <p class="img-caption">Raport pada Daftar Pelatihan NolSatu</p>
 Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
 
-Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai ada kesempatan.
+Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai datang kesempatan lagi.
