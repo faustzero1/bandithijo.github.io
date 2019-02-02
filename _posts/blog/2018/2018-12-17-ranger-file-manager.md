@@ -321,7 +321,7 @@ Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default*
 ...
 map w taskview_open
 #map S shell $SHELL
-map S terminal
+<mark>map S terminal</mark>
 
 map :  console
 ..
