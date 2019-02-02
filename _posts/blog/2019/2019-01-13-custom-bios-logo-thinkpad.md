@@ -243,5 +243,5 @@ Meskipun demikian, apabila berhasil, ada kepuasan tersendiri karena laptop akan 
 1. [reddit.com/r/unixporn/comments/84tdtm/bios_custom_bios_bootscreen_on_my_thinkpad_t440s/](https://www.reddit.com/r/unixporn/comments/84tdtm/bios_custom_bios_bootscreen_on_my_thinkpad_t440s/){:target="_blank"}
 <br>Diakses tanggal: 2019/01/13
 
-2. [How to flash ThinkPad BIOS with a custom logo](https://www.youtube.com/watch?v=HfaJVyM1y-c){:target="_blank"}
+2. [iBSD - How to flash ThinkPad BIOS with a custom logo](https://www.youtube.com/watch?v=HfaJVyM1y-c){:target="_blank"}
 <br>Diakses tanggal: 2019/01/13
