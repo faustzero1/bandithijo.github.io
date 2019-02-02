@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/01/31'
+  url:
+  detail: |
+      Menambahkan Netlify deploy status bedge
+
 - tanggal: '19/01/28'
   url:
   detail: |
