@@ -391,7 +391,7 @@ Gambar 1 - Tampilan GNOME _Desktop Environment_
 
 Nah, kalau kalian berhasil mencapai _dekstop_ **GNOME** seperti pada tampilan di atas. Artinya proses langkah-langkah konfigurasi berjalan sukses.
 
-### 7.10 Encrypt Home Directory
+## 7.10 Encrypt Home Directory
 
 Selain kita melakukan enkripsi terhadap partisi `/` , saya merekomendasikan untuk melakukan enkripsi pada `/home` direktori. Tujuannya tentu saja untuk memberikan pengamanan data yang berlapis-lapis. Namun meskipun pengamanannya berlapis, kita cukup memasukkan satu kali _password_ pada saat _login_ dan `/home` _directory_ kita sudah otomatis ter-_mounting_.
 
