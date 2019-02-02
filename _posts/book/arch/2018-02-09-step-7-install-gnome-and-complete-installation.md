@@ -12,6 +12,9 @@ tags:
 pin:
 ---
 
+<!-- OUTDATED POST -->
+<p class="notif-post" style="margin-bottom: -20px;">Post ini Akan Dilakukan Perubahan</p>
+
 
 # STEP 7 : Install GNOME and Complete Installation
 
