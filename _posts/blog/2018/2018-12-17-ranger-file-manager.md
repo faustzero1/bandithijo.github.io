@@ -315,14 +315,15 @@ Tidak banyak modifikasi *key bindings* yang saya modifikasi. Karena saya berusah
 
 Saya hanya merubah dua buah *keyborad shortcut*.
 
-Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default* apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.
+Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default* apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell pada direktori yang aktif. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.
 <pre>
 ...
 ...
-map @  console -p6 shell  %%s
-#map s  console shell%space
-<mark>map s  terminal</mark>
-map r  chain draw_possible_programs; console open_with%%space
+map w taskview_open
+#map S shell $SHELL
+map S terminal
+
+map :  console
 ..
 ..
 </pre>
