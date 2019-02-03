@@ -9,13 +9,13 @@ toc: true
 
 {% include doa_awal.html %}
 
-**BanditHijo**, tidak seperti yang anda ketahui Bandit (kata ganti orang untuk konotasi yang bersifat negatif) dan Hijo (kata plesetan dari warna hijau).
+**BanditHijo**, tidak seperti yang anda pahami, Bandit (kata ganti orang untuk konotasi yang bersifat negatif) dan Hijo (kata plesetan dari warna hijau).
 
 >**BanditHijo adalah sebuah frase yang tidak memiliki arti selain "nama" itu sendiri.**
 
 Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren para penulis buku,  meskipun saya masih sangat terlampau jauh untuk dapat menyebut diri saya sebagai seorang penulis.
 
-_Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah wadah untuk menuliskan dan mendokumentasikan hasil belajar saya.
+_Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 # Nama Asli, Status, dan Pekerjaan?
 Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya - terima kasih Ayah dan Ibu.
@@ -23,7 +23,6 @@ Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Riz
 Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
 
 # Apa Alasan Menulis Blog?
-
 Karena Allah *Subhanahu Wa Ta'ala*.
 
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
@@ -92,7 +91,6 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 
 
 # Dahulu
-
 Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
 2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
@@ -100,7 +98,6 @@ Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti P
 Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
 # Sekarang
-
 Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
 
 Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi dipending dulu.
