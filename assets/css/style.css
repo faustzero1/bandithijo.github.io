@@ -492,7 +492,9 @@ img.footer-bedge-1 {
 .img-caption {
     text-align: center;
     font-size: 12px;
+    margin-bottom: 20px !important;
 }
+
 
 /* Title Quote ------------------------------------------------------------ */
 .title-quote {

@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify <span class="new">BARU</span>'
+title: 'BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify'
 date: 2019-01-28 01:18
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Jekyll', 'Web', 'Tips', 'Ulasan']
+tags: ['Jekyll', 'Tips', 'Ulasan']
 pin:
 ---
 

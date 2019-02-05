@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['Vim', 'Terminal', 'Python', 'Django', 'Web']
+tags: ['Vim', 'Terminal', 'Python', 'Django']
 pin:
 ---
 

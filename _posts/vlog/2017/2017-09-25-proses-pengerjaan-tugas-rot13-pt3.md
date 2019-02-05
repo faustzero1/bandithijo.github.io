@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['Javascript', 'Web', 'Script']
+tags: ['Javascript', 'Script']
 pin:
 ---
 
