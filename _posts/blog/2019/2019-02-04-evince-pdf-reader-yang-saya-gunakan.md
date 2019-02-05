@@ -121,7 +121,7 @@ Untuk mengakali ini, saya biasa membuka PDF di Firefox, kemudian baru memanfaatk
 
 # Pesan Penulis
 
-Apabila dari teman-teman mempunyai PDF reader favorit boleh banget direkomendasikan kepada saya. Tentunya yang memiliki fitur setidaknya sama atau ada fitur yang lebih, yang tidak dimiliki oleh Evince.
+Apabila dari teman-teman mempunyai PDF reader favorit boleh banget direkomendasikan kepada saya. Tentunya yang memiliki fitur setidaknya sama atau ada fitur lebih yang tidak dimiliki oleh Evince.
 
 Saya sudah pernah mencoba **Okular**, namun karena aplikasi Qt, saya kurang begitu senang dengan interface yang terlalu banyak icon. **xpdf**, **mupdf**, terlalu sederhana, tidak ada fitur-fitur yang saya perlukan seperti membuat da menghapus *highlight*.
 
