@@ -45,13 +45,14 @@ plugins:
   - jekyll-pwa-plugin
   - jekyll-netlify
 
-default:
-  -
-    scope:
-      path:
-      type: posts
-    values:
-      layout: post
+
+# default:
+#   -
+#     scope:
+#       path:
+#       type: posts
+#     values:
+#       layout: post
 
 
 # Navigation Menu on Header
