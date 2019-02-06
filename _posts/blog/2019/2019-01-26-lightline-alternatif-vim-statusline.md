@@ -90,7 +90,7 @@ Pada konfigurasi `lightline` ini saya hanya menambahkan:
 
 Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 
-```
+```viml
 let g:lightline = {
 \   'colorscheme': 'solarized',
 \   'active': {
@@ -149,14 +149,14 @@ Buat apa kita perlu `Lightline-Bufferline` ?
 Apabila kita hanya menggunakan `Lightline` saja, maka buffer yang terdapat di pojok kiri atas hanya akan ditampilkan satu buah. Karena ini, kita memerlukan `Lightline-Bufferline` untuk menampilkan buffer yang terbuka.
 
 Untuk mengaktifkan bufferline (tabline), tambahkan di bawahnya.
-```
+```viml
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 ```
 Kemudian tambahkan konfigurasi untuk `lightline-bufferline`, namun ini hanya optional saja, karena secara *default* tampilan dari `lightline-bufferline` sudah bagus.
 
 Value yang saya gunakan hampir rata-rata adalah value *default* kecuali `unnamed` saya ganti menjadi `[NO NAME]`, defaultnya adalah `*`.
-```
+```viml
 let g:lightline#bufferline#unnamed = "[NO NAME]"
 let g:lightline#bufferline#filename_modifier= ":."
 let g:lightline#bufferline#more_buffers = "..."
@@ -236,7 +236,7 @@ Setelah merubah 3 baris pada file `lightline.vim` di atas, **jangan lupa menggan
 
 Ubah dari `close` menjadi `string1`, dan `string2`.
 
-```
+```viml
 let g:lightline.tabline = {
 \   'left': [ ['buffers'] ],
 \   'right': [ ['string1'], ['string2'] ]
