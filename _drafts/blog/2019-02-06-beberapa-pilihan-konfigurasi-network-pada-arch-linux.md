@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: 'Beberapa Pilihan Konfigurasi Network pada Arch Linux'
-date: 2019-02-6 05:52
+date: 2019-02-06 05:52
 permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true

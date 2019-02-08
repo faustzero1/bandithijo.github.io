@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Menyeragamkan Tema GTK Root dengan Tema User <span class="new">BARU</span>'
+title: 'Menyeragamkan Tema GTK Root dengan Tema User'
 date: 2019-02-01 01:30
 permalink: '/blog/:title'
 author: 'BanditHijo'
