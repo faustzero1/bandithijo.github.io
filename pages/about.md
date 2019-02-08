@@ -57,12 +57,15 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 
 | Data | Keterangan |
 | :--- | :--- |
-| Sistem Operasi | **GNU/Linux** |
-| Distribusi | **Arch Linux** |
 | Static Site Generator | **Jekyll** |
 | Hosting | **GitHub** & **GitLab** |
 | CDN | **Netlify** |
 | Format Text | **Markdown** |
+| Sistem Operasi | **GNU/Linux** |
+| Distribusi | **Arch Linux** |
+| Desktop Env. | - |
+| Window Manager | **i3WM** |
+| Terminal Emulator | **St** |
 | Text Editor | **Neovim** |
 | Image Editor | **GIMP** & **Inkscape** |
 | Video Editor | **Kdenlive** |
