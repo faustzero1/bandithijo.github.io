@@ -174,8 +174,11 @@ Saya kasih previewnya dulu saja gpp yaa. Hehe.
 
 Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak dapati pada Terminal emulator yang lain. Seperti:
 
-1. Bold font dapat menampilkan warna yang sesuai
-2. Perpindahan dari Solarized Dark dan Light sangat halus dan tidak ada warna yang salah.
+1. Sangat cepat saat dipanggil (*startup*)
+2. Bold font dapat menampilkan warna yang sesuai
+3. Perpindahan dari Solarized Dark dan Light sangat halus dan tidak ada warna yang salah.
+4. Glyph font yang sesuai
+5. Dapat menghandle w3m dalam Ranger dengan baik
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gcQWhNYs/gambar-02.gif"}
 
