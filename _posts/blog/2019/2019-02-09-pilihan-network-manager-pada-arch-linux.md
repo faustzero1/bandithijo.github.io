@@ -31,6 +31,10 @@ Kegunaan dari Network Manager ini adalah untuk memfasilitasi kita mengelola peng
 
 <p class="img-caption" style="text-align:right;">Sumber: <a href="https://wiki.archlinux.org/index.php/Network_configuration#Network_managers" target="_blank">Arch Wiki/Network Configuration</a></p>
 
+Biasanya, yang paling populer untuk terkoneksi dengan jaringan wireless adalah `wifi-menu`, paket ini merupakah paket yang dibawa secara *default* oleh `netctl` yang merupakan salah satu Network Manger yang sudah ada di dalam Archiso, selain `systemd-network`.
+
+Namun, apabila wireless card kita ternyata belum terdeteksi, kita masih dapat menggunakan `netctl` juga yang sudah membawa `dhcpcd` untuk menghandle konektifitas via *usb-tethering smartphone*.
+
 Untuk catatan kali ini, saya hanya akan mendokumentasikan mengenai **NetworkManager**, karena ini yang saya pergunakan.
 
 Saya juga merekomendasikan untuk teman-teman yang baru menggunakan Arch Linux atau yang ingin praktis dan simpel seperti saya, NetworkManager adalah pilihan yang mudah.

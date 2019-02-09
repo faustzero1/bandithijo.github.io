@@ -184,11 +184,13 @@ Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak d
 
 # Kekurangan
 
-Saya masih belum dapat menggunakan tombol <kbd>DELETE</kbd> sebagai mana fungsinya. Karena saat ini fungsi tombol ini malah menampilkan karakter `~`.
+1. Saya masih belum dapat menggunakan tombol <kbd>DELETE</kbd> sebagai mana fungsinya. Karena saat ini fungsi tombol ini malah menampilkan karakter `~`.
 
-Ada patch untuk **delkey**, namun setelah saya coba, malah berfungsi selayaknya <kbd>BACKSPACE</kbd>.
+    Ada patch untuk **delkey**, namun setelah saya coba, malah berfungsi selayaknya <kbd>BACKSPACE</kbd>.
 
-Saya memerlukan <kbd>DELETE</kbd> untuk fungsi "Move to Trash" pada Ranger. Sehingga saat ini saya memindahkan fungsinya ke tombol <kbd>F8</kbd>.
+    Saya memerlukan <kbd>DELETE</kbd> untuk fungsi "Move to Trash" pada Ranger. Sehingga saat ini saya memindahkan fungsinya ke tombol <kbd>F8</kbd>.
+
+2. Link/URL yang *clickable*. Fitur ini juga masih belum saya cari tahu.
 
 # Referensi
 
