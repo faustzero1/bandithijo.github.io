@@ -113,6 +113,25 @@ Pada area kertas, kita dapat menggunakan navigasi yang mirip seperti Vim.
 <img style="float:left;" alt="gambar_6" src="{{ site.lazyload.logo_blank }}" data-echo="https://i.postimg.cc/4x5RNvYX/gambar-06.png">
 <div style="clear:both;"></div>
 
+# Tambahan Konfigurasi
+
+Apabila teman-teman ingin mengatur konfigurasi default Evince dapat menggunakan apliakasi `dconf-editor`.
+
+Alamatnya ada di:
+```
+/org/gnome/evince/default
+```
+
+Di dalam sini terdapat beberapa konfigurasi *default* yang bisa kita atur seprti:
+1. continuous
+2. dual-page
+3. show-sidebar
+4. sidebar-size
+5. show-toolbar
+6. dll.
+
+Maksud dari "*default*" di sini adalah konfigurasi yang akan diterapkan kepada Evince saat pertama kali di jalankan.
+
 # Kekurangan
 
 Kekurangan yang sampai saat ini masih saya rasakan adalah, pada sistem saya, Evince masih belum dapat digunakan untuk *push to print* (ngeprint langsung dari Evince, <kbd>CTRL</kbd>+<kbd>P</kbd>) -- Print Settings Window terbuka, namun tidak berdampak apa-apa saat kita menekan tombol print.
