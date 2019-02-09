@@ -117,7 +117,7 @@ Sejak menggunakan `nmtui`, saya tidak memerlukan lagi `nm-applet`. Sehingga memb
 
 Sebaik-baik dokumentasi adalah yang ditulis dan dikelola secara aktif oleh developer dari aplikasi atau komunitas yang resmi.
 
-Silahkan untuk menggali informasi lebih jau dan lebih luas pada daftar referensi yang saya sertakan.
+Silahkan untuk menggali informasi lebih jauh dan lebih luas pada daftar referensi yang saya sertakan.
 
 Karena tulisan ini bukan ditujukan untuk membuat tandingan dari dokumentasi resmi yang sudah ada. Melainkan sebagai catatan dan ulasan dari apa yang saya pergunakan sehari-hari.
 
