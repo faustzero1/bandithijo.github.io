@@ -95,7 +95,7 @@ Berikut ini adalah beberapa tampilan NetworkManager menggunakan GUI.
 
 ## TUI
 
-Untuk saat ini, saya lebih senang menggunakan TUI, dan tidak menggunakan kedua paket di atas untuk memilih network profile.
+Untuk saat ini, saya lebih sering menggunakan TUI, dan tidak menggunakan kedua paket di atas untuk memilih network profile.
 
 Fungsinya sama saja, hanya berbeda tampilan.
 
