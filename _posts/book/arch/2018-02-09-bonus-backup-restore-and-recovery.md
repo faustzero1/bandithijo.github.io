@@ -34,7 +34,7 @@ Bagaimana caranya ?
 
 Buka aplikasi **GNOME Disks** \(`gnome-disk-utility` – Disk management utility for GNOME\).
 
-![](/assets/Gambar 2.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 2.png"}
 
 Gambar 2 - GNOME Disks
 
@@ -50,33 +50,35 @@ Terdapat dua partisi dengan LUKS Encryption, yaitu **Partition 1** dan **Partiti
 
 Cara mengesetnya sangat mudah. Saya berasumsi bahwa kalian sudah mempartisi hard disk yang akan kalian gunakan sebagai media backup. Saya telah menyiapkan **Partition 1**, yang akan saya gunakan. Kemudian ikutin langkah-langkah di bawah.
 
-![](/assets/Gambar 3.1.png)Gambar 3.1 - Format Partition
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.1.png"}
+
+Gambar 3.1 - Format Partition
 
 Pilih **Partition 1** → **klik Gear icon** → pilih **Formation Partition**.
 
-![](/assets/Gambar 3.2.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.2.png"}
 
 Gambar 3.2 - Format Volume Window \(1\)
 
 Pilih **Type : Encrypted, compatible with Linux systems \(LUKS + Ext4**\).
 
-![](/assets/Gambar 3.3.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.3.png"}
 
 Gambar 3.3 - Format Volume Window \(1\)
 
 Maka akan menampilkan form seperti di atas. Isi **Name** dan **Passphrase**. Lalu, pilih **Format**.
 
-![](/assets/Gambar 3.4.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.4.png"}
 
 Gambar 3.4 - Format Volume Window \(3\)
 
 Muncul Pop Up Window yang menanyakan apakah kamu yakin ? Kalau yakin, pilih **Format**.
 
-![](/assets/Gambar 3.5.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.5.png"}
 
 Gambar 3.5 - Partition 1 dalam kondisi Unlocked
 
-![](/assets/Gambar 3.6.png)
+![]({{ site.lazyload.logo_blank }}){:data-echo="/assets/Gambar 3.6.png"}
 
 Gambar 3.6 - Partition 1 dalam kondisi Locked
 

@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama <span class="new">BARU</span>'
+title: 'Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama'
 date: 2019-02-04 23:24
 permalink: '/blog/:title'
 author: 'BanditHijo'

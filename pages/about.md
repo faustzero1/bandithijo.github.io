@@ -91,6 +91,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-05.png"}
 <p class="img-caption">Tools yang saya pergunakan untuk image croping, gThumb</p>
 
+Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). Biasanya saya menyesuaikan dengan kondisi pencahayaan dari ruangan/lingkungan.
 
 
 # Dahulu

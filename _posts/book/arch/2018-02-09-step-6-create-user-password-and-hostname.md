@@ -103,7 +103,7 @@ Langkah selanjutnya adalah melihat apakah proses instalasi kita berhasil atau ti
 
 Namun sebelumnya, tambahkan dulu paket-paket di bawah ini. Agar memudahkan konektifitas jaringan. Saat kita sudah memasuki sistem dasar yang sudah kita bangun.
 ```
-# pacman -S networkmanager network-manager-applet dialog
+# pacman -S networkmanager network-manager-applet
 ```
 Aktifkan servicenya.
 ```
