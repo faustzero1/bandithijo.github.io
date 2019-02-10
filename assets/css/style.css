@@ -24,6 +24,13 @@ pre {
     margin-top: 10px !important;
 }
 
+mark {
+    padding: 0.1em 0.2em 0.2em 0.2em;
+    background-color: #FF9900;
+    border-radius: 3px;
+    color: #FFF;
+}
+
 /* Global ----------------------------------------------------------------- */
 .container {
     background: #FFF;
