@@ -355,7 +355,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   font-family: 'Ubuntu Mono', monospace;
   font-size: 12px;
   /* background color border ``` */
-  border-color: #D6E5AC;
+  border-color: #272822;
   border-style: solid;
   border-width: 1px;
 }
@@ -651,13 +651,16 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 } */
 
 .markdown-body code {
-  padding: 0.1em 0.2em;
+  padding: 0.1em 0.4em 0.2em 0.4em;
   margin: 0;
-  font-size: 85%;
+  /* font-size: 85%; */
+  font-size: 100%;
   border-radius: 3px;
+  border-width: 0;
   /* background color code ` */
-  background:#F3FAD8;
-  /* color: #24644D; */
+  /* background: #F3FAD8; */
+  background: #272822;
+  color: #FFF;
 }
 
 .markdown-body pre {
@@ -672,7 +675,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   white-space: pre;
   background: transparent;
   border: 0;
-  color: #000;
+  color: #FFF;
 }
 
 .markdown-body .highlight {
@@ -690,12 +693,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body pre {
   padding: 10px;
   overflow: auto;
-  font-size: 85%;
+  /* font-size: 85%; */
+  font-size: 100%;
   font-family: 'Ubuntu Mono', monospace;
   line-height: 1.45;
   /* background color pre ``` */
-  background-color: #F3FAD8;
-  border-radius: 4px;
+  /* background-color: #F3FAD8; */
+  background-color: #272822;
+  border-radius: 5px;
 }
 
 .markdown-body pre code {
