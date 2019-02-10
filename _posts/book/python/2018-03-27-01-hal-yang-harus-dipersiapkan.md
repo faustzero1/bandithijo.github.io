@@ -20,7 +20,7 @@ pin:
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
 <a class="btn-blue-l" href="/python/00-pengenalan-python"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
 <a class="btn-blue-r" href="/python/02-print-function-dan-strings"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
 </div>
 

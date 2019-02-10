@@ -159,6 +159,6 @@ Apabila telah sesuai, akan menampilkan susunan `/dev/sda` pada kolom **NAME**, s
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
 <a class="btn-blue-l" href="/arch/step-1-connecting-to-the-internet"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
 <a class="btn-blue-r" href="/arch/step-3-installing-arch-linux-base-packages"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
 </div>
