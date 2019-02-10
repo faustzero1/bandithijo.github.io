@@ -47,7 +47,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 <br>
 **Tabel Mesin**
 
-| Tahun | Mesin |
+| <center>Tahun</center> | <center>Mesin</center> |
 | :--- | :--- |
 | 2012 - 2016 | **Apple Macbook Pro 8.1** |
 | 2017 - Sekarang | **Lenovo ThinkPad X260** |
@@ -55,7 +55,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 <br>
 **Tabel Aplikasi**
 
-| Data | Keterangan |
+| <center>Data</center> | <center>Keterangan</center> |
 | :--- | :--- |
 | Static Site Generator | **Jekyll** |
 | Hosting | **GitHub** & **GitLab** |

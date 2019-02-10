@@ -21,7 +21,7 @@ Sebagai pengguna Arch Linux, kita dibebaskan untuk memilih **Network Manager** y
 
 Kegunaan dari Network Manager ini adalah untuk memfasilitasi kita mengelola pengaturan koneksi jaringan melalui profil jaringan agar kita dapat dengan mudah melakukan perpindahan antar jaringan.
 
-| Network manager | GUI | Archiso | CLI tools | PPP support (3G modem) | DHCP client | Systemd units |
+| Network manager | GUI | Archiso | <center>CLI tools</center> | PPP support (3G modem) | DHCP client | <center>Systemd units</center> |
 | :--: | :--: | :--: | :-- | :--: | :--: | :-- |
 | ConnMan | unofficial | No | connmanctl | Yes | internal | `connman.service` |
 | netctl | unofficial | Yes (base) | netctl, wifi-menu | Yes | dhcpcd, dhclient | `netctl-ifplug@interface.service`, `netctl-auto@interface.service` |
