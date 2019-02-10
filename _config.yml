@@ -19,6 +19,8 @@ description: Here's where I started writing some notes that someday I will call 
 baseurl: '' # the subpath of your site, e.g. /blog
 url: https://bandithijo.com
 site: bandithijo.com
+author: Rizqi Nur Assyaufi
+keywords: bandithijo
 
 # Missing timezone in metadata date can lead to wrong date in url
 timezone: Asia/Makassar
