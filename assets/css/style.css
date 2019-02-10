@@ -224,11 +224,22 @@ article.homepage p {
     font-weight: bold;
 }
 
-article.post {
+.post {
     padding: 21px 20px;
-    width: 66.2%;
     /* width: 600px; */
+    width: 66.2%;
     float: left;
+    /* display: flex; */
+    /* flex-direction: row; */
+}
+
+.post-wide {
+    padding: 21px 20px;
+    width: 95%;
+    float: left;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
 }
 
 img.post-header-img {
@@ -366,10 +377,22 @@ p.post-details-index-pin {
 }
 
 /* Sidebar ---------------------------------------------------------------- */
+aside {
+    /* display:flex; */
+    /* flex-direction: column; */
+    /* margin-right: 20px; */
+}
+
+aside[data-visible="true"] {
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
 aside.sidebar {
     width: 27%;
     /* width: 245px; */
     float: right;
+    margin-right: 20px;
 }
 
 aside p.sidebar-isi {
@@ -384,7 +407,8 @@ aside .sidebar-body {
     background:#EBFFB4;
     border-radius: 10px;
     width: 91%;
-    margin: 25px 20px 25px -20px;
+    /* margin: 25px 20px 25px -20px; */
+    margin: 25px 0 0 0;
     padding: 5px 10px;
 }
 
@@ -392,7 +416,8 @@ aside .sidebar-body-rss {
     background:#F3E681;
     border-radius: 10px;
     width: 91%;
-    margin: 25px 20px 25px -20px;
+    /* margin: 25px 20px 25px -20px; */
+    margin: 25px 0 0 0;
     padding: 5px 10px;
 }
 
@@ -1107,6 +1132,23 @@ a.disqus_button {
     text-transform: capitalize;
 }
 
+/* HIDE ASIDE ------------------------------------------------------------- */
+.hideAside {
+    float: right;
+    text-align: center;
+    border-radius: 5px;
+    background: #008352;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    right: -10px;
+    top: -15px;
+}
+
 /* ------------------------------------------------------------------------ */
 /*
 ████     ████              ██ ██
@@ -1146,6 +1188,32 @@ a.disqus_button {
     }
 }
 
+@media (max-width: 1320px) {
+    .post {
+        padding: 21px 20px;
+        /* width: 600px; */
+        width: 66.2%;
+        float: left;
+        /* display: flex; */
+        /* flex-direction: row; */
+    }
+
+    .post-wide {
+        padding: 21px 20px;
+        width: 94%;
+        float: left;
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+    }
+
+    aside.sidebar {
+        width: 25%;
+        /* width: 245px; */
+        float: right;
+        margin-right: 20px;
+    }
+}
 
 @media (max-width: 1268px) {
 
@@ -1164,6 +1232,30 @@ a.disqus_button {
         /* width: 200px; */
     }
 
+    .post {
+        padding: 21px 20px;
+        /* width: 600px; */
+        width: 66.2%;
+        float: left;
+        /* display: flex; */
+        /* flex-direction: row; */
+    }
+
+    .post-wide {
+        padding: 21px 20px;
+        width: 94%;
+        float: left;
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+    }
+
+    aside.sidebar {
+        width: 24%;
+        /* width: 245px; */
+        float: right;
+        margin-right: 20px;
+    }
 }
 
 @media (max-width: 1150px) {
@@ -1597,6 +1689,11 @@ a.disqus_button {
     }
 
     .box-container-github {
+        visibility: hidden;
+        display: none;
+    }
+
+    .hideAside {
         visibility: hidden;
         display: none;
     }
