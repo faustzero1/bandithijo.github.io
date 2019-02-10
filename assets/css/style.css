@@ -235,8 +235,8 @@ article.homepage p {
 
 .post-wide {
     padding: 21px 20px;
-    width: 95%;
-    float: left;
+    width: auto;
+    float: none;
     /* display: flex; */
     /* flex-direction: row; */
     /* flex-wrap: wrap; */
@@ -1200,8 +1200,8 @@ a.disqus_button {
 
     .post-wide {
         padding: 21px 20px;
-        width: 94%;
-        float: left;
+        width: auto;
+        float: none;
         /* display: flex; */
         /* flex-direction: row; */
         /* flex-wrap: wrap; */
@@ -1243,8 +1243,8 @@ a.disqus_button {
 
     .post-wide {
         padding: 21px 20px;
-        width: 94%;
-        float: left;
+        width: auto;
+        float: none;
         /* display: flex; */
         /* flex-direction: row; */
         /* flex-wrap: wrap; */
