@@ -24,7 +24,7 @@ site: bandithijo.com
 timezone: Asia/Makassar
 
 # Opengraph
-locale: id_ID
+locale: id
 logo_author: /assets/img/logo/logo_author.png
 
 # Google Analytics
