@@ -11,8 +11,8 @@ layout: baseof
       <article class="post">
         <div class="post-body">
           <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
-          <span class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }}</span>&nbsp;<span class="post-details">UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
           <label class="hideAside" title="On/Off Sidebar"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+          <span class="post-details">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }}</span>&nbsp;<span class="post-details">UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
           {% include doa_awal.html %}
