@@ -283,31 +283,31 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h2 {
-  font-size: 24px;
+  font-size: 26px;
   /* font-weight: 600; */
   font-weight: bold;
 }
 
 .markdown-body h3 {
-  font-size: 20px;
+  font-size: 22px;
   /* font-weight: 600; */
   font-weight: bold;
 }
 
 .markdown-body h4 {
-  font-size: 16px;
+  font-size: 18px;
   /* font-weight: 600; */
   font-weight: bold;
 }
 
 .markdown-body h5 {
-  font-size: 14px;
+  font-size: 16px;
   /* font-weight: 600; */
   font-weight: bold;
 }
 
 .markdown-body h6 {
-  font-size: 12px;
+  font-size: 14px;
   /* font-weight: 600; */
   font-weight: bold;
 }
