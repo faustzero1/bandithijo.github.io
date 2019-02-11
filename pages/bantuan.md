@@ -15,7 +15,7 @@ Halaman bantuan BanditHijo (R)-Chive. Ini adalah halaman yang berisi beberapa pe
 
 # Anatomi Blog
 
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/68ae6sty5/gambar_03.png"}
+![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Hkr6B2P9/gambar-03.png"}
 
 1. **Navigation Menu**
 2. **Body Blog**: Dapat berubah-ubah sesuai dengan judul dari halaman
@@ -126,11 +126,11 @@ Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak menga
 
 # Gambar
 ## Gambar Besar
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/r7q1eu6y5/gambar_01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxBZdyR4/gambar-01.png"}
 <p class="img-caption">Gambar 1 - Contoh gambar besar</p>
 
 ## Gambar Kecil
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/5y2f3zixp/gambar_02.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1b8SQzs/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Contoh gambar kecil</p>
 
 # Bullets & Numbering
@@ -156,3 +156,12 @@ Untuk instruksi berupa tekan tombol tertentu pada _keyboard_, akan ditampillkan 
 <kbd>1</kbd> + <kbd>2</kbd> + <kbd>3</kbd> + <kbd>4</kbd>
 
 <kbd>F1</kbd>
+
+# Fitur Tambahan
+
+![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXGmRr1Z/gambar-04.png"}
+
+Untuk memenuhi kebutuhan area baca yang lebih lebar, teman-teman dapat menggunakan tombol seperti ini
+<span style="background:#008352;color:#FFF;font-weight:bold;border-radius:3px;padding:1px 2px;">&#9776;</span> yang tepat berada di samping kanan dari judul artikel.
+
+![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Hsyq9q2n/gambar-05.png"}
