@@ -4,12 +4,58 @@ SampleURL: https://sindresorhus.com/github-markdown-css/
 SourceURL: https://github.com/sindresorhus/github-markdown-css
 */
 
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
 .markdown-body {
-  /* -ms-text-size-adjust: 100%; */
-  /* -webkit-text-size-adjust: 100%; */
-  line-height: 1.5;
-  /* color: #24292e; */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   color: #000;
+  line-height: 1.5;
+  font-family: Ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -29,9 +75,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: #6f42c1;
 }
 
-.markdown-body .pl-smi,
-.markdown-body .pl-s .pl-s1 {
-  /* color: #24292e; */
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
   color: #000;
 }
 
@@ -43,18 +88,18 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: #d73a49;
 }
 
-.markdown-body .pl-s,
 .markdown-body .pl-pds,
+.markdown-body .pl-s,
 .markdown-body .pl-s .pl-pse .pl-s1,
 .markdown-body .pl-sr,
 .markdown-body .pl-sr .pl-cce,
-.markdown-body .pl-sr .pl-sre,
-.markdown-body .pl-sr .pl-sra {
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
   color: #032f62;
 }
 
-.markdown-body .pl-v,
-.markdown-body .pl-smw {
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
   color: #e36209;
 }
 
@@ -63,22 +108,22 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body .pl-ii {
-  color: #fafbfc;
   background-color: #b31d28;
+  color: #fafbfc;
 }
 
 .markdown-body .pl-c2 {
-  color: #fafbfc;
   background-color: #d73a49;
+  color: #fafbfc;
 }
 
-.markdown-body .pl-c2::before {
+.markdown-body .pl-c2:before {
   content: "^M";
 }
 
 .markdown-body .pl-sr .pl-cce {
-  font-weight: bold;
   color: #22863a;
+  font-weight: bold;
 }
 
 .markdown-body .pl-ml {
@@ -88,45 +133,43 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body .pl-mh,
 .markdown-body .pl-mh .pl-en,
 .markdown-body .pl-ms {
-  font-weight: bold;
   color: #005cc5;
+  font-weight: bold;
 }
 
 .markdown-body .pl-mi {
-  font-style: italic;
-  /* color: #24292e; */
   color: #000;
+  font-style: italic;
 }
 
 .markdown-body .pl-mb {
   font-weight: bold;
-  /* color: #24292e; */
   color: #000;
 }
 
 .markdown-body .pl-md {
-  color: #b31d28;
   background-color: #ffeef0;
+  color: #b31d28;
 }
 
 .markdown-body .pl-mi1 {
-  color: #22863a;
   background-color: #f0fff4;
+  color: #22863a;
 }
 
 .markdown-body .pl-mc {
-  color: #e36209;
   background-color: #ffebda;
+  color: #e36209;
 }
 
 .markdown-body .pl-mi2 {
-  color: #f6f8fa;
   background-color: #005cc5;
+  color: #f6f8fa;
 }
 
 .markdown-body .pl-mdr {
-  font-weight: bold;
   color: #6f42c1;
+  font-weight: bold;
 }
 
 .markdown-body .pl-ba {
@@ -138,18 +181,21 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body .pl-corl {
-  text-decoration: underline;
   color: #032f62;
+  text-decoration: underline;
 }
 
-.markdown-body .octicon {
+.markdown-body details {
   display: inline-block;
   vertical-align: text-top;
-  /* fill: #1b1f23; */
+}
+
+.markdown-body summary {
+  display: list-item;
 }
 
 .markdown-body a {
-  /* background-color: transparent; */
+  background-color: transparent;
   border-bottom: 1px dotted #798780;
 }
 
@@ -160,15 +206,13 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body strong {
   font-weight: inherit;
-}
-
-.markdown-body strong {
   font-weight: bolder;
 }
 
+
 .markdown-body h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: .67em 0;
 }
 
 .markdown-body img {
@@ -205,7 +249,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   overflow: visible;
 }
 
-.markdown-body [type="checkbox"] {
+.markdown-body [type=checkbox] {
   box-sizing: border-box;
   padding: 0;
 }
@@ -229,38 +273,41 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body strong {
-  /* font-weight: 600; */
   font-weight: bold;
 }
 
 .markdown-body hr {
-  height: 0;
-  margin: 15px 0;
-  overflow: hidden;
   background: transparent;
   border: 0;
   border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
 }
 
-.markdown-body hr::before {
-  display: table;
+.markdown-body hr:before {
   content: "";
+  display: table;
 }
 
-.markdown-body hr::after {
-  display: table;
+.markdown-body hr:after {
   clear: both;
   content: "";
+  display: table;
 }
 
 .markdown-body table {
-  border-spacing: 0;
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .markdown-body td,
 .markdown-body th {
   padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
 }
 
 .markdown-body h1,
@@ -269,8 +316,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
   text-align: left;
   color: #000;
   font-family: 'Ubuntu Condensed';
@@ -278,54 +325,57 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body h1 {
   font-size: 32px;
-  /* font-weight: 600; */
+}
+
+.markdown-body h1,
+.markdown-body h2 {
   font-weight: bold;
 }
 
 .markdown-body h2 {
   font-size: 26px;
-  /* font-weight: 600; */
-  font-weight: bold;
 }
 
 .markdown-body h3 {
   font-size: 22px;
-  /* font-weight: 600; */
+}
+
+.markdown-body h3,
+.markdown-body h4 {
   font-weight: bold;
 }
 
 .markdown-body h4 {
   font-size: 18px;
-  /* font-weight: 600; */
-  font-weight: bold;
 }
 
 .markdown-body h5 {
   font-size: 16px;
-  /* font-weight: 600; */
+}
+
+.markdown-body h5,
+.markdown-body h6 {
   font-weight: bold;
 }
 
 .markdown-body h6 {
   font-size: 14px;
-  /* font-weight: 600; */
-  font-weight: bold;
 }
 
 .markdown-body p {
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .markdown-body blockquote {
   margin: 0;
 }
 
-.markdown-body ul,
-.markdown-body ol {
-  padding-left: 0;
-  margin-top: 0;
+.markdown-body ol,
+.markdown-body ul {
   margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
 }
 
 .markdown-body ol ol,
@@ -333,10 +383,10 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   list-style-type: lower-roman;
 }
 
-.markdown-body ul ul ol,
-.markdown-body ul ol ol,
+.markdown-body ol ol ol,
 .markdown-body ol ul ol,
-.markdown-body ol ol ol {
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
   list-style-type: lower-alpha;
 }
 
@@ -344,14 +394,15 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   margin-left: 0;
 }
 
-.markdown-body code {
-  font-family: 'Ubuntu Mono', monospace;
+.markdown-body code,
+.markdown-body pre {
+  font-family: Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   font-size: 12px;
 }
 
 .markdown-body pre {
-  margin-top: 0;
   margin-bottom: 0;
+  margin-top: 0;
   font-family: 'Ubuntu Mono', monospace;
   font-size: 12px;
   /* background color border ``` */
@@ -360,55 +411,122 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   border-width: 1px;
 }
 
-.markdown-body .octicon {
-  vertical-align: text-bottom;
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
 }
 
 .markdown-body .pl-0 {
-  padding-left: 0 !important;
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
 }
 
 .markdown-body .pl-1 {
-  padding-left: 4px !important;
+  padding-left: 4px!important;
 }
 
 .markdown-body .pl-2 {
-  padding-left: 8px !important;
+  padding-left: 8px!important;
 }
 
-.markdown-body .pl-3 {
-  padding-left: 16px !important;
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
 }
 
 .markdown-body .pl-4 {
-  padding-left: 24px !important;
+  padding-left: 24px!important;
 }
 
 .markdown-body .pl-5 {
-  padding-left: 32px !important;
+  padding-left: 32px!important;
 }
 
 .markdown-body .pl-6 {
-  padding-left: 40px !important;
+  padding-left: 40px!important;
 }
 
-.markdown-body::before {
-  display: table;
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
   content: "";
+  display: table;
 }
 
-.markdown-body::after {
-  display: table;
+.markdown-body:after {
   clear: both;
   content: "";
+  display: table;
 }
 
-.markdown-body>*:first-child {
-  margin-top: 0 !important;
+.markdown-body>:first-child {
+  margin-top: 0!important;
 }
 
-.markdown-body>*:last-child {
-  margin-bottom: 0 !important;
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
 }
 
 .markdown-body a:not([href]) {
@@ -416,46 +534,32 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   text-decoration: none;
 }
 
-.markdown-body .anchor {
-  float: left;
-  padding-right: 4px;
-  margin-left: -20px;
-  line-height: 1;
-}
-
-.markdown-body .anchor:focus {
-  outline: none;
-}
-
-.markdown-body ul,
-.markdown-body ol,
-.markdown-body p,
 .markdown-body blockquote,
 .markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
 .markdown-body table,
-.markdown-body pre {
-  margin-top: 0;
+.markdown-body ul {
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .markdown-body hr {
-  height: 0.20em;
-  padding: 0;
-  margin: 24px 0;
-  /* background-color: #e1e4e8; */
   background-color: #9E9E9E;
   border: 0;
+  height: .20em;
+  margin: 24px 0;
+  padding: 0;
 }
 
 .markdown-body blockquote {
-  padding: 0.7em 0.7em;
-  /* color: #444d56; */
-  /* color: #24292E; */
-  color: #000;
-  /* background color quote */
-  background: #D8E7B4;
   border-left: 0.35em solid #00603C;
   border-radius: 0 5px 5px 0;
+  /* background color quote */
+  background: #D8E7B4;
+  color: #000;
+  padding: 0.7em 0.7em;
 }
 
 .markdown-body blockquote h1,
@@ -464,8 +568,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body blockquote h4,
 .markdown-body blockquote h5,
 .markdown-body blockquote h6 {
-  font-family: 'Ubuntu Condensed';
   border-bottom: 1px dashed #00603C;
+  font-family: 'Ubuntu Condensed';
 }
 
 .markdown-body blockquote>:first-child {
@@ -477,17 +581,17 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 13px;
-  line-height: 10px;
-  color: #444d56;
-  vertical-align: middle;
   background-color: #fafbfc;
   border: solid 1px #c6cbd1;
   border-bottom-color: #959da5;
   border-radius: 4px;
   box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
 }
 
 .markdown-body h1,
@@ -496,14 +600,15 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  /* cursor: pointer; */
   /* font-weight: 600; */
   font-weight: bold;
   line-height: 1.25;
-  cursor: pointer;
+  margin-bottom: 16px;
+  margin-top: 24px;
 }
 
+/*
 .markdown-body h1 .octicon-link,
 .markdown-body h2 .octicon-link,
 .markdown-body h3 .octicon-link,
@@ -532,17 +637,20 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body h6:hover .anchor .octicon-link {
   visibility: visible;
 }
+*/
 
 .markdown-body h1 {
-  padding-bottom: 0.3em;
   font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
   border-bottom: 1px dashed #C4BBB0;
+  padding-bottom: .3em;
 }
 
 .markdown-body h2 {
-  padding-bottom: 0.3em;
   font-size: 1.5em;
-  border-bottom: 1px dashed #C4BBB0;
 }
 
 .markdown-body h3 {
@@ -554,29 +662,28 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h5 {
-  font-size: 0.875em;
+  font-size: .875em;
 }
 
 .markdown-body h6 {
-  font-size: 0.85em;
+  font-size: .85em;
 }
 
-.markdown-body ul,
-.markdown-body ol {
+.markdown-body ol,
+.markdown-body ul {
   padding-left: 2em;
 }
 
-.markdown-body ul ul,
-.markdown-body ul ol,
 .markdown-body ol ol,
-.markdown-body ol ul {
-  margin-top: 0;
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .markdown-body li {
   word-wrap: break-all;
-  /* color: #24292e; */
   color: #000;
   text-align: justify;
 }
@@ -586,7 +693,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body li+li {
-  margin-top: 0.25em;
+  margin-top: .25em;
 }
 
 .markdown-body dl {
@@ -594,36 +701,36 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body dl dt {
-  padding: 0;
-  margin-top: 16px;
   font-size: 1em;
   font-style: italic;
   /* font-weight: 600; */
   font-weight: bold;
+  margin-top: 16px;
+  padding: 0;
 }
 
 .markdown-body dl dd {
-  padding: 0 16px;
   margin-bottom: 16px;
+  padding: 0 16px;
 }
 
 .markdown-body table {
   display: block;
-  width: 100%;
   overflow: auto;
+  width: 100%;
 }
 
 .markdown-body table th {
-  /* font-weight: 600; */
-  font-weight: bold;
   /* background color table header */
   background: #C5D796;
+  /* font-weight: 600; */
+  font-weight: bold;
 }
 
-.markdown-body table th,
-.markdown-body table td {
-  padding: 6px 13px;
+.markdown-body table td,
+.markdown-body table th {
   border: 1px solid #289C70;
+  padding: 6px 13px;
 }
 
 .markdown-body table tr {
@@ -636,31 +743,31 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   background-color: #F3FAD8;
 }
 
-/* .markdown-body img {
-  max-width: 100%;
+/*
+.markdown-body img {
   box-sizing: content-box;
   background-color: #fff;
-} */
+  max-width: 100%;
+}
 
-/* .markdown-body img[align=right] {
+.markdown-body img[align=right] {
   padding-left: 20px;
-} */
+}
 
-/* .markdown-body img[align=left] {
+.markdown-body img[align=left] {
   padding-right: 20px;
-} */
+}
+*/
 
 .markdown-body code {
-  padding: 0.1em 0.4em 0.2em 0.4em;
-  margin: 0;
-  /* font-size: 85%; */
-  font-size: 100%;
+  /* background color code ` */
+  background: #272822; /* <-- solarized */
   border-radius: 3px;
   border-width: 0;
-  /* background color code ` */
-  /* background: #F3FAD8; */
-  background: #272822;
   color: #FFF;
+  font-size: 100%;
+  margin: 0;
+  padding: 0.1em 0.4em 0.2em 0.4em;
 }
 
 .markdown-body pre {
@@ -668,14 +775,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body pre>code {
-  padding: 0;
-  margin: 0;
-  font-size: 100%;
-  word-break: normal;
-  white-space: pre;
   background: transparent;
   border: 0;
   color: #FFF;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
 }
 
 .markdown-body .highlight {
@@ -683,6 +790,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body .highlight pre {
+  margin-bottom: 0;
   word-break: normal;
   word-break: normal !important;
   word-wrap: normal !important;
@@ -691,54 +799,177 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 10px;
-  overflow: auto;
-  /* font-size: 85%; */
+  /* background color pre ``` */
+  background-color: #272822; /* <-- solarized */
+  border-radius: 5px;
   font-size: 100%;
   font-family: 'Ubuntu Mono', monospace;
   line-height: 1.45;
-  /* background color pre ``` */
-  /* background-color: #F3FAD8; */
-  background-color: #272822;
-  border-radius: 5px;
+  overflow: auto;
+  padding: 10px;
 }
 
 .markdown-body pre code {
-  display: inline;
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-  line-height: inherit;
-  word-wrap: normal;
   background-color: transparent;
   border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
 }
 
-.markdown-body .full-commit .btn-outline:not(:disabled):hover {
-  color: #005cc5;
-  border-color: #005cc5;
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
 }
 
 .markdown-body kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 13px;
-  font-family: 'Ubuntu Mono', monospace;
-  font-weight: normal;
-  line-height: 13px;
-  color: #444d56;
-  vertical-align: middle;
   background-color: #fafbfc;
   border: solid 1px #d1d5da;
   border-bottom-color: #c6cbd1;
   border-radius: 4px;
   box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 13px;
+  padding: 3px 5px;
+  vertical-align: middle;
 }
 
 .markdown-body :checked+.radio-label {
+  border-color: #289C70;
   position: relative;
   z-index: 1;
-  border-color: #289C70;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
 }
 
 .markdown-body .task-list-item {
@@ -750,10 +981,62 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body .task-list-item input {
-  margin: 0 0.2em 0.25em -1.6em;
+  margin: 0 .2em .25em -1.6em;
   vertical-align: middle;
 }
 
 .markdown-body hr {
   border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
 }
