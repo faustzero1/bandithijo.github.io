@@ -1195,13 +1195,11 @@ a.disqus_button {
         position: relative;
         top: 1.5em;
     }
-}
 
-@media (max-width: 1320px) {
     .post {
         padding: 21px 20px;
         /* width: 600px; */
-        width: 66.2%;
+        width: 69.0%;
         float: left;
         /* display: flex; */
         /* flex-direction: row; */
@@ -1218,6 +1216,33 @@ a.disqus_button {
 
     aside.sidebar {
         width: 25%;
+        /* width: 245px; */
+        float: right;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 1320px) {
+    .post {
+        padding: 21px 20px;
+        /* width: 600px; */
+        width: 67.0%;
+        float: left;
+        /* display: flex; */
+        /* flex-direction: row; */
+    }
+
+    .post-wide {
+        padding: 21px 20px;
+        width: auto;
+        float: none;
+        /* display: flex; */
+        /* flex-direction: row; */
+        /* flex-wrap: wrap; */
+    }
+
+    aside.sidebar {
+        width: 24%;
         /* width: 245px; */
         float: right;
         margin-right: 20px;
@@ -1244,7 +1269,7 @@ a.disqus_button {
     .post {
         padding: 21px 20px;
         /* width: 600px; */
-        width: 66.2%;
+        width: 67.0%;
         float: left;
         /* display: flex; */
         /* flex-direction: row; */
