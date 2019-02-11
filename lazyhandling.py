@@ -27,6 +27,7 @@
 # author  : BanditHijo
 # website : https://bandithijo.com
 # email   : bandithijo@gmail.com
+# created : 2018
 
 # lazyhandling.py, adalah python script sederhana untuk menghandle Jekyll Build
 # , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
