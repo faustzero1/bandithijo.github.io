@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'St, Simple Terminal yang Sudah Lama Saya Dambakan <span class="new">BARU</span>'
+title: 'St, Simple Terminal yang Sudah Lama Saya Dambakan'
 date: 2019-02-08 17:08
 permalink: '/blog/:title'
 author: 'BanditHijo'

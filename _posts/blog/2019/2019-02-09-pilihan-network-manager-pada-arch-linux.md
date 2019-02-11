@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Network Manager yang Saya Pergunakan pada Arch Linux <span class="new">BARU</span>'
+title: 'Network Manager yang Saya Pergunakan pada Arch Linux'
 date: 2019-02-09 05:52
 permalink: '/blog/:title'
 author: 'BanditHijo'
