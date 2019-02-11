@@ -5,7 +5,7 @@ date: 2018-02-09 08:00
 permalink: '/arch/:title'
 author: 'BanditHijo'
 license: true
-comments: true
+comments: false
 toc: true
 category: 'arch'
 tags:
