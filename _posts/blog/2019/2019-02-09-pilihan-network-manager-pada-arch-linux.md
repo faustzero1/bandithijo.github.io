@@ -29,7 +29,7 @@ Kegunaan dari Network Manager ini adalah untuk memfasilitasi kita mengelola peng
 | systemd-networkd | No | Yes | networkctl | No | internal | `systemd-networkd.service`, `systemd-resolved.service` |
 | Wicd | Yes | No | wicd-cli, wicd-curses | No | dhcpcd | `wicd.service` |
 
-<p class="img-caption" style="text-align:right;">Sumber: <a href="https://wiki.archlinux.org/index.php/Network_configuration#Network_managers" target="_blank">Arch Wiki/Network Configuration</a></p>
+<p class="img-caption" style="text-align:left;">Sumber: <a href="https://wiki.archlinux.org/index.php/Network_configuration#Network_managers" target="_blank">Arch Wiki/Network Configuration</a></p>
 
 Apabila kita melakukan instalasi Arch Linux dengan Archiso, biasanya yang paling populer untuk terkoneksi dengan jaringan wireless adalah `wifi-menu`, paket ini merupakah paket yang dibawa secara *default* oleh `netctl` yang merupakan salah satu Network Manger yang sudah ada di dalam Archiso, selain `systemd-network`.
 

@@ -157,6 +157,18 @@ Untuk instruksi berupa tekan tombol tertentu pada _keyboard_, akan ditampillkan 
 
 <kbd>F1</kbd>
 
+# Tabel
+
+| No | Header 1 | Header 2 | <center>Header 3</center> | Header 4 | <center>Header 5</center> |
+| :--: | :--: | :--: | :-- | :--: | :-- |
+| 1 | Data | Data | Data | Data | `data.service` |
+| 2 | Data | Data | Data | Data | `data` |
+| 3 | Data | Data | Data | Data | `data.service` |
+| 4 | Data | Data | Data | Data | `data.service` |
+| 5 | Data | Data | Data | Data | `data.service` |
+
+<p class="img-caption" style="text-align:left;">Sumber: <a href="" target="_blank">Arch Wiki</a></p>
+
 # Fitur Tambahan
 
 ![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXGmRr1Z/gambar-04.png"}

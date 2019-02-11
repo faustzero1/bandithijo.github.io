@@ -84,9 +84,9 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 # MULTIPLE POST CONTROLER
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
-<a class="btn-blue-l" href="/python/00-pengenalan-python"><</a>
-<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r" href="/python/">></a>
+<a class="btn-blue-l disabled" href="#"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="/arch/step-1-connecting-to-the-internet"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
 </div>
 
 # KEYBOARD
@@ -142,6 +142,18 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 
 
 <link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png">
+
+# TABEL
+
+| No | Header 1 | Header 2 | <center>Header 3</center> | Header 4 | <center>Header 5</center> |
+| :--: | :--: | :--: | :-- | :--: | :-- |
+| 1 | Data | Data | Data | Data | `data.service` |
+| 2 | Data | Data | Data | Data | `data` |
+| 3 | Data | Data | Data | Data | `data.service` |
+| 4 | Data | Data | Data | Data | `data.service` |
+| 5 | Data | Data | Data | Data | `data.service` |
+
+<p class="img-caption" style="text-align:left;">Sumber: <a href="" target="_blank">Arch Wiki</a></p>
 
 # HTML ENTITIES
 

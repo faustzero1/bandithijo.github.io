@@ -568,7 +568,7 @@ a.btn-blue-l {
 }
 
 .btn-blue-l {
-    background: #008352;
+    background: #008352!important;
     border-radius: 5px;
     padding: 8px 20px;
     text-align: center;
@@ -588,7 +588,7 @@ a.btn-blue-r {
 }
 
 .btn-blue-r {
-    background: #008352;
+    background: #008352!important;
     border-radius: 5px;
     padding: 8px 20px;
     text-align: center;
@@ -608,7 +608,7 @@ a.btn-blue-c {
 }
 
 .btn-blue-c {
-    background: #008352;
+    background: #008352!important;
     border-radius: 5px;
     padding: 8px 20px;
     text-align: center;
