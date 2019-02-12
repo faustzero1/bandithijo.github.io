@@ -32,6 +32,12 @@ Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu
 
 Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer aplikasi yang bersangkutan. Karenanya, saya selalu menyertakan sumber literatur yang saya gunakan dalam membuat tulisan.
 
+# Blognya Dibuat Pakai Apa?
+
+Blog ini saya buat *from scratch* menggunakan *Static Site Generator* yang bernama **Jekyll**. Tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih bebas bongkar pasang fitur-fitur yang ingin saya tambah dan kurangi di dalam blog ini.
+
+Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0){:target="_blank"}.
+
 # Akhir Kata
 Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
 
