@@ -1,0 +1,11 @@
+# PENTING!
+# Apabila terdapat artikel terbaru, jangan lupa untuk merubah valuenya
+# Memberikan marking [BARU] pada kategori blog dan vlog
+
+artikel_baru:
+    blog:
+        - Network Manager yang Saya Pergunakan pada Arch Linux
+        - St, Simple Terminal yang Sudah Lama Saya Dambakan
+    vlog:
+        - Bermigrasi Menggunakan Simple Terminal dari Suckless
+        - Vim + Tmux + Django Workflow

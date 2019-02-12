@@ -34,8 +34,17 @@ permalink: '/vlog/'
     </div><!-- clear:both -->
     {% for post in year.items reversed %}
       {% if post.category == 'vlog' and post.pin == nil %}
-        <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
-        <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+        {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.vlog %}
+        {% if post.title contains artikel_baru[0] %}
+          <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
+          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+        {% elsif post.title contains artikel_baru[1] %}
+          <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
+          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+        {% else %}
+          <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
+          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+        {% endif %}
       {% endif %}
     {% endfor %}
   {% endfor %}

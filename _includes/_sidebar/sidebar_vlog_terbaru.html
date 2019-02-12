@@ -4,7 +4,14 @@
     <ul>
     {% assign posts = site.posts | where_exp:"page", "page.category == 'vlog'" %}
     {% for post in posts limit: 5 %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.vlog %}
+      {% if post.title contains artikel_baru[0] %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></li>
+      {% elsif post.title contains artikel_baru[1] %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></li>
+      {% else %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
     {% endfor %}
     </ul>
     </div>
