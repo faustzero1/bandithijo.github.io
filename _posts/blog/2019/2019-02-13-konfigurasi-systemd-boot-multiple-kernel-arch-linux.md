@@ -17,13 +17,14 @@ pin:
 
 # Prakata
 
-Sejak masih menggunakan Arch Linux pada Macbook Pro 8.1, saya sudah tidak menggunakan **GRUB** sebagai *bootloader*, melainkan **Gummiboot**. Ini adalah kali pertama saya menggunakan *bootloader* ini, karena selama menggunakan distribusi sistem operasi yang lain, selalu menggunakan GRUB sebagai *default boorloader*.
+Sejak masih menggunakan Arch Linux pada Macbook Pro 8.1, saya sudah tidak menggunakan **GRUB** sebagai *bootloader*, melainkan **Gummiboot**. Ini adalah kali pertama saya menggunakan *bootloader* ini, karena selama menggunakan distribusi sistem operasi yang lain, selalu menggunakan GRUB sebagai *default bootloader*.
 
 Setelah menggunakan Thinkpad X260, saya pun memutuskan untuk menggunakan kembali *gummiboot* yang saat ini sudah berganti nama menjadi **systemd-boot**.
 
 ### Alasan menggunakan systemd-boot?
 
-Mudah untuk saya konfigurasi. Karena sudah pernah mencobanya saat masih menggunakan Macbook Pro 8.1.
+Mudah untuk saya konfigurasi. Karena sudah pernah mencobanya saat masih menggunakan Macbook Pro 8.1. Sudah terdapat bersama paket **systemd**, tidak perlu menambahkan paket yang lain, seperti halnya GRUB. Jadi, kenapa tidak digunakan saja. Hehe. Mengikuti filosofi dari Arch Linux, *Keep It Simple Stupid*.
+
 ### Apa yang menjadi kekurangan dari systemd-boot?
 
 Hanya dapat membaca/menjalankan EFI excutable seperti: Linux Kernel EFISTUB, UEFI Shell, GRUB, dan Windows Boot Manager.
