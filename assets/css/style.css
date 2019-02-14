@@ -26,7 +26,7 @@ pre {
 
 mark {
     padding: 0.1em;
-    background-color: #DED472; /* <-- monokai */
+    background-color: #FFCC00; /* <-- yellow */
     border-radius: 2px;
     color: #000;
 }
@@ -499,19 +499,19 @@ aside.sidebar p {
 
 img.footer-img-1 {
     float: right;
-    margin: -130px 190px 0 0;
+    margin: -160px 190px 0 0;
     width: 82px;
 }
 
 img.footer-img-2 {
     float: right;
-    margin: -130px 70px 0 0;
+    margin: -160px 70px 0 0;
     width: 128px;
 }
 
 img.footer-img-3 {
     float: right;
-    margin: -130px 20px 0 0;
+    margin: -160px 20px 0 0;
     width: 60px;
 }
 

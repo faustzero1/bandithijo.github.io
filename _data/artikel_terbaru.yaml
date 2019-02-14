@@ -1,11 +1,13 @@
+# artikel_terbaru.yaml
+# Memberikan marking [BARU] pada kategori blog dan vlog
 # PENTING!
 # Apabila terdapat artikel terbaru, jangan lupa untuk merubah valuenya
-# Memberikan marking [BARU] pada kategori blog dan vlog
+# Judul paling baru diletakkan paling atas
 
 artikel_baru:
     blog:
+        - Konfigurasi Systemd-Boot untuk Multiple Kernel pada Arch Linux
         - Network Manager yang Saya Pergunakan pada Arch Linux
-        - St, Simple Terminal yang Sudah Lama Saya Dambakan
     vlog:
         - Bermigrasi Menggunakan Simple Terminal dari Suckless
         - Vim + Tmux + Django Workflow
