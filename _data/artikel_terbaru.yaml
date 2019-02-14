@@ -6,7 +6,7 @@
 
 artikel_baru:
     blog:
-        - Konfigurasi Systemd-Boot untuk Multiple Kernel pada Arch Linux
+        - Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux
         - Network Manager yang Saya Pergunakan pada Arch Linux
     vlog:
         - Bermigrasi Menggunakan Simple Terminal dari Suckless
