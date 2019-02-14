@@ -159,7 +159,9 @@ Tidak bosan-bosan saya mengingatkan,
 
 Sebaik-baik dokumentasi adalah dokumentasi yang ditulis/dibuat langsung oleh developer pengembang dari aplikasi/distribusi yang bersangkutan.
 
-Tulisan ini bukan untuk memberikan tandingan dari dokumentasi resi yang sudah ada, melainkan sebagai ulasan dan catatan pribadi hasil berekplorasi saya terhadap aplikasi/distribusi yang saya pergunakan sehari-hari.
+Tulisan ini bukan untuk memberikan tandingan dari dokumentasi resmi yang sudah ada, melainkan sebagai ulasan dan catatan pribadi hasil berekplorasi saya terhadap aplikasi/distribusi yang saya pergunakan sehari-hari.
+
+Apabila terdapat kekeliruan pada tulisan ini, silahkan merujuk pada sumber-sumber referensi yang sudah saya sertakan di bawah.
 
 Sepertinya segini saja catatan mengenai **systemd-boot**.
 
