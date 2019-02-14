@@ -23,7 +23,9 @@ Setelah menggunakan Thinkpad X260, saya pun memutuskan untuk menggunakan kembali
 
 ### Alasan menggunakan systemd-boot?
 
-Mudah untuk saya konfigurasi. Karena sudah pernah mencobanya saat masih menggunakan Macbook Pro 8.1. Sudah terdapat bersama paket **systemd**, tidak perlu menambahkan paket yang lain, seperti halnya GRUB. Jadi, kenapa tidak digunakan saja. Hehe. Mengikuti filosofi dari Arch Linux, *Keep It Simple Stupid*.
+Mudah untuk saya konfigurasi. Karena sudah pernah mencobanya saat masih menggunakan Macbook Pro 8.1.
+
+Sudah terdapat bersama paket **systemd**, tidak perlu menambahkan paket yang lain, seperti halnya GRUB. Jadi, kenapa tidak digunakan saja. Hehe. Mengikuti filosofi dari Arch Linux, *Keep It Simple Stupid*.
 
 ### Apa yang menjadi kekurangan dari systemd-boot?
 
