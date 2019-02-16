@@ -16,7 +16,7 @@ pin:
 
 Perlu diingat bahwa saya sebagai penulis tidak bertanggung jawab atas kerusakan atapun kehilangan data maupun perangkat keras yang disebabkan karena proses instalasi yang merujuk pada dokumentasi ini.
 
-Untuk itu, saya sangat merekomendasikan untuk terlebih dahulu mem-_backup_ data-data pada _hard disk_ kalian.
+Untuk itu, saya sangat merekomendasikan untuk terlebih dahulu mem-*backup* data-data pada _hard disk_ kalian.
 
 # Limitation
 
