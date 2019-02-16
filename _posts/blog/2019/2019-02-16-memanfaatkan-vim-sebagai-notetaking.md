@@ -156,7 +156,7 @@ Seperti itu saja. Sederhana bukan?
 
     ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png"}
 
-    Saya menggunakan NERDTree, untuk membuat file baru.
+    Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.
 
     Dengan menggunakan *keyboard shortcut*, <kbd>M</kbd>, Lalu untuk membuat file baru, <kbd>A</kbd>. Tinggal isi nama file yang akan kita buat.
 
