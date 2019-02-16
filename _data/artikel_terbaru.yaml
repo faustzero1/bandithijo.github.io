@@ -6,8 +6,5 @@
 
 artikel_baru:
     blog:
-        - Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux
-        - Network Manager yang Saya Pergunakan pada Arch Linux
+        - Memanfaatkan Vim Sebagai NoteTaking
     vlog:
-        - Bermigrasi Menggunakan Simple Terminal dari Suckless
-        - Vim + Tmux + Django Workflow

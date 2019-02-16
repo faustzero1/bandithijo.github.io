@@ -165,6 +165,8 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 | & | ampersand | &amp; | &#38; |
 | " | double quotation mark | &quot; | &#34; |
 | ' | single quotation mark (apostrophe) | &apos; | &#39; |
+|   | backtick | | &#96; |
+| # | hastag | &num; | &#35; |
 | ¢ | cent | &cent; | &#162; |
 | £ | pound | &pound; | &#163; |
 | ¥ | yen | &yen; | &#165; |
