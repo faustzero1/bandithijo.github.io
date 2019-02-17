@@ -236,7 +236,7 @@ article.homepage p {
 .post {
     padding: 21px 20px;
     /* width: 600px; */
-    width: 66.2%;
+    width: 66.0%;
     float: left;
     /* display: flex; */
     /* flex-direction: row; */
@@ -1214,7 +1214,7 @@ a.disqus_button {
     .post {
         padding: 21px 20px;
         /* width: 600px; */
-        width: 69.0%;
+        width: 67.0%;
         float: left;
         /* display: flex; */
         /* flex-direction: row; */
