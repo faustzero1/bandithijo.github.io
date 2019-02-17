@@ -23,11 +23,7 @@ Meskipun instalasi Arch Linux ini berupa _command line_, namun kita tetap dapat 
 # wifi-menu
 ```
 
-Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`,
-```
-*output dari wifi-menu
-```
-menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_. Pada kasus ini kita masih dapat menggunakan koneksi dari kabel LAN ataupun dengan menggunakan _USB tethering smarpthone_.
+Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`, menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_. Pada kasus ini kita masih dapat menggunakan koneksi dari kabel LAN ataupun dengan menggunakan _USB tethering smarpthone_.
 
 Untuk penggunaan _USB tethering smartphone_, hubungkan _smartphone_ dengan laptop menggunakan kabel _USB_, lakukan pengecekan apakah sudah terhubung atau belum.
 
@@ -35,10 +31,7 @@ Untuk penggunaan _USB tethering smartphone_, hubungkan _smartphone_ dengan lapto
 # lsusb
 ```
 
-```
-Bus 001 Device 004: ID 138a:0017 Validity Sensors, Inc.
-Bus 001 Device 003: ID 04f2:b52c Chicony Electronics Co., Ltd
-```
+Apabila sudah terlihat nama dari *device smartphone* kita, lakukan perintah di bawah untuk mengaktifkan DHCP *daemon service*.
 
 ```
 # dhcpcd
@@ -61,7 +54,7 @@ Lakukan pengetesan apakah kita telah terhubung ke Internet,
 Dalam langkah ini, kalian mungkin perlu menunggu beberapa saat hingga `ping` dapat berhasil, mungkin sekitar 1 - 2 menit.
 Apabila telah berhasil, kalian dapat bergerak ke _step_ selanjutnya.
 
-Apabila masih belum dapat terhubung dengan Internet, maka proses instalasi akan terkendala pada saat akan men-_download_ paket-paket dari _mirror server_.
+Apabila masih belum dapat terhubung dengan Internet, maka proses instalasi akan terkendala pada saat akan men-*download* paket-paket dari _mirror server_.
 
 ## 1.2 Memilih Mirrorlist
 
@@ -90,8 +83,8 @@ Buat _backup_ `mirrorlist` terlebih dahulu.
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
-Penggunaan <code>rankmirrors</code> sudah tidak direkomendasikan lagi oleh Arch Wiki.<br>
-Saat ini sudah menggunakan <code>reflector</code>.
+Penggunaan <code>rankmirrors</code> sudah <b>tidak direkomendasikan</b> lagi oleh Arch Wiki.<br>
+Saat ini, sudah menggunakan <code>reflector</code>.
 <br>
 <pre>
 # pacman -Syy
@@ -105,6 +98,7 @@ Setelah itu, kita perlu memperbaharui metadata repository kita untuk dapat sinkr
 ```
 $ pacman -Syy
 ```
+Tunggu proses sinkorinasi metadata hingga selesai. Setelah itu kita bisa bergerak ke-*step* selanjutnya.
 
 
 <!-- NEXT PREV BUTTON -->

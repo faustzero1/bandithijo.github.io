@@ -1081,6 +1081,10 @@ ul.chkbox li.chkbox-checked:before {
     margin: 5px 0;
 }
 
+.toc .active {
+    font-weight: bold;
+}
+
 /* BREADCRUMBS ------------------------------------------------------------ */
 .breadcrumbs {
     /* margin-top: 5px; */

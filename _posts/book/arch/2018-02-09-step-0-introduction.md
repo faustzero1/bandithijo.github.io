@@ -31,13 +31,17 @@ Keterbatasan lain akan saya jabarkan pada STEP 0 : Introduction.
 
 # Step 0: Introduction
 
-Hello Bro, nama saya Rizqi Nur Assyaufi. Beberapa dari teman-teman mungkin sudah mengetahui bahwa saya adalah seorang Archer \(mungkin sebutan keren untuk pengguna Arch Linux\). Sedikit cerita, saya sudah menggunakan sistem operasi GNU/Linux secara aktif baru dimulai sejak tahun 2014. Sebelumnya, sejak tahun 2009 saya menggunakan sistem operasi besutan Apple, yang dikenal dengan nama OS X, namun kini disebut dengan nama macOS \(denger-denger supaya lebih konvergen dengan iOS\). Pertama kali mengenal sistem operasi GNU/Linux sejak tahun 2004 melalui sahabat saya yang juga teman berdiskusi soal teknologi \(Yudo D. Baskoro\). Saat itu ia memperkenalkan distribusi sistem operasi GNU/Linux yang bernama Ubuntu dari Canonical. Dari situlah awal mula tanpa saya sadari sedikit demi sedikit saya mulai belajar bermigrasi dari satu sistem operasi ke sistem operasi yang lain.
+Hello mas Bro, nama saya **Rizqi Nur Assyaufi**. Beberapa dari teman-teman mungkin sudah mengetahui bahwa saya adalah seorang Archer \(mungkin sebutan keren untuk pengguna Arch Linux\).
 
-Tujuan awal saya menulis petunjuk manual instalasi Arch Linux ini adalah untuk mempermudah saya dalam melakukan _reinstall_ \(instalasi kembali\) apabila sewaktu-waktu saya tidak dapat menggunakan sistem operasi Arch Linux saya yang disebabkan oleh berbagai macam hal.
+Sedikit cerita, saya sudah menggunakan sistem operasi GNU/Linux secara aktif baru dimulai sejak tahun 2014. Sebelumnya, sejak tahun 2009 saya menggunakan sistem operasi besutan Apple, yang dikenal dengan nama OS X, namun kini disebut dengan nama macOS \(denger-denger supaya lebih konvergen dengan iOS\).
 
-Belajar dari pengalaman menggunakan distribusi sistem operasi yang saya gunakan sebelumnya, yaitu Fedora Linux. Proses _reinstall_ menjadi lebih cepat dan lebih terarah apabila saya mengikuti dokumentasi yang telah saya buat sebelumnya. Karena proses _research_ \(mencari informasi\) yang valid sudah dipangkas. Bayangkan untuk memeasang sebuah sistem operasi kita harus mencari informasi apa saja paket-paket yang kita perlukan dan yang sistem operasi perlukan. Mulai dari sumber-sumber _official_, sampai tulisan-tulisan dokumentasi pribadi _user_ Arch Linux yang lain.
+Pertama kali mengenal sistem operasi GNU/Linux sejak tahun 2004 melalui sahabat saya yang juga teman berdiskusi soal teknologi \(**Yudo D. Baskoro**\). Beliaulah yang memperkenalkan saya mengenai distribusi sistem operasi GNU/Linux yang bernama Ubuntu dari Canonical. Dari situlah awal mula tanpa saya sadari sedikit demi sedikit saya mulai belajar bermigrasi dari satu sistem operasi ke sistem operasi yang lain.
 
-Berdasarkan latar belakang kasus saya di atas, saya kembali mengumpulkan niat, tenaga, dan menyisihkan waktu luang untuk kembali menulis dokumentasi proses instalasi distribusi sistem operasi GNU/Linux yang bernama Arch Linux.
+Tujuan awal saya menulis petunjuk manual instalasi Arch Linux ini adalah untuk mempermudah saya dalam melakukan _reinstall_ \(instalasi kembali\) apabila sewaktu-waktu saya mengalami kendala atau kegagalan pada sistem yang saya pergunakan saat ini.
+
+Belajar dari pengalaman menggunakan distribusi sistem operasi yang saya gunakan sebelumnya, yaitu Fedora Linux. Proses _reinstall_ menjadi lebih cepat dan lebih terarah apabila saya mengikuti dokumentasi yang telah saya buat sebelumnya. Karena proses _research_ \(mencari informasi\) yang valid sudah dipangkas. Bayangkan untuk memasang sebuah sistem operasi, kita harus mencari informasi mengenai apa saja paket-paket yang kita perlukan dan yang sistem operasi perlukan. Mulai dari sumber-sumber _official_, sampai tulisan-tulisan dokumentasi pribadi Arch *user* yang lain. Benar0benar menyita waktu.
+
+Berdasarkan latar belakang kasus saya di atas, saya kembali mengumpulkan niat, tenaga, dan menyisihkan waktu luang untuk kembali menulis dokumentasi proses instalasi ini.
 
 Dokumentasi ini saya tulis berdasarkan Arch Wiki dan catatan kaki hasil proses instalasi berulang-ulang yang saya lakukan sebelumnya. Saya menambahkan langkah-langkah untuk melindungi data-data yang ada di dalam partisi `root` dan direktori `home` user dengan proses enkripsi agar tidak sembarangan orang dapat mengaksesnya.
 
@@ -45,18 +49,20 @@ Keterbatasan dari dokumentasi ini dapat dilihat pada tabel di bawah.
 
 Spesifikasi mesin yang saya gunakan :
 
-| No. | Hardware | Details |
+| <center>No.</center> | <center>Hardware</center> | <center>Details</center> |
 | :--- | :--- | :--- |
 | 1 | CPU | Intel\(R\) Core\(TM\) i5-6300U CPU @ 2.40GHz |
 | 2 | GPU | Intel HD Graphics 520 |
 | 3 | Wireless Interface | Intel Corporation Wireless 8260 |
-| ... | dts... | dst... |
+| ... | dst... | dst... |
 
 Yang ingin saya informasikan dari tabel spesifikasi di atas adalah, saya tidak menggunakan GPU Nvidia maupun Radeon. Bahkan belum pernah sama sekali melakukan _setup_ pada mesin dengan GPU Nvidia maupun Radeon. Dan inilah keterbatasan dari dokumentasi yang saya tulis. Saya tidak dapat menyertakan proses instalasi _driver_ untuk kedua GPU tersebut. Dan juga untuk _processor_ dengan _brand_ AMD.
 
+Selain itu, saya juga tidak menggunakan Arch Linux berdampingan dengan Microsoft Windows (*dual boot*). Sehingga proses manajemen partisi untuk *dual boot* tidak terdapat pada dokumentasi ini.
+
 Hal lain yang sering dihadapi oleh GNU/Linux _user_ adalah kompatibilitas _wifi adapter_. Permasalahan ini paling sering saya temukan baik di forum maupun di chat group, karena beberapa _brand_ membutuhkan konfigurasi _driver_ yang belum terkonfigurasi atau bahkan belum tersedia pada _base_ sistem. Beberapa distribusi sistem operasi GNU/Linux mungkin sudah ada yang menyertakan pada _base_ sistem mereka, namun lain halnya dengan Arch Linux, dimana user yang harus mencari sendiri bagaimana mengkonfigurasi _network adapter_ yang tidak tersedia pada _base_ sistem Arch. Ini salah satu alasan kenapa Arch Linux tidak ditujukan untuk _user_ yang baru mengenal GNU/Linux.
 
-Gimana, Bro ? Masih berani untuk lanjut ?
+**Gimana, Bro ? Masih berani untuk lanjut ?**
 
 ~~Mungkin~~ di sinilah yang menjadi _level_ awal dimana calon Archer diseleksi. Yaitu pada proses instalasi yang tidak semudah distribusi sistem operasi GNU/Linux yang lain.
 
@@ -66,7 +72,7 @@ Kalo boleh saya gambarkan, proses instalasi distribusi sistem operasi Arch Linux
 
 Target yang akan kita capai dari dokumentasi ini adalah :
 
-| Items | Details |
+| <center>Items</center> | <center>Details</center> |
 | :--- | :--- |
 | **Sistem Operasi** | Arch Linux |
 | **Dual Boot** | No \(Single Boot\) |

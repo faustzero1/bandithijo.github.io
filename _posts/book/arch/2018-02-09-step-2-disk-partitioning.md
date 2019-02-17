@@ -27,7 +27,7 @@ Kemudian perhatikan apakah terdapat direktori `efivars` atau tidak. Jika ada, be
 
 ## 2.2 Mengatur Partisi Tabel
 
-Kita akan membuat **dua** partisi. Yang pertama adalah partisi ESP \(_EFI System Partition_\) dan partisi `/` \(baca: _root_\). Saya lebih _prefer_ menggunakan **satu** partisi `/` dan tidak memisahkan partisi `/home` dari `/`.
+Kita akan membuat **dua** partisi. Yang pertama adalah partisi **ESP** \(_EFI System Partition_\) dan partisi `/` \(baca: _root_\). Saya lebih _prefer_ menggunakan **satu** partisi `/` dan tidak memisahkan partisi `/home` dari `/`.
 
 <!-- PERTANYAAN -->
 <div class="blockquote-yellow">
@@ -41,7 +41,7 @@ Pertama-tama kita harus mengetahui alamat blok dari _hard drive_ yang akan kita 
 # lsblk -p
 ```
 
-Pada kasus saya, _storage device_ saya bernama `sda`. Saya dapat mengetahui dari jumlah kapasitasnya.
+Pada kasus saya, _storage device_ saya memiliki nama block `sda`. Saya dapat mengetahui dari jumlah kapasitasnya.
 
 Kemudian langkah selanjutnya adalah mempartisi _hard disk_. Terdapat banyak aplikasi yang dapat kita gunakan seperti `parted`, `fdisk`, `gdsik`, `cfdisk`, `cgdisk`, dll. Namun pada dokumentasi ini saya akan menggunakan `gdisk`.
 
@@ -62,7 +62,7 @@ Setelah kembali ke `#`, kita dapat mengecek apakah partisi kita telah berhasil d
 # fdisk -l
 ```
 
-Akan terdapat detail keterangan bahwa kita menggunakan **gpt** dan terdapat 2 partisi `/dev/sda1` \(_EFI System_\) dan `/dev/sda2` \(Linux LVM\).
+Akan terdapat detail keterangan bahwa kita menggunakan **gpt** dan terdapat 2 partisi `/dev/sda1` \(EFI System\) dan `/dev/sda2` \(Linux LVM\).
 
 `sda1` akan kita gunakan sebagai partisi `/boot` dan `sda2` akan kita gunakan sebagai partisi `/`.
 
@@ -70,6 +70,7 @@ Akan terdapat detail keterangan bahwa kita menggunakan **gpt** dan terdapat 2 pa
 <div class="blockquote-yellow">
 <div class="blockquote-yellow-title">Mengapa saya tidak menggunakan partisi SWAP ?</div>
 <p>Karena saya menggunakan SSD. Kalau ingin menggunakan SWAP, dapat kita tambahkan belakangan, setelah sistem kita jadi.</p>
+<p>Saya juga lebih memilih menggunakan <b>swapfile</b> saja. Sehingga swapfile hanya akan saya buat apabila saya perlukan.</p>
 </div>
 
 
@@ -79,7 +80,7 @@ Pada saat ini, dimana semua orang mulai ~~memperhatikan~~ keamanan data, meskipu
 
 Pada dokumentasi instalasi ini saya akan menggunakan enkripsi pada partisi `/dev/sda2` dan juga akan mengenkripsi direktori `/home/username`. Mungkin bisa disebut ini keamanan kue lapis. Hehe
 
-Pada dokumentasi ini saya akan menggunakan **LUKS** \(`dm-crypt`\).
+Aplikasi *disk encryption* yang saya pergunakan adalah [**LUKS**](https://gitlab.com/cryptsetup/cryptsetup/){:target="_blank"} \(`dm-crypt`\).
 
 ```
 # cryptsetup luksFormat /dev/sda2
