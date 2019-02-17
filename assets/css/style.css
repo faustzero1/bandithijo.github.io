@@ -18,6 +18,7 @@ body {
 
 pre, code {
     color: #FFF;
+    font-size: 14px !important;
 }
 
 pre {
