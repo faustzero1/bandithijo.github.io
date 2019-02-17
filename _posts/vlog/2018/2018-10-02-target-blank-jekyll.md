@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags: ['Jekyll', 'Vim']
 pin: true
+voice:
 ---
 
 <div style="margin-top:30px;"></div>

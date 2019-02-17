@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/02/17'
+  url:
+  detail: |
+      Menambahkan tag "VOICE" pada halaman Vlog
+
 - tanggal: '19/02/12'
   url:
   detail: |
@@ -12,11 +17,6 @@
   url:
   detail: |
       Menambahkan fitur sidebar on dan off pada halaman post
-
-- tanggal: '19/01/31'
-  url:
-  detail: |
-      Menambahkan Netlify deploy status bedge
 
 - tanggal: '19/01/28'
   url:

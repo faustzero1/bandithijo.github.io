@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags: ['Python', 'Script', 'Arch Linux']
 pin:
+voice: true
 ---
 
 <div style="margin-top:30px;"></div>

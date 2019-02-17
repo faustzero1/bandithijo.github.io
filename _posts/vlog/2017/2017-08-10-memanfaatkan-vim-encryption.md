@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags: ['Vim', 'Security']
 pin:
+voice:
 ---
 
 <div style="margin-top:30px;"></div>

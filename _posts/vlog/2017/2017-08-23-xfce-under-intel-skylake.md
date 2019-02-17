@@ -8,8 +8,9 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['XFCE']
+tags: ['XFCE', 'Ulasan']
 pin:
+voice:
 ---
 
 <div style="margin-top:30px;"></div>

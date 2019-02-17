@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags: ['Tips', 'Tools']
 pin:
+voice: true
 ---
 
 <div style="margin-top:30px;"></div>

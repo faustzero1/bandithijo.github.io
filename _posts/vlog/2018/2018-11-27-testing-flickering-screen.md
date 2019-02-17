@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags:
 pin:
+voice:
 ---
 
 <div style="margin-top:30px;"></div>
@@ -37,7 +38,7 @@ EndSection
 Berikut saya tampilkan keterangan dari laptop yang saya gunakan.
 
 ```
-OS: Arch Linux 
+OS: Arch Linux
 Kernel: x86_64 Linux 4.19.4-arch1-1-ARCH
 Uptime: 2d 14h 53m
 Packages: 2328
@@ -48,7 +49,7 @@ GTK Theme: NumixSolarizedDarkYellow [GTK2/3]
 Icon Theme: DarK-Dark
 Font: Hack 9
 CPU: Intel Core i5-6300U @ 4x 3GHz [51.0°C]
-GPU: Mesa DRI Intel(R) HD Graphics 520 (Skylake GT2) 
+GPU: Mesa DRI Intel(R) HD Graphics 520 (Skylake GT2)
 RAM: 3437MiB / 7831MiB
 ```
 

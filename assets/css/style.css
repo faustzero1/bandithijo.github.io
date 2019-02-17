@@ -426,7 +426,7 @@ aside .sidebar-body-rss {
     border-radius: 10px;
     width: 91%;
     /* margin: 25px 20px 25px -20px; */
-    margin: 25px 0 0 0;
+    margin: 25px 0;
     padding: 5px 10px;
 }
 
@@ -731,6 +731,17 @@ p.notif-post {
     color: #FFF;
     font-size: 10px;
     font-weight: bold;
+    /* animation: 1s blink infinite; */
+}
+
+.voice {
+    background: #000;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #FFF;
+    font-size: 10px;
+    /* font-weight: bold; */
     /* animation: 1s blink infinite; */
 }
 

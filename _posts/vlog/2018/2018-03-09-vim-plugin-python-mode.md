@@ -10,6 +10,7 @@ toc: true
 category: 'vlog'
 tags: ['Vim', 'Python', 'Ulasan']
 pin:
+voice: true
 ---
 
 <div style="margin-top:30px;"></div>
