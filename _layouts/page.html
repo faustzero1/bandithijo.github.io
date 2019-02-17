@@ -14,7 +14,8 @@ layout: baseof
                     <!-- <img class="post&#45;header&#45;img" src="/assets/img/logo/logo_title.png" style="width:30px;position:relative;top:5px;"> -->
                     {% endcomment %}
                     <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
-                    {% if page.permalink == '/about/' %}
+                    {% if page.permalink == '/about/'
+                       or page.permalink == '/bantuan/' %}
                     <label class="hideAside" title="On/Off Sidebar"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
                     {% endif %}
                     <div class="post-title-spacer"></div>
