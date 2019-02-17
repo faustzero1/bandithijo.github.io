@@ -406,7 +406,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   font-family: 'Roboto Mono', monospace;
   font-size: 12px;
   /* background color border ``` */
-  border-color: #272822;
+  /* border-color: #272822; <-- monokai */
+  background: #002b36; /* <-- solarized */
   border-style: solid;
   border-width: 1px;
 }
@@ -761,7 +762,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body code {
   /* background color code ` */
-  background: #272822; /* <-- solarized */
+  /* background: #272822; <-- monokai */
+  background: #002b36; /* <-- solarized */
   border-radius: 3px;
   border-width: 0;
   color: #FFF;
@@ -800,7 +802,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body .highlight pre,
 .markdown-body pre {
   /* background color pre ``` */
-  background-color: #272822; /* <-- solarized */
+  /* background-color: #272822; <-- monokai */
+  background: #002b36; /* <-- solarized */
   border-radius: 5px;
   font-size: 100%;
   font-family: 'Roboto Mono', monospace;
