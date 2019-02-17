@@ -8,8 +8,8 @@ license: true
 comments: true
 toc: true
 category: 'vlog'
-tags: ['Vim']
-pin:
+tags: ['Vim', 'Tips']
+pin: true
 ---
 
 <div style="margin-top:30px;"></div>

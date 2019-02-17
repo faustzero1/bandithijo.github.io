@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'vlog'
 tags: ['Python', 'Script', 'Arch Linux']
-pin: true
+pin:
 ---
 
 <div style="margin-top:30px;"></div>
