@@ -589,7 +589,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   box-shadow: inset 0 -1px 0 #959da5;
   color: #444d56;
   display: inline-block;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 10px;
   padding: 3px 5px;
   vertical-align: middle;
@@ -902,8 +902,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: #444d56;
   display: inline-block;
   font-family: 'Roboto Mono', monospace;
-  font-size: 13px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: bold;
   line-height: 13px;
   padding: 3px 5px;
   vertical-align: middle;
