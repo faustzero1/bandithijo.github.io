@@ -79,7 +79,7 @@ Plug 'mengelbrecht/lightline-bufferline'
 
 # Konfigurasi
 
-## Ligtline
+## Lightline
 
 Pada konfigurasi `lightline` ini saya hanya menambahkan:
 1. Colorscheme

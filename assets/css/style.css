@@ -22,7 +22,8 @@ pre, code {
 }
 
 pre {
-    margin-top: 10px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
 
 mark {
@@ -844,8 +845,8 @@ p.notif-post {
 /* blockquote red --------------------------------------------------------- */
 .blockquote-red {
     margin: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0.7em 0.7em;
     /* color: #444d56; */
     /* color: #24292E; */
@@ -872,8 +873,8 @@ p.notif-post {
 /* blockquote blue -------------------------------------------------------- */
 .blockquote-blue {
     margin: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0.7em 0.7em;
     /* color: #444d56; */
     /* color: #24292E; */
@@ -900,8 +901,8 @@ p.notif-post {
 /* blockquote yellow ------------------------------------------------------ */
 .blockquote-yellow {
     margin: 0;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 0.7em 0.7em;
     /* color: #444d56; */
     /* color: #24292E; */
