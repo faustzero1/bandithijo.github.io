@@ -92,13 +92,22 @@ options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disa
 </pre>
 Pada bagian yang saya *marking*, adalah bagian-bagian yang saya rubah dengan nama kernel yang saya gunakan. Dalam hal ini `linux-lts`.
 
+<pre>
+/boot/loader/
+.
+├── entries
+│   ├── <mark>arch.conf</mark>
+│   └── <mark>arch-lts.conf</mark>
+└── loader.conf
+</pre>
+
 Apabila kita ingin menggunakan kernel `zen`, tinggal diganti atau ditambahkan lagi file konfigurasinya saja.
 
 Sangat *easy busy* bukan?
 
 <!-- PERTANYAAN -->
 <div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Apakah Maksud dari RW, IRQPOLL, dll yang Berada pada Akhir Baris Nilai Options?</div>
+<div class="blockquote-yellow-title">Apakah Maksud dari RW, IRQPOLL, dll yang Berada pada Akhir Baris Options?</div>
 <p>Maksud dari nilai-nilai tersebut adalah, <b>Kernel Parameters</b>.</p>
 <p>Sangat mudah sekali untuk menambahkan kernel parameter pada systemd-boot.</p>
 <p>Hanya seperti itu saja, dengan menambahkan nilai-nilai parameter yang ingin kita gunakan pada akhir dari baris <code>options</code>.</p>
