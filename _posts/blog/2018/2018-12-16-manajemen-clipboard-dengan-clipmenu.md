@@ -47,7 +47,6 @@ Konfigurasi akan saya tulis pada bagian <a href="#konfigurasi">Konfigurasi</a>.
 Cara pasangnya sangat mudah.
 ```
 $ sudo pacman -S clipmenu xsel
-
 ```
 Clipmenu memerlukan paket `xsel` untuk menhandle *clipboard*.
 
