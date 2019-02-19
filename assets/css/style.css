@@ -6,6 +6,8 @@ Email   : bandithijo@gmail.com
 Template ini terinspirasi dari TechJunkie dari Styleshout.
 --------------------------------------------------------------------------- */
 
+@import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory);
+@import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css);
 @import url(solarizeddark.css);
 
 body {
