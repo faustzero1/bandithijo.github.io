@@ -23,7 +23,7 @@ Berawal dari keinginan saya untuk menggunakan ZSH theme yang simpel, kemudian [N
 
 # Alasan Menggunakan Zgen
 
-Seperti namanya, *plugin manager*, tentunya berguna untuk memanajemen plugin. Mungkin teman-teman yang menggunakan Vim *text editor* akan langsung memahami, bahwa keberadaan *plugin manager* sangat memudahkan kita membongkar-pasang Vim *plugin* yang ingin atau tidak kita gunakan. Semudah memanajemen *plugins*/*extensions* pada *text editor* GUI seperti VSCode.
+Seperti namanya, *plugin manager*, tentunya berguna untuk memanajemen plugin. Mungkin teman-teman yang menggunakan Vim *text editor* akan langsung memahami, bahwa keberadaan *plugin manager* sangat memudahkan kita membongkar-pasang Vim plugin yang ingin atau tidak kita gunakan. Semudah memanajemen plugins/extensions pada *text editor* GUI seperti VSCode.
 
 Penjelasan mengenai **Apa itu Zgen?** dapat dibaca sendiri pada halaman GitHub dari Zgen, [di sini](https://github.com/tarjoilija/zgen){:target="_blank"}.
 
@@ -53,15 +53,15 @@ Penjelasan mengenai **Apa itu Zgen?** dapat dibaca sendiri pada halaman GitHub d
     ...
     ...
     ```
-    Letakkan saja di paling atas dari `.zshrc`.
+    Letakkan saja pada posisi paling atas dari `.zshrc`.
 
-    Saran saya, hapus saja semua konfigurasi `oh-my-zsh` yang ada di dalam file `.zshrc` ini.
+    Saran saya, hapus saja semua konfigurasi `oh-my-zsh` yang ada di dalam file `.zshrc`.
 
     Selesai. Proses pemasangan dan konfigurasi Zgen hanya seperti ini saja.
 
     Sangat mudah bukan?
 
-    Selanjutnya, pemasangna `oh-my-zsh` sebagai *plugin*.
+    Selanjutnya, pemasangan `oh-my-zsh` sebagai plugin.
 
 ## Instalasi OH-MY-ZSH
 

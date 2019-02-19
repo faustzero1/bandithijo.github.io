@@ -229,7 +229,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body code,
 .markdown-body kbd,
 .markdown-body pre {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', monospace;
   /* font-size: 1em; */
   /* border: 1px solid #289C70; */
 }
@@ -396,14 +396,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body code,
 .markdown-body pre {
-  font-family: Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-family: TypoPRO Fantasque Sans Mono,Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   /* font-size: 12px; */
 }
 
 .markdown-body pre {
   margin-bottom: 0;
   margin-top: 0;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', monospace;
   /* font-size: 12px; */
   /* background color border ``` */
   /* border-color: #272822; <-- monokai */
@@ -804,7 +804,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   background: #002b36; /* <-- solarized */
   border-radius: 5px;
   font-size: 90%;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', monospace;
   line-height: 1.45;
   overflow: auto;
   padding: 10px;
@@ -825,7 +825,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body .commit-tease-sha {
   color: #444d56;
   display: inline-block;
-  font-family: Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-family: TypoPRO Fantasque Sans Mono,Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   font-size: 90%;
 }
 
@@ -847,7 +847,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   -webkit-user-select: none;
   color: rgba(27,31,35,.3);
   cursor: pointer;
-  font-family: Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-family: TypoPRO Fantasque Sans Mono,Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   font-size: 12px;
   line-height: 20px;
   min-width: 50px;
@@ -878,7 +878,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .blob-code-inner {
   color: #24292e;
-  font-family: Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-family: TypoPRO Fantasque Sans Mono,Roboto Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   font-size: 12px;
   overflow: visible;
   white-space: pre;
@@ -899,7 +899,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   box-shadow: inset 0 -1px 0 #c6cbd1;
   color: #444d56;
   display: inline-block;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', monospace;
   font-size: 14px;
   font-weight: bold;
   line-height: 13px;
