@@ -143,13 +143,13 @@ kbd {
     font-weight: normal;
     text-align: right;
     color: #FFF;
-    margin: -20px 20px 70px 25px;
+    margin: -20px 20px 40px 25px;
 }
 
 /* Navigation Bar --------------------------------------------------------- */
 #header .nav ul {
     background: #0C4B33;
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 13px 15px;
     min-height: 22px;
     text-align: right;
@@ -753,6 +753,24 @@ p.notif-post {
     font-size: 10px;
     /* font-weight: bold; */
     /* animation: 1s blink infinite; */
+}
+
+.emblem1 {
+    background-color: transparent;
+    border: 1px solid #FFF;
+    border-radius: 5px 0 0 5px;
+    color: #FFF;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+}
+
+.emblem2 {
+    background-color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 0 5px 5px 0;
+    color: #008352;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
 }
 
 .tags-hollow {
@@ -1393,7 +1411,17 @@ a.disqus_button {
 
     #header .container .description {
         text-align: center;
-        margin: 5px 20px 30px 20px;
+        margin: 5px 20px 35px 20px;
+    }
+
+    .emblem1 {
+        position: relative;
+        top: 8px;
+    }
+
+    .emblem2 {
+        position: relative;
+        top: 8px;
     }
 
     #header .nav .toggle {
