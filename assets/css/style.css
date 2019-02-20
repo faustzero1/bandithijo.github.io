@@ -6,9 +6,54 @@ Email   : bandithijo@gmail.com
 Template ini terinspirasi dari TechJunkie dari Styleshout.
 --------------------------------------------------------------------------- */
 
-@import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory);
-@import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css);
 @import url(solarizeddark.css);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory);
+/* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
+
+@font-face {
+    font-family:  'TypoPRO Fantasque Sans Mono';
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Regular.woff') format('woff');
+    font-style:   normal;
+    font-weight:  normal;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family:  'TypoPRO Fantasque Sans Mono';
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Bold.woff') format('woff');
+    font-style:   normal;
+    font-weight:  bold;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family:  'TypoPRO Fantasque Sans Mono';
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-BoldItalic.woff') format('woff');
+    font-style:   italic;
+    font-weight:  bold;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family:  'TypoPRO Fantasque Sans Mono';
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-RegularItalic.woff') format('woff');
+    font-style:   italic;
+    font-weight:  normal;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family:  'Ubuntu Mono';
+    src:          url('/assets/fonts/UbuntuMono.woff2') format('woff2');
+    font-style:   normal;
+    font-weight:  normal;
+    font-stretch: normal;
+    font-variant: normal;
+}
 
 body {
     background: #F3EBE0;
@@ -747,6 +792,17 @@ p.notif-post {
     font-size: 10px;
     /* font-weight: bold; */
     /* animation: 1s blink infinite; */
+}
+
+.tags-hollow {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 .tags-in-post {

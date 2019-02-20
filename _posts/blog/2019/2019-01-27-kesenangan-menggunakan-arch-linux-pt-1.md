@@ -53,6 +53,9 @@ Saya menggunakan `dunstify` untuk keperluan menampilkan **HELP** dari daftar key
 Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi fitur **HELP**" seperti yang saya pergunakan ini.
 <!-- text-align:center -->
 
+<hr>
+Sesuai janji, saya sudah menuliskan catatan mengenai hal ini, [di sini]({{ site.url }}/blog/dunst-sebagai-notifikasi-berisi-bantuan-pengingat-shortcut).
+
 # Referensi
 
 1. [twitter.com/bandithijo/status/1088634885286199296](https://twitter.com/bandithijo/status/1088634885286199296){:target="_blank"}
@@ -67,7 +70,3 @@ Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi 
 4. [wiki.archlinux.org/index.php/Dunst](https://wiki.archlinux.org/index.php/Dunst){:target="_blank"}
 <br>Diakses tanggal: 2019/01/27
 
-
-<spoiler>
-Masa bisa sih pakai spiler
-</spoiler>
