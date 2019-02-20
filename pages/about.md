@@ -18,6 +18,7 @@ Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren p
 _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 # Nama Asli, Status, dan Pekerjaan?
+
 Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina**.
@@ -29,11 +30,13 @@ Tapi kalau ada yang mau memberikan tawaran bekerja, akan sangat senang sekali.
 {% comment %}Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.{% endcomment %}
 
 # Apa Alasan Menulis Blog?
+
 Karena Allah *Subhanahu Wa Ta'ala*.
 
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
 # Apa yang Ditulis di dalam Blog?
+
 Sebagian besar isi dari blog ini mengenai hal-hal teknis tentang pemecahan suatu masalah yang saya alami saat menggunakan sistem operasi GNU/Linux. Namun, perlu digaris bawahi, bahwa **saya bukan seorang pakar bersertifikat dalam sistem operasi GNU/Linux. Saya hanya seorang penggemar sekaligus pemakai**. Apabila terdapat kesalahan dalam penulisan, mohon untuk dapat dimaklumi keterbatasan saya, hehehe.
 
 Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer aplikasi yang bersangkutan. Karenanya, saya selalu menyertakan sumber literatur yang saya gunakan dalam membuat tulisan.
@@ -43,13 +46,6 @@ Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer a
 Blog ini saya buat *from scratch* menggunakan *Static Site Generator* yang bernama **Jekyll**. Tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih bebas bongkar pasang fitur-fitur yang ingin saya tambah dan kurangi di dalam blog ini.
 
 Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0){:target="_blank"}.
-
-# Akhir Kata
-Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
-
-Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
-
-Best Regards **BanditHijo**
 
 
 # Spesifikasi Mesin Ketik
@@ -107,6 +103,7 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 
 # Dahulu
+
 Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
 2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
@@ -114,6 +111,7 @@ Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti P
 Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
 # Sekarang
+
 Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
 
 Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi dipending dulu.
@@ -122,3 +120,11 @@ Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang
 Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
 
 Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai datang kesempatan lagi.
+
+# Akhir Kata
+Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
+
+Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
+
+Best Regards, **BanditHijo**
+

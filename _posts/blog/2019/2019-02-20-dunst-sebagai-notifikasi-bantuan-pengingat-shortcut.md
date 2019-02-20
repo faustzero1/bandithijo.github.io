@@ -37,7 +37,7 @@ Mungkin ada beberapa dari teman-teman yang belum mengerti. *Environment* seperti
 8. **st Terminal**
 9. dst...
 
-Di atas adalah contoh dari beberapa aplikasi yang memiliki konfigurasi *keyboard shortcut* untuk menggunakannya.
+Di atas adalah contoh dari beberapa aplikasi yang memiliki konfigurasi *keyboard shortcut* agar dapat digunakan.
 
 Memang tidak semua kita gunakan dan kita perlukan.
 
@@ -47,13 +47,13 @@ Sangat memudahkan sekali (menurut saya). Hehe.
 
 # Sekenario
 
-Ada banyak sekali *blueprint* yang terpikirkan, namun untuk saat ini, saya menggunakan cara yang akan saya tuliskan ini dahulu.
+Ada banyak sekali *blueprint* yang terpikirkan, namun untuk saat ini, saya menggunakan cara yang akan saya tuliskan ini terlebih dahulu.
 
 Karena daripada menunggu sampai berhasil menerapkan rancangan yang ideal namun tidak sempat menuliskan proses awalnya. Saya memutuskan untuk langsung menuliskan catatan di blog ini.
 
 Sekenarionya secara sederhana akan seperti ini:
 
-1. Membuat Shell *script* yang digunakan untuk menampilkan isi dari sebuah direktori, sekaligus dapat mengeksekusi isi file di dalamnya apabila dipilih.
+1. Membuat Shell *script* yang digunakan untuk menampilkan isi dari sebuah direktori, sekaligus dapat mengeksekusi isi file yang ada di dalamnya apabila dipilih.
 2. Membuat Shell *script* yang digunakankan untuk memanggil `dunstify` yang akan menampilkan file text yang berisi daftar *keyboard shortcut*.
 3. Membuat file text berisi daftar *keyboard shortcut*.
 
@@ -122,11 +122,11 @@ Saya menyebut ini sebagai **file browser** karena secara global memang menggunak
 
     Silahkan menyesuaikan dengan preferensi masing-masing.
 
-    Tahap ini selesai.
+    Tahap ke-1, telah selesai.
 
 ## Membuat Script Dunstify
 
-Pada tahap ini, saya akan membuat Shell *script* yang akan berpasangan dengan file text berisi daftar *keyboard shortcut*.
+Pada tahap ke-2, saya akan membuat Shell *script* yang akan berpasangan dengan file text berisi daftar *keyboard shortcut*.
 
 Jadi, pada tahap ini, satu Shell *script* mewakili satu file text.
 
@@ -168,7 +168,7 @@ Misalnya,
 
 ## Membuat Daftar Keyboard Shortcut
 
-Pada tahap ini, kita perlu membuat file text yang berisi daftar dari *keyboard shortcut*.
+Pada tahap ke-3, kita perlu membuat file text yang berisi daftar dari *keyboard shortcut*.
 
 Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyboard shortcut* dari i3wm.
 
@@ -242,7 +242,7 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
 
 
 <br>
-Silahkan menambahkan menambahkan sendiri untuk membuat daftar *keyboard shortcut* aplikasi yang lain. Dengan mengulang tahap 2 dan 3.
+Silahkan menambahkan menambahkan sendiri untuk membuat daftar *keyboard shortcut* aplikasi yang lain. Dengan mengulang tahap ke-2 dan ke-3.
 
 # Hasilnya
 
