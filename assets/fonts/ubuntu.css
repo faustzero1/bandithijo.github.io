@@ -1,0 +1,86 @@
+/* Ubuntu Font Family Bower-ready v0.1.13 */
+
+/* BEGIN Ubuntu Regular */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/assets/fonts/ubuntu-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* END Ubuntu Regular */
+
+/* BEGIN Ubuntu Regular Italic */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/assets/fonts/ubuntu-regular-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+/* END Ubuntu Regular Italic */
+
+/* BEGIN Ubuntu Bold */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/assets/fonts/ubuntu-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+/* END Ubuntu Bold */
+
+/* BEGIN Ubuntu Bold Italic */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/assets/fonts/ubuntu-bold-italic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+/* END Ubuntu Bold Italic */
+
+
+/* BEGIN Ubuntu Condensed */
+@font-face {
+    font-family: 'Ubuntu Condensed';
+    src: url('/assets/fonts/ubuntu-condensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* END Ubuntu Condensed */
+
+
+/* BEGIN Ubuntu Mono Regular */
+@font-face {
+    font-family: 'Ubuntu Monospace';
+    src: url('/assets/fonts/ubuntumono-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/* END Ubuntu Mono Regular */
+
+/* BEGIN Ubuntu Mono Italic */
+@font-face {
+    font-family: 'Ubuntu Monospace';
+    src: url('/assets/fonts/ubuntumono-regular-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+/* END Ubuntu Mono Italic */
+
+/* BEGIN Ubuntu Mono Bold */
+@font-face {
+    font-family: 'Ubuntu Monospace';
+    src: url('/assets/fonts/ubuntumono-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+/* END Ubuntu Mono Bold */
+
+/* BEGIN Ubuntu Mono Bold Italic */
+@font-face {
+    font-family: 'Ubuntu Monospace';
+    src: url('fonts/ubuntumono-bold-italic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+
+}
+/* END Ubuntu Mono Bold Italic */

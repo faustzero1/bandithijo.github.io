@@ -6,54 +6,13 @@ Email   : bandithijo@gmail.com
 Template ini terinspirasi dari TechJunkie dari Styleshout.
 --------------------------------------------------------------------------- */
 
-@import url(solarizeddark.css);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory);
-/* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
+/* FONTS */
+@import url(/assets/fonts/TypoPRO-FantasqueSansMono.css);
+@import url(/assets/fonts/ubuntu.css);
+@import url(/assets/fonts/Give-You-Glory.css);
 
-@font-face {
-    font-family:  'TypoPRO Fantasque Sans Mono';
-    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Regular.woff') format('woff');
-    font-style:   normal;
-    font-weight:  normal;
-    font-stretch: normal;
-    font-variant: normal;
-}
-
-@font-face {
-    font-family:  'TypoPRO Fantasque Sans Mono';
-    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Bold.woff') format('woff');
-    font-style:   normal;
-    font-weight:  bold;
-    font-stretch: normal;
-    font-variant: normal;
-}
-
-@font-face {
-    font-family:  'TypoPRO Fantasque Sans Mono';
-    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-BoldItalic.woff') format('woff');
-    font-style:   italic;
-    font-weight:  bold;
-    font-stretch: normal;
-    font-variant: normal;
-}
-
-@font-face {
-    font-family:  'TypoPRO Fantasque Sans Mono';
-    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-RegularItalic.woff') format('woff');
-    font-style:   italic;
-    font-weight:  normal;
-    font-stretch: normal;
-    font-variant: normal;
-}
-
-@font-face {
-    font-family:  'Ubuntu Mono';
-    src:          url('/assets/fonts/UbuntuMono.woff2') format('woff2');
-    font-style:   normal;
-    font-weight:  normal;
-    font-stretch: normal;
-    font-variant: normal;
-}
+/* CODE COLORSHCME */
+@import url(/assets/css/solarizeddark.css);
 
 body {
     background: #F3EBE0;
