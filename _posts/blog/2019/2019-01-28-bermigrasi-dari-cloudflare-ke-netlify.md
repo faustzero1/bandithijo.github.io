@@ -245,7 +245,7 @@ Saya menggunakan cara ini karena, saat menggunakan file `_redirects`, pada bagia
 
     Maka dari itu saya menggunakan cara file `netlify.toml` yang sudah saya coba dan ternyata berhasil dijalankan pada kedua repository GitHub dan GitLab.
 
-    Sekarang, apabila ada pengunjung yang dengan sengaja mengakses alamat **bandithijo.netlify.com** akan otomatis didirect ke **bandithijo.com**.
+    Sekarang, apabila ada pengunjung yang dengan atau tanpa sengaja mengakses alamat **bandithijo.netlify.com** akan otomatis didirect ke **bandithijo.com**.
 
 ## Dewaweb
 

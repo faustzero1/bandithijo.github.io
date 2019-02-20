@@ -20,7 +20,13 @@ _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi sa
 # Nama Asli, Status, dan Pekerjaan?
 Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
 
-Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.
+Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina**.
+
+Saat ini masih belum bekerja, masih menempuh pendidikan di STMIK Balikpapan. (current: semester 8)
+
+Tapi kalau ada yang mau memberikan tawaran bekerja, akan sangat senang sekali.
+
+{% comment %}Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.{% endcomment %}
 
 # Apa Alasan Menulis Blog?
 Karena Allah *Subhanahu Wa Ta'ala*.
