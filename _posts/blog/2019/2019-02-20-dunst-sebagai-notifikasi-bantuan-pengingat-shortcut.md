@@ -252,7 +252,7 @@ Silahkan menambahkan menambahkan sendiri untuk membuat daftar *keyboard shortcut
 
 # Pesan Penulis
 
-Saya menyadari bahwa masih terdapat banyak kekurangan dari metode yang saya gunakan untuk membuat "bantuan pengingat *keyboard shortcut*" ini. Sehingga tidak menutup kemungkinan pada lain kesempatan akan ada metode lain yang saya tulisakan kembali.
+Saya menyadari bahwa masih terdapat banyak kekurangan dari metode yang saya gunakan untuk membuat "bantuan pengingat *keyboard shortcut*" ini. Sehingga tidak menutup kemungkinan pada kesempatan berikutnya akan ada metode lain yang saya tulisakan kembali.
 
 Mudah-mudahan catatan saya yang sederhana ini dapat memberikan inspirasi kepada teman-teman untuk membuat metode yang lebih baik.
 
