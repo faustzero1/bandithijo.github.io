@@ -54,7 +54,7 @@ Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi 
 <!-- text-align:center -->
 
 <hr>
-Sesuai janji, saya sudah menuliskan catatan mengenai hal ini, [di sini]({{ site.url }}/blog/dunst-sebagai-notifikasi-berisi-bantuan-pengingat-shortcut).
+Sesuai janji, saya sudah menuliskan catatan mengenai hal ini, [di sini]({{ site.url }}/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut).
 
 # Referensi
 
