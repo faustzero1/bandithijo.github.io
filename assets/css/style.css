@@ -115,7 +115,7 @@ kbd {
 }
 
 #header .container {
-    background: #008352;
+    background: #FFF;
     border-width: 20px 20px 0 20px;
     border-style: solid;
     border-color: #FFF;
@@ -125,12 +125,20 @@ kbd {
     margin-bottom: -1px;
 }
 
+#header .container-inner {
+    background: #008352;
+    border-radius: 8px 8px 0 0;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
 #header .container .title {
     font-weight: bold;
     text-align: right;
     letter-spacing: -2px;
     color: #FFF;
-    margin: 10px 20px;
+    margin: 0 20px 10px 20px;
 }
 
 #header .container .title h1 {
@@ -207,7 +215,7 @@ kbd {
 #header .logo {
     float: left;
     /* margin: 1.5% 5.5% 0 0; */
-    margin: 1.5% 0 0 0;
+    margin: 1.0% 0 0 0;
 }
 
 #header .logo img {
@@ -483,7 +491,7 @@ aside.sidebar p {
 }
 
 #footer .container {
-    background: #B8B8B8;
+    background: #FFF;
     border-width: 0 20px 20px 20px;
     border-style: solid;
     border-color: #FFF;
@@ -493,11 +501,20 @@ aside.sidebar p {
     margin-top: -1px;
 }
 
+#footer .container-inner {
+    background: #B8B8B8;
+    border-radius: 0 0 8px 8px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
 .footer-line {
     /* untuk garis di dalma kotak footer bawah */
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: #999999;
+    border-radius: 0 0 8px 8px;
 }
 
 #footer .container p {
@@ -1380,8 +1397,10 @@ a.disqus_button {
     }
 
     #header .container,
+    #header .container-inner,
     #main .container,
-    #footer .container {
+    #footer .container,
+    #footer .container-inner {
         border-width: 0;
         border-radius: 0;
         box-shadow: none;
