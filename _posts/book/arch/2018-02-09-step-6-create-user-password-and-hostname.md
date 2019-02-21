@@ -41,7 +41,7 @@ Buat _group_ `sudo` terlebih dahulu.
 Kemudian buat _username_.
 
 ```
-# useradd -m -g users -G sudo,storage,wheel,power bandithijo
+# useradd -m -g users -G sudo,storage,wheel,power,input,network bandithijo
 ```
 
 Saya menggunakan _username_ **bandithijo**. Kamu dapat mengganti dengan _username_ yang kamu inginkan. Sebagai catatan _username_ haruslah berupa karakter huruf, _lowercase_ \(huruf kecil\), dan tidak boleh ada spasi.
