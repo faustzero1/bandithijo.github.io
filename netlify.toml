@@ -7,8 +7,14 @@
   force = true
 
 [[redirects]]
+  from = "https://bandithijo.github.com/*"
+  to = "https://bandithijo.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://bandithijo.com/skripsi"
-  to = "https://bandithijo.com/157/:splat"
+  to = "https://bandithijo.com/157/"
   status = 301
   force = true
 
