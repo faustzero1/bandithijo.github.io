@@ -61,7 +61,7 @@ Sekenarionya secara sederhana akan seperti ini:
 
 ## Membuat Script File Browser
 
-Saya menyebut ini sebagai **file browser** karena secara global memang menggunakan perintah `ls` yang berarti *list* atau daftar. Namun dengan menambahkan kemampuan untuk eksekusi file yang dipilih.
+Pada tahap ke-1 ini, saya menyebut ini sebagai **file browser** karena secara global memang menggunakan perintah `ls` yang berarti *list* atau daftar. Namun dengan menambahkan kemampuan untuk eksekusi file yang dipilih.
 
 1. Buat file bernama `help-script-browser.sh`.
 
