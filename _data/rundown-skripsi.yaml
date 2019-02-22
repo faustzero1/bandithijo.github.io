@@ -1,0 +1,21 @@
+# ----------------------------------------------------------------------------
+# INFORMASI
+# Tambah data baru diletakkan di paling atas
+# ----------------------------------------------------------------------------
+# FORMAT PENULISAN
+# - tanggal: '21/01 - 23/02'
+#   status: 'on' atau 'off' atau 'next'
+#   detail: 'Masa Pembayaran Daftar Ulang Semester Genap 2018/2019'
+# ----------------------------------------------------------------------------
+
+- tanggal: '00/00 - 00/00'
+  status: 'next'
+  detail: 'Bimbingan Skripsi - <span class="tags-next">Unconfirmed</span>'
+
+- tanggal: '00/00 - 00/00'
+  status: 'on'
+  detail: 'Pengambilan Form Bimbingan Skripsi - <span class="tags-on">Confirmed</span>'
+
+- tanggal: '30/01 - 16/02'
+  status: 'off'
+  detail: '<del>Pengajuan Judul Skripsi</del> - <span class="tags-off">Confirmed</span>'

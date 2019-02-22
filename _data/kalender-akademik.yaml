@@ -1,11 +1,15 @@
 # ----------------------------------------------------------------------------
 # INFORMASI
-# Tambah data baru diletakkan di paling atas
+# Tambah data baru diletakkan di paling bawah
 # ----------------------------------------------------------------------------
-# Uncomment code below if didn't have any new task.
-# - tanggal: '00/00/00'
-#   url:
-#   detail: 'Belum ada tugas terbaru...'
+# FORMAT PENULISAN
+# kalender:
+#   judul: 'SEMESTER GENAP/GANJIL 2018/2019'
+#
+# data:
+# - tanggal: '21/01 - 23/02'
+#   status: 'on' atau 'off'
+#   detail: 'Masa Pembayaran Daftar Ulang Semester Genap 2018/2019'
 # ----------------------------------------------------------------------------
 
 kalender:

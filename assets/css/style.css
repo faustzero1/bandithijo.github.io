@@ -779,6 +779,62 @@ p.kalender-item.off {
     color:#B8B8B8 !important;
 }
 
+.notif-rundown {
+    width: 100%;
+    padding: 0.3em 1em;
+    font-size: 95%;
+    font-weight: normal;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background:#FFF;
+}
+
+.notif-rundown p,
+.notif-rundown a {
+    color: #000;
+    font-size: 95%;
+    font-weight: normal;
+    border-bottom: none;
+    text-align: left;
+    /* untuk indentasi title*/
+    padding-left: 64px;
+    text-indent: -128px;
+}
+
+p.rundown-item {
+    border: 1px solid #000000 !important;
+    border-radius: 5px;
+    background:#FFF;
+    width: 100%;
+    font-size: 90% !important;
+    font-weight: normal;
+    margin: 10px 0 !important;
+    padding: 5px !important;
+    /* untuk indentasi title*/
+    padding-left: 104px !important;
+    text-indent: -92px !important;
+}
+
+p.rundown-item.on {
+    border: 1px solid #000 !important;
+    background:#FFDD57 !important;
+}
+
+p.rundown-item.off {
+    border: 1px solid #B8B8B8 !important;
+    background:#E0E0E0 !important;
+    color:#B8B8B8 !important;
+}
+
+p.rundown-item.next {
+    border: 1px dashed #B8B8B8 !important;
+    background:#FFF !important;
+    color:#B8B8B8 !important;
+}
+
 p.notif-post {
     margin: auto;
     width: 100%;
@@ -849,6 +905,45 @@ p.notif-post {
     color: #000;
     font-size: 10px;
     font-weight: bold;
+}
+
+.tags-on {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #000;
+    font-size: 90%;
+    font-weight: normal;
+    position: relative;
+    top: -1px;
+}
+
+.tags-off {
+    background: transparent;
+    border: 1px solid #B8B8B8;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #B8B8B8;
+    font-size: 90%;
+    font-weight: normal;
+    position: relative;
+    top: -1px;
+}
+
+.tags-next {
+    background: transparent;
+    border: 1px solid #B8B8B8;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #B8B8B8;
+    font-size: 90%;
+    font-weight: normal;
+    position: relative;
+    top: -1px;
 }
 
 .tags-in-post {
