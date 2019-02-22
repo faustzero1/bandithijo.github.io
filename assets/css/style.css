@@ -1064,6 +1064,14 @@ p.notif-post {
     background: #FBD7D2;
     border-left: 0.35em solid #F82C3B;
     border-radius: 0 5px 5px 0;
+    /* disable selected */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 
 .blockquote-red-title {
@@ -1092,6 +1100,14 @@ p.notif-post {
     background: #BDDFF1;
     border-left: 0.35em solid #2C76F8;
     border-radius: 0 5px 5px 0;
+    /* disable selected */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 
 .blockquote-blue-title {
@@ -1120,6 +1136,14 @@ p.notif-post {
     background: #F3E681;
     border-left: 0.35em solid #F8A52C;
     border-radius: 0 5px 5px 0;
+    /* disable selected */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome and Opera */
 }
 
 .blockquote-yellow-title {
