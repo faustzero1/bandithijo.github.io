@@ -1575,6 +1575,10 @@ a.disqus_button {
         padding-bottom: 0;
     }
 
+    .footer-line {
+        border-radius: none;
+    }
+
     #header .container,
     #header .container-inner,
     #main .container,
