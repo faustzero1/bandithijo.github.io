@@ -110,7 +110,10 @@ Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti P
 
 Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
+
 # Sekarang
+
+Saat ini sudah menggunakan GNU/Linux dengan distribusi Arch Linux sejak pertengahan 2016. Kebetulan saya memang sangat mengincar ThinkPad kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki. Seandainya kalian dapat merasakan nikmat yang saya rasakan saat ini, mungkin juga akan berkata hal yang serupa.
 
 Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
 
