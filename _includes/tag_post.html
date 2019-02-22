@@ -1,4 +1,4 @@
-<div class="tags-in-post">
+<div class="tags-in-post noselect">
   {% assign tag_list = page.tags | sort %}
   {% for tag in tag_list %}
     <span class="tags"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>

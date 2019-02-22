@@ -365,6 +365,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body p {
   margin-bottom: 10px;
   margin-top: 0;
+  /* disable selected */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .markdown-body blockquote {
@@ -376,6 +384,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   margin-bottom: 0;
   margin-top: 0;
   padding-left: 0;
+  /* disable selected */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .markdown-body ol ol,
@@ -398,6 +414,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body pre {
   font-family: TypoPRO Fantasque Sans Mono,Roboto Mono,Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   /* font-size: 12px; */
+  /* enable selected */
+  -webkit-touch-callout: text; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+     -khtml-user-select: text; /* Konqueror HTML */
+       -moz-user-select: text; /* Firefox */
+        -ms-user-select: text; /* Internet Explorer/Edge */
+            user-select: text; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .markdown-body pre {
@@ -717,6 +741,14 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   display: block;
   overflow: auto;
   width: 100%;
+  /* disable selected */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 .markdown-body table th {

@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/02/23'
+  url:
+  detail: |
+      Menambahkan fitur disable selected text kecuali pre dan code
+
 - tanggal: '19/02/22'
   url: '/157/'
   detail: |
