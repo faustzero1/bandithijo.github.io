@@ -1,0 +1,30 @@
+# ----------------------------------------------------------------------------
+# INFORMASI
+# Tambah data baru diletakkan di paling atas
+# ----------------------------------------------------------------------------
+# Uncomment code below if didn't have any new task.
+# - tanggal: '00/00/00'
+#   url:
+#   detail: 'Belum ada tugas terbaru...'
+# ----------------------------------------------------------------------------
+
+kalender:
+  judul: 'SEMESTER GENAP 2018/2019'
+
+data:
+- tanggal: '21/01 - 23/02'
+  status: 'on'
+  detail: 'Masa Pembayaran Daftar Ulang Semester Genap 2018/2019'
+
+- tanggal: '21/01 - 23/02'
+  status: 'on'
+  detail: 'Masa Konsultasi Akademik (Perwalian) dan Pengisian KRS Online'
+
+- tanggal: '25/02 - 20/07'
+  status: 'off'
+  detail: 'Perkuliahan Semester Genap 2018/2019'
+
+- tanggal: '08/07 - 20/07'
+  status: 'off'
+  detail: 'Ujian Akhir Semester (UAS) Genap 2018/2019'
+

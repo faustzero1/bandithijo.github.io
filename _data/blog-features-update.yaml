@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/02/22'
+  url: '/157/'
+  detail: |
+      Menambahkan kalender akademik pada halaman 157
+
 - tanggal: '19/02/17'
   url:
   detail: |
@@ -24,7 +29,7 @@
       Merubah build resource dari GitHub ke GitLab
 
 - tanggal: '19/01/27'
-  url: /blog/bermigrasi-dari-cloudflare-ke-netlify
+  url: '/blog/bermigrasi-dari-cloudflare-ke-netlify'
   detail: |
       Bermigrasi dari Cloudflare ke Netlify
 
@@ -64,7 +69,7 @@
       Menambahkan notif update 5 judul blog dan vlog terbaru pada Homepage
 
 - tanggal: '18/12/07'
-  url: /157/
+  url: '/157/'
   detail: |
       Menambahkan notif update tugas terbaru pada page 157
 
@@ -89,17 +94,17 @@
       Menghapus dotted outline selected untuk browser Firefox
 
 - tanggal: '18/12/04'
-  url: /log-update/
+  url: '/log-update/'
   detail: |
       Menambahkan page Log Update
 
 - tanggal: '18/12/03'
-  url: /dotfriends/
+  url: '/dotfriends/'
   detail: |
       Menambahkan page dotFriends
 
 - tanggal: '18/12/02'
-  url: /vlog/
+  url: '/vlog/'
   detail: |
       Menambahkan menu Vlog
 
@@ -119,7 +124,7 @@
       Mengganti sudut pandang orang ketiga menjadi orang pertama
 
 - tanggal: '18/11/20'
-  url: /troubleshoot/
+  url: '/troubleshoot/'
   detail: |
       Menambahkan halaman Groups
 
@@ -164,6 +169,6 @@
       Memberikan hamburger menu pada Mobile layout
 
 - tanggal: '18/03/18'
-  url: /blog/migrasi-blog-2-0
+  url: '/blog/migrasi-blog-2-0'
   detail: |
       Blog ini baru saja berpindah domain, dari Blogspot dan beralih menggunakan GitHub

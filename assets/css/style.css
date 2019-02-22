@@ -729,6 +729,56 @@ article.homepage .notif-157 a {
     text-indent: -128px;
 }
 
+article.homepage .notif-157-kalender {
+    width: 100%;
+    padding: 1em 1em;
+    font-size: 95%;
+    font-weight: normal;
+    margin: auto;
+    margin-top: -10px;
+    margin-bottom: 0;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background:#FFF;
+}
+
+article.homepage .notif-157-kalender p,
+article.homepage .notif-157-kalender a {
+    color: #000;
+    font-size: 95%;
+    font-weight: normal;
+    border-bottom: none;
+    text-align: left;
+    /* untuk indentasi title*/
+    padding-left: 64px;
+    text-indent: -128px;
+}
+
+p.kalender-item {
+    border: 1px solid #000000 !important;
+    border-radius: 5px;
+    background:#FFF;
+    width: 100%;
+    font-size: 90% !important;
+    font-weight: normal;
+    margin: auto;
+    padding: 5px !important;
+    /* untuk indentasi title*/
+    padding-left: 104px !important;
+    text-indent: -92px !important;
+}
+
+p.kalender-item.on {
+    border: 1px solid #000 !important;
+    background:#FFDD57 !important;
+}
+
+p.kalender-item.off {
+    border: 1px dashed #B8B8B8 !important;
+    background:#FFF !important;
+    color:#B8B8B8 !important;
+}
+
 p.notif-post {
     margin: auto;
     width: 100%;
