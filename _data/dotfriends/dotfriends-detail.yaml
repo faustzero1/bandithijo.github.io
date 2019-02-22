@@ -4,8 +4,8 @@ friends:
   url1: "https://sucipto.net"
   url2: "https://github.com/showcheap"
   detail: |
-      Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.<br>
-      Recently interesting with NodeJS ecosystem, so I migrate my blog from Wordpress to Hexo.
+      <p>Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.</p>
+      <p>Recently interesting with NodeJS ecosystem, so I migrate my blog from Wordpress to Hexo.</p>
 
 
 - nama: "Agung Setiawan"
@@ -13,9 +13,9 @@ friends:
   url1: "https://agung-setiawan.com"
   url2: "https://www.idrails.com"
   detail: |
-      Saya bekerja sebagai software developer di BukaLapak.<br>
-      Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.<br>
-      Sedangkan untuk teknologi pemrograman yang saya gunakan adalah utamanya bahasa Ruby dan framework Ruby on Rails.
+      <p>Saya bekerja sebagai software developer di BukaLapak.</p>
+      <p>Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.</p>
+      <p>Sedangkan untuk teknologi pemrograman yang saya gunakan adalah utamanya bahasa Ruby dan framework Ruby on Rails.</p>
 
 
 - nama: "Epsi"
@@ -23,8 +23,8 @@ friends:
   url1: "https://epsi-rns.github.io"
   url2: "https://epsi-rns.gitlab.io"
   detail: |
-      I'm an open source enthusiast.<br>
-      This site is mainly discuss about linux distribution, desktop customization, window manager tweak, And sometimes other interesting issue as well, such as package manager, file system and init.
+      <p>I'm an open source enthusiast.</p>
+      <p>This site is mainly discuss about linux distribution, desktop customization, window manager tweak, And sometimes other interesting issue as well, such as package manager, file system and init.</p>
 
 
 - nama: "Fikri Omar"
@@ -32,10 +32,10 @@ friends:
   url1: "https://github.com/fikriomar16"
   url2: "https://www.deviantart.com/fikriomar16"
   detail: |
-      Hi all…My name is Fikri, also u can call me Omar.<br>
-      I came from Indonesia, and i use Ubuntu as my favorite OS.<br>
-      In this blog, i’ll post my Linux Daily Shot.<br>
-      Hope you like it.
+      <p>Hi all…My name is Fikri, also u can call me Omar.</p>
+      <p>I came from Indonesia, and i use Ubuntu as my favorite OS.</p>
+      <p>In this blog, i’ll post my Linux Daily Shot.</p>
+      <p>Hope you like it.</p>
 
 
 - nama: "Nanda Okitavera"
@@ -43,10 +43,10 @@ friends:
   url1: "https://okitavera.me"
   url2: "https://github.com/okitavera"
   detail: |
-      I am an Indonesian UX Designer and Kotlin-Android Developer.<br>
-      Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.<br>
-      Primarily use Kotlin for Android development, but also do a bash and python for scripting.<br>
-      Also I am the master of mixing chocolate and coffee.
+      <p>I am an Indonesian UX Designer and Kotlin-Android Developer.</p>
+      <p>Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.</p>
+      <p>Primarily use Kotlin for Android development, but also do a bash and python for scripting.</p>
+      <p>Also I am the master of mixing chocolate and coffee.</p>
 
 
 - nama: "Aflasio"
@@ -54,8 +54,8 @@ friends:
   url1: "https://www.aflasio.com"
   url2: "https://blog.aflasio.com"
   detail: |
-      Aflasio is just an acronym of “Argia Flat Design Motion” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.<br>
-      The only reason that i’m not change that name is because i love it and easy to find on google.
+      <p>Aflasio is just an acronym of “<b>Argia Flat Design Motion</b>” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.</p>
+      <p>The only reason that i’m not change that name is because i love it and easy to find on google.</p>
 
 
 - nama: "Addy"
@@ -63,8 +63,8 @@ friends:
   url1: "https://addy-dclxvi.github.io"
   url2: "https://github.com/addy-dclxvi"
   detail: |
-      Hi! I’m Addy.<br>
-      Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.
+      <p>Hi! I’m Addy.</p>
+      <p>Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.</p>
 
 
 - nama: "Rania Amina"
@@ -72,8 +72,8 @@ friends:
   url1: "https://raniaamina.id"
   url2: "https://github.com/raniaamina"
   detail: |
-      Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.<br>
-      Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.
+      <p>Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.</p>
+      <p>Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.</p>
 
 
 - nama: "Fathurhoho"
@@ -81,8 +81,8 @@ friends:
   url1: "https://www.fathurhoho.id"
   url2: "https://ngonfig.net"
   detail: |
-      Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.<br>
-      Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.
+      <p>Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.</p>
+      <p>Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.</p>
 
 
 - nama: "Muktazam Hasbi Ashidiqi"
@@ -90,8 +90,8 @@ friends:
   url1: "https://chamelemon.site"
   url2: "https://github.com/reorr"
   detail: |
-      Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.<br>
-      Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.
+      <p>Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.</p>
+      <p>Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.</p>
 
 
 - nama: "Muhammad Yuga"
@@ -99,23 +99,32 @@ friends:
   url1: "https://github.com/black4t"
   url2:
   detail: |
-      I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.<br>
-      Have an experience in UNIX/Linux system, a researcher in the field of security especially Infrastructure and skilled as DevOps engineer and System Administrator with hands on experience supporting, automation and optimizing a server.
+      <p>I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.</p>
+      <p>Have an experience in UNIX/Linux system, a researcher in the field of security especially Infrastructure and skilled as DevOps engineer and System Administrator with hands on experience supporting, automation and optimizing a server.</p>
 
 
 - nama: "Yunindyo Prabowo"
   photo: "https://github.com/ypraw.png?size=200"
-  url1: "https://yupraw.me/"
+  url1: "https://yupraw.me"
   url2: "https://github.com/ypraw"
   detail: |
-      Noob Programmer , always getting errors everywhere when typing the codes.<br>
-      Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.
+      <p>Noob Programmer , always getting errors everywhere when typing the codes.</p>
+      <p>Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.</p>
 
 
 - nama: "Habib Mustofa"
   photo: "https://github.com/habibmustofa.png?size=200"
-  url1: "https://www.habib-mustofa.com/"
+  url1: "https://www.habib-mustofa.com"
   url2: "https://github.com/habibmustofa"
   detail: |
-      Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript.<br>
-      Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.
+      <p>Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript.</p>
+      <p>Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.</p>
+
+
+- nama: "se7entime"
+  photo: "https://cdn5.telesco.pe/file/dF8YE6Nu81CbhS9wWHSuo1Eu0tZRq0YAfGcDc5C7sFGzPJLj1wfzRM8WWqo8yg7sUMq1dG3M0gF5sJ_bljSkEKjJKNJToOknz0RZ5rSZhzZPIEii7gGuOTu12BaeB_XeHYBAzkeWvRl24ngXeIeKiYDwGyPyr5ccaRTgsnd2KcaHfZxFmy8p0iPR-Rrp1xHjdy_VClv3l0oHNlHmev6QNqFLa7S-kV69rOrk1Gi88LUFyJh8PNZInhp9a8NsJL59UvC6S5xaMbxn6xDwohWLgOrBqo38NfPv-dWhoMZYF41XpsypvAKah-mU9oUELAHoX9Gkq9BmtSNEubvAoFpbbw.jpg?size=200"
+  url1: "https://se7entime.wordpress.com"
+  url2:
+  detail: |
+      <blockquote>“Tak perlu menjelaskan tentang dirimu pada siapapun. Karena yang menyukaimu tidak membutuhkannya. Dan yang membencimu tidak akan mempercayainya.”<br>(Ali bin Abi Thalib)</blockquote>
+      <p>Mau Stalking saya? <a href="https://lmddgtfy.net/?q=%22se7entime%22" target="_blank">Silahkan</a>.</p>
