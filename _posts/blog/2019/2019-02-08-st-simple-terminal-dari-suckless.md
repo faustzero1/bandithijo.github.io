@@ -110,6 +110,12 @@ $ sudo make install
 ```
 Nanti akan terbuat file binary yang bernama `st`.
 
+    Kalau ingin dibuild lagi secara **clean**.
+
+    ```
+    $ sudo make clean install
+    ```
+
 <br>
 <br>
 Pada versi `0.8.1` ini, St sudah memiliki fitur-fitur bawaan seperti:
