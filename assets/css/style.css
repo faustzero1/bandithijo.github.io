@@ -326,6 +326,7 @@ p.post-title-index {
 
 p.post-title-index a {
     color: #000;
+    border-bottom:none;
 }
 
 p.post-title-index a:hover {
@@ -367,6 +368,7 @@ p.post-details-index {
 
 p.post-details-index a {
     color: #000;
+    border-bottom:none;
 }
 
 p.post-details-index-pin {
@@ -384,6 +386,7 @@ p.post-details-index-pin {
 
 p.post-details-index-pin a {
     color: #000;
+    border-bottom:none;
 }
 
 p.post-details-index-pin:before {
@@ -894,6 +897,8 @@ p.notif-post {
     font-size: 10px;
     font-weight: bold;
     /* animation: 1s blink infinite; */
+    position: relative;
+    top: -1px;
 }
 
 .voice {
@@ -905,9 +910,11 @@ p.notif-post {
     font-size: 10px;
     /* font-weight: bold; */
     /* animation: 1s blink infinite; */
+    position: relative;
+    top: -1px;
 }
 
-.emblem1 {
+.emblem-l {
     background-color: transparent;
     border: 1px solid #FFF;
     border-radius: 5px 0 0 5px;
@@ -916,7 +923,7 @@ p.notif-post {
     padding: 5px 5px 5px 5px;
 }
 
-.emblem2 {
+.emblem-r {
     background-color: #FFF;
     border: 1px solid #FFF;
     border-radius: 0 5px 5px 0;
@@ -926,14 +933,16 @@ p.notif-post {
 }
 
 .tags-hollow {
-    background: #FFF;
-    border: 1px solid #000;
+    background: transparent;
+    border: 1px solid #8B8B8B;
     border-radius: 3px;
     padding: 2px 3px;
     margin-left: 2px;
-    color: #000;
+    color: #8B8B8B;
     font-size: 10px;
     font-weight: bold;
+    position: relative;
+    top: -1px;
 }
 
 .tags-on {
