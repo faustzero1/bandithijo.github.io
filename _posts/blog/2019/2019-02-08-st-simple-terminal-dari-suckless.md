@@ -81,21 +81,21 @@ $ cd st
 Secara default paket `st-0.8.1` akan berisi seperti ini.
 ```
 total 292
--rw-r--r-- 1  1036 arg.h
--rw-r--r-- 1 20114 config.def.h
--rw-r--r-- 1   602 config.mk
--rw-r--r-- 1  7158 FAQ
--rw-r--r-- 1   732 LEGACY
--rw-r--r-- 1  1834 LICENSE
--rw-r--r-- 1  1253 Makefile
--rw-r--r-- 1   723 README
--rw-r--r-- 1  3667 st.1
--rw-r--r-- 1 55693 st.c
--rw-r--r-- 1  2835 st.h
--rw-r--r-- 1  3685 st.info
--rw-r--r-- 1   458 TODO
--rw-r--r-- 1  1039 win.h
--rw-r--r-- 1 44048 x.c
+-rw-r--r--  1036 arg.h
+-rw-r--r-- 20114 config.def.h
+-rw-r--r--   602 config.mk
+-rw-r--r--  7158 FAQ
+-rw-r--r--   732 LEGACY
+-rw-r--r--  1834 LICENSE
+-rw-r--r--  1253 Makefile
+-rw-r--r--   723 README
+-rw-r--r--  3667 st.1
+-rw-r--r-- 55693 st.c
+-rw-r--r--  2835 st.h
+-rw-r--r--  3685 st.info
+-rw-r--r--   458 TODO
+-rw-r--r--  1039 win.h
+-rw-r--r-- 44048 x.c
 ```
 
 9. Saya memilih untuk me-*rename* file `config.def.h` daripada meng-*copy* nya.
