@@ -18,10 +18,10 @@ permalink: '/tags/'
         {% if group == null or group == post.group %}
           {% if post.category == 'blog' %}
           <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></a>&nbsp;<span class="tags-hollow">BLOG</span></p>
-          <p class="post-details-index">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</p>
+          <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
           {% elsif post.category == 'vlog' %}
           <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></a>&nbsp;<span class="tags-hollow">VLOG</span></p>
-          <p class="post-details-index">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</p>
+          <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
           {% endif %}
         {% endif %}
       {% endif %}

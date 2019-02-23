@@ -19,7 +19,7 @@ permalink: '/blog/'
   {% for post in posts reversed %}
   {% if post.pin == true  %}
     <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
-    <p class="post-details-index-pin">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+    <p class="post-details-index-pin"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
   {% elsif post.pin == nil %}
   {% endif %}
   {% endfor %}
@@ -39,13 +39,13 @@ permalink: '/blog/'
         {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.blog %}
         {% if post.title contains artikel_baru[0] %}
           <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+          <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% elsif post.title contains artikel_baru[1] %}
           <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+          <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
           <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
-          <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+          <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% endif %}
       {% endif %}
     {% endfor %}
@@ -69,7 +69,7 @@ permalink: '/blog/'
     {% for post in year.items %}
       {% if post.category == 'blog' and post.pin == nil %}
         <p class="post-title-index">+&nbsp;<a style="border-bottom:none;" href="{{ post.url }}">{{ post.title }}</a></p>
-        <p class="post-details-index">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</p>
+        <p class="post-details-index"><a style="border-bottom:none;" href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
       {% endif %}
     {% endfor %}
   {% endfor %}
