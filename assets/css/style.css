@@ -806,6 +806,12 @@ p.kalender-item.on {
 }
 
 p.kalender-item.off {
+    border: 1px solid #B8B8B8 !important;
+    background:#E0E0E0 !important;
+    color:#B8B8B8 !important;
+}
+
+p.kalender-item.next {
     border: 1px dashed #B8B8B8 !important;
     background:#FFF !important;
     color:#B8B8B8 !important;
