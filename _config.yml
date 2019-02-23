@@ -20,7 +20,7 @@ baseurl: '' # the subpath of your site, e.g. /blog
 url: https://bandithijo.com
 site: bandithijo.com
 author: Rizqi Nur Assyaufi
-keywords: bandithijo, rizqi nur assyaufi, arch linux, vim, i3wm
+keywords: bandithijo, rizqi nur assyaufi, arch linux, vim, i3wm, jekyll, thinkpad
 
 # Missing timezone in metadata date can lead to wrong date in url
 timezone: Asia/Makassar
