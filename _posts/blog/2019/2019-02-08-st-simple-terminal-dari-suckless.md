@@ -106,14 +106,9 @@ File konfig header ini berisi konfigurasi untuk font style, font size, fungsi ke
 
 10. Selanjutnya, bisa coba di compile dulu. Sekedar memastikan bisa di compile saja.
 ```
-$ make
+$ sudo make install
 ```
 Nanti akan terbuat file binary yang bernama `st`.
-
-    Kemudian untuk menginstallnya ke dalam sistem.
-    ```
-    $ sudo make install
-    ```
 
 <br>
 <br>
