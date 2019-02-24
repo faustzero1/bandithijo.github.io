@@ -16,19 +16,19 @@ kalender:
   judul: 'SEMESTER GENAP 2018/2019'
 
 data:
-- tanggal: '21/01 - 23/02'
+- tanggal: '21/01-23/02'
   status: 'off'
   detail: 'Masa Pembayaran Daftar Ulang Semester Genap 2018/2019'
 
-- tanggal: '21/01 - 23/02'
+- tanggal: '21/01-23/02'
   status: 'off'
   detail: 'Masa Konsultasi Akademik (Perwalian) dan Pengisian KRS Online'
 
-- tanggal: '25/02 - 20/07'
+- tanggal: '25/02-20/07'
   status: 'next'
   detail: 'Perkuliahan Semester Genap 2018/2019'
 
-- tanggal: '08/07 - 20/07'
+- tanggal: '08/07-20/07'
   status: 'next'
   detail: 'Ujian Akhir Semester (UAS) Genap 2018/2019'
 

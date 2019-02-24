@@ -796,8 +796,8 @@ p.kalender-item {
     margin: auto;
     padding: 5px !important;
     /* untuk indentasi title*/
-    padding-left: 104px !important;
-    text-indent: -92px !important;
+    padding-left: 90px !important;
+    text-indent: -81px !important;
 }
 
 p.kalender-item.on {
@@ -852,8 +852,8 @@ p.rundown-item {
     margin: 10px 0 !important;
     padding: 5px !important;
     /* untuk indentasi title*/
-    padding-left: 104px !important;
-    text-indent: -92px !important;
+    padding-left: 90px !important;
+    text-indent: -82px !important;
 }
 
 p.rundown-item.on {
@@ -955,7 +955,7 @@ p.notif-post {
     background: transparent;
     border: 1px solid #000;
     border-radius: 3px;
-    padding: 2px 3px;
+    padding: 2px 10px;
     margin-left: 2px;
     color: #000;
     font-size: 90%;
@@ -981,7 +981,7 @@ p.notif-post {
     background: transparent;
     border: 1px solid #B8B8B8;
     border-radius: 3px;
-    padding: 2px 3px;
+    padding: 2px 10px;
     margin-left: 2px;
     color: #B8B8B8;
     font-size: 90%;
