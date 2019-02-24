@@ -952,6 +952,19 @@ p.notif-post {
 }
 
 .tags-on {
+    background: transparent;
+    border: 1px solid #000;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #000;
+    font-size: 90%;
+    font-weight: normal;
+    position: relative;
+    top: -1px;
+}
+
+.tags-on-btn {
     background: #FFF;
     border: 1px solid #000;
     border-radius: 3px;
@@ -971,6 +984,19 @@ p.notif-post {
     padding: 2px 3px;
     margin-left: 2px;
     color: #B8B8B8;
+    font-size: 90%;
+    font-weight: normal;
+    position: relative;
+    top: -1px;
+}
+
+.tags-off-btn {
+    background: #B8B8B8;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 2px 3px;
+    margin-left: 2px;
+    color: #FFF;
     font-size: 90%;
     font-weight: normal;
     position: relative;
