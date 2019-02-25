@@ -1657,9 +1657,9 @@ a.disqus_button {
     #header .container .logo {
         float: none;
         text-align: center;
-        width: 220px;
+        width: 300px;
         margin: auto;
-        padding-top: 20px;
+        padding-top: 30px;
     }
 
     #header .container .title {
@@ -1674,7 +1674,7 @@ a.disqus_button {
 
     #header .container .description {
         text-align: center;
-        margin: 15px 20px 35px 20px;
+        margin: 15px 20px 40px 20px;
     }
 
     .emblem-l {
