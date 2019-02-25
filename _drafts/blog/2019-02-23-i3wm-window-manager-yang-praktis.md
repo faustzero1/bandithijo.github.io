@@ -17,9 +17,11 @@ pin:
 
 # Prakata
 
-Setelah setahun lebih menggunakan **i3** Window Manager, saya merasa sudah waktunya untuk membagikan pengalaman dalam menggunakan Window Manager yang sekaligus merupakan Window Manager pertama yang saya gunakan.
+Setelah setahun lebih menggunakan **i3** Window Manager, saya merasa sudah waktunya untuk membagikan pengalaman dalam menggunakan Window Manager yang sekaligus merupakan Window Manager pertama yang saya gunakan sehari-hari.
 
-Berdasarkan catatan bandithijo.com/vlog, saya melihat video yang didalamnya sudah menggunakan i3wm, pada minggu terakhir di bulan Oktober tahun 2017.
+Berdasarkan daftar log video pada [bandithijo.com/vlog]({{ site.url }}/vlog/){:target="_blank"}, saya menggunakan i3wm pada 30 Oktober 2017.
+
+Saya merasa perlu untuk membuat catatan mengenai apa saja yang sudah saya manfaatkan dan pergunakan dengan i3 Wndow Manager. Mungkin dari catatan ini, teman-teman yang membaca mendapatkan informasi yang subjektif dari sudut pandang saya sebagai pengguna. Jujur saja, saya pun sangat menyukai tulisan-tulisan yang mengulas tentang suatu teknologi dari sudut pandang pengguna.
 
 
 # Referensi

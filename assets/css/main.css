@@ -1,20 +1,23 @@
 /* ---------------------------------------------------------------------------
-Template: RumputIjo
+Template: BanditHijo (R)-Chive
 Author  : Rizqi Nur Assyaufi
 Email   : bandithijo@gmail.com
-
-Template ini terinspirasi dari TechJunkie dari Styleshout.
+Created : Maret 2018
 --------------------------------------------------------------------------- */
 
-/* FONTS */
-/* @import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory); */
-/* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
-@import url(/assets/fonts/ubuntu.css);
-@import url(/assets/fonts/Give-You-Glory.css);
-@import url(/assets/fonts/TypoPRO-FantasqueSansMono.css);
+@import
+    /* FONTS */
+    /* url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory), */
+    /* url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css), */
+    url(/assets/fonts/ubuntu.css),
+    url(/assets/fonts/Give-You-Glory.css),
+    url(/assets/fonts/TypoPRO-FantasqueSansMono.css),
 
-/* CODE COLORSCHEME */
-@import url(/assets/css/solarizeddark.css);
+    /* CODE COLORSCHEME */
+    url(/assets/css/solarizeddark.css),
+
+    /* PRELOAD */
+    url(/assets/css/preload.css);
 
 body {
     background: #F3EBE0;
