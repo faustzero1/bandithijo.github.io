@@ -1628,6 +1628,7 @@ a.disqus_button {
     }
 
     #header {
+        margin-top: 49px;
         padding-top: 0;
     }
 
@@ -1664,16 +1665,16 @@ a.disqus_button {
     #header .container .title {
         text-align: center;
         margin: 5px 20px;
+        display: none;
     }
 
     #header .container .title h1 {
         font-size: 220%;
     }
 
-
     #header .container .description {
         text-align: center;
-        margin: 5px 20px 35px 20px;
+        margin: 15px 20px 35px 20px;
     }
 
     .emblem-l {
@@ -1689,6 +1690,26 @@ a.disqus_button {
     #header .nav .toggle {
         display: block;
         cursor: pointer;
+        margin: 0 auto;
+        padding: 5px 0;
+        /* FIXED NAVBAR */
+        position: fixed;
+        top: 0;
+        z-index: 100;
+    }
+
+    #header .nav .toggle .menu .menu-title {
+        display: inline;
+        float: left;
+        margin: -2px 0 0 15px;
+        font-size: 28px;
+        cursor: default;
+    }
+
+    #header .nav .toggle .menu img {
+        display: inline;
+        float: right;
+        margin: 4px 15px 0 0;
     }
 
     #header .nav ul {
@@ -1696,6 +1717,10 @@ a.disqus_button {
         margin: 0;
         padding: 0;
         display: none;
+        /* FIXED NAVBAR */
+        position: fixed;
+        top: 50px;
+        z-index: 100;
     }
 
     #header .nav ul.active {
@@ -1940,10 +1965,6 @@ a.disqus_button {
 
     .post-nav {
         display: flex;
-    }
-
-    .post-nav-peta-angkot {
-        display: grid;
     }
 
 

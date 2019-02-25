@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/02/25'
+  url:
+  detail: |
+      Merubah tampilan navigasi bar menu pada tampilan mobile
+
 - tanggal: '19/02/23'
   url:
   detail: |
