@@ -796,8 +796,8 @@ p.kalender-item {
     margin: auto;
     padding: 5px !important;
     /* untuk indentasi title*/
-    padding-left: 90px !important;
-    text-indent: -81px !important;
+    padding-left: 86px !important;
+    text-indent: -79px !important;
 }
 
 p.kalender-item.on {
@@ -852,8 +852,8 @@ p.rundown-item {
     margin: 10px 0 !important;
     padding: 5px !important;
     /* untuk indentasi title*/
-    padding-left: 90px !important;
-    text-indent: -82px !important;
+    padding-left: 86px !important;
+    text-indent: -79px !important;
 }
 
 p.rundown-item.on {

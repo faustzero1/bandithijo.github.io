@@ -1,7 +1,6 @@
 @font-face {
     font-family:  'TypoPRO Fantasque Sans Mono';
-    src:          local('Fantasque Sans Mono'),
-                  url('/assets/fonts/TypoPRO-FantasqueSansMono-Regular.woff') format('woff');
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Regular.woff') format('woff');
     font-style:   normal;
     font-weight:  normal;
     font-stretch: normal;
@@ -10,8 +9,7 @@
 
 @font-face {
     font-family:  'TypoPRO Fantasque Sans Mono Bold';
-    src:          local('Fantasque Sans Mono'),
-                  url('/assets/fonts/TypoPRO-FantasqueSansMono-Bold.woff') format('woff');
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-Bold.woff') format('woff');
     font-style:   normal;
     font-weight:  bold;
     font-stretch: normal;
@@ -20,8 +18,7 @@
 
 @font-face {
     font-family:  'TypoPRO Fantasque Sans Mono Bold Italic';
-    src:          local('Fantasque Sans Mono'),
-                  url('/assets/fonts/TypoPRO-FantasqueSansMono-BoldItalic.woff') format('woff');
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-BoldItalic.woff') format('woff');
     font-style:   italic;
     font-weight:  bold;
     font-stretch: normal;
@@ -30,8 +27,7 @@
 
 @font-face {
     font-family:  'TypoPRO Fantasque Sans Mono Italic';
-    src:          local('Fantasque Sans Mono'),
-                  url('/assets/fonts/TypoPRO-FantasqueSansMono-RegularItalic.woff') format('woff');
+    src:          url('/assets/fonts/TypoPRO-FantasqueSansMono-RegularItalic.woff') format('woff');
     font-style:   italic;
     font-weight:  normal;
     font-stretch: normal;
