@@ -14,6 +14,7 @@ permalink: '/vlog/'
     <img class="post-header-img" src="/assets/img/logo/logo_pin.svg" style="width:35px;">
     <h3 style="font-size:2.5em;margin-bottom:0;">Pinned Post</h3>
   </div><!-- clear:both -->
+  <div style="clear:both;position:relative;top:-5px;">
   {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'vlog'" %}
   {% for post in posts reversed %}
   {% if post.pin == true and post.voice == nil %}
@@ -26,6 +27,7 @@ permalink: '/vlog/'
   {% endif %}
   {% endfor %}
   {% endif %}<!-- pin == true -->
+  </div><!-- clear:both -->
 
   <!-- REGULAR POSTS -->
   {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'vlog'" %}
