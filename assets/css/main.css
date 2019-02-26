@@ -1626,10 +1626,6 @@ a.disqus_button {
 
 /* Untuk mengcover layar di bawah hd */
 @media (max-width: 1024px) {
-    body {
-        padding-top: 49px;
-    }
-
     .container {
         max-width: 100%;
     }
@@ -1657,6 +1653,7 @@ a.disqus_button {
     }
 
     #header .container {
+        padding-top: 49px;
         background: #008352 url('') no-repeat;
     }
 
@@ -1708,7 +1705,7 @@ a.disqus_button {
     #header .nav .toggle .menu .menu-title {
         display: inline;
         float: left;
-        margin: -2px 0 0 15px;
+        margin: 0 0 0 15px;
         font-size: 28px;
         cursor: default;
     }
