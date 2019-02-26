@@ -1470,6 +1470,14 @@ a.disqus_button {
     top: -15px;
 }
 
+
+/* CLEARFIX --------------------------------------------------------------- */
+.clearfix::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
 /* ------------------------------------------------------------------------ */
 /*
 ████     ████              ██ ██
@@ -1574,7 +1582,7 @@ a.disqus_button {
     }
 
     #header .logo img {
-        width: 76%;
+        width: 95%;
         /* width: 200px; */
     }
 
@@ -1625,12 +1633,15 @@ a.disqus_button {
 
 /* Untuk mengcover layar di bawah hd */
 @media (max-width: 1024px) {
+    body {
+        padding-top: 49px;
+    }
+
     .container {
         max-width: 100%;
     }
 
     #header {
-        margin-top: 49px;
         padding-top: 0;
     }
 
@@ -1694,6 +1705,7 @@ a.disqus_button {
         cursor: pointer;
         margin: 0 auto;
         padding: 5px 0;
+        overflow: hidden;
         /* FIXED NAVBAR */
         position: fixed;
         top: 0;
