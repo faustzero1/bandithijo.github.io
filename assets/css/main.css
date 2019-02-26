@@ -1691,7 +1691,6 @@ a.disqus_button {
     }
 
     #header .nav .toggle {
-        display: block;
         cursor: pointer;
         margin: 0 auto;
         padding: 5px 0;
@@ -1700,6 +1699,8 @@ a.disqus_button {
         position: fixed;
         top: 0;
         z-index: 100;
+        display: flex;
+        flex-direction: column;
     }
 
     #header .nav .toggle .menu .menu-title {

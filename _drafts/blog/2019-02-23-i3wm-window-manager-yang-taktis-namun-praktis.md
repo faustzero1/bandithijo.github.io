@@ -53,45 +53,45 @@ Window Manager secara umum, terbagi dalam 3 tipe.
 
 Berikut ini adalah tabel dari Window Manager yang akan memberikan gambaran bahwa GNU/Linux tidak hanya GNOME dan KDE.
 
-| <center>Stacking</center> | <center>Tiling</center> | <center>Dynamic</center> |
-| -- | -- | -- |
-| 2bwm | Bspwm | awesome |
-| aewm | EXWM | catwm |
-| AfterStep | Herbstluftwm | dwm |
-| BlackBox | howm | echinus |
-| Compiz | i3 | FrankenWM |
-| cwm | Ion3 | spectrwm |
-| eggwm | Notion | Qtile |
-| Enlightenment | Ratpoison | wmii |
-| evilwm | Stumpwm | xmonad |
-| Fluxbox | subtle |
-| Flwm | sway |
-| FVWM | way-cooler |
-| Gala | WMFS |
-| Goomwwm | WMFS2 |
-| IceWM |
-| jbwm |
-| JWM |
-| Karmen |
-| KWin |
-| lwm |
-| Marco |
-| Metacity |
-| Muffin |
-| Mutter |
-| MWM |
-| Openbox |
-| pawm |
-| PekWM |
-| Sawfish |
-| TinyWM |
-| twm |
-| UWM |
-| Wind |
-| WindowLab |
-| Window Maker |
-| WM2 |
-| Xfwm |
+| <center>No.</center> | <center>Stacking</center> | <center>Tiling</center> | <center>Dynamic</center> |
+| -- | -- | -- | -- |
+| 1 | 2bwm | Bspwm | awesome |
+| 2 | aewm | EXWM | catwm |
+| 3 | AfterStep | Herbstluftwm | dwm |
+| 4 | BlackBox | howm | echinus |
+| 5 | Compiz | i3 | FrankenWM |
+| 6 | cwm | Ion3 | spectrwm |
+| 7 | eggwm | Notion | Qtile |
+| 8 | Enlightenment | Ratpoison | wmii |
+| 9 | evilwm | Stumpwm | xmonad |
+| 10 | Fluxbox | subtle |
+| 11 | Flwm | sway |
+| 12 | FVWM | way-cooler |
+| 13 | Gala | WMFS |
+| 14 | Goomwwm | WMFS2 |
+| 15 | IceWM |
+| 16 | jbwm |
+| 17 | JWM |
+| 18 | Karmen |
+| 19 | KWin |
+| 20 | lwm |
+| 21 | Marco |
+| 22 | Metacity |
+| 23 | Muffin |
+| 24 | Mutter |
+| 25 | MWM |
+| 26 | Openbox |
+| 27 | pawm |
+| 28 | PekWM |
+| 29 | Sawfish |
+| 30 | TinyWM |
+| 31 | twm |
+| 32 | UWM |
+| 33 | Wind |
+| 34 | WindowLab |
+| 35 | Window Maker |
+| 36 | WM2 |
+| 37 | Xfwm |
 
 Untuk detail dari masing-masing Window Manager tersebut dapat teman-teman lihat pada Arch Wiki, [di sini](https://wiki.archlinux.org/index.php/Window_manager){:target="_blank"}.
 
@@ -103,9 +103,22 @@ i3wm, yang saya gunakan termasuk ke dalam jajaran *Tiling* Window Manager. Meski
 
 Berdasarkan data-data di atas,
 
-1. Saya ingin mencoba memasuki dunia selain Desktop Environment. Dunia berbeda yang ternyata sangat luas sekali. Meskipun tidak mungkin saya cicipi semuanya.
+1. Saya ingin mencoba mengenal hal yang baru, selain Desktop Environment. Window Manager adalah dunia berbeda yang ternyata sangat luas sekali. Meskipun tidak mungkin saya cicipi semuanya.
 2. Bnyak fitur-fitur yang terdapat di dalam Desktop Environment yang sebenarnya tidak saya perlukan.
 3. Kebebasan memilih komponen-komponen aplikasi pendukung sistem operasi yang menurut saya lebih baik dari aplikasi pendukung bawaan Desktop Environment.
+
+# Mengapa i3 Window Manager?
+
+Berawal dari melihat video-video YouTube dari [Kai Hendry *channel*](https://www.youtube.com/user/kaihendry){:target="_blank"}. Saya memperhatikan bagaimana ia menggunakan **dwm** Window Manager. Pengalaman yang baru pertama kali saya dapati.
+
+Saat itu, kira-kira inilah yang saya ada dibenak saya.
+
+1. Bagaimana bisa ia terlihat sangat mudah dan nyaman berpindah antar satu *workspace* ke *workspace* menggunakan *keyboard shortcut*?
+2. Bagaimana bisa ia begitu terlihat nyaman melakukan window resize hanya dengan menggunakan *keyboard shortcut*?
+3. Bagaimana bisa ia tidak direpotkan dengan menyusun Window yang sedang terbuka dalam satu *workspace*?
+4. Bagaimana bisa window yang terbuka itu tidak saling bertumpuk satu dengan yang lain?
+
+Sebenarnya, istilah *Tiling* window manager, bukan pertama kali saya dengar. Saya pernah mendengar dari percakapan beberapa teman-teman di group Telegram BGLI (Belajar GNU/Linux Indonesia). Kang [Sucipto](https://sucipto.net){:target="_blank"} pun sudah pernah menawarkan untuk menggunakan *i3wm*, namun saat itu saya belum memahami apa kelebihannya dan keuntungan menggunakan *Tiling* window manager.
 
 
 
