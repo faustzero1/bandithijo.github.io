@@ -1138,7 +1138,7 @@ Saya menggunakan XFCE4-POWER-MANAGER.
 exec --no-startup-id xfce4-power-manager
 ```
 
-Saya menggunakan aplikasi ini karena mudah digunakan, secara dulunya saya adalan XFCE user.
+Saya menggunakan aplikasi ini karena mudah digunakan, secara dulunya saya adalah XFCE user.
 
 Beberapa pemanfaatan aplikasi xfce-power-manager yang pernah saya tuliskan ada [di sini]({{ site.url }}/blog/mengaktifkan-presentasion-mode-xfce4-dari-terminal){:target="_blank"}.
 
