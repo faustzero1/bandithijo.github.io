@@ -1109,7 +1109,7 @@ Saya menggunakan aplikasi bantuan, di antaranya:
 # (lock is bash script from nandavera | i3lock-color)
 # Source: https://github.com/okitavera/dotfiles/blob/master/.bin/lock
 bindsym $mod+Shift+x exec --no-startup-id /usr/bin/lock-dark
-exec_always --no-startup-id killall xautolock ; xautolock -time 15 -locker "/usr/bin/lock-dark" && systemctl suspend
+exec_always --no-startup-id xautolock -time 15 -locker "/usr/bin/lock-dark" && systemctl suspend
 ```
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>X</kbd> untuk mengaktifkan lock screen secara manual. Saya menggunakan aplikasi bantuan yang saya rename menjadi `lock-dark` yang awalnya bernama `lock` buatan Nanda Okitavera yang juga menggunakan backend `i3lock-color`.
@@ -1186,7 +1186,7 @@ Saya menggunakan `compton` sebagai window compositor. Secara sederhaa window com
 
 ```
 # Enable Compton for compositor
-exec --no-startup-id killall compton ; compton --config ~/.config/compton/compton.conf
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
 ```
 
 #### Notification
@@ -1195,7 +1195,7 @@ Sebelumnya saya menggunakan `notify-osd`, namun setelah mengenal `dunst` saya ma
 
 ```
 # Enable Dunst Notifications
-exec --no-startup-id killall dunst ; dunst -config '~/.config/dunst/dunstrc'
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 ```
 
 #### Conky
@@ -1206,7 +1206,7 @@ Ini soal selera dan kebutuhan. Saya perlu dan butuh, jadi mengapa tidak.
 
 ```
 # Start Conky
-exec --no-startup-id killall conky ; conky -c ~/.config/conky/conkyrc
+exec --no-startup-id conky -c ~/.config/conky/conkyrc
 ```
 
 #### Polybar
