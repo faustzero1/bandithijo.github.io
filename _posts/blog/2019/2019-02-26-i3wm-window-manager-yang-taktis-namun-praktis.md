@@ -1389,5 +1389,3 @@ Terima kasih.
 6. [github.com/Airblader/i3](https://github.com/Airblader/i3){:target="_blank"}
 <br>Diakses tanggal: 2019/02/26
 
-7. [](){:target="_blank"}
-<br>Diakses tanggal: 2019/02/26
