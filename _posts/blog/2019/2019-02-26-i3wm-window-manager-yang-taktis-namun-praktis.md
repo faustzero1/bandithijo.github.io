@@ -569,6 +569,8 @@ Sebaliknya, untuk focus kepada Container 1, atau Container 2 saja, atau 3 saja, 
 bindsym $mod+Shift+a focus child
 ```
 
+Pembahasa mengenai layout ini sangat kompleks dan seru sekali. Sepertinya tidak sanggup kalau harus menuliskannya. Mungkin kapan-kapan akan saya buatkan video ulasannya saja.
+
 #### Memanfaatkan Scratchpad
 
 Pada i3wm, kita tidak mengenal *minimize*. Dan memang tidak diperlukan fitur ini.
