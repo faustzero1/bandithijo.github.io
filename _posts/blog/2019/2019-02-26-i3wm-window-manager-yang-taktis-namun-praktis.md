@@ -181,13 +181,19 @@ Saya akan menunjukkan apa saja yang dapat dilakukan dengan menggunakan *keyboard
 
 Pertama kali kita harus menentukan **modifier key**, seperti **leader key** dalam Vim, atau **Prefix** dalam Tmux.
 
-Bisanya tawarannya antara dua, <kbd>SUPER</kbd> dan <kbd>ALT</kbd>.
+Bisanya tawarannya antara dua, tombl <kbd>SUPER</kbd> atau  tombol <kbd>ALT</kbd>.
 
-Saya memilih menggunakan <kbd>SUPER</kbd>.
+Saya memilih menggunakan tombol <kbd>SUPER</kbd> untuk meminimalisir bentrokan dengan *keyboard shortcut* aplikasi GUI yang rata-rata banyak menggunakan tombol <kbd>ALT</kbd>.
 
 ```
 set $mod Mod4
 ```
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saya menggunakan <code>$mod</code> berupa <code>Mod4</code> yang merupakan tombol <kbd>SUPER</kbd>. Sebagaian user i3, adapula yang menggunakan <kbd>ALT</kbd>, namun sangat jarang saya temui.</p>
+</div>
 
 ### Memanggil Terminal
 
@@ -199,12 +205,6 @@ bindsym $mod+Return exec --no-startup-id st
 ```
 
 Dapat dilihat pada kode di atas bahwa, saya menggunakan <kbd>SUPER</kbd>+<kbd>ENTER</kbd> untuk memanggil `st` yang merupakan nama program dari **st** terminal.
-
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Saya menggunakan <code>$mod</code> berupa <code>Mod4</code> yang merupakan tombol <kbd>SUPER</kbd>. Sebagaian user i3, adapula yang menggunakan <kbd>ALT</kbd>, namun sangat jarang saya temui.</p>
-</div>
 
 ### Pemanggil Aplikasi
 
