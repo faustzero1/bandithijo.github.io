@@ -331,7 +331,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h1 {
-  font-size: 32px;
+  font-size: 32px !important;
 }
 
 .markdown-body h1,
@@ -340,11 +340,11 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h2 {
-  font-size: 26px;
+  font-size: 30px !important;
 }
 
 .markdown-body h3 {
-  font-size: 22px;
+  font-size: 28px !important;
 }
 
 .markdown-body h3,
@@ -353,11 +353,11 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h4 {
-  font-size: 18px;
+  font-size: 26px !important;
 }
 
 .markdown-body h5 {
-  font-size: 16px;
+  font-size: 24px !important;
 }
 
 .markdown-body h5,
@@ -366,7 +366,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h6 {
-  font-size: 14px;
+  font-size: 22px !important;
 }
 
 .markdown-body p {

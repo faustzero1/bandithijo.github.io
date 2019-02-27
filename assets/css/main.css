@@ -284,7 +284,7 @@ article.homepage p {
 img.post-header-img {
     width: 30px;
     float: left;
-    margin-top: 10px !important;
+    margin-top: 0 !important;
     margin: 0;
     padding: 0;
     clear: both;

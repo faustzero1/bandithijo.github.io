@@ -32,7 +32,7 @@ groups:
   - id: gohugoid
     nama: Hugo Indonesia
 
-  - id: jekyll_id
+  - id: jekyllID
     nama: Jekyll Indonesia
 
   - id: JAMstackID
