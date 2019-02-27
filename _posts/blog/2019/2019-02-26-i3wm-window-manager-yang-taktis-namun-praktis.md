@@ -222,7 +222,7 @@ Pada contoh di atas, saya menggunakan aplikasi **Rofi** sebagai *application lau
 
 Sebenarnya saya memanfaatkan **dmenu** sebagai *backend* yang berfungsi me-*list* semua aplikasi saya, kemudian Rofi yang bertugas memberikan tampilan seperti di atas.
 
-Jadi, menggunakan **demnu** saja, sebenarnya juga bisa.
+Jadi, menggunakan **dmenu** saja, sebenarnya juga bisa.
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
