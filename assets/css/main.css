@@ -18,6 +18,9 @@ Created : Maret 2018
 /* PRELOAD */
 @import url(/assets/css/preload.css);
 
+/* ADD TO HOMESCREEN */
+@import url(/assets/css/add-to-homescreen.css);
+
 body {
     background: #F3EBE0;
     font: 15px/1.5 'Ubuntu';
