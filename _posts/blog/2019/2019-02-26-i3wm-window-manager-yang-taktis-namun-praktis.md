@@ -1030,7 +1030,7 @@ mode "resize" {
 
 Kalau kita lihat, kombinasi *keyboard shortcut* ini mirip dengan konfigurasi pada "Window Focus". Ya, benar sekali. Namun bedanya, kita perlu mengaktifkan mode Resize terlebih dahulu, untuk dapat menggunakan kombinasi *keyboard shortcut* di atas ini.
 
-Sehingga, walaupun memiliki kombinai *keyboard shortcut* yang sama, namun berada pada mode yang berbeda.
+Sehingga, walaupun memiliki kombinasi *keyboard shortcut* yang sama, namun berada pada mode yang berbeda.
 
 Pada baris di bawahnya, saya menambahkan *keyboard shortcut* untuk keluar dari mode Resize ke mode Default.
 
@@ -1038,7 +1038,7 @@ Keren bukan?
 
 Saya baru menggunakan untuk 1 mode ini saja.
 
-Sekarnag teman-teman pasti sudah mempunyai gambaran, berapa banyak kombinasi *keyboard shortcut8 yang dapat kita buat. Tentunya akan sangat cukup dan memenuhi kebutuhan kita.
+Sekarang teman-teman pasti sudah mempunyai gambaran, berapa banyak kombinasi *keyboard shortcut8 yang dapat kita buat. Tentunya akan sangat cukup dan memenuhi kebutuhan kita.
 
 ### Gaps
 

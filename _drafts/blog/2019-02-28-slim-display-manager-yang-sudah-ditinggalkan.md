@@ -43,5 +43,8 @@ Saya agak heran, karena bukan LightDM yang menduduki peringkat no. 1 saat ini (2
 2. [github.com/data-modul/slim](https://github.com/data-modul/slim){:target="_blank"}
 <br>Diakses tanggal: 2019/02/28
 
-3. [](){:target="_blank"}
+3. [www.slant.co/topics/2053/~best-linux-display-manager](https://www.slant.co/topics/2053/~best-linux-display-manager){:target="_blank"}
+<br>Diakses tanggal: 2019/02/28
+
+4. [wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME](https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME){:target="_blank"}
 <br>Diakses tanggal: 2019/02/28
