@@ -1364,9 +1364,12 @@ Namun, bagi teman-teman yang membutuhkan *workflow* yang efisien dan efektif. Sa
 
 Selama setahun terakhir, saya sudah merasakan manfaatnya. Tentu saja akan terasa sulit pada awalnya. Semua hal juga seperti itu. Jadi, paksakan dan biasakan saja, karena nikmatnya akan kamu petik tidak akan lama lagi.
 
-Banyak sekali hal-hal teknis yang tidak atau belum sempat saya tuliskan.
 
 Tulisan ini bukan merupakan tandingan dari dokumentasi resmi yang sudah ada. i3wm disebut sebagai Window Manager yang memiliki dokumentasi yang baik, lengkap dan *up to date*. Jadi, sangat saya rekomendasikan untuk berekplorasi menggunakan dokumentasi resmi.
+
+Banyak sekali hal-hal teknis yang tidak atau belum sempat saya tuliskan. Seperti halnya aplikasi-aplikasi pendukung yang perlu dijalankan saat startup session, seperti: keyring, ssh-agent, gpg-agent, dll.
+
+Tapi tidak mengapa. Saya yakin teman-teman dapat mencarinya sendiri pada referensi yang lain.
 
 Sekiranya seperti ini saja.
 
