@@ -1116,6 +1116,10 @@ Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>X</kbd> untuk mengaktifk
 
 Saya juga mengeset agar sistem akan mengaktifkan lock screen secara otomatis pada menit ke 15, menggunakan aplikasi `xautolock`.
 
+Atau, apabila terlalu ribet menggunakan script `i3lock-color` dan `lock`, bisa juga menggunakan `slimlock`. Ini adalah aplikasi lock screen yang sudah disediakan oleh [SLiM Display Manager](https://wiki.archlinux.org/index.php/SLiM){:target="_blank"}.
+
+Saya sendiri sudah tidak lagi menggunakan `lightdm` sebagai Display Manager. Saat ini sedang menggunakan `slim`. Karena lebih mudah untuk dikustomisasi.
+
 ### Autostart Application
 
 Untuk membuat aplikasi berjalan secara otomatis saat sistem pertama kali di jalankan, sangat mudah sekali dalam i3wm.
