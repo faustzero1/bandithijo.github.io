@@ -786,6 +786,8 @@ for_window [class="Wine"] border normal 1
 
 Contohnya, seperti di atas. Kalian dapat menambahkan sendiri. Hampir sama seperti *floating* container, hanya berbeda pada parameter border di bagian buntutnya saja.
 
+Atau, dapat pula sekalian ditambahkan pengaturan border pada saat menentukan *floating* container, seperti contoh [di sini](#membuat-default-floating-container).
+
 #### Merubah Title Container
 
 Kita dapat pula merubah-rubah *alignment* dari Title yang ada pada Title Bar.
