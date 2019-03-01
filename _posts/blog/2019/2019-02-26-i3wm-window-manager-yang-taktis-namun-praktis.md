@@ -23,6 +23,16 @@ Berdasarkan daftar log video pada [bandithijo.com/vlog]({{ site.url }}/vlog/){:t
 
 Saya merasa perlu untuk membuat catatan mengenai apa saja yang sudah saya manfaatkan dan pergunakan dengan i3wm. Mungkin dari catatan ini, teman-teman yang membaca mendapatkan informasi yang subjektif dari sudut pandang saya sebagai pengguna. Jujur saja, saya pun sangat menyukai tulisan-tulisan yang mengulas tentang suatu teknologi dari sudut pandang pengguna.
 
+![gambar_18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WpHmyggn/gambar-18.png"}
+
+![gambar_19]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqHpxdJ6/gambar-19.png"}
+
+![gambar_20]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jjtyfXYs/gambar-20.png"}
+
+![gambar_21]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/50P5bFGf/gambar-21.png"}
+
+![gambar_22]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png"}
+
 # Window Manager
 
 Buat temen-temen yang belum mengetahui apa itu Window Manager. Window Manager adalah bagian dari Desktop Environment.
