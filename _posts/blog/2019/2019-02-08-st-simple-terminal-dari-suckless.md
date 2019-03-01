@@ -23,7 +23,7 @@ Ditambah lagi [Donovan Nagel](https://www.i-bsd.com/){:target="_blank"} melalui 
 
 Selama ini saya hanya memanfaatkan **dmenu**, itu pun tidak benar-benar menggunakan dmenu karena saya kombinasikan dengan **Rofi** sebagai application launcher dan banyak hal lainnya.
 
-Saya tertarik menggunakan **dwm**, *Dynamic Window Manager*, sebuah window manager yang dikelola oleh Suckless. Karena kedua orang di atas menggunakan window manager ini. Namun, saya masih menyukai **i3wm** dan belum menemukan jalan buntu.
+Saya tertarik menggunakan **dwm**, *Dynamic Window Manager*, sebuah window manager yang dikelola oleh Suckless. Karena kedua orang di atas menggunakan window manager ini. Namun, saya masih menyukai [**i3wm** dan belum menemukan jalan buntu]({{ site.url }}/blog/i3wm-window-manager-yang-taktis-namun-praktis){:target="_blank"}.
 
 # Permasalahan
 
@@ -163,7 +163,9 @@ Patch yang saya gunakan tidak banyak. Beberapa di antaranya.
 <br>
 **Bagaimana cara menggunakan patch ini?**
 
-Saya melakukan patching secara manual dan tidak menggunakan perintah `patch`. Proses patching inipun tidak sulit, hanya copy dan paste saja. Tidak memerlukan pengetahuan bahasa C.
+Saya melakukan *patching* secara manual dan tidak menggunakan perintah `patch`. Proses *patching* inipun tidak sulit, hanya copy dan paste saja. Tidak memerlukan pengetahuan bahasa C.
+
+Setelah melakukan *patching* jangan lupa di *compile* kembali untuk dapat melihat hasilnya.
 
 **Bagaimana caranya?**
 
