@@ -82,6 +82,18 @@ Proses instalasi Ranger, saya rasa sudah pasti sangat mudah. Hanya tinggal mengg
 $ sudo pacman -S ranger
 ```
 
+Instalasi juga paket-paket tambahan yang diperlukan untuk membuat Ranger lebih "wow".
+
+```
+$ sudo pacman -S highlight odt2txt pdftotext mediainfo
+```
+
+Lalu untuk image preview.
+
+```
+$ sudo pacman -S w3m
+```
+
 ## Membuat App Launcher
 
 Seperti biasa kita perlu membuat `.desktop` agar mudah dipaggil dengan *application launcher* seperti dmenu dan rofi sehingga tidak perlu membuka Terminal terlebih dahulu.
@@ -95,7 +107,7 @@ Name=ranger
 Comment=Launches the ranger file manager
 Icon=ranger
 Terminal=false
-<mark>Exec=termite -e ranger</mark>
+<mark>Exec=st -e ranger</mark>
 Categories=ConsoleOnly;System;FileTools;FileManager
 MimeType=inode/directory;
 </pre>
@@ -130,13 +142,13 @@ Sekarang coba lihat isi dari direktori `~/.config/ranger/` saat ini.
 $ ls -al
 ```
 ```
-drwxr-xr-x   2 bandithijo users  4096 Dec 21 11:43 .
-drwxr-xr-x 238 bandithijo users 49152 Dec 21 11:40 ..
--rw-r--r--   1 bandithijo users 57039 Dec 21 11:43 commands_full.py
--rw-r--r--   1 bandithijo users  2763 Dec 21 11:43 commands.py
--rw-r--r--   1 bandithijo users 23002 Dec 21 11:43 rc.conf
--rw-r--r--   1 bandithijo users 12923 Dec 21 11:43 rifle.conf
--rwxr-xr-x   1 bandithijo users  8326 Dec 21 11:43 scope.sh
+drwxr-xr-x .
+drwxr-xr-x ..
+-rw-r--r-- commands_full.py
+-rw-r--r-- commands.py
+-rw-r--r-- rc.conf
+-rw-r--r-- rifle.conf
+-rwxr-xr-x scope.sh
 ```
 Langkah selanjutnya, kita akan mengkonfigurasi file `rc.conf`.
 

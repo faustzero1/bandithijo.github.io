@@ -112,10 +112,10 @@ Saya mengadopsi desain dari blog lama saya, yang menggunakan template buatan [St
 
 Sederhana dan _old school_ sekali bukan?
 
-Saya memiliki kesan yang sangat baik terhadap bentuk desain _template_ seperti ini. Namun sayangnya, _template_ ini belum menggunakan prinsip _resposive design_. Sehingga sangat kaku dan tidak fleksibel apabila diakses menggunakan _smartphone_ atau _tablet_. Hal tersebut dikarenakan _template_ ini sebagian besar mengguanakn _element_ gambar untuk membangun tampilannya, mulai dari _header_ hingga _footer_.
+Saya memiliki kesan yang sangat baik terhadap bentuk desain _template_ seperti ini. Namun sayangnya, _template_ ini belum menggunakan prinsip _responsive design_. Sehingga sangat kaku dan tidak fleksibel apabila diakses menggunakan _smartphone_ atau _tablet_. Hal tersebut dikarenakan _template_ ini sebagian besar mengguanakn _element_ gambar untuk membangun tampilannya, mulai dari _header_ hingga _footer_.
 
 ## New Template
-Atas dasar kecintaan saya terhadap warna, desain, dan _layout_ dari template sebelumnya, saya memutuskan untuk mencoba meniru desain dari _template_ tersebut. Tentunya sudah menggunakan prinsip _resposive design_. Dari cerita di atas, saya berhasil membuat _template_ ini dengan menggunakan Go _template_, namun saya kurang mengerti untuk mengembangkannya lebih jauh, sehingga saya memutuskan untuk mencoba Jekyll yang menggunakan Liquid untuk membangun _layout_. Dan, jadilah _layout_ yang saya inginkan. Hampir menyerupai _template_ buatan StyleShout.
+Atas dasar kecintaan saya terhadap warna, desain, dan _layout_ dari template sebelumnya, saya memutuskan untuk mencoba meniru desain dari _template_ tersebut. Tentunya sudah menggunakan prinsip _responsive design_. Dari cerita di atas, saya berhasil membuat _template_ ini dengan menggunakan Go _template_, namun saya kurang mengerti untuk mengembangkannya lebih jauh, sehingga saya memutuskan untuk mencoba Jekyll yang menggunakan Liquid untuk membangun _layout_. Dan, jadilah _layout_ yang saya inginkan. Hampir menyerupai _template_ buatan StyleShout.
 
 **HomePage**
 ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ttrb6yfkt/gambar_03.png"}
