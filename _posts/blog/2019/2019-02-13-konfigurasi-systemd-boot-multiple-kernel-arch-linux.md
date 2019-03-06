@@ -122,7 +122,7 @@ Lantas, untuk melihat pilihan menu kernel dari systemd-boot, cukup dengan meneka
 
 # Tips Menambah Kernel
 
-Beberapa bulan terakhir ini banyak dari teman-teman yang saya dapati beru bermigrasi menggunakan Arch Linux.
+Beberapa bulan terakhir ini banyak dari teman-teman yang saya dapati baru bermigrasi menggunakan Arch Linux.
 
 Saya akan membagikan tips sebagai pengguna yang lebih dahulu mencicipi Arch Linux sejak pertengahan 2016.
 
