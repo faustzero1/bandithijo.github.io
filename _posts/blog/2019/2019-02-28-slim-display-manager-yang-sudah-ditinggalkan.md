@@ -40,6 +40,11 @@ Dengan selisih yang tidak terlampau jauh, tidak menutup kemungkinan LightDM akan
 
 Namun, saya tetap ingin mencoba SLiM. Karena rasa penasaran saya atas apa yang membuat SLiM masih menduduki peringkat pertama, padahal telah 5 tahun ditinggalkan.
 
+## Kelebihan dan Kekurangan SLiM
+
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1N5Z5SM/gambar-08.png"}
+<p class="img-caption">Sumber: <a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">Slant.co - SLiM Pros and Cons</a></p>
+
 # Pengecekan Paket
 
 Karena paket SLiM display manager ini termasuk paket yang sudah tidak lagi dimaintain oleh upstream developer, tentunya akan sangat penting untuk mengetahui apakah paket yang akan kita gunakan memiliki *bug reports*, *security reposts*, dll.
@@ -261,6 +266,171 @@ console_cmd         /usr/bin/xterm -C -fg white -bg black +sb -T "Console login"
 </pre>
 
 **suspend**, secara default dalam keadaan tidak aktif.
+
+## Instalasi Themes
+
+Instalasi themes pada SLiM display manager termasuk sangat mudah.
+
+Hanya perlu memindahkan atau mengcopy paste direktori themes ke direktori `/usr/share/slim/themes`.
+
+Salah satu contoh direktori SLiM themes, biasanya mengandung sedikitnya 3 file.
+
+```
+darky_solarized_dark_yellow
+.
+├── background.png
+├── panel.png
+└── slim.theme
+```
+
+Saya menggunakan theme `darky_solarized_dark_yellow` yang merupakan hasil modifikasi dari `darky_pink` milik [GitHub/adi1090x/slim_themes](https://github.com/adi1090x/slim_themes){:target="_blank"}.
+
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4x6g4MJs/gambar-09.png"}
+<p class="img-caption">Themes: darky_pink</p>
+
+![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MGz8nDTR/gambar-10.png"}
+<p class="img-caption">Themes: darky_solarized_dark_yellow</p>
+
+Cara instalasi themes sangat mudah.
+
+Secara garis besar proses instalasi dibagi dalam 2 tahap.
+
+1. Copy direktori themes ke dalam direktori `/usr/share/slim/themes/`
+2. Merubah nilai dari variabel `current_theme` pada file `/etc/slim.conf`
+
+### Copy Direktori Themes
+
+```
+$ sudo cp -rvf <dir_themes> /usr/share/slim/themes
+```
+
+Sebagai contoh, saya memiliki themes bernama `darky_solarized_dark_yellow`.
+
+```
+$ sudo cp -rvf darky_solarized_dark_yellow /usr/share/slim/themes
+```
+
+Kemudian lakukan pengecekan pada direktori `/usr/share/slim/themes/` apakah sudah berhasil dicopy.
+
+```
+$ ll /usr/share/slim/themes
+```
+
+<pre>
+<mark>drwxr-xr-x root root darky_solarized_dark_yellow</mark>
+drwxr-xr-x root root default
+</pre>
+
+Nah, kalau sudah ada, berarti sudah terinstall.
+
+### Menginisialisasi Nama Themes
+
+Apabila langkah copy direktori themes sudah dilakukan, selanjutnya tinggal mengganti nilai dari variabel `current_theme` pada file `/etc/slim.conf` yang tadinya bernilai `default` menjadi `<nama_theme>`.
+
+```
+$ sudo vim /etc/slim.conf
+```
+
+<pre>
+...
+...
+
+# current theme, use comma separated list to specify a set to
+# randomly choose from
+<mark>current_theme        darky_solarized_dark_yellow</mark>
+
+...
+...
+</pre>
+
+
+## Cara Mudah Instalasi Themes
+
+Untuk mempermudah kedua tahap di atas, saya membuatkan shell script agar praktis.
+
+```
+$ cd <dir_themes>
+$ touch install.sh
+$ chmod +x install.sh
+$ vim install.sh
+```
+```
+#!/bin/env sh
+
+#  ██████                           ██ ██   ██   ██      ██ ██    ██
+# ░█░░░░██                         ░██░░   ░██  ░██     ░██░░    ░░
+# ░█   ░██   ██████   ███████      ░██ ██ ██████░██     ░██ ██    ██  ██████
+# ░██████   ░░░░░░██ ░░██░░░██  ██████░██░░░██░ ░██████████░██   ░██ ██░░░░██
+# ░█░░░░ ██  ███████  ░██  ░██ ██░░░██░██  ░██  ░██░░░░░░██░██   ░██░██   ░██
+# ░█    ░██ ██░░░░██  ░██  ░██░██  ░██░██  ░██  ░██     ░██░██ ██░██░██   ░██
+# ░███████ ░░████████ ███  ░██░░██████░██  ░░██ ░██     ░██░██░░███ ░░██████
+# ░░░░░░░   ░░░░░░░░ ░░░   ░░  ░░░░░░ ░░    ░░  ░░      ░░ ░░  ░░░   ░░░░░░
+
+# Copyright (C) 2019 BanditHijo
+#
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option)
+# any later version.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+# more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see http://www.gnu.org/licenses/.
+
+# Author  : Rizqi Nur Assyaufi
+# Website : https://bandithijo.com
+# Email   : bandithijo@gmail.com
+# Created : 2019/02
+
+# README
+# File install.sh ini adalah shell script sederhana untuk meng-install/update
+# theme yang akan kita gunakan.
+
+# CARA INSTALASI
+# File install.sh ini harus berada di dalam direktori theme.
+# Kemudian, tinggal menjalankan dengan perintah:
+#
+# $ ./install.sh
+#
+# Dibutuhkan password root.
+
+namaDir=`basename $PWD`
+
+# mendefinisikan nama tema
+namaTema=$namaDir
+
+# membuat direktori tema pada dir. slim/themes/
+sudo mkdir -p /usr/share/slim/themes/$namaTema
+echo -e '\n[ DONE ] Direktori tema:' $namaTema 'berhasil dibuat!'
+
+# mengcopy seluruh isi file ke dalam dir. slim/themes/
+sudo cp * /usr/share/slim/themes/$namaTema
+echo '[ DONE ] File-file tema berhasil dicopy ke dir. slim/themes'
+
+# menginstall tema
+sudo sed -i "s/^current_theme.*$/current_theme        $namaTema/g" /etc/slim.conf
+echo '[ DONE ] Berhasil memasang tema:' $namaTema 'pada slim.conf'
+```
+
+**Perhatian!**, letakkan file shell script ini di dalam direktori themes.
+
+Setelah itu, tinggal menjalankannya.
+
+```
+$ ./install.sh
+```
+
+```
+[sudo] password for bandithijo: ******
+
+[ DONE ] Direktori tema: darky_solarized_dark_yellow berhasil dibuat!
+[ DONE ] File-file tema berhasil dicopy ke dir. slim/themes
+[ DONE ] Berhasil memasang tema: darky_solarized_dark_yellow pada slim.conf
+```
 
 
 # Pesan Penulis
