@@ -117,6 +117,25 @@ Fungsinya sama saja, hanya berbeda tampilan.
 
 Sejak menggunakan `nmtui`, saya tidak memerlukan lagi `nm-applet`. Sehingga membuat saya terbebas dari menggunakan trayicon.
 
+## Memanfaatkan Rofi untuk Interface NetworkManager
+
+Saya tidak menggunakan trayicon untuk memilih network dan memanggil Network Manager Settings. Saya lebih senang tidak menggunakan trayicon agar tampilan desktop tetap clean dan tidak terlalu banyak icon yang tidak konvergen dengan theme.
+
+Sebelumnya, saya menggunakan aplikasi `nmtui` untuk melakukan konfigurasi jaringan, seperti: memilih-milih SSID. Namun, baru-baru saja saya menggunakan `networkmanager_dmenu`.
+
+Untuk memanggilnya, saya menggunakan <kbd>SUPER</kbd>+<kbd>F8</kbd>.
+
+```
+# Network Manager Dmenu
+bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
+```
+
+Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
+
+![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bvPvMbSF/gambar-17.png"}
+<p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
+
+
 # Pesan Penulis
 
 Sebaik-baik dokumentasi adalah yang ditulis dan dikelola secara aktif oleh developer dari aplikasi yang bersangkutan.
