@@ -252,7 +252,7 @@ font pango:Fantasque Sans Mono 10
 
 ### Window Container
 
-Pada i3wm, Window akan saya sebut sebagai Container. Ya, sesuai dengan penamannya "kontainer" yang berarti tidak hanya dapat menampung 1 buah Window, namun dapat menampung banyak Window dalam 1 Container. Sehingga akan lebih cocok kalau disebut sebagai Container.
+Pada i3wm, Window akan saya sebut sebagai Container. Ya, sesuai dengan penamaannya "kontainer" yang berarti tidak hanya dapat menampung 1 buah Window, namun dapat menampung banyak Window dalam 1 Container. Sehingga akan lebih cocok kalau disebut sebagai Container.
 
 #### Berpindah Focus Container
 
