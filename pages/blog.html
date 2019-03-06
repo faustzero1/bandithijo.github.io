@@ -26,6 +26,7 @@ permalink: '/blog/'
   {% endif %}<!-- pin == true -->
   {% endcomment %}
 
+  <div style="clear:both;margin-top:-10px;"></div><!-- matikan jika ada pinned post -->
 
   <!-- REGULAR POSTS -->
   {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
