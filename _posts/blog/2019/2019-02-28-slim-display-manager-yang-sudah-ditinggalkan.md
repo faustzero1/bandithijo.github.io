@@ -283,7 +283,14 @@ darky_solarized_dark_yellow
 └── slim.theme
 ```
 
-Saya menggunakan theme `darky_solarized_dark_yellow` yang merupakan hasil modifikasi dari `darky_pink` milik [GitHub/adi1090x/slim_themes](https://github.com/adi1090x/slim_themes){:target="_blank"}.
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+
+<p>Saya menggunakan theme <b>darky_solarized_dark_yellow</b> yang merupakan hasil modifikasi dari <b>darky_pink</b> milik <a href="https://github.com/adi1090x/slim_themes" target="_blank">GitHub/adi1090x/slim_themes</a></p>
+</div>
+
+
 
 ![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4x6g4MJs/gambar-09.png"}
 <p class="img-caption">Themes: darky_pink</p>
