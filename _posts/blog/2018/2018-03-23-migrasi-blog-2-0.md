@@ -17,7 +17,8 @@ pin:
 ## CMS
 
 ### WordPress
-website: [wordpress.com](https://www.wordpress.com){:target="_blank"}
+
+Website: [wordpress.com](https://www.wordpress.com){:target="_blank"}
 
 ![gambar8]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/jf83v1r3x/gambar_08.png"}
 
@@ -28,13 +29,15 @@ Dengan menggunakan WordPress, saya belajar mengenal berbagai macam hal yang berk
 Dengan WordPress, tidak begitu kesulitan bagi saya untuk memodifikasi WordPress _theme_ yang saya unduh dari _official website_ karena sebelum-sebelumnya saya memang sudah mengenal HTML dan CSS sejak masih SMA.
 
 ### Blogspot
-website: [blogger.com](https://www.blogger.com){:target="_blank"}
+
+Website: [blogger.com](https://www.blogger.com){:target="_blank"}
 
 ![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/l712pxv19/gambar_09.png"}
 
 Singkat cerita, tahun 2012, saya berkeinginan untuk mencoba _platform_ lain. Saya memutuskan untuk berpindah _platform_ dari WordPress dan beralih menggunakan Blogger atau yang lebih dikenal dengan Blogspot, sebuah CMS yang dipayungin oleh Google. Saya cukup lama menggunakan Blogspot, hingga 2018 Maret, tepat dimana saya pun bermigrasi untuk yang kedua kalinya.
 
 ## Static Site Generator
+
 Sejak 2017, saya mendengar beberapa teman-teman di komunitas GNU/Linux, menulis artikel-artikel mereka menggunakan _Static Site Generator_. Saya pun tertarik dan mulai mencari tahu sendiri dengan modal percakapan yang pernah saya tangkap, yaitu "menggunakan Hexo". Saya pun mencoba mencari tahu _platform_ _static site generator_ yang bernama Hexo. Dan mulai saat inilah keinginan untuk bermigrasi ke _platform_ lain dimulai. Terlebih lagi dengan menggunakan _statis site generator_ kita dapat meletakkan _source_ dari blog kita di GitHub dan membuatnya menjadi GitHub _page_ yang berdomain `username.github.io`.
 
 Ketertarikan saya dengan _Static Site Generator_ karena :
@@ -44,8 +47,12 @@ Ketertarikan saya dengan _Static Site Generator_ karena :
 4. Semua orang ~~tidak~~ dapat membuatnya dengan mudah.
 
 ### Hexo
-language: JavaScript<br>
-website: [hexo.io](https://hexo.io/){:target="_blank"}
+
+Language: JavaScript
+
+Templates: EJS, Pug, Haml, Swig, Nunjucks, Mustache, Handlebars, Twig, Marko
+
+Website: [hexo.io](https://hexo.io/){:target="_blank"}
 
 ![gambar10]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/8seapmb8t/gambar_10.png"}
 
@@ -54,8 +61,12 @@ _Static Site Generator_ ini, adalah yang pertama kali memperkenalkan saya tentan
 Untuk proses produksi, seperti penerbitan tulisan saya tidak mengalami kendala, karena saya sudah terbiasa menulis menggunakan format Markdown. Konvensi lain seperti pengaturan _page_, _post_, _draft_, _assets_, dll, tidak membuat saya kebingungan. Namun, begitu sampai tahap "_Build your own theme from scratch_", inilah tahap dimana saya mulai kebingungan dengan _layout convention_ yang dimiliki oleh Hexo. Saya yakin, saya kebingungan karena ini pertama kalinya saya mengenal _layout formating_ menggunakan EJS (_Embedded JavaScript_). Karena kesulitan ini saya mencoba untuk beralih mencoba _static site generator_ lain, yaitu Hugo.
 
 ### Hugo
-language: Go<br>
-website: [gohugo.io](https://gohugo.io/){:target="_blank"}
+
+Language: Go
+
+Templates: Go
+
+Website: [gohugo.io](https://gohugo.io/){:target="_blank"}
 
 ![gambar11]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/gxwcnsex9/gambar_11.png"}
 
@@ -64,8 +75,12 @@ Selain Hexo, saya juga sudah mengenal nama lain, yaitu Hugo, namun karena saya b
 2018 Maret 18, tepat siang hari, setelah semalaman saya mengalami frustasi dengan Hexo, saya pun langsung berpindah menggunakan Hugo, mencari tutorial-tutorial di YouTube yang dapat saya pelajari dengan cepat. Sekitar jam 10 malam, saya sudah berhasil membuat template saya sendiri. Rasa senang pun menggerogoti, sambil bersantai-santai mencari literatur-literatur yang saya bisa jadikan rujukan untuk menambah pengetahuan saya membuat Hugo _layout_ yang menggunakan Go _template_. Hingga, akhirnya menemukan sebuah website yang menampilkan statistik terhadap _static site generator_ yang populer, [staticgen.com](https://www.staticgen.com/){:target="_blank"} - _Top Open-Source Static Site Generators_. Website ini menggambarkan statistik bahwa Hugo menduduki peringkat kedua setelah Jekyll, _static site generator_ yang menggunakan bahasa pemrograman Ruby. Lantas saya pun penasaran, karena sebelumnya pun saya sudah pernah belajar Ruby. Saya berfikir, kenapa tidak menggunakan Ruby yang sudah pernah saya pelajari, mungkin akan lebih mudah ketimbang melanjutkan menggunakan Hugo yang menggunakan bahasa Go, yang belum pernah saya pelajarin dasarnya. Tepat tengah malam 2018 Maret 19, saya pun mencari tahu tentang Jekyll.
 
 ### Jekyll
-language: Ruby<br>
-website: [jekyllrb.com](https://jekyllrb.com/){:target="_blank"}
+
+Language: Ruby
+
+Templates: Liquid
+
+Website: [jekyllrb.com](https://jekyllrb.com/){:target="_blank"}
 
 ![gambar12]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/oqn0frsm5/gambar_12.png"}
 

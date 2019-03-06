@@ -952,6 +952,27 @@ p.notif-post {
     padding: 5px 5px 5px 5px;
 }
 
+.emblem-f {
+    background-color: #FFF;
+    border: 2px solid #FFF;
+    border-radius: 5em 2em 2em 5em;
+    color: #008352;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 0 5px 10px;
+}
+
+.emblem-e {
+    background-color: #008352;
+    border: 1px solid #008352;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 5px;
+    margin: 5px 1px 5px 5px;
+}
+
 .tags-hollow {
     background: transparent;
     border: 1px solid #8B8B8B;
@@ -1700,6 +1721,16 @@ a.disqus_button {
     .emblem-r {
         position: relative;
         top: 8px;
+    }
+
+    .emblem-f {
+        position: relative;
+        top: 10px;
+    }
+
+    .emblem-e {
+        position: relative;
+        top: 0;
     }
 
     #header .nav .toggle {
