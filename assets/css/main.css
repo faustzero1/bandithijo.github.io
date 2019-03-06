@@ -440,17 +440,6 @@ p.post-details-index-pin:before {
 }
 
 /* Sidebar ---------------------------------------------------------------- */
-aside {
-    /* display:flex; */
-    /* flex-direction: column; */
-    /* margin-right: 20px; */
-}
-
-aside[data-visible="true"] {
-    /* display: flex; */
-    /* flex-direction: column; */
-}
-
 aside.sidebar {
     width: 27%;
     /* width: 245px; */
@@ -1816,7 +1805,6 @@ a.disqus_button {
     aside.sidebar {
         float: none;
         width: 100%;
-        margin: -10px 0;
     }
 
     aside.sidebar h1,
@@ -1856,7 +1844,6 @@ a.disqus_button {
         margin: 0 0 10px 0;
         padding: 10px 0 20px 0;
         border-radius: 0;
-        position: static;
     }
 
     aside .sidebar-body-rss {
@@ -1865,7 +1852,6 @@ a.disqus_button {
         margin: 0 0 20px 0;
         padding: 10px 0 20px 0;
         border-radius: 0;
-        position: static;
     }
 
     aside .sidebar-body-hollow {
@@ -1874,7 +1860,7 @@ a.disqus_button {
         margin: 0 0 20px 0;
         padding: 10px 0 20px 0;
         border-radius: 0;
-        position: static;
+        display: block;
         border-left: 0;
         border-right: 0;
     }
@@ -1885,7 +1871,6 @@ a.disqus_button {
         margin: 0 0 20px 0;
         padding: 10px 0 20px 0;
         border-radius: 0;
-        position: static;
         display: block;
     }
 
@@ -2112,10 +2097,6 @@ a.disqus_button {
     aside p.sidebar-isi a {
         text-align: left;
         margin: 0 0 0 3.0%;
-    }
-
-    .toc {
-        margin: 5px 20px 0 4.0%;
     }
 
     .box-container-github {
