@@ -72,7 +72,7 @@ Nah, dengan begini, kita dapat memantau, apakah paket SLiM ini **tidak lagi dima
 
 Kita juga dapat sekalian mengecek apakah paket `slim` ini memiliki *security issue* atau tidak, pada halaman [security.archlinux.org](https://security.archlinux.org/){:target="_blank"}.
 
-Untuk teman-teman yang menggunakan distribusi selai Arch atau turunan Arch, silahkan menyesuaikan saja yaa.
+Untuk teman-teman yang menggunakan distribusi selain Arch atau turunan Arch, silahkan menyesuaikan saja yaa.
 
 # Instalasi
 
