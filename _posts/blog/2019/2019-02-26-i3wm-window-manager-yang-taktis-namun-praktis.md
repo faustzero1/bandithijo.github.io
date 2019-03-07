@@ -1292,14 +1292,14 @@ Audio mixer adalah aplikasi yang saya perlukan. Sebenarnya teman-teman juga meme
 
 Karena tidak jarang saya mendapati pertanyaan seputar audio pada group Telegram Belajar GNU/Linux Indonesia, yang mempersoalkan tentang audio.
 
-Sebelumnya saya menggunakan `pavucontrol` sebagai audio mixer. Namun, sejak mulai memigrasikan dan meminimalisasikan aplikasi-aplikasi berdasarkan keperluan saja, saya mulai menggunakan audio mixer yang berjalan di atas Terminal dan menggunakan ncurses-library untuk membuat tampilak GUI-like. Yes, `ncpamixer`.
-
 ```
-# Ncpamixer
-bindsym $mod+F3 exec --no-startup-id ncpamixer
+# Pavucontrol
+bindsym $mod+F3 exec --no-startup-id pavucontrol
 ```
 
-Saya menggunakan <kbd>SUPER</kbd>+<kbd>F3</kbd> untuk memanggil `ncpamixer` karena tombol <kbd>F3</kbd> pada ThinkPad saya memiliki gambar Speaker. Untuk mempermudah dalam mengingat jadi saya manfaatkan.
+Saya menggunakan <kbd>SUPER</kbd>+<kbd>F3</kbd> untuk memanggil `pavucontrol` karena tombol <kbd>F3</kbd> pada ThinkPad saya memiliki gambar Speaker. Untuk mempermudah dalam mengingat jadi saya manfaatkan.
+
+Namun, belakangan ini sudah sangat jarang saya menggunakan `pavucontrol`, lebih sering menggunakan `ncpamixer`, tapi enah mengapa, aplikasi ini tidak dapat dijalankan dengan *keybinding*.
 
 ![gambar_15]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8PnP19JW/gambar-15.png"}
 <p class="img-caption">Gambar 15 - Tampilan TUI dari ncpamixer</p>
