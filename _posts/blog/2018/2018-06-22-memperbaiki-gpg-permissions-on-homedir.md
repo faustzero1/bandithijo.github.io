@@ -38,7 +38,7 @@ Berdasarkan jawaban yang dituliskan oleh Alex Stragies pada [superuser.com<sup>2
 
 1. Pastikan bahwa *permissions* dari direktori dan file-file yang terdapat pada `~/.gnupg/` adalah milik kita sendiri.
 ```
-$ chowm -R $(whoami) ~/.gnupg/
+$ chown -R $(whoami) ~/.gnupg/
 ```
 
 2. Selanjutnya, perbaiki hak akses dari direktori `~/.gnupg/` beserta file-file yang terdapat di dalamnya.

@@ -6,7 +6,7 @@
     {% for post in posts %}
     {% assign class = nil %}
     {% if page.url contains post.url %}
-    {% assign class = 'active' %}
+    {% assign class = 'current' %}
     {% endif %}
       <li style="list-style:none;margin-left:-20px;"><a href="{{ post.url }}" class="{{ class }}">{{ post.title }}</a></li>
     {% endfor %}

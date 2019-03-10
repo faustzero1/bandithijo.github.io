@@ -1411,7 +1411,7 @@ ul.chkbox li.chkbox-checked:before {
     margin: 5px 0;
 }
 
-.toc .active {
+.toc .current {
     font-weight: bold;
 }
 
@@ -1750,14 +1750,14 @@ a.disqus_button {
         display: inline;
         float: left;
         margin: 0 0 0 15px;
-        font-size: 28px;
+        font-size: 29px;
         cursor: default;
     }
 
     #header .nav .toggle .menu img {
         display: inline;
         float: right;
-        margin: 4px 15px 0 0;
+        margin: 7px 15px 0 0;
     }
 
     #header .nav ul {
