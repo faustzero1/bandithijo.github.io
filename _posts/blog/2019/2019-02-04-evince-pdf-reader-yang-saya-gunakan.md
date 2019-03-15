@@ -132,6 +132,10 @@ Di dalam sini terdapat beberapa konfigurasi *default* yang bisa kita atur seprti
 
 Maksud dari "*default*" di sini adalah konfigurasi yang akan diterapkan kepada Evince saat pertama kali di jalankan.
 
+# Autoupdate Konten
+
+Apabila teman-teman berurusan dengan edit-mengedit file PDF, misalkan seperti LaTeX yang kemudian dikonversi ke PDF menggunakan `pdflatex`. Maka setelah proses kompilasi `.tex` menjadi `.pdf` selesai, Evince akan langsung mengupdate isi dari file PDF tersebut secara otomatis.
+
 # Kekurangan
 
 Kekurangan yang sampai saat ini masih saya rasakan adalah, pada sistem saya, Evince masih belum dapat digunakan untuk *push to print* (ngeprint langsung dari Evince, <kbd>CTRL</kbd>+<kbd>P</kbd>) -- Print Settings Window terbuka, namun tidak berdampak apa-apa saat kita menekan tombol print.
