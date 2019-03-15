@@ -141,7 +141,7 @@ kbd {
 }
 
 #header .container-inner {
-    background: #008352;
+    /* background: #008352; */
     border-radius: 8px 8px 0 0;
     height: 100%;
     margin: 0 auto;
@@ -171,7 +171,7 @@ kbd {
 
 /* Navigation Bar --------------------------------------------------------- */
 #header .nav ul {
-    background: #0C4B33;
+    /* background: #0C4B33; */
     margin-top: 40px;
     padding: 13px 15px;
     min-height: 22px;
@@ -180,6 +180,8 @@ kbd {
     /* position: fixed; */
     /* right: 16.5%; */
     /* left: 16.5%; */
+    /* BORDER TOP */
+    border-top: 1.8px solid #05452D;
 }
 
 #header .nav li {
@@ -1503,6 +1505,27 @@ a.disqus_button {
     top: -15px;
 }
 
+/* STRIPES ---------------------------------------------------------------- */
+
+.container-inner-strip {
+    background: repeating-linear-gradient(
+    135deg,
+    #007D4F,
+    #007D4F 2px,
+    #008352 2px,
+    #008352 4px);
+}
+
+.nav-strip {
+    background: repeating-linear-gradient(
+    135deg,
+    #0C4B33,
+    #0C4B33 20px,
+    #05452D 20px,
+    #05452D 40px);
+}
+
+
 
 /* ------------------------------------------------------------------------ */
 /*
@@ -1687,7 +1710,13 @@ a.disqus_button {
 
     #header .container {
         padding-top: 49px;
-        background: #008352 url('') no-repeat;
+        /* background: #008352 url('') no-repeat; */
+        background: repeating-linear-gradient(
+        135deg,
+        #007D4F,
+        #007D4F 2px,
+        #008352 2px,
+        #008352 3px);
     }
 
     #header .container .logo {
@@ -2034,6 +2063,17 @@ a.disqus_button {
 
     .post-nav {
         display: flex;
+    }
+
+
+    .container-inner-strip {
+        /* background: #008352; */
+        background: repeating-linear-gradient(
+        135deg,
+        #007D4F,
+        #007D4F 2px,
+        #008352 2px,
+        #008352 4px);
     }
 
 
