@@ -115,7 +115,7 @@ Pada area kertas, kita dapat menggunakan navigasi yang mirip seperti Vim.
 
 # Tambahan Konfigurasi
 
-Apabila teman-teman ingin mengatur konfigurasi default Evince dapat menggunakan apliakasi `dconf-editor`.
+Apabila teman-teman ingin mengatur konfigurasi default Evince dapat menggunakan aplikasi `dconf-editor`.
 
 Alamatnya ada di:
 ```
@@ -135,6 +135,10 @@ Maksud dari "*default*" di sini adalah konfigurasi yang akan diterapkan kepada E
 # Autoupdate Konten
 
 Apabila teman-teman berurusan dengan edit-mengedit file PDF, misalkan seperti LaTeX yang kemudian dikonversi ke PDF menggunakan `pdflatex`. Maka setelah proses kompilasi `.tex` menjadi `.pdf` selesai, Evince akan langsung mengupdate isi dari file PDF tersebut secara otomatis.
+
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png"}
+<p class="img-caption">Gambar 7 - Vim (kiri) sebagai LaTeX editor dengan Evince (kanan)</p>
+
 
 # Kekurangan
 
