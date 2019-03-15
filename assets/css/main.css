@@ -1520,9 +1520,9 @@ a.disqus_button {
     background: repeating-linear-gradient(
     135deg,
     #0C4B33,
-    #0C4B33 20px,
-    #05452D 20px,
-    #05452D 40px);
+    #0C4B33 15px,
+    #05452D 15px,
+    #05452D 30px);
 }
 
 
