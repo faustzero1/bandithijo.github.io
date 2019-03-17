@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Ulasan', 'Tips', 'Terminal']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->
@@ -226,6 +227,76 @@ Creating a zgen save
 -- zgen: Initializing completions ...
 ```
 Selesai.
+
+# Troubleshoting
+
+## Perintah Terulang pada Output
+
+**Maret 16, 2019**
+
+Sebenarnya, sudah pernah mengalami hal ini, namun karena lupa melakukan pencatatan, dan ternyata mengalami untuk kedua kali, malah jadi kebingungan.
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1Xs2bb4M/gambar-02.gif"}
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR8WbpBz/gambar-01.png"}
+
+Dapat dilihat pada ilustrasi di atas, apapun perintah (*command*) yang saya tulisakan, akan ditampilkan kembali pada baris *output*.
+
+Saya mengalami permasalah ini pada terminal URxvt dan Termite, namun tidak pada ST terminal yang sehari-hari saya pergunakan.
+
+Namun, pada ST terminal, saat saya menggunakan `:terminal` di dalam Vim text editor, permasalahan yang sama mulai terlihat.
+
+Untung saja ada group [BGLI (Belajar GNU/Linux Indonesia)](https://t.me/GNULinuxIndonesia){:target="_blank"}, jadi bisa menanyakan di sana.
+
+>Terkadang perlu "sudut pandang" orang lain dalam menemukan "kata kunci" yang tepat untuk mencari solusi dari sebuah masalah.
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/K8MfrJ8Y/gambar-03.png"}
+
+<p class="img-caption">URL: <a href="https://stackoverflow.com/questions/30940299/zsh-repeats-command-in-output">ZSH repeats command in output</a></p>
+
+Dari jawaban yang diberikan pada tautan di atas. Kita perlu menambahkan variabel milik OH-MY-ZSH, yaitu:
+
+```
+DISABLE_AUTO_TITLE="true"
+```
+
+Karena, saya belum memasukkan variabel-variabel milik OH-MY-ZSH pada file `~/.zshrc` milik saya.
+
+Apabila ingin ditambahkan variabel-variabel milik OH-MY-ZSH secara komplit, kira-kira seperti ini.
+
+<pre>
+# -------------------------------------------------------------------OH-MY-ZSH
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
+
+# Comment this out to disable bi-weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment to change how often before auto-updates occur? (in days)
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
+
+# Uncomment following line if you want to disable autosetting terminal title.
+<mark>DISABLE_AUTO_TITLE="true"</mark>
+
+# Uncomment following line if you want to disable command autocorrection
+# DISABLE_CORRECTION="true"
+
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to disable marking untracked files under
+# VCS as dirty. This makes repository status check for large repositories much,
+# much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# ---------------------------------------------------------------END OH-MY-ZSH
+</pre>
+
+Dengan begini permasalahan "Perintah Terulang pada Output" tidak terjadi lagi.
+
+Terima kasih untuk **Karen Kishou @snowsu**.
 
 # Pesan Penulis
 

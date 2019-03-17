@@ -10,6 +10,7 @@ toc:
 category: 'blog'
 tags: ['Arch Linux', 'Ulasan']
 pin:
+hot:
 ---
 
 <!-- banner of the post -->

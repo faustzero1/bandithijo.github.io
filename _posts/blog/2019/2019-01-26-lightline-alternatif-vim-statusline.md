@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Vim', 'Tips', 'Ulasan']
 pin:
+hot:
 ---
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css">

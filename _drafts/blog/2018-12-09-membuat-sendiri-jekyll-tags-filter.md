@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Jekyll']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

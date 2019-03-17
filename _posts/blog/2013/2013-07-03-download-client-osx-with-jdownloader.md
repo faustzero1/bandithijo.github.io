@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['OSX', 'Tools', 'Ulasan']
 pin:
+hot:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>

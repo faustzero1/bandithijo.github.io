@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal', 'Ulasan']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

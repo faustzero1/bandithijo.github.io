@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Tips', 'Tools', 'Terminal']
 pin:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->

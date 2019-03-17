@@ -37,12 +37,8 @@ permalink: '/blog/'
     </div><!-- clear:both -->
     {% for post in year.items %}
       {% if post.category == 'blog' and post.pin == nil %}
-        {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.blog %}
-        {% if post.title contains artikel_baru[0] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% elsif post.title contains artikel_baru[1] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
+        {% if post.hot %}
+          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">HOT</span></p>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
           <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
@@ -59,46 +55,3 @@ permalink: '/blog/'
   <p class="post-title-index" style="border-bottom:none;">+&nbsp;<span class="font-latin" style="font-size:16px;">Saya kehilangan semua tulisan di tahun ini, <span class="nobr">my bad  =(</span></span></p>
 
 </div><!-- post-body -->
-
-
-  {% comment %}
-  <!-- REGULAR POSTS -->
-  {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-  {% for year in postsByYear %}
-    <div style="clear:both;">
-      <img class="post-header-img" src="/assets/img/logo/logo_cal.svg">
-      <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;">&nbsp;{{ year.name }}</h3>
-    </div><!-- clear:both -->
-    {% for post in year.items %}
-      {% if post.category == 'blog' and post.pin == nil %}
-        <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
-        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-  {% endcomment %}
-
-
-  {% comment %}
-  {% assign artikel_baru = site.artikel_baru %}
-  {% for artikel in artikel_baru %}
-    {{ artikel }}<br>
-  {% endfor %}
-  <hr>
-
-  {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-  {% for year in postsByYear %}
-    {% for post in year.items %}
-      {% if post.category == 'blog' and post.pin == nil %}
-        {% assign artikel_baru = site.artikel_baru %}
-        {% if post.title contains artikel_baru[0] %}
-          {{ post.title }}<span class="new">BARU</span><br>
-        {% elsif post.title contains artikel_baru[1] %}
-          {{ post.title }}<span class="new">BARU</span><br>
-        {% else %}
-          {{ post.title }}<br>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  {% endfor %}
-  {% endcomment %}

@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Security', 'Tips', 'Arch Linux']
 pin:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->

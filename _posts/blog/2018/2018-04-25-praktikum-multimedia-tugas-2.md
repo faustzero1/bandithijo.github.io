@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags:
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

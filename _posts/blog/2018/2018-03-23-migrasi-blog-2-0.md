@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Jekyll', 'Ulasan']
 pin:
+hot: true
 ---
 
 # Latar Belakang

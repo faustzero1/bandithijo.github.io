@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Security', 'Tips']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

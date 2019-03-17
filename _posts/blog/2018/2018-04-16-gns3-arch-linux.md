@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Arch Linux', 'Tools', 'Network']
 pin:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->

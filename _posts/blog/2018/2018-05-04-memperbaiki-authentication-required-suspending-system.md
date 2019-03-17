@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['XFCE', 'Tips']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

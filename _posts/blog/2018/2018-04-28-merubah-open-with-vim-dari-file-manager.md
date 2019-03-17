@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Vim', 'Tips', 'Tools']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

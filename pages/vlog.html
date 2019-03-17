@@ -39,29 +39,11 @@ permalink: '/vlog/'
     </div><!-- clear:both -->
     {% for post in year.items reversed %}
       {% if post.category == 'vlog' and post.pin == nil and post.voice == nil %}
-        {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.vlog %}
-        {% if post.title contains artikel_baru[0] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% elsif post.title contains artikel_baru[1] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% else %}
           <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% endif %}
       {% elsif post.category == 'vlog' and post.pin == nil and post.voice == true %}
-        {% assign artikel_baru = site.data.artikel_terbaru.artikel_baru.vlog %}
-        {% if post.title contains artikel_baru[0] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="voice">VOICE</span>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% elsif post.title contains artikel_baru[1] %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="voice">VOICE</span>&nbsp;<span class="new">BARU</span></p>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% else %}
           <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="voice">VOICE</span></p>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
-        {% endif %}
       {% endif %}
     {% endfor %}
   {% endfor %}

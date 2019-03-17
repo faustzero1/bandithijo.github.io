@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Arch Linux', 'Tips', 'Python']
 pin:
+hot:
 ---
 
 <!-- BANNER OF THE POST -->

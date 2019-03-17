@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Tips', 'I3WM']
 pin:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->

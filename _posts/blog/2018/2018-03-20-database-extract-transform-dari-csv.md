@@ -10,6 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Database', 'Tools']
 pin:
+hot: true
 ---
 
 # TUGAS 1
