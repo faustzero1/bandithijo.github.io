@@ -38,11 +38,11 @@ Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom
 <p class="img-caption">Gambar 4 - Kolom ke-3 menampilkan detail dari audio atau video file</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pdq1MQLD/gambar-06.gif"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4CwqqDn/gambar-06.gif"}
 <p class="img-caption">Gambar 5 - Kolom ke-3 menampilkan detail dari file teks dengan highlight dan dapat di-<i>scrolldown</i></p>
 
 <!-- IMAGE CAPTION -->
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/76htHC5j/gambar-07.gif"}
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/28QsXZhx/gambar-07.gif"}
 <p class="img-caption">Gambar 6 - Kolom ke-3 menampilkan detail dari file Open Document Format (.odt, .ods, .odp)</p>
 
 <br>
