@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Database', 'Tools']
 pin:
-hot:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->
