@@ -1709,7 +1709,7 @@ a.disqus_button {
     }
 
     #header .container {
-        margin-top: 49px;
+        padding-top: 49px;
         /* background: #008352 url('') no-repeat; */
         background: repeating-linear-gradient(
         135deg,
@@ -1803,7 +1803,9 @@ a.disqus_button {
     #header .nav ul.active {
         display: block;
         background: #0C4B33;
-        margin: -5px 0 0 -8px;
+        border-top: none;
+        /* margin: -5px 0 0 -8px; */
+        margin: 0 0 0 -8px;
     }
 
     #header .nav ul li {
