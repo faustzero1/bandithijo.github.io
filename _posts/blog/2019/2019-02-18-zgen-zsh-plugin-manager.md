@@ -238,9 +238,9 @@ Sebenarnya, sudah pernah mengalami hal ini, namun karena lupa melakukan pencatat
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1Xs2bb4M/gambar-02.gif"}
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR8WbpBz/gambar-01.png"}
-
 Dapat dilihat pada ilustrasi di atas, apapun perintah (*command*) yang saya tulisakan, akan ditampilkan kembali pada baris *output*.
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR8WbpBz/gambar-01.png"}
 
 Saya mengalami permasalah ini pada terminal URxvt dan Termite, namun tidak pada ST terminal yang sehari-hari saya pergunakan.
 
