@@ -6,6 +6,11 @@
 - tanggal: '19/03/18'
   url:
   detail: |
+      Menambahkan "Newsline" di bawah Header
+
+- tanggal: '19/03/18'
+  url:
+  detail: |
       Merubah tag "BARU" menjadi tag "HOT" pada kategori Blog
 
 - tanggal: '19/02/25'
