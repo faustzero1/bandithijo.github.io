@@ -230,10 +230,12 @@ Karena saya menggunakan i3wm sebagai *default session* saya, maka saya meng-*ena
 <mark>DEFAULTSESSION=i3
 case "$1" in
     i3) exec i3 ;;
+    sway) exec sway ;;
     dwm) exec dwm ;;
     qtile) exec qtile ;;
+    bspwm) exec bspwm ;;
     *) exec $DEFAULTSESSION ;;
-    esac</mark>
+esac</mark>
 
 ...
 ...
