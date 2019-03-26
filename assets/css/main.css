@@ -893,19 +893,38 @@ p.notif-post {
     margin: auto;
     width: 100%;
     padding: 1em 1em;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     color: #FFF;
     text-align: center;
-    border: 1px solid #F82C3B;
+    text-shadow:
+        /* -1px -1px 0 #000, */
+        /*  1px -1px 0 #000, */
+        /* -1px  1px 0 #000, */
+        /*  1px  1px 0 #000; */
+        -2px -2px 0 #232323,
+         0   -2px 0 #232323,
+         2px -2px 0 #232323,
+         2px  0   0 #232323,
+         2px  2px 0 #232323,
+         0    2px 0 #232323,
+        -2px  2px 0 #232323,
+        -2px  0   0 #232323;
+    /* border: 1px solid #F82C3B; */
+    border: 2px solid #232323;
     border-radius: 5px;
     /* background:#FBD7D2; */
     background: repeating-linear-gradient(
+    /* 45deg, */
+    /* #FF422F, */
+    /* #FF422F 15px, */
+    /* #FD2E19 15px, */
+    /* #FD2E19 30px); */
     45deg,
-    #FF422F,
-    #FF422F 15px,
-    #FD2E19 15px,
-    #FD2E19 30px);
+    #FFCC00,
+    #FFCC00 15px,
+    #232323 15px,
+    #232323 30px);
 }
 
 /* HOT TUGAS -------------------------------------------------------------- */

@@ -13,7 +13,7 @@ pin:
 hot:
 ---
 
-<p class="notif-post">Post ini sudah tidak up to date !</p>
+{% include nouptodate.html %}
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-x_2guEqX7Gc/WINOrVRgocI/AAAAAAAAEI0/bWUuprh3yaI4c_Z755uTIfZqsMKnx-2XgCLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B22.png" alt="banner">
 
