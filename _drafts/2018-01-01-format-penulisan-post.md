@@ -39,12 +39,11 @@ comment
 <!-- BANNER OF THE POST -->
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner">
 
-# QUESTION
-<!-- QUESTION -->
-><p class="title-quote">Apakah penulis juga menggunakan fingerprint scanner saat login ?</p>
+# BLOCKQUOTE
+
+<!-- QUOTE BIASA -->
 >Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem.
 
-# BLOCKQUOTE
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>

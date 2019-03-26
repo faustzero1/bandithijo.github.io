@@ -1122,7 +1122,7 @@ Saya menggunakan aplikasi bantuan, di antaranya:
 # (lock is bash script from nandavera | i3lock-color)
 # Source: https://github.com/okitavera/dotfiles/blob/master/.bin/lock
 bindsym $mod+Shift+x exec --no-startup-id /usr/bin/lock-dark
-exec_always --no-startup-id xautolock -time 15 -locker "/usr/bin/lock-dark" && systemctl suspend
+exec_always --no-startup-id xautolock -time 15 -locker "/usr/bin/lock-dark" && echo mem ? /sys/power/state
 ```
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>X</kbd> untuk mengaktifkan lock screen secara manual. Saya menggunakan aplikasi bantuan yang saya rename menjadi `lock-dark` yang awalnya bernama `lock` buatan Nanda Okitavera yang juga menggunakan backend `i3lock-color`.
