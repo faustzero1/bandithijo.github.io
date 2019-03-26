@@ -763,6 +763,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   background: #C5D796;
   /* font-weight: 600; */
   font-weight: bold;
+  /* font-family: 'Ubuntu Condensed' */
 }
 
 .markdown-body table td,

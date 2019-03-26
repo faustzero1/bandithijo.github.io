@@ -895,10 +895,17 @@ p.notif-post {
     padding: 1em 1em;
     font-size: 20px;
     font-weight: bold;
+    color: #FFF;
     text-align: center;
     border: 1px solid #F82C3B;
     border-radius: 5px;
-    background:#FBD7D2;
+    /* background:#FBD7D2; */
+    background: repeating-linear-gradient(
+    45deg,
+    #FF422F,
+    #FF422F 15px,
+    #FD2E19 15px,
+    #FD2E19 30px);
 }
 
 /* HOT TUGAS -------------------------------------------------------------- */
@@ -1531,9 +1538,9 @@ a.disqus_button {
     height: 25px;
     /* background-color: #FF1800; */
     background: repeating-linear-gradient(
-    40deg,
-    #FF1800,
-    #FF1800 15px,
+    45deg,
+    #FF422F,
+    #FF422F 15px,
     #FD2E19 15px,
     #FD2E19 30px);
 }
