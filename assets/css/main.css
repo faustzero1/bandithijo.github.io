@@ -344,20 +344,21 @@ p.post-title-index a:hover {
 }
 
 .post-details {
-    background: #9E9E9E;
+    /* background: #9E9E9E; */
+    background: #626262;
     color: #FFF;
     text-align: center;
     font-size: 11px;
-    font-weight: normal;
+    font-weight: bold;
     width: 26em;
     /* margin-left: 43px; */
     /* margin-top: -1px; */
     position: relative;
     top: -6px;
     padding: 0 2px;
-    border-width: 1px 1px 1px 1px;
+    border-width: 1px;
     border-style: solid;
-    border-color: #9E9E9E;
+    border-color: #626262;
 }
 
 p.post-details-index {

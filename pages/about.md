@@ -19,7 +19,7 @@ _Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi sa
 
 # Nama Asli, Status, dan Pekerjaan?
 
-Berdasarkan catatan akta kelahiran Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
+Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 

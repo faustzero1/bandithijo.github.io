@@ -1,6 +1,6 @@
 <div class="breadcrumbs noselect">
 {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
-<span style="color:#9E9E9E;">&#9654;</span>&nbsp;<a href="/">Home</a>
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
 {% for crumb in crumbs offset: 1 %}
   {% if forloop.last %}
     / {{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}
