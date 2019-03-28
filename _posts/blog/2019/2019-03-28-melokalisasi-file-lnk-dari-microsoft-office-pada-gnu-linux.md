@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: 'Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux'
-date: 2019-03-27 08:33
+date: 2019-03-28 08:33
 permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true
@@ -166,12 +166,6 @@ Nah, sekarang kita akan sediakan direktori *Recent* untuk mengatasi permasalahan
     $ cd ~/.wine/drive_c/users/bandithijo
     ```
 
-    dan *users* Public.
-
-    ```
-    $ cd ~/.wine/drive_c/users/Public
-    ```
-
 2. Kemudian , lihat isi di dalam direktori ini. Apakah sudah terdapat direktori yang bernama `Recent` atau tidak.
 
     ```
@@ -233,6 +227,8 @@ Nah, sekarang kita akan sediakan direktori *Recent* untuk mengatasi permasalahan
     drwxr-xr-x  Temp</pre>
 
     Buat juga, direktori **Recent** pada *users* Public.
+
+    Yang beralamat di `~/.wine/drive_c/users/Public`.
 
     Selesai.
 
