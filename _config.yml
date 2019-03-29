@@ -60,6 +60,10 @@ plugins:
 #       layout: post
 
 
+# Newsline
+newsline: false
+
+
 # Navigation Menu on Header
 navigation:
     - title: Blog

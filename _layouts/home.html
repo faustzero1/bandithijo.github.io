@@ -7,7 +7,9 @@ permalink: :title
   <div class="container noselect">
     <div class="container-edge-border">
 
-      {% include newsline.html %}
+      {% if site.newsline == true %}
+        {% include newsline.html %}
+      {% endif %}
 
       <article class="homepage">
         <div class="post-body">
