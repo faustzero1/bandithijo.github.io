@@ -8,19 +8,19 @@
       <p style="margin-top:-25px;">
         PayPal: <a href="https://paypal.me/bandithijo" target="_blank" rel="noreferrer">paypal.me/bandithijo</a><br>
         <br>
-        <a href="/contact/">Contact</a> |&nbsp;
-        <a href="/groups/">Groups</a> |&nbsp;
+        <a href="{{ site.url }}/contact/">Contact</a> |&nbsp;
+        <a href="{{ site.url }}/groups/">Groups</a> |&nbsp;
         <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer">Twitter</a> |&nbsp;
         <a rel="me" href="https://gitlab.com/bandithijo" target="_blank" rel="noreferrer">GitLab</a> |&nbsp;
         <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
         {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
-        <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+        <a href="{{ site.url }}/feed/blog.xml" target="_blank">RSS</a></p>
         {% elsif page.permalink == '/vlog/' or page.permalink == '/vlog/:title' %}
-        <a href="/feed/vlog.xml" target="_blank">RSS</a></p>
+        <a href="{{ site.url }}/feed/vlog.xml" target="_blank">RSS</a></p>
         {% elsif page.permalink == '/python/' or page.permalink == '/python/:title' %}
-        <a href="/feed/python.xml" target="_blank">RSS</a></p>
+        <a href="{{ site.url }}/feed/python.xml" target="_blank">RSS</a></p>
         {% else %}
-        <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+        <a href="{{ site.url }}/feed/blog.xml" target="_blank">RSS</a></p>
         {% endif %}
   <a href="https://client.dewaweb.com/aff.php?aff=22096" target="_blank" rel="noopener"><img class="footer-img-1" src="/assets/img/logo/logo_dewaweb.png" alt=""></a>
   <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer"><img class="footer-img-2" src="/assets/img/logo/logo_github.png" alt=""></a>
