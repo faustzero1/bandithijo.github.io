@@ -133,7 +133,7 @@ bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
 
 Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
 
-![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bvPvMbSF/gambar-17.png"}
+![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsHPsDVN/gambar-17.gif"}
 <p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
 
 

@@ -1411,7 +1411,7 @@ gui_if_available = True
 
 Hasilnya, akan seperti di bawah ini.
 
-![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bvPvMbSF/gambar-17.png"}
+![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsHPsDVN/gambar-17.gif"}
 <p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
 
 
