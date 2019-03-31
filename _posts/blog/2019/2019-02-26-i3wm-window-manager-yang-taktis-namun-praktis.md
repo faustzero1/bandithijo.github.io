@@ -1354,6 +1354,63 @@ bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
 
 Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
 
+**Instalasi**
+
+```
+mkdir -p ~/.config/networkmanager-dmenu
+$ git clone https://github.com/firecat53/networkmanager-dmenu.git ~/.config/networkmanager-dmenu
+```
+
+**Konfigurasi**
+
+```
+$ cd ~/.config/networkmanager-dmenu
+$ cp config.ini.example config.ini
+```
+
+Edit file `config.ini` untuk konfigurasi sesuai preferensi pribadi.
+
+Contohnya seprti saya, yang ingin menggunakan Rofi sebagai *user interface*.
+
+```
+$ vim config.ini
+```
+
+<pre>
+[dmenu]
+<mark>fn = Fantasque Sans Mono</mark>
+<mark>dmenu_command = /usr/bin/rofi -width 25</mark>
+# # Note that dmenu_command can contain arguments as well like `rofi -width 30`
+# # Rofi and dmenu are set to case insensitive by default `-i`
+# l = number of lines to display, defaults to number of total network options
+# fn = font string
+# nb = normal background (name, #RGB, or #RRGGBB)
+# nf = normal foreground
+# sb = selected background
+# sf = selected foreground
+# b =  (just set to empty value and menu will appear at the bottom
+# m = number of monitor to display on
+# p = Custom Prompt for the networks menu
+<mark>p = NETWORKS</mark>
+# pinentry = Pinentry command
+# rofi_highlight = &lt;True or False&gt; # (Default: False) use rofi highlighting instead of '**'
+
+# # override normal foreground and background colors (dmenu) or use the
+# # -password option (rofi) to obscure passphrase entry
+# [dmenu_passphrase]
+# nf = #222222
+# nb = #222222
+# rofi_obscure = True
+
+[editor]
+<mark>terminal = st</mark>
+gui_if_available = True
+# terminal = &lt;name of terminal program&gt;
+# gui_if_available = &lt;True or False&gt;
+</pre>
+
+Hasilnya, akan seperti di bawah ini.
+
 ![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bvPvMbSF/gambar-17.png"}
 <p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
 

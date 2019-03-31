@@ -51,15 +51,6 @@ plugins:
     - jekyll-netlify
 
 
-# default:
-#   -
-#     scope:
-#       path:
-#       type: posts
-#     values:
-#       layout: post
-
-
 # Newsline
 newsline: false
 
