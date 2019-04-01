@@ -5,25 +5,19 @@
         <p>Halaman ini tidak memiliki Daftar Isi.</p>
     </div>
 {% elsif page.category == 'blog' and page.toc == true %}
-    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/sidebar_toc_gem.html %}
 {% elsif page.category == 'blog' and page.toc == nil %}
-    {% include _sidebar/sidebar_bantuan.html %}
 {% elsif page.permalink == '/vlog/:title' %}
     {% include _sidebar/sidebar_vlog.html %}
 {% elsif page.category == 'python' and page.toc == true %}
-    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/book/python/sidebar_python_silabus.html %}
     {% include _sidebar/sidebar_toc_gem.html %}
 {% elsif page.category == 'python' and page.toc == nil %}
-    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/book/python/sidebar_python_silabus.html %}
 {% elsif page.category == 'arch' and page.toc == true %}
-    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/book/arch/sidebar_arch_daftarisi.html %}
     {% include _sidebar/sidebar_toc_gem.html %}
 {% elsif page.category == 'arch' and page.toc == nil %}
-    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/book/arch/sidebar_arch_daftarisi.html %}
 {% elsif page.permalink == '/157/:title'%}
     {% include _sidebar/157/sidebar_157_detail.html %}

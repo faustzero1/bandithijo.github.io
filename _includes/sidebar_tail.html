@@ -3,24 +3,25 @@
     {% include _sidebar/tags/sidebar_tags_depan.html %}
     {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
     {% include _sidebar/sidebar_rss_feed.html %}
-    {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
 {% elsif page.permalink == '/blog/:title' %}
     {% include _sidebar/sidebar_blog_terbaru.html %}
     {% include _sidebar/tags/sidebar_tags_depan.html %}
     {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
+    {% include _sidebar/sidebar_bantuan.html %}
     {% include _sidebar/sidebar_rss_feed.html %}
 {% elsif page.permalink == '/vlog/' %}
     {% include _sidebar/tags/sidebar_tags_depan.html %}
     {% include _sidebar/dotfriends/sidebar_dotfriends.html %}
     {% include _sidebar/sidebar_rss_feed.html %}
-    {% comment %}{% include _sidebar/sidebar_news.html %}{% endcomment %}
 {% elsif page.permalink == '/vlog/:title' %}
     {% include _sidebar/sidebar_vlog_terbaru.html %}
     {% include _sidebar/sidebar_rss_feed.html %}
+{% elsif page.permalink == '/python/:title' %}
+    {% include _sidebar/sidebar_bantuan.html %}
+{% elsif page.permalink == '/arch/:title' %}
+    {% include _sidebar/sidebar_bantuan.html %}
 {% elsif page.permalink == '/groups/' %}
     {% include _sidebar/groups/sidebar_groups_telegram.html %}
-{% elsif page.permalink == '/dotfriends/' %}
-    {% comment %}{% include _sidebar/dotfriends/sidebar_dotfriends_list.html %}{% endcomment %}
 {% elsif page.permalink == '/157/' %}
     {% include _sidebar/157/sidebar_atribute_kampus.html %}
 {% elsif page.permalink == '/about/' %}
