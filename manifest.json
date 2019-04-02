@@ -1,7 +1,7 @@
 {
   "name": "BanditHijo (R)-Chive",
   "short_name": "BanditHijo.Com",
-  "start_url": ".",
+  "start_url": "https://bandithijo.com",
   "display": "standalone",
   "background_color": "#006F46",
   "description": "Here's where I started writing some notes that someday I will call it, a book",
