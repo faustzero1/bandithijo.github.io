@@ -22,11 +22,19 @@ Created : Maret 2018
 @import url(/assets/css/add-to-homescreen.css);
 
 body {
-    background: #F3EBE0;
+    /* background: #F3EBE0; */
+    background: #073642;
     font: 15px/1.5 'Ubuntu';
     letter-spacing: 0;
     width: 100%;
     margin: 0;
+
+    /* background: repeating-linear-gradient( */
+    /* 135deg, */
+    /* #F9F1E7, */
+    /* #F9F1E7 4px, */
+    /* #F3EBE0 4px, */
+    /* #F3EBE0 8px); */
 }
 
 pre, code {
@@ -123,10 +131,19 @@ kbd {
 
 /* Header ----------------------------------------------------------------- */
 #header {
-    background: #DAD0C4;
-    border-bottom: 1px solid #C4BBB0;
+    /* background: #DAD0C4; */
+    background: #002B36;
+    /* border-bottom: 1px solid #C4BBB0; */
+    border-bottom: 1px solid #002B36;
     margin: 0;
     padding-top: 10px;
+
+    /* background: repeating-linear-gradient( */
+    /* 135deg, */
+    /* #D2CABF, */
+    /* #D2CABF 4px, */
+    /* #DAD0C4 4px, */
+    /* #DAD0C4 8px); */
 }
 
 #header .container {
