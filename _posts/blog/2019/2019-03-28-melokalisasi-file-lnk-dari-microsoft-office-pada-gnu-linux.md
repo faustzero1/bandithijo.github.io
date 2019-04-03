@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Tips', 'Wine', 'Arch Linux']
 pin:
-hot:
+hot: true
 ---
 
 <!-- BANNER OF THE POST -->
