@@ -22,8 +22,7 @@ Created : Maret 2018
 @import url(/assets/css/add-to-homescreen.css);
 
 body {
-    /* background: #F3EBE0; */
-    background: #073642;
+    background: #F3EBE0;
     font: 15px/1.5 'Ubuntu';
     letter-spacing: 0;
     width: 100%;
@@ -131,10 +130,8 @@ kbd {
 
 /* Header ----------------------------------------------------------------- */
 #header {
-    /* background: #DAD0C4; */
-    background: #002B36;
-    /* border-bottom: 1px solid #C4BBB0; */
-    border-bottom: 1px solid #022129;
+    background: #DAD0C4;
+    border-bottom: 1px solid #C4BBB0;
     margin: 0;
     padding-top: 10px;
 
