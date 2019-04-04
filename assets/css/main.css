@@ -23,7 +23,7 @@ Created : Maret 2018
 
 body {
     /* background: #F3EBE0; */
-    background: #222222;
+    background: #073642;
     font: 15px/1.5 'Ubuntu';
     letter-spacing: 0;
     width: 100%;
@@ -132,9 +132,9 @@ kbd {
 /* Header ----------------------------------------------------------------- */
 #header {
     /* background: #DAD0C4; */
-    background: #111111;
+    background: #002B36;
     /* border-bottom: 1px solid #C4BBB0; */
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid #022129;
     margin: 0;
     padding-top: 10px;
 
