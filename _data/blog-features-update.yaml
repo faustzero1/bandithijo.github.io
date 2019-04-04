@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/04/04'
+  url:
+  detail: |
+      Menambahkan permalink pada Headings
+
 - tanggal: '19/03/18'
   url:
   detail: |
