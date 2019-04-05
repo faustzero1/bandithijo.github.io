@@ -15,8 +15,6 @@ toc: true
 
 Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren para penulis buku,  meskipun saya masih sangat terlampau jauh untuk dapat menyebut diri saya sebagai seorang penulis.
 
-_Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
-
 # Nama Asli, Status, dan Pekerjaan?
 
 Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
@@ -27,11 +25,11 @@ Saat ini masih belum bekerja, masih menempuh pendidikan di STMIK Balikpapan. (cu
 
 Tapi kalau ada yang mau memberikan tawaran bekerja, akan sangat senang sekali.
 
-{% comment %}Status dan Pekerjaan adalah hal yang terlalu pribadi. Kita bisa obrolin sambil ngopi-ngopi saja yaa.{% endcomment %}
-
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
+
+_Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
@@ -46,7 +44,6 @@ Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer a
 Blog ini saya buat *from scratch* menggunakan *Static Site Generator* yang bernama **Jekyll**. Tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih bebas bongkar pasang fitur-fitur yang ingin saya tambah dan kurangi di dalam blog ini.
 
 Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0){:target="_blank"}.
-
 
 # Spesifikasi Mesin Ketik
 
@@ -104,7 +101,11 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 # Dahulu
 
-Sejak duduk dibangku SMP, saya belajar menggunakan aplikasi multimedia seperti Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
+Sejak duduk dibangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
+
+Belajar secara mandiri dengna cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini. Wajar saja kalau tidak semua siswa dapat melakukan yang saya kerjakan.
+
+Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar baru maupun modifikasi dari gambar sebelumnya.
 
 2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
 
