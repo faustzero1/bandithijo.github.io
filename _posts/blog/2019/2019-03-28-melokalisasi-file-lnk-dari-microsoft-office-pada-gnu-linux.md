@@ -27,7 +27,7 @@ Hasilnya lumayan memuaskan, meskipun beberapa aplikasi yang dibawa oleh Microsof
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXSKwrKg/gambar-02.png"}
 <p class="img-caption">Gambar 2 - Microsoft Word 2010</p>
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/DwZgRs5D/gambar-03.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SxjzTwBC/gambar-03.png"}
 <p class="img-caption">Gambar 3 - Microsoft Excel 2010</p>
 
 ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sDKmnKP7/gambar-04.png"}
