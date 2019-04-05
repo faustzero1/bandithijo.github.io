@@ -739,7 +739,8 @@ article.homepage .notif-home {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 30px;
-    border: 1px solid #00603C;
+    /* border: 1px solid #00603C; */
+    border: 1px solid #000;
     border-radius: 5px;
     /* background:#EBFFB4; */
 }
