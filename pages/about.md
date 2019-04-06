@@ -114,7 +114,7 @@ Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GN
 
 # Sekarang
 
-Saat ini sudah menggunakan GNU/Linux dengan distribusi Arch Linux sejak pertengahan 2016. Kebetulan saya memang sangat mengincar ThinkPad kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki. Seandainya kalian dapat merasakan nikmat yang saya rasakan saat ini, mungkin juga akan berkata hal yang serupa.
+Saat ini sudah tidak lagi menggunakan Macbook Pro sejak Januari 2017. Saya memilih untuk mencoba brand dan tipe yang sudah saya incar sejak SMA, yes, ThinkPad! Kebetulan saya memang sangat mengincar ThinkPad, kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki. Seandainya kalian dapat merasakan nikmat yang saya rasakan saat ini, mungkin juga akan berkata hal yang serupa.
 
 Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
 
