@@ -11,6 +11,7 @@ Created : Maret 2018
 @import url(/assets/fonts/ubuntu.css);
 @import url(/assets/fonts/Give-You-Glory.css);
 @import url(/assets/fonts/TypoPRO-FantasqueSansMono.css);
+@import url(/assets/fonts/Terminus.css);
 
 /* CODE COLORSCHEME */
 @import url(/assets/css/solarizeddark.css);
@@ -1370,8 +1371,8 @@ p.notif-post {
 .log-page ul li {
     /* float:left; */
     text-align: left;
-    padding-left: 85px;
-    text-indent: -75px;
+    padding-left: 75px;
+    text-indent: -67px;
 }
 
 .log-page a {
@@ -2163,7 +2164,7 @@ a.disqus_button {
         /* float:left; */
         text-align: left;
         padding-left: 75px;
-        text-indent: -75px;
+        text-indent: -67px;
     }
 
     .penulis-img {

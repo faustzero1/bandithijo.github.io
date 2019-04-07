@@ -166,7 +166,7 @@
 - tanggal: '18/09/25'
   url:
   detail: |
-      Memisahkan Develop Env. dengan Production Env. dengan menambahkan if statemen ENV=production
+      Memisahkan Develop Env. dengan Production Env. dengan menambahkan if statement ENV=production
 
 - tanggal: '18/09/21'
   url:
