@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags:
-# Arch Linux, Database, Django, Fedora, I3WM, Java, Javascript, Jekyll,
+# Arch Linux, BSPWM, Database, Django, Fedora, I3WM, Java, Javascript, Jekyll,
 # Network, Python, Script, Security, Terminal, ThinkPad, Tips, Tools,
 # Ubuntu, Ulasan, Vim, Wine, XFCE
 pin:

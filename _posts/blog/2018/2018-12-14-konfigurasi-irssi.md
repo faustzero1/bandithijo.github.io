@@ -182,7 +182,7 @@ $ rm irssi.crt irssi.key
 ```
 Selanjutnya, menampilkan fingerprint dari `irssi.pem`.
 ```
-openssl x509 -sha1 -fingerprint -noout -in ~/.irssi/irssi.pem | sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
+$ openssl x509 -sha1 -fingerprint -noout -in ~/.irssi/irssi.pem | sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
 ```
 ```
 386b6c1eb8efb3a3617d1ffe7e6c0489e71a63be
