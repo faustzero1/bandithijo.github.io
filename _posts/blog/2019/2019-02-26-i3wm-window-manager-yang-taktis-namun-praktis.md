@@ -1426,11 +1426,7 @@ i3wm dapat dikatakan Window Manager yang cukup kaya fitur, ada beberapa orang ya
 
 Bagi yang sudah mengenal banyak Window Manager mungkin dapat secara mandiri menanamkan fitur-fitur yang mereka perlukan, namun bagi saya yang baru pertama kali belajar menggunakan Window Manager, adanya fitur-fitur ini dapat menjadi jembatan belajar untuk mengerti apa saja fitur-fitur yang diperlukan oleh sebuah Window Manager.
 
-Menurut saya, apabila kalian penyuka *desktop ricing* (seni menghias desktop), sebaiknya tidak menggunakan i3wm, karena jujur saja, tidak banyak komponen yang dapat membuat tampilan desktop kalian menjadi lebih keren dari pada pengguna Window Manager yang lain.
-
-Namun, bagi teman-teman yang membutuhkan *workflow* yang efisien dan efektif. Saya sangat merekomendasikan untuk menggunakan i3wm.
-
-> Saya sangat merekomendasikan untuk menggunakan i3wm.
+Bagi teman-teman yang membutuhkan *workflow* yang efisien dan efektif. <mark>Saya sangat merekomendasikan untuk menggunakan i3wm</mark>.
 
 Selama setahun terakhir, saya sudah merasakan manfaatnya. Tentu saja akan terasa sulit pada awalnya. Semua hal juga seperti itu. Jadi, paksakan dan biasakan saja, karena nikmatnya akan kamu petik tidak akan lama lagi.
 
@@ -1446,6 +1442,9 @@ Sekiranya seperti ini saja.
 Mudah-mudahan dapat bermanfaat bagi teman-teman.
 
 Terima kasih.
+
+>Per-April 2019, saya sudah berpindah menggunakan BSPWM (*Binary Space Partition Window Manager*)
+
 
 
 # Referensi
