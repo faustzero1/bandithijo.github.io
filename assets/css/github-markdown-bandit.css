@@ -843,7 +843,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   /* background-color: #272822; <-- monokai */
   background: #002b36; /* <-- solarized */
   border-radius: 5px;
-  font-size: 90%;
+  /* font-size: 90%; */
+  font-size: 14px;
   font-family: 'Terminus', 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', 'Ubuntu Mono', monospace;
   line-height: 1.45;
   overflow: auto;
@@ -866,7 +867,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: #444d56;
   display: inline-block;
   font-family: Terminus,TypoPRO Fantasque Sans Mono,Roboto Mono,Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 90%;
+  /* font-size: 90%; */
+  font-size: 14px;
 }
 
 .markdown-body .blob-wrapper {
@@ -888,7 +890,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: rgba(27,31,35,.3);
   cursor: pointer;
   font-family: Terminus,TypoPRO Fantasque Sans Mono,Roboto Mono,Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
   min-width: 50px;
   padding-left: 10px;
@@ -919,7 +921,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body .blob-code-inner {
   color: #24292e;
   font-family: Terminus,TypoPRO Fantasque Sans Mono,Roboto Mono,Ubuntu Mono,SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  font-size: 12px;
+  font-size: 14px;
   overflow: visible;
   white-space: pre;
   word-wrap: normal;
