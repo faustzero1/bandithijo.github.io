@@ -198,6 +198,16 @@ Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak d
 
 2. Link/URL yang *clickable*. Fitur ini juga masih belum saya cari tahu.
 
+# Tambahan Konfigurasi
+
+## Window Title
+
+Secara *default*, pada Window Title, st hanya menampilkan detail berupa tulisan "st".
+
+Untuk dapat membuat Window Title menjadi lebih dinamis, dapat mengikuti catatan yang sudah saya tulis pada artikel ini, ["Konfigurasi Window Title untuk Simple/Suckless Terminal"]({{ site.url }}/blog/konfigurasi-window-title-st-terminal){:target="_blank"}.
+
+
+
 # Referensi
 
 1. [st.suckless.org/](https://st.suckless.org/){:target="_blank"}
