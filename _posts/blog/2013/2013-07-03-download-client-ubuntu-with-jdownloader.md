@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Ubuntu', 'Tools', 'Ulasan']
+tags: ['Tools', 'Ulasan']
 pin:
 hot:
 ---

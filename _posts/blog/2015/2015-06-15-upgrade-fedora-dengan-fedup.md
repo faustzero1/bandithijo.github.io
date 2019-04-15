@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Fedora', 'Ulasan']
+tags: ['Ulasan']
 pin:
 hot:
 ---

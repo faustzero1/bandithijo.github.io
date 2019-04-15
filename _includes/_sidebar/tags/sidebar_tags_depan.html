@@ -4,11 +4,13 @@
     {% assign tag_list = site.tags | sort %}
     {% if tag_list.first[0] == null %}
       {% for tag in tag_list %}
-        <span class="tags"><a href="/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag | camelcase }} ({{ site.tags.size }})</a></span>
+        {% comment %}<span class="tags"><a href="/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag | camelcase }} ({{ site.tags.size }})</a></span>{% endcomment %}
+        <span class="tags"><a href="/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag | camelcase }}</a></span>
       {% endfor %}
     {% else %}
       {% for tag in tag_list %}
-        <span class="tags"><a href="/tags/#{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag[0] | camelcase }} ({{ tag[1].size }})</a></span>
+        {% comment %}<span class="tags"><a href="/tags/#{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag[0] | camelcase }} ({{ tag[1].size }})</a></span>{% endcomment %}
+        <span class="tags"><a href="/tags/#{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">{{ tag[0] | camelcase }}</a></span>
       {% endfor %}
     {% endif %}
     {% assign tag_list = nil %}
