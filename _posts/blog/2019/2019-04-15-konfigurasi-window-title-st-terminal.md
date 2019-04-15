@@ -62,9 +62,9 @@ Berikut ini langkah-langkahnya.
     esac
     ```
 
-    Silahkan dimodifikasi sendiri bentuk format dari detail dari Window Title yang diinginkan.
+    Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
 
-2. Selesai. Coba buka Terminal yang baru dan perhatikan Window Titlenya.
+2. Selesai. Coba buka st Terminal yang baru dan perhatikan Window Titlenya.
 
 <hr>
 
