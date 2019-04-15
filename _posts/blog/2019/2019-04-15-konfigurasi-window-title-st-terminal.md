@@ -64,7 +64,7 @@ Berikut ini langkah-langkahnya.
 
     Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
 
-2. Selesai. Coba buka st Terminal yang baru dan perhatikan Window Titlenya.
+2. Selesai. Coba buka **st** Terminal yang baru dan perhatikan Window Titlenya.
 
 <hr>
 
