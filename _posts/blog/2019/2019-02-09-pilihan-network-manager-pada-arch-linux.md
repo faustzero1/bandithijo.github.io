@@ -139,6 +139,18 @@ Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu ja
 
 # Pesan Penulis
 
+Sekali waktu, apabila ada waktu luang, coba sempatkan untuk mencoba network manager yang lain juga.
+
+Menggunakan Arch Linux memberikan kita kemudahan untuk membongkar-pasang berbagai macam aplikasi pendukung yang kita perlukan.
+
+Beberapa waktu yang lalu, saya pun sempat mencoba **connman** dan **wicd**.
+
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mZ9spG8J/gambar-07.png"}
+<p class="img-caption">Gambar 7 - Tampilan GUI dari <code>connman-gtk</code></p>
+
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/3JHHPbqR/gambar-08.png"}
+<p class="img-caption">Gambar 8 - Tampilan GUI dari <code>wicd-gtk</code></p>
+
 Sebaik-baik dokumentasi adalah yang ditulis dan dikelola secara aktif oleh developer dari aplikasi yang bersangkutan.
 
 Silahkan menggali informasi lebih jauh dan lebih luas pada daftar referensi yang saya sertakan.
