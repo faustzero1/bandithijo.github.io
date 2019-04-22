@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'St, Simple Terminal yang Sudah Lama Saya Dambakan'
+title: 'St, Simple/Suckless Terminal yang Sudah Lama Saya Dambakan'
 date: 2019-02-08 17:08
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -41,7 +41,7 @@ Karena alasan tersebut, saya akhirnya memutuskan untuk bermigrasi secara penuh d
 
 Mungkin saja, sebenarnya saya dapat mengatasi permasalahan dalam menampilkan glyph font ini, namun saya lebih memilih jalan untuk memigrasikan Terminal. Mumpung momennya sedang pas. Karena saya memang ingin pelan-pelan bermigrasi menggunakan aplikasi besutan dari Suckless. Karena dapat sekalian mengerti sedikit-sedikit bahasa C.
 
-**Apa itu Simple Terminal?**
+**Apa itu Simple/Suckless Terminal?**
 
 Dapat di baca sendiri [di sini](https://st.suckless.org/patches/alpha/){:target="_blank"}
 

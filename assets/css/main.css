@@ -601,6 +601,12 @@ img.footer-img-4 {
     filter: opacity(70%);
 }
 
+img.footer-img-5 {
+    float: right;
+    margin: -160px 190px 0 0;
+    width: 100px;
+}
+
 img.footer-bedge-1 {
     float: right;
     margin: -195px 20px 0 0;
@@ -2097,6 +2103,16 @@ a.disqus_button {
         position: relative;
         left: 0;
         filter: opacity(70%);
+    }
+
+    img.footer-img-5 {
+        width: 60px;
+        float: none;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+        position: relative;
+        right: 65px;
     }
 
     img.footer-bedge-1 {
