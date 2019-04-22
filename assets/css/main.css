@@ -1763,7 +1763,7 @@ a.disqus_button {
 
     #header .container {
         padding-top: 49px;
-        height: 100vh;
+        height: 95vh;
         /* background: #008352 url('') no-repeat; */
         background: repeating-linear-gradient(
         135deg,
@@ -1778,7 +1778,7 @@ a.disqus_button {
         text-align: center;
         width: 250px;
         margin: auto;
-        padding-top: 22vh;
+        padding-top: 20vh;
     }
 
     #header .container .title {
