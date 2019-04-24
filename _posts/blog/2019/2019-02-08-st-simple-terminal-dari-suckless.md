@@ -156,10 +156,25 @@ Patch yang saya gunakan tidak banyak. Beberapa di antaranya.
 2. [st-scrollback-mouse-0.8.diff](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.diff){:target="_blank"}
 <br>Patch ini untuk menambahkan fitur scrolling back ke atas dan ke bawah menggunakan mouse, <kbd>SHIFT</kbd>+Scrolling Up  dan <kbd>SHIFT</kbd>+Scrolling Down.
 
+3. [st-scrollback-mouse-altscreen-0.8.diff](https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-0.8.diff){:target="_blank"}
+<br>Patch ini untuk membuat scrolling back ke atas dan ke bawah tanpa perlu menekan tombol <kbd>SHIFT</kbd> terlebih dahulu.
+
 **Alpha**
 
 1. [st-alpha-0.8.1.diff](https://st.suckless.org/patches/alpha/st-alpha-0.8.1.diff){:target="_blank"}
 <br>Patch ini untuk menambahkan fitur alpha atau transparansi pada background Terminal.
+
+    <div class="blockquote-blue">
+    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <p><b>2019/04/24</b>, Saya sudah tidak lagi menggunakan patch Alpha. Saya lebih memilih mengatur alpha atau opacity menggunakan <i>compsitor</i> seperti <b>compton</b>.</p>
+    <p>Berikut ini adalah pengaturan pada compton yang saya gunakan.</p>
+    <pre>
+    opacity-rule = [
+    "95:class_g = 'URxvt'",
+    <mark>"95:class_g = 'st-256color'",</mark>
+    ];</pre>
+    <p>Nilai dari <code>95</code> adalah nilai dari opacity (0 - 100).</p>
+    </div>
 
 <br>
 **Bagaimana cara menggunakan patch ini?**
