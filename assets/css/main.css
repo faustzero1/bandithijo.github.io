@@ -1004,6 +1004,15 @@ p.notif-post {
     margin: 5px 1px 5px 5px;
 }
 
+.tombol-a {
+    background-color: #000;
+    border-radius: 5em;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 8px;
+    margin: 0;
+}
+
 .tags-hollow {
     background: transparent;
     border: 1px solid #8B8B8B;
