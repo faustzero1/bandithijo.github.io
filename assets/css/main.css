@@ -606,8 +606,9 @@ img.footer-img-4 {
 
 img.footer-img-5 {
     float: right;
-    margin: -160px 190px 0 0;
+    margin: -160px 198px 0 0;
     width: 100px;
+    filter: opacity(80%);
 }
 
 img.footer-bedge-1 {
@@ -2129,7 +2130,8 @@ a.disqus_button {
         margin-top: -5px;
         margin-bottom: 20px;
         position: relative;
-        right: 65px;
+        right: 70px;
+        filter: opacity(80%);
     }
 
     img.footer-bedge-1 {
