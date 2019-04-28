@@ -10,8 +10,7 @@ Created : Maret 2018
 /* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
 @import url(/assets/fonts/ubuntu.css);
 @import url(/assets/fonts/Give-You-Glory.css);
-@import url(/assets/fonts/hack.css);
-@import url(/assets/fonts/hack-subset.css);
+@import url(/assets/fonts/Hack.css);
 
 /* CODE COLORSCHEME */
 @import url(/assets/css/solarizeddark.css);
@@ -33,7 +32,7 @@ body {
 
 pre, code {
     color: #FFF;
-    font-size: 14px !important;
+    font-size: 13px !important;
 }
 
 pre {
