@@ -192,8 +192,7 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
     Sebagai contoh, ini adalah beberapa daftar *keyboard shortcut* i3wm yang saya perlukan.
 
     ```
-
-    LAUNCHER--------------------------------
+    <b>LAUNCHER--------------------------------</b>
     mod+Enter          Terminal
     mod+Shift+End      Sessions Dialog
     mod+Shift+x        Lock Screen
@@ -208,14 +207,14 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
     mod+Shift+Print    Screenshot GUI
     mod+F7             Arandr
     mod+F8             Wifi ON/OFF [T]
-    LAYOUT----------------------------------
+    <b>LAYOUT----------------------------------</b>
     mod+s              Layout: Stacking
     mod+w              Layout: Tabbed
     mod+e              layout: Split [T]
     mod+b              Split Horizontal
     mod+v              Split Vertical
     mod+o              Blank Space
-    WINDOW----------------------------------
+    <b>WINDOW----------------------------------</b>
     mod+f              Fullscreen Window [T]
     mod+r              Resize Window
     mod+Shift+Plus     Sticky Window [T]
@@ -225,12 +224,12 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
     mod+Space          Change Focus [T]
     mod+a              Focus Parent
     mod+Shidt+a        Focus Child
-    BORDER----------------------------------
+    <b>BORDER----------------------------------</b>
     mod+t              Border Normal 1
     mpd+shift+t        Border Normal 0
     mod+y              Border None
     mod+shift+y        Border Pixer 1
-    WALLPAPER-------------------------------
+    <b>WALLPAPER-------------------------------</b>
     mod+F5             Blogging Mode
     mod+F6             Unixporn Mode
     ```
