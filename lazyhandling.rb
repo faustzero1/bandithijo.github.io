@@ -55,35 +55,35 @@ end
 puts '#' * 80
 puts '#' * 29 + ' PROSES: JEKYLL BUILD ' + '#' * 29
 puts '#' * 80
-system("""
+system """
        cd #{srcDir}
        JEKYLL_ENV=production jekyll build
-       """)
+       """
 puts "\n--[ DONE ] Jekyll Build Env=production."
-puts '-'*80
+puts '-' * 80
 
 # PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO (GITHUB)
 puts '#' * 80
 puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
 puts '#' * 80
-system("""
+system """
        cd #{pubDir}
        rm #{pubDir}/feed.xml
        git add .; git commit -m '#{comMsg}'; git push origin master
-       """)
+       """
 puts "\n--[ DONE ] Add, Commit, and Push to GitHub Repo."
-puts '-'*80
+puts '-' * 80
 
 # PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO (GITLAB)
 puts '#' * 80
 puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
 puts '#' * 80
-system("""
+system """
        cd #{srcDir}
        git add .; git commit -m '#{comMsg}'; git push origin master
-       """)
+       """
 puts "\n--[ DONE ] Add, Commit, and Push to GitLab Repo."
-puts '-'*80
+puts '-' * 80
 
 puts """
 d8888b.  .d88b.  d8b   db d88888b db

@@ -50,50 +50,40 @@ except IndexError:
 else:
     comMsg = sys.argv[1]
 
-os.system(
-f'''
-# -----------------------------------------------------------------------------
-# #### PROSES JEKYLL BUILD
-# -----------------------------------------------------------------------------
-echo '###########################'
-echo '### PROSES JEKYLL BUILD ###'
-echo '###########################'
-cd {srcDir}
-JEKYLL_ENV=production jekyll build
+# PROSES JEKYLL BUILD
+print('#' * 80)
+print('#' * 29 + ' PROSES JEKYLL BUILD ' + '#' * 29)
+print('#' * 80)
+os.system(f'''
+          cd {srcDir}
+          JEKYLL_ENV=production jekyll build
+          ''')
+print('\n[ DONE ] Jekyll Build Env=production')
+print('-' * 80)
 
-echo '\n[ DONE ] Jekyll Build Env=production\n'
-# -----------------------------------------------------------------------------
+# PROSES ADD, COMMIT, PUSH PUBLIC REPO
+print('#' * 80)
+print('#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19)
+print('#' * 80)
+os.system(f'''
+          cd {pubDir}
+          rm {pubDir}/feed.xml
+          git add .; git commit -m "{comMsg}"; git push origin master
+          ''')
+print('\n[ DONE ] Add, Commit, and Push to GitHub Repo')
+print('-' * 80 + '\n')
 
+# PROSES ADD, COMMIT, PUSH SOURCE REPO
+print('#' * 80)
+print('#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19)
+print('#' * 80)
+os.system(f'''
+          cd {srcDir}
+          git add .; git commit -m "{comMsg}"; git push origin master
+          ''')
+print('\n[ DONE ] Add, Commit, and Push to GitLab Repo\n')
+print('-' * 80 + '\n')
 
-# -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH PUBLIC REPO
-# -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
-echo '######################################################'
-cd {pubDir}
-#rm {pubDir}/lazyhandling.py
-rm {pubDir}/feed.xml
-git add .; git commit -m "{comMsg}"; git push origin master
-
-echo '\n[ DONE ] Add, Commit, and Push to GitHub Repo\n'
-# -----------------------------------------------------------------------------
-
-
-# -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH SOURCE REPO
-# -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
-echo '######################################################'
-cd {srcDir}
-git add .; git commit -m "{comMsg}"; git push origin master
-
-echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
-# -----------------------------------------------------------------------------
-''')
-
-# Print Output ----------------------------------------------------------------
 print(f'''
 d8888b.  .d88b.  d8b   db d88888b db
 88  `8D .8P  Y8. 888o  88 88'     88
@@ -102,6 +92,7 @@ d8888b.  .d88b.  d8b   db d88888b db
 88  .8D `8b  d8' 88  V888 88.     db
 Y8888D'  `Y88P'  VP   V8P Y88888P YP
 ''')
+
 print('\n>> AUTOBUILD PROCESS COMPLETED !!')
 
 
