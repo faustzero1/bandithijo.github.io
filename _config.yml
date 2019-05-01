@@ -116,6 +116,7 @@ pwa:
 # to override the default setting.
 exclude:
     - lazyhandling.py
+    - lazyhandling.rb
     - Gemfile
     - Gemfile.lock
 #   - node_modules

@@ -12,6 +12,7 @@
 #   </div>
 
 module Jekyll
+
   class Youtube < Liquid::Tag
     @url = nil
 
@@ -31,7 +32,8 @@ module Jekyll
       source += "</div>"
       source
     end
-  end
-end
+
+  end # Youtube
+end # Jekyll
 
 Liquid::Template.register_tag('youtube', Jekyll::Youtube)

@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/bin/env ruby
 
 #  ██████                           ██ ██   ██   ██      ██ ██    ██
 # ░█░░░░██                         ░██░░   ░██  ░██     ░██░░    ░░
@@ -33,78 +33,65 @@
 # , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
 
 # TODO
-# 1. Menambahkan selection for git commit reguler and git commit --amend
-
-import os
-import sys
+# 1. sys.argv[1] on Python alternative on Ruby
+# 2. Multiple Line on System
+# 3. Multiline puts
+# 4. Menambahkan selection for git commit reguler and git commit --amend
 
 # Daftar direktori
-srcDir = "$HOME/dex/bandithijo.com"
-pubDir = "$HOME/dex/bandithijo.com/_site"
+srcDir = '$HOME/dex/bandithijo.com'
+pubDir = '$HOME/dex/bandithijo.com/_site'
 
 # Meminta commit message kepada user
-try:
-    sys.argv[1]
-except IndexError:
-    comMsg = input('Masukkan pesan COMMIT: ')
-else:
-    comMsg = sys.argv[1]
+if ARGV.inspect == '[]'
+    puts 'Masukkan pesan COMMIT: '
+    comMsg = gets.chomp
+else
+    comMsg = ARGV.inspect
+    comMsg.tr!('["]', '')
+end
 
-os.system(
-f'''
-# -----------------------------------------------------------------------------
-# #### PROSES JEKYLL BUILD
-# -----------------------------------------------------------------------------
-echo '###########################'
-echo '### PROSES JEKYLL BUILD ###'
-echo '###########################'
-cd {srcDir}
-JEKYLL_ENV=production jekyll build
+# PROSES: JEKYLL BUILD
+puts '#' * 80
+puts '#' * 29 + ' PROSES: JEKYLL BUILD ' + '#' * 29
+puts '#' * 80
+system("""
+       cd #{srcDir}
+       JEKYLL_ENV=production jekyll build
+       """)
+puts "\n--[ DONE ] Jekyll Build Env=production."
+puts '-'*80
 
-echo '\n[ DONE ] Jekyll Build Env=production\n'
-# -----------------------------------------------------------------------------
+# PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO (GITHUB)
+puts '#' * 80
+puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
+puts '#' * 80
+system("""
+       cd #{pubDir}
+       rm #{pubDir}/feed.xml
+       git add .; git commit -m '#{comMsg}'; git push origin master
+       """)
+puts "\n--[ DONE ] Add, Commit, and Push to GitHub Repo."
+puts '-'*80
 
+# PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO (GITLAB)
+puts '#' * 80
+puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
+puts '#' * 80
+system("""
+       cd #{srcDir}
+       git add .; git commit -m '#{comMsg}'; git push origin master
+       """)
+puts "\n--[ DONE ] Add, Commit, and Push to GitLab Repo."
+puts '-'*80
 
-# -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH PUBLIC REPO
-# -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITHUB ###'
-echo '######################################################'
-cd {pubDir}
-#rm {pubDir}/lazyhandling.py
-rm {pubDir}/feed.xml
-git add .; git commit -m "{comMsg}"; git push origin master
-
-echo '\n[ DONE ] Add, Commit, and Push to GitHub Repo\n'
-# -----------------------------------------------------------------------------
-
-
-# -----------------------------------------------------------------------------
-# #### PROSES ADD, COMMIT, PUSH SOURCE REPO
-# -----------------------------------------------------------------------------
-echo '######################################################'
-echo '### PROSES ADD, COMMIT, PUSH PUBLIC REPO TO GITLAB ###'
-echo '######################################################'
-cd {srcDir}
-git add .; git commit -m "{comMsg}"; git push origin master
-
-echo '\n[ DONE ] Add, Commit, and Push to GitLab Repo\n'
-# -----------------------------------------------------------------------------
-''')
-
-# Print Output ----------------------------------------------------------------
-print(f'''
+puts """
 d8888b.  .d88b.  d8b   db d88888b db
 88  `8D .8P  Y8. 888o  88 88'     88
 88   88 88    88 88V8o 88 88ooooo YP
 88   88 88    88 88 V8o88 88~~~~~
 88  .8D `8b  d8' 88  V888 88.     db
 Y8888D'  `Y88P'  VP   V8P Y88888P YP
-''')
-print('\n>> AUTOBUILD PROCESS COMPLETED !!')
+"""
 
-
-
-
-# vim: tabstop=8 expandtab shiftwidth=4 softtabstop=4
+puts "\n>> AUTOBUILD PROCESS COMPLETED !!"
