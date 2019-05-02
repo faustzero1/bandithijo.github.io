@@ -104,7 +104,7 @@ userDibuat = gets.to_i
 puts "#{userDibuat} users akan dibuat."
 
 userDibuat.times do |user|
-    puts "Masukkan USERNAME untuk user ke-#{user.to_i+1} : "
+    puts "Masukkan USERNAME untuk user ke-#{user+1} : "
     username = gets.chomp
     system("sudo useradd -m -g users -G sudo,storage,power,input,network \
            #{username}")
