@@ -128,7 +128,7 @@ Nah! Dari kedua contoh di atas. Masih banyak lagi yang akan saya coba konfersika
 
 Saya jadi penasaran dan sangat bersemangat untuk melanjutkan proses belajar Ruby ini.
 
-Sepertinya seperti ini saja.
+Sepertinya segini dulu ceritanya.
 
 Terima kasih yang sudah mampir yaa.
 
