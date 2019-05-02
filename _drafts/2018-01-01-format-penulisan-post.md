@@ -10,8 +10,8 @@ toc: true
 category: 'blog'
 tags:
 # Arch Linux, BSPWM, Database, Django, I3WM, Java, Javascript, Jekyll,
-# Network, Python, Script, Security, Terminal, ThinkPad, Tips, Tools,
-# Ulasan, Vim, Wine, XFCE
+# Network, Python, Rails, Ruby, Script, Security, Terminal, ThinkPad, Tips,
+# Tools, Ulasan, Vim, Wine, XFCE
 pin:
 hot:
 ---

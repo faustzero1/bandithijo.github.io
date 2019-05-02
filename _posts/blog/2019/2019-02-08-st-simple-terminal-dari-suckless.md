@@ -114,7 +114,7 @@ Nanti akan terbuat file binary yang bernama `st`.
     Kalau ingin dibuild lagi secara **clean**.
 
     ```
-    $ sudo make clean install
+    $ sudo make uninstall; sudo make install
     ```
 
     Hasil make ini akan berada pada `/usr/local/bin/st`.
@@ -220,6 +220,27 @@ Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak d
 Secara *default*, pada Window Title, st hanya menampilkan detail berupa tulisan "st".
 
 Untuk dapat membuat Window Title menjadi lebih dinamis, dapat mengikuti catatan yang sudah saya tulis pada artikel ini, ["Konfigurasi Window Title untuk Simple/Suckless Terminal"]({{ site.url }}/blog/konfigurasi-window-title-st-terminal){:target="_blank"}.
+
+## Pengetesan Font
+
+Akan sangat melelahkan apabila kita melakukan kompilasi berulang kali hanya sekedar untuk melihat dan menguji tampilan dari font yang ingin kita gunakan.
+
+Teman-teman dapat menggunakan perintah di bawah ini,
+
+```
+$ st -f "Fira Code Retina:pixelsize=12"
+```
+
+atau seperti ini untuk penambahan style,
+
+```
+$ st -f "FuraCode Nerd Font:style=Retina:pixelsize=12"
+```
+
+Perintah di atas akan menghasilkan Simple/Suckless Terminal yang terbuka dengan konfigurasi font yang sudah kita berikan pada argument dengan option `-f`.
+
+Gampang kan?
+
 
 
 

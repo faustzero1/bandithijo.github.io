@@ -29,14 +29,11 @@
 # email   : bandithijo@gmail.com
 # created : 2018
 
-# lazyhandling.py, adalah python script sederhana untuk menghandle Jekyll Build
+# lazyhandling.rb, adalah python script sederhana untuk menghandle Jekyll Build
 # , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
 
 # TODO
-# 1. sys.argv[1] on Python alternative on Ruby
-# 2. Multiple Line on System
-# 3. Multiline puts
-# 4. Menambahkan selection for git commit reguler and git commit --amend
+# 1. ...
 
 # Daftar direktori
 srcDir = '$HOME/dex/bandithijo.com'
@@ -51,18 +48,18 @@ else
     comMsg.tr!('["]', '')
 end
 
-# PROSES: JEKYLL BUILD
+# PROSES JEKYLL BUILD
 puts '#' * 80
-puts '#' * 29 + ' PROSES: JEKYLL BUILD ' + '#' * 29
+puts '#' * 29 + ' PROSES JEKYLL BUILD ' + '#' * 29
 puts '#' * 80
 system """
        cd #{srcDir}
        JEKYLL_ENV=production jekyll build
        """
-puts "\n--[ DONE ] Jekyll Build Env=production."
+puts "\n[ DONE ] Jekyll Build Env=production"
 puts '-' * 80
 
-# PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO (GITHUB)
+# PROSES ADD, COMMIT, PUSH PUBLIC REPO
 puts '#' * 80
 puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
 puts '#' * 80
@@ -71,18 +68,18 @@ system """
        rm #{pubDir}/feed.xml
        git add .; git commit -m '#{comMsg}'; git push origin master
        """
-puts "\n--[ DONE ] Add, Commit, and Push to GitHub Repo."
+puts "\n[ DONE ] Add, Commit, and Push to GitHub Repo"
 puts '-' * 80
 
-# PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO (GITLAB)
+# PROSES ADD, COMMIT, PUSH SOURCE REPO
 puts '#' * 80
-puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
+puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
 puts '#' * 80
 system """
-       cd #{srcDir}
+       cd {srcDir}
        git add .; git commit -m '#{comMsg}'; git push origin master
        """
-puts "\n--[ DONE ] Add, Commit, and Push to GitLab Repo."
+puts "\n[ DONE ] Add, Commit, and Push to GitLab Repo\n"
 puts '-' * 80
 
 puts """
