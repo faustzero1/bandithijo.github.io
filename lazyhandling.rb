@@ -50,7 +50,7 @@ end
 
 # PROSES JEKYLL BUILD
 puts '#' * 80
-puts '#' * 29 + ' PROSES JEKYLL BUILD ' + '#' * 29
+puts '#' * 29 + ' PROSES JEKYLL BUILD ' + '#' * 30
 puts '#' * 80
 system """
        cd #{srcDir}

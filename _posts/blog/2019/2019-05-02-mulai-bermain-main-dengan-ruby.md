@@ -119,14 +119,25 @@ Gimana? Mirip bukan?
 Secara struktur sintaks, sama-sama mudah untuk dibaca dan ndak bikin ngebong.
 
 
+## Contoh 2
 
+{% youtube jr43cIer1Fw %}
 
+<br>
+Nah! Dari kedua contoh di atas. Masih banyak lagi yang akan saya coba konfersikan. Karena setiap Python script memiliki fungsi yang berbeda-beda.
 
+Saya jadi penasaran dan sangat bersemangat untuk melanjutkan proses belajar Ruby ini.
 
+Sepertinya seperti ini saja.
+
+Terima kasih yang sudah mampir yaa.
 
 
 # Referensi
 
-1. [](){:target="_blank"}
+1. [ruby-doc.org/core-2.4.0/Kernel.html#method-i-system](https://ruby-doc.org/core-2.4.0/Kernel.html#method-i-system){:target="_blank"}
+<br>Diakses tanggal: 2019/05/02
+
+2. [ruby-doc.org/core-2.4.0/ARGF.html](https://ruby-doc.org/core-2.4.0/ARGF.html){:target="_blank"}
 <br>Diakses tanggal: 2019/05/02
 
