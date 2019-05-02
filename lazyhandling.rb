@@ -9,7 +9,7 @@
 # ░███████ ░░████████ ███  ░██░░██████░██  ░░██ ░██     ░██░██░░███ ░░██████
 # ░░░░░░░   ░░░░░░░░ ░░░   ░░  ░░░░░░ ░░    ░░  ░░      ░░ ░░  ░░░   ░░░░░░
 
-# Copyright (C) 2018 BanditHijo
+# Copyright (C) 2019 BanditHijo
 #
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -27,7 +27,7 @@
 # author  : BanditHijo
 # website : https://bandithijo.com
 # email   : bandithijo@gmail.com
-# created : 2018
+# created : 01 May 2019
 
 # lazyhandling.rb, adalah python script sederhana untuk menghandle Jekyll Build
 # , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
