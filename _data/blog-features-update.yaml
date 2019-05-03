@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/05/03'
+  url:
+  detail: |
+      Menambahkan donasi via Go-Pay pada Footer
+
 - tanggal: '19/04/04'
   url:
   detail: |

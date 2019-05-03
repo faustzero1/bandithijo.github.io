@@ -579,6 +579,10 @@ aside.sidebar p {
     padding: 20px 0 20px 20px;
 }
 
+p.footer-menu {
+    margin-top: -20px;
+}
+
 img.footer-img-1 {
     float: right;
     margin: -160px 190px 0 0;
@@ -611,13 +615,30 @@ img.footer-img-5 {
     filter: opacity(85%);
 }
 
+img.footer-img-jekyll {
+    float: right;
+    margin: -65px 20px 0 0;
+    width: 120px;
+}
+
+img.footer-img-github {
+    float: right;
+    margin: -53px 145px 0 0;
+    width: 110px;
+}
+
+img.footer-img-netlify {
+    float: right;
+    margin: -54px 265px 0 0;
+    width: 120px;
+}
+
 img.footer-bedge-1 {
     float: right;
     margin: -195px 20px 0 0;
     filter: grayscale(100%) opacity(60%);
     width: 115px;
 }
-
 
 /* Image ------------------------------------------------------------------ */
 .img-caption {
@@ -932,6 +953,38 @@ p.notif-post {
     #FFCC00 15px,
     #232323 15px,
     #232323 30px);
+}
+
+.notif-donasi {
+    width: 40%;
+    padding: 0 !important;
+    color: #404040;
+    border: 1px dashed #404040;
+    border-radius: 5px;
+    /* background:#FFF; */
+    display: flex;
+    float: right;
+    margin: auto;
+    margin-top: -190px !important;
+    margin-right: 20px !important;
+}
+
+.notif-donasi-col-1 {
+    flex: 70%;
+}
+
+.notif-donasi-col-2 {
+    flex: 30%;
+}
+
+.notif-donasi p {
+    font-size: 9px !important;
+    padding: 5px 5px !important;
+    text-align: left !important;
+}
+
+.notif-donasi-img {
+    padding: 5px !important;
 }
 
 /* HOT TUGAS -------------------------------------------------------------- */
@@ -2082,6 +2135,11 @@ a.disqus_button {
         padding: 20px 0;
     }
 
+    p.footer-menu {
+        margin-top: -40px;
+    }
+
+
     img.footer-img-1 {
         width: 56px;
         float: none;
@@ -2133,6 +2191,38 @@ a.disqus_button {
         right: 70px;
     }
 
+    img.footer-img-jekyll {
+        float: none;
+        width: 170px;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+    }
+
+    img.footer-img-github {
+        float: none;
+        width: 140px;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+    }
+
+    img.footer-img-netlify {
+        float: none;
+        width: 150px;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+    }
+
+    img.footer-bedge-1 {
+        float: right;
+        margin: -195px 20px 0 0;
+        filter: grayscale(100%) opacity(60%);
+        width: 115px;
+    }
+
+
     img.footer-bedge-1 {
         float: none;
         margin: 0 auto;
@@ -2157,6 +2247,40 @@ a.disqus_button {
         #007D4F 2px,
         #008352 2px,
         #008352 5px);
+    }
+
+    .notif-donasi {
+        width: 80%;
+        padding: 0 !important;
+        color: #404040;
+        border: 1px dashed #404040;
+        border-radius: 5px;
+        /* background:#FFF; */
+        display: block;
+        float: none;
+        margin: 0 auto !important;
+        margin-bottom: 20px !important;
+    }
+
+    .notif-donasi-col-1 {
+        margin: 0 auto;
+        flex: none;
+    }
+
+    .notif-donasi-col-2 {
+        margin: 0 auto;
+        flex: none;
+    }
+
+    .notif-donasi p {
+        font-size: 10px !important;
+        padding: 5px 5px !important;
+        text-align: center !important;
+    }
+
+    .notif-donasi-img {
+        padding: 5px !important;
+        margin-top: -5px;
     }
 
 
