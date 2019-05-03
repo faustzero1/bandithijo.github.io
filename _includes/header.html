@@ -23,7 +23,7 @@
         </div><!-- menu -->
       </div><!-- toggle -->
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="{{ site.url }}">Home</a></li>
         {% for item in site.navigation %}
         {% assign class = nil %}
         {% if page.url contains item.url %}
