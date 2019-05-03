@@ -975,6 +975,7 @@ p.notif-post {
 
 .notif-donasi-col-2 {
     flex: 30%;
+    border-left: 1px dashed #404040;
 }
 
 .notif-donasi p {
@@ -2270,6 +2271,7 @@ a.disqus_button {
     .notif-donasi-col-2 {
         margin: 0 auto;
         flex: none;
+        border-left: none;
     }
 
     .notif-donasi p {
