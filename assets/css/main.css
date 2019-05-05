@@ -587,7 +587,7 @@ p.footer-menu {
     display: none;
 }
 
-img.footer-img-5 {
+img.footer-img-1 {
     float: right;
     margin: -160px 198px 0 0;
     width: 100px;
@@ -2138,6 +2138,7 @@ a.disqus_button {
 
     .tech-i-used-mobile {
         display: block;
+        margin-bottom: -70px !important;
     }
 
     img.footer-img-1 {
@@ -2149,7 +2150,7 @@ a.disqus_button {
         position: relative;
         top: 20px;
         right: 70px;
-        filter: grayscale(100%) opacity(70%);
+        filter: grayscale(100%) opacity(80%);
     }
 
     img.footer-img-2 {

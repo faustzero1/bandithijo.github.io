@@ -1443,7 +1443,7 @@ Mudah-mudahan dapat bermanfaat bagi teman-teman.
 
 Terima kasih.
 
->Per-April 2019, saya sudah berpindah menggunakan BSPWM (*Binary Space Partition Window Manager*)
+>Per-April 2019, saya sudah berpindah menggunakan BSPWM (*Binary Space Partition Window Manager*).
 
 
 
