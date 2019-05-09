@@ -129,7 +129,7 @@ Tunggu sampai proses *compile* selesai.
 Setelah dipastikan proses instalasi selesai, baik dari repositori maupun meng-*compile* langsung dari source, coba jalankan Polybar terlebih dahulu dengan menambahkan option `-h`.
 
 ```
-$ polybar -h                                                                                                                                                                                   ~
+$ polybar -h
 ```
 ```
 Usage: polybar [OPTION]... BAR
@@ -193,8 +193,8 @@ Memanggil/menjalankan Polybar diperlukan agar Polybar dapat menampakkan diri pad
 
 Cara menjalankan Polybar saya bagi menjadi 2, yaitu :
 
-1. [Langsung]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#1-langsung){:target="_blank"}
-2. [Tidak Langsung]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#2-tidak-langsung){:target="_blank"}
+1. [Langsung]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#1-langsung)
+2. [Tidak Langsung]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#2-tidak-langsung)
 
 #### 1. Langsung
 
@@ -330,11 +330,10 @@ Nah sekarang kita akan mem-*breakdown* isi dari file config.
 
 Secara garis besar, di dalam file config, baris-baris kode tersebut terkelompokkan menjadi beberapa blok.
 
-1. [**Blok [colors]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-colors){:target="_blank"}
-2. [**Blok [bar/nama_bar]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-barnama_bar){:target="_blank"}
-3. [**Blok-blok [module/nama_modul]**](){:target="_blank"}
-4. [**Blok [settings]**](){:target="_blank"}
-5. [**Blok [global/wm]**](){:target="_blank"}
+1. [**Blok [colors]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-colors)
+2. [**Blok [bar/nama_bar]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-barnama_bar)
+3. [**Blok-blok [module/nama_modul]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-modulenama_modul)
+4. [**Blok [settings]**]({{ site.url }}/blog/polybar-mudah-dikonfig-dan-praktis#blok-settings)
 
 Selanjutnya, akan kita bahas satu-persatu mengenai isi yang ada di dalam blok-blok tersebut.
 
