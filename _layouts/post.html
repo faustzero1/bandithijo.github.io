@@ -16,7 +16,7 @@ layout: baseof
         <div class="post-body">
           <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
           <label class="hideAside noselect" title="On/Off Sidebar"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
-          <span class="post-details noselect">Diterbitkan: {{ page.date | date: '%Y/%m/%d' }}</span> <span class="post-details noselect">Diperbaharui: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
+          <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span> <span class="post-details noselect">Diperbaharui: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
           {% include doa_awal.html %}

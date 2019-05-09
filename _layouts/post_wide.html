@@ -9,7 +9,7 @@ layout: baseof
       <article class="post-wide">
         <div class="post-body">
           <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
-          <span class="post-details noselect">AUT: {{ page.author }} | PUB: {{ page.date | date: '%Y/%m/%d' }}</span>&nbsp;<span class="post-details noselect">UPD: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
+          <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span> <span class="post-details noselect">Diperbaharui: {{ page.last_modified_at | date: '%Y/%m/%d' }}</span>
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
           {% include doa_awal.html %}

@@ -46,7 +46,7 @@ Beberapa kali saya bersinggungan dengan Jekyll Plugins yang ditulis dengan bahas
 
 Ada "*something*" yang membuat saya betah. Satu hal yang paling saya sadari adalah, Ruby, terkhusus Jekyll, sangat memudahkan dan membantu saya dalam menyelesaikan pemecahan permasalahan kebutuhan yang saya temui selama membangun blog ini.
 
-Di tengha keputusasaan belajar Django Web Framework yang tak kunjung "lulus-lulus", tak kunjung membuahkan hasil nyata. Saya kembali berpikir, mengapa tidak mencoba lagi Ruby on Rails (RoR) yang juga menggunakan Ruby sama seperti halnya blog Jekyll yang sudah setahun saya bangun.
+Di tengah keputusasaan belajar Django Web Framework yang tak kunjung "lulus-lulus", tak kunjung membuahkan hasil nyata. Saya kembali berpikir, mengapa tidak mencoba lagi Ruby on Rails (RoR) yang juga menggunakan Ruby sama seperti halnya blog Jekyll yang sudah setahun saya bangun.
 
 Lantas saya pun mulai membuka kembali video-video materi belajar tahun 2017 yang lalu.
 
