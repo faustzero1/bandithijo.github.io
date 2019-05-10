@@ -622,6 +622,12 @@ img.footer-img-github {
     width: 110px;
 }
 
+img.footer-img-gitlab {
+    float: right;
+    margin: -53px 145px 0 0;
+    width: 110px;
+}
+
 img.footer-img-netlify {
     float: right;
     margin: -54px 265px 0 0;
@@ -1173,6 +1179,13 @@ p.notif-post {
     width: 100%;
     margin: auto;
     /* untuk membuat box berada di center dan rata atas */
+    display: flex;
+    justify-content: center;
+}
+
+.box-container-github {
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
 }
@@ -2177,6 +2190,18 @@ a.disqus_button {
         filter: grayscale(100%) opacity(80%);
     }
 
+    img.footer-img-4 {
+        width: 65px;
+        float: none;
+        margin: auto;
+        /* margin-top: -85px; */
+        /* margin-bottom: 20px; */
+        position: relative;
+        top: -40px;
+        left: 0;
+        filter: grayscale(100%) opacity(80%);
+    }
+
     .tech-i-used-desktop {
         display: none;
     }
@@ -2190,6 +2215,14 @@ a.disqus_button {
     }
 
     img.footer-img-github {
+        float: none;
+        width: 145px;
+        margin: auto;
+        margin-top: -5px;
+        margin-bottom: 20px;
+    }
+
+    img.footer-img-gitlab {
         float: none;
         width: 145px;
         margin: auto;

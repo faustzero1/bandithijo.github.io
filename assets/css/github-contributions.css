@@ -5,10 +5,11 @@ https://github.com/IonicaBizau/github-calendar
 */
 
 .calendar {
-    width: 750px;
+    /* width: 750px; */
+    width: 100%;
+    /* max-width: 750px; */
     font-family: Helvetica, arial;
     /* border: 1px solid #DDDDDD; */
-    border: 1px solid #FFF;
     border-radius: 5px;
     /* min-height: 243px; */
     min-height: 200px;
