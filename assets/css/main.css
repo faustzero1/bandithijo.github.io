@@ -965,12 +965,12 @@ p.notif-post {
     margin-right: -65px !important;
     margin-bottom: -20px !important;
     position: relative;
-    top: -14.0em !important;
+    top: -14.1em !important;
     right: 7.5em !important;
 }
 
 button.tablinks {
-    background-color: #404040;
+    background-color: #7C7C7C;
     color: #B8B8B8;
     outline: none;
     font-size: 10px;
@@ -981,7 +981,7 @@ button.tablinks {
 }
 
 button.active {
-    background-color: #008352;
+    background-color: #404040;
 }
 
 .tabcontent {
@@ -992,7 +992,7 @@ button.active {
     width: 40%;
     padding: 0 !important;
     color: #404040;
-    border: 1px dashed #404040;
+    border: 1px solid #404040;
     border-radius: 5px;
     /* background:#FFF; */
     display: flex;
@@ -2292,7 +2292,6 @@ a.disqus_button {
         display: flex;
     }
 
-
     .container-inner-strip {
         /* background: #008352; */
         background: repeating-linear-gradient(
@@ -2303,11 +2302,26 @@ a.disqus_button {
         #008352 5px);
     }
 
+    .tab {
+        position: relative;
+        top: 12.6em !important;
+        right: 30.0em !important;
+    }
+
+    button.tablinks {
+        border-radius: 0 0 3px 3px;
+    }
+
+    button.active {
+        background-color: #404040;
+    }
+
     .notif-donasi {
         width: 80%;
+        max-width: 290px;
         padding: 0 !important;
         color: #404040;
-        border: 1px dashed #404040;
+        border: 1px solid #404040;
         border-radius: 5px;
         /* background:#FFF; */
         display: block;
@@ -2446,6 +2460,53 @@ a.disqus_button {
         display: none;
     }
 
+    .tab {
+        position: relative;
+        top: 12.6em !important;
+        right: 21.5em !important;
+    }
+
+    button.tablinks {
+        border-radius: 0 0 3px 3px;
+    }
+
+    button.active {
+        background-color: #404040;
+    }
+
+}
+
+/* ------------------------------------------------------------------------ */
+@media (max-width: 360px) {
+    .tab {
+        position: relative;
+        top: 12.6em !important;
+        right: 7.5em !important;
+    }
+
+    button.tablinks {
+        border-radius: 0 0 3px 3px;
+    }
+
+    button.active {
+        background-color: #404040;
+    }
+}
+
+@media (max-width: 350px) {
+    .tab {
+        position: relative;
+        top: 13.7em !important;
+        right: 7.0em !important;
+    }
+
+    button.tablinks {
+        border-radius: 0 0 3px 3px;
+    }
+
+    button.active {
+        background-color: #404040;
+    }
 }
 
 /* ------------------------------------------------------------------------ */
@@ -2454,6 +2515,20 @@ a.disqus_button {
     aside p.sidebar-isi a {
         text-align: left;
         margin: 0 0 0 5.0%;
+    }
+
+    .tab {
+        position: relative;
+        top: 13.7em !important;
+        right: 7.0em !important;
+    }
+
+    button.tablinks {
+        border-radius: 0 0 3px 3px;
+    }
+
+    button.active {
+        background-color: #404040;
     }
 }
 
