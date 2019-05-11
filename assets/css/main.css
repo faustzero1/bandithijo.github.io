@@ -969,6 +969,10 @@ p.notif-post {
     right: 7.5em !important;
 }
 
+.tab .active {
+    background-color: #008352;
+}
+
 a.tablinks {
     text-decoration: none;
     border-bottom: none;
