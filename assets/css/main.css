@@ -969,19 +969,19 @@ p.notif-post {
     right: 7.5em !important;
 }
 
-.tab .active {
-    background-color: #008352;
-}
-
-a.tablinks {
-    text-decoration: none;
-    border-bottom: none;
+button.tablinks {
+    background-color: #404040;
+    color: #B8B8B8;
+    outline: none;
     font-size: 10px;
     font-weight: bold;
-    color: #B8B8B8;
-    background-color: #404040;
     padding: 2px 3px;
+    border: none;
     border-radius: 3px 3px 0 0;
+}
+
+button.active {
+    background-color: #008352;
 }
 
 .tabcontent {
