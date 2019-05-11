@@ -21,16 +21,37 @@
         {% else %}
         <a href="{{ site.url }}/feed/blog.xml" target="_blank">RSS</a></p>
         {% endif %}
+
+      <div class="tab">
+        <a class="tablinks" onclick="openPlatform(event, 'gopay')" id="defaultOpen"><span class="">GoPay</span></a>
+        <a class="tablinks" onclick="openPlatform(event, 'ovo')"><span calss="">OVO</span></a>
+      </div>
+
+      <div class="tabcontent" id="gopay">
       <div class="notif-donasi">
         <div class="notif-donasi-col-1">
-          <p>Apabila ingin memberikan apresiasi atas tulisan-tulisan di blog ini, dapat melalui <span class="nobr">Go-Pay</span> atas nama <span class="nobr"><b>Rizqi Nur Assyaufi</b></span>.</p>
+          <p>Apabila ingin memberikan apresiasi atas tulisan-tulisan di blog ini, dapat melalui <span class="nobr"><b>GoPay</b></span> atas nama <span class="nobr"><b>Rizqi Nur Assyaufi</b></span>.</p>
           <p style="margin-top:-8px;">Berapapun besarnya dukungan dari kamu, akan sangat bermanfaat untuk proses produksi tulisan di blog ini.</p>
           <p style="margin-top:-8px;">Terima kasih, mas Bro!</p>
         </div>
         <div class="notif-donasi-col-2">
-          <img class="notif-donasi-img" src="/assets/img/logo/logo_gopay.png" alt="">
+          <img class="notif-donasi-img" src="/assets/img/logo/logo_qr_gopay.png" alt="">
         </div>
       </div><!-- notif-donasi -->
+      </div><!-- tabcontent -->
+
+      <div class="tabcontent" id="ovo">
+      <div class="notif-donasi">
+        <div class="notif-donasi-col-1">
+          <p>Apabila ingin memberikan apresiasi atas tulisan-tulisan di blog ini, dapat melalui <span class="nobr"><b>OVO</b></span> atas nama <span class="nobr"><b>Rizqi Nur Assyaufi</b></span>.</p>
+          <p style="margin-top:-8px;">Berapapun besarnya dukungan dari kamu, akan sangat bermanfaat untuk proses produksi tulisan di blog ini.</p>
+          <p style="margin-top:-8px;">Terima kasih, mas Bro!</p>
+        </div>
+        <div class="notif-donasi-col-2">
+          <img class="notif-donasi-img" src="/assets/img/logo/logo_qr_ovo.png" alt="">
+        </div>
+      </div><!-- notif-donasi -->
+      </div><!-- tabcontent -->
 
       <div class="tech-i-used-desktop">
         <a href="https://jekyllrb.com" target="_blank" rel="noopener">

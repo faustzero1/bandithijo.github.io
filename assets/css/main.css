@@ -957,6 +957,33 @@ p.notif-post {
     #232323 30px);
 }
 
+.tab {
+    overflow: hidden;
+    float: right;
+    /* margin-top: -208px !important; */
+    /* margin-right: 290px !important; */
+    margin-right: -65px !important;
+    margin-bottom: -20px !important;
+    position: relative;
+    top: -14.0em !important;
+    right: 7.5em !important;
+}
+
+a.tablinks {
+    text-decoration: none;
+    border-bottom: none;
+    font-size: 10px;
+    font-weight: bold;
+    color: #B8B8B8;
+    background-color: #404040;
+    padding: 2px 3px;
+    border-radius: 3px 3px 0 0;
+}
+
+.tabcontent {
+    display: none;
+}
+
 .notif-donasi {
     width: 40%;
     padding: 0 !important;
