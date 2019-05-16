@@ -1028,19 +1028,20 @@ button.active {
     padding: 5px;
     color: #FFF;
     animation: 1s blink infinite;
+    font-size: 9px;
 }
 
 .new {
     background: red;
-    border-radius: 3px;
-    padding: 2px 3px;
-    margin-left: 2px;
+    border-radius: 2px;
+    padding: 1px 2px;
+    margin-left: 1px;
     color: #FFF;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: bold;
     /* animation: 1s blink infinite; */
     position: relative;
-    top: -1px;
+    top: -2px;
 }
 
 .voice {
