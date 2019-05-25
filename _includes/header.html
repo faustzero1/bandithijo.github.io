@@ -22,13 +22,13 @@
         </div><!-- menu -->
       </div><!-- toggle -->
       <ul>
-        <li><a href="{{ site.url }}">Home</a></li>
+        <li><a href="/">Home</a></li>
         {% for item in site.navigation %}
         {% assign class = nil %}
         {% if page.url contains item.url %}
         {% assign class = 'active' %}
         {% endif %}
-        <li><a href="{{ site.url }}{{ item.url }}" class="{{ class }}">{{ item.title }}</a></li>
+        <li><a href="{{ item.url }}" class="{{ class }}">{{ item.title }}</a></li>
         {% endfor %}
       </ul>
     </nav>

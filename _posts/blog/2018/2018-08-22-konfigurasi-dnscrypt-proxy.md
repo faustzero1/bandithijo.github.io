@@ -40,7 +40,7 @@ Pada dokumentasi ini saya langsung saja akan menggunakan cara yang berhasil saya
 Sekenario pada dokumentasi ini adalah, kita akan mengkonfigurasi `dnscrypt-proxy` terlebih dahulu, selanjutnya kita akan mengkonfigurasi `/etc/resolv.conf` agar tidak ter-*generate* oleh NetworkManager.
 
 ## Konfigurasi DNSCrypt
-Setelah kita memasang paket `dnscrypt-proxy`, akan terdapat dua service yang disediakan, yang kita <span class="stabilo">hanya bisa memilih salah satu dari keduanya</span> untuk kita *enable*-kan<sup>[1](https://bandithijo.com/blog/konfigurasi-dnsscrypt-proxy#referensi)</sup>.
+Setelah kita memasang paket `dnscrypt-proxy`, akan terdapat dua service yang disediakan, yang kita <span class="stabilo">hanya bisa memilih salah satu dari keduanya</span> untuk kita *enable*-kan<sup>[1](https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi)</sup>.
 
 Kedua service tersebut adalah :
 1. `dnscrypt-proxy.service`
@@ -51,17 +51,18 @@ Karena saat saya menggunakan `.service`, saya sudah meng-*enable* kan service ag
 
 Lahkah-lahkahnya sebagai berikut :
 
-1. Edit file `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`.<sup>[1](https://bandithijo.com/blog/konfigurasi-dnsscrypt-proxy#referensi)</sup>
+1. Edit file `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`.<sup>[1](https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi)</sup>
 ```
 $ sudo vim /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 ```
-Cari pada baris yang bertuliskan `listen_addresses`, *value* yang ada pada kurung kotak, berupa ip address dan port, kita kosongkan. Sehingga akan berbentuk seperti ini.<sup>[1](https://bandithijo.com/blog/konfigurasi-dnsscrypt-proxy#referensi)</sup>
+Cari pada baris yang bertuliskan `listen_addresses`, *value* yang ada pada kurung kotak, berupa ip address dan port, kita kosongkan. Sehingga akan berbentuk seperti ini.<sup>[1](https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi)</sup>
 ```
 ...
 listen_addresses = [ ]
 ...
 ```
 Simpan dan exit.
+
 
 2. Konfigurasi socket agar aktif saat proses booting.
 ```
@@ -80,32 +81,63 @@ $ sudo systemctl status dnscrypt-proxy.socket
 ```
     <pre>
     ● dnscrypt-proxy.socket - DNSCrypt-proxy socket
-    Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.socket; enabled; vendor preset: disabled)
-    Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
-    Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
-    Listen: 127.0.0.1:53 (Stream)
-            127.0.0.1:53 (Datagram)
-    Tasks: 0 (limit: 4915)
-    Memory: 40.0K
-    CGroup: /system.slice/dnscrypt-proxy.socket
+      Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.socket; enabled; vendor preset: disabled)
+      Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
+        Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
+      Listen: 127.0.0.1:53 (Stream)
+              127.0.0.1:53 (Datagram)
+              [::1]:53 (Stream)
+              [::1]:53 (Datagram)
+       Tasks: 0 (limit: 4915)
+      Memory: 40.0K
+      CGroup: /system.slice/dnscrypt-proxy.socket
 
-    Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_DEFER_ACCEPT failed: Protocol not available
-    Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_NODELAY failed: Protocol not available
-    Aug 22 09:12:01 BanditHijo-X260 systemd[1]: Listening on DNSCrypt-proxy socket.</pre>
-Apabila terlihat status sudah **active (running)**, artinya service sudah berjalan dengan baik.
+      Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_DEFER_ACCEPT failed: Protocol not available
+      Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_NODELAY failed: Protocol not available
+      Aug 22 09:12:01 BanditHijo-X260 systemd[1]: Listening on DNSCrypt-proxy socket.</pre>
+Apabila terlihat status `dnscrypt-proxy.socket` sudah **active (running)**, artinya service sudah berjalan dengan baik.
+
+    Kalau kita menggunakan *socket* secara otomatis akan mengaktifkan juga *service*-nya.
+
+    Coba saja lakukan pengecekan status.
+
+    ```
+    $ sudo systemctl status dnscrypt-proxy.service
+    ```
+    <pre>
+    ● dnscrypt-proxy.service - DNSCrypt-proxy client
+      Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.service; disabled; vendor preset: disabled)
+      Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
+        Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
+    Main PID: 634 (dnscrypt-proxy)
+       Tasks: 11 (limit: 4624)
+      Memory: 17.2M
+      CGroup: /system.slice/dnscrypt-proxy.service
+              └─634 /usr/bin/dnscrypt-proxy --config /etc/dnscrypt-proxy/dnscrypt-proxy.toml </pre>
+
+Kalau sudah seperti di atas, artinya service yang kita perlukan sudah berjalan dengan baik.
+
+Sekarang lanjut ke konfigurasi nameserver pada `/etc/resolv.conf`.
 
 ## Konfigurasi resolv.conf
+
 Mengapa kita perlu mengkonfigurasi file `/etc/resolv.conf` ?
 
-Untuk teman-teman yang menggunakan ISP (*Internet Service Provider*) seperti IndiH0ME, biasanya router sudah memaksa kita untuk menggunakan `nameserver 192.168.0.1`. Sehingga setiap kita ganti `nameserver` tersebut, misal mengganti manjadi DNS Google (`nameserver 8.8.8.8`) maka akan tetap terganti ke `nameserver 192.168.0.1` setelah sistem sleep/restart. Sehingga sifatnya tidak dapat permanen.
+Untuk teman-teman yang menggunakan ISP (*Internet Service Provider*) seperti IndiH0ME, biasanya konfigurai router yang dilakukan oleh ISP akan memaksa kita untuk menggunakan `nameserver 192.168.0.1` atau IP address tertentu seperti:
+```
+nameserver 118.98.44.100
+nameserver 118.98.44.10
+nameserver fe80::1%wls3
+```
+Hal ini menyebabkan setiap kita mengganti `nameserver` tersebut, misal mengganti manjadi DNS Google (`nameserver 8.8.8.8`) maka akan tetap terganti ke `nameserver 192.168.0.1` setelah sistem sleep/restart. Sehingga sifatnya tidak dapat permanen.
 
 Yang jadi permasalahan adalah, untuk dapat menggunakan `dnscrypt-proxy` service, kita harus menggunakan `nameserver 127.0.0.1`. Kita memang dapat mengganti `nameserver` ini secara *manual*, namun tentu saja saya malas untuk mengganti setiap kali akan mengguanakan `dnscrypt-proxy` service.
 
-Saya mendapati banyak cara untuk membuat *value* dari `nameserver` yang terdapat di dalam file `/etc/resolv.conf` tidak dapat berubah / ter-*regenerate* secara otomatis. Namun, saya hanya akan menuliskan cara yang saya gunakan, saya juga belum tahu ini cara yang mudah atau tidak. Apabila teman-teman punya cara yang lebih baik, mungkin bisa menambahkan di kolom komentar.
+Saya mendapati banyak cara untuk membuat *value* dari `nameserver` yang terdapat di dalam file `/etc/resolv.conf` tidak dapat berubah / ter-*regenerate* secara otomatis. Namun, saya hanya akan menuliskan cara yang saya gunakan. Saya juga belum tahu ini cara yang mudah atau tidak. Apabila teman-teman punya cara yang lebih baik, mungkin bisa menambahkan di kolom komentar.
 
 Langkah-langkahnya :
 
-1. Edit file `/etc/dhcpcd.conf`.<sup>[2,3](https://bandithijo.com/blog/konfigurasi-dnsscrypt-proxy#referensi)</sup>
+1. Edit file `/etc/dhcpcd.conf`.<sup>[2,3](https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi)</sup>
 ```
 $ sudo vim /etc/dhcpcd.conf
 ```

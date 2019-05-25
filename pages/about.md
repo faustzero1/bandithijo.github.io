@@ -55,7 +55,8 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | <center>Tahun</center> | <center>Mesin</center> |
 | :--- | :--- |
 | 2012 - 2016 | **Apple Macbook Pro 8.1** |
-| 2017 - Sekarang | **Lenovo ThinkPad X260** |
+| 2017 - 2018 | **Lenovo ThinkPad X260** |
+| 2019 - Sekarang | **Lenovo ThinkPad X61** |
 
 <br>
 **Tabel Aplikasi**
