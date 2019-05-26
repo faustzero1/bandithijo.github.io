@@ -175,7 +175,7 @@ kbd {
 /* Navigation Bar --------------------------------------------------------- */
 #header .nav ul {
     /* background: #0C4B33; */
-    margin-top: 40px;
+    margin-top: 2.7em;
     padding: 13px 15px;
     min-height: 22px;
     text-align: right;
@@ -184,7 +184,7 @@ kbd {
     /* right: 16.5%; */
     /* left: 16.5%; */
     /* BORDER TOP */
-    border-top: 1.8px solid #05452D;
+    /* border-top: 1.8px solid #05452D; */
 }
 
 #header .nav li {
@@ -1842,7 +1842,26 @@ a.disqus_button {
 }
 
 /* Untuk mengcover layar di bawah hd */
+
 @media (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+
+    #header .nav ul {
+        margin-top: 2.9em;
+    }
+
+    .post {
+        width: 66.0%;
+    }
+
+    aside.sidebar {
+        width: 27%;
+    }
+}
+
+@media (max-width: 768px) {
     .container {
         max-width: 100%;
     }
@@ -2409,7 +2428,7 @@ a.disqus_button {
 }
 
 /* ------------------------------------------------------------------------ */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .box-container {
         margin: auto;
         display: block;
