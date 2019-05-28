@@ -36,8 +36,9 @@ Dari keterangan di atas dapat terlihat bahwa _fingerprint_ saya ada pada baris k
 
 # Instalasi
 Untuk dapat menggunakan _fingerprint scanner_, kalian membutuhkan paket bernama [fprintd](https://www.archlinux.org/packages/?name=fprintd){:target="_blank"}. Mungkin beberapa paket lain seperti [imagemagick](https://www.archlinux.org/packages/?name=imagemagick){:target="_blank"} juga akan diperlukan sebagai dependensi.
+
 ```
-sudo pacman -S fprintd
+$ sudo pacman -S fprintd
 ```
 
 # Konfigurasi
@@ -105,7 +106,7 @@ Sekarang, untuk melakukan _enroll fingerprint_ harus membutuhkan _sudo permissio
 ### PAM
 Untuk menggunakan _fingerprint scanner_ pada saat Terminal meminta kita memasukan _password sudo_, atau saat sistem meminta kita memasukkan _password Polkit_, kita perlu mengedit dan melakukan penambahan beberapa baris perintah pada isi dari file-file yang terdapat pada direktori `/etc/pam.d/` berikut ini.
 
-### sudo
+### Sudo
 Untuk menggunakan _fingerprint_ pada saat menggunakan `sudo`,
 
 ```
@@ -113,16 +114,20 @@ $ sudo vim /etc/pam.d/sudo
 ```
 <pre>
 #%PAM-1.0
-#auth     include    system-auth
-#account  include    system-auth
-#session  include    system-auth
 
 <mark>auth    required    pam_env.so
 auth    sufficient  pam_fprintd.so
 auth    sufficient  pam_unix.so  try_first_pass likeauth nullok
 auth    required    pam_deny.so</mark>
+
+auth     include    system-auth
+account  include    system-auth
+session  include    system-auth
+
 </pre>
-*Disable isi sebelumnya dengan menambahkan tanda `#` pada awal baris, dan tambahkan 4 baris di bawahnya, seperti contoh di atas.
+Letakkan pada bagian atas dari aturan (*rules*) yang sudah ada sebelumnya.
+
+Tujuannya agar kita diminta untuk memasukkan *fingerprint* terlebih dahulu, apabila gagal, maka akan dilanjutkan dengan inputan sudo password.
 
 ### Polkit
 Untuk menggunakan _fingerprint_ pada saat ada aplikasi GUI yang membutuhkan akses _superuser_ dengan bantuan _Polkit_,
@@ -160,12 +165,6 @@ auth   sufficient  pam_unix.so    try_first_pass likeauth nullok
 auth   sufficient  pam_fprintd.so</mark>
 </pre>
 *Disable isi sebelumnya dengan menambahkan tanda `#` pada awal baris, kemudian tambahkan 3 baris di bawahnya, seperti contoh di atas.
-
-```
-auth   required    pam_env.so
-auth   sufficient  pam_unix.so    try_first_pass likeauth nullok
-auth   sufficient  pam_fprintd.so
-```
 
 Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka _fingerprint scanner_ akan aktif, kemudian _unlock_ i3lock dengan melakukan _enroll fingerprint_.
 

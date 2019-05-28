@@ -54,9 +54,9 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 
 | <center>Tahun</center> | <center>Mesin</center> |
 | :--- | :--- |
-| 2012 - 2016 | **Apple Macbook Pro 8.1** |
-| 2017 - 2018 | **Lenovo ThinkPad X260** |
-| 2019 - Sekarang | **Lenovo ThinkPad X61** |
+| 2012 - 2016 | **Apple Macbook Pro 8.1** (2011) |
+| 2017 - 2018 | **Lenovo ThinkPad X260** (2016) |
+| 2019 - Sekarang | **Lenovo ThinkPad X61** (2007) |
 
 <br>
 **Tabel Aplikasi**
@@ -70,9 +70,9 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | Sistem Operasi | **GNU/Linux** |
 | Distribusi | **Arch Linux** |
 | Desktop Env. | - |
-| Window Manager | **i3WM** |
+| Window Manager | **BSPWM** |
 | Terminal Emulator | **St** |
-| Text Editor | **Neovim** |
+| Text Editor | **NeoVim** |
 | Image Editor | **GIMP** & **Inkscape** |
 | Video Editor | **Kdenlive** |
 | Screen Recorder | **Vokoscreen** |
@@ -104,7 +104,7 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 Sejak duduk dibangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
-Belajar secara mandiri dengna cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini. Wajar saja kalau tidak semua siswa dapat melakukan yang saya kerjakan.
+Belajar secara mandiri dengan cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini. Wajar saja kalau tidak semua siswa dapat melakukan yang saya kerjakan.
 
 Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar baru maupun modifikasi dari gambar sebelumnya.
 
