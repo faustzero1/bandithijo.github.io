@@ -282,7 +282,7 @@ article.homepage p {
 
 .post-wide {
     padding: 21px 20px;
-    width: auto;
+    width: auto !important;
     float: none;
     /* display: flex; */
     /* flex-direction: row; */
