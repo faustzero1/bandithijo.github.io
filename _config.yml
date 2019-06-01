@@ -52,7 +52,8 @@ plugins:
 
 
 # Newsline
-newsline: false
+# Nilai: true/false
+newsline: true
 
 
 # Navigation Menu on Header
