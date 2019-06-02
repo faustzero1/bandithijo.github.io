@@ -75,7 +75,7 @@ print('-' * 80 + '\n')
 
 # PROSES ADD, COMMIT, PUSH SOURCE REPO
 print('#' * 80)
-print('#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19)
+print('#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19)
 print('#' * 80)
 os.system(f'''
           cd {srcDir}

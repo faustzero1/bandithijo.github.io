@@ -73,7 +73,7 @@ puts '-' * 80
 
 # PROSES ADD, COMMIT, PUSH SOURCE REPO
 puts '#' * 80
-puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
+puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
 puts '#' * 80
 system """
        cd {srcDir}

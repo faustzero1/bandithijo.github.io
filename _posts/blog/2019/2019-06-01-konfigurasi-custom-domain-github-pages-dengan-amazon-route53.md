@@ -281,6 +281,13 @@ Sepertinya cukup segini dulu, ya geys!
 
 Terima kasih.
 
+<br>
+**2019/06/01 13:44**
+
+Alhamdulillah, Final Submission saya telah dinyatakan lulus.
+
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/q73xftHy/gambar-08.png"}
+
 
 <br>
 # Referensi
