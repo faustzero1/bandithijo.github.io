@@ -56,7 +56,7 @@ Untuk mengatur konfirgurasi dari *custom domain* pada GitHub Pages, caranya sang
 
 2. Pergi ke tab **Settings**.
 
-3. Scrolling ke bawah, sampai menemukan secion "GitHub Pages", seperti di bawah.
+3. Scrolling ke bawah, sampai menemukan section "GitHub Pages", seperti di bawah.
 
     ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4przvK4/gambar-02.png"}
 
@@ -189,7 +189,7 @@ Tapi, nanti akan kita lakukan di akhir. Setelah kita memasukkan konfigurasi Name
 
 Saya membeli domain pada Dewaweb.com.
 
-Bagi teman-teman yang tidak membeli domain di Dewaweb, jangan khawatir, karena maksud dan tujuan dari tahap ketiga ini adalah memasukkan Nameservers yang sudah diberikan oleh Mazon Route 53 ke dalam pengaturan Nameservers yang disediakan oleh layanan penyedia domain seperti Dewaweb.
+Bagi teman-teman yang tidak membeli domain di Dewaweb, jangan khawatir, karena maksud dan tujuan dari tahap ketiga ini adalah memasukkan Nameservers yang sudah diberikan oleh Amazon Route 53 ke dalam pengaturan Nameservers yang disediakan oleh layanan penyedia domain seperti Dewaweb.
 
 Secara garis besar, tampilannya akan mirip seperti di bawah ini.
 
