@@ -76,7 +76,7 @@ puts '#' * 80
 puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
 puts '#' * 80
 system """
-       cd {srcDir}
+       cd #{srcDir}
        git add .; git commit -m '#{comMsg}'; git push origin master
        """
 puts "\n[ DONE ] Add, Commit, and Push to GitLab Repo\n"
