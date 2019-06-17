@@ -19,7 +19,7 @@ hot:
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
 <p>Lakukan <i>backup</i> data sebelum melakukan proses di bawah.</p>
-<p>Segala kerugian baik kehilangan data maupun rusaknya pernagkat yang kalian gunakan, bukan merupakan tanggung jawab penulis.</p>
+<p>Segala bentuk kerugian, seperti kehilangan data maupun rusaknya perangkat yang kalian gunakan, bukan merupakan tanggung jawab penulis.</p>
 <p><i>Do with Your Own Risk!</i></p>
 </div>
 
