@@ -63,7 +63,7 @@ Yak! Sudah bisa ditebak, paket yang saya gunakan untuk mengenkripsi Home direkto
 
 **Kenapa menggunkan eCryptfs?**
 
-Karena praktis. Tidak memerlukan partisi yang berbeda untuk memasang (*mounting*) diretori yang kita enkripsi. Proses dekripsi file-file yang ada pada direktori yang terenkripsi akan dimounting ke dalam satu direktori yang sudah kita tentukan.
+Karena praktis. Tidak memerlukan partisi yang berbeda untuk memasang (*mounting*) direktori yang kita enkripsi. Proses dekripsi file-file yang ada pada direktori yang terenkripsi akan dimounting ke dalam satu direktori yang sudah kita tentukan.
 
 Saya memerlukan paket `lsof` untuk mendeteksi apakah masih terdapat proses yang berjalan (*running*) pada user tertentu pada saat berada di TTY.
 
