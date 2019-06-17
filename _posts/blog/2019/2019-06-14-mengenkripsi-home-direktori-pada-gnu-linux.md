@@ -300,6 +300,8 @@ Tunggu proses penghapusan sampai selesai.
 
 Dengan begini, proses enkripsi Home direktori kita telah selesai.
 
+Apabila teman-teman ingin mengganti *password* dari user yang berarti juga harus mengganti *passphrase* dari Home direktori yang terenkripsi, silahkan mengunjungi tulisan saya yang ini, "[Mengganti Password User dari Home Direktori yang Terenkripsi]({{ site.url }}/blog/mengganti-password-user-dari-home-direktori-yang-terenkripsi){:target="_blank"}".
+
 
 # Pesan Penulis
 
