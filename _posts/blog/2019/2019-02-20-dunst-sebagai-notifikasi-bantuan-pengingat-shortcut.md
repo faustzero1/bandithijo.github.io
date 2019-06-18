@@ -16,6 +16,13 @@ hot: true
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Sudah ada versi yang lebih baru dari topik ini.</p>
+<p>Silahkan mengunjungi alamat di bawah.</p>
+<p>"<a href="{{ site.url }}/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2" target="_blank">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
+</div>
+
 # Prakata
 
 Sebenarnya agak malu menuliskan dokumentasi kali ini. Karena merasa algoritma pemecahan solusinya terlalu bertele-tele. Hihihi. Tapi ah sudahlah! Namanya juga belajar.
