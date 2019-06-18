@@ -20,7 +20,7 @@ hot: true
 <div class="blockquote-blue-title">[ i ] Informasi</div>
 <p>Sudah ada versi yang lebih baru dari topik ini.</p>
 <p>Silahkan mengunjungi alamat di bawah.</p>
-<p>"<a href="{{ site.url }}/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2" target="_blank">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
+<p>"<a href="{{ site.url }}/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
 </div>
 
 # Prakata
