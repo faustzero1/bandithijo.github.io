@@ -97,6 +97,8 @@ Langsung saja tanpa bertele-tele.
 
     Sesuaikan dengan lokasi dimana kalian menyimpan *plain text* tersebut.
 
+    Nilai `55` adalah maksimal banyaknya jumlah baris yang di tampilkan.
+
 4. Apabila ingin menambahkan pilihan yang lain, cukup menambahkan pada variabel `pilihan=`.
 
     <pre>
