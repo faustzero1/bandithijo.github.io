@@ -185,7 +185,7 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
 
     **Perhatian!** Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan `keybinds-`.
 
-    Tujuannya agar saat dipanggil dengan program `help-script-browser.sh`, semua file yang berawalan `keybinds-`, tidak ikut ditampilkan di dalam rofi.
+    Tujuannya agar saat dipanggil dengan program `help-script-browser.sh`, semua file yang tidak berawalan `keybinds-`, tidak ikut ditampilkan di dalam rofi.
 
 2. Selanjutnya tinggal mengisi daftar dari *keyboard shortcut* dari i3wm yang kita perlukan.
 
