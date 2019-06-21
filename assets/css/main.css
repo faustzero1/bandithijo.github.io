@@ -1664,7 +1664,7 @@ a.disqus_button {
 
 /* NEWSLINE --------------------------------------------------------------- */
 
-.newsline {
+.newsline-high {
     height: 25px;
     /* background-color: #FF1800; */
     background: repeating-linear-gradient(
@@ -1675,7 +1675,18 @@ a.disqus_button {
     #FD2E19 30px);
 }
 
-.newsline p {
+.newsline-low {
+    height: 25px;
+    /* background-color: #FF1800; */
+    background: repeating-linear-gradient(
+    45deg,
+    #CA9900,
+    #CA9900 15px,
+    #D8A400 15px,
+    #D8A400 30px);
+}
+
+.newsline-high, .newsline-low p {
     font-size: 14px !important;
     font-weight: normal !important;
     color: #FFF;

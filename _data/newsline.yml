@@ -1,0 +1,13 @@
+# Enable/Disable fungsi dari newsline pada _config.yml
+# state: high, low
+
+state: low
+news: |
+    Untuk semua artikel yang memberikan tautan ke repositori dotfiles saya di GitHub, saat ini sedang dalam proses perbaikan sehingga tidak dapat diakses. Mohon maaf atas ketidaknyamanan ini. (bandithijo, 2019/03/14) ●
+
+
+# Old News
+# Disusun yang terbaru paling atas, yang lama paling bawah.
+# ---
+# Sehubungan dengan saya sedang mengikuti kelas "<a style="color:white;" href="https://www.dicoding.com/academies/104" target="_blank"><b>Belajar Menjadi AWS Solutions Architect Associate</b></a>" yang diadakan oleh Dicoding, saya memindahkan pengaturan DNS blog ini, yang tadinya dikelola oleh <b>Netlify</b> menjadi dikelola oleh <b>Amazon Route53</b>. Pemindahan ini hanya sementara hingga proses penilaian terhadap Final Submission selesai dilakukan. Terima kasih. (bandithijo, 2019/06/01) ●
+# <b>#PrayForNewZealand</b> (Christchurch) - Inna lillahi wa inna ilaihi raji'un. Semoga Allah menjadikan saudara kita yang wafat menjadi ahli surga, yang terluka diampuni dosa dan dimuliakan dunia akhirat. Serta keluarga yang ditinggalkan diberi kesabaran, kekuatan iman, dan limpahan pahala, serta kelak akan kembali dikumpulkan di surgaNya Allah. Aamiin. (2019/03/18) ●

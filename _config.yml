@@ -38,8 +38,13 @@ lazyload:
     logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
 
 # Build settings
+incremental: true
+
 markdown: kramdown
-highlighter: rouge
+kramdown:
+    input: GFM
+    hard_wrap: false
+    syntax_highlighter: rouge
 
 plugins:
     - rouge
@@ -107,6 +112,8 @@ pwa:
         - sw-register.js
         - "fonts/**/*"
 
+keep_files:
+    - images
 
 # include:
 #   - netlify.toml
