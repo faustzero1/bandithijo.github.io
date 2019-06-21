@@ -151,17 +151,16 @@ Coba cek apakah servicenya sudah jalan atau belum.
 $ sudo systemctl status dhcpcd.service
 ```
 
-```
+<pre>
 ● dhcpcd.service - dhcpcd on all interfaces
    Loaded: loaded (/usr/lib/systemd/system/dhcpcd.service; enabled; vendor preset: disabled)
-   Active: active (running) since Sun 2019-05-26 09:59:07 WITA; 1h 59min ago
+   Active: <span style="color:#859900;font-weight:bold;">active (running)</span> since Sun 2019-05-26 09:59:07 WITA; 1h 59min ago
   Process: 412 ExecStart=/usr/bin/dhcpcd -q -b (code=exited, status=0/SUCCESS)
  Main PID: 480 (dhcpcd)
     Tasks: 1 (limit: 4624)
    Memory: 2.2M
    CGroup: /system.slice/dhcpcd.service
-           └─480 /usr/bin/dhcpcd -q -b
-```
+           └─480 /usr/bin/dhcpcd -q -b</pre>
 
 Kalau sudah jalan akan seperti di atas tampilannya.
 
