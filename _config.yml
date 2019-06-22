@@ -38,6 +38,7 @@ lazyload:
     logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
 
 # Build settings
+incremental: true
 markdown: kramdown
 kramdown:
     input: GFM
