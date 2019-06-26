@@ -99,21 +99,7 @@ Apabila terlihat status `dnscrypt-proxy.socket` sudah **active (running)**, arti
 
     Kalau kita menggunakan *socket* secara otomatis akan mengaktifkan juga *service*-nya.
 
-    Coba saja lakukan pengecekan status.
-
-    ```
-    $ sudo systemctl status dnscrypt-proxy.service
-    ```
-    <pre>
-    ● dnscrypt-proxy.service - DNSCrypt-proxy client
-      Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.service; disabled; vendor preset: disabled)
-      Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
-        Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
-    Main PID: 634 (dnscrypt-proxy)
-       Tasks: 11 (limit: 4624)
-      Memory: 17.2M
-      CGroup: /system.slice/dnscrypt-proxy.service
-              └─634 /usr/bin/dnscrypt-proxy --config /etc/dnscrypt-proxy/dnscrypt-proxy.toml </pre>
+    Tapi, `dnscrypt-proxy.serivce` ini akan berjalan setelah kita merestart network atau sistem operasi.
 
 Kalau sudah seperti di atas, artinya service yang kita perlukan sudah berjalan dengan baik.
 
@@ -164,7 +150,15 @@ $ sudo systemctl status dhcpcd.service
 
 Kalau sudah jalan akan seperti di atas tampilannya.
 
-Kalau belum, nanti saja dijalankan servicenya, karena kita akan melakukan penambahan option pada file konfigurasi dhcpcd untuk membuat nameserver menjadi static.
+Kalau belum, silahkan di jalankan terlebih dahulu.
+
+```
+$ sudo systemctl start dhcpcd.service
+```
+
+Cek lagi statusnya, apakah sudah *active running*.
+
+Kalau sudah, saatnya kita menambahkan konfigurasi *static dns*. menggunakan dhcpcd.
 
 Langkah-langkahnya sebagai berikut:
 
