@@ -13,9 +13,6 @@ pin:
 hot:
 ---
 
-<!-- BANNER OF THE POST -->
-<!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
-
 # Prakata
 
 
@@ -24,6 +21,7 @@ hot:
 
 1. [](){:target="_blank"}
 <br>Diakses tanggal: 2019/04/11
+
 
 
 https://manned.org/bspc
