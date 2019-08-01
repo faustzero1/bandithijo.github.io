@@ -55,34 +55,28 @@ Langsung saja tanpa bertele-tele.
 
     Saya akan memberi nama `keybind-helper`.
 
-    ```
-    $ sudo touch /usr/bin/keybind-helper
-    $ sudo chmod +x /usr/bin/keybind-helper
-    ```
+    <pre>
+$ sudo touch /usr/bin/keybind-helper
+$ sudo chmod +x /usr/bin/keybind-helper</pre>
 
 2. Edit file script tersebut dengan *text editor* favorit kalian.
 
-    ```
-    $ sudo vim /usr/bin/keybind-helper
-    ```
+    <pre>
+$ sudo vim /usr/bin/keybind-helper</pre>
 
 3. Isikan, kira-kira seperti contoh di bawah ini.
 
-    ```bash
-    #!/bin/env sh
-
-    pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"
-
-    terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)
-
-    case "$terpilih" in
-        BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
-        MPV) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
-        ST) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
-        TMUX) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
-        VIM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
-    esac
-    ```
+    <pre>
+#!/bin/env sh<br>
+pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"<br>
+terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)<br>
+case "$terpilih" in
+    BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
+    MPV) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
+    ST) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
+    TMUX) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
+    VIM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
+esac</pre>
 
     Sesuaikan saja dengan jumlah aplikasi yang ingin kalian buatkan *keybind*-nya.
 
@@ -91,7 +85,7 @@ Langsung saja tanpa bertele-tele.
     Perhatikan bagian ini,
 
     <pre>
-    tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark></pre>
+tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark></pre>
 
     Pada bagian yang saya *marking* adalah bagian dimana saya meletakkan *plain text* berisi *keyboard shortcut*.
 
@@ -102,26 +96,26 @@ Langsung saja tanpa bertele-tele.
 4. Apabila ingin menambahkan pilihan yang lain, cukup menambahkan pada variabel `pilihan=`.
 
     <pre>
-    pilihan="BSPWM\nMPV\nST\nTMUX\nVIM<mark>\nTAMBAHAN</mark>"</pre>
+pilihan="BSPWM\nMPV\nST\nTMUX\nVIM<mark>\nTAMBAHAN</mark>"</pre>
 
     Dan juga `case` nya.
 
     <pre>
-    case "$terpilih" in
-        BSPWM) ...
-        MPV) ...
-        ST) ...
-        TMUX) ...
-        VIM) ...
-        <mark>TAMBAHAN) ... </mark>
-    esac</pre>
+case "$terpilih" in
+    BSPWM) ...
+    MPV) ...
+    ST) ...
+    TMUX) ...
+    VIM) ...
+    <mark>TAMBAHAN) ... </mark>
+esac</pre>
 
 5. Contoh di atas, apabila teman-teman menggunakan `dmenu`.
 
     Untuk yang ingin menggunakan Rofi, tinggal tambahkan saja seperti ini pada variabel `terpilih=`.
 
     <pre>
-    terpilih=$(echo -e "$pilihan" | <mark>rofi -dmenu</mark> -i -p KEYBINDS:)</pre>
+terpilih=$(echo -e "$pilihan" | <mark>rofi -dmenu</mark> -i -p KEYBINDS:)</pre>
 
 
 Dengan begini proses pembuatan *script* telah selesai.

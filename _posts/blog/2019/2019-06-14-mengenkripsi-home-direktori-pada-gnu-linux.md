@@ -90,28 +90,25 @@ Oke, langsung saja kita eksekusi.
 
     Cara masuk dan berpindah antar TTY, gunakan <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2. <kbd>F3</kbd> untuk TTY3, dan begitu seterusnya.
 
-    ```
-    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
-
-    BANDITHIJO-X61 login: root
-    Password: _
-    ```
+    <pre>
+Arch Linux 5.1.9-arch1-1-ARCH (tty6)<br>
+BANDITHIJO-X61 login: root
+Password: _</pre>
 
     Apabila sudah masuk ke TTY, login dengan akun **root**.
 
 3. Setelah berhasil login dengan akun root, lakukan pengecekan apakah user yang kamu gunakan tadi masih memiliki proses yang berjalan (*running process*).
 
     <pre>
-    # ps -U <mark>bandithijo</mark></pre>
+# ps -U <mark>bandithijo</mark></pre>
 
     Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.
 
     Apabila perintah di atas menampilkan *output* seperti di bawah ini.
 
-    ```
-    PID  TTY      TIME  CMD
-
-    ```
+    <pre>
+PID  TTY      TIME  CMD
+<br></pre>
 
     Artinya, sudah tidak lagi terdapat proses yang *running* pada user tersebut.
 
@@ -123,17 +120,16 @@ Oke, langsung saja kita eksekusi.
 1. Perintah di bawah ini akan memigrasikan atau membuat salinan (*cloning*) dari Home direktori kalian namun dalam bentuk yang sudah terenkripsi.
 
     <pre>
-    # ecryptfs-migrate-home -u <mark>bandithijo</mark></pre>
+# ecryptfs-migrate-home -u <mark>bandithijo</mark></pre>
 
     Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.
 
     Perintah di atas, akan menghasilkan *output* seperti di bawah ini.
 
-    ```
-    INFO: Checking disk space, this may take a few minutes. Please be patient.
-    INFO: Checking for open files in /home/bandithijo
-    Enter your login passphrase [bandithijo]: _
-    ```
+    <pre>
+INFO: Checking disk space, this may take a few minutes. Please be patient.
+INFO: Checking for open files in /home/bandithijo
+Enter your login passphrase [bandithijo]: _</pre>
 
     <div class="blockquote-red">
     <div class="blockquote-red-title">[ ! ] Perhatian</div>
@@ -150,9 +146,8 @@ Oke, langsung saja kita eksekusi.
 
 2. Setelah proses enkripsi selesai, kita dapat *logout* (**jangan *reboot**).
 
-    ```
-    # exit
-    ```
+    <pre>
+# exit</pre>
 
 ## Pengetesan Dekrip Home Direktori
 
@@ -161,19 +156,16 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
 1. *Login* kembali menggunakan user yang Home direktorinya baru saja kita enkripsi.
 
     <pre>
-    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
-
-    BANDITHIJO-X61 login: <mark>bandithijo</mark>
-    Password: _</pre>
+Arch Linux 5.1.9-arch1-1-ARCH (tty6)<br>
+BANDITHIJO-X61 login: &lt;mark&gt;bandithijo&lt;/mark&gt;
+Password: _</pre>
 
 2. Jalankan perintah di bawah untuk mendekripsi Home direktori (sekaligus me-*mounting*-nya).
 
-    ```
-    $ ecryptfs-mount-private
-    ```
-    ```
-    Enter your login passphrase: _
-    ```
+    <pre>
+$ ecryptfs-mount-private</pre>
+    <pre>
+Enter your login passphrase: _</pre>
 
     Masukkan *password* yang sudah kita buat sama dengan *login password user* kita.
 
@@ -182,7 +174,7 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
 3. Sekarang coba lakukan pengetesan dengan perintas `ls`.
 
     <pre>
-    $ ls -la /home/<mark>bandithijo</mark></pre>
+$ ls -la /home/<mark>bandithijo</mark></pre>
 
     Jangan lupa mengganti <mark>bandithijo</mark> dengan nama username kalian.
 
@@ -192,13 +184,13 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
     <div class="blockquote-blue-title">[ i ] Informasi</div>
     <p>Kita perlu mencatat kunci simetris 128-bit value yang kita gunakan untuk mengenkripsi/dekripsi. </p>
     <pre>
-    $ ecryptfs-unwrap-passphrase</pre>
+$ ecryptfs-unwrap-passphrase</pre>
     <pre>
-    Passphrase: _</pre>
+Passphrase: _</pre>
     <p>Masukkan <i>login password</i> yang juga menjadi <i>password dekripsi</i> dari Home direktori.</p>
     <p>Apabila benar, kira-kira hasilnya akan seperti ini.</p>
     <pre>
-    c17510cc56hj093gj7930lkfip3vn24g</pre>
+c17510cc56hj093gj7930lkfip3vn24g</pre>
     Bentuknya mirip MD5 hash, tapi bukan.
     <br>
     <p>Catat pada secarik kertas dan simpan baik-baik.</p>
@@ -207,11 +199,11 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
 
 4. Selanjutnya lakukan pengecekan keberadaan dari file-file berikut ini.
 
-    ```
-    $ ls .ecryptfs
-    ```
+    <pre>
+$ ls .ecryptfs</pre>
 
-    <pre><mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
+    <pre>
+<mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
 
     Pastikan file-file yang saya marking kuning.
 
@@ -231,30 +223,25 @@ Untuk mengatasi masalah ini sangat mudah. Tinggal kita tambahkan beberapa baris 
 
 1. Gunakan *text editor* favorit kalian untuk mengedit file di bawah ini.
 
-    ```
-    $ sudo vim /etc/pam.d/system-auth
-    ```
+    <pre>
+$ sudo vim /etc/pam.d/system-auth</pre>
 
     <pre>
-    #%PAM-1.0
-
-    auth      required  pam_unix.so     try_first_pass nullok
-    <mark>auth      required  pam_ecryptfs.so unwrap</mark>
-    auth      optional  pam_permit.so
-    auth      required  pam_env.so
-
-    account   required  pam_unix.so
-    account   optional  pam_permit.so
-    account   required  pam_time.so
-
-    <mark>password  optional  pam_ecryptfs.so</mark>
-    password  required  pam_unix.so     try_first_pass nullok sha512 shadow
-    password  optional  pam_permit.so
-
-    session   required  pam_limits.so
-    session   required  pam_unix.so
-    <mark>session   optional  pam_ecryptfs.so unwrap</mark>
-    session   optional  pam_permit.so</pre>
+#%PAM-1.0<br>
+auth      required  pam_unix.so     try_first_pass nullok
+<mark>auth      required  pam_ecryptfs.so unwrap</mark>
+auth      optional  pam_permit.so
+auth      required  pam_env.so<br>
+account   required  pam_unix.so
+account   optional  pam_permit.so
+account   required  pam_time.so<br>
+<mark>password  optional  pam_ecryptfs.so</mark>
+password  required  pam_unix.so     try_first_pass nullok sha512 shadow
+password  optional  pam_permit.so<br>
+session   required  pam_limits.so
+session   required  pam_unix.so
+<mark>session   optional  pam_ecryptfs.so unwrap</mark>
+session   optional  pam_permit.so</pre>
 
     Tambahkan tiga baris yang saya *marking* kuning sesuai posisinya.
 
