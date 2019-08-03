@@ -55,28 +55,31 @@ Langsung saja tanpa bertele-tele.
 
     Saya akan memberi nama `keybind-helper`.
 
-    <pre>
-$ sudo touch /usr/bin/keybind-helper
-$ sudo chmod +x /usr/bin/keybind-helper</pre>
+    ```
+    $ sudo touch /usr/bin/keybind-helper
+    $ sudo chmod +x /usr/bin/keybind-helper
+    ```
 
 2. Edit file script tersebut dengan *text editor* favorit kalian.
 
-    <pre>
-$ sudo vim /usr/bin/keybind-helper</pre>
+    ```
+    $ sudo vim /usr/bin/keybind-helper
+    ```
 
 3. Isikan, kira-kira seperti contoh di bawah ini.
 
-    <pre>
-#!/bin/env sh<br>
-pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"<br>
-terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)<br>
-case "$terpilih" in
-    BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
-    MPV) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
-    ST) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
-    TMUX) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
-    VIM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
-esac</pre>
+    ```
+    #!/bin/env sh<br>
+    pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"<br>
+    terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)<br>
+    case "$terpilih" in
+        BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
+        MPV) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
+        ST) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
+        TMUX) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
+        VIM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
+    esac
+    ```
 
     Sesuaikan saja dengan jumlah aplikasi yang ingin kalian buatkan *keybind*-nya.
 

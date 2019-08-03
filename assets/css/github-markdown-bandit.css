@@ -807,7 +807,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   color: #FFF;
   font-size: 90%;
   margin: 0;
-  padding: 0.1em 0.4em 0.2em 0.4em;
+  padding: 0.1em 0.4em;
 }
 
 .markdown-body pre {
@@ -831,6 +831,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .highlight pre {
   margin-bottom: 0;
+  padding: 0;
   word-break: normal;
   word-break: normal !important;
   word-wrap: normal !important;

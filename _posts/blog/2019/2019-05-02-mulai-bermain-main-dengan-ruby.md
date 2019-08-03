@@ -20,7 +20,7 @@ hot:
 
 Awal saya bertemu dengan bahasa Ruby adalah saat mengikuti "[*Online Course Ruby on Rails*](https://www.idrails.com/training-ruby-on-rails){:target="_blank"}" yang dibawakan oleh mas [Agung Setiawan](http://agung-setiawan.com/){:target="_blank"} pada Agustus 2017.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://scontent-sin2-1.xx.fbcdn.net/v/t1.0-9/50041702_10217428365690776_8442941827375431680_n.jpg?_nc_cat=105&_nc_ht=scontent-sin2-1.xx&oh=a44028978317bf6dc382ecf65d2af781&oe=5D32311C"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/854nxFQN/50041702-10217428365690776-8442941827375431680-n.jpg"}
 <p class="img-caption">Gambar 1 - Sumber: <a href="https://www.facebook.com/photo.php?fbid=10217428365610774&set=pb.1524018222.-2207520000.1556728701.&type=3&theater" target="_blank">Facebook Agung Setiawan</a> Batch 9 (Posted: 18 Januari 2019)</p>
 
 Saat itu saya termasuk dalam **Batch 2**, saat tulisan ini saya buat, course ini sudah memasuki **Batch 10**.
