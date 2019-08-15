@@ -74,16 +74,15 @@ Namun, **saya sangat merekomendasikan untuk *logout* terlebh dahulu, dan menggun
     Jangan lupa mengganti <mark>bandithijo</mark>, dengan username yang teman-teman gunakan.
 
     Apabila berhasil, akan mengeluarkan *output* seperti di bawah ini.
-
-    ```
+```
 Old wrapping passphrase: _
-    ```
+```
 
     Masukkan Terlebih dahulu *password* lama, kemudian baru dua kali *password* baru.
 
 5. Dengan begini, proses mengganti *passphrase* dari Home direktori yang terenkripsi dengan eCryptfs telah selesai.
 
-    **Jangan *logout* dulu, karena kita kana lanjut ke tahap berikutnya**.
+    **Jangan *logout* dulu, karena kita akan lanjut ke tahap berikutnya**.
 
 ## Mengganti Password User
 
