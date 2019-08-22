@@ -86,15 +86,15 @@ Oke, langsung saja kita eksekusi.
 
     Jadi, teman-teman yang berniat mengenkripsi Home direktorinya, perlu membuka post blog ini menggunakan *smartphone*.
 
-2. Masuk ke TTY shell, bisa TTY2 - TTY6, pilih saja mana yang menampilkan login shell seperti di bawah ini
+2. Masuk ke TTY shell, bisa TTY2 - TTY6, pilih saja mana yang menampilkan login shell seperti di bawah ini.
 
     Cara masuk dan berpindah antar TTY, gunakan <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2. <kbd>F3</kbd> untuk TTY3, dan begitu seterusnya.
+    ```
+    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
 
-    <pre>
-Arch Linux 5.1.9-arch1-1-ARCH (tty6)<br>
-BANDITHIJO-X61 login: root
-Password: _</pre>
-
+    BANDITHIJO-X61 login: root
+    Password: _
+    ```
     Apabila sudah masuk ke TTY, login dengan akun **root**.
 
 3. Setelah berhasil login dengan akun root, lakukan pengecekan apakah user yang kamu gunakan tadi masih memiliki proses yang berjalan (*running process*).
@@ -105,11 +105,10 @@ Password: _</pre>
     Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.
 
     Apabila perintah di atas menampilkan *output* seperti di bawah ini.
+    ```
+    PID  TTY      TIME  CMD
 
-    <pre>
-PID  TTY      TIME  CMD
-<br></pre>
-
+    ```
     Artinya, sudah tidak lagi terdapat proses yang *running* pada user tersebut.
 
     Dengan begini, kita dapat lanjut ke tahap berikutnya.
@@ -125,11 +124,12 @@ PID  TTY      TIME  CMD
     Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.
 
     Perintah di atas, akan menghasilkan *output* seperti di bawah ini.
+    ```
+    INFO: Checking disk space, this may take a few minutes. Please be patient.
+    INFO: Checking for open files in /home/bandithijo
 
-    <pre>
-INFO: Checking disk space, this may take a few minutes. Please be patient.
-INFO: Checking for open files in /home/bandithijo
-Enter your login passphrase [bandithijo]: _</pre>
+    Enter your login passphrase [bandithijo]: _
+    ```
 
     <div class="blockquote-red">
     <div class="blockquote-red-title">[ ! ] Perhatian</div>
@@ -145,27 +145,29 @@ Enter your login passphrase [bandithijo]: _</pre>
     Proses ini akan memakan ~~sedikit~~ waktu, tergantung dari banyaknya file yang terdapat di dalam Home direktori yang dienkripsi.
 
 2. Setelah proses enkripsi selesai, kita dapat *logout* (**jangan *reboot**).
-
-    <pre>
-# exit</pre>
+```
+# exit
+```
 
 ## Pengetesan Dekrip Home Direktori
 
 Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pengetesan apakah proses enkripsi terhadap Home direktori yang kita lakukan telah berhasil.
 
 1. *Login* kembali menggunakan user yang Home direktorinya baru saja kita enkripsi.
+    ```
+    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
 
-    <pre>
-Arch Linux 5.1.9-arch1-1-ARCH (tty6)<br>
-BANDITHIJO-X61 login: &lt;mark&gt;bandithijo&lt;/mark&gt;
-Password: _</pre>
+    BANDITHIJO-X61 login: &lt;mark&gt;bandithijo&lt;/mark&gt;
+    Password: _
+    ```
 
 2. Jalankan perintah di bawah untuk mendekripsi Home direktori (sekaligus me-*mounting*-nya).
-
-    <pre>
-$ ecryptfs-mount-private</pre>
-    <pre>
-Enter your login passphrase: _</pre>
+    ```
+    $ ecryptfs-mount-private
+    ```
+    ```
+    Enter your login passphrase: _
+    ```
 
     Masukkan *password* yang sudah kita buat sama dengan *login password user* kita.
 
