@@ -41,11 +41,11 @@ pubDir = '$HOME/dex/bandithijo.com/_site'
 
 # Meminta commit message kepada user
 if ARGV.inspect == '[]'
-    puts 'Masukkan pesan COMMIT: '
-    comMsg = gets.chomp
+  puts 'Masukkan pesan COMMIT: '
+  comMsg = gets.chomp
 else
-    comMsg = ARGV.inspect
-    comMsg.tr!('["]', '')
+  comMsg = ARGV.inspect
+  comMsg.tr!('["]', '')
 end
 
 # PROSES JEKYLL BUILD
