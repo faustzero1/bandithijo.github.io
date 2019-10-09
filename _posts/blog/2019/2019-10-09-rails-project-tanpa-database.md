@@ -58,7 +58,7 @@ $ rails _5.1.3_ new ProjectMahal --skip-active-record
 
 Nah, mudah sekali kan?
 
-Apabila dikemudian hari ingin menggunakan database, silahkan mengikuti blog post selanjutnya.
+Apabila dikemudian hari ingin menggunakan database, silahkan mengikuti blog post selanjutnya mengenai, "[Menambahkan Database pada Rails Project](/blog/menambahkan-database-pada-rails-project){:target="_blank"}".
 
 Terima kasih. (^_^)v
 
