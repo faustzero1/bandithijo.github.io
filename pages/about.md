@@ -21,9 +21,7 @@ Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempuny
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 
-Saat ini masih belum bekerja, masih menempuh pendidikan di STMIK Balikpapan. (current: semester 8)
-
-Tapi kalau ada yang mau memberikan tawaran bekerja, akan sangat senang sekali.
+Saat ini sudah bekerja sebagai Junior Backend Web Developer di [VirtualSpirit.me](https://virtualspirit.me){:target="_blank"}.
 
 # Apa Alasan Menulis Blog?
 

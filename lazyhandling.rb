@@ -59,18 +59,6 @@ system """
 puts "\n[ DONE ] Jekyll Build Env=production"
 puts '-' * 80
 
-# PROSES ADD, COMMIT, PUSH PUBLIC REPO
-puts '#' * 80
-puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> PUBLIC REPO ' + '#' * 19
-puts '#' * 80
-system """
-       cd #{pubDir}
-       rm #{pubDir}/feed.xml
-       git add .; git commit -m '#{comMsg}'; git push origin master
-       """
-puts "\n[ DONE ] Add, Commit, and Push to GitHub Repo"
-puts '-' * 80
-
 # PROSES ADD, COMMIT, PUSH SOURCE REPO
 puts '#' * 80
 puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> PRIVATE REPO ' + '#' * 19
