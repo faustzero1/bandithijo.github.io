@@ -43,6 +43,8 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 </pre>
 
+# Tambahkan Database.yml
+
 Setelah itu, kita perlu membuat file `config/database.yml`.
 
 Untuk PostgreSQL engine, memiliki isi sebagia berikut.
@@ -137,6 +139,8 @@ production:
 
 Perhatikan bagian yang saya <mark>marking</mark> kuning, adalah bagian yang perlu teman-teman ganti dengan nama project yang teman-teman miliki.
 
+# Aktifkan Active Record
+
 Selanjutnya, kita perlu mengaktifkan Active Record pada `config/application.rb`.
 
 <pre>
@@ -155,6 +159,8 @@ require "rails/test_unit/railtie"
 </pre>
 
 Mantap, tinggal langkah terakhir, membuat database.
+
+# Create Database
 
 Jalankan dengan perintah `rake`.
 
