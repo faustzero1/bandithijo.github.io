@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: "Menambahkan Database pada Rails Project"
-date: 2019-10-09 19.59
+date: 2019-10-10 07.30
 permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true
