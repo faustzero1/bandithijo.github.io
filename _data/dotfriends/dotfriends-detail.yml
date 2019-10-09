@@ -122,10 +122,18 @@ friends:
       <p>Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.</p>
 
 
-- nama: "se7entime"
+- nama: "Se7entime"
   photo: "https://github.com/se7entime.png?size=200"
   url1: "https://se7entime.wordpress.com"
   url2:
   detail: |
       <blockquote>“Tak perlu menjelaskan tentang dirimu pada siapapun. Karena yang menyukaimu tidak membutuhkannya. Dan yang membencimu tidak akan mempercayainya.”<br>(Ali bin Abi Thalib)</blockquote>
       <p>Mau Stalking saya? <a href="https://lmddgtfy.net/?q=%22se7entime%22" target="_blank">Silahkan</a>.</p>
+
+- nama: "Didik Wicaksono"
+  photo: "https://github.com/firewalker06.png?size=200"
+  url1: "https://didik.id"
+  url2: "https://github.com/firewalker06"
+  detail: |
+      <p>Makanan, kodingan, dan kehidupan.</p>
+      <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p>
