@@ -68,8 +68,6 @@ navigation:
       url: /vlog/
     - title: Books
       url: /book/
-    - title: 157
-      url: /157/
     - title: About
       url: /about/
 
