@@ -42,7 +42,7 @@ Tentu saja! Bahkan caranya sangat mudah.
 
 Rails menyertakan fitur ini sejak Rails 5.2.
 
-Untuk dapat membuar Rails project tanpa menyertakan default database (sqlite) ikuti cara di bawah ini.
+Untuk dapat membuat Rails project tanpa menyertakan default database (sqlite) ikuti cara di bawah ini.
 
 Saat akan menginisialisasi project baru, lakukan perintah di bawah ini.
 
@@ -51,6 +51,8 @@ $ rails new ProjectMahal --skip-active-record
 ```
 
 Atau, kalau ingin menggunakan versi Rails tertentu, misal: Rails 5.1.3
+
+Dapat menggunakan cara di bawah ini.
 
 ```
 $ rails _5.1.3_ new ProjectMahal --skip-active-record
