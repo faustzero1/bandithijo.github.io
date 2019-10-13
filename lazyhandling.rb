@@ -61,7 +61,7 @@ puts '-' * 80
 
 # Proses add, commit, push ke GitHub
 puts '#' * 80
-puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> GITHUB REPO ' + '#' * 19
+puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> GITHUB REPO ' + '#' * 19
 puts '#' * 80
 system """
 cd #{srcDir}
@@ -74,7 +74,7 @@ puts '-' * 80
 
 # Proses add, commit, push ke GitLab
 puts '#' * 80
-puts '#' * 18 + ' PROSES: ADD, COMMIT, PUSH >> GITLAB REPO ' + '#' * 19
+puts '#' * 19 + ' PROSES: ADD, COMMIT, PUSH >> GITLAB REPO ' + '#' * 19
 puts '#' * 80
 system """
 cd #{srcDir}
