@@ -7,7 +7,7 @@ permalink: :title
   <div class="container noselect">
     <div class="container-edge-border">
 
-      {% if site.newsline == true %}
+      {% if site.newsline %}
         {% include newsline.html %}
       {% endif %}
 
@@ -102,7 +102,6 @@ permalink: :title
           </a>
         </div>
 
-        {% comment %}
         <div class="box">
           <a href="{{ site.url }}/book/">
             <img class="box-img" src="{{ site.lazyload.logo_blank }}" data-echo="/assets/img/cards/card_book.svg" alt="buku">
@@ -111,18 +110,6 @@ permalink: :title
               <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
               <p>Sebuah buku elektronik yang saya buka untuk publik. Apalah guna ilmu kalo tidak bermanfaat bagi orang lain. Saya mencoba membernaikan menulis buku demi generasi yang akan datang.</p>
             </div>
-        </div>
-        {% endcomment %}
-
-        <div class="box">
-          <a href="{{ site.url }}/157/">
-            <img class="box-img" src="{{ site.lazyload.logo_blank }}" data-echo="/assets/img/cards/card_157.svg" alt="book">
-            <div class="box-text">
-              <p style="font-size:20px;font-weight:bold;">Log: 157</p>
-              <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
-              <p>Ini adalah halaman yang dibuat khusus untuk mendokumentasikan materi-materi dan tugas-tugas perkuliahan yang saya dan teman-teman kumpulkan.</p>
-            </div>
-          </a>
         </div>
 
       </article>

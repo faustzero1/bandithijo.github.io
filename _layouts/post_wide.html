@@ -20,8 +20,7 @@ layout: baseof
             {% if page.category == 'blog'
                or page.category == 'vlog'
                or page.category == 'arch'
-               or page.category == 'python'
-               or page.permalink == '/157/skripsi' %}
+               or page.category == 'python' %}
                <div style="text-align:center; margin:0 0 10px 0;"></div>
                {% if page.author %}
                  {% include penulis.html %}
@@ -32,8 +31,7 @@ layout: baseof
 
             <!-- License -->
             {% if page.category == 'blog'
-               or page.category == 'vlog'
-               or page.permalink == '/157/skripsi' %}
+               or page.category == 'vlog' %}
                <div style="text-align:center; margin:0 0 10px 0;"></div>
                {% if page.license %}
                  {% include license.html %}
