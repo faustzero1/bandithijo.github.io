@@ -18,4 +18,3 @@ $(document).ready(function(){
         article.classList.toggle('post-wide');
     });
 })();
-

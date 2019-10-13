@@ -61,7 +61,8 @@ mark {
 .container {
     background: #FFF;
     /* width: menggunakan % untuk responsif design */
-    max-width: 67%;
+    /* max-width: 67%; */
+    max-width: 68%;
     /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
     margin: auto;
@@ -1737,6 +1738,12 @@ a.disqus_button {
         top: 1.5em;
     }
 
+    .container {
+        max-width: 74%;
+        /* max-width: 74%; */
+        /* untuk membuat halaman menjadi center */
+    }
+
     .post {
         padding: 21px 20px;
         /* width: 600px; */
@@ -1764,10 +1771,17 @@ a.disqus_button {
 }
 
 @media (max-width: 1320px) {
+    .container {
+        max-width: 74%;
+        /* max-width: 74%; */
+        /* untuk membuat halaman menjadi center */
+    }
+
     .post {
         padding: 21px 20px;
         /* width: 600px; */
-        width: 67.0%;
+        /* width: 67.0%; */
+        width: 68.0%;
         float: left;
         /* display: flex; */
         /* flex-direction: row; */
@@ -1783,7 +1797,8 @@ a.disqus_button {
     }
 
     aside.sidebar {
-        width: 24%;
+        /* width: 24%; */
+        width: 25%;
         /* width: 245px; */
         float: right;
         margin-right: 20px;
@@ -1807,10 +1822,17 @@ a.disqus_button {
         /* width: 200px; */
     }
 
+    .container {
+        max-width: 74%;
+        /* max-width: 74%; */
+        /* untuk membuat halaman menjadi center */
+    }
+
     .post {
         padding: 21px 20px;
         /* width: 600px; */
-        width: 67.0%;
+        /* width: 67.0%; */
+        width: 68.0%;
         float: left;
         /* display: flex; */
         /* flex-direction: row; */
@@ -1826,7 +1848,8 @@ a.disqus_button {
     }
 
     aside.sidebar {
-        width: 24%;
+        /* width: 24%; */
+        width: 25%;
         /* width: 245px; */
         float: right;
         margin-right: 20px;
@@ -1850,6 +1873,11 @@ a.disqus_button {
         /* width: 200px; */
     }
 
+    .container {
+        max-width: 74%;
+        /* max-width: 74%; */
+        /* untuk membuat halaman menjadi center */
+    }
 }
 
 /* Untuk mengcover layar di bawah hd */
