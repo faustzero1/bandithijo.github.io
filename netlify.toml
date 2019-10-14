@@ -6,9 +6,8 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "https://bandithijo.com/skripsi"
-  to = "https://bandithijo.com/157/skripsi"
-  status = 301
-  force = true
-
+# [[redirects]]
+#   from = "https://bandithijo.com/skripsi"
+#   to = "https://bandithijo.com/157/skripsi"
+#   status = 301
+#   force = true
