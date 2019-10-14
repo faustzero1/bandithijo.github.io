@@ -1,0 +1,253 @@
+I"P?<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/hvtdtlfa5/banner_post_20.png" alt="banner" /></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>DNSCrypt ? Apa itu ?</p>
+
+<p>Dokumentasi ini tidak ditulis untuk menjelaskan pertanyaan-pertanyaan tersebut. Mungkin teman-teman bisa mencari-cari literatur sendiri untuk jawaban dari pertanyaan di atas, yaa. Seperti <a href="https://dnscrypt.info/" target="_blank">di sini</a>.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+<p>Kesulitan dalam mengakses beberapa portal informasi membuat saya gerah. Pasalnya saya kehilangan beberapa bahan bacaan dan sumber informasi yang bagus sekali dari internet berskala global. Di sisi lain, saya pun setuju dengan adanya pemblokiran-pemblokiran ini. Agar informasi yang tidak semestinya dilihat oleh kelompok umur yang belum dewasa secara psikologis tidak melihat konten tersebut dengan mudah dan gamblang. Terlebih lagi untuk teman-teman yang sudah memiliki anak. Akan sangat diuntungkan oleh kebijakan ini. Toh, kita yang orang dewasa sudah pada pintar-pintar mencari jalan menuju roma.</p>
+
+<p>Baiklah, saya tidak ingin menuliskan panjang lebar tentang <em>issue</em> ini. Apabila kalian membaca post ini, mungkin masalah yang kita hadapi sama, mas bro !</p>
+
+<h1 id="instalasi">Instalasi</h1>
+<p>Kita perlu memasang paket yang bernama <a href="https://www.archlinux.org/packages/?name=dnscrypt-proxy" target="_blank"><strong>dnscrypt-proxy</strong></a>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S dnscrypt-proxy
+</code></pre></div></div>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+<p>Setelah kita berhasil memasang paket <code class="highlighter-rouge">dnscrypt-proxy</code>, tahap selanjutnya tentu saja mengkonfigurasi. Jujur saja, untuk saya, bagian ini agak susah-susah gampang. Bukan susah dalam artian sulit, namun lebih ke <em>tricky</em>. Karena dalam beberapa kasus, cara A terbukti berhasil di saya, namun belum tentu dengan di sistem kalian.</p>
+
+<p>Pada dokumentasi ini saya langsung saja akan menggunakan cara yang berhasil saya terapkan pada sistem saya.</p>
+
+<p>Sekenario pada dokumentasi ini adalah, kita akan mengkonfigurasi <code class="highlighter-rouge">dnscrypt-proxy</code> terlebih dahulu, selanjutnya kita akan mengkonfigurasi <code class="highlighter-rouge">/etc/resolv.conf</code> agar tidak ter-<em>generate</em> oleh NetworkManager.</p>
+
+<h2 id="konfigurasi-dnscrypt">Konfigurasi DNSCrypt</h2>
+<p>Setelah kita memasang paket <code class="highlighter-rouge">dnscrypt-proxy</code>, akan terdapat dua service yang disediakan, yang kita <span class="stabilo">hanya bisa memilih salah satu dari keduanya</span> untuk kita <em>enable</em>-kan<sup><a href="https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi">1</a></sup>.</p>
+
+<p>Kedua service tersebut adalah :</p>
+<ol>
+  <li><code class="highlighter-rouge">dnscrypt-proxy.service</code></li>
+  <li><code class="highlighter-rouge">dnscrypt-proxy.socket</code></li>
+</ol>
+
+<p>Pada dokumentasi ini saya akan menggunakan <code class="highlighter-rouge">.socket</code> karena sudah terbukti terkonfigurasi dengan baik pada sistem saya.
+Karena saat saya menggunakan <code class="highlighter-rouge">.service</code>, saya sudah meng-<em>enable</em> kan service agar dapat dijalankan saat proses sistem dimulai, namun ternyata tidak dijalankan. Karena keterbatasan ilmu, saya memutuskan untuk mencoba menggunakan <code class="highlighter-rouge">.socket</code> dan berjalan sesuai harapan.</p>
+
+<p>Lahkah-lahkahnya sebagai berikut :</p>
+
+<ol>
+  <li>Edit file <code class="highlighter-rouge">/etc/dnscrypt-proxy/dnscrypt-proxy.toml</code>.<sup><a href="https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi">1</a></sup>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+</code></pre></div>    </div>
+    <p>Cari pada baris yang bertuliskan <code class="highlighter-rouge">listen_addresses</code>, <em>value</em> yang ada pada kurung kotak, berupa ip address dan port, kita kosongkan. Sehingga akan berbentuk seperti ini.<sup><a href="https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi">1</a></sup></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+listen_addresses = [ ]
+...
+</code></pre></div>    </div>
+    <p>Simpan dan exit.</p>
+  </li>
+  <li>Konfigurasi socket agar aktif saat proses booting.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable dnscrypt-proxy.socket
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created symlink /etc/systemd/system/sockets.target.wants/dnscrypt-proxy.socket → /usr/lib/systemd/system/dnscrypt-proxy.socket
+</code></pre></div>    </div>
+    <p>Jalankan socket.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start dnscrypt-proxy.socket
+</code></pre></div>    </div>
+    <p>Cek status socket, apakah sudah <em>active (running)</em> atau <em>inactive</em>.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl status dnscrypt-proxy.socket
+</code></pre></div>    </div>
+    <pre>
+ ● dnscrypt-proxy.socket - DNSCrypt-proxy socket
+   Loaded: loaded (/usr/lib/systemd/system/dnscrypt-proxy.socket; enabled; vendor preset: disabled)
+   Active: <mark>active (running)</mark> since Wed 2018-08-22 09:12:01 WITA; 4h 33min ago
+     Docs: https://github.com/jedisct1/dnscrypt-proxy/wiki
+   Listen: 127.0.0.1:53 (Stream)
+           127.0.0.1:53 (Datagram)
+           [::1]:53 (Stream)
+           [::1]:53 (Datagram)
+    Tasks: 0 (limit: 4915)
+   Memory: 40.0K
+   CGroup: /system.slice/dnscrypt-proxy.socket
+
+   Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_DEFER_ACCEPT failed: Protocol not available
+   Aug 22 09:12:01 BanditHijo-X260 systemd[1]: dnscrypt-proxy.socket: TCP_NODELAY failed: Protocol not available
+   Aug 22 09:12:01 BanditHijo-X260 systemd[1]: Listening on DNSCrypt-proxy socket.</pre>
+    <p>Apabila terlihat status <code class="highlighter-rouge">dnscrypt-proxy.socket</code> sudah <strong>active (running)</strong>, artinya service sudah berjalan dengan baik.</p>
+
+    <p>Kalau kita menggunakan <em>socket</em> secara otomatis akan mengaktifkan juga <em>service</em>-nya.</p>
+
+    <p>Tapi, <code class="highlighter-rouge">dnscrypt-proxy.serivce</code> ini akan berjalan setelah kita merestart network atau sistem operasi.</p>
+  </li>
+</ol>
+
+<p>Kalau sudah seperti di atas, artinya service yang kita perlukan sudah berjalan dengan baik.</p>
+
+<p>Sekarang lanjut ke konfigurasi nameserver pada <code class="highlighter-rouge">/etc/resolv.conf</code>.</p>
+
+<h2 id="konfigurasi-resolvconf">Konfigurasi resolv.conf</h2>
+
+<p>Mengapa kita perlu mengkonfigurasi file <code class="highlighter-rouge">/etc/resolv.conf</code> ?</p>
+
+<p>Untuk teman-teman yang menggunakan ISP (<em>Internet Service Provider</em>) seperti IndiH0ME, biasanya konfigurai router yang dilakukan oleh ISP akan memaksa kita untuk menggunakan <code class="highlighter-rouge">nameserver 192.168.0.1</code> atau IP address tertentu seperti:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 118.98.44.100
+nameserver 118.98.44.10
+nameserver fe80::1%wls3
+</code></pre></div></div>
+<p>Hal ini menyebabkan setiap kita mengganti <code class="highlighter-rouge">nameserver</code> tersebut, misal mengganti manjadi DNS Google (<code class="highlighter-rouge">nameserver 8.8.8.8</code>) maka akan tetap terganti ke <code class="highlighter-rouge">nameserver 192.168.0.1</code> setelah sistem sleep/restart. Sehingga sifatnya tidak dapat permanen.</p>
+
+<p>Yang jadi permasalahan adalah, untuk dapat menggunakan <code class="highlighter-rouge">dnscrypt-proxy</code> service, kita harus menggunakan <code class="highlighter-rouge">nameserver 127.0.0.1</code>. Kita memang dapat mengganti <code class="highlighter-rouge">nameserver</code> ini secara <em>manual</em>, namun tentu saja saya malas untuk mengganti setiap kali akan mengguanakan <code class="highlighter-rouge">dnscrypt-proxy</code> service.</p>
+
+<p>Saya mendapati banyak cara untuk membuat <em>value</em> dari <code class="highlighter-rouge">nameserver</code> yang terdapat di dalam file <code class="highlighter-rouge">/etc/resolv.conf</code> tidak dapat berubah / ter-<em>regenerate</em> secara otomatis. Namun, saya hanya akan menuliskan cara yang saya gunakan. Saya juga belum tahu ini cara yang mudah atau tidak. Apabila teman-teman punya cara yang lebih baik, mungkin bisa menambahkan di kolom komentar.</p>
+
+<p>Cara ini saya beri nama, “<strong>Membuat nameserver static dengan dhcpcd.service</strong>”.</p>
+
+<p>Saya menganggap teman-teman yang ingin menggunakan cara ini, setuju untuk menggunakan service dhcpcd. Karena diluar sana, ada teman-teman yang tidak menggunakan dhcpcd untuk mengatur layanan jaringan pada sistem operasi mereka.</p>
+
+<p>Oke kita lanjutkan.</p>
+
+<p>Cara ini memerlukan bantuan dari service bernama <code class="highlighter-rouge">dhcpcd.service</code>.</p>
+
+<p>Service ini dibawa oleh paket <code class="highlighter-rouge">dhcpcd</code>. Biasanya paket ini sudah ada di dalam distribusi yang kita gunakan.</p>
+
+<p>Coba cek apakah servicenya sudah jalan atau belum.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl status dhcpcd.service
+</code></pre></div></div>
+
+<pre>
+● dhcpcd.service - dhcpcd on all interfaces
+   Loaded: loaded (/usr/lib/systemd/system/dhcpcd.service; enabled; vendor preset: disabled)
+   Active: <span style="color:#859900;font-weight:bold;">active (running)</span> since Sun 2019-05-26 09:59:07 WITA; 1h 59min ago
+  Process: 412 ExecStart=/usr/bin/dhcpcd -q -b (code=exited, status=0/SUCCESS)
+ Main PID: 480 (dhcpcd)
+    Tasks: 1 (limit: 4624)
+   Memory: 2.2M
+   CGroup: /system.slice/dhcpcd.service
+           └─480 /usr/bin/dhcpcd -q -b</pre>
+
+<p>Kalau sudah jalan akan seperti di atas tampilannya.</p>
+
+<p>Kalau belum, silahkan di jalankan terlebih dahulu.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start dhcpcd.service
+</code></pre></div></div>
+
+<p>Cek lagi statusnya, apakah sudah <em>active running</em>.</p>
+
+<p>Kalau sudah, saatnya kita menambahkan konfigurasi <em>static dns</em>. menggunakan dhcpcd.</p>
+
+<p>Langkah-langkahnya sebagai berikut:</p>
+
+<ol>
+  <li>Edit file <code class="highlighter-rouge">/etc/dhcpcd.conf</code>.<sup><a href="https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi">2,3</a></sup>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/dhcpcd.conf
+</code></pre></div>    </div>
+    <p>Tambahkan pada baris paling bawah.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static domain_name_servers=127.0.0.1
+</code></pre></div>    </div>
+    <p>Save dan exit.</p>
+  </li>
+</ol>
+
+<p>Kemudian restart serivce dari <code class="highlighter-rouge">dhcpcd.service</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart dhcpcd.service
+</code></pre></div></div>
+
+<p>Untuk memastikan <code class="highlighter-rouge">nameserver</code> berubah menjadi static, coba restart serivice dari <code class="highlighter-rouge">NetworkManager.service</code> terlebih dahulu.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart NetworkManager.service`
+</code></pre></div></div>
+
+<p>Kemudian coba lakukan pengecekan isi dari file <code class="highlighter-rouge">/etc/resolv.conf</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cat /etc/resolv.conf
+</code></pre></div></div>
+
+<p>Apakah nameserver sudah berubah menjadi <code class="highlighter-rouge">nameserver 127.0.0.1</code> ?</p>
+
+<p>Kalau belum, tunggu sekitar 2-3 menit. Sambil melakukan restart terhadap kedua service di atas.</p>
+
+<p>Berikut adalah tampilan file <code class="highlighter-rouge">/etc/resolv.conf</code>.</p>
+
+<p><strong>Sebelum restart</strong>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Generated by NetworkManager
+nameserver 118.98.44.100
+nameserver 118.98.44.10
+nameserver fe80::1%wls3
+</code></pre></div></div>
+
+<p><strong>Sesudah restart</strong>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Generated by resolvconf
+nameserver 127.0.0.1
+</code></pre></div></div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Untuk merestart jaringan, kita tidak perlu restart system. Cukup merestart service-nya saja, seperti contoh di atas.</p>
+<p>Namun apabila merasa frustasi, ya boleh lah restart. Hihihi</p>
+</div>
+
+<h1 id="hasilnya">Hasilnya</h1>
+<p>Apabila kedua langkah di atas sudah kita lakukan, sekarang tinggal melakukan pengujian.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ping -c 5 reddit.com
+</code></pre></div></div>
+<p>Apabila berhasil.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PING reddit.com (151.101.1.140) 56(84) bytes of data.
+64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=1 ttl=55 time=32.3 ms
+64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=2 ttl=55 time=32.6 ms
+64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=3 ttl=55 time=32.7 ms
+64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=4 ttl=55 time=32.10 ms
+64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=5 ttl=55 time=32.4 ms
+
+--- reddit.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 10ms
+rtt min/avg/max/mdev = 32.330/32.623/32.977/0.278 ms
+</code></pre></div></div>
+<p>Apabila gagal.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PING internetpositif.uzone.id (36.86.63.185) 56(84) bytes of data.
+64 bytes from 36.86.63.185: icmp_seq=1 ttl=245 time=30.2 ms
+64 bytes from 36.86.63.185: icmp_seq=2 ttl=245 time=30.8 ms
+64 bytes from 36.86.63.185: icmp_seq=3 ttl=245 time=31.6 ms
+64 bytes from 36.86.63.185: icmp_seq=4 ttl=245 time=29.6 ms
+64 bytes from 36.86.63.185: icmp_seq=5 ttl=245 time=29.7 ms
+
+--- internetpositif.uzone.id ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 9ms
+rtt min/avg/max/mdev = 29.596/30.352/31.551/0.755 ms
+</code></pre></div></div>
+<p>Sekarang buka browser <em>favorite</em> kalian, dan buka halaman <a href="https://www.reddit.com" target="_blank">www.reddit.com</a>.</p>
+
+<h1 id="kesimpulan">Kesimpulan</h1>
+<p>Yang dibutuhkan untuk dapat mennggunakan <code class="highlighter-rouge">dnscrypt-proxy</code> adalah :</p>
+<ol>
+  <li>Service <code class="highlighter-rouge">dnscrypt-proxy</code> yang sudah <em>running</em></li>
+  <li><code class="highlighter-rouge">nameserver 127.0.0.1</code> pada <code class="highlighter-rouge">/etc/resolv.conf</code></li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/DNSCrypt" target="_blank">wiki.archlinux.org/index.php/DNSCrypt</a>
+<br />Diakses tanggal: 2018/09/22</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head" target="_blank">wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head</a>
+<br />Diakses tanggal: 2018/09/22</p>
+  </li>
+  <li>
+    <p><a href="https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux" target="_blank">superuser.com/questions/442096/change-default-dns-server-in-arch-linux</a>
+<br />Diakses tanggal: 2018/09/22</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/jedisct1/dnscrypt-proxy" target="_blank">github.com/jedisct1/dnscrypt-proxy</a>
+<br />Diakses tanggal: 2018/09/22</p>
+  </li>
+</ol>
+
+:ET

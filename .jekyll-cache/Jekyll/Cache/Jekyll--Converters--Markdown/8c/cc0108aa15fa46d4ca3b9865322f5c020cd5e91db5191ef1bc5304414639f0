@@ -1,0 +1,46 @@
+I"<p class="notif-post">Post ini sudah tidak up to date !</p>
+
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://2.bp.blogspot.com/-UBmvBCC3EJ0/UdMJakiqSQI/AAAAAAAAA_8/t90Rt6IGukw/s1600/Default+Header+Template+Post+9.jpg" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Sudah beralih ke Ubuntu Linux dan masih berharap bisa download video di Youtube, donwload kontent-kontetn di website yang tidak terdapat menu download, download dari situs-situs yang membutuhkan account premium, ketergantungan dengan IDM (Internet Download Manager) di Windows ? Tapi sudah benar-benar terpojok dengan Ubuntu ? Jangan khawatir. Saya akan memperkenalkan sebuah software sebagai alternatif bagi anda sebagai pengganti IDM di Windows.</p>
+
+<h1 id="jdownloader">JDownloader</h1>
+<p>Adalah software gratis, open-source download manajemen tool yang di tulis dengan bahasa pemrograman Java, dengan komunitas pengembang yang besar, yang membuat download menjadi mudah dan secepat seharusnya. Pengguna dapat memulai, menghentikan atau memberikan jeda, menetapkan batasan bandwidth, arsip auto-ekstrak dan banyak lagi. Termasuk dapat mendownload dari website bertipe One-Click Hoster seperti Rapidshare.com atau Megaupload.com -tidak hanya untuk pengguna dengan account premium, tetapi juga untuk pengguna yang gak bayar.</p>
+
+<p>Bagaimana ? Tertarik untuk menggunakannya ? Kalau anda sudah pernah menggunakannya pasti sangat menyukai software ini. Apalagi bagi user yang suka berselancar ke website-website “zona merah”.</p>
+
+<p>Untuk cara pengunaannya anda bisa melihat pada tutorial yang saya tuliskan untuk JDownloader pada OS X. Pada prinsip penggunaannya sama. Hanya berbeda platform saja.</p>
+
+<p>Untuk pengguna Ubuntu Linux, pada artikel ini saya menyediakan tutorial bagaimana cara mendownloadnya dari Ubuntu Linux dengan menggunakan PPA source.</p>
+
+<h1 id="step-by-step">Step by Step</h1>
+<ol>
+  <li>
+    <p>Buka Terminal anda.</p>
+  </li>
+  <li>Lalu copy (CTRL+C) &amp; paste (CTRL+SHIFT+V) saja kode di bawah ini ke Terminal anda.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo add-apt-repository ppa:jd-team/jdownloader
+$ sudo apt-get update
+$ sudo apt-get install jdownloader-installer
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Satu persatu copy &amp; pastenya, ditunggu sampai prosesnya selesai yaa</p>
+  </li>
+  <li>
+    <p>Kalau sudah complete dan tidak terdapat pesan error, silahkan dilihat di daftar aplikasi anda.</p>
+  </li>
+  <li>Sekarang Jdownloader siap untuk digunakan.</li>
+</ol>
+
+<p>Tutorial mengenai cara penggunaannya dapat dilihat pada posting ini
+Kalau sudah mencoba dan ketagihan, jangan salahkan saya yaa. Hahahaha.
+Senang bisa berbagi informasi.</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="http://jdownloader.org/" target="_blank">jdownloader.org/</a></li>
+  <li><a href="http://bandithijo.github.io/posts/download-client-osx-with-jdownloader" target="_blank">bandithijo.github.io/posts/download-client-osx-with-jdownloader</a></li>
+</ol>
+:ET

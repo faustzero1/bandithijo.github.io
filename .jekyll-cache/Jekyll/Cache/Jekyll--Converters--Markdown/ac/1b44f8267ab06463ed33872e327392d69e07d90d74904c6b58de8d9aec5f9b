@@ -1,0 +1,417 @@
+I"z_<!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Ranger adalah <em>text-based file manager</em> (aplikasi untuk memanajemen file bebasis teks) yang ditulis dengan bahasa Python.</p>
+
+<p>Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom, yaitu: kolom direktori sebelumnya, direktori sekarang, dan file preview atau direktori selanjutnya.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/TY3F2Fbw/gambar-01.gif" /></p>
+<p class="img-caption">Gambar 1 - Antar muka Ranger. (1) Direktori sebelumnya, (2) Direktori Sekarang, (3) Direktori Selanjutnya atau file preview</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/02X3znGC/gambar-02.png" /></p>
+<p class="img-caption">Gambar 2 - Kolom ke-3 menampilkan konten dari file teks</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/y8wbPNbg/gambar-03.png" /></p>
+<p class="img-caption">Gambar 3 - Kolom ke-3 menampilkan preview dari gambar</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/rwdHx4Q2/gambar-04.png" /></p>
+<p class="img-caption">Gambar 4 - Kolom ke-3 menampilkan detail dari audio atau video file</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/J4CwqqDn/gambar-06.gif" /></p>
+<p class="img-caption">Gambar 5 - Kolom ke-3 menampilkan detail dari file teks dengan highlight dan dapat di-<i>scrolldown</i></p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/28QsXZhx/gambar-07.gif" /></p>
+<p class="img-caption">Gambar 6 - Kolom ke-3 menampilkan detail dari file Open Document Format (.odt, .ods, .odp)</p>
+
+<p><br />
+<strong>Gimana keren yaa?</strong></p>
+
+<p>Menurut saya sih keren. Kekerenan nomor satu, karena <em>file manager</em> ini sudah dapat menampilkan <em>preview</em> dari file yang sedang kita seleksi - bahasa kitanya, mengintip. Yang paling berguna dan sering saya manfaatkan adalah <em>preview</em> untuk file gambar dan teks. Jujur saja, kalau pada <em>file manager</em> GUI, saya harus membuka file teks dan gambar tersebut terlebih dahulu untuk melihat isinya.</p>
+
+<p>Kekerenan nomor dua adalah, <em>Vim-style key bindings</em>, pencet-pencetan yang mirip dengan Vim. Dengan begini, tidak perlu lama beradaptasi. Setidaknya dalam hal navigasi, tinggal <kbd>H</kbd> <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd>. Tinggal mempelajari fitur-fitur lain yang dimiliki oleh Ranger yang biasa saya gunakan pada <em>file manager</em> lain.</p>
+
+<p>Sejauh ini, fitur-fitur yang saya pergunakan adalah:</p>
+<ol>
+  <li>Navigasi yang super efektif dengan pencet-pencetan ala Vim.</li>
+  <li>Selections</li>
+  <li>Copy dan paste dengan pencet-pencetan yang super.</li>
+  <li>Termasuk juga kemampuan membuat <em>symbolic link</em> dengan super mudah</li>
+  <li>Bookmarks</li>
+  <li>Tagging</li>
+  <li>Tabs</li>
+  <li>dll.</li>
+</ol>
+
+<p>Kekerenan nomor tiga adalah, nama Ranger itu sendiri. Ini subjektif saya memang. Hahahaha. Tapi iya bukan? Keren kan? Ranger. Ndak malu-maluin lah kalo ditanya sama temen, “Kamu pake apa itu, Bro?” Dengan bangga kita persembahkan jawaban, “Ranger.”</p>
+
+<p>Masih banyak fitur-fitur dari Ranger yang belum saya manfaatkan. Tapi saya tidak khawatir dan terburu-buru, biarlah proses belajar yang akan menuntun saya mencoba fitur-fitur lain yang dimiliki oleh Ranger.</p>
+
+<p>Jadi, apa kalian mau ikut?</p>
+
+<p>Tiga bulan, enam bulan, satu tahun dari sekarang mungkin kemampuan saya dalam menggunakan Ranger akan bertambah. Siapa yang tahu.</p>
+
+<p>Tentukan pilihanmu, Bro.</p>
+
+<p><em>I hate to say,”I told you so.”</em></p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Ranger bukan merupakan <i>Terminal based file manager</i> yang paling cepat dan terbaik. Sebagian orang menyebutnya sangat <i>bloated</i> (buncit) maksudnya, banyak fitur-fitur yang sebenarnya tidak kita perlukan. Karena kebutuhan setiap orang berbeda-beda.</p>
+<p>Sebagaian orang juga mengatakan Ranger lambat karena ditulis dengan bahasa pemrograman Python.</p>
+<p>Namun bagi saya, itu pendapat mereka, dan ini pilihan saya. Pasti ada alasan dan tujuan yang baik, mengapa Ranger sudah membawa banyak fitur secara <i>default</i>.</p>
+</div>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Proses instalasi Ranger, saya rasa sudah pasti sangat mudah. Hanya tinggal menggunakan paket manajer dari distribusi sistem operasi teman-teman.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S ranger
+</code></pre></div></div>
+
+<p>Instalasi juga paket-paket tambahan yang diperlukan untuk membuat Ranger lebih “wow”.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S highlight odt2txt pdftotext mediainfo
+</code></pre></div></div>
+
+<p>Lalu untuk image preview.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S w3m
+</code></pre></div></div>
+
+<h2 id="membuat-app-launcher">Membuat App Launcher</h2>
+
+<p>Seperti biasa kita perlu membuat <code class="highlighter-rouge">.desktop</code> agar mudah dipaggil dengan <em>application launcher</em> seperti dmenu dan rofi sehingga tidak perlu membuka Terminal terlebih dahulu.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.local/share/applications/ranger.desktop
+</code></pre></div></div>
+<pre>
+[Desktop Entry]
+Type=Application
+Name=ranger
+Comment=Launches the ranger file manager
+Icon=ranger
+Terminal=false
+<mark>Exec=st -e ranger</mark>
+Categories=ConsoleOnly;System;FileTools;FileManager
+MimeType=inode/directory;
+</pre>
+<p>Pada bagian <code class="highlighter-rouge">Exec=</code>, sesuaikan dengan Terminal emulator yang teman-teman pergunakan</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Apabila kita langsung menjalankan Ranger saat ini, maka Ranger akan menggunakan <em>default config</em>. Saya lebih <em>prefer</em> untuk menggunakan konfigurasi saya sendiri, karena lebih bebas untuk dimodifikasi dalam hal <em>colorscheme</em>, <em>key bindings</em>, dll.</p>
+
+<p>Saat kita menjalankan ranger pertama kali, Ranger akan secara otomatis membuatkan direktori config untuk kita yang terdapat pada <code class="highlighter-rouge">~/.config/ranger/</code>. Namun, belum terdapat file apapun di dalamnya.</p>
+
+<p>Untuk mengcopy <em>default configuration files</em>, kita perlu menjalankan perintah di bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~/.config/ranger
+$ ranger --copy-config=all
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>creating: /home/bandithijo/.config/ranger/rifle.conf
+creating: /home/bandithijo/.config/ranger/commands.py
+creating: /home/bandithijo/.config/ranger/commands_full.py
+creating: /home/bandithijo/.config/ranger/rc.conf
+creating: /home/bandithijo/.config/ranger/scope.sh
+
+&gt; Please note that configuration files may change as ranger evolves.
+  It's completely up to you to keep them up to date.
+
+&gt; To stop ranger from loading both the default and your custom rc.conf,
+  please set the environment variable RANGER_LOAD_DEFAULT_RC to FALSE.
+</code></pre></div></div>
+<p>Sekarang coba lihat isi dari direktori <code class="highlighter-rouge">~/.config/ranger/</code> saat ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -al
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drwxr-xr-x .
+drwxr-xr-x ..
+-rw-r--r-- commands_full.py
+-rw-r--r-- commands.py
+-rw-r--r-- rc.conf
+-rw-r--r-- rifle.conf
+-rwxr-xr-x scope.sh
+</code></pre></div></div>
+<p>Langkah selanjutnya, kita akan mengkonfigurasi file <code class="highlighter-rouge">rc.conf</code>.</p>
+
+<h2 id="rcconf---konfigurasi-options">rc.conf - Konfigurasi Options</h2>
+
+<p>Oke, sekarang kita sudah memiliki file configurasi dasar. Selanjutnya coba periksa terlebih dahulu bagaimana bentuk dari isi file <code class="highlighter-rouge">rc.conf</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim rc.conf
+</code></pre></div></div>
+<p>Dapat teman-teman lihat, isi dari file <code class="highlighter-rouge">rc.conf</code>. Sangat mudah dipahami bukan?</p>
+
+<p>Kita langsung dapat memahami arti dari baris perintah karena terdapat komentar yang ditulis dengan jelas.</p>
+
+<p>Seperti besar perbandingan lebar dari kolom den berapa banyak kolom.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># How many columns are there, and what are their relative widths?
+set column_ratios 1,3,4
+</code></pre></div></div>
+
+<p>Tidak banyak yang harus saya rubah. Tapi saya akan bahas, apa saja yang saya modifikasi.</p>
+
+<p>Tentunya teman-teman tidak harus mengikuti konfigurasi saya. Silahkan bereksplorasi sendiri.</p>
+
+<h3 id="konfirmasi-saat-delete">Konfirmasi Saat Delete</h3>
+
+<p>Terdapat <em>key bindings</em> untuk melakukan <em>recursive delete</em> seperti <code class="highlighter-rouge">rm</code>. Tentunya kita perlu hati-hati terhadap hal ini. Kita menghindari apabila suatu waktu kita mengalami <em>human error</em>. Untuk itu perlu sekali membuat langkah antisipasi. Salah satunya dengan mmberikan konfirmasi saat akan melakukan <em>recursive delete/remove</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Ask for a confirmation when running the "delete" command?
+# Valid values are "always", "never", "multiple" (default)
+# With "multiple", ranger will ask only if you delete multiple files at once.
+set confirm_on_delete always
+</code></pre></div></div>
+<p>Secara <em>default</em> bernilai <code class="highlighter-rouge">multiple</code>, hanya menampilkan konfirmasi saat menghapus banyak file/direktori. Namun, saya lebih <em>prefer</em> untuk menggunakan value <code class="highlighter-rouge">always</code>. Agar setiap file/direktori yang akan saya <em>recursive delete</em> selalu ditampilkan konfirmasi untuk saya tinjau kembali. Dengan begini dapat meminimalisir dampak dari <em>human error</em>. Hehehe.</p>
+
+<h3 id="aktifkan-preview-script">Aktifkan Preview Script</h3>
+
+<p>Saya merekeomendasikan untuk mengaktifkan variabel ini <code class="highlighter-rouge">preview_script</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Use non-default path for file preview script?
+# ranger ships with scope.sh, a script that calls external programs (see
+# README.md for dependencies) to preview images, archives, etc.
+set preview_script ~/.config/ranger/scope.sh
+</code></pre></div></div>
+<p>Hilangkan tanda pagar pada <code class="highlighter-rouge">set preview_script ...</code>.</p>
+
+<p>Kegunaanya untuk memberikan kemapuan preview pada Ranger untuk menjadi lebih super. Hahaha.</p>
+
+<p>Sekarang buka dan edit file <code class="highlighter-rouge">~/.config/ranger/scope.sh</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/ranger/scope.sh
+</code></pre></div></div>
+<p>Nah, sekarang tinggal teman-teman cari dan pilih ekstensi dari file apa yang akan diaktifkan.</p>
+
+<p>Sebagai gambaran saya mengaktifkan fitur untuk menampilkan file dengan ekstensi <code class="highlighter-rouge">SVG</code> dan <code class="highlighter-rouge">PDF</code>. Secara <em>default</em> masih dalam keadaan ter-<em>comment</em>. Kita perlu meng-<em>enable</em>-kannya.</p>
+
+<p>Lihat saja contoh di bawah untuk mengetahui bagian mana saja yang perlu di-<em>uncomment</em>.</p>
+<pre>
+...
+...
+
+# SVG
+<mark>image/svg+xml)
+    convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" &amp;&amp; exit 6
+    exit 1;;</mark>
+
+...
+...
+</pre>
+<pre>
+...
+...
+
+# PDF
+<mark>application/pdf)
+    pdftoppm -f 1 -l 1 \
+                -scale-to-x 1920 \
+                -scale-to-y -1 \
+                -singlefile \
+                -jpeg -tiffcompression jpeg \
+                -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
+                &amp;&amp; exit 6 || exit 1;;</mark>
+
+...
+...
+</pre>
+<p>Dengan mengaktifkan kedua <em>section</em> di atas, yaitu <code class="highlighter-rouge">SVG</code> dan <code class="highlighter-rouge">PDF</code>, Ranger akan memiliki kemampuan untuk menampilkan <em>preview</em> dalam bentuk gambar dari file <code class="highlighter-rouge">.png</code> dan <code class="highlighter-rouge">.pdf</code>. Sehinggal kita tidak perlu untuk membukanya terlebih dahulu. Sangat <em>convenient</em> sekali bukan?</p>
+
+<p>Sengaja saya tidak mengaktifkan <code class="highlighter-rouge">VIDEO</code>. Tidak ada alasan apa-apa, hanya masalah selera saja.</p>
+
+<h3 id="menampilkan-gambar">Menampilkan Gambar</h3>
+
+<p>Untuk menampilkan gambar, Ranger memerlukan paket bernama <code class="highlighter-rouge">w3m</code>. Silahkan dipasang terlebih dahulu apabila belum.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S w3m
+</code></pre></div></div>
+<p>Selanjutnya, tinggal meng-<em>enable</em>-kan konfignya.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Use one of the supported image preview protocols
+set preview_images true
+
+# ...
+# ...
+set preview_images_method w3m
+
+# Delay in seconds before displaying an image with the w3m method.
+# Increase it in case of experiencing display corruption.
+set w3m_delay 0.01
+
+</code></pre></div></div>
+
+<h3 id="memilih-colorscheme">Memilih Colorscheme</h3>
+
+<p>Secara <em>default</em>, Ranger sudah menyertakan <em>colorscheme</em> bawaan, yaitu: default, jungle, snow, solarized. Saat ini kita masih menggunakan <em>colorscheme</em> default. Coba ganti dengan <em>colorscheme</em> lain yang disediakan.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Which colorscheme to use?  These colorschemes are available by default:
+# default, jungle, snow, solarized
+set colorscheme solarized
+</code></pre></div></div>
+<p>Teman-teman juga dapat memodifikasi atau membuat sendiri <em>colorscheme</em> sesuai yang teman-teman inginkan.</p>
+
+<p>Caranya, dengan mendownload <em>coloscheme</em> dasar dari repositori GitHub.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p ~/.config/ranger/colorschemes
+$ cd ~/.config/ranger/colorschemes
+$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/default.py
+$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/jungle.py
+$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/snow.py
+$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/solarized.py
+</code></pre></div></div>
+<p>Sekarang tinggal bereksplorasi dengan warna.</p>
+
+<p>Jangan lupa untuk megeset <em>colorscheme</em> yang teman-teman modif pada file <code class="highlighter-rouge">rc.conf</code>.</p>
+
+<p>Saya sendiri menggunakan <em>colorscheme</em> solarized hasil modifan sendiri. Karena terdapat beberapa bagian warna yang saya kurang begitu suka. Hehehe.</p>
+
+<p>Mengenai memodifikasi warna dalam <em>colorscheme</em>, sepertinya tidak ingin saya tulis dulu saat ini. Terlalu panjang.</p>
+
+<h3 id="mengaktifkan-border">Mengaktifkan Border</h3>
+
+<p>Kalian juga dapat mengaktifkan border, karena secara <em>default</em>, variable ini dalan keadaan <code class="highlighter-rouge">none</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Draw borders around columns? (separators, outline, both, or none)
+# Separators are vertical lines between columns.
+# Outline draws a box around all the columns.
+# Both combines the two.
+set draw_borders none
+</code></pre></div></div>
+<p>Saya sendiri termasuk yang tidak begitu senang menggunakan border.</p>
+
+<h3 id="mengaktifkan-line-number">Mengaktifkan Line Number</h3>
+
+<p>Untuk dapat memudahkan kita dalam bernavigasi antar baris, berlompat-lompat antar baris seperti pada Vim, Ranger memberikan kita fitur untuk menampilkan <em>line numbers</em>. Terdapat tiga pilihan: <em>false</em>, <em>absolute</em>, dan <em>relative</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Disable displaying line numbers in main column.
+# Possible values: false, absolute, relative.
+set line_numbers relative
+</code></pre></div></div>
+<p>Saya lebih senang menggunakan <code class="highlighter-rouge">relative</code> karena lebih memudahkan untuk navigasi.</p>
+
+<h3 id="scroll-wrapping">Scroll Wrapping</h3>
+
+<p>Untuk memudahkan navigasi juga, saya lebih senang mengaktifkan fitur <em>scroll wrapping</em>, agar ketika saya sudah melakukan <em>scrolling</em> sampai bawah, saya dapat dengan mudah menuju ke atas.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Enable scroll wrapping - moving down while on the last item will wrap around to
+# the top and vice versa.
+set wrap_scroll true
+</code></pre></div></div>
+
+<h2 id="rcconf---konfigurasi-key-bindings">rc.conf - Konfigurasi Key Bindings</h2>
+
+<p>Tidak banyak modifikasi <em>key bindings</em> yang saya modifikasi. Karena saya berusaha untuk membiasakan dengan <em>key bindings</em> yang sudah ada. Toh dalam hal navigasi dasar mirip-mirip dengan Vim.</p>
+
+<p>Saya hanya merubah dua buah <em>keyborad shortcut</em>.</p>
+
+<p>Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara <em>default</em> apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell pada direktori yang aktif. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.</p>
+<pre>
+...
+...
+map w taskview_open
+#map S shell $SHELL
+<mark>map S terminal</mark>
+
+map :  console
+..
+..
+</pre>
+
+<p>Modifikasi <em>keyboard</em> yang lain adalah saya merubah fungsi tombol <kbd>DELETE</kbd>.</p>
+<pre>
+# In case you work on a keyboard with dvorak layout
+...
+...
+...
+map &lt;CR&gt;       move right=1
+#map &lt;DELETE&gt;   console delete
+<mark>map &lt;DELETE&gt;   shell -s trash-put %s</mark>
+map $lt;INSERT&gt;   console touch%space
+...
+...
+</pre>
+<p>Saya menggunakan aplikasi <code class="highlighter-rouge">trash-cli</code>, agar file/direktori yang saya hapus dengan tombol <kbd>DELETE</kbd> tidak langsung lenyap, tetapi masuk ke Trash. Sayangnya saya belum dapat membuatnya menampilkan konfirmasi terlebih dahulu.</p>
+
+<p>Untuk memasang aplikasi <code class="highlighter-rouge">trash-cli</code> cukup psaang dengan paket manager masing-masing.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S trash-cli
+</code></pre></div></div>
+<p>Untuk penggunaan <code class="highlighter-rouge">trash-cli</code>, seperti: <em>restore</em>, <em>empty-trash</em>, dll. dapat dieksplorasi sendiri yaa.</p>
+
+<h2 id="rifleconf---konfigurasi-file-executoropener">rifle.conf - Konfigurasi File Executor/Opener</h2>
+
+<p>File <code class="highlighter-rouge">rifle.conf</code> ini adalah file konfigurasi yang digunakan untuk mendaftarkan file tipe apa saja dan akan dieksekusi oleh aplikasi/prgram apa file tersebut.</p>
+
+<p>Saya akan berikan satu saja contoh, saya yakin teman-teman langsung akan mengerti fungsi dari file <code class="highlighter-rouge">rifle.conf</code> ini.</p>
+
+<p>Misal, terdapat file <code class="highlighter-rouge">.pdf</code>, nah, teman-teman ingin membuka file ini secara <em>default</em> dengan apa? atau dapat juga kita buatkan pilihan seperti <em>open with</em> pada <em>file manager</em> GUI.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#-------------------------------------------
+# Documents
+#-------------------------------------------
+ext pdf, has evince,    X, flag f = evince -- "$@"
+ext pdf, has calibre,   X, flag f = calibre -- "$@"
+...
+...
+</code></pre></div></div>
+<p>Dari konfigurasi di atas, sederhananya, saya membuat file <code class="highlighter-rouge">.pdf</code> akan terbuka dengan <code class="highlighter-rouge">evince</code> secara <em>default</em> apabila saya menekan tombol <kbd>L</kbd> atau <kbd>ENTER</kbd>.</p>
+
+<p>Nah, apabila saya ingin membukanya dengan <code class="highlighter-rouge">calibre</code>, kita dapat menekan tombol <kbd>R</kbd>. Ranger akan menampilkan pilihan yang mirip sseperti menu <em>Open with…</em>.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/QC91qj2M/gambar-05.gif" /></p>
+<p class="img-caption">Gambar 7 - Ilustrasi penggunaan tombol R, seperti menu <i>Open with...</i></p>
+
+<p>Jika ingin memilih <code class="highlighter-rouge">calibre</code>, pilih <code class="highlighter-rouge">1</code>, lalu tekan <kbd>ENTER</kbd>. Maka, file <code class="highlighter-rouge">.pdf</code> tersebut akan terbuka dengan <code class="highlighter-rouge">calibre</code>.</p>
+
+<p>Pilihan <code class="highlighter-rouge">0</code> adalah <em>default program</em> yang akan dibuka apabila kita langsung menekan <kbd>ENTER</kbd> / <kbd>L</kbd>.</p>
+
+<p>Nah, sekarang silahkan bereksplorasi dengan file <code class="highlighter-rouge">rifle.conf</code> ini.</p>
+
+<p>Apabila ingin membandingkan file <code class="highlighter-rouge">rifle.conf</code> dengan milik saya, teman-teman dapat berkunjung <a href="https://github.com/bandithijo/dotfiles/blob/master/.config/ranger/rifle.conf" target="_blank">ke sini</a>.</p>
+
+<h2 id="konfigurasi-plugins">Konfigurasi Plugins</h2>
+
+<p>Sejauh ini saya belum banyak menggunakan plugins. Plugins yang baru saya gunakan hanya <a href="https://github.com/alexanderjeurissen/ranger_devicons" target="_blank"><strong>alexanderjeurissen/ranger_devicons</strong></a>.</p>
+
+<p>Proses instalasinya juga terbilang mudah. Hanya tinggal <em>clone</em> repo GitHubnya di mana saja. Letakkan di tempat terbaik. Lalu jalankan <code class="highlighter-rouge">$ make install</code>.</p>
+
+<p><code class="highlighter-rouge">ranger_devicons</code> akan membuat direktori <code class="highlighter-rouge">/plugins/</code> secara otomatis.</p>
+
+<p>Sekarang buka Ranger dan lihat, sudah terdapat icon disamping name file/direktori.</p>
+
+<p>Untuk unintsall juga mudah, tinggal <code class="highlighter-rouge">$ make uninstall</code>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya seperti ini dahulu. Mungkin tulisan ini akan mengalami update, tapi saya tidak bisa janji. Silahkan diekplorasi sendiri lebih jauh.</p>
+
+<p>Apabila membutuhkan bantuan, dapat membaca <code class="highlighter-rouge">man ranger</code>.</p>
+
+<p>Apabila sedang di dalam Ranger dapat memanggil pilihan bantuan dengan menekan tombol <kbd>?</kbd>. Nanti akan keluar pilihan:</p>
+<ol>
+  <li><kbd>M</kbd> untuk <em>manual page</em></li>
+  <li><kbd>K</kbd> untuk melihat <em>Key Bindings</em> yang tersedia</li>
+  <li><kbd>C</kbd> untuk melihat daftar <em>commands</em></li>
+  <li><kbd>S</kbd> untuk melihat variabel-variabel <em>settings</em></li>
+  <li><kbd>Q</kbd> untuk keluar</li>
+</ol>
+
+<p>Sekian catatan ini saya tulis. Mudah-mudahan catatan yang masih belum sempurna ini dapat sedikit membantu memberikan gambaran, seperti apa <em>Terminal based file manager</em> yang bernama Ranger.</p>
+
+<h1 id="update-berikutnya">Update Berikutnya</h1>
+
+<p>Masih terdapat beberapa hal yang belum sempat saya tuliskan. Seperti:</p>
+<ol>
+  <li>Permasalahan menampilkan gambar pada Terminal emulator tertentu</li>
+  <li>Fungsi-fungsi yang sama dengan GUI <em>file manager</em>, seperti: <em>copy paste</em>, <em>selected</em>, <em>tab</em>, <em>symbolic link</em>, dll.</li>
+  <li>dll.</li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/ranger/ranger" target="_blank">github.com/ranger/ranger</a>
+<br />Diakses tanggal: 2018/12/17</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Ranger" target="_blank">wiki.archlinux.org/index.php/Ranger</a>
+<br />Diakses tanggal: 2018/12/17</p>
+  </li>
+</ol>
+
+:ET

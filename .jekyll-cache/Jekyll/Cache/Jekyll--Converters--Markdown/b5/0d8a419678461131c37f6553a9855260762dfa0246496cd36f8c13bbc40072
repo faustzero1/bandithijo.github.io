@@ -1,0 +1,49 @@
+I"¬	<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="masalah">Masalah</h1>
+
+<p>Bagi teman-teman yang menggunakan Jitsi pada distribusi Arch Linux, mungkin mengalami hal yang sama seperti yang saya alami.</p>
+
+<p>Jitsi, VoIP dan IM client yang menggunakan backend Java ini memiliki tampilan antar muka terkhusus font rendering yang sangat buruk.</p>
+
+<p>Persis seperti font rendering yang ada pada aplikasi yang menggunakan Java pada umumnya apabila belum di konfigurasi.</p>
+
+<p>Mungkin beberapa distribusi seperti Ubuntu atau Fedora tidak mengalami hal semacam ini. Tapi bagi saya pengguna Arch Linux dan beberapa distribusi untuk pengguna tingkat mahir, kami harus mengkonfigurasi beberapa bagian terlebih dahulu untuk dapat membuat font rendering pada aplikasi yang menggunkan Java dapat terlihat mulus.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Tambahkan pada file <code class="highlighter-rouge">~/.profile</code>,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.profile
+</code></pre></div></div>
+<p>Copy dan paste baris di bawah ini ke dalam <code class="highlighter-rouge">~/.profile</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+</code></pre></div></div>
+
+<p>Letakkan di mana saja.</p>
+
+<p>Selanjutnya, <strong>logout</strong> dan <strong>login</strong> kembali.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Logout diperlukan setiap kita ingin melihat dampak dari perubahan yang kita lakukan pada isi dari file <code>~/.profile</code>.</p>
+<p>Sebelum kita logout, perubahan yang kita lakukan tidak akan dijalankan.</p>
+</div>
+
+<p>Selanjutnya, buka Jitsi dan lihat perbedannya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/0QLRVrZ2/gambar-01.png" /></p>
+<p class="img-caption">Gambar 1 - Setelah ditambahkan JAVA_OPTIONS</p>
+
+<p>Sekian, mudah-mudahan bermanfaat.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="http://lists.jitsi.org/pipermail/dev/2013-November/018919.html" target="_blank">lists.jitsi.org/pipermail/dev/2013-November/018919.html</a>
+<br />Diakses tanggal: 2019/04/22</li>
+</ol>
+
+:ET

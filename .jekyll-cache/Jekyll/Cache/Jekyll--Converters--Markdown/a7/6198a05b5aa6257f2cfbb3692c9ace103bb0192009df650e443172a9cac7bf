@@ -1,0 +1,240 @@
+I"A0<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/kcm94ki19/banner_post_12.png" alt="banner" /></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>Sewaktu pertama kali memiliki laptop ini (Lenovo ThinkPad x260), saya berfikir bagaimana nantinya saya harus meng-update BIOS, apabila saya menghapus sistem operasi Windows dan hanya menggunakan satu sistem operasi GNU/Linux?</p>
+
+<p>Saat itu saya hanya dapat menjawab pertanyaan itu dengan berbesar hati, “Kita jarang menggunakan BIOS sehari-hari dan fitur yang ada saat ini saya rasa sudah mencukupi.” Namun, perjalanan dari pertanyaan ini berkata lain. Dan saya pun menemukan jawabannya. Jelas dan lugas. “Bisa! Sangat bisa!”</p>
+
+<h1 id="mengapa-perlu-update-bios-">Mengapa Perlu Update BIOS ?</h1>
+
+<p>Setiap versi pembaharuan dari BIOS terdapat “<strong>Summary of Changes</strong>” yang dapat kita lihat pada file berkas <strong>.txt</strong> yang juga dikeluarkan bersama file <strong>.iso</strong>.</p>
+
+<p>Kategori perubahan apa saja yang ada pada ISO update BIOS Lenovo ini biasanya terangkum dalam bentuk sebagai berikut:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Simbol Awalan</th>
+      <th>Artinya</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&lt;0.00&gt;</td>
+      <td>Package Version</td>
+    </tr>
+    <tr>
+      <td>UEFI:</td>
+      <td>UEFI BIOS version</td>
+    </tr>
+    <tr>
+      <td>ECP:</td>
+      <td>Embeded Controller Program version</td>
+    </tr>
+    <tr>
+      <td>[Important]</td>
+      <td>Important Update</td>
+    </tr>
+    <tr>
+      <td>(New)</td>
+      <td>New function for enhancement</td>
+    </tr>
+    <tr>
+      <td>(Fix)</td>
+      <td>Correcting to existing function</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sebagai contoh, <em>Summary of Change</em> saat dokumentasi ini ditulis, untuk BIOS update sejak versi <strong>1.05</strong> hingga <strong>1.37</strong>, adalah sebagai berikut.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;1.37&gt;
+- (Fix) Applied W/A for Handelsbanken USB Smart Card Reader and for Lenovo T2424z monitor.
+- (Fix) AMT: Fixed the issue that Unconfiguration process is escaped.
+- (Fix) AMT: Fixed the problem that unconfiguration ME prcocess repeatedly.
+- [Important] Update Thermal table.
+
+&lt;1.36&gt;
+- (Fix) Updated Skylake D0/K1 MCU to MC0406E3_000000C1_000000C2.
+- (Fix) Add Header Checksum Calculation after modification of ACPI Header.
+
+&lt;1.35&gt;
+- (Fix) Fixed Network boot happened at reboot after WOL from S3.
+- (Fix) Fix AMT remote force PXE boot fail.(Need Load BIOS default)
+
+&lt;1.34&gt;
+- (Fix) Fix SMBios Type16/17 information incorrect.
+
+&lt;1.33&gt;
+- (Fix) Support interface of TPM firmware update.
+
+&lt;1.32&gt;
+- (New) Supported disable Back Flash Prevention for Mfg.
+- (New) Add the RTC Power Status to the condition of Bottom cover tamper detection.
+- (New) Add Back Flash Prevention flag(THP-1) for PSIRT-TA-201708-001.
+- (Fix) Security Fix: Security ID 005-009 (Intel TA201708-001) for SPI Write status command.
+- (Fix) Fixed BitLocker recovery issue when PCR5 was enabled as platform validation profile.
+
+&lt;1.31&gt; - &lt;1.05&gt; lebih lengkap dapat dilihat pada sumber di bawah
+</code></pre></div></div>
+
+<p>sumber : <a href="https://download.lenovo.com/pccbbs/mobiles/r02uj64w.txt" target="_blank"><strong>r02uj64w.txt</strong></a> (diakses tanggal: 2018/05/18)</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar7" data-echo="https://s20.postimg.cc/fywlvhi25/gambar_07.gif" /></p>
+<p class="img-caption">Ilustrasi membuka Summary of Change</p>
+
+<p>Nah, dengan adanya informasi di atas, mudah-mudahan dapat memberikan gambaran kepada teman-teman untuk membantu memberikan informasi sebagai bahan pertimbangan apakah update BIOS dirasa perlu atau tidak. Kira-kira seperti itu. Hehehe.</p>
+
+<p>*terima kasih untuk kang <a href="https://sucipto.net/" target="_blank">Sucipto</a>.</p>
+
+<h1 id="disclaimer">Disclaimer</h1>
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Perlu saya garis bawahi, bahwa saya sebagai penulis tidak bertangung jawab atas segala bentuk resiko kerusakan, kehilangan data, <i>hard brick</i> dan lain sebagainya, yang diakibatkan karena proses mengikuti tulisan dokumentasi ini.</p>
+<p><b><i>Do with your own risk, Dude</i></b></p>
+</div>
+
+<h1 id="langkah-langkah">Langkah-langkah</h1>
+
+<h2 id="step-1-download-lenovo-bios">Step 1: Download Lenovo BIOS</h2>
+<p>Kita perlu mendownload BIOS image/iso dari <a href="https://support.lenovo.com/id/en/" target="_blank">support.lenovo.com</a>, untuk tipe spesifik dari Lenovo kalian. Dalam dokumentasi ini saya menggunakan Lenovo ThinkPad x260, maka saya akan mencari dengan kata kunci “x260 bios”.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/5h63g407h/gambar_01.gif" /></p>
+<p class="img-caption">Gambar 1 - Mencari BIOS x260</p>
+
+<p>Pilih hasil dengan awalan <strong>[Driver] BIOS Update …</strong> Dan pastikan tanggalnya adalah tanggal paling terakhir atau terbaru.</p>
+
+<p>Pada Gambar 1, saya memilih pilihan pertama, maka akan diarahkan ke Gambar 2, di bawah.</p>
+
+<p>Apabila kamu memilih pilihan kedua, langsung saja ke Gambar 3.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/3kdypiyzx/gambar_02.gif" /></p>
+<p class="img-caption">Gambar 2 - Mencari ISO image</p>
+
+<p>Gambar 2 di atas, menunjukkan saya mencari <strong>Bootable CD</strong>, yang akan di lanjutkan ke Gambar 3 di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/gsdchzyyl/gambar_03.gif" /></p>
+<p class="img-caption">Gambar 3 - Copy download link dari ISO</p>
+
+<p>Gambar 3 di atas, saya melakukan <strong>Copy link address</strong>, pada BIOS Update (Bootable CD) ISO.</p>
+
+<p>Setelah mendapatkan link tersebut, buka Terminal dan kita akan mendownload menggunakan <code class="highlighter-rouge">wget</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /tmp/
+$ wget https://download.lenovo.com/pccbbs/mobiles/r02uj64d.iso
+</code></pre></div></div>
+
+<p>Perhatikan baik-baik, akhir dari link yang kita <em>copy</em> tersebut harusnya berakhiran dengan <strong>.iso</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://s20.postimg.cc/s5zvta1sd/gambar_04.gif" /></p>
+
+<p>Setelah selesai,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--2018-05-17 22:56:02--  https://download.lenovo.com/pccbbs/mobiles/r02uj64d.iso
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving download.lenovo.com (download.lenovo.com)... 104.93.85.205
+Connecting to download.lenovo.com (download.lenovo.com)|104.93.85.205|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 22392832 (21M) [application/octet-stream]
+Saving to: ‘r02uj64d.iso’
+
+r02uj64d.iso               100%[=====================================&gt;]  21.36M   947KB/s    in 47s
+
+2018-05-17 22:56:52 (469 KB/s) - ‘r02uj64d.iso’ saved [22392832/22392832]
+</code></pre></div></div>
+
+<h2 id="step-2--pasang-geteltorito-cli">Step 2 : Pasang geteltorito cli</h2>
+
+<p>Kita membutuhkan program bernama <code class="highlighter-rouge">geteltorito</code> yang akan berguna untuk mengekstrak file image dari file ISO yang baru saja kita download.</p>
+
+<p>Untuk distribusi linux Debian/Ubuntu/Fedora/RedHat/OpenSUSE program ini bernama <code class="highlighter-rouge">genisoimage</code>.</p>
+
+<p><strong>Debian/Ubuntu</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install genisoimage
+</code></pre></div></div>
+
+<p><strong>Fedora</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dnf install genisoimage
+</code></pre></div></div>
+
+<p><strong>RedHat/Centos</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo yum install genisoimage
+</code></pre></div></div>
+
+<p><strong>SUSE/OpenSUSE</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo zypper install genisoimage
+</code></pre></div></div>
+
+<p><strong>Arch Linux (AUR)</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pikaur -S geteltorito
+</code></pre></div></div>
+
+<p>Cara lain, dapat langsung menggunakan Perl script di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget https://userpages.uni-koblenz.de/~krienke/ftp/noarch/geteltorito/geteltorito/geteltorito
+$ chmod +x geteltorito
+</code></pre></div></div>
+
+<h2 id="step-3-ekstrak-image-dari-file-iso">Step 3: Ekstrak Image dari File ISO</h2>
+
+<p><code class="highlighter-rouge">geteltorito</code> adalah <strong>El Torito boot image extractor</strong>. Kita akan menggunakan program ini untuk mengeluarkan file image dari file ISO.</p>
+
+<p>Formulanya,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ geteltorito -o {nama-output-image.img} {Bootable-CD.iso}
+</code></pre></div></div>
+
+<p>Contoh punya saya,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ geteltorito -o x260.img r02uj64d.iso
+</code></pre></div></div>
+<p>Berikan <em>output name</em> .img sesuka kalian.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://s20.postimg.cc/o9mjxqji5/gambar_05.gif" /></p>
+
+<h2 id="step-4-bakar-image-ke-dalam-flash-drive">Step 4: Bakar Image ke dalam Flash Drive</h2>
+
+<p>Kalian dapat mengidentifikasi alamat dari Flash Drive dengan menggunakan perintah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsblk
+</code></pre></div></div>
+<pre>
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 447.1G  0 disk
+├─sda1   8:1    0   511M  0 part /boot
+└─sda2   8:2    0 446.6G  0 part /
+<mark>sdb      8:16   1   7.2G  0 disk</mark>
+└─sdb1   8:17   1    21M  0 part
+</pre>
+
+<p>Dari kolom <strong>Size</strong> saya dapat mengetahui bahwa <em>flash drive</em> saya adalah <code class="highlighter-rouge">/dev/sdb</code>.</p>
+
+<p>Kemudian, kita akan membakar file <code class="highlighter-rouge">x260.img</code> yang sudah kita ekstrak dari ISO ke dalam <em>flash drive</em> menggunakan perintah <code class="highlighter-rouge">dd</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dd if=x260.img of=/dev/sdb bs=64K
+</code></pre></div></div>
+<p>Kalian sesuaikan dengan nama image dan alamat blok dari <em>flash drive</em> yang kalian miliki.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://s20.postimg.cc/tnlc52jgd/gambar_06.gif" /></p>
+
+<p>Dengan begini, <em>flash drive</em> sudah siap untuk kita gunakan untuk mengupdate BIOS Lenovo kita.</p>
+
+<h2 id="step-5-proses-update-bios">Step 5: Proses Update BIOS</h2>
+
+<p>Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini terlalu lama, sekitar 6 menit. Saya tidak ingin memotong bagian-bagian penting dari proses update ini.</p>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/VjPw1RP0fYc" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saat ini proses BIOS <i>firmware</i> sudah menjadi lebih mudah pada sistem operasi GNU/Linux, karena sudah tedapat aplikasi yang bernama <b>fwupd</b> dengan <i>command</i> pada Terminal, <code>fwupdmgr</code>.</p>
+<p>Penjelasan lebih lanjut tentang cara penggunaan fwupd dapat dilihat pada dokumentasi Arch Wiki, <a href="https://wiki.archlinux.org/index.php/Fwupd" target="_blank">di sini</a>.</p>
+</div>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="https://www.cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/" target="_blank">cyberciti.biz/faq/update-lenovo-bios-from-linux-usb-stick-pen/</a>
+<br />Diakses tanggal: 2018/05/16</li>
+</ol>
+:ET

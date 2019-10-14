@@ -1,0 +1,141 @@
+I"�!<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/dwqipcfgd/banner_post_18.png" alt="banner" /></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>Sudah hampir dua minggu ini saya terpilih sebagai peserta untuk mengikuti kelas yang membahas tentang <em>Cloud Computing</em>. Ini merupakan bidang yang sangat baru pertama kali saya sentuh. Sebelumnya, memang saya sering membaca (meski hanya judul) di beberapa blog GNU/Linux yang membahas tentang teknologi-teknologi yang digunakan dalam <em>cloud computing</em>. Meskipun sama-sama dalam bidang teknologi, namun jujur saja, istilah-istilah yang digunakan sangat asing buat saya pahami.</p>
+
+<h1 id="keresahan">Keresahan</h1>
+<p>Di kelas yang saya ikuti, saya menemukan beberapa penerapan perintah-perintah <code class="highlighter-rouge">ssh</code> yang saya rasa perlu untuk mendokumentasikannya. Saya khawatir akan sangat membuang-buang waktu lagi apabila saya harus melakukan <em>research</em> kembali jika suatu saat nanti saya membutuhkannya. Jadi, kenapa tidak saya tulis.</p>
+
+<h1 id="catatan-kaki">Catatan Kaki</h1>
+<p>Berikut ini adalah beberapa perintah-perintah SSH yang saya gunakan. Belum dapat saya jelaskan secara detail masing-masing fungsinya dan penjabaran masing-masing parameter yang digunakan.</p>
+
+<h2 id="ssh-tunneling-dengan-keybase-login--spesifik-port">SSH Tunneling dengan Keybase Login &amp; Spesifik Port</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Format Perintah
+$ ssh -i .ssh/{private-key} {user}@{server-address} -p {port}
+
+// Penerapan
+$ ssh -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200
+$ ssh -i .ssh/id_rsa bandithijo@10.1.41.200.1 -p 2200
+</code></pre></div></div>
+
+<h2 id="ssh-tunneling-dengan-keybase-login-spesifik-port--dynamic-port-forwarding">SSH Tunneling dengan Keybase Login, Spesifik Port &amp; Dynamic Port Forwarding</h2>
+<p>Nah, kalo ini saya gunakan untuk <em>Dynamic Port Forwarding</em>, kegunannya untuk mengakses server agar dapat kita akses dari <em>web browser</em> kita.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Format Perintah
+$ ssh -D {proxy-port} -i .ssh/{private-key} {user}@{server-address} -p {port}
+
+// Penerapan
+$ ssh -D 8080 -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200 -q
+$ ssh -D 8888 -i .ssh/id_rsa bandithijo@10.1.41.200 -p 2200 -q
+</code></pre></div></div>
+<p><em>port</em> 8080 dapat diganti dengan nilai berapapun, asalkan <em>port</em> tersebut tidak digunakan oleh service yang lain.</p>
+
+<p>Setelah itu, untuk mengaksesnya dari <em>web browser</em>, saya menggunakan perintah di bawah.</p>
+
+<p><br />
+<strong>Firefox</strong></p>
+
+<ol>
+  <li>Pilih menu <strong>Preferences</strong> &gt; <em>find in Preferences</em>, isikan “Proxy”</li>
+  <li>Nanti akan keluar <strong>Network Proxy</strong>, pilih <strong>Settings…</strong></li>
+  <li>Pilih <strong>Manual proxy configuration</strong> &gt; SOCKS Host: <strong>localhost</strong> Port: <strong>8080</strong>, samakan nilai port dengan nilai <em>dynamic port forwarding</em> yang kalian berikan pada saat SSH tunneling port forwarding di atas.</li>
+  <li>Pilih bullet <strong>SOCKS v5</strong></li>
+  <li>Optional untuk mencentang <strong>Proxy DNS when using SOCKS v5</strong></li>
+  <li>Pastikan Server kalian sudah mengaktifkan service HTTP</li>
+</ol>
+
+<p><br />
+<strong>Chromium / Google Chrome</strong></p>
+
+<p>Pada <em>browser</em> Chromium atau Google Chrome, cukup menjalankan perintah di bawah ini pada Terminal.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Google Chrome
+$ google-chrome-stable --proxy-server="socks5://localhost:8080"
+
+// Chromium
+$ chromium --proxy-server="socks5://localhost:8080"
+</code></pre></div></div>
+
+<h2 id="ssh-tunneling-dengan-username-yang-terdaftar-pada-server">SSH Tunneling dengan Username yang Terdaftar pada Server</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -l banditbiru dev.bandithijo.com
+
+$ ssh -l banditbiru 10.1.41.200
+</code></pre></div></div>
+<p>Perintah di atas akan membawa kita langsung memasuki user <strong>banditbiru</strong> di server. Tentu saja perintah ini dapat dilakukan setelah kita memasukkan <strong>public key</strong> kita ke dalam file <code class="highlighter-rouge">/home/banditbiru/.ssh/authorized_keys</code> di server pada user <strong>banditbiru</strong>.</p>
+
+<h2 id="generate-private--public-key-ssh">Generate Private &amp; Public Key SSH</h2>
+
+<p>Saya menggunakan beberapa bentuk format perintah <code class="highlighter-rouge">ssh-keygen</code> untuk mengenerate key. Berikut ini adalah beberapa bentuk format yang saya gunakan dalam pelatihan.</p>
+
+<h3 id="generate-key-untuk-user-biasa">Generate Key untuk User Biasa</h3>
+
+<p>Yang sederhana,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen
+</code></pre></div></div>
+<p>Atau agak kompleks,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen -t rsa -b 4096
+</code></pre></div></div>
+<p>Yang lebih kompleks,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh-keygen -t rsa -b 4096 -C "bandithijo@rumah"
+</code></pre></div></div>
+
+<p>Hasil dari perintah di atas adalah dua buah file dengan nama yang sama, namun yang tidak memiliki ekstensi disebut sebagai <strong>Private Key</strong> dan yang memiliki ekstensi <strong>.pub</strong> disebut sebagai <strong>Public Key</strong>.</p>
+
+<pre>
+$ ls -l $HOME/.ssh/
+/home/bandithijo/.ssh/
+├── authorized_keys
+├── <mark>id_rsa</mark>
+├── <mark>id_rsa.pub</mark>
+└── known_hosts
+</pre>
+<p>Sebagai catatan, apabila kita melakukan perintah <code class="highlighter-rouge">ssh-keygen</code> pada user biasa, maka otomatis file <em>private</em> dan <em>public key</em> akan diletakkan pada direktori <code class="highlighter-rouge">.ssh/</code> milik user biasa tersebut. Seperti contoh di atas, terletak pada direktori <code class="highlighter-rouge">.ssh</code> milik user <strong>bandithijo</strong>.</p>
+
+<h3 id="generate-key-untuk-root-dari-user-biasa">Generate Key untuk Root dari User Biasa</h3>
+
+<p>Kita dapat mengenerate key untuk user root melalui user biasa, dengan cara menambahkan <code class="highlighter-rouge">sudo</code> pada awal perintah <code class="highlighter-rouge">ssh-keygen</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ssh-keygen
+</code></pre></div></div>
+<p>Apabila seperti di atas, maka file <em>private</em> dan <em>public key</em> akan terdapat pada direktori <code class="highlighter-rouge">.ssh/</code> milik root, yaitu <code class="highlighter-rouge">/root/.ssh/</code>.</p>
+<pre>
+$ sudo ls -l /root/.ssh/
+/root/.ssh/
+├── authorized_keys
+├── <mark>id_rsa</mark>
+├── <mark>id_rsa.pub</mark>
+└── known_hosts
+</pre>
+<p>Tentu saja, apabila <em>private</em> dan <em>public key</em> yang kita generate berada pada direktori <code class="highlighter-rouge">/root/</code>, maka untuk mengakses SSH Gateway kita juga harus mengawalinya dengan menambahkan perintah <code class="highlighter-rouge">sudo</code> di awal baris perintah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ssh -l bandithijo dev.bandithijo.com
+
+$ sudo ssh -l bandithijo 10.1.41.200
+</code></pre></div></div>
+
+<!-- QUESTION -->
+<div class="blockquote-yellow">
+<h2 class="blockquote-yellow-title">Apakah private dan public key dapat kita rename ?</h2>
+Tentu saja kita dapat mengganti nama dari file <i>private</i> dan <i>public key</i> tersebut, namun sangat direkomendasikan untuk memberikan nama yang sama diantara keduanya. Agar tetap berpasangan.. So sweet kan gaes ^_^, mereka aja berpasangan, kamu kapan ?
+</div>
+
+<h2 id="menampilkan-public-key">Menampilkan Public Key</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Format Perintah
+$ cat $HOME/.ssh/{nama_public_key}.pub
+
+// Penerapan
+$ cat $HOME/.ssh/id_rsa.pub
+</code></pre></div></div>
+
+<p>Oke, saya rasa untuk saat ini, cukup seperti ini saja. Saya tidak berhenti menulis, mungkin lain kali kamu datang lagi, tulisan di halaman ini sudah bertambah dengan perintah-perintah SSH yang lain.</p>
+
+<p>Terima kasih. ^_^</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="https://wiki.archlinux.org/index.php/Secure_Shell" target="_blank">wiki.archlinux.org/index.php/Secure_Shell</a>
+<br />Diakses tanggal: 18/07/24</li>
+</ol>
+:ET

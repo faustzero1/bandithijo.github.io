@@ -1,0 +1,93 @@
+I"Ó<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/40nbmxl8d/banner_post_15.png" alt="banner" /></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Sepintas membaca judul dari tulisan ini memang rada-rada janggal. Disaat semua pengguna GNU/Linux ingin membuat <em>hardware</em> mereka dapat berfungsi, ini malah sebaliknya. Yaa terkadang memang ada hal-hal yang belum dapat kita mengerti saat ini dengan mudah. Menonaktifkan <em>webcam</em> ini erat kaitannya dengan <em>privacy</em>.</p>
+
+<p><em>Privacy</em> adalah kata yang menjadi perhatian banyak pihak. Biasanya pengguna sistem operasi GNU/Linux juga cukup memperhatikan hal-hal seperti ini. Salah satu yang menjadi perhatian adalah informasi yang mengabarkan bahwa <em>malware</em> dapat dengan mudah mengakses penggunaan <em>webcam</em> yang terdapat di laptop kita. Kemungkinan seperti ini dapat terjadi pada laptop kita, tulisan kali ini akan mendokumentasikan bagaimana cara melakukan <em>disable</em> dan <em>enable</em> pada <em>webcam</em> pada tingkat <em>driver</em>.</p>
+
+<h1 id="caranya">Caranya</h1>
+
+<h2 id="identifikasi-driver">Identifikasi Driver</h2>
+
+<p>Pertama, kalian perlu mengetahui <em>webcam driver</em> menggunakan perintah di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo lsmod | grep uvcvideo
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uvcvideo            114644  0
+videobuf2_vmalloc    16348  1 uvcvideo
+videobuf2_v4l2       28627  1 uvcvideo
+videobuf2_common     53284  2 uvcvideo,videobuf2_v4l2
+videodev            208869  3 uvcvideo,videobuf2_common,videobuf2_v4l2
+media                45065  2 uvcvideo,videodev
+usbcore             286702  5 uvcvideo,usbhid,xhci_pci,btusb,xhci_hcd
+</code></pre></div></div>
+<p>Dari hasil di atas dapat diketahui bahwa <strong>uvcvideo</strong> adalah <em>webcam driver</em> yang saya gunakan.</p>
+
+<h2 id="menonaktifkan-driver">Menonaktifkan Driver</h2>
+
+<p>Selanjutnya, tinggal menonaktifkan driver <strong>uvcvideo</strong> dengan memasukkannya dalam daftar <em>blacklist</em>.</p>
+
+<p>Caranya, buka Terminal dan <em>edit</em> file <code class="highlighter-rouge">/etc/modprobe.d/blacklist.conf</code></p>
+
+<p>(apabila tidak ada, buat saja filenya).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/modprobe.d/blacklist.conf
+</code></pre></div></div>
+<p>Gunakan <em>text editor</em> favoritmu, seperti nano, gedit, mousepad, dll.</p>
+
+<p>Lalu, tambahkan baris berikut ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>blacklist uvcvideo
+</code></pre></div></div>
+<p>Simpan dan keluar.</p>
+
+<p><mark>Untuk melihat hasilnya, kita perlu melakukan <b><i>reboot</i></b></mark>.</p>
+
+<p>Setelah itu, coba buka aplikasi <em>webcam</em> seperti <strong>Cheese</strong> atau <strong>guvcview</strong>.</p>
+
+<p>Apabila berhasil, akan seperti ini jadinya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/tjfo069zx/gambar_01.png" /></p>
+<p class="img-caption">Gambar 1 - Cheese yang sudah tidak dapat digunakan</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/rrmp59ix9/gambar_02.png" /></p>
+<p class="img-caption">Gambar 2 - guvcview yang sudah tidak dapat digunakan</p>
+
+<p><br />
+Saya sendiri belum tahu, apakah cara ini efektif dan benar dapat menangkal penyusup untuk mengakses <em>webcam</em> kita atau tidak. Setidaknya kita maish dapat menggunakan cara ini untuk tujuan yang lain.</p>
+
+<p><br /></p>
+<blockquote>
+  <p class="title-quote">[ ! ] Tips dari Penulis</p>
+  <p>Tips ini hanya diperuntukkan apabila file <code class="highlighter-rouge">/etc/modprobe.d/blacklist.conf</code> yang kamu miliki kosong.</p>
+
+  <p>Kita akan membuat <code class="highlighter-rouge">alias</code> di Terminal, untuk memudahkan dalam mengaktifkan dan menonaktifkan <em>webcam</em> apabila sewaktu-waktu kita perlukan.</p>
+
+  <p>Selanjutnya, buka <code class="highlighter-rouge">.bashrc</code> atau <code class="highlighter-rouge">.zshrc</code> (tergantung kalian menggunakan tipe shell yang mana).</p>
+
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim .zshrc
+</code></pre></div>  </div>
+  <p>dan tambahkan baris alias berikut ini. (terserah pada baris ke berapa saja)</p>
+
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Enable &amp; Disable WebCam
+alias webcam-disable="echo 'blacklist uvcvideo' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Disable] WebCam'"
+alias webcam-enable="echo '' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Enable] WebCam'"
+</code></pre></div>  </div>
+
+  <p>Lalu refresh Terminal dengan menggunakna perintah.</p>
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ exec $SHELL
+</code></pre></div>  </div>
+  <p>Dan coba panggil <code class="highlighter-rouge">alias</code> yang sudah kita buat tadi.</p>
+
+  <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif" /></p>
+
+  <p>Mudah bukan ? ^_^</p>
+</blockquote>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://www.ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/" target="_blank">ostechnix.com/how-to-disable-built-in-webcam-in-ubuntu/</a>
+<br />Diakses tanggal: 2018/06/03</li>
+</ol>
+:ET

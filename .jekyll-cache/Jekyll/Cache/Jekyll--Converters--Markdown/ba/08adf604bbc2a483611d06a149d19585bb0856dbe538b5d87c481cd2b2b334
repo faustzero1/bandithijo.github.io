@@ -1,0 +1,85 @@
+I""<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Simple/Suckless Terminal (st) adalah Terminal Emulator yang saat ini menjadi anak kesayangan saya.</p>
+
+<p>Meskipun, masih terdapat beberapa fungsi-fungsi yang belum bisa saya dapatkan pada st namun fungsi-fungsi mendasar dan ketepatan dalam menampilkan warna dan simbol, sudah lebih dari cukup untuk menyelesaikan pekerjaan rumah tangga.</p>
+
+<p>Kisah migrasi, meng-<em>compile</em> dan mem-<em>patching</em>-nya dapat teman-teman baca pada posting ini, <a href="http://0.0.0.0:4000/blog/st-simple-terminal-dari-suckless" target="_blank">“St, Simple Terminal yang Sudah Lama Saya Dambakan”</a>.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saya baru-baru saja menyadari, ternyata terdapat kebutuhan lain lagi dari st yang saya perlukan. Yaitu, “detail” dari Window Title pada st.</p>
+
+<p>Saat ini, Window Title pada st hanya menampilkan tulisan “st” saja. Sedangkan, saya membutuhkan Window Title yang dapat menampilkan detail dari perintah atau program yang sedang berjalan di dalam st.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/RVVnXhvC/gambar-01.png" /></p>
+<p class="img-caption">Gambar 1 - Window Title pada st yang statis, hanya menampilkan details berupa tulisan "st"</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Langsung saja tanpa bertele-tele. Merujuk dari dokumentasi online yang bersumber dari <strong>faqs.org</strong> mengenai “Xterm Title”, pada bagian “<em>Printing the current job name</em>” saya menemukan jawabannya.</p>
+
+<p>Dan kebetulan, tertulis pada dokumentasi tersebut, bahwa hal tersebut di atas, lebih mudah dilakukan saat menggunakan Shell bertipe ZSH daripada Shell jenis lain.</p>
+
+<p>Maka dari itu, saya pertegas kembali, <mark><b>Artikel ini hanya untuk pengguna ZSH Shell</b></mark>.</p>
+
+<p>Berikut ini langkah-langkahnya.</p>
+
+<ol>
+  <li>
+    <p>Tambahkan baris perintah di bawah ini ke dalam file <code class="highlighter-rouge">~/.zshrc</code>.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c"># Untuk merubah titlebar dari st terminal</span>
+ <span class="c"># Sumber: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5</span>
+ <span class="k">case</span> <span class="nv">$TERM</span> <span class="k">in
+     </span>st<span class="k">*</span><span class="p">)</span>
+     precmd <span class="o">()</span> <span class="o">{</span>
+         <span class="c"># menampilkan direktori aktif (kondisi default)</span>
+         print <span class="nt">-Pn</span> <span class="s2">"</span><span class="se">\e</span><span class="s2">]0;st:%~</span><span class="se">\a</span><span class="s2">"</span>
+     <span class="o">}</span>
+     preexec <span class="o">()</span> <span class="o">{</span>
+         <span class="c"># menampilkan program yang sedang berjalan</span>
+         print <span class="nt">-Pn</span> <span class="s2">"</span><span class="se">\e</span><span class="s2">]0;st:</span><span class="nv">$1</span><span class="se">\a</span><span class="s2">"</span>
+     <span class="o">}</span>
+     <span class="p">;;</span>
+ <span class="k">esac</span>
+</code></pre></div>    </div>
+
+    <p>Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.</p>
+  </li>
+  <li>
+    <p>Selesai. Coba buka <strong>st</strong> Terminal yang baru dan perhatikan Window Titlenya.</p>
+  </li>
+</ol>
+
+<hr />
+
+<p>Apabila berhasil, akan menampilkan Window Title dengan detail seperti gambar di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/Kvq3VbYP/gambar-02.png" /></p>
+<p class="img-caption">Gambar 2 - Tampilan detail Window Title yang menampilkan direktori aktif (<i>Default</i>)</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/jSDnY1WG/gambar-03.png" /></p>
+<p class="img-caption">Gambar 3 - Tampilan detail Window Title saat menjalankan program</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Catatan ini bukan merupakan tandingan dari dokumentasi resmi yang ditulis oleh pengembang aplikasi di atas. Namun, sebagai catatan pribadi yang saya dokumentasikan untuk bahan pengingat di kemudian hari.</p>
+
+<p>Apabila terdapat kekeliruan penulisan, kegagalan dalam konfigurasi, atau fungsi-fungsi yang lain, silahkan merujuk pada daftar referensi yang sudah saya sertakan di bawah.</p>
+
+<p>Saya kira cukup seperti ini saja.</p>
+
+<p>Terima kasih.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5" target="_blank">www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5</a>
+<br />Diakses tanggal: 2019/04/15</li>
+</ol>
+
+:ET

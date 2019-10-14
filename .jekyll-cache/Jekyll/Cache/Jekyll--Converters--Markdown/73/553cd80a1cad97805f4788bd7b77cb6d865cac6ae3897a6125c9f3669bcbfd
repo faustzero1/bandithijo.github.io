@@ -1,0 +1,188 @@
+I"�#<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Menyeragamkan GTK theme yang dimiliki oleh root agar seragam dengan yang dimiliki oleh user biasa.</p>
+
+<p><strong>Syarat</strong>:</p>
+
+<ol>
+  <li>GTK theme terinstall pada lokasi global <code class="highlighter-rouge">/usr/share/themes/</code></li>
+  <li>GTK theme memiliki dukungan terhadap GTK2 dan GTK3 (optional)</li>
+</ol>
+
+<h1 id="pengecekan">Pengecekan</h1>
+
+<h2 id="pengecekan-lokasi-tema">Pengecekan Lokasi Tema</h2>
+
+<p>Lakukan pengecekan untuk syarat pertama, apakah GKT theme yang kita pakai sudah berada pada direktori <code class="highlighter-rouge">/usr/share/themes/</code>. Kalau ternyata belum, sebaiknya dipindahkan saja.</p>
+
+<ol>
+  <li>Cek nama tema yang sedang aktif pergunakan. Saya menggunakan “<strong>NumixSolarizedDarkYellow</strong>”.</li>
+  <li>
+    <p>Cek apakah pada direktori <code class="highlighter-rouge">/usr/share/themes/</code> terdapat direktori yang bernama sama seperti tema yang kita gunakan.</p>
+
+    <p>Cek menggunakan Terminal,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ll /usr/share/themes | grep -e "Numix"
+</code></pre></div>    </div>
+    <pre>
+drwxr-xr-x 11 root root Numix
+drwxr-xr-x 11 root root Numix-DarkBlue
+drwxr-xr-x  8 root root Numix Solarized
+drwxr-xr-x 11 root root NumixSolarizedDarkBlue
+drwxr-xr-x 11 root root NumixSolarizedDarkGreen
+<mark>drwxr-xr-x 11 root root NumixSolarizedDarkYellow</mark>
+drwxr-xr-x 11 root root NumixSolarizedLightBlue
+drwxr-xr-x 11 root root NumixSolarizedLightGreen
+drwxr-xr-x 11 root root NumixSolarizedLightYellow</pre>
+    <p>Atau, cek menggunakan File Manager,
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/CKjv85C1/gambar-01.png" /></p>
+  </li>
+</ol>
+
+<p>Apabila GTK theme yang kita pergunakan ternyata tidak terdapat pada direktori <code class="highlighter-rouge">/usr/share/themes</code>, lantas coba lakukan pengecekan pada direktori <code class="highlighter-rouge">~/.local/share/themes/</code>.</p>
+
+<p>Apabila ketemu, saya menyarankan untuk memindahkannya saja ke direktori <code class="highlighter-rouge">/usr/share/themes</code>.</p>
+
+<p>Tujuannya, agar GTK theme yang kita pergunakan juga dapat dipergunakan oleh user yang lain. Dalam hal ini adalah root. Karena kita akan berbagi tema yang sama dengan root.</p>
+
+<h2 id="pengecekan-gtk2-dan-gtk3-compatibility">Pengecekan GTK2 dan GTK3 Compatibility</h2>
+
+<p>Selanjutnya, lakukan pengecekan apakah teman yang kita pergunakan memiliki kompatibilitas terhadap GTK2 dan GTK3 atau tidak. Apa hanya GTK3 saja.</p>
+
+<ol>
+  <li>
+    <p>Caranya cukup masuk ke dalam direktori tema dan cek apakah terdapat direktori <code class="highlighter-rouge">gtk-2.0/</code> dan <code class="highlighter-rouge">gtk-3.0/</code>.</p>
+
+    <p>Cek menggunakan Terminal,</p>
+    <pre>
+$ cd /usr/share/themes/<mark>NumixSolarizedDarkYellow</mark>
+$ ll</pre>
+    <p>Ganti <code class="highlighter-rouge">NumixSolarizedDarkYellow</code> dengan tema yang kalian gunakan.</p>
+    <pre>
+total 40
+drwxr-xr-x 2 root root assets
+<mark>drwxr-xr-x 2 root root gtk-2.0
+drwxr-xr-x 2 root root gtk-3.0</mark>
+drwxr-xr-x 2 root root gtk-3.20
+-rw-r--r-- 1 root root index.theme
+drwxr-xr-x 2 root root metacity-1
+drwxr-xr-x 2 root root openbox-3
+drwxr-xr-x 3 root root unity
+drwxr-xr-x 2 root root xfce-notify-4.0
+drwxr-xr-x 2 root root xfwm4</pre>
+    <p>Atau, cek menggunakan File Manager,
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/XvmCnkBB/gambar-02.png" /></p>
+  </li>
+</ol>
+
+<p>Apabila hanya terdapat salah satu dari keduanya, artinya GTK theme yang kalian pergunakan hanya mendukung GTK versi yang tersedia di tema.</p>
+
+<p>Nah, dengan ini, tahap pengecekan sudah selesai.</p>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<p>Setelah kita memastikan lokasi tema yang kita pergunakan sudah terdapat pada direktori <code class="highlighter-rouge">/usr/share/themes/</code>. Langkah selanjutnya adalah mencopy konfigurasi GTK, baik GTK2 maupun GTK3 yang dimiliki oleh user (yang kita gunakan) ke direktori <code class="highlighter-rouge">/root/</code>.</p>
+
+<h2 id="gtk2">GTK2</h2>
+
+<p>Aplikasi GUI yang membutuhkan root permission dan masih menggunakan GTK2, salah satunya adalah <strong>GParted</strong>.</p>
+
+<p>Untuk tema yang menggunakan GTK2, konfigurasi disimpan ada <code class="highlighter-rouge">~/.gtkrc-2.0</code> yang ada pada HOME direktori kita.</p>
+
+<p>Coba kita buka untuk melihat bagaimana bentuk konfigurasi yang ada di dalamnya.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.gtkrc-2.0
+</code></pre></div></div>
+<pre>
+# DO NOT EDIT! This file will be overwritten by LXAppearance.
+# Any customization should be done in ~/.gtkrc-2.0.mine instead.
+
+include "/home/bandithijo/.gtkrc-2.0.mine"
+<mark>gtk-theme-name="NumixSolarizedDarkYellow"</mark>
+gtk-icon-theme-name="DarK-Dark"
+gtk-font-name="Hack 9"
+gtk-cursor-theme-name="ComixCursors-Opaque-White"
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=0
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintfull"
+gtk-xft-rgba="rgb"
+gtk-modules="canberra-gtk-module:gail:atk-bridge"
+</pre>
+<p>Dapat dilihat bahwa, pada sistem saya, file <code class="highlighter-rouge">gtkrc-2.0</code> ini digenerate oleh <code class="highlighter-rouge">LXAppearance</code>.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/257SKdFf/gambar-03.png" /></p>
+<p class="img-caption">Gambar 3 - Interface dari LXAppearance</p>
+
+<p>Dapat dilihat di dalam file <code class="highlighter-rouge">~/.gtkrc-2.0</code> ini terdapat GTK theme yang saya pergunakan. Karena tema yang saya pergunakan memang menyediakan tema untuk GTK2.</p>
+
+<p>Selanjutnya, tinggal men-copy ke dalam direktori <code class="highlighter-rouge">/root/</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cp ~/.gtkrc-2.0 /root/
+</code></pre></div></div>
+
+<p>Berikut ini adalah ilustrasinya.
+<img src="/assets/img/logo/logo_blank.svg" alt="gtk2" data-echo="https://i.postimg.cc/htBLQBs4/gtk2.gif" /></p>
+
+<h2 id="gtk3">GTK3</h2>
+
+<p>Sejujurnya saya jarang sekali menggunakan aplikasi GTK3 yang memerlukan root permission.</p>
+
+<p>Kalau untuk copy-paste direktori atau file yang membutuhkan root permission, saya biasa menggunakan Terminal.</p>
+
+<p>Untuk tema yang menggunakan GTK3, konfigurasi disimpan ada <code class="highlighter-rouge">~/.config/gtk-3.0/settings.ini</code> yang ada pada <code class="highlighter-rouge">~/.config/gtk-3.0/</code> direktori kita.</p>
+
+<p>Coba kita buka untuk melihat bagaimana bentuk konfigurasi yang ada di dalamnya.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/gtk-3.0/settings.ini
+</code></pre></div></div>
+<pre>
+[Settings]
+gtk-application-prefer-dark-theme=0
+<mark>gtk-theme-name=NumixSolarizedDarkYellow</mark>
+gtk-icon-theme-name=DarK-Dark
+gtk-font-name=Hack 9
+gtk-cursor-theme-name=ComixCursors-Opaque-White
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=0
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintfull
+gtk-xft-rgba=rgb
+gtk-modules=canberra-gtk-module:gail:atk-bridge
+gtk-recent-files-max-age=0
+gtk-recent-files-limit=0
+gtk-recent-files-enabled=0
+</pre>
+<p>Kurang lebih hampir mirip dengan konfigurasi GTK2 di atas yaa, <code class="highlighter-rouge">~/.gtkrc-2.0</code>.</p>
+
+<p>Selanjutnya, tinggal men-copy ke dalam direktori <code class="highlighter-rouge">/root/</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cp -rvf ~/.config/gtk-3.0 /root/.config
+</code></pre></div></div>
+
+<p>Sekarang coba buka aplikasi GTK3 dengan root permission.</p>
+
+<p>Berikut ilustrasinya.
+<img src="/assets/img/logo/logo_blank.svg" alt="gtk3" data-echo="https://i.postimg.cc/Ssq3g3mm/gtk3.gif" /></p>
+
+<p>Nah, sekarang tampilan aplikasi GTK3 yang dimiliki oleh root dan user sudah sama.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sejujurnya saya kurang mengerti apakah terdapat dampak buruk dari modifikasi ini terhadap keamanan sistem. Karena jujur saja untuk hal-hal yang berurusan dengan root permission, saya sedikit takut-takut.</p>
+
+<p>Namun, kalau saya menilai dari yang kasus di atas, dimana kita hanya menambah beberapa konfigurasi untuk tampilan GTK, saya rasa tidak ada masalah yang serius. Apalagi kita hanya menggunakan pada komputer pribadi, bukan Server (yaa kali server dikasih tema, bosku).</p>
+
+<p>Bagaimanapun juga, karena ini berurusan dengan root permission, saya harus menyampaikan, “<em>Do with Your Own Risk</em>”.</p>
+
+:ET

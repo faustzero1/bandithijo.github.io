@@ -1,0 +1,54 @@
+I"�<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/wzvhg7ngd/banner_post_09.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p><a href="https://www.vim.org/" target="_blank"><strong>Vim</strong></a> adalah <em>text editor</em> yang sejak 2016 saya gunakan. Keputusan untuk mempelajari Vim pada tahun itu, semakin saya rasakan manfaatnya seiring berjalannya waktu. Keuntungan-keuntungan yang diceritakan oleh orang-orang yang sudah terlebih dahulu menggunakan Vim, juga saya alami sekarang. Bagi saya yang hampir 80% sehari-hari menggunakan <em>text editor</em>, mempelajari Vim adalah investasi jangka panjang yang berharga. Jadi buat kalian yang sedang mempelajari Vim, maju terus pantang mundur. Buat yang belum tahu apa itu Vim, saya tidak merekomendasikan. Hehehe.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saat ini saya sudah tidak lagi menggunakan Vim, karena beberapa alasan yang salah satunya adalah dukungan terhadap <em>clipboard</em> – salah satu kegunannya adalah <em>copy paste</em> dari Vim ke dalam sistem dan sebaliknya. Sehingga saya lebih memilih turunan dari Vim yang membawa lebih banyak fitur, yaitu <a href="https://neovim.io/" target="_blank"><strong>NeoVim</strong></a>.</p>
+
+<p>NeoVim juga mendukung mime. Sehingga kita dapat langsung membuka berbagai macam <em>text format file</em> dengan menggunakan menu <strong>Open With…</strong> Namun, secara <em>default</em> NeoVim meminta kita untuk membuka dengan <strong>XTerm</strong> <em>terminal emulator</em>. Yang mana saya tidak begitu suka menggunakan XTerm (subjektif penulis).</p>
+
+<p>Atas dasar ini, saya akan merubah konfigurasi agar NeoVim dapat dibuka pada <em>terminal emulator</em> yang saya gunakan. Terkadang saya menggunakan <strong>URXVT</strong>, namun saat ini saya sedang menggunakan <strong>XFCE4-Terminal</strong>.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Kita perlu memindahkan file launcher <code class="highlighter-rouge">vim.desktop</code> atau <code class="highlighter-rouge">nvim.desktop</code> – tergantung kalian menggunakan Vim atau NeoVim. Lokasinya berada pada <code class="highlighter-rouge">/usr/share/applications/</code>, kita pindahkan ke dalam direktori lokal kita, yaitu <code class="highlighter-rouge">~/.local/share/applications/</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp /usr/share/applications/nvim.desktop /home/bandithijo/.local/share/applications/nvim.desktop
+</code></pre></div></div>
+<p>Ubah nama direktori user <code class="highlighter-rouge">bandithijo</code> menjadi nama direktori user kalian.</p>
+
+<p>Lalu edit isi dari <code class="highlighter-rouge">vim.desktop</code> atau <code class="highlighter-rouge">nvim.desktop</code> yang berada pada direktori lokal seperti contoh di bawah.</p>
+
+<pre>
+[Desktop Entry]
+Name=Neovim
+Comment=Edit text files
+#TryExec=nvim
+#Exec=nvim %F
+Exec=<mark>xfce4-terminal -x nvim %F</mark>
+Terminal=false
+Type=Application
+Keywords=Text;editor;
+Icon=nvim
+Categories=Utility;TextEditor;
+StartupNotify=false
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+</pre>
+<p>Perhatikan pada bagian <code class="highlighter-rouge">Exec=</code>. Saya men-disable yang lama dengan menjadikannya komentar – memberi tanda <code class="highlighter-rouge">#</code> pada bagian awal dari baris. Kemudian membuat <code class="highlighter-rouge">Exec=</code> baru pada baris di bawahnya yang berisi <code class="highlighter-rouge">xfce4-terminal -x nvim %F</code>.</p>
+
+<p>Apabila berhasil, nanti akan seperti ini hasilnya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif" /></p>
+<p class="img-caption">Gambar 1 - Open With Text Format pada PCMANFM File Manager</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar" target="_blank">askubuntu.com/questions/788736/open-vim-in-xfce4-terminal-from-thunar</a>
+<br />Diakses tanggal: 2018/04/28</li>
+</ol>
+:ET

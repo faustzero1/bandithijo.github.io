@@ -1,0 +1,44 @@
+I")<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Melakukan <em>restart</em> pada sistem operasi Arch Linux di laptop saya adalah hal yang sangat jarang saya lakukan. Apalagi <em>shutdown</em>.</p>
+
+<p><em>Restart</em> hanya akan saya lakukan apabila setelah melakukan proses <em>update</em> pada <em>system</em> (<code class="highlighter-rouge">$ sudo pacman -Syu</code>), saya mendapatkan pembaharuan kernel, systemd, firmware, maupun beberapa package yang memerlukan <em>restart</em>.</p>
+
+<p><em>Shutdown</em> pun saya sudah lupa kapan terakhir kali saya mematikan laptop ini (Lenovo ThinkPad X260).</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saat melakukan <em>restart</em> malam tadi (2019/04/24), saya mendapati kegagalan pada service yang bernama <code class="highlighter-rouge">systemd-timesyncd.service</code>.</p>
+
+<p>Kira-kira seperti ini wujudnya.</p>
+
+<pre>
+<span style="color:red;font-weight:bold;">systemd-timesyncd.service: Failed at step STATE_DIRECTORY spawning /usr/lib/systemd/systemd-timesyncd: Not a directory</span>
+</pre>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p><strong>DWYOR (<em>Do with Your Own Risk</em>) !</strong></p>
+
+<p>Remove symlink directory yang berada di <code class="highlighter-rouge">/var/lib/systemd/timesync</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo rm /var/lib/systemd/timesync
+</code></pre></div></div>
+
+<p>Jangan khawatir untuk menghapus <em>symbolic link</em> dari direktori <code class="highlighter-rouge">timesync/</code> ini karena setelah <em>restart</em> akan secara otomatis di-<em>recovery</em> kembali oleh sistem.</p>
+
+<p>Setelah dihapus, jangan lupa <em>restart</em> dulu, bosku!</p>
+
+<p>Selesai.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://bbs.archlinux.org/viewtopic.php?id=245916" target="_blank">bbs.archlinux.org/viewtopic.php?id=245916</a>
+<br />Diakses tanggal: 2019/04/24</li>
+</ol>
+
+:ET

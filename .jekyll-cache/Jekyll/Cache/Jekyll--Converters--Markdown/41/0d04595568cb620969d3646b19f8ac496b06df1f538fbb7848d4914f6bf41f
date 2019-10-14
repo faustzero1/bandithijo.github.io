@@ -1,0 +1,30 @@
+I"µ<div style="margin-top:30px;"></div>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/S1RuVoEoV1E" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Salah satu tujuan saya memigrasikan aplikasi-aplikasi GUI ke CLI adalah agar lebih mudah digunakan via remote.</p>
+
+<p>Kira-kira begini beberapa dari aplikasi gui yang dengan perlahan-lahan saya alihkan ke cli.</p>
+
+<ol>
+  <li><strong>2016</strong> Diawali dengan text editor, yang sebelumnya menggunakan Sublime, Atom, dan Gedit menjadi Vim.</li>
+  <li><strong>2017</strong> Mulai belajar menggunakan Tmux.</li>
+  <li><strong>2018</strong> Kemudian Thunderbird email client yang mulai saya berani gantikan perannya crucialnya dengan Neomutt.</li>
+  <li><strong>2018</strong> Commafeed (Webapps) RSS feed reader yang mulai saya gantikan dengan Liferea (GUI) kemudian saya gantikan dengan Newsboat (CLI).</li>
+  <li><strong>2018</strong> Hexchat IRC client yang saya gantikan dengan IRSSI.</li>
+</ol>
+
+<p>Masih belum tahu apalagi yang dapat saya migrasikan. Belum terpikirkan saat ini.</p>
+
+<p>Kenapa tertarik dengan remote?
+Agar dapat saya akses darimana saja. Tidak bergantung dengan laptop/pc yang harus saya bawa kemana-mana.</p>
+
+<p>Tahap pertama ini hanya sekedar menampilkan bahwa ternyata bisa dan enak juga. Sudah diuji akses dari luar jaringan dengan meremote menggunakan ip publik. Selanjutnya tinggal melengkapi hal-hal lain yang tidak kalah penting seperti sekenario2 keamanan, dll.</p>
+
+<p>Mungkin part 2 tidak akan dibuatkan dokumentasinya (saat ini belum terpikirkan).</p>
+
+<p>Background music:
+<a href="https://youtu.be/sdPKH88gqjQ" target="_blank">Raisa - LDR</a></p>
+:ET

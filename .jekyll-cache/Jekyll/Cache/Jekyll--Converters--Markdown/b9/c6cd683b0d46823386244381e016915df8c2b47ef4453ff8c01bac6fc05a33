@@ -1,0 +1,129 @@
+I"� <h1 id="step-6--create-user-password-and-hostname">STEP 6 : Create User, Password and Hostname</h1>
+
+<h2 id="61-user-and-password">6.1 User and Password</h2>
+
+<p>Secara <em>default</em>, Arch Linux yang telah kita <em>install</em> telah memiliki akun, yaitu <code class="highlighter-rouge">root</code>. Yang ditandai dengan tanda <code class="highlighter-rouge">#</code> pada Terminal. Dan saat ini pun kita sedang menggunakan akun <code class="highlighter-rouge">root</code>. Namun akun ini secara <em>default</em> <strong>belum memiliki password</strong>. Oleh karena itu kita perlu bahkan lebih ke-<strong>harus</strong> mengeset <em>password</em> untuk akun <code class="highlighter-rouge">root</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># passwd root
+</code></pre></div></div>
+
+<p>Kemudian, masukkan <em>password</em> untuk akun <code class="highlighter-rouge">root</code>. Karakter <em>password</em> memang tidak akan ditampilkan. Kamu akan diminta memasukkan <em>password</em> yang sama, sebanyak dua kali. Dan <strong>jangan sampai lupa</strong>, karena akun <code class="highlighter-rouge">root</code> ini adalah akun yang sangat penting.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New password:
+Retype new password:
+passwd: password updated successfully
+</code></pre></div></div>
+
+<p>Kita sudah membuat <em>password</em> untuk akun <code class="highlighter-rouge">root</code>. Namun, untuk pengunaan sehari-hari sebaiknya kita tidak menggunakan akun ini. Sangat direkomendasikan untuk membuat akun <code class="highlighter-rouge">user</code>. Caranya sebagai berikut.</p>
+
+<p>Buat <em>group</em> <code class="highlighter-rouge">sudo</code> terlebih dahulu.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># groupadd sudo
+</code></pre></div></div>
+
+<p>Kemudian buat <em>username</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># useradd -m -g users -G sudo,storage,wheel,power,input,network bandithijo
+</code></pre></div></div>
+
+<p>Saya menggunakan <em>username</em> <strong>bandithijo</strong>. Kamu dapat mengganti dengan <em>username</em> yang kamu inginkan. Sebagai catatan <em>username</em> haruslah berupa karakter huruf, <em>lowercase</em> (huruf kecil), dan tidak boleh ada spasi.</p>
+
+<p>Setelah membuat akun <code class="highlighter-rouge">user</code>, kita akan mengeset <em>password</em> untuk user baru ini.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># passwd bandithijo
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New password:
+Retype new password:
+passwd: password updated successfully
+</code></pre></div></div>
+
+<p>Masukkan <em>password</em> untuk akun <strong>bandithijo</strong>.</p>
+
+<p>Selanjutnya, mengeset <code class="highlighter-rouge">/etc/sudoers</code>. Kita akan mengaktifkan perintah <code class="highlighter-rouge">sudo</code> agar dapat memiliki kemampuan seperti <em>superuser</em>.</p>
+
+<p>Kemudian, <em>edit</em> file <code class="highlighter-rouge">/etc/sudoers</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vim /etc/sudoers
+</code></pre></div></div>
+
+<p><em>Scrolling</em> ke bawah dan cari <code class="highlighter-rouge"># %sudo ALL = (ALL) ALL</code>. Lalu hapus tanda pagar <code class="highlighter-rouge">#</code> untuk meng-_enable_-kan user yang termasuk dalam <em>group</em> <code class="highlighter-rouge">sudo</code> dapat mengeksekusi semua <em>command</em> (perintah) pada Terminal. Hasilnya seperti contoh di bawah.</p>
+
+<pre>
+...
+...
+## Uncomment to allow members of group sudo to execute any command
+<mark>   %sudo    ALL=(ALL) ALL</mark>
+...
+...
+</pre>
+
+<p>Simpan dan keluar.</p>
+
+<p>Untuk Vim, simpan dengan <code class="highlighter-rouge">:w!</code> untuk memaksa menyimpan perubahan pada file dengan <em>read only permisson</em>.</p>
+
+<h2 id="62-hostname">6.2 Hostname</h2>
+
+<p>Pada <em>step</em> ini, kita akan memberikan <em>hostname</em> pada sistem kita. Sebenarnya ini bukan hal yang <em>crucial</em>, namun karena ini komputer atau laptop pribadi kita, ada baiknya kita memberikan preferensi tersendiri.</p>
+
+<p>Untuk mengkonfigurasi <code class="highlighter-rouge">hostname</code>,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># echo “Arch-Machine” &gt; /etc/hostname
+</code></pre></div></div>
+
+<p>Perintah di atas akan menambahkan <code class="highlighter-rouge">Arch-Machine</code> pada <em>file</em> <code class="highlighter-rouge">/etc/hostname</code>. Kita dapat mengecek isi dari <code class="highlighter-rouge">/etc/hostname</code> dengan menggunakan perintah <code class="highlighter-rouge">$ cat /etc/hostname</code>.</p>
+
+<p>Penamaan <code class="highlighter-rouge">hostname</code> berbeda dengan penamaan pada <code class="highlighter-rouge">username</code>. Pada <code class="highlighter-rouge">hostname</code>, kita dapat menggunakan <em>uppercase</em> (kapital), angka, simbol dan tanpa spasi.</p>
+
+<hr />
+
+<p>Oke, saat ini proses konfigurasi dasar dari sistem operasi Arch Linux sudah selesai. Namun, kita membutuhkan sistem operasi yang pengoperasiannya menggunakan GUI (<em>Graphical User Interface</em>) atau biasa dikenal dengan DE (<em>Desktop Environment</em>) agar kita dapat menggunakan sistem operasi ini dengan mudah. Karena saat ini, sudah sangat jarang ditemukan user yang masih menggunakan <em>text mode</em> atau WM (<em>Window Manager</em>) pada komputer atau laptop pribadinya. Meskipun saya termasuk yang malah ketagihan menggunakan WM.</p>
+
+<p>Langkah selanjutnya adalah melihat apakah proses instalasi kita berhasil atau tidak. Kita akan melakukan <em>reboot system</em> untuk mengeceknya.</p>
+
+<p>Namun sebelumnya, tambahkan dulu paket-paket di bawah ini. Agar memudahkan konektifitas jaringan. Saat kita sudah memasuki sistem dasar yang sudah kita bangun.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pacman -S networkmanager network-manager-applet
+</code></pre></div></div>
+<p>Aktifkan servicenya.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># systemctl enable NetworkManager.service
+</code></pre></div></div>
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saya tidak memasang <code>network-manager-applet</code> karena lebih terbiasa menggunakan <code>nmtui</code> (Network Manager Terminal User Interface) yang sudah disertakan bersama paket <code>networkmanager</code>.</p>
+</div>
+
+<p>Setelah itu <em>exit</em> dari <code class="highlighter-rouge">chroot</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># exit
+</code></pre></div></div>
+
+<p><em>Unmounting</em> semua partisi yang sebelumnya kita <em>mount</em> ke direktori <code class="highlighter-rouge">/mnt</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># umount -R /mnt
+</code></pre></div></div>
+
+<p>Lalu <em>restart</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># reboot
+</code></pre></div></div>
+
+<p>Setelah berhasil menampilkan halaman <em>login</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Arch Linux 4.13.12-1-ARCH (tty1)
+Arch-Machine login: _
+</code></pre></div></div>
+
+<p><em>Login</em> dengan akun yang telah kita buat pada Step 6.1.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Last login: Thu Nov 16 14:57:01 on tty1
+[bandithijo@Arch-Machine ~]$ _
+</code></pre></div></div>
+
+<p>Kalau pada tahap ini kalian berhasil. <strong>Welcome to the BrotherHood !</strong></p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-5-set-language-and-time-zone"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/arch/step-7-install-gnome-and-complete-installation"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+:ET

@@ -1,0 +1,151 @@
+I"ì <!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Jika sebelum posting ini saya tulis, saya hanya mengetahui <em>tools</em> bernama <code class="highlighter-rouge">rankmirrors</code> untuk memfilter mirrors tercepat. Dan sepertinya <em>scripts</em> ini sudah <em>deprecated</em> dari <em>official repository</em> Arch Linux.</p>
+
+<p>Selama ini saya hanya menggunakan mirror dari Indonesia.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server = http://mirror.poliwangi.ac.id/archlinux/$repo/os/$arch
+Server = http://suro.ubaya.ac.id/archlinux/$repo/os/$arch
+</code></pre></div></div>
+<p>Namun, beberapa hari belakangan ini, terasa ada yang aneh dengan mirror-mirror ini. Tidak terdapat <em>update</em>. Ahahaha. Terdengar konyol.</p>
+
+<p>Singkat cerita, bertemulah saya dengan tools <a href="https://www.archlinux.org/packages/community/any/reflector/" target="_blank"><code class="highlighter-rouge">reflector</code></a>.</p>
+
+<p>Kemalasan saya menggunakan <code class="highlighter-rouge">rankmirrors</code> dikarenakan kita harus menunggu lama sekali untuk mendapatkan hasilnya, meskipun hanya 5 mirror. Mungkin karena keterbatasan ilmu dan pemahaman saya pada saat itu. Namun, <code class="highlighter-rouge">reflector</code> memberikan hasil yang sangat timpang dalam hal kecepatan memberikan hasil. Lantas saya pun langsung mencoba mengkonfigurasikan <code class="highlighter-rouge">reflector</code> ke dala msistem saya.</p>
+
+<p>Berikut ini adalah catatan-catatan yang tentu saja saya kutip dari Arch Wiki.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Perintah-perintah di bawah ini akan menimpa file <code>/etc/pacman.d/mirrorlist</code>. Sangat dianjurkan untuk membuat <i>backup</i> terlebih dahulu.</p>
+<p><pre>$ sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup</pre></p>
+</div>
+
+<h2 id="instalasi">Instalasi</h2>
+
+<p>Install paket <code class="highlighter-rouge">reflector</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S reflector
+</code></pre></div></div>
+
+<h2 id="contoh-penggunaan">Contoh Penggunaan</h2>
+
+<p>Untuk melihat bagaimana cara menggunakan <code class="highlighter-rouge">reflector</code> selalu biasakan untuk membaca <code class="highlighter-rouge">--help</code> dari sebuah <em>tools</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ reflector --help
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usage: Reflector.py [-h] [--connection-timeout n] [--list-countries]
+                    [--cache-timeout n] [--save &lt;filepath&gt;]
+                    [--sort {age,rate,country,score,delay}] [--threads n]
+                    [--verbose] [--info] [-a n] [-c &lt;country&gt;] [-f n]
+                    [-i &lt;regex&gt;] [-x &lt;regex&gt;] [-l n] [--score n] [-n n]
+                    [-p &lt;protocol&gt;] [--completion-percent [0-100]]
+</code></pre></div></div>
+<p>Detail lebih lengkap dapat dilihat sendiri yaa.</p>
+
+<p><br />
+<strong>Contoh 1</strong></p>
+
+<p>Contoh di bawah ini akan menampilkan output yang dikerjakan <em>script</em> (<code class="highlighter-rouge">--verbose</code>) dan menyortir lima mirror yang paling ter-<em>update</em> (<code class="highlighter-rouge">--latest 5</code>) yang diurutkan berdasarkan hasil kecepatan <em>download</em> (<code class="highlighter-rouge">--sort rate</code>) kemudian hasilnya akan langsung menimpa  (<code class="highlighter-rouge">--save</code>) isi dari file <code class="highlighter-rouge">/etc/pacman.d/mirrorlist</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+<p><br />
+<strong>Contoh 2</strong></p>
+
+<p>Contoh di bawah ini akan menyeleksi 100 mirror yang berprotokol HTTP &amp; HTTPS yang sudah tersinkronisasi dan diurutkan berdasarkan kecepatan <em>download</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo reflector --latest 100 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<p><br />
+<strong>Contoh 3</strong></p>
+
+<p>Contoh di bawah ini akan menyeleksi mirror berdasarkan protokol HTTPS yang terupadate 12 jam terakhir, berlokasi di Indonesia, serta diurutkan berdasarkan kecepatan <em>download</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo reflector --country Indonesia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<p><br />
+Nah, gimana? mantep yaa?</p>
+
+<p>Biar lebih mantep lagi yuk kita bikin automatis aja proses di atas.</p>
+
+<h2 id="automatisasi">Automatisasi</h2>
+
+<p>Automatisasi ini tergantung kalian ingin menggunakan yang mana.</p>
+
+<p><br />
+<strong>Systemd Service</strong></p>
+
+<p>Contoh ini akan menjalankan <code class="highlighter-rouge">reflector.service</code> setelah network service up and online.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/systemd/system/reflector.service
+</code></pre></div></div>
+<pre>
+[Unit]
+Description=Pacman mirrorlist update
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=<mark>/usr/bin/reflector --protocol https --latest 30 --number 20 --sort rate --save /etc/pacman.d/mirrorlist</mark>
+
+[Install]
+RequiredBy=multi-user.target
+</pre>
+
+<p>Parameter dari <code class="highlighter-rouge">ExecStart=</code> dapat teman-teman rubah sesuai preferensi masing-masing.</p>
+
+<p>Kemudian, apabila ingin di jalankan sekali waktu, tinggal panggil dan jalankan saja servicenya.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl start reflector.service
+</code></pre></div></div>
+
+<p>Service ini hanya berjalan sekali dan langsung berhenti (<em>inactive</em>). Sehingga kita hanya perlu memanggil/menjalankannya apabila kita membutuhkan servie ini saja.</p>
+
+<p>Saya tidak menyarankan untuk meng-<em>enable</em>-kan service ini setiap komputer di-<em>reboot</em>.</p>
+
+<p><br />
+<strong>Cron Task</strong></p>
+
+<p>Untuk mengupdate mirrorlist daily, kira-kira seperti ini.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/cron.daily/mirrorlist
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="c"># Get the country thing</span>
+/usr/bin/reflector <span class="nt">-c</span> <span class="s2">"Indonesia"</span> <span class="nt">-p</span> http <span class="nt">-p</span> https <span class="nt">--sort</span> rate <span class="o">&gt;</span> /etc/pacman.d/mirrorlist
+
+<span class="c"># Work through the alternatives</span>
+/usr/bin/reflector <span class="nt">-p</span> http <span class="nt">-p</span> https <span class="nt">--latest</span> 20 <span class="nt">--sort</span> rate <span class="o">&gt;&gt;</span> /etc/pacman.d/mirrorlist
+</code></pre></div></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sekian catatan pribadi saya, mudah-mudahan bermanfaat bagi yang tersasar dan menemukannya.</p>
+
+<p>Apabila menemukan kesalahan dan kegagalan sekali lagi saya berpesan, tulisan ini bukan tulisan yang baik. Dokumentasi paling baik adalah yang ditulis langsung oleh tim pengembangnya. Silahkan merujuk pada referensi yang saya sertakan, yaa.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Reflector" target="_blank">wiki.archlinux.org/index.php/Reflector</a>
+<br />Diakses tanggal: 2018/12/11</p>
+  </li>
+  <li>
+    <p><a href="https://xyne.archlinux.ca/projects/reflector/" target="_blank">xyne.archlinux.ca/projects/reflector/</a>
+<br />Diakses tanggal: 2018/12/11</p>
+  </li>
+  <li>
+    <p><a href="https://www.archlinux.org/packages/community/any/reflector/" target="_blank">archlinux.org/packages/community/any/reflector/</a>
+<br />Diakses tanggal: 2018/12/11</p>
+  </li>
+</ol>
+:ET

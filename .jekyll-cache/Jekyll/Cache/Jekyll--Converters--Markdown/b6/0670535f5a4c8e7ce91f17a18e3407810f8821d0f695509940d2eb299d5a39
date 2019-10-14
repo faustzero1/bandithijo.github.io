@@ -1,0 +1,218 @@
+I"*;<h1 id="latar-belakang">Latar Belakang</h1>
+
+<h2 id="cms">CMS</h2>
+
+<h3 id="wordpress">WordPress</h3>
+
+<p>Website: <a href="https://www.wordpress.com" target="_blank">wordpress.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar8" data-echo="https://s20.postimg.cc/jf83v1r3x/gambar_08.png" /></p>
+
+<p>“Migrasi Blog 2.0”. Ya, sesuai judul dari post ini, <strong>BanditHijo (R)-Chive</strong>, bukan yang pertama kali saya migrasikan. Pertama kali saya menulis blog, saya memilih menggunakan WordPress sebagai <em>platform</em> yang saya percayakan untuk menampung tulisan-tulisan saya. Saya perkirakan mungkin sejak 2010 saya mulai membuat <em>post</em> pertama saya dengan WordPress.</p>
+
+<p>Dengan menggunakan WordPress, saya belajar mengenal berbagai macam hal yang berkaitan dengan teknologi web, seperti pengguaan CMS (<em>Content Management System</em>), belajar mengenal <em>shared hosting</em> dan <em>custom domain</em>.</p>
+
+<p>Dengan WordPress, tidak begitu kesulitan bagi saya untuk memodifikasi WordPress <em>theme</em> yang saya unduh dari <em>official website</em> karena sebelum-sebelumnya saya memang sudah mengenal HTML dan CSS sejak masih SMA.</p>
+
+<h3 id="blogspot">Blogspot</h3>
+
+<p>Website: <a href="https://www.blogger.com" target="_blank">blogger.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar9" data-echo="https://s20.postimg.cc/l712pxv19/gambar_09.png" /></p>
+
+<p>Singkat cerita, tahun 2012, saya berkeinginan untuk mencoba <em>platform</em> lain. Saya memutuskan untuk berpindah <em>platform</em> dari WordPress dan beralih menggunakan Blogger atau yang lebih dikenal dengan Blogspot, sebuah CMS yang dipayungin oleh Google. Saya cukup lama menggunakan Blogspot, hingga 2018 Maret, tepat dimana saya pun bermigrasi untuk yang kedua kalinya.</p>
+
+<h2 id="static-site-generator">Static Site Generator</h2>
+
+<p>Sejak 2017, saya mendengar beberapa teman-teman di komunitas GNU/Linux, menulis artikel-artikel mereka menggunakan <em>Static Site Generator</em>. Saya pun tertarik dan mulai mencari tahu sendiri dengan modal percakapan yang pernah saya tangkap, yaitu “menggunakan Hexo”. Saya pun mencoba mencari tahu <em>platform</em> <em>static site generator</em> yang bernama Hexo. Dan mulai saat inilah keinginan untuk bermigrasi ke <em>platform</em> lain dimulai. Terlebih lagi dengan menggunakan <em>statis site generator</em> kita dapat meletakkan <em>source</em> dari blog kita di GitHub dan membuatnya menjadi GitHub <em>page</em> yang berdomain <code class="highlighter-rouge">username.github.io</code>.</p>
+
+<p>Ketertarikan saya dengan <em>Static Site Generator</em> karena :</p>
+<ol>
+  <li>Kita dapat memproduksi tulisan dengan cepat sekaligus memiliki <em>layout</em> yang sudah otomatis rapi, karena ditulis menggunakan Markdown <em>format</em>.</li>
+  <li>Saya berkesempatan untuk membuat template saya sendiri dari nol.</li>
+  <li>Dengan <em>static site generator</em> saya dapat menggunakan GitHub sebagai <em>hosting</em> dan berganti <em>sub domain</em>, yang menurut saya <code class="highlighter-rouge">username.github.io</code> lebih keren ketimbang <code class="highlighter-rouge">username.blogspot.com</code> atau <code class="highlighter-rouge">username.wordpress.com</code>. Hehe =)</li>
+  <li>Semua orang <del>tidak</del> dapat membuatnya dengan mudah.</li>
+</ol>
+
+<h3 id="hexo">Hexo</h3>
+
+<p>Language: JavaScript</p>
+
+<p>Templates: EJS, Pug, Haml, Swig, Nunjucks, Mustache, Handlebars, Twig, Marko</p>
+
+<p>Website: <a href="https://hexo.io/" target="_blank">hexo.io</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar10" data-echo="https://s20.postimg.cc/8seapmb8t/gambar_10.png" /></p>
+
+<p><em>Static Site Generator</em> ini, adalah yang pertama kali memperkenalkan saya tentang konsep dari <em>Static Site Generator</em>. Saya belajar dari berbagai macam sumber, mulai dari YouTube, hingga artikel-artikel di internet. Proses saya belajar memakan waktu lama, hahaha, saya juga tidak begitu mengerti kenapa saya sangat malas dikala itu. Hingga 2018 Januari, saya memutuskan untuk serius mendalami Hexo.</p>
+
+<p>Untuk proses produksi, seperti penerbitan tulisan saya tidak mengalami kendala, karena saya sudah terbiasa menulis menggunakan format Markdown. Konvensi lain seperti pengaturan <em>page</em>, <em>post</em>, <em>draft</em>, <em>assets</em>, dll, tidak membuat saya kebingungan. Namun, begitu sampai tahap “<em>Build your own theme from scratch</em>”, inilah tahap dimana saya mulai kebingungan dengan <em>layout convention</em> yang dimiliki oleh Hexo. Saya yakin, saya kebingungan karena ini pertama kalinya saya mengenal <em>layout formating</em> menggunakan EJS (<em>Embedded JavaScript</em>). Karena kesulitan ini saya mencoba untuk beralih mencoba <em>static site generator</em> lain, yaitu Hugo.</p>
+
+<h3 id="hugo">Hugo</h3>
+
+<p>Language: Go</p>
+
+<p>Templates: Go</p>
+
+<p>Website: <a href="https://gohugo.io/" target="_blank">gohugo.io</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar11" data-echo="https://s20.postimg.cc/gxwcnsex9/gambar_11.png" /></p>
+
+<p>Selain Hexo, saya juga sudah mengenal nama lain, yaitu Hugo, namun karena saya belum pernah sama sekali belajar bahasa pemrograman Go, saya pikir akan sulit, sehingga saya memutuskan untuk tetap menggunakan Hexo.</p>
+
+<p>2018 Maret 18, tepat siang hari, setelah semalaman saya mengalami frustasi dengan Hexo, saya pun langsung berpindah menggunakan Hugo, mencari tutorial-tutorial di YouTube yang dapat saya pelajari dengan cepat. Sekitar jam 10 malam, saya sudah berhasil membuat template saya sendiri. Rasa senang pun menggerogoti, sambil bersantai-santai mencari literatur-literatur yang saya bisa jadikan rujukan untuk menambah pengetahuan saya membuat Hugo <em>layout</em> yang menggunakan Go <em>template</em>. Hingga, akhirnya menemukan sebuah website yang menampilkan statistik terhadap <em>static site generator</em> yang populer, <a href="https://www.staticgen.com/" target="_blank">staticgen.com</a> - <em>Top Open-Source Static Site Generators</em>. Website ini menggambarkan statistik bahwa Hugo menduduki peringkat kedua setelah Jekyll, <em>static site generator</em> yang menggunakan bahasa pemrograman Ruby. Lantas saya pun penasaran, karena sebelumnya pun saya sudah pernah belajar Ruby. Saya berfikir, kenapa tidak menggunakan Ruby yang sudah pernah saya pelajari, mungkin akan lebih mudah ketimbang melanjutkan menggunakan Hugo yang menggunakan bahasa Go, yang belum pernah saya pelajarin dasarnya. Tepat tengah malam 2018 Maret 19, saya pun mencari tahu tentang Jekyll.</p>
+
+<h3 id="jekyll">Jekyll</h3>
+
+<p>Language: Ruby</p>
+
+<p>Templates: Liquid</p>
+
+<p>Website: <a href="https://jekyllrb.com/" target="_blank">jekyllrb.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar12" data-echo="https://s20.postimg.cc/oqn0frsm5/gambar_12.png" /></p>
+
+<p>Karena sudah mengenal <em>static site generator</em> dari Hexo dan Hugo, saya tidak begitu kesulitan untuk beradaptasi menggunakan Jekyll dalam memproduksi konten. Terlebih lagi saat membuat Jekyll <em>layout</em>, Jekyll menggunakan <a href="https://shopify.github.io/liquid/" target="_blank">Liquid</a>, dimana Liquid ini hampir mirip seperti <a href="http://jinja.pocoo.org/" target="_blank">Jinja</a> <em>template</em> dalam mengambil <em>variable</em> atau <em>filters</em> yang diperlukan, sehingga saya tidak membutuhkan waktu lama untuk mengerti dan beradaptasi.</p>
+
+<p>Seperti ini contoh penggunaan Liquid.</p>
+
+<p><strong>Tags</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+</code></pre></div></div>
+
+<p><strong>Filters</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "adam!" | capitalize | prepend: "Hello " }}
+</code></pre></div></div>
+
+<p><strong>Variabels</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ page.title }}
+{{ page.content }}
+{{ page.url }}
+{{ page.date }}
+</code></pre></div></div>
+
+<p>Tepat tengah malam, <em>layout</em> yang saya <em>develop</em> sudah berhasil dan sesuai dengan yang saya inginkan. Saya juga dengan mudah memahami struktur dan konvensi-konvensi dalam Jekyll <em>layout</em>. Saya merasa Jekyll <em>layout</em> memberikan saya kebebasan yang sangat banyak untuk saya mengatur sendiri mau seperti apa struktur direktori dan penamaan dari <em>layout</em> yang saya bangun. Mungkin karena aspek ini, saya dapat memahami mengapa Jekyll ada diperingkat teratas pada statistik <strong>staticgen.com</strong>.</p>
+
+<h1 id="template-yang-saya-gunakan">Template yang Saya Gunakan</h1>
+
+<h2 id="old-template">Old Template</h2>
+<p>Dari cerita-cerita di atas, saya berkali-kali menyinggung kata “<em>layout</em>”. Kenapa saya begitu bersikeras untuk membangun <em>layout</em> saya sendiri ? Karena dengan membangun <em>layout</em> sendiri, kita dapat dengan mudah memodifikasinya, karena kita memahami dengan baik bagaimana struktur dari <em>layout</em> yang kita bangun.</p>
+
+<p>Saya mengadopsi desain dari blog lama saya, yang menggunakan template buatan <a href="https://www.styleshout.com/" target="_blank">StyleShout</a>. Yang menurut saya, desain <em>template</em> ini mirip dengan <em>default template</em> Blogspot di awal-awal kemunculannya, hal ini sangat membuat saya bernostalgia dan betah berlama-lama memandangi <em>template</em> ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/62rxouut9/gambar_01.png" /></p>
+
+<p>Sederhana dan <em>old school</em> sekali bukan?</p>
+
+<p>Saya memiliki kesan yang sangat baik terhadap bentuk desain <em>template</em> seperti ini. Namun sayangnya, <em>template</em> ini belum menggunakan prinsip <em>responsive design</em>. Sehingga sangat kaku dan tidak fleksibel apabila diakses menggunakan <em>smartphone</em> atau <em>tablet</em>. Hal tersebut dikarenakan <em>template</em> ini sebagian besar mengguanakn <em>element</em> gambar untuk membangun tampilannya, mulai dari <em>header</em> hingga <em>footer</em>.</p>
+
+<h2 id="new-template">New Template</h2>
+<p>Atas dasar kecintaan saya terhadap warna, desain, dan <em>layout</em> dari template sebelumnya, saya memutuskan untuk mencoba meniru desain dari <em>template</em> tersebut. Tentunya sudah menggunakan prinsip <em>responsive design</em>. Dari cerita di atas, saya berhasil membuat <em>template</em> ini dengan menggunakan Go <em>template</em>, namun saya kurang mengerti untuk mengembangkannya lebih jauh, sehingga saya memutuskan untuk mencoba Jekyll yang menggunakan Liquid untuk membangun <em>layout</em>. Dan, jadilah <em>layout</em> yang saya inginkan. Hampir menyerupai <em>template</em> buatan StyleShout.</p>
+
+<p><strong>HomePage</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/ttrb6yfkt/gambar_03.png" /></p>
+
+<p><strong>Blog (Post List)</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://s20.postimg.cc/iu63vcwvh/gambar_04.png" /></p>
+
+<p><strong>Page</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/fnbkbqrv1/gambar_02.png" /></p>
+
+<p><strong>Post</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://s20.postimg.cc/y8mrg0on1/gambar_05.png" /></p>
+
+<p><strong>Mobile Device Wide</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://s20.postimg.cc/966fxw8wt/gambar_06.png" /></p>
+
+<p><br />
+Hohoho, sejujurnya saya sangat menyukai <em>layout</em> ini. Karena saya bisa melakukan apa saja, meletakkan apa saja, dan memindahkan apa saja.</p>
+
+<p>Struktur dari <em>layout</em> ini adalah :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── _drafts
+│
+├── _includes
+│   ├── _sidebar
+│   │   ├── sidebar_1.html
+│   │   ├── sidebar_2.html
+│   │   ├── sidebar_3.html
+│   │   └── sidebar_toc.html
+│   │
+│   ├── analytics.html
+│   ├── disqus.html
+│   ├── footer.html
+│   ├── head.html
+│   ├── header.html
+│   ├── scripts.html
+│   └── sidebar.html
+│
+├── _layouts
+│   ├── baseof.html
+│   ├── default.html
+│   ├── home.html
+│   ├── page.html
+│   └── post.html
+│
+├── _posts
+│   ├── blog
+│   │   └── 2016-12-04-post.md
+│   │
+│   └── opini
+│       └── 2016-12-04-opini.md
+│
+├── _site
+├── .sass-cache
+│
+├── assets
+│   ├── css
+│   │   ├── github-markdown.css
+│   │   └── style.css
+│   │
+│   ├── img
+│   │   ├── favicon
+│   │   │   └── favicon.png
+│   │   └── logo
+│   │       └── logo_bandithijo.png
+│   │
+│   └── js
+│       ├── jquery.min.js
+│       └── toc.js
+│
+├── pages
+│   ├── about.md
+│   ├── blog.md
+│   └── conact.md
+│
+├── _config.yml
+├── 404.html
+├── Gemfile
+├── Gemfile.lock
+└── index.html
+</code></pre></div></div>
+
+<p>Seperti yang kalian dapat lihat dari struktur di atas, bahwa <em>template</em> ini hanya menggunakan satu buah <em>element</em> gambar untuk dijadikan sebagai logo, dan <em>element</em> lain dikerjakan oleh CSS3. Dengan ini diharapkan dapat membuat <em>template</em> menjadi lebih cepat saat dimuat oleh <em>browser</em>.</p>
+
+<p><em>Layout</em> yang saya buat ini juga sudah saya obrak-abrik mengikuti kemauan saya, mungkin saja struktur dari <em>layout</em> ini tidak mengikuti aturan atau <em>convention</em> yang ada. Tapi saya senang karena dengan Jekyll, saya bisa mengeksplorasi Jekyll sebebas yang saya mau.</p>
+
+<p>Mungkin soal <em>layout</em> ini akan saya buatkan <em>post</em> tersendiri. Agar lebih mendalam, karena judul dari <em>post</em> ini hanya sekedar memberi tahu bahwa BanditHijo (R)-Chive sudah menggunakan <em>static site generator</em> juga untuk membangun blog.</p>
+
+<h1 id="akhir-kata">Akhir Kata</h1>
+<p>Rumah baru sudah nyaman, sekarang tinggal mengukir kenangan-kenangan di dalamnya.</p>
+
+<p>Saya benar-benar merasakan kemudahan dalam memproduksi tulisan-tulisan dengan menggunakn Markdown <em>format</em> yang nantinya akan di <em>generated</em> oleh Jekyll untuk menjadi sebuat <em>static site</em>. Kemudian saya <em>push</em> ke GitHub agar bisa <em>Online</em>.</p>
+
+<p>Terima kasih, untuk teman-teman yang sudah mampir dan membaca sepenggal kisah mengenai proses migrasi blog saya =)</p>
+
+<h1 id="ucapan-terima-kasih">Ucapan Terima Kasih</h1>
+<p>Berikut ini adalah nama-nama yang telah menginspirasi saya untuk bermigrasi menggunakan <em>static site generator</em> :</p>
+
+<ol>
+  <li><a href="https://sucipto.net/" target="_blank">sucipto.net</a></li>
+  <li><a href="http://epsi-rns.github.io" target="_blank">epsi-rns.github.io</a></li>
+  <li><a href="https://raniaamina.github.io/" target="_blank">raniaamina.github.io</a></li>
+</ol>
+:ET

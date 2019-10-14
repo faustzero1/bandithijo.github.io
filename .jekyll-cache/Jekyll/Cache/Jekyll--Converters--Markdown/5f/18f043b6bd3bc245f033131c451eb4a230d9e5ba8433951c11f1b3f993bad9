@@ -1,0 +1,41 @@
+I"f<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/f7zndndq5/banner_post_06.png" alt="banner" /></p>
+
+<h1 id="hasil">Hasil</h1>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/ev897h365/gambar_01.png" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/6xn0xertp/gambar_02.png" /></p>
+
+<h1 id="video-dokumentasi">Video Dokumentasi</h1>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/X59On7MV0Co" frameborder="0" allowfullscreen=""></iframe></div>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>Nama</td>
+        <td><strong>Rizqi Nur Assyaufi</strong></td>
+      </tr>
+      <tr>
+        <td>NIM</td>
+        <td><strong>15.01.157</strong></td>
+      </tr>
+      <tr>
+        <td>Kelas</td>
+        <td><strong>TI2-B</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<h1 id="aplikasi">Aplikasi</h1>
+
+<ol>
+  <li>Vector Image Editor : <a href="https://inkscape.org/en/" target="_blank">Inkscape</a></li>
+  <li>Video Editor : <a href="https://www.blender.org/" target="_blank">Blender</a></li>
+  <li>Screen Recorder : <a href="http://www.maartenbaert.be/simplescreenrecorder/" target="_blank">SimpleScreenRecorder</a></li>
+</ol>
+
+:ET

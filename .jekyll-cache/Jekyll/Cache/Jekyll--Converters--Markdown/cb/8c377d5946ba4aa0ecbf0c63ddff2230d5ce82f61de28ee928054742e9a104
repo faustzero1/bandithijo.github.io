@@ -1,0 +1,80 @@
+I"ø<!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" alt="banner"> -->
+
+<h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Saya kesulitan saat akan menjalankan Python versi tertentu pada Python Virtual Environment.</p>
+
+<p>Saat tulisan ini dibuat, Arch Linux secara <em>default</em> sudah membawa Python versi 3.7. Sedangkan saya memerlukan Python versi 3.6 dalam project yang ingin saya kerjakan. Lantas saya membutuhkan Python Virtual Environment yang menggunakan Python 3.6.</p>
+
+<p>Apabila saya menjalankan,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ virtualenv venv
+</code></pre></div></div>
+<p>Maka saat saya aktifkan dan saya lihat versi Pythonnya, masih menggunakan Python 3.7.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -V
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python 3.7.2
+</code></pre></div></div>
+
+<p>Bagaimana caranya agar di dalam Python Environment yang saya buat dapat menggunakan Python 3.6?</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<ol>
+  <li>Install Python 3.6 dari AUR
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ yay python36
+</code></pre></div>    </div>
+  </li>
+  <li>Buat virtualenv dari versi python 3.6
+    <pre>
+$ virtualenv -p python3.6 <mark>venv</mark></pre>
+    <p><code class="highlighter-rouge">venv</code> adalah nama dari virtual environment.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Running virtualenv with interpreter /usr/bin/python3.6
+Using base prefix '/usr'
+New python executable in /home/bandithijo/git/test/venv/bin/python3.6
+Also creating executable in /home/bandithijo/git/test/venv/bin/python
+Installing setuptools, pip, wheel...done.
+</code></pre></div>    </div>
+    <p>Apabila menampilkan <code class="highlighter-rouge">done</code> artinya proses pembuatan virtual environment telah berhasil.</p>
+
+    <p>Proses pembuatan virtual environment ini membutuh kan akses internet.</p>
+  </li>
+  <li>Aktivasi virtual environment.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd venv
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source bin/activate
+</code></pre></div>    </div>
+    <p>Nanti akan ada tanda-tanda pada Terminal kalian apabila kalian mengunakan Theme tertentu yang menampilkan bahwa kita saat ini telah berada pada virtual environment.</p>
+
+    <p>Seperti ini.</p>
+    <pre>
+<mark>(venv)</mark>
+~/venv
+$_</pre>
+    <p>Lakukan pengecekan versi Python.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python -V
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python 3.6.7
+</code></pre></div>    </div>
+    <p>Yak, kita sudah berada pada versi Python yang saya inginkan, yaitu versi 3.6.</p>
+
+    <p>Kalau sudah begini tinggal kita sikat miring.</p>
+  </li>
+</ol>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Seperti judul tulisan ini, saya membuatnya spesifik untuk distribusi Arch Linux, karena bisa saja proses instalasi yang berbeda, nama paket binary yang berbeda dan lokasi PATH yang berbeda.</p>
+
+<p>Silahkan bereksplorasi sendiri untuk yang menggunakan distribusi sistem opeasi GNU/Linux yang lain.</p>
+
+<p>Terima kasih.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://www.reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/" target="_blank">reddit.com/r/archlinux/comments/7ozxtx/how_to_manage_python_versions/</a>
+<br />Diakses tanggal: 2019/01/05</li>
+</ol>
+
+:ET

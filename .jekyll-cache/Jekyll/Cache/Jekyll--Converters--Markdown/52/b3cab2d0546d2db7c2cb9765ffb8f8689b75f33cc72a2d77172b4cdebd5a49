@@ -1,0 +1,47 @@
+I":<div style="margin-top:30px;"></div>
+<!-- EMBED CONTAINER: YOUTUBE -->
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/UlEik7nYkLE" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Dalam menggunakan i3wm, terkadang kita harus berpindah antar Window Container. Lantas bagaimana apabila kita ingin melompati satu Window Container? Apakah bisa?</p>
+
+<p>Untuk dapat melakukan hal tersebut, i3wm menyediakan fitur yang bernama <a href="https://i3wm.org/docs/userguide.html#_focus_parent" target="_blank"><strong>Focus Parent</strong></a>.</p>
+
+<p>Saya memberikan tiga contoh kemungkinan yang sering saya alami selama menggunakan dan memanfaatkan window container.</p>
+
+<p><strong>Contoh 1</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 2 Container
+[1] | [2,3,4,5]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Berpindah Fokus dari:
+[5] ke [1]
+[4] ke [1]
+[3] ke [1]
+[2] ke [1]
+</code></pre></div></div>
+
+<p><strong>Contoh 2</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 3 Container
+[1] | [2,3,4] | [5]
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Berpindah Fokus dari:
+[1] ke [2] ke [5]
+[1] ke [3] ke [5]
+[1] ke [4] ke [5]
+</code></pre></div></div>
+
+<p><strong>Contoh 3</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Membuat Kontainer Baru
+[1,2] | &lt;new_target&gt;
+</code></pre></div></div>
+
+<p><br />
+Background music:</p>
+
+<p><a href="https://youtu.be/tf61cA6a-N0" target="_blank">高橋優「プライド」（アニメ「メジャーセカンド」EDバージョン）</a></p>
+:ET

@@ -1,0 +1,22 @@
+I"<div style="margin-top:30px;"></div>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/aexfB5WLEas" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Neomuttt adalah email client atau mail reader yang berjalan diatas Terminal.
+Sudah sejak tahun ini mulai bermigrasi dari Thunderbird ke Neomutt.</p>
+
+<p>Alasannya apa bang?</p>
+
+<ol>
+  <li>Lebih ringan, gak makan banyak resouce memory.</li>
+  <li>Lebih mudah diremote.</li>
+  <li>Tidak sembarangan orang bisa pakai.</li>
+  <li>Lebih mudah dikustomisasi sesuai selera. seperti keybind, colorscheme.</li>
+  <li>Keyboard oriented.</li>
+  <li>dll (belum terpikirkan)</li>
+</ol>
+
+<p><a href="https://neomutt.org/" target="_blank">https://neomutt.org/</a></p>
+:ET

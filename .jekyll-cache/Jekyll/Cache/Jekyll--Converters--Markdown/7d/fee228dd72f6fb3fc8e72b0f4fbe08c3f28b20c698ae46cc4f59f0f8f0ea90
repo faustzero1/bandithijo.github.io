@@ -1,0 +1,93 @@
+I"‰"<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Matematika adalah topik yang cukup populer, sehingga kita perlu juga untuk mempelajari operasi matematika dasar dengan menggunakan Python. Beruntungnya, kita mempelajari bahasa pemrograman Python, dimana bahasan matematika sangat populer, khususnya ilmu terapan dari matematika seperti statistik, metode numerik, aljabar linier, dll. Sehingga membuat matematika dalam bahasa pemrograman Python menjadi sangat sederhana.</p>
+
+<p>Namun, karena topik pembicaraan kita adalah operasi matematika dasar di dalam bahasa pemrograman Python, tentu saja kita tidak akan membahas tentang hal-hal tersebut saat ini.</p>
+
+<p>Oke, langsung saja kita mulai.</p>
+
+<h1 id="penjumlahan">Penjumlahan</h1>
+<p>Kamu dapat melakukan operasi penjumlahan dengan menggunakan operator matematika berupa tanda tambah <code class="highlighter-rouge">+</code>. Operasi matematika dapat dilakukan dengan menjumlahkan integer dengan integer, float dengan float, maupun integer dengan float.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="o">+</span><span class="mi">3</span>                 <span class="c1"># int + int
+</span><span class="mi">1</span><span class="o">+</span><span class="p">(</span><span class="mf">2.1</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>         <span class="c1"># int + (float + float)
+</span><span class="mi">1</span><span class="o">+</span><span class="mf">2.3</span>               <span class="c1"># int + float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4                   <span class="c"># int</span>
+6.3                 <span class="c"># float</span>
+3.3                 <span class="c"># float</span>
+</code></pre></div></div>
+
+<h1 id="pengurangan">Pengurangan</h1>
+<p>Untuk dapat melakukan operasi matematika berupa pengurangan, kamu dapat menggunakan tanda <code class="highlighter-rouge">-</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">8</span><span class="o">-</span><span class="mi">15</span>                <span class="c1"># int - int
+</span><span class="mi">10</span><span class="o">-</span><span class="p">(</span><span class="mf">4.3</span><span class="o">-</span><span class="mf">1.2</span><span class="p">)</span>        <span class="c1"># int - (float - float)
+</span><span class="mi">8</span><span class="o">-</span><span class="mf">4.5</span>               <span class="c1"># int - float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">-7</span>                  <span class="c"># int</span>
+6.9                 <span class="c"># float</span>
+3.5                 <span class="c"># float</span>
+</code></pre></div></div>
+
+<h1 id="perkalian">Perkalian</h1>
+<p>Untuk dapat melakukan operasi matamatika berupa perkalian, kamu dapat menggunakan tanda <code class="highlighter-rouge">*</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">8</span><span class="o">*</span><span class="mi">17</span>                <span class="c1"># int * int
+</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mf">5.2</span><span class="o">*</span><span class="mf">7.6</span><span class="p">)</span>         <span class="c1"># int * (float * float)
+</span><span class="mi">16</span><span class="o">*</span><span class="mf">2.5</span>              <span class="c1"># int * float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>136                 <span class="c"># int</span>
+118.56              <span class="c"># float</span>
+40                  <span class="c"># int</span>
+</code></pre></div></div>
+
+<h1 id="pembagian">Pembagian</h1>
+<p>Untuk dapat melakukan operasi matematika berupa pembagian, kamu dapat menggunakan tanda <code class="highlighter-rouge">/</code>. Hasil keluaran (<em>output</em>) dari operasi pembagian berupa tipe data float.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">12</span><span class="o">/</span><span class="mi">4</span>                <span class="c1"># int / int
+</span><span class="mi">20</span><span class="o">/</span><span class="p">(</span><span class="mf">6.4</span><span class="o">/</span><span class="mf">3.2</span><span class="p">)</span>        <span class="c1"># int / (float / float)
+</span><span class="mi">33</span><span class="o">/</span><span class="mf">6.5</span>              <span class="c1"># int / float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.0                 <span class="c"># float</span>
+10.0                <span class="c"># float</span>
+5.076923076923077   <span class="c"># float</span>
+</code></pre></div></div>
+
+<h1 id="pemangkatan">Pemangkatan</h1>
+<p>Untuk dapat melakukan operasi matematika berupa pemangkatan atau exponen dalam aljabar, kamu dapat menggunakan tanda <code class="highlighter-rouge">**</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">4</span><span class="o">**</span><span class="mi">4</span>                <span class="c1"># int ** int
+</span><span class="mf">3.2</span><span class="o">**</span><span class="mf">2.3</span>            <span class="c1"># float ** float
+</span><span class="mi">4</span><span class="o">**</span><span class="mf">3.2</span>              <span class="c1"># int ** float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>256                 <span class="c"># int</span>
+14.515932837559118  <span class="c"># float</span>
+84.44850628946526   <span class="c"># float</span>
+</code></pre></div></div>
+
+<h1 id="akar-kuadrat">Akar Kuadrat</h1>
+<p>Untuk dapat melakukan operasi matematika berupa akar kuadrat (<em>square root</em>), terlebih dahulu kamu harus melakukan <em>import</em> terhadap <em>module</em> bernama <strong>math</strong>. Kemudian, cara menggunakannya dengan memasukkan nilai yang akan di akar kuadratkan ke dalam tanda kurung <code class="highlighter-rouge">math.sqrt(...)</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>        <span class="c1"># int
+</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">144</span><span class="p">)</span>      <span class="c1"># int
+</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>      <span class="c1"># int
+</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">9.3</span><span class="p">)</span>      <span class="c1"># float
+</span></code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.0                 <span class="c"># float</span>
+12.0                <span class="c"># float</span>
+15.968719422671311  <span class="c"># float</span>
+3.0495901363953815  <span class="c"># float</span>
+</code></pre></div></div>
+
+<p><br />
+Saya rasa cukup sampai di sini dulu pembahasan mengenai operasi matematika dasar.</p>
+
+<p>Benar-benar sangat sederhana bukan ?</p>
+
+<p>Matematika sangat diperlukan ketika kita membuat program yang memerlukan perhitungan, maka akan sangat memudahkan kita apabila untuk melakukan operasi matematika kita dapat menuliskan sintaks kodenya secara sederhana seperti yang ada dalam bahasa pemrograman Python.</p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/02-print-function-dan-strings"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/04-variabel-dan-tipe-data"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+:ET

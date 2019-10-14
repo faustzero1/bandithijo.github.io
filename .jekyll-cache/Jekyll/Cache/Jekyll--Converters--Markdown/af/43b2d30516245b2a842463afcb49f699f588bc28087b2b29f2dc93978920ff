@@ -1,0 +1,13 @@
+I"�<div style="margin-top:30px;"></div>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/elCMIpfneSk" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Memasang Packet Tracer 7.1 secara alternatif menggunakan PKGBUILD dari AUR.</p>
+
+<p>Kok ribet? Soalnya cara normal terlalu mainstream (baca: gak bisa running).</p>
+
+<p>Hal-hal begini yang kadang selalu terjadi kalo hobi update upgrade system pada distribusi yang bersifat “bleeding edge”.
+Paket satu dengan paket lainnya saling ketergantungan. Saya curiga karena ada paket dependensi yang sudah lebih dulu update dari paket dependensi lain yang diperlukan untuk menjalankan Packet Tracer 7.1</p>
+:ET

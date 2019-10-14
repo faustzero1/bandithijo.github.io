@@ -1,0 +1,248 @@
+I"ŠZ<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Hampir di setiap program Python yang nanti kamu tulis, kamu akan menggunakan <strong>variable</strong>. Variable dapat diibaratkan sebuah ember yang digunakan untuk menampung data. Variable dalam Python dapat menampun bermacam-macam data. Data yang ditampung dapat berupa string, integer, float, boolean, array, function, dan mungkin masih banyak lagi.</p>
+
+<p>Variable membantu program dapat lebih dinamis dan dapat membantu programmer mereferensikan sebuah nilai yang panjang di dalam sebuah wadah, ketimbang harus mengetik nilai yang panjang berulang kali.</p>
+
+<p>Kamu dapat membuat variable dengan nama apapun kecuali nama yang sama dengan nama sintaks dan function pada Python. Hal ini dapat menyebabkan sebuah konflik. Variable juga tidak dapat ditulis dengan awalan angka dan simbol, kecuali simbol <code class="highlighter-rouge">_</code> (baca: <em>underscore</em>).</p>
+
+<p>Sebagai contoh, kamu tidak dapat memberikan nama sebuah variable dengan nama <code class="highlighter-rouge">print</code> karena akan terjadi konflik dengan <code class="highlighter-rouge">print()</code> function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'Ini tidak dapat dilakukan !'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Apabila ini dilakukan, maka hasil dari <code class="highlighter-rouge">print('Ini tidak dapat dilakukan !')</code> tetap akan tampil pada <em>console</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ini tidak dapat dilakukan !
+</code></pre></div></div>
+
+<p>Namun, saat kita akan memanggil atau menggunakan variable yang bernama <code class="highlighter-rouge">print</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'NoneType' object is not callable
+</code></pre></div></div>
+
+<p>Akan terjadi kegagalan.</p>
+
+<h1 id="variable-dengan-1-nilai">Variable dengan 1 Nilai</h1>
+
+<h2 id="string">String</h2>
+<p>Nah sekarang yang benernya. Kita sudah mempelajari print() function pada materi pertama. Sekarang, Yuk! Kita coba kombinasikan print() function dengan variable.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaDepan</span> <span class="o">=</span> <span class="s">'Devika'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">namaDepan</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Devika
+</code></pre></div></div>
+
+<p>Kamu juga tidak dapat mengisi nilai dari sebuah variable seperti di bawah ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="n">Devika</span> <span class="n">Marina</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;stdin&gt;", line 1
+    namaLengkap = Devika Marina
+                              ^
+SyntaxError: invalid syntax
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Devika Marina</code> bukan merupakan tipe data yang tepat. Apabila kamu bermaksud membuat <code class="highlighter-rouge">Devika Marina</code> menjadi sebuah string, maka kamu harus menuliskannya dengan mengawali dan mengakhiri dengan tanda petik (<code class="highlighter-rouge">'...'</code> atau <code class="highlighter-rouge">"..."</code>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="s">'Devika Marina'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">namaLengkap</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Devika Marina
+</code></pre></div></div>
+
+<p>Atau, kamu dapat menerapkan <em>concatenation</em> yang sudah kita pelajari pada materi pertama.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="s">'Devika Marina'</span>   <span class="c1"># string
+</span><span class="n">umur</span>        <span class="o">=</span> <span class="s">'18'</span>              <span class="c1"># string
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Nama Lengkap :'</span><span class="p">,</span><span class="n">namaLengkap</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Umur         :'</span><span class="p">,</span><span class="n">umur</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama Lengkap : Devika Marina
+Umur         : 18
+</code></pre></div></div>
+
+<h2 id="integer-atau-float">Integer atau Float</h2>
+<p>Selain bernilai string, variable juga dapat bernilai integer maupun float.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jmlhRoda</span>   <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># integer
+</span><span class="n">jmlhSolar</span>  <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># float
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Banyak Roda     : '</span><span class="p">,</span><span class="n">jmlhRoda</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Kapasitas Solar : '</span><span class="p">,</span><span class="n">jmlhSolar</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Banyak Roda     : 10
+Kapasitas Solar : 100.0
+</code></pre></div></div>
+
+<h2 id="boolean">Boolean</h2>
+<p>Variable dapat pula bertipe data boolean, yaitu <strong>True</strong> atau <strong>False</strong>. Penulisan nilai boolean harus di awali dengan huruf besar.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudahMenikah</span> <span class="o">=</span> <span class="bp">True</span>     <span class="c1"># boolean
+</span><span class="n">jomblo</span>       <span class="o">=</span> <span class="bp">False</span>    <span class="c1"># boolean
+</span>
+<span class="n">sudahMenikah</span>
+<span class="n">jomblo</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+False
+</code></pre></div></div>
+
+<h1 id="variable-dengan-banyak-nilai">Variable dengan Banyak Nilai</h1>
+
+<h2 id="tuples">Tuples</h2>
+<p><strong>Tuple</strong> adalah variable yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan oleh tanda koma <code class="highlighter-rouge">,</code> yang membuatnya mirip dengan <strong>list</strong> (list, dalam bahasa pemrograman lain disebut array). Namun, yang menjadikan tuple berbeda dengan list adalah tuple memiliki sifat <strong>immutable</strong> yang artinya kekal atau tidak dapat diubah-ubah.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">perangkatKeras</span> <span class="o">=</span> <span class="s">'Keyboard'</span><span class="p">,</span> <span class="s">'Mouse'</span><span class="p">,</span> <span class="s">'Monitor'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Keyboard
+Mouse Monitor
+</code></pre></div></div>
+<p>Pada contoh di atas, saya menggunakan contoh pemanggilan isi dari variable tuple dengan menggunakan urutan dari indeksnya. <code class="highlighter-rouge">[0]</code> dibaca <strong>indeks ke nol</strong>.</p>
+
+<p>Indeks pada bahasa pemrograman Python dimulai dari 0, selanjutnya diikuti 1, 2, 3, 4, 5, dstâ€¦</p>
+
+<p>Contoh lain,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mobil1</span><span class="p">,</span> <span class="n">mobil2</span><span class="p">,</span> <span class="n">mobil3</span> <span class="o">=</span> <span class="s">'Kijang'</span><span class="p">,</span> <span class="s">'Avanza'</span><span class="p">,</span> <span class="s">'Innova'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mobil1</span><span class="p">,</span> <span class="n">mobil2</span><span class="p">,</span> <span class="n">mobil3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mobil2</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kijang Avanza Innova
+Avanza
+</code></pre></div></div>
+
+<p>Contoh lain,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">45</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>120
+120 90 45
+</code></pre></div></div>
+
+<p>Contoh lain, kamu dapat melihat isi dari sebuah tuple dengan cara seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4)
+22
+</code></pre></div></div>
+
+<p>Kamu dapat menuliskan sebuah variable tuple dengan mengawali dengan tanda kurung <code class="highlighter-rouge">(</code> dan menutupnya dengan <code class="highlighter-rouge">)</code>.</p>
+
+<p>Seperti ini <code class="highlighter-rouge">(..., ..., ...)</code>. Namun, tidak menggunakan tanda kurung <code class="highlighter-rouge">(...)</code> juga tidak masalah. Seperti ini <code class="highlighter-rouge">..., ..., ...</code></p>
+
+<p>Sehingga secara <em>default</em>, apabila kamu mendeklarasikan sebuah variable yang memiliki banyak nilai dan dipisahkan dengan tanda koma, maka Python akan mengenalinya sebagai variable dengan tipe data tuple.</p>
+
+<h2 id="python-lists">Python Lists</h2>
+<p>Selanjutnya kita memiliki variable yang lebih populer dibandingkan tuple, yaitu Python list.</p>
+
+<p><strong>Lists</strong> adalah variable struktur data yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan dengan tanda koma <code class="highlighter-rouge">,</code> yang membuatnya mirip dengan <strong>tuple</strong>. Namun, yang membedakannya denga tuple adalah kita mendeklarasikan sebuah variable bertipe data list dengan mengapit data tersebut menggunakan tanda kurung kotak <code class="highlighter-rouge">[..., ..., ...]</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Anggota Tim Inti : '</span><span class="p">,</span><span class="n">timInti</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Penjaga Gawang   : '</span><span class="p">,</span><span class="n">timInti</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Anggota Tim Inti : [15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4]
+Penjaga Gawang   : 1
+</code></pre></div></div>
+
+<p>Python list ini <strong>tidak bersifat immutable</strong> sehingga memungkinkan kita untuk dapat memodifikasinya, seperti: <em>append</em>, <em>extend</em>, <em>insert</em>, <em>count</em>, <em>remove</em>, <em>reverse</em>, <em>sort</em>, dll.</p>
+
+<p>Nanti akan ada pembahasan tersendiri untuk modifikasi Python list.</p>
+
+<h2 id="dictionary">Dictionary</h2>
+<p><strong>Python Dictionary</strong> adalah sebuah variable struktur data yang hampir mirip dengan array. <em>Dictionary</em> kalo diartikan secara bahasa akan bermakna <strong>kamus</strong>. Ya! Persis selayaknya kamus, yang isinya terdapat kata kunci dan setiap kata kunci memiliki arti yang dapat lebih dari satu arti.</p>
+
+<p>Dictionary tidak diurutkan berdasarkan sesuatu. Karakteristik yang khas dari Python dictionary adalah memiliki <strong>kunci</strong> dan <strong>nilai</strong> (<code class="highlighter-rouge">kunci:nilai</code>). Setiap kunci berbentuk unik dan hanya satu. Sedangkan nilainya dapat mengandung lebih dari satu data / tipe data, baik dalam bentuk tipe data apapun seperti: string, integer, float, tuple, list, bahkan dictionary juga.</p>
+
+<p>Untuk mendeklarasikan sebuah variable dengan tipe struktur data dictionary, kita perlu mengawalinya dengan menggunakan tanda kurung kurawal<code class="highlighter-rouge">{</code> dan menutupnya dengan <code class="highlighter-rouge">}</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nomorPunggung</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Cebe'</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s">'Bly'</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s">'Davy'</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s">'Haris'</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">nomorPunggung</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'Cebe': 10, 'Bly': 11, 'Davy': 4, 'Haris': 9}
+</code></pre></div></div>
+
+<p>Apabila kita ingin mengetahui berapakah nomor punggung dari Davy, maka kita cukup memanggil kuncinya saja.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">nomorPunggung</span><span class="p">[</span><span class="s">'Davy'</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Berapakah nomor punggung Davy ?'</span><span class="p">,</span><span class="n">nomorPunggung</span><span class="p">[</span><span class="s">'Davy'</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+Berapakah nomor punggung Andi ? 4
+</code></pre></div></div>
+
+<p>Perlu diperhatikan, pemanggilan kunci berupa string, haruslah sama persis dengan kunci yang sudah di deklarasikan di dalam variable dictionary. Namanya saja kunci, kalo kuncinya tidak sama, maka pintu tidak akan dapat dibuka.</p>
+
+<p>Selain kunci yang berbentuk string, kunci dapat pula berupa integer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">juaraLomba</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s">'Irvan'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s">'Ichsan'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s">'Wisnu'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s">'Gigon'</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s">'Dika'</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">juaraLomba</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Pemenang</span> <span class="n">Kejuaraan</span> <span class="n">Lari</span> <span class="p">:</span> <span class="s">',juaraLomba[3])</span><span class="err">
+</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Wisnu
+Pemenang Kejuaraan Lari : Wisnu
+</code></pre></div></div>
+
+<p>Contoh di atas, adalah contoh dictionary yang memiliki satu nilai. Berikut ini adalah dictionary yang dapat meiliki nilai (<em>value</em>) lebih dari satu.</p>
+
+<p>Misalkan, kita memiliki daftar identitas yang berisi nama, tinggi badan, warna kulit. Kemudian kita akan membuat nama sebagai kunci.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">identitas</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Irvan'</span><span class="p">:[</span><span class="mi">172</span><span class="p">,</span><span class="s">'Putih'</span><span class="p">],</span> <span class="s">'Ichsan'</span><span class="p">:[</span><span class="mi">170</span><span class="p">,</span><span class="s">'Cokelat'</span><span class="p">],</span> <span class="s">'Wisnu'</span><span class="p">:[</span><span class="mi">168</span><span class="p">,</span><span class="s">'Kuning'</span><span class="p">]}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">identitas</span><span class="p">[</span><span class="s">'Irvan'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">identitas</span><span class="p">[</span><span class="s">'Wisnu'</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[172, 'Putih']
+168
+</code></pre></div></div>
+<p>Dalam contoh di atas, saya menggunakan Python list sebagai nilai. Seperti yang sudah saya sebutkan di atas, nilai dapat berupa apa saja. Asik sekali bukan ?</p>
+
+<p>Untuk modifikasi dictionary akan saya tulis pada pembahasan yang lain.</p>
+
+<h1 id="variable-yang-mengandung-proses">Variable yang Mengandung Proses</h1>
+<p>Variable tidak melulu mengandung nilai-nilai. Variable juga dapat kita manfaatkan untuk menyimpan proses.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">penjumlahan</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">+</span> <span class="mi">45</span>        <span class="c1"># int + int
+</span><span class="n">pengurangan</span> <span class="o">=</span> <span class="mf">32.6</span> <span class="o">-</span> <span class="mf">13.8</span>    <span class="c1"># float - float
+</span><span class="n">perkalian</span>   <span class="o">=</span> <span class="mi">21</span> <span class="o">*</span> <span class="mf">3.5</span>       <span class="c1"># int * float
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">penjumlahan</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pengurangan</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perkalian</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>70          <span class="c"># int</span>
+18.8        <span class="c"># float</span>
+73.5        <span class="c"># float</span>
+</code></pre></div></div>
+
+<p>Sepertinya, pembahasan mengenai variable kita cukupkan sampai disini dulu.</p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/03-matematika-dasar"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/05-perulangan-while"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+:ET

@@ -1,0 +1,33 @@
+I"¯<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://4.bp.blogspot.com/-8Zdbis7q7Zg/WmLxSO4-GHI/AAAAAAAAG64/NtBEawlhLpcXQiDANDzezBpBMjd_8jJWQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Pernah mendapati video yang saat diputar, axisnya tidak sesuai dengan seharusnya ?</p>
+
+<p>Masalah ini dapat kita atasi dengan mudah pada sistem operasi GNU/Linux. Tidak perlu menggunakan aplikasi GUI, cukup dengan Terminal dan mengetikkan sebaris <em>command line</em>.</p>
+
+<h1 id="prasyarat">Prasyarat</h1>
+<p>Kita membutuhkan paket bernama <a href="https://www.archlinux.org/packages/extra/x86_64/ffmpeg/" target="_blank">ffmpeg</a>. Biasanya, paket ini sudah tersedia pada distribusi sistem operasi GNU/Linux modern, sehingga kita tidak perlu repot-repot lagi memasangnya. Karena paket ini biasanya merupakan dependensi yang dibutuhkan oleh paket yang lain. Apabila pada distro kalian ternyata belum terdapat <code class="highlighter-rouge">ffmpeg</code>, kalian harus memasangnya terlebih dahulu.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+<p>Buka Terminal dan masuk ke dalam direktori tempat dimana kalian menyimpan file video yang akan dirotasi. Kemudian ketikkan <em>command</em> di bawah,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ffmpeg -i in.mp4 -vf "transpose=1" out.mp4
+</code></pre></div></div>
+
+<blockquote>
+  <p class="title-quote">Transpose Parameter :</p>
+  <p><b>0</b> = 90 counterclockwise and vertical flip (default)<br />
+<b>1</b> = 90 clockwise<br />
+<b>2</b> = 90 counterclockwise<br />
+<b>3</b> = 90 clockwise and vertical flip<br /></p>
+</blockquote>
+
+<p>Ganti nilai dari <em>transpose parameter</em>, sesuai dengan yang kalian butuhkan.</p>
+
+<p>Ganti <code class="highlighter-rouge">in.mp4</code> dengan nama file dari video kalian, dan berikan sembarang nama pada file <code class="highlighter-rouge">out.mp4</code>.</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="https://www.archlinux.org/packages/extra/x86_64/ffmpeg/" target="_blank">archlinux.org/packages/extra/x86_64/ffmpeg/</a>
+<br />Diakses tanggal: 2018/01/19</li>
+</ol>
+:ET

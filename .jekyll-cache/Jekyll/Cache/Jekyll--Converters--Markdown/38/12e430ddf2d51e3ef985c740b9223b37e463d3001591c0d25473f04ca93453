@@ -1,0 +1,113 @@
+I"�<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/402x64szx/banner_post_05.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Semester ini saya mengikuti mata kuliah <strong>Sekuriti Jaringan</strong>. Pada salah satu pembahasan, terdapat praktik membuat dan mengkonfigurasi VPN (<em>Virtual Private Network</em>). Perangkat yang digunakan adalah perangkat dari <strong>MikroTik</strong> yang membutuhkan aplikasi <strong>WinBox</strong> untuk mempermudah proses konfigurasi. Dapat lebih memudahkan karena konfigurasi dilakukan dengan menggunakan GUI (<em>Graphical User Interface</em>).</p>
+
+<p><img src="https://s20.postimg.cc/54wzb42hp/gambar_01.png" alt="gambar1" /></p>
+<p class="img-caption">Gambar 1 - User Interface dari WinBox</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p><strong>Mikrotik</strong> hanya menyediakan <strong>WinBox</strong> untuk sistem operasi Microsoft Windows – yaa, sudah dapat ditebak dari namanya.</p>
+
+<p>Saya sendiri mengenal Mikrotik dan WinBox baru sejak tahun 2015, di awal masa perkuliahan saya. Saat artikel ini ditulis WinBox sudah mencapai versi <strong>3.13</strong> dan masih belum terdapat versi GNU/Linux – kalaupun ada mungkin akan bernama LinBox.</p>
+
+<p>Tapi jangan khawatir, file <strong>.exe</strong> WinBox dapat dengan mudah kita pasang pada distribusi sistem operasi GNU/Linux apa saja.</p>
+
+<h1 id="prasyarat">Prasyarat</h1>
+
+<p>Kita membutuhkan bantuan aplikasi <a href="https://www.archlinux.org/packages/multilib/x86_64/wine/" target="_blank"><strong>Wine</strong></a> untuk menjalankan aplikasi WinBox.</p>
+
+<p>Proses instalasi Wine dapat merujuk pada distribusi sistem operasi GNU/Linux masing-masing. Atau cari saja di Google, sudah banyak teman-teman blogger yang mendokumentasikannya. Sangat mudah dan tidak ribet.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<h2 id="instalasi-wine">Instalasi Wine</h2>
+
+<p>Untuk distribusi Arch Linux.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S wine wine_gecko wine-mono
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">wine_gecko</code> dan <code class="highlighter-rouge">wine-mono</code> diperlukan untuk aplikasi yang membutuhkan Internet Explorer dan .NET. Sebenarnya paket ini tidak benar-benar harus dipasang karena Wine secara pintar akan mengunduh paket-paket yang relevan sesuai dengan kebutuhan. Namun apabila kamu memasangnya lebih dulu akan lebih menguntungkan apabila nantinya kamu tidak mendapatkan akses internet saat proses instalasi aplikasi Microsoft Windows di atas Wine.</p>
+
+<p>Untuk kebutuhan dokumentasi ini (instalasi WinBox), hanya sejauh ini saja yang diperlukan. Namun untuk konfigurasi lebih lanjut tentang Wine dapat merujuk pada Arch Wiki, <a href="https://wiki.archlinux.org/index.php/wine" target="_blank">di sini</a>.</p>
+
+<h2 id="instalasi-winbox">Instalasi WinBox</h2>
+
+<p>Terlebih dahulu kalian harus mengunduh WinBox installer pada situs <em>official</em> MikroTik <a href="https://mikrotik.com/download" target="_blank">di sini</a>.</p>
+
+<p><img src="https://s20.postimg.cc/h82aymvjh/gambar_02.png" alt="gambar2" /></p>
+
+<p>Klik tombol <strong>WinBox</strong> untuk mengunduh file <strong>.exe</strong> pada versi paling baru. Setelah proses unduh selesai, letakkan WinBox pada direktori dimana kamu mudah untuk mengaksesnya. Saya biasa mengelompokkan file instalasi pada direktori tersendiri. Sebagai contoh seperti ini <code class="highlighter-rouge">~/app/winbox/</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>home
+└── bandithijo
+    └── app
+        └── winbox
+            └── winbox.exe
+</code></pre></div></div>
+
+<p>Nah, file <code class="highlighter-rouge">winbox.exe</code> ini bukan merupakan file paket instalasi, namun merupakan file launcher untuk menjalan WinBox. Sehingga tidak diperlukan proses instalasi. Saya kurang begitu mengerti istilahnya, mudah-mudahan kalian mengerti yang saya maksudkan. Hoho.</p>
+
+<p>Lakukan pengetesan untuk menguji apakah WinBox dapat berjalan di atas Wine.</p>
+
+<p>Buka <strong>Terminal</strong> dan pergi ke direktori tempat dimana file <code class="highlighter-rouge">winbox.exe</code> kalian simpan. Kemudian jalankan <em>command</em> di bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wine winbox.exe
+</code></pre></div></div>
+<p>Apabila berhasil, akan menampilkan jendela WinBox seperti di bawah.</p>
+
+<p><img src="https://s20.postimg.cc/5ms4r57jx/gambar_03.png" alt="gambar3" /></p>
+
+<p>Untuk pertama kali, karena belum pernah digunakan, <em>text input</em> <strong>Connect To:</strong> belum akan terisi MAC address apapun.</p>
+
+<p>Selanjutnya tinggal membuat <em>launcher</em> atau <em>shortcut</em> untuk memanggil WinBox dari menu aplikasi.</p>
+
+<p>Buat file <code class="highlighter-rouge">winbox.desktop</code> pada direktori <code class="highlighter-rouge">~/.local/share/applications/</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ touch ~/.local/share/applications/winbox.desktop
+</code></pre></div></div>
+
+<p>Kemudian, buka dengan text editor favorit kalian, dan isikan seperti contoh di bawah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Linbox
+Exec=wine /home/bandithijo/app/winbox/winbox.exe
+Type=Application
+StartupNotify=true
+Icon=winbox
+Comment=Mikrotik RouterOS GUI Configurator (wine)
+</code></pre></div></div>
+
+<p>Perhatikan pada bagian <code class="highlighter-rouge">Exec=</code>. Kalian perlu mengganti lokasi dari <code class="highlighter-rouge">winbox.exe</code> sesuai dengan direktori dimana kalian menyimpan file <code class="highlighter-rouge">winbox.exe</code>.</p>
+
+<p>Dengan demikian proses instalasi dan konfigurasi WinBox pada GNU/Linux saya rasa cukup seperti ini saja.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Apabila kita akan melakukan konfigurasi Router MikroTik yang sudah di <b>Reset Configuration</b>, biasanya akan <b>sangat lama sekali</b> untuk mendapatkan MAC Address.</p>
+<br />
+<p><b>Solusi 1</b>:</p>
+<p>Sementara hanya melakukan scan Mac Address berulang-ulang sampai WinBox mendapatkan MAC Address. Hahahaha sedih =(</p>
+<br />
+<p><b>Solusi 2</b>:</p>
+<p>Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(</p>
+<br />
+<p><b>Solusi 3</b>:</p>
+<p><img src="/assets/img/logo/logo_blank.svg" data-echo="https://i.postimg.cc/zf8KN0zy/komentar-01.png" /></p>
+</div>
+
+<h1 id="video-sample">Video Sample</h1>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/2DVKiNiCiI8" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://wiki.archlinux.org/index.php/wine" target="_blank">https://wiki.archlinux.org/index.php/wine</a>
+<br />Diakses tanggal: 2018/04/24</li>
+</ol>
+
+:ET

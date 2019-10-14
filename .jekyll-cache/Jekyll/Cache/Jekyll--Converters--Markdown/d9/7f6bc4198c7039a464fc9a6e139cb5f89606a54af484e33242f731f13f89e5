@@ -1,0 +1,427 @@
+I"�S<h1 id="tugas-1">TUGAS 1</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Mata Kuliah</td>
+      <td><strong>Data Warehouse &amp; Data Mining</strong></td>
+    </tr>
+    <tr>
+      <td>Nama</td>
+      <td><strong>Rizqi Nur Assyaufi</strong></td>
+    </tr>
+    <tr>
+      <td>NIM</td>
+      <td><strong>15.01.157</strong></td>
+    </tr>
+    <tr>
+      <td>Kelas</td>
+      <td><strong>TI2-B</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <h2 id="soal">Soal</h2>
+  <p><strong>Buatlah tutorial melakukan Extract dan Transform dari data .CSV ke dalam tabel operasional dalam bentuk ERD.</strong></p>
+
+  <p>Tutorial boleh dalam bentuk Video Youtube atau laporan makalah atau artikel Blog.</p>
+
+  <p>Materi tutorial silakan gunakan file yang disertakan.</p>
+
+  <p>Jika sudah selesai, segera kumpulkan disini.</p>
+</blockquote>
+
+<blockquote>
+  <h2 id="file-attachment">File Attachment</h2>
+  <ol>
+    <li><a href="https://drive.google.com/open?id=1Cqyc-D1e_8NawsbcFSxevO9WvyzsGBcU">pasar_2014.csv</a></li>
+    <li><a href="https://drive.google.com/open?id=17N-iWrWR3m9S11sbX9BTcaJP5qesB6EX">pasar_data.sql</a></li>
+  </ol>
+</blockquote>
+
+<hr />
+
+<h1 id="jawaban">Jawaban</h1>
+<p>Pada tulisan ini saya menggunakan aplikasi manajemen database berbasis GUI yang bernama <a href="https://dev.mysql.com/downloads/workbench/"><strong>MySQL Workbench</strong></a> pada sistem operasi <a href="https://www.archlinux.org/"><strong>Arch Linux</strong></a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 1" data-echo="https://s20.postimg.cc/9kkmzr9i5/gambar_01.png" /></p>
+
+<h2 id="step-1-membuat-connection">Step 1: Membuat Connection</h2>
+<p>Apabila belum terdapat connection, kita dapat terlebih dahulu membuatnya dengan menekan icon (<strong>+</strong>) seperti yang ada pada Gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 2" data-echo="https://s20.postimg.cc/yqll6k87h/gambar_02.png" /></p>
+
+<p><br />
+Nanti akan terbuka <em>window</em> baru, seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 3" data-echo="https://s20.postimg.cc/60yp9xrct/gambar_03.png" /></p>
+
+<p>Isi pada bagian <em>text input</em> berlabel <strong>Connection Name :</strong> dengan nama koneksi yang kalian inginkan. Sebagai contoh, saya mengisikan <code class="highlighter-rouge">localhost 3306</code>.</p>
+
+<p><br />
+Lakukan tes koneksi dengan mengklik tombol <strong>Test Connection</strong> seperti yang ada pada gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 4" data-echo="https://s20.postimg.cc/8iagh6ge5/gambar_04.png" /></p>
+
+<p><br />
+Apabila berhasil, akan memunculkan <em>window</em> seperti gambar di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 5" data-echo="https://s20.postimg.cc/e6gr83065/gambar_05.png" /></p>
+
+<p>Pilih <strong>OK</strong>, maka akan terbuat satu buah <em>MySQL Connection</em> yang bernama <strong>localhost 3306</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 6" data-echo="https://s20.postimg.cc/4lx4l7ijx/gambar_06.png" /></p>
+
+<p>Pada sistem operasi Arch Linux, akan terdapat <em>window</em> yang berisi pemberitahuan bahwa versi <em>server</em> yang sedang digunakan adalah versi 10, sedangkan yang didukung oleh MySQL Workbench adalah veri 5.1, 5.5, 5.6, 5.7. Kita dapat mengabaikan pesan ini dan memilih <strong>Continue Anyway</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 7" data-echo="https://s20.postimg.cc/iflha9qkt/gambar_07.png" /></p>
+
+<p><br />
+Akan terbuka sebuah <em>tab</em> baru dengan tampilan seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 8" data-echo="https://s20.postimg.cc/5o7b3s3y5/gambar_08.png" /></p>
+
+<h2 id="step-2-membuat-schema">Step 2: Membuat Schema</h2>
+<p>Selanjutnya, kita akan mebuat <em>database schema</em>, dengan cara melakukan <strong>klik kanan pada area kosong</strong> di sisi <em>sidebar</em> sebelah kiri pada <em>tab Schemas</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 9" data-echo="https://s20.postimg.cc/kk5ubd7n1/gambar_09.png" /></p>
+
+<p><br />
+Kemudian, pada area tengah, akan terbuka <em>tab</em> baru seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 10" data-echo="https://s20.postimg.cc/3wec8w00t/gambar_10.png" /></p>
+
+<p><br />
+Isi <em>text input</em> <strong>Name :</strong> sesuai yang diinginkan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 11" data-echo="https://s20.postimg.cc/otakdjqbx/gambar_11.png" /></p>
+
+<p><br />
+Apabila telah diberikan nama, pilih tombol <strong>Apply</strong>, maka akan terbuka <em>window</em> baru seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 12" data-echo="https://s20.postimg.cc/jun1z19od/gambar_12.png" /></p>
+
+<p>Pilih <strong>Apply &gt; Close</strong>.</p>
+
+<p><br />
+Akan terbuat <em>database scheme</em> dengan struktur seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 13" data-echo="https://s20.postimg.cc/6qhhmc9wt/gambar_13.png" /></p>
+
+<h2 id="step-3-membuat-tabel-tabel">Step 3: Membuat Tabel-tabel</h2>
+<p>Selanjutnya kita akan memasukkan <strong>SQL Script</strong> untuk membuat tabel-tabel secara otomatis.</p>
+
+<p>Pilih <strong>File &gt; Open SQL Script…</strong></p>
+
+<p>Cari file <strong>pasar_data.sql</strong> yang telah disertakan bersama tugas. Apabila belum ada, bisa mengunduhnya terlebih dahulu di <a href="https://drive.google.com/open?id=17N-iWrWR3m9S11sbX9BTcaJP5qesB6EX">sini</a>.</p>
+
+<p>Apabila sudah, nanti akan terbuka <em>tab</em> baru di area tengah, seperti pada gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 14" data-echo="https://s20.postimg.cc/85j2b2qfh/gambar_14.png" /></p>
+
+<p><br />
+Selanjutnya, kita akan mengeksekusi SQL Script yang sudah kita masukkan.</p>
+
+<p>Tapi sebelunya, kita perlu untuk membuat <em>database schema</em> yang kita buat sebelumnya, untuk dijadikan <em>default schema</em>.</p>
+
+<p>Caranya, pada <em>sidebar</em> kiri, pada bagian <em>tab Schemas</em> <strong>klik kanan pada nama schema</strong>, kemudian pilih <strong>Set as Default Schema</strong>, seperti contoh di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 15" data-echo="https://s20.postimg.cc/wm185jyvx/gambar_15.png" /></p>
+
+<p><br />
+Kemudian, eksekusi SQL script dengan melakukan klik pada tombol bergambar petir. Seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 16" data-echo="https://s20.postimg.cc/dtpd1za7h/gambar_16.png" /></p>
+
+<p><br />
+Perhatikan pada bagian bawah, terdapat <em>Output Panel</em>, akan terdapat pesan seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 17" data-echo="https://s20.postimg.cc/8iagha3kd/gambar_17.png" /></p>
+
+<p><br />
+Apabila, telah berhenti memberikan <em>output</em>, sekarang kita pergi ke <em>sidebar</em> sebelah kiri, dan lakukan <em>refresh</em> agar menampilkan <em>update</em> terbaru dari <em>database scheme</em>.</p>
+
+<p>Caranya dengan klik kanan pada area kosong dan pilih <strong>Refresh All</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 18" data-echo="https://s20.postimg.cc/j549mp3zx/gambar_18.png" /></p>
+
+<p><br />
+Hasilnya akan seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 19" data-echo="https://s20.postimg.cc/gnsiffzj1/gambar_19.png" /></p>
+
+<h2 id="step-4-ekstrak-dan-transform-data">Step 4: Ekstrak dan Transform Data</h2>
+<p>Terdapat 5 buah tabel:</p>
+
+<ol>
+  <li>detil_komoditas</li>
+  <li>komoditas</li>
+  <li>pasar</li>
+  <li>satuan</li>
+  <li>transaksi</li>
+</ol>
+
+<p>Kita tidak dapat memasukkan data hasil ekstrak dan transform secara acak. Kita perlu membaca <em>relationship tables</em> (relasi antar tabel). Untuk itu kita memerlukan ERD (<em>Entity Relationship Diagram</em>).</p>
+
+<h3 id="41-entity-relationship-diagram">4.1 Entity Relationship Diagram</h3>
+<p>Caranya, pergi ke menu <strong>Database &gt; Reverse Engineer…</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 20" data-echo="https://s20.postimg.cc/3wec8y56l/gambar_20.png" /></p>
+
+<p><br />
+Kemudian, masukkan <strong>MySQL Connection</strong> yang telah kita buat pada Step 1, ke dalam <strong>Stored connection</strong>. Pada contoh saya <code class="highlighter-rouge">localhost 3306</code>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 21" data-echo="https://s20.postimg.cc/azm7ok2wd/gambar_21.png" /></p>
+
+<p>Selanjutnya pilih <strong>Next</strong>.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="Gambar 22" data-echo="https://s20.postimg.cc/moq7cj9al/gambar_22.png" /></p>
+
+<p>Pilih <strong>Next</strong>.</p>
+
+<p><br />
+Pilih <em>Database Scheme</em> yang kita buat.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 23" data-echo="https://s20.postimg.cc/wm185m41p/gambar_23.png" /></p>
+
+<p>Pilih <strong>Next</strong>.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="Gambar 24" data-echo="https://s20.postimg.cc/jun1z3eu5/gambar_24.png" /></p>
+
+<p>Pilih <strong>Next</strong>.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="Gambar 25" data-echo="https://s20.postimg.cc/uu89apcz1/gambar_25.png" /></p>
+
+<p>Pilih <strong>Execute &gt; Next &gt; Close</strong>.</p>
+
+<p><br />
+Nanti akan terbuka <em>tab EER Diagram</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 26" data-echo="https://s20.postimg.cc/4lx4lc8b1/gambar_26.png" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 27" data-echo="https://s20.postimg.cc/495qf781p/gambar_27.png" /></p>
+
+<p><br />
+Dari pembacaan relasi antar tabel di atas, dapat kita urutkan tabel mana yang akan kita kerjakan terlebih dahulu.</p>
+
+<ol>
+  <li>Tabel <code class="highlighter-rouge">pasar</code></li>
+  <li>Tabel <code class="highlighter-rouge">komoditas</code></li>
+  <li>Tabel <code class="highlighter-rouge">satuan</code></li>
+  <li>Tabel <code class="highlighter-rouge">detil_komoditas</code></li>
+  <li>Tabel <code class="highlighter-rouge">transaksi</code></li>
+</ol>
+
+<h3 id="42-mengekstrak-csv">4.2 Mengekstrak CSV</h3>
+<p>Kita akan melakukan ekstraksi file <code class="highlighter-rouge">pasar_2014.csv</code> ke dalam bentuk struktur tabel.</p>
+
+<p>Caranya, kembali ke <em>tab localhost 3306</em> (di bagian atas sebelah kiri, disebelah <em>icon Home</em>). Kemudian pada <em>sidebar</em> kiri, pada <em>database schema</em> yang kita buat, klik kanan dan pilih <strong>Table Data Import Wizard</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 28" data-echo="https://s20.postimg.cc/dtpd21n31/gambar_28.png" /></p>
+
+<p><br />
+Nanti akan terbuka <em>window</em> baru seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 29" data-echo="https://s20.postimg.cc/5o7b3we9p/gambar_29.png" /></p>
+
+<p>Cari file <strong>pasar_2014.csv</strong> yang telah disediakan bersama soal. Atau kalian dapat mengunduhnya di <a href="https://drive.google.com/open?id=1Cqyc-D1e_8NawsbcFSxevO9WvyzsGBcU">sini</a>.</p>
+
+<p>Kalo sudah, pilih <strong>Next &gt;</strong>.</p>
+
+<p><br />
+Berikan nama tabel dari file <strong>.csv</strong> yang ingin kita ekstraksi.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 30" data-echo="https://s20.postimg.cc/pvkqw7r6l/gambar_30.png" /></p>
+
+<p>Pilih <strong>Next &gt;</strong>.</p>
+
+<p><br />
+Periksa bagian <strong>Columns :</strong>, apakah sudah sesuai dengan kategori dari masing-masing kolom / <em>fields</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 31" data-echo="https://s20.postimg.cc/fy9q35bv1/gambar_31.png" /></p>
+
+<p>Pilih <strong>Next &gt;</strong>.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="Gambar 32" data-echo="https://s20.postimg.cc/dtpd21ust/gambar_32.png" /></p>
+
+<p>Pilih <strong>Next &gt;</strong>.</p>
+
+<p><br />
+Nah, kalo sudah menampilkan seperti di bawah, proses import data artinya telah sukses.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 33" data-echo="https://s20.postimg.cc/aa3fcaa3h/gambar_33.png" /></p>
+
+<p>Pilih <strong>Next &gt;</strong>.</p>
+
+<p><br />
+Selanjutnya periksa banyaknya data yang telah berhasil diimport, harus sesuai dengan banyaknya data yang ada pada file <strong>pasar_2014.csv</strong>, yaitu sebanyak <strong>18.940</strong> records.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 34" data-echo="https://s20.postimg.cc/v6zngy0el/gambar_34.png" /></p>
+
+<p>Pilih <strong>Finish</strong>.</p>
+
+<p><br />
+Kemudian, kembali ke <em>sidebar</em> sebelah kiri. Belum terdapat tabel <strong>data</strong> yang baru saja kita buat dari hasil ekstrak file <strong>pasar_2014.csv</strong>. Kita perlu melakukan <strong>Refresh All</strong> pada <em>database schema</em>. Setelah melakukan <em>refresh</em>, akan muncul tabel <strong>data</strong> seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 35" data-echo="https://s20.postimg.cc/dtpd22pnx/gambar_35.png" /></p>
+
+<p><br />
+Kita akan melihat hasil ekstrak dari file .csv yang sudah kita <em>import</em>. Dengan cara melakukan klik pada <em>icon</em> di samping.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 36" data-echo="https://s20.postimg.cc/xbk0i1hgt/gambar_36.png" /></p>
+
+<p><br />
+Akan memunculkan hasil seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 37" data-echo="https://s20.postimg.cc/tf6om36rx/gambar_37.png" /></p>
+
+<h3 id="43-transform-hasil-exstrak">4.3 Transform Hasil Exstrak</h3>
+<p>Selanjutnya kita akan melakukan transformasi dari tabel data yang seelunya kita ekstrak dari file <strong>pasar_2014.csv</strong>.</p>
+
+<p>Untuk melakukan transform data, kita berpindah saja ke <em>tab</em> <strong>Query 1</strong>. Di sini kita akan mengetikkan perintah-perintah SQL untuk melakukan transformasi tabel <strong>data</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 38" data-echo="https://s20.postimg.cc/6dq3gbc99/gambar_38.png" /></p>
+
+<p><br />
+Selanjutnya kita akan melakukan transformasi dari tabel <strong>data</strong> berurut sesuai dengan hasil pembacaan relasi tabel ERD.</p>
+
+<h4 id="431-tabel-pasar">4.3.1 Tabel Pasar</h4>
+<p>Kita akan mentransformasi <em>fields</em> <strong>namapasar</strong> dari tabel <strong>data</strong>, dengan <em>queries</em> seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT @nomor:=@nomor+1 as id, namapasar
+FROM data,(SELECT @nomor:=0)r
+GROUP BY namapasar;
+</code></pre></div></div>
+<p>Kemudian <strong>Excute</strong> dengan menekan tombol bergambar petir.</p>
+
+<p><br />
+Akan menghasilkan tabel hasil transformasi dari tabel data seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 39" data-echo="https://s20.postimg.cc/60ypa4m9p/gambar_39.png" /></p>
+
+<p><br />
+Kemudian, <em>export</em> ke dalam format <strong>.csv</strong>, dengan menekan tombol <strong>Export</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 40" data-echo="https://s20.postimg.cc/kk5ubjuu5/gambar_40.png" /></p>
+
+<p>berikan nama, misal <strong>data_pasar.csv</strong>, karena kita akan memasukkan ke dalam tabel <strong>pasar</strong>.</p>
+
+<p><br />
+Buka tabel <strong>pasar</strong>, atau <em>view</em> tabel <strong>pasar</strong>. Klik tombol <strong>Import</strong> untuk mengambil file <strong>data_pasar.csv</strong> yang tadi sudah kita <em>export</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 41" data-echo="https://s20.postimg.cc/lz7f0abct/gambar_41.png" /></p>
+
+<p><br />
+Akan memunculkan hasil seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 42" data-echo="https://s20.postimg.cc/pvkqw9oml/gambar_42.png" /></p>
+
+<p><br />
+Kita perlu menghapus baris pertama karena bukan berisi <em>record</em> yang kita perlukan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 43" data-echo="https://s20.postimg.cc/738vspn3h/gambar_43.png" /></p>
+
+<p><br />
+Dan akan menghasilkan isi tabel seperti gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 44" data-echo="https://s20.postimg.cc/5o7b3ztq5/gambar_44.png" /></p>
+
+<p>Apabila seperti di atas, artinya <em>records data</em> yang kita perlukan sudah tepat.</p>
+
+<p><br />
+Selanjutnya kita perlu melakukan <strong>Apply</strong>. Klik tombol <strong>Apply</strong> pada pojok kanan bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 45" data-echo="https://s20.postimg.cc/p61yjxb8d/gambar_45.png" /></p>
+
+<p><br />
+Akan terbuka <em>window</em> seperti di bawah yang berisi <em>queries</em> untuk memasukkan data ke dalam tabel <strong>data</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 46" data-echo="https://s20.postimg.cc/4yoirn0wd/gambar_46.png" /></p>
+
+<p>Pilih <strong>Apply</strong>.</p>
+
+<p>Apabila berhasil dan tidak ada <em>error</em>, pilih <strong>Close</strong>. Data yang kita <em>import</em> tadi akan masuk ke dalam tabel <strong>pasar</strong>.</p>
+
+<p>Apabila gagal, maka kita perlu meninjau kembali data yang kita dapat dari hasil <em>queries</em> yang kita buat saat melakukan transformasi dari tabel <strong>data</strong>, apakah sudah sesuai dengan relasi dari tabel yang kita tuju.</p>
+
+<blockquote>
+  <p class="title-quote">[ ! ] Perhatian</p>
+  <p>Untuk tabel selanjutnya, proses <strong>Export</strong> dan <strong>Import</strong> sama seperti tabel <strong>pasar</strong>, sehingga tidak saya tuliskan kembali.</p>
+
+  <p>Selanjutnya saya hanya akan menuliskan <em>query syntax</em> nya saja untuk melakukan transformasi tabel <strong>data</strong> ke bentuk yang diperlukan oleh tabel tujuan.</p>
+</blockquote>
+
+<h4 id="432-tabel-komoditas">4.3.2 Tabel Komoditas</h4>
+<p>Kita akan mentransformasi <em>fields</em> <strong>komoditas</strong> dari tabel <strong>data</strong>, dengan <em>queries</em> seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT @nomor:=@nomor+1 as id, komoditas
+FROM data,(SELECT @nomor:=0)r
+GROUP BY komoditas;
+</code></pre></div></div>
+<p>Kemudian <strong>Excute</strong> dengan menekan tombol bergambar petir.</p>
+
+<p>Proses <strong>Export</strong> dan <strong>Import</strong> sama seperti tabel <strong>pasar</strong>, hanya saja proses <em>import</em> dilakukan di tabel <strong>komoditas</strong>.</p>
+
+<h4 id="433-tabel-satuan">4.3.3 Tabel Satuan</h4>
+<p>Kita akan mentransformasi <em>fields</em> <strong>satuan</strong> dari tabel <strong>data</strong>, dengan <em>queries</em> seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT @nomor:=@nomor+1 as id, satuan
+FROM data,(SELECT @nomor:=0)r
+GROUP BY satuan;
+</code></pre></div></div>
+<p>Kemudian <strong>Excute</strong> dengan menekan tombol bergambar petir.</p>
+
+<p>Proses <strong>Export</strong> dan <strong>Import</strong> sama seperti tabel <strong>pasar</strong>, hanya saja proses <em>import</em> dilakukan di tabel <strong>satuan</strong>.</p>
+
+<h4 id="434-tabel-detil-komoditas">4.3.4 Tabel Detil Komoditas</h4>
+<p>Kita akan mentransformasi <em>fields</em> <strong>detilkomoditas</strong> dari tabel <strong>data</strong> yang berelasi dengan tabel <strong>komoditas</strong>, dan <strong>satuan</strong> dengan <em>queries</em> seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT
+@nomor:=@nomor+1 as id,
+data.detilkomoditas,
+komoditas.id_komoditas,
+satuan.id_satuan
+
+FROM
+data,
+komoditas,
+satuan
+
+WHERE
+data.komoditas=komoditas.nama_komoditas
+AND
+data.satuan=satuan.nama_satuan;
+</code></pre></div></div>
+<p>Kemudian <strong>Excute</strong> dengan menekan tombol bergambar petir.</p>
+
+<p>Proses <strong>Export</strong> dan <strong>Import</strong> sama seperti tabel <strong>pasar</strong>, hanya saja proses <em>import</em> dilakukan di tabel <strong>detil_komoditas</strong>.</p>
+
+<h4 id="435-tabel-transaksi">4.3.5 Tabel Transaksi</h4>
+<p>Kita akan mentransformasi <em>fields</em> <strong>tanggal</strong>, <strong>harga</strong>, <strong>jumlahterjual</strong> dari tabel <strong>data</strong> yang berelasi dengan tabel <strong>detil_komoditas</strong> dan tabel <strong>pasar</strong> dengan <em>queries</em> seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT
+detil_komoditas.id_detil_komoditas,
+pasar.id_pasar,
+data.tanggal,
+data.harga,
+data.jumlahterjual
+
+FROM
+data,
+detil_komoditas,
+pasar
+
+WHERE
+data.detilkomoditas=detil_komoditas.nama_detil_komoditas
+AND
+data.namapasar=pasar.nama_pasar;
+</code></pre></div></div>
+<p>Kemudian <strong>Excute</strong> dengan menekan tombol bergambar petir.</p>
+
+<p>Proses <strong>Export</strong> dan <strong>Import</strong> sama seperti tabel <strong>pasar</strong>, hanya saja proses <em>import</em> dilakukan di tabel <strong>transaksi</strong>.</p>
+
+<p><br />
+Maka proses ekstrak dan transformasi dari file pasar_2014.csv ke dalam tabel operasional ERD telah selesai.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="Gambar 27" data-echo="https://s20.postimg.cc/495qf781p/gambar_27.png" /></p>
+:ET

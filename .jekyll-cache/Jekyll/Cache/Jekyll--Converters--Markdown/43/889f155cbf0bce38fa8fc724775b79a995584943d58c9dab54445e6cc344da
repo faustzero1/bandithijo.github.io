@@ -1,0 +1,268 @@
+I"q@<!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sejak di rumah sudah dipasang akses internet, saya mulai konstan untuk menjelajah berbagai macam website. Terkadang ada beberapa website menarik yang selalu saya ikuti. Semakin lama, jumlah website yang saya kunjungi semakin banyak, dan sangat melelahkan membukanya satu-persatu. Terkadang saat saya berkunjung, tidak terdapat informasi terbaru (biasanya pada blog/news). Misalkan ada 10 saja website yang ingin kita kunjungi satu per satu, namun sayangnya tidak dari semuanya sudah memiliki artikel baru. Tidak efisien bukan? Bayangkan bila 10, 20, 50 website yang harus kita kunjungi.</p>
+
+<p>Dari masalah di atas, tentu saja saya menggunakan <em>bookmark</em> yang ada di <em>browser</em> untuk mencatat alamat-alamat website favorit saya. Hanya saja, lama-kelamaan menjadi kegiatan yang tidak efektif karena saya harus membuka dulu website serta me-<em>load</em> konten-konten yang ada di dalamnya, namun tidak menemukan update artikel terbaru.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Kita dapat menggunakan fitur <strong>RSS</strong> (<em>RDF Site Summary</em>/<em>Rich Site Summary</em>/<em>Really Simple Syndication</em>). RSS adalah salah satu tipe dari web feed yang memungkinkan pengguna untuk mendapatkan akses dari update konten online. Dengan menggunakan RSS reader kita akan dengan mudah mendapatkan pemberitahuan mengenai artikel terbaru dari website yang kita favoritkan.</p>
+
+<p><strong>Hari gini siapa yang masih menggunakan RSS?</strong></p>
+
+<p>Entahlah, namun saya masih menggunakannya karena sangat memudahkan aktifitas saya dalam hal memanajemen aset-aset informasi dari blog/website yang banyak.</p>
+
+<p>Setelah melihat beberapa YouTuber yang <em>concent</em> terhadap GNU/Linux memanfaatkan fitur RSS feed reader untuk memanajeman daftar website yang mereka ikuti, saya pun baru mengerti kegunaan dari RSS feed ini.</p>
+
+<p>Saya sendiri termasuk yang <em>aware</em> terhadap keberadaan RSS feed pada sebuah blog/website.</p>
+
+<p><strong>Kenapa?</strong></p>
+
+<p>Keuntungan dalam menggunakan RSS feed bagi Blog author dan Pengguna RSS feed, menurut saya adalah kita, baik Blog author maupun Blog reader, sama-sama memiliki kebebasan dalam hal waktu mempublish dan membaca artikel.</p>
+
+<p><strong>Maksudnya gimana?</strong></p>
+
+<p>Maksud saya, dengan adanya platform media sosial yang dimanfaatkan untuk menulis sebuah artikel terkadang membuat Blog author harus menentukan kapan waktu yang tepat untuk mempublish tulisan mereka. Karena apabila tidak pada waktu yang tepat, maka target pembaca atau pengunjung akan sangat kurang.</p>
+
+<p><strong>Mengapa bisa begitu?</strong></p>
+
+<p>Karena sosial media menggunakan <strong><em>Timeline</em></strong>.</p>
+
+<p><em>Timeline</em> inilah yang akan menggeser tulisan-tulisan kalian dengan postingan orang lain yang lebih baru. Kecuali, si pembaca menggunakan fitur “<em>Turn on notifications for post</em>”.</p>
+
+<p>Bagaimanapun juga hal ini tidak akan dialami oleh Blog apabila memanfaatkan fitur Rss feed. Blog author dapat mempublish artikel kapanpun, Blog reader pun dapat membaca artikel kapanpun. Tidak akan tergeser atau tergusur oleh artikel Blog yang lain. Sudah memiliki porsi dan tempatnya masing-masing.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Kita membutuhkan aplikasi RSS feed reader untuk mengumpulkan semua daftar RSS dari website yang kita favoritkan.</p>
+
+<p>Aplikasi yang saya rekomendasikan adalah <a href="https://www.archlinux.org/packages/community/x86_64/newsboat/" target="_blank"><code class="highlighter-rouge">newsboat</code></a>. Newsboat adalah aplikasi yang berjalan di atas Terminal.</p>
+
+<ol>
+  <li>Pasang aplikasi <code class="highlighter-rouge">newsboat</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S newsboat
+</code></pre></div>    </div>
+    <p>Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.</p>
+  </li>
+  <li>Karena aplikasi ini berjalan di atas Terminal dan belum tersedia <em>application launcher</em>-nya, maka kita perlu membuatnya sendiri.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim .local/share/applications/newsboat.desktop
+</code></pre></div>    </div>
+    <pre>
+ [Desktop Entry]
+ Name=newsboat
+ Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
+ <mark>Exec=urxvt -e newsboat</mark>
+ Icon=liferea
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+ Categories=Network;News;
+ Keywords=news;feed;aggregator;blog;podcast;</pre>
+    <p>Pada bagian <code class="highlighter-rouge">Exec=</code>, Terminal emulator <code class="highlighter-rouge">urxvt</code> mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: <code class="highlighter-rouge">gnome-terminal</code>, <code class="highlighter-rouge">xfce4-terminal</code>, <code class="highlighter-rouge">termite</code>, <code class="highlighter-rouge">konsole</code>, dan lain sebagainya. Perhatikan <code class="highlighter-rouge">-e</code> tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan <code class="highlighter-rouge">-x</code>.</p>
+  </li>
+</ol>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Sebelum kita jalankan, sebaiknya kita konfigurasi terlebih dahulu. Karena newsboat tidak dapat menjalankan apa-apa tanpa ada alamat RSS feed di dalamnya. Kalian dapat meletakkan file konfigurasi pada direktori <code class="highlighter-rouge">~/.newsboat/</code>, namun saya lebih menyukai meletakkan file konfigurasi pada direktori <code class="highlighter-rouge">~/.config/newsboat/</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p ~/.config/newsboat
+</code></pre></div></div>
+
+<p>Setelah itu di dalam direktori <code class="highlighter-rouge">~/.config/newsboat/</code> ini, kita perlu membuat 2 buah file, yaitu <code class="highlighter-rouge">config</code> dan <code class="highlighter-rouge">urls</code>.</p>
+
+<p>File <code class="highlighter-rouge">config</code> diperlukan untuk pengaturan dari newsboat, seperti: <em>keyboard shortcuts</em>, <em>colorscheme</em>, dll. Sedangkan file <code class="highlighter-rouge">urls</code> diperlukan untuk menempakatan semua koleksi alamat RSS feed yang kita favoritkan.</p>
+
+<h2 id="membuat-file-konfigurasi">Membuat File Konfigurasi</h2>
+
+<p>Kita akan membuat file konfigurasi. Pada tahap ini teman-teman dapat mencontoh konfigurasi yang saya miliki.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/newsboat/config
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto-reload yes
+datetime-format "%Y/%m/%d, %R"
+
+external-url-viewer "urlview"
+
+# ----------------------------------------------------------------------------
+# Shortcut Keys
+# ----------------------------------------------------------------------------
+bind-key j down
+bind-key k up
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key g home
+bind-key G end
+bind-key u pageup
+bind-key d pagedown
+bind-key l open
+bind-key a toggle-article-read
+bind-key A mark-feed-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key U show-urls
+bind-key o open-in-browser
+bind-key D delete-article
+bind-key E edit-urls
+bind-key r reload
+bind-key q quit
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Highlights
+# ----------------------------------------------------------------------------
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Browser Linkhandler
+# ----------------------------------------------------------------------------
+browser "/usr/lib/firefox/firefox %u"
+macro . open-in-browser
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# c copies the link to the clipboard
+# ----------------------------------------------------------------------------
+# The line below is probably the skiddiest lien i've ever writer.
+macro c set browser "copy(){ echo $1 | xclip ;}; copy "; open-in-browser ; set browser linkhandler
+# ----------------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------------
+# Dark solarized color scheme for newsbeuter, based on
+# Ethan Schoonover's Solarized.
+#
+# In order to use this color scheme, you must first configure
+# your terminal emulator to use the Solarized palette.
+# See &lt;http://ethanschoonover.com/solarized/&gt; for more information.
+# ----------------------------------------------------------------------------
+color background         default   default
+color listnormal         default   default
+color listnormal_unread  default   default bold
+color listfocus          black     yellow
+color listfocus_unread   black     yellow bold
+color info               yellow    black
+color article            default   default
+# ----------------------------------------------------------------------------
+
+</code></pre></div></div>
+<p>Selesai.</p>
+
+<p>Langkah konfigurasi file <code class="highlighter-rouge">config</code> hanya seperti ini saja.</p>
+
+<p>Silahkan disesuaikan dengan preferensi masing-masing.</p>
+
+<h2 id="membuat-file-url-rss-feeds">Membuat File URL RSS Feeds</h2>
+
+<p>Selanjutnya, kita akan membuat file <code class="highlighter-rouge">urls</code> yang digunakan untuk mendaftar link dari RSS feed favorit kita.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.config/newsboat/urls
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--------------------------------------------------------------------DOTFRIENDS
+https://bandithijo.com/feed/blog.xml "~BanditHijo Blog" "dotfriends"
+https://bandithijo.com/feed/vlog.xml "~BanditHijo Vlog" "dotfriends"
+
+---------------------------------------------------------------LINUX_MAGAZINES
+https://www.archlinux.org/feeds/news/ "Tech News"
+https://kabarlinux.id/feed/ "Tech News"
+https://fedoramagazine.org/feed/ "Tech News"
+http://planet.gnome.org/atom.xml "Tech News"
+
+</code></pre></div></div>
+<p>Selesai.</p>
+
+<p>Langkah konfigurasi file <code class="highlighter-rouge">urls</code> hanya seperti ini saja.</p>
+
+<p>Untuk format penulisan file <code class="highlighter-rouge">urls</code> ini, seperti di bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://rss-feed-url "~custom feed name" "tag"
+https://rss-feed-url "~custom feed name"
+https://rss-feed-url "tag"
+</code></pre></div></div>
+
+<p>Silahkan diisi sesuai dengan daftar RSS feed masing-masing.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Untuk mengedit URL di dalam Newsboat (pada saat Newsboat sedang terbuka), gunakan <kbd>Shift</kbd>+<kbd>E</kbd>.</p>
+</div>
+
+<h1 id="bagaimana-mendapatkan-rss-feed-url">Bagaimana Mendapatkan RSS Feed URL?</h1>
+
+<p>Biasanya pemilik blog/website tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/nzRT1sRY/gambar-04.png" /></p>
+<p class="img-caption">Gambar 0 - Icon dari RSS Feed</p>
+
+<p>Teman-teman bisa mencari dan menelusuri <em>layout</em> dari blog/website yang teman-teman incar.</p>
+
+<p>Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah blog/website. Tinggal cari saja untuk <em>browser</em> masing-masing.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Bertepatan dengan artikel ini saya tulis, Firefox baru-baru saja mengeluarkan update versi <b>64.0</b>. Dan sangat disayangkan pada update versi ini, Firefox memutuskan untuk <a href="https://support.mozilla.org/en-US/kb/feed-reader-replacements-firefox" target="_blank">menghentikan dukungan terhadap fitur <b>web feeds</b> dan <b>Live Bookmarks</b></a>.</p>
+<p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah blog/website.</p>
+</div>
+
+<p>Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabila menggunakan Google Chrome. Maka tidak ada jalan lain selain menambahkan add-ons pada Firefox.</p>
+
+<p>Firefox add-ons yang saya pergunakan adalah <a href="https://addons.mozilla.org/en-US/firefox/addon/easy-to-rss" target="_blank"><strong>Easy to RSS</strong></a>. Add-ons ini juga saya pergunakan di Google Chrome. Fungsinya sederhana, untuk mengambil RSS feed dari website. Tanpa Web Interface.</p>
+
+<p>Namun, cara di atas tidak sepenuhnya berhasil. Hanya berhasil terhadap blog/website yang meletakkan RSS feed pada head markup html. Sebagai contoh, add-ons Easy to RSS tidak dapat mendeteksi RSS feed milik saya, karena saya letakkan di bagian footer.</p>
+
+<h1 id="tampilan-newsboat">Tampilan Newsboat</h1>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/Vs3fvJ7t/gambar-01.png" /></p>
+<p class="img-caption">Gambar 1 - Tampilan Depan, daftar RSS feed</p>
+
+<p><br />
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/fW3WMcvZ/gambar-02.png" /></p>
+<p class="img-caption">Gambar 2 - Daftar Artikel dari Salah Satu Blog</p>
+
+<p><br />
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/DyL2X7DM/gambar-03.png" /></p>
+<p class="img-caption">Gambar 3 - Tampilan Isi</p>
+
+<h1 id="lokasi-cache-data-dari-newsboat">Lokasi Cache Data dari Newsboat</h1>
+
+<p>Ada satu lagi lokasi yang perlu teman-teman ketahui. Yaitu, lokasi di mana data-data seperti cache dan history disimpan. Newsboat secara default meletakkan pada direktori <code class="highlighter-rouge">~/.local/share/newsboat/</code>. Tujuannya, tidak lain dan tidak bukan, “Jangan lupakan aku saat proses backup.” Hahahaha. Karena tidak semua RSS feed akan terdownload semua apabila kita memasang Newsboat pada sistem yang baru atau yang lain. Terkadang terdapat RSS feed yang membatasi hanya 10 judul artikel saja. Meskipun ada juga yang semua RSS feed dari waktu ke waktu.</p>
+
+<h1 id="mengapa-memilih-newsboat">Mengapa Memilih Newsboat?</h1>
+
+<p><em>Resource</em> yang kecil. Meskipun laptop saya i5, 8 GB of RAM, 480 GB of SSD, tapi menggunakan aplikasi di atas Terminal apabila semua tujuan kita sudah tercapai, maka sudah lebih dari cukup.</p>
+
+<p>Saya sudah pernah menggunakan RSS feed reader tipe web apps, yaitu <strong>Commafeed</strong>. Sudah juga menggunakan GTK+ apps yaitu <strong>Liferea</strong>. Sehingga saat menemukan newsboat, saya suda mengetahui apa-apa kebutuhan yang saya perlukan dari sebuah RSS feed reader.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Saya melihat masih banyak potensi yang dapat dimanfaatkan dari tools RSS feed reader ini. Namun, saya hanya menggunakan sebatas untuk mengetahui update terbaru artikel dari website favorit saya.</p>
+
+<p>Dokumentasi lebih lengkap dapat dilihat pada <code class="highlighter-rouge">man newsboat</code>. Coba periksa, banyak hal-hal menarik yang belum saya bahasa karena keterbatasan waktu dan ilmu saya saat ini.</p>
+
+<p>Oh iya, apabila kamu punya blog juga, saya sangat mengharapkan untuk tetap mempertahankan RSS feed urlnya. Saya yakin, pasti ada yang memanfaatkan RSS feed tersebut. Seperti saya contohnya. (^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/RSS" target="_blank">en.wikipedia.org/wiki/RSS</a>
+<br />Diakses tanggal: 2018/12/12</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Newsboat" target="_blank">wiki.archlinux.org/index.php/Newsboat</a>
+<br />Diakses tanggal: 2018/12/12</p>
+  </li>
+</ol>
+
+:ET

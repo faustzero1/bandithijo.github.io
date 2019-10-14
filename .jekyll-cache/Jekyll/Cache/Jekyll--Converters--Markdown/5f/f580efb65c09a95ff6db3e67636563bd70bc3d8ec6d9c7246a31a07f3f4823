@@ -1,0 +1,39 @@
+I"<div style="margin-top:30px;"></div>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/SEkwoLCFXNI" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Karena mengganti backend compton menjadi “glx” sehingga menyebabkan saya kembali menikmati flickering screen. nyoba2 kembali ke DRI “2” dengan accelmethod “uxa” dan tearfree “true”.</p>
+
+<p>Konfigurasi yang saya gunakan adalah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/X11/xorg.conf.d/20-intel.conf
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Section "Device"
+  Identifier  "Intel Graphics"
+  Driver      "intel"
+  Option      "DRI"           "2"
+  Option      "AccelMethod"   "uxa" # fallback
+  Option      "TearFree"      "true"
+EndSection
+</code></pre></div></div>
+<p>Berikut saya tampilkan keterangan dari laptop yang saya gunakan.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OS: Arch Linux
+Kernel: x86_64 Linux 4.19.4-arch1-1-ARCH
+Uptime: 2d 14h 53m
+Packages: 2328
+Shell: zsh 5.6.2
+Resolution: 1366x768
+WM: i3
+GTK Theme: NumixSolarizedDarkYellow [GTK2/3]
+Icon Theme: DarK-Dark
+Font: Hack 9
+CPU: Intel Core i5-6300U @ 4x 3GHz [51.0°C]
+GPU: Mesa DRI Intel(R) HD Graphics 520 (Skylake GT2)
+RAM: 3437MiB / 7831MiB
+</code></pre></div></div>
+
+<p>Biar objektif, coba bantu lihatin, masih ada flickering screen ndak?</p>
+:ET

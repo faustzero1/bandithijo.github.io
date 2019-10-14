@@ -1,0 +1,62 @@
+I"Ã<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/6vuksuzgt/banner_post_17.png" alt="banner" /></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Sejujurnya saya belum memahami benar pengaturan dan penggunaan <strong>GnuPG</strong> (<em>GNU Privacy Guard</em>). Mengutip dari situs <a href="http://0.0.0.0:4000/blog/memperbaiki-gpg-permissions-on-homedir#referensi" target="_blank">gnupg.org<sup>1</sup></a>, GnuPG adalah implementasi yang lengkap dan berlisensi bebas pakai dari <strong>OpenPGP standard</strong> sebagaimana yang dijelaskan pada <a href="https://www.ietf.org/rfc/rfc4880.txt" target="_blank">RFC4880</a> (dikenal juga dengan sebutan PGP). GnuPG memungkinkan kita untuk mengenkripsi dan memberikan <em>signature</em> pada data dan komunikasi kita. GnuPG juga dikenal sebagai <strong>GPG</strong>, yang merupakan aplikasi <em>command line</em> dengan fitur-fitur untuk memudahkan integrasi dengan aplikasi yang lain.</p>
+
+<p>Sejak diperkenalkan pada tahun 1997, GnuPG adalah aplikasi bebas merdeka yang artinya dapat digunakan secara bebas, dimodifikasi, dan didistribusikan di bawah syarat-syarat GNU <em>General Public License</em>.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Masalah yang ingin saya angkat pada dokumentasi ini adalah adanya <em>warning</em> yang muncul setiap kali saya menjalankan perintah <code class="highlighter-rouge">gpg</code> di Terminal.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: WARNING: unsafe permissions on homedir
+</code></pre></div></div>
+
+<p><em>unsafe permissions</em> sesuatu yang menurut saya agak-agak mengerikan. Hal seperti ini saya sudah mencurigai karena adanya kesalahan konfigurasi atau konfigurasi yang belum sempurna pada direktori yang mengatur gpg (<code class="highlighter-rouge">~/.gnupg/</code>). Hal ini dapat memungkinkan orang yang tidak berkepentingan apabila mendapatkan akses ke dalam direktori home saya, mungkin saja dapat mengambil keuntungan dari celah seperti ini.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Dari <em>warning</em> yang diberikan, sudah sangat jelas bahwa yang menjadi perhatian adalah direktori <code class="highlighter-rouge">~/.gnupg/</code> yang berada di direktori home saya. Maka kita akan memperbaiki <em>permissions</em> dari direktori tersebut.</p>
+
+<p>Berdasarkan jawaban yang dituliskan oleh Alex Stragies pada <a href="http://0.0.0.0:4000/blog/memperbaiki-gpg-permissions-on-homedir#referensi" target="_blank">superuser.com<sup>2</sup></a> yang juga merujuk pada <a href="http://0.0.0.0:4000/blog/memperbaiki-gpg-permissions-on-homedir#referensi" target="_blank">wikipedia.com - file system permission<sup>3</sup></a> diperkuat oleh jawaban dari Neil Williams pada <a href="http://0.0.0.0:4000/blog/memperbaiki-gpg-permissions-on-homedir#referensi" target="_blank">lists.gnupg.com<sup>4</sup></a>, untuk memperbaiki permasalahan <em>unsafe permissions</em> sebagai berikut.</p>
+
+<ol>
+  <li>Pastikan bahwa <em>permissions</em> dari direktori dan file-file yang terdapat pada <code class="highlighter-rouge">~/.gnupg/</code> adalah milik kita sendiri.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chown -R $(whoami) ~/.gnupg/
+</code></pre></div>    </div>
+  </li>
+  <li>Selanjutnya, perbaiki hak akses dari direktori <code class="highlighter-rouge">~/.gnupg/</code> beserta file-file yang terdapat di dalamnya.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ chmod 600 ~/.gnupg/*
+$ chmod 700 ~/.gnupg
+</code></pre></div>    </div>
+    <p>Penjelasan untuk <em>command</em> di atas, <em>permission</em> <code class="highlighter-rouge">700</code> pada direktori <code class="highlighter-rouge">~/.gnupg/</code>, dimaksudkan hanya pemilik dari direktori yang dapat mengakses direktori tersebut. Sedangkan untuk <em>permission</em> <code class="highlighter-rouge">600</code> pada semua file (ditandai dengan tanda <code class="highlighter-rouge">*</code>) yang terdapat di dalam direktori tersebut, dimaksudkan hanya pemilik direktori tersebut yang dapat membaca dan menulis.</p>
+  </li>
+</ol>
+
+<p>Setelah melakukan kedua langkah di atas, sangat saya rekomendasikan untuk <strong>reboot</strong> sistem kalian. Karena saya mengalami sendiri keanehan seperti <strong>tidak dapat menemukan <em>secret key</em></strong>. Apabila terjadi <em>error</em> seperti ini, saya sangat merekomendasikan untuk <em>restart</em> sistem terlebih dahulu.</p>
+
+<p>Saya rasa cukup seperti ini saja.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://gnupg.org/" target="_blank">gnupg.org/</a>
+<br />Diakses tanggal: 18/06/22</p>
+  </li>
+  <li>
+    <p><a href="https://superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning" target="_blank">superuser.com/questions/954509/what-are-the-correct-permissions-for-the-gnupg-enclosing-folder-gpg-warning</a>
+<br />Diakses tanggal: 18/06/22</p>
+  </li>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions" target="_blank">en.wikipedia.org/wiki/File_system_permissions#Notation_of_traditional_Unix_permissions</a>
+<br />Diakses tanggal: 18/06/22</p>
+  </li>
+  <li>
+    <p><a href="https://lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html" target="_blank">lists.gnupg.org/pipermail/gnupg-users/2003-October/020342.html</a>
+<br />Diakses tanggal: 18/06/22</p>
+  </li>
+</ol>
+
+:ET

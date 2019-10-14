@@ -1,0 +1,95 @@
+I".<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/j770ed1tp/banner_post_11.png" alt="banner" /></p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saya baru saja berpindah <em>desktop environment</em> kembali menggunakan <strong>XFCE4</strong>. Permasalahan yang dulu pernah muncul salah satunya setiap kali sistem baru bangkit dari kondisi <em>sleep</em> terdapat sebuah <em>popup window</em> yang bertuliskan “<em>Authentication is required for suspending the system</em>”.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Untuk hal-hal berbau <em>authentication</em> biasanya diatur oleh <em>polkit</em>.</p>
+
+<h2 id="cari-lokasi-target">Cari lokasi target</h2>
+
+<p>Buka Terminal dan <em>copy paste command</em> di bawah untuk mencari lokasi dari file <code class="highlighter-rouge">org.freedesktop.login1.policy</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ locate -b org.freedesktop.login1.policy
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/polkit-1/actions/org.freedesktop.login1.policy
+</code></pre></div></div>
+<p>Pada sistem saya, file tersebut berada pada lokasi seperti yang ditampilkan <em>output</em> di atas.</p>
+
+<h2 id="edit-isi-file-target">Edit isi file target</h2>
+
+<p>Kemudian, kita akan membuka file tersebut menggunakan <em>text editor</em> favorit masing-masing.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /usr/share/polkit-1/actions/org.freedesktop.login1.policy
+</code></pre></div></div>
+
+<p>Kemudian cari baris dengan isi persis sama seperti di bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;action id="org.freedesktop.login1.suspend"&gt;
+</code></pre></div></div>
+<p>Yang memiliki isi seperti di bawah ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+...
+&lt;action id="org.freedesktop.login1.suspend"&gt;
+  &lt;description gettext-domain="systemd"&gt;Suspend the system&lt;/description&gt;
+  &lt;message gettext-domain="systemd"&gt;Authentication is required for suspending the system.&lt;/message&gt;
+  &lt;defaults&gt;
+    &lt;allow_any&gt;auth_admin_keep&lt;/allow_any&gt;
+    &lt;allow_inactive&gt;auth_admin_keep&lt;/allow_inactive&gt;
+    &lt;allow_active&gt;yes&lt;/allow_active&gt;
+  &lt;/defaults&gt;
+&lt;/action&gt;
+...
+...
+</code></pre></div></div>
+<p>Pada bagian tag <strong>defaults</strong>, kita akan merubah nilai dari <strong>allow_any</strong> dan <strong>allow_inactive</strong> menjadi bernilai <strong>yes</strong>.</p>
+
+<p><strong>Sebelum</strong></p>
+<pre>
+&lt;defaults&gt;
+  &lt;allow_any&gt;<mark>auth_admin_keep</mark>&lt;/allow_any&gt;
+  &lt;allow_inactive&gt;<mark>auth_admin_keep</mark>&lt;/allow_inactive&gt;
+  &lt;allow_activey&gt;es&lt;/allow_active&gt;
+&lt;/defaults&gt;
+</pre>
+
+<p><strong>Sesudah</strong></p>
+<pre>
+&lt;defaults&gt;
+  &lt;allow_any&gt;<mark>yes</mark>&lt;/allow_any&gt;
+  &lt;allow_inactive&gt;<mark>yes</mark>&lt;/allow_inactive&gt;
+  &lt;allow_active&gt;yes&lt;/allow_active&gt;
+&lt;/defaults&gt;
+</pre>
+
+<h2 id="hasil-setelah-diedit">Hasil setelah diedit</h2>
+
+<p>Maka setelah kita rubah, keseluruhan kodenya kan tampak seperti ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+...
+&lt;action id="org.freedesktop.login1.suspend"&gt;
+  &lt;description gettext-domain="systemd"&gt;Suspend the system&lt;/description&gt;
+  &lt;message gettext-domain="systemd"&gt;Authentication is required for suspending the system.&lt;/message&gt;
+  &lt;defaults&gt;
+    &lt;allow_any&gt;yes&lt;/allow_any&gt;
+    &lt;allow_inactive&gt;yes&lt;/allow_inactive&gt;
+    &lt;allow_active&gt;yes&lt;/allow_active&gt;
+  &lt;/defaults&gt;
+&lt;/action&gt;
+...
+...
+</code></pre></div></div>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li>
+    <p><a href="https://askubuntu.com/questions/543921/authentication-required-before-suspend">askubuntu.com/questions/543921/authentication-required-before-suspend</a>
+<br />Diakses tanggal: 2018/04/28</p>
+  </li>
+  <li>
+    <p><a href="https://ubuntuforums.org/showthread.php?t=2276864&lt;Paste&gt;">ubuntuforums.org/showthread.php?t=2276864</a>
+<br />Diakses tanggal: 2018/04/28</p>
+  </li>
+</ol>
+:ET

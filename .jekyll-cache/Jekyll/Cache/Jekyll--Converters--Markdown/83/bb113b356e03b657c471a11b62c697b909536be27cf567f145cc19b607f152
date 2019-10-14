@@ -1,0 +1,172 @@
+I"p'<h1 id="step-2--disk-partitioning">STEP 2 : Disk Partitioning</h1>
+
+<h2 id="21-mengecek-uefi-mode">2.1 Mengecek UEFI Mode</h2>
+
+<p>Saya lebih <em>prefer</em> untuk menggunakan mode bios UEFI ketimbang mode bios Legacy. Untuk itu kita akan mengecek apakah kita sudah berada pada mode UEFI atau belum.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls /sys/firmware/efi
+</code></pre></div></div>
+
+<p>Kemudian perhatikan apakah terdapat direktori <code class="highlighter-rouge">efivars</code> atau tidak. Jika ada, berarti kita sudah berada di jalan yang benar. Apabila belum, berarti kita harus mengeset ulang pengaturan pada BIOS dan merubahnya menjadi UEFI.</p>
+
+<h2 id="22-mengatur-partisi-tabel">2.2 Mengatur Partisi Tabel</h2>
+
+<p>Kita akan membuat <strong>dua</strong> partisi. Yang pertama adalah partisi <strong>ESP</strong> (<em>EFI System Partition</em>) dan partisi <code class="highlighter-rouge">/</code> (baca: <em>root</em>). Saya lebih <em>prefer</em> menggunakan <strong>satu</strong> partisi <code class="highlighter-rouge">/</code> dan tidak memisahkan partisi <code class="highlighter-rouge">/home</code> dari <code class="highlighter-rouge">/</code>.</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa saya tidak memisahkan partisi /home ?</div>
+<p>Karena saya tidak berniat untuk memasang distribusi sistem operasi GNU/Linux yang lain.</p>
+</div>
+
+<p>Pertama-tama kita harus mengetahui alamat blok dari <em>hard drive</em> yang akan kita partisi.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># lsblk -p
+</code></pre></div></div>
+
+<p>Pada kasus saya, <em>storage device</em> saya memiliki nama block <code class="highlighter-rouge">sda</code>. Saya dapat mengetahui dari jumlah kapasitasnya.</p>
+
+<p>Kemudian langkah selanjutnya adalah mempartisi <em>hard disk</em>. Terdapat banyak aplikasi yang dapat kita gunakan seperti <code class="highlighter-rouge">parted</code>, <code class="highlighter-rouge">fdisk</code>, <code class="highlighter-rouge">gdsik</code>, <code class="highlighter-rouge">cfdisk</code>, <code class="highlighter-rouge">cgdisk</code>, dll. Namun pada dokumentasi ini saya akan menggunakan <code class="highlighter-rouge">gdisk</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># gdisk /dev/sda
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steps</th>
+      <th style="text-align: left">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">o↲ → Y↲</td>
+      <td style="text-align: left">=&gt; Membuat GPT</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">n↲ → ↲ → ↲ → +512MiB↲ → EF00↲</td>
+      <td style="text-align: left">=&gt; Membuat ESP (EFI System Partition)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">n↲ → ↲ → ↲ → ↲ → 8E00↲</td>
+      <td style="text-align: left">=&gt; Membuat sisa block partisi menjadi / (LVM)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">w↲ → Y↲</td>
+      <td style="text-align: left">=&gt; Menulis table partition ke disk</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Setelah kembali ke <code class="highlighter-rouge">#</code>, kita dapat mengecek apakah partisi kita telah berhasil dibuat atau tidak, dengan perintah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># fdisk -l
+</code></pre></div></div>
+
+<p>Akan terdapat detail keterangan bahwa kita menggunakan <strong>gpt</strong> dan terdapat 2 partisi <code class="highlighter-rouge">/dev/sda1</code> (EFI System) dan <code class="highlighter-rouge">/dev/sda2</code> (Linux LVM).</p>
+
+<p><code class="highlighter-rouge">sda1</code> akan kita gunakan sebagai partisi <code class="highlighter-rouge">/boot</code> dan <code class="highlighter-rouge">sda2</code> akan kita gunakan sebagai partisi <code class="highlighter-rouge">/</code>.</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa saya tidak menggunakan partisi SWAP ?</div>
+<p>Karena saya menggunakan SSD. Kalau ingin menggunakan SWAP, dapat kita tambahkan belakangan, setelah sistem kita jadi.</p>
+<p>Saya juga lebih memilih menggunakan <b>swapfile</b> saja. Sehingga swapfile hanya akan saya buat apabila saya perlukan.</p>
+</div>
+
+<h2 id="23-mengenkripsi-partisi-devsda2">2.3 Mengenkripsi Partisi /dev/sda2</h2>
+
+<p>Pada saat ini, dimana semua orang mulai <del>memperhatikan</del> keamanan data, meskipun hanya laptop pribadi namun saya berusaha untuk tetap belajar mengerti bagaimana cara mengamankan data yang ada di dalam <em>hard disk</em> saya.</p>
+
+<p>Pada dokumentasi instalasi ini saya akan menggunakan enkripsi pada partisi <code class="highlighter-rouge">/dev/sda2</code> dan juga akan mengenkripsi direktori <code class="highlighter-rouge">/home/username</code>. Mungkin bisa disebut ini keamanan kue lapis. Hehe</p>
+
+<p>Aplikasi <em>disk encryption</em> yang saya pergunakan adalah <a href="https://gitlab.com/cryptsetup/cryptsetup/" target="_blank"><strong>LUKS</strong></a> (<code class="highlighter-rouge">dm-crypt</code>).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cryptsetup luksFormat /dev/sda2
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Steps</th>
+      <th style="text-align: left">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">YES↲</td>
+      <td style="text-align: left">=&gt; Konfirmasi dengan <strong>YES</strong> huruf kapital</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*****************</td>
+      <td style="text-align: left">=&gt; Masukkan password untuk enksripsi <code class="highlighter-rouge">/sda2</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">*****************</td>
+      <td style="text-align: left">=&gt; Konfirmasi password <code class="highlighter-rouge">/sda2</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Kita telah berhasil membuat <code class="highlighter-rouge">/dev/sda2</code> terenkripsi dengan LUKS.</p>
+
+<p>Tahap selanjutnya adalah mengkonfigurasi <strong>LVM</strong> pada <code class="highlighter-rouge">/dev/sda2</code>. Untuk itu kita perlu membuka kembali <code class="highlighter-rouge">/dev/sda2</code> yang baru saja kita enkripsi.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># cryptsetup luksOpen /dev/sda2 lvm
+</code></pre></div></div>
+
+<p>Membuat <strong><em>physical volume</em></strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># pvcreate /dev/mapper/lvm
+</code></pre></div></div>
+
+<p>Membuat <strong><em>volume group</em></strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vgcreate volume /dev/mapper/lvm
+</code></pre></div></div>
+
+<p>Membuat <strong><em>logical volume</em></strong> dengan nama “<strong>root</strong>”.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># lvcreate -l 100%FREE volume -n root
+</code></pre></div></div>
+
+<p>Kita telah berhasil mengkonfigurasi LVM pada <code class="highlighter-rouge">/dev/sda2</code> yang terenkripsi.</p>
+
+<h2 id="24-memformat-partisi">2.4 Memformat Partisi</h2>
+
+<p>Setelah kita mengkonfigurasi partisi tabel, langkah selanjutnya adalah mem-<em>format</em> partisi sesuai tipe partisi yang telah kita buat. Terdapat dua <em>file</em> sistem yang akan kita gunakan, yaitu <code class="highlighter-rouge">FAT32</code> dan <code class="highlighter-rouge">EXT4</code>. <em>File</em> sistem <code class="highlighter-rouge">FAT32</code> akan kita gunakan untuk <code class="highlighter-rouge">/dev/sda1</code> yang merupakan partisi ESP (<em>EFI System Partition</em>). Sedangkan <em>file</em> sistem <code class="highlighter-rouge">EXT4</code> akan kita gunakan untuk <code class="highlighter-rouge">/dev/sda2</code> yang merupakan <code class="highlighter-rouge">/</code> partisi.</p>
+
+<p>Mem-_format_ partisi <code class="highlighter-rouge">/dev/sda1</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.fat -F32 /dev/sda1
+</code></pre></div></div>
+
+<p>Mem-_format_ partisi <code class="highlighter-rouge">/dev/sda2</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mkfs.ext4 /dev/mapper/volume-root
+</code></pre></div></div>
+
+<p>Untuk melihat apakah konfigurasi partisi kita telah sesuai atau tidak, kita dapat menggunakan perintah di bawah ini untuk melihat struktur dari tabel partisi.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># lsblk
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME                MAJ:MIN  RM    SIZE  RO  TYPE  MOUNTPOINT
+loop0                 7:0     0  408.5M   1  loop  /run/archiso/sfs/
+sda                   8:0     0      8G   0  disk
+├─sda1                8:1     0    512M   0  part
+└─sda2                8:2     0    7.5G   0  part
+  └─lvm             254:0     0    7.5G   0  crypt
+    └─volume-root   254:1     0    7.5G   0  lvm
+sr0                  11:0     1    523M   0  rom   /run/archiso/bootmnt
+</code></pre></div></div>
+
+<p>Apabila telah sesuai, akan menampilkan susunan <code class="highlighter-rouge">/dev/sda</code> pada kolom <strong>NAME</strong>, seperti yang terdapat pada tabel di atas.</p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-1-connecting-to-the-internet"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/arch/step-3-installing-arch-linux-base-packages"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+:ET

@@ -1,0 +1,157 @@
+I"? <!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sudah sejak bulan Juli 2018 saya memigrasikan aplikasi-aplikasi GUI (<em>Graphical User Interface</em>) menjadi aplikasi CLI (<em>Command Line Interface</em>), maksud saya selain text editor Vim. Memang terdengar absurd. Namun, ternyata setelah saya mencoba satu aplikasi, saya pun ketagihan dan mencoba mencari-cari aplikasi mana yang dapat saya migrasikan ke CLI. Untuk cerita migrasi aplikasi ini aka saya sambung pada artikel yang lain.</p>
+
+<p>Karena alasan tersebut di atas, saya sampai pada tahap memigrasikan <em>File Manager</em>. <em>File Manager</em> yang menjadi <em>favorite</em> saya adalah <strong>PCManFM</strong>. Mungkin kapan-kapan <em>File Manager</em> ini akan saya bahas, mengapa menjadi satu-satunya <em>File Manager</em> yang saya pasang di sistem operasi saya.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Salah satu kemampuan dari <em>file manager</em> adalah <em>mounting/unmounting external drive</em>, seperti: <em>Flash Drive</em>, <em>External Hard Drive</em>, <em>SD Card</em>, dll. Yang menjadi permasalahan adalah aplikasi <em>file manager</em> pengganti PCManFM yang saya gunakan, <strong>Ranger</strong>, tidak memiliki kemampuan ini. Tentu saja ini tidak sebanding dengan banyak kelebihan yang dimiliki oleh Ranger, maka dari itu saya tetap bersikeras menggunakan Ranger sebagai <em>file manager</em> utama saya.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Untuk memecahkan permasalahan di atas, saya menggunakan aplikasi <a href="https://www.archlinux.org/packages/?name=udisks2" target="_blank"><strong>udisks2</strong></a>.</p>
+
+<p>Cara menggunakannya sangat mudah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage:
+  udisksctl COMMAND
+
+Commands:
+  help            Shows this information
+  info            Shows information about an object
+  dump            Shows information about all objects
+  status          Shows high-level status
+  monitor         Monitor changes to objects
+  mount           Mount a filesystem
+  unmount         Unmount a filesystem
+  unlock          Unlock an encrypted device
+  lock            Lock an encrypted device
+  loop-setup      Set-up a loop device
+  loop-delete     Delete a loop device
+  power-off       Safely power off a drive
+  smart-simulate  Set SMART data for a drive
+
+Options:
+  -p, --object-path         Object path for ATA device
+  -b, --block-device        Device file for ATA device
+  --no-user-interaction     Do not authenticate the user if needed
+
+Use "udisksctl COMMAND --help" to get help on each command.
+</code></pre></div></div>
+
+<h2 id="mounting">Mounting</h2>
+
+<p>Untuk me-<em>mounting</em> <em>flash drive</em> atau <em>external hard drive</em>, hal yang perlu kita lakukan cukup dengan :</p>
+
+<ol>
+  <li>Cek nama/alamat block dari <em>drive</em> yang akan kita <em>mounting</em> dengan <code class="highlighter-rouge">lsblk</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsblk
+</code></pre></div>    </div>
+    <pre>
+ NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+ sda      8:0    0 447.1G  0 disk
+ ├─sda1   8:1    0   511M  0 part /boot
+ ├─sda2   8:2    0 444.6G  0 part /
+ └─sda3   8:3    0     2G  0 part [SWAP]
+ <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
+    <p>Periksa nama/lamat block <code class="highlighter-rouge">/dev/sdX</code> serta size, pastikan benar-benar <em>drive</em> yang anda inginkan</p>
+  </li>
+  <li>Selanjutnya tinggal kita <em>mount</em> menggunakan <code class="highlighter-rouge">udisksctl</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ udiskctl mount -b /dev/sdX
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Mounted /dev/sdX at /run/media/username/AAAA-0000.
+</code></pre></div>    </div>
+    <p>Kemudian cek lagi dengan <code class="highlighter-rouge">lsblk</code> apakah sudah berhasil di-<em>mounting</em></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsblk
+</code></pre></div>    </div>
+    <pre>
+ NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+ sda      8:0    0 447.1G  0 disk
+ ├─sda1   8:1    0   511M  0 part /boot
+ ├─sda2   8:2    0 444.6G  0 part /
+ └─sda3   8:3    0     2G  0 part [SWAP]
+ <mark>sdX      8:16   1   7.2G  0 disk /run/media/username/AAAA-0000</mark></pre>
+    <p>Apabila mengeluarkan tampilan seperti di atas, artinya <em>mounting</em> berhasil.</p>
+  </li>
+</ol>
+
+<h2 id="unmounting">Unmounting</h2>
+
+<p>Setelah kita selesai berurusan dengan <em>drive</em>, sebelum mencabutnya sangat direkomendasikan untuk menjalankan proses <em>unmounting</em>. Caranya sangat mudah.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Pastikan <i>file manager</i> tidak sedang membuka direktori yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i> karena proses <i>unmounting</i> akan gagal dikarenakan partisi yang akan kita <i>unmount</i> dianggap sibuk.</p>
+</div>
+
+<ol>
+  <li>Jalankan <code class="highlighter-rouge">udisksctl</code> untuk proses <em>unmounting</em>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ udiskctl unmount -b /dev/sdX
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unmounted /dev/sdX
+</code></pre></div>    </div>
+  </li>
+  <li>Selanjutnya lakukan pengecekan dengan <code class="highlighter-rouge">lsblk</code> untuk memastikan
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsblk
+</code></pre></div>    </div>
+    <pre>
+ NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+ sda      8:0    0 447.1G  0 disk
+ ├─sda1   8:1    0   511M  0 part /boot
+ ├─sda2   8:2    0 444.6G  0 part /
+ └─sda3   8:3    0     2G  0 part [SWAP]
+ <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
+    <p>Apabila mengeluarkan tampilan seperti di atas, artinya <em>unmounting</em> berhasil.</p>
+  </li>
+</ol>
+
+<h2 id="power-off">Power Off</h2>
+
+<p>Nah, namun apabila kita perhatikan, <em>external drive</em> masih dalam keadaan menyala. Apakah aman untuk kita lepas?</p>
+
+<p>Jawabannya,”saya juga kurang yakin.”</p>
+
+<p>Agar lebih yakin sebaiknya kita mematikan <em>external drive</em> tersebut, kemudian baru kita lepas. Caranya ada pada tahap di bawah.</p>
+
+<ol>
+  <li>Jalankan kembali perintah <code class="highlighter-rouge">udisksctl</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ udiskctl power-off -b /dev/sdX
+</code></pre></div>    </div>
+  </li>
+  <li>Cek lagi apakah <em>external drive</em> sudah berhasil di <em>power-off</em>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0 447.1G  0 disk
+├─sda1   8:1    0   511M  0 part /boot
+├─sda2   8:2    0 444.6G  0 part /
+└─sda3   8:3    0     2G  0 part [SWAP]
+</code></pre></div>    </div>
+    <p>Apabila mengeluarkan tampilan seperti di atas, artinya  proses <em>power-off</em> berhasil.</p>
+  </li>
+</ol>
+
+<h1 id="video-ilustrasi">Video Ilustrasi</h1>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/nixRL8esSa8" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="akhir-kata">Akhir Kata</h1>
+
+<p>Untuk penjelasan lebih lengkap dan literatur tambahan silahkan membaca dari referensi yang saya sertakan di bawah. Karena sebaik-baiknya dokumentasi adalah dokumentasi yang ditulis sendiri oleh developer yang membuat aplikasi.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Udisks" target="_blank">wiki.archlinux.org/index.php/Udisks</a>
+<br />Diakses tanggal: 2018/11/05</p>
+  </li>
+  <li>
+    <p><a href="https://www.freedesktop.org/wiki/Software/udisks/" target="_blank">freedesktop.org/wiki/Software/udisks/</a>
+<br />Diakses tanggal: 2018/11/05</p>
+  </li>
+</ol>
+:ET

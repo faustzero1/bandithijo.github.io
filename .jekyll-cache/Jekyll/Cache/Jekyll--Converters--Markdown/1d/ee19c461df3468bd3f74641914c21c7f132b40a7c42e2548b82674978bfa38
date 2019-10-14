@@ -1,0 +1,330 @@
+I"aM<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/yln43s5fh/banner_post_03.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Beberapa waktu yang lalu saya mengikuti webminar (web seminar) tentang <em>Network Automation</em> menggunakan Python. Aplikasi yang digunakan pada webminar tersebut adalah GNS3. Saya sudah mengenal aplikasi ini sejak 2016, namun belum pernah sama sekali menggunakannya.</p>
+
+<p>Kebanyakan tutorial untuk melakukan instalasi GNS3 diperuntukkan untuk sistem operasi GNU/Linux yang berbasiskan Debian dan RedHat. Lantas bagaimana dengan Arch ?</p>
+
+<p>Sebenarnya GNS3 sudah terdapat pada AUR (<em>Arch User Repository</em>) namun saya kesulitan untuk mengkonfigurasinya. Kemudian saya melakukan pencarian hingga menemukan dokumentasi yang langsung diarahkan oleh GNS3 untuk instalasi dan konfigurasi GNS3 pada Arch Linux, <a href="https://gns3.com/news/article/install-and-configure-gns3-on-ar" target="_blank">di sini</a>.</p>
+
+<h1 id="komponen-yang-diperlukan">Komponen yang Diperlukan</h1>
+
+<p>Pada dokumentasi ini akan dibahas mengenai proses instalasi:</p>
+
+<ol>
+  <li><a href="http://www.gns3.com/" target="_blank">GNS3</a></li>
+  <li><a href="https://aur.archlinux.org/packages/dynamips/" target="_blank">Dynampis</a></li>
+  <li><a href="https://aur.archlinux.org/packages/vpcs/" target="_blank">Virtual PC Simulator (VPCS)</a></li>
+  <li><a href="https://www.archlinux.org/packages/community/x86_64/docker/" target="_blank">Docker</a></li>
+  <li><a href="https://www.archlinux.org/packages/community/x86_64/virtualbox/" target="_blank">VirtualBox</a></li>
+</ol>
+
+<h1 id="prasyarat">Prasyarat</h1>
+
+<p>Syarat minimal yang diperlukan adalah tentu saja distribusi sistem operasi Arch Linux.</p>
+
+<h1 id="instalasi--konfigurasi-komponen">Instalasi &amp; Konfigurasi Komponen</h1>
+
+<h2 id="dynamips">Dynamips</h2>
+
+<p>Pasang dependensi untuk <strong>Dynamips</strong>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S libelf libcap cmake
+</code></pre></div></div>
+
+<p>Kemudian pasang <strong>Dynamips</strong> versi terbaru. Pada tulisan ini dibuat versi paling baru adalah <strong>0.2.18</strong>. Kamu dapat melakukan pengecekan versi paling baru <a href="https://github.com/GNS3/dynamips/releases" target="_blank">di sini</a>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /tmp
+$ curl -L https://github.com/GNS3/dynamips/archive/v0.2.18.tar.gz | tar -xz
+$ cd dynamips*
+$ mkdir build &amp;&amp; cd $_
+$ cmake ..
+$ sudo make install
+$ sudo setcap cap_net_admin,cap_net_raw=ep $(which dynamips)
+</code></pre></div></div>
+<p>Kamu dapat mengganti versi dari <strong>Dynamips</strong> ke versi paling baru atau ke versi yang spesifik kamu inginkan. Pada contoh <em>command</em> di atas, saya menggunakan versi 0.2.18.</p>
+
+<p>Kemudian, setelah berhasil dipasang, kita perlu melakukan verifikasi untuk memastikan apakah proses instalasi berjalan semestinya. Cek versi dari Dynampis yang terpasang.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME
+$ dynamips 2&gt; /dev/null | grep version
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cisco Router Simulation Platform (version 0.2.18-amd64/Linux stable)
+</code></pre></div></div>
+<p>Cek <em>capabilities</em> Dynampis.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ getcap $(which dynamips)
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/dynamips = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, artinya proses instalasi <strong>Dynamips</strong> telah berhasil.</p>
+
+<h2 id="vpcs">VPCS</h2>
+
+<p>Saya akan menggunakan <code class="highlighter-rouge">subversion</code> <em>checkout</em> dari branch utama Virtual PC Simulator (VPCS).</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S subversion
+$ cd /tmp
+$ svn checkout svn://svn.code.sf.net/p/vpcs/code/trunk vpcs-code
+$ cd vpcs-code/src
+$ rgetopt='int getopt(int argc, char *const *argv, const char *optstr);'
+$ sed -i "s/^int getopt.*/$rgetopt/" getopt.h
+$ unset -v rgetopt
+$ sed -i 's/i386/x86_64/' Makefile.linux
+$ sed -i 's/-s -static//' Makefile.linux
+$ make -f Makefile.linux
+$ strip --strip-unneeded vpcs
+$ sudo mv vpcs /usr/local/bin
+</code></pre></div></div>
+
+<p>Kemudian, lakukan verifikasi proses instalasi yang sudah kita lakukan tadi. Kita akan melakukan pengecekan lokasi.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME
+$ type vpcs
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpcs is /usr/local/bin/vpcs
+</code></pre></div></div>
+<p>Dan versi dari VPCS.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vpcs -v | grep version
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to Virtual PC Simulator, version 0.8c
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, artinya proses instalasi VPCS telah berhasil.</p>
+
+<h2 id="iouyap">IOUYAP</h2>
+
+<p>Pasang paket <code class="highlighter-rouge">iniparser</code> yang menjadi dependensi bagi IOUYAP.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S iniparser
+</code></pre></div></div>
+
+<p>Saya akan memasang versi terbaru dari IOUYAP. Pada dokumentasi ini dibuat, versi paling baru adalah <strong>0.97</strong>. Kamu dapat melakukan pengecekan <a href="https://github.com/GNS3/iouyap/releases" target="_blank">di sini</a>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /tmp
+$ curl -L https://github.com/GNS3/iouyap/archive/v0.97.tar.gz | tar -xz
+$ cd iouyap*
+$ bison -ydv netmap_parse.y
+$ flex netmap_scan.l
+$ gcc -Wall -g *.c -o iouyap -liniparser -lpthread
+$ strip --strip-unneeded iouyap
+$ sudo mv iouyap /usr/local/bin
+</code></pre></div></div>
+
+<p>Kemudian kita perlu mengeset <em>capabilities</em> dari IOUYAP.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME
+$ sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)
+</code></pre></div></div>
+
+<p>Lakukan pengecekan versi.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ iouyap -V
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iouyap version 0.97.0
+</code></pre></div></div>
+<p>Dan <em>capabilities</em> dari IOYUAP.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ getcap $(which iouyap)
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/iouyap = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, maka kita telah sukses memasang IOYUAP.</p>
+
+<h2 id="ubridge">uBridge</h2>
+
+<p>Saya akan memasang versi terbaru dari uBridge. Pada dokumentasi ini dibuat, versi paling baru adalah <strong>0.9.14</strong>. Kamu dapat melakukan pengecekan <a href="https://github.com/GNS3/ubridge/releases" target="_blank">di sini</a>.</p>
+
+<p>Pilih uBridge yang sama dengan versi GNS3 dan Dynampis yang ingin kamu pasang.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /tmp
+$ curl -L https://github.com/GNS3/ubridge/archive/v0.9.13.tar.gz | tar -xz
+$ cd ubridge*
+$ make
+$ sudo make install
+</code></pre></div></div>
+
+<p>Lakukan verifikasi versi.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME
+$ ubridge -v
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubridge version 0.9.13
+</code></pre></div></div>
+<p>Dan <em>capabilities</em> dari uBridge yang baru kita pasang.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ getcap $(which ubridge)
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/ubridge = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, maka kita telah sukses memasang uBridge.</p>
+
+<h2 id="docker">Docker</h2>
+
+<p>Paket <code class="highlighter-rouge">docker</code> sudah terdapat pada <em>Official Repository</em> Arch Linux.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S docker
+</code></pre></div></div>
+
+<p>Setelah itu kita perlu mengaktifkan <em>service</em> dari <strong>Docker</strong>. Apabila kalian ingin membuat service Docker dijalankan setiap kali sistem dijalankan, maka gunakan parameter <code class="highlighter-rouge">enable</code>, namun apabila hanya ingin dijalankan saat dibutuhkan saja, gunakan parameter <code class="highlighter-rouge">start</code>, maka setiap kali kita membutuhkan service Docker, kita perlu menjalankan servicenya terlebih dahulu.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable docker.service
+$ sudo systemctl start docker.service
+</code></pre></div></div>
+
+<p>Tambahkan user kita kedalam <code class="highlighter-rouge">docker</code> group.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gpasswd -a $(id -un) docker
+</code></pre></div></div>
+
+<p><strong>LOGOUT</strong> and <strong>LOGIN</strong> kembali untuk mendapatkan efek dari penambahan user kita ke dalam <code class="highlighter-rouge">docker</code> group.</p>
+
+<p>Verifikasi apakah user kita sudah termasuk di dalam <code class="highlighter-rouge">docker</code> group.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ id -Gn
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>users wheel network storage input power docker
+</code></pre></div></div>
+<p>Perhatikan <em>output</em> yang ditampilkan, terdapat tambahan <code class="highlighter-rouge">docker</code> pada akhir dari baris.</p>
+
+<p>Untuk menampilkan <em>system-wide information</em> dari Docker.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker info
+</code></pre></div></div>
+
+<h2 id="virtualbox">VirtualBox</h2>
+
+<p>Untuk proses instalasi VirtualBox, saya akan merujuk pada dokumentasi yang terdapat pada Arch Wiki <a href="https://wiki.archlinux.org/index.php/VirtualBox" target="_blank">di sini</a>.</p>
+
+<p>Instalasi <em>core packages</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S virtualbox
+</code></pre></div></div>
+
+<p>Kita membutuhkan paket yang bertugas menyediakan <em>host modules</em> karena sistem kita bertindak sebagai <em>host</em>.</p>
+
+<p>Untuk yang menggunakan <code class="highlighter-rouge">linux</code> vanilla kernel, dapat menggunakan,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman virtualbox-host-modules-arch
+</code></pre></div></div>
+
+<p>Sedangkan untuk yang menggunakan <a href="https://wiki.archlinux.org/index.php/Kernels" target="_blank">kernel yang lain</a>, dapat menggunakan,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S virtualbox-host-dkms
+</code></pre></div></div>
+<p>Untuk <em>custom kernel</em> terdapat tambahan konfigurasi yang dapat langsung dilihat pada Arch Wiki.</p>
+
+<p>Selanjutnya, kita perlu melakukan <em>load</em> semua VirtualBox modules agar dapat dijalankan secara otomatis saat proses <em>booting</em> berlangsung.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ systemd-modules-load.service
+</code></pre></div></div>
+<p>Setelah itu, kita perlu melakukan <em>reboot</em> system untuk dapat menjalankan semua module tersebut.</p>
+
+<p>Nah, untuk menjalankan secara manual kita dapat menjalankan satu persatu module tersebut, seperti tahapan yang akan dijelaskan di bawah.</p>
+
+<p>Selain kernel module, VirtualBox juga menggunakan mandatory module yang bernama <code class="highlighter-rouge">vboxdrv</code> yang perlu di jalankan sebelum <em>virtual machine</em> di jalankan.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo modprobe vboxdrv
+</code></pre></div></div>
+<p>Selain module <code class="highlighter-rouge">vboxdrv</code>, module-module berikut ini bersifat opsional tetapi direkomendasikan jika kamu tidak ingin mengalami kendala saat melakukan konfigurasi tingkat lanjut. Module-module tersebut adalah, <code class="highlighter-rouge">vboxnetadp</code>, <code class="highlighter-rouge">vboxnetflt</code>, <code class="highlighter-rouge">vboxpci</code>.</p>
+
+<p><code class="highlighter-rouge">vboxnetadp</code> dan <code class="highlighter-rouge">vboxnetflt</code>, keduanya dibutuhkan saat kamu ingin menggunakan fitur <strong>Network</strong> berupa <strong>Bridge</strong> atau <strong>Host-Only</strong>. Sedangkan <code class="highlighter-rouge">vboxpci</code> diperlukan saat <em>virtual machine</em> harus menggunakan perangkan PCI pada mesin kamu.</p>
+
+<p>Selanjutnya, hanya opsional saja, yaitu pengaturan port USB. Untuk dapat menghubungkan USB pada sistem kita (sebagai Host) dengan sistem virtual (sebagai Client) kita perlu menambahkan user kita kedalam <code class="highlighter-rouge">vboxusers</code> group.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo gpasswd -a $(id -un) vboxusers
+</code></pre></div></div>
+
+<p><strong>LOGOUT</strong> and <strong>LOGIN</strong> kembali untuk mendapatkan efek dari penambahan user kita ke dalam <code class="highlighter-rouge">vboxusers</code> group.</p>
+
+<p>Verifikasi apakah user kita sudah termasuk di dalam <code class="highlighter-rouge">vboxusers</code> group.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ id -Gn
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>users wheel network storage input power docker vboxusers
+</code></pre></div></div>
+<p>Perhatikan <em>output</em> yang ditampilkan, terdapat tambahan <code class="highlighter-rouge">vboxusers</code>.</p>
+
+<h2 id="gns3">GNS3</h2>
+
+<p>Pasang dependensi untuk GNS3.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S qt5-svg qt5-websockets python-pip python-pyqt5 python-sip
+</code></pre></div></div>
+
+<p>Kita memerlukan Git untuk memasang paket-paket paling baru dari GNS3 yang terdapat pada GitHub dari GNS3.</p>
+
+<p>Pasang <strong>Git</strong> dan <em>create</em>/<em>set Git working directory</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S git
+$ mkdir -p $HOME/GNS3-Dev &amp;&amp; cd $_
+</code></pre></div></div>
+
+<p>Pasang <strong>GNS3 Server</strong> dari GitHub.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/GNS3/gns3-server.git
+$ cd gns3-server
+$ git tag --list 'v2.1.*'
+$ git checkout v2.1.4
+$ sudo pip3 install -r requirements.txt
+$ sudo python3 setup.py install
+</code></pre></div></div>
+
+<p>Pasang <strong>GNS3 GUI</strong> dari GitHub.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME/GNS3-Dev
+$ git clone https://github.com/GNS3/gns3-gui.git
+$ cd gns3-gui
+$ git tag --list 'v2.1.*'
+$ git checkout v2.1.4
+$ sudo pip3 install -r requirements.txt
+$ sudo python3 setup.py install
+</code></pre></div></div>
+
+<p>Verifikasi apakah paket GNS3 sudah berhasil dipasang.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 list | grep gns3
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gns3-gui (2.1.4)
+gns3-server (2.1.4)
+</code></pre></div></div>
+
+<p>Selanjutnya, kita perlu membuat <em>desktop dhosrtcut</em> agar GNS3 lebih mudah di aksis via <em>Desktop Environment</em>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo tee -a /usr/share/applications/gns3.desktop &gt; /dev/null &lt;&lt; EOL
+&gt; [Desktop Entry]
+&gt; Type=Application
+&gt; Encoding=UTF-8
+&gt; Name=GNS3
+&gt; Comment=Graphical Network Simulator 3
+&gt; Exec=/usr/bin/gns3
+&gt; Icon=gns3
+&gt; Terminal=false
+&gt; Categories=Application;Network;Qt;
+&gt; EOL
+</code></pre></div></div>
+<p><em>Script</em> di atas bertujuan untuk membuat file <code class="highlighter-rouge">gns3.desktop</code>. Ini merupakan file <em>launcher</em> untuk memanggil aplikasi melalui <em>desktop environment</em>.</p>
+
+<h1 id="upgrade-gns3-to-latest-version">Upgrade GNS3 to Latest Version</h1>
+
+<p>Karena kita menggunakan GNS3 dari GitHub, maka kita perlu melakukan <em>upgrade</em> secara manual. Jangan khawatir, karena proses <em>upgrade</em> ini tidak begitu rumit. Tinggal mengikuti <em>command</em> yang sudah ditulis di sini.</p>
+
+<p>Langkah awal terntu saja kita perlu <em>uninstall</em> versi GNS3 saat ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 list | grep gns3
+$ sudo pip3 uninstall -yv gns3-gui
+$ sudo pip3 uninstall -yv gns3-server
+$ pip3 list | grep gns3
+</code></pre></div></div>
+
+<p>Selanjutnya, pasang <strong>GNS3 Server</strong> yang paling baru. Keuntungannya kita menggunakan Git adalah kita cukup melakukan <em>git pull</em> untuk membuat repository Git yang sudah pernah kita <em>clone</em> memperbaharui paket-paket yang berada pada repositori asli yang ada di GitHub.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME/GNS3-Dev/gns3-server
+$ git pull
+$ git tag --list 'v2.1.*'
+$ git checkout v2.1.5
+$ sudo python3 setup.py install
+</code></pre></div></div>
+
+<p>Pasang <strong>GNS3 GUI</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd $HOME/GNS3-Dev/gns3-gui
+$ git pull
+$ git tag --list 'v2.1.*'
+$ git checkout v2.1.5
+$ sudo python3 setup.py install
+</code></pre></div></div>
+
+<p>Verifikasi proses <em>upgrade</em> GNS3.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pip3 list | grep gns3
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gns3-gui (2.1.5)
+gns3-server (2.1.5)
+</code></pre></div></div>
+
+<p><br />
+Saya rasa cukup seperti ini saja proses instal dan konfigurasi GNS3 pada distribusi sistem operas Arch Linux. Dengan demikian proses instalasi dan konfigurasi ini telah selesai.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html" target="_blank">binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html</a>
+<br />Diakses tanggal: 2018/04/16</p>
+  </li>
+  <li>
+    <p><a href="http://sourceforge.net/projects/vpcs/" target="_blank">sourceforge.net/projects/vpcs/</a>
+<br />Diakses tanggal: 2018/04/16</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/VirtualBox" target="_blank">wiki.archlinux.org/index.php/VirtualBox</a>
+<br />Diakses tanggal: 2018/04/19</p>
+  </li>
+</ol>
+:ET

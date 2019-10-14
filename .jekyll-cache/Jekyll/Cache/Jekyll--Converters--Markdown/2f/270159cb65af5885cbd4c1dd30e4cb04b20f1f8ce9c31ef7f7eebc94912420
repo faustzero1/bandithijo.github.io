@@ -1,0 +1,220 @@
+I".<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://i.postimg.cc/VLKJrrjj/banner-post-22.png" alt="banner" /></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Akhir-akhir ini sering sekali beberapa dari teman-teman di group Telegram menanyakan perihal aplikasi <em>screen recorder</em> yang saya gunakan. Saya memang kerap kali menjawab pertanyaan dengan memberikan video-video pendek tanpa suara dengan ukuran yang tidak lebih dari 1-2 MB. Tujuannya agar jawaban yang saya berikan dapat lebih mudah dipahami.</p>
+
+<p>Aplikasi yang membantu mempermudah pekerjaan saya ini adalah <strong>Vokoscreen</strong>. Saya sudah pernah mencicipi beberapa dari aplikasi <em>screen recorder</em> seperti: <strong>Simple Screen Recorder</strong> (SSR), <strong>Open Boradcaster Studio</strong> (OBS), dan <strong>Kazam</strong>. Namun, selera saya jatuh pada Vokoscreen.</p>
+
+<h1 id="mengapa-saya-memilih-vokoscreen">Mengapa Saya Memilih Vokoscreen?</h1>
+
+<h2 id="1-praktis">1. Praktis</h2>
+
+<p>Sejak program dipanggil kemudian kita melakukan proses perekaman, Vokoscreen dapat dioperasikan dengan sangat praktis. Salah satu faktor yang menyebabkan Vokoscreen saya katakan praktis adalah karena mendukung <em>shortcut key</em> pada setiap tombol fungsinya. Berikut ini adalah beberapa <em>shortcut key</em> yang biasa saya gunakan :</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Sortcut Key</strong></th>
+      <th><strong>Fungsi</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Kontrol Perekaman</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>F10</kbd></td>
+      <td><strong>START Recording</strong></td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>F11</kbd></td>
+      <td><strong>STOP Recording</strong></td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>F12</kbd></td>
+      <td><strong>PAUSE Recording</strong></td>
+    </tr>
+    <tr>
+      <td><strong>Kontrol Tambahan</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>F9</kbd></td>
+      <td><strong>Magnification Switch</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Kesemua fungsi dari <em>shortcut keys</em> di atas sudah sangat memenuhi kebutuhan saya dalam membuat video demonstrasi pendek.</p>
+
+<h2 id="2-interface-yang-mudah-dioperasikan">2. Interface yang mudah dioperasikan</h2>
+
+<p>Vokoscreen memiliki <em>user interface</em> yang apabila kita baru pertama kali menggunakannya, kita sudah langsung dapat mengerti bagaimana cara mengoperasikan aplikasi ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/nrWtw4xq/gambar-1.png" /></p>
+<p class="img-caption">Gambar 1 - Tab Video</p>
+
+<p>Pada <strong>Tab Video</strong> kita dapat mengatur :</p>
+
+<ol>
+  <li>Area yang ingin kita rekam. Terdapat tiga spesifikasi area, <strong>Fullscreen</strong>, <strong>Window</strong>, atau <strong>Area</strong></li>
+  <li><strong>Display</strong>. Digunakan untuk memilih monitor mana yang ingin kita rekam apabila menggunakan lebih dari satu monitor</li>
+  <li><strong>Magnification</strong>. Digunakan untuk menampilkan kaca pembesar. Terdapat tiga ukuran kaca pembesar yang dapat kita gunakan</li>
+  <li><strong>Showkey</strong>. Digunakan untuk menampilkan inputan keyboard ke dalam screen yang kita rekam</li>
+  <li><strong>Showclick</strong>. Digunakan untuk menandai area screen yang kita klik. Bagian ini juga dapat kita kustomisasi</li>
+  <li><strong>Countdown</strong>. Kita dapat menentukan berapa detik lamanya proses hitung mundur sampai proses perekaman dimulai</li>
+</ol>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/JnCRccqg/gambar-2.png" /></p>
+<p class="img-caption">Gambar 2 - Tab Audio</p>
+
+<p>Pada <strong>Tab Audio</strong> kita dapat mengatur :</p>
+
+<ol>
+  <li><strong>Enable</strong> / <strong>Disable</strong> audio dengan mencentang <em>checkbox</em> Audio</li>
+  <li>Memilih driver Pulse atau Alsa</li>
+</ol>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/3Nn7hMT5/gambar-3.png" /></p>
+<p class="img-caption">Gambar 3 - Tab Format</p>
+
+<p>Pada <strong>Tab Format</strong> kita dapat mengatur :</p>
+
+<ol>
+  <li><strong>Frames</strong>. Jumlah frame yang ingin kita gunakan. 24/25/30</li>
+  <li><strong>Format</strong>. Format yang dapat kita pilih adalah: mkv, webm, mp4, gif, mov</li>
+  <li><strong>Videocodec</strong>. Video codec yang dapat kita gunakan adalah: libx264, libx264rgb, libx265, mpeg4</li>
+  <li><strong>Lossless</strong>. Kita juga dapat memilih hasil output videonya mau dikompres atau tidak</li>
+  <li><strong>Audiocodec</strong>. Audio codec yang dapat kita gunakan adalah: libmp3lame, mp2, aac</li>
+  <li>Kita juga dapat memilih untuk ingin merekam mouse cursor atau tidak</li>
+</ol>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/0QGPtMXN/gambar-4.png" /></p>
+<p class="img-caption">Gambar 4 - Tab Preferences</p>
+
+<p>Pada <strong>Tab Preferences</strong> kita dapat mengatur :</p>
+
+<ol>
+  <li><strong>Videopath</strong>. Kita dapat menentukan pada direktori mana video hasil rekaman kita disimpan</li>
+  <li><strong>Player</strong>. Kita dapat memilih player apa yang akan kita gunakan untuk melihat hasil rekaman apabila tombol <kbd>Play</kbd> yang ada di deretan bawah ditekan</li>
+  <li><strong>Recorder</strong>. Kita dapat memilih aplikasi backend apa yang kita gunakan untuk merekam</li>
+  <li>Dan fitur-fitur lain yang dapat dilihat sendiri pada Gambar 4</li>
+</ol>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/FsHNZKy9/gambar-5.png" /></p>
+<p class="img-caption">Gambar 5 - Tab Webcam</p>
+
+<p>Pada <strong>Tab Webcam</strong> kita dapat mengatur :</p>
+
+<ol>
+  <li><strong>Enable</strong> / <strong>Disable</strong> webcam. Kita dapat merekam desktop sambil menyalakan webcam</li>
+  <li>Mengatur resolusi dari webcam</li>
+  <li>Mengatur mirrored, gray color, dan inverted</li>
+</ol>
+
+<p>Namun, fitur ini jarang sekali saya gunakan. Saya biasa mengkombinasikan dengan aplikasi <strong>Guvcview</strong> untuk menampilkan webcam ke dalam layar.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/7hxDjHjn/gambar-6.png" /></p>
+<p class="img-caption">Gambar 6 - Tab Ekstension</p>
+
+<p>Saya belum pernah sama sekali menggunakan tab Ekstension ini.</p>
+
+<p><br />
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/h4rKTm7y/gambar-7.png" /></p>
+<p class="img-caption">Gambar 7 - Tab About</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk memasang Vokoscreen terbilang cukup mudah. Silahkan siapkan direktori khusus atau direktori yang memang kalian sediakan untuk menyimpan aplikasi yang berupa source code.</p>
+
+<p>Sebagai ilustrasi, saya selalu mengumpulkan aplikasi yang berupa <em>source code</em> pada direktori <code class="highlighter-rouge">~/app/</code>.</p>
+
+<p>Kemudian jalankan perintah di bawah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/vkohaupt/vokoscreen
+</code></pre></div></div>
+
+<p>Setelah proses <em>cloning</em> selesai, masuk ke dalam direktori yang sudah kita <em>cloning</em> dari GitHub tersebut.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd vokoscreen
+</code></pre></div></div>
+<p>Di dalam direktori ini (<code class="highlighter-rouge">vokoscreen</code>) terdapat file bernama <code class="highlighter-rouge">INSTALL</code> yang berisi daftar paket-paket yang diperlukan oleh Vokoscreen (lihat bagian <strong>Requires:</strong>) dan yang dibutuhkan untuk mem-<em>build</em> Vokoscreen (lihat bagian <strong>BuildRequires:</strong>).</p>
+
+<p>Lakukan pengecekan apakah semua paket-paket yang diperlukan sudah terpenuhi?</p>
+
+<p>Apabila sudah, tinggal jalanakan perintah selanjutnya.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+</code></pre></div></div>
+
+<p>Perintah ini akan meng-<em>compile</em> <em>source code</em> Vokoscreen dan apabila proses kompilasi berhasil, akan menghasilkan file binary yang kita perlukan dengan nama <code class="highlighter-rouge">vokoscreen</code>.</p>
+
+<p>Untuk menjalankannya, ikuti perintah di bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./vokoscreen
+</code></pre></div></div>
+
+<h1 id="membuat-app-launcher">Membuat App Launcher</h1>
+
+<p>Karena aplikasi ini kita kompilasi sendiri dari <em>source code</em>, terkadang belum terdapat <em>launcher</em> untuk memanggil Vokoscreen. Kita perlu untuk mengkonfigurasinya sendiri.</p>
+
+<h2 id="1-membuat-symbolic-link">1. Membuat Symbolic Link</h2>
+
+<p>Pertama-tama kita akan membuat <em>symbolic link</em> untuk file binary <code class="highlighter-rouge">vokoscreen</code> yang sudah kita kompilasi sebelumnya yang akan kita letakkan pada <code class="highlighter-rouge">/usr/bin/</code> agar Vokoscreen dapat kita panggil via Terminal.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ln -sf /home/bandithijo/app/vokoscreen/vokoscreen /usr/bin/vokoscreen
+</code></pre></div></div>
+<p><strong>Catatan:</strong> gunakan alamat lengkap dari file <code class="highlighter-rouge">vokoscreen</code> yang kita kompilasi.</p>
+
+<p>Apabila berhasil, sekarang coba buka Terminal dan panggil Vokoscreen.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vokoscreen
+</code></pre></div></div>
+
+<p>Apabila Vokoscreen berhasil terbuka, berarti kita dapat lanjut mengkonfigurasi <em>application launcher</em>.</p>
+
+<h2 id="2-memindahkan-application-launcher">2. Memindahkan Application Launcher</h2>
+
+<p>Beruntungnya di dalam direktori <code class="highlighter-rouge">../vokoscreen/applications/</code> sudah terdapat file <code class="highlighter-rouge">vokoscreen.desktop</code>. Ini adalah file <em>launcher</em> untuk memanggil aplikasi. Tinggal kita pindahkan ke tempat yang benar.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd applications/
+$ cp vokoscreen.desktop $HOME/.local/share/applications/vokoscreen.desktop
+</code></pre></div></div>
+
+<p>Apabila berhasil, sekarang coba panggil Vokoscreen menggunakan <em>application launcher</em> / <em>menu laucher</em> pada Desktop Environment yang kalian pergunakan.</p>
+
+<h1 id="workflow">Workflow</h1>
+
+<p>Kira-kira seperti ini kebiasaan saya dalam menggunakan Vokoscreen.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="voko_1" data-echo="https://i.postimg.cc/90XgytmP/voko-1.gif" /></p>
+
+<p>Hasilnya seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="voko_2" data-echo="https://i.postimg.cc/jSB1B7cK/voko-2.gif" /></p>
+
+<p>Nah, kira-kira seperti ini dulu yang dapat saya tuliskan.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Saat ini Vokoscreen 2.5.8-beta sudah tidak lagi dilanjutkan pengembangannya. Vokoscreen dilanjutkan ke project <a href="https://github.com/vkohaupt/vokoscreenNG" target="_blak"><strong>VokoscreeNG</strong></a> yang merupakan akronim dari Vokoscreen Next Generation. Saat tulisan ini ditulis VokoscrenNG sudah memasuki versi 2.9.5-beta.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://linuxecke.volkoh.de/vokoscreen/vokoscreen.html" target="_blank">linuxecke.volkoh.de/vokoscreen/vokoscreen.html</a>
+<br />Diakses tanggal: 2018/10/28</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/vkohaupt/vokoscreen" target="_blank">github.com/vkohaupt/vokoscreen</a>
+<br />Diakses tanggal: 2018/10/28</p>
+  </li>
+</ol>
+:ET

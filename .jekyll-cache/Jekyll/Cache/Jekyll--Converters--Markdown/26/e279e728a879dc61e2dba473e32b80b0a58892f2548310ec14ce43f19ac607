@@ -1,0 +1,371 @@
+I"�]<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/mp2f9pxkt/banner_post_10.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Punya <em>smartphone</em> <strong>XiaoMi</strong> dan cuman punya komputer atau laptop yang sistem operasinya GNU/Linux ?</p>
+
+<p>Tidak perlu repot-repot meminjam laptop teman atau memasang Windows pada VirtualBox. Karena semua pekerjaan untuk memasang <strong>Custom ROM</strong> pada <em>smartphone</em> XiaoMi dapat dengan mudah kita lakukan dengan bermodalkan Terminal.</p>
+
+<h1 id="prasyarat">Prasyarat</h1>
+
+<p>Pasang paket-paket yang dibutuhkan.</p>
+
+<ol>
+  <li><strong>adb</strong></li>
+  <li><strong>fastboot</strong></li>
+</ol>
+
+<p>Nah, kedua paket ini, apabila teman-teman menggunakan distribusi sistem operasi Arch Linux, dapat dengan mudah kita dapatkan di AUR (<em>Arch User Repository</em>) dengan nama paket <a href="https://aur.archlinux.org/packages/android-sdk-platform-tools/" target="_blank"><code class="highlighter-rouge">android-sdk-platform-tools</code></a>. Atau secara <em>official</em> dapat di unduh <a href="https://developer.android.com/studio/releases/platform-tools" target="_blank">di sini</a>. Pilih <strong>SDK Platform-Tools for Linux</strong>.</p>
+
+<p>Untuk distribusi sistem operasi lain, seperti Ubuntu dan Fedora, dapat mencari pada repositori masing-masing (Google saja, bosku).</p>
+
+<p>Apabila telah dipasang, maka kita akan dapat memanggil perintah <code class="highlighter-rouge">adb</code> dan <code class="highlighter-rouge">fastboot</code> melalui Terminal.</p>
+
+<p>Lakukan pengecekan versi <code class="highlighter-rouge">adb</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ adb --version
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Android Debug Bridge version 1.0.39
+Version 0.0.1-4500957
+</code></pre></div></div>
+<p>Lakukan pengecekan versi <code class="highlighter-rouge">fastboot</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ fastboot - version
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastboot version 0.0.1-4500957
+</code></pre></div></div>
+<p>Apabila sudah seperti di atas, maka <code class="highlighter-rouge">adb</code> dan <code class="highlighter-rouge">fastboot</code> siap kita ajak bertempur. Meskipun pada dokumentasi ini kita akan lebih banyak menggunakan <code class="highlighter-rouge">fastboot</code>.</p>
+
+<div class="blockquote-yellow">
+<h2 class="blockquote-yellow-title">Apakah kegunaan kedua program tersebut ?</h2>
+    <b>adb</b> (<i>Android Device Bridge</i>), hanya dapat digunakan apabila <i>smartphone</i> dalam kondisi berada di <i>desktop</i>. Artinya sistem Android sudah <i>up and runnning</i>.
+    <b>fastboot</b>, hanya dapat kita gunakan pada mode <b>Fastboot</b>, penjelasan lebih lanjut ada di bawah.
+</div>
+
+<h1 id="ngoprek">Ngoprek</h1>
+
+<p>Terdapat beberapa tahapan sebelum kita dapat memasang <em>custom</em> ROM yang kita inginkan. Saya memilih menggunakan <strong>LineageOS</strong>. Namun dokumentasi ini dapat digunakan untuk memasang <em>custom</em> ROM apa saja, karena langkah-langkah yang ada pada dokumentasi ini yang akan menjembatani hal tersebut.</p>
+
+<p>Sekenarionya, kira-kira seperti ini :</p>
+
+<ol>
+  <li><em>Flash</em>, ROM saat ini menjadi ROM MIUI ver. 6 (<em>Downgrade</em> ROM)<br />Tujuannya untuk memudahkan proses <em>unlock bootloader</em>.</li>
+  <li><em>Unlock Bootloader</em></li>
+  <li><em>Install Recovery Custom</em> ROM (dalam hal ini TWRP)</li>
+  <li>Masuk ke dalam TWRP (<em>Recovery Mode</em>)</li>
+  <li><em>Copy image custom</em> ROM ke dalam <em>internal memory</em> dengan kabel data</li>
+  <li><em>Install custom</em> ROM menggunakan TWRP</li>
+</ol>
+
+<p><br /></p>
+<h2 id="flash-rom-for-downgrade">Flash ROM for Downgrade</h2>
+
+<p>Kita perlu menurunkan versi ROM MIUI atau memasang MIUI ver. 6 ke dalam ROM <em>smartphone</em> kita. Tujuan kita melakukan hal ini adalah karena MIUI ver. 6 adalah MIUI ver. 6 ini paling minim pembatasan terhadap fitur-fitur yang <em>developer</em> butuhkan. Secara <em>default</em>, <em>bootloader</em> pada MIUI ver. 6 tidak dalam keadaan <em>locked</em>, sehingga memberikan kita kebebasan untuk bermain-main dengan <em>smartphone</em> XiaoMi. Meskipun beberapa sumber mengatakan hal ini adalah opsional, namun tidak ada salahnya kita coba.</p>
+
+<p>Untuk melakukan <em>flashing</em> pada ROM <em>smartphone</em> pada sistem operasi Windows, kita menggunakan MiFlash atau MiPhone2015 yang terlebih dahulu harus kita pasang di sistem kita.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/4beeipcv1/gambar_01.jpg" /></p>
+<p class="img-caption">Gambar 1 - MiFlash 2015 Windows</p>
+
+<p>Sejujurnya, proses <em>flashing</em> menggunakan aplikasi ini lebih ribet, karena kita harus memasang driver Qualcom dan berpindah ke mode EDL (<em>Emergency Download Mode</em>) agar kita mendapatkan akses level tertinggi dari sistem. Untuk masuk ke dalam mode EDL seingat saya menggunakan perintah <code class="highlighter-rouge">$ sudo fastboot oem edl</code>.</p>
+
+<p>Cobain saja, bro. Karena saya bukan hanya 1-10 kali menggunakan aplikasi ini. Puluhan kali sudah saya berurusan dengan aplikasi ini sejak baru beli <em>smartphone</em> XiaoMi. Bahkan sudah pernah menghidupkan kembali <em>smartphone</em> saya dari keadaan <em>hardbrick</em>.</p>
+
+<p>Sedangkan, pada sistem operasi GNU/Linux, kita cukup menggunakan Terminal saja untuk melakukan <em>flashing</em> ROM. Dan <strong>tidak perlu masuk ke dalam mode EDL</strong>.</p>
+
+<p><br />
+<strong>Kenali Ciri-ciri Fastboot ROM</strong></p>
+
+<p>Bahan yang dibutuhkan tentu saja adalah <em>fastboot</em> ROM. Ini adalah ROM khusus yang memang diperuntukkan untuk proses instalasi ROM dengan cara <em>flashing</em>.</p>
+
+<p>Berikut ini adalah contoh <em>fastboot</em> ROM yang diperuntukkan untuk XiaoMi Mi4C.</p>
+
+<ul>
+  <li><a href="http://bigota.d.miui.com/6.1.7/libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac70a0.tgz" target="_blank"><strong>libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz</strong></a></li>
+  <li><strong>libra_images_9.5.2.0.NXKCNFA_20180405.0000.00_7.0_cn_3dce54155d.tgz</strong></li>
+</ul>
+
+<p>Kamu dapat melihat daftar <em>fastboot</em> ROM versi paling baru, <a href="http://en.miui.com/a-234.html" target="_blank">di sini</a>.</p>
+
+<p>Bukan file <em>image</em> ROM dengan penamaan seperti ini :</p>
+
+<ul>
+  <li><strong>miui_MI4c_V9.5.2.0.NXKCNFA_81f363e363_7.0.zip</strong></li>
+</ul>
+
+<p>Kenali ciri-ciri dari penamaan <em>fastboot</em> ROM ini. Di awali dengan nama mesin. <strong>Libra</strong> adalah <em>codename</em> untuk XiaoMi Mi4C. Perhatikan juga <em>file extension</em> dengan format <strong>.tgz</strong>.</p>
+
+<p>Apabila kita ekstrak, di dalam file <em>fastboot</em> ROM <strong>.tgz</strong> tersebut akan berisi :</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libra_images_6.1.7_20151221.0000.11_5.1_cn
+├── flash_all.bat
+├── flash_all_except_data_storage.bat
+├── flash_all_except_data_storage.sh
+├── flash_all.sh
+├── images
+│   ├── bk2.img
+│   ├── boot.img
+│   ├── BTFM.bin
+│   ├── cache.img
+│   ├── ...
+│   └── ...
+└── misc.txt
+</code></pre></div></div>
+
+<p>Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari <em>fastboot</em> ROM untuk tipe XiaoMi yang kalian miliki.</p>
+
+<p><br />
+<strong>Flashing ROM</strong></p>
+
+<ol>
+  <li>Ekstrak file <em>fastboot</em> ROM <strong>.tgz</strong> yang kita miliki.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ tar -xvf libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz
+</code></pre></div>    </div>
+    <p>Nanti akan terbuat sebuah direktori baru yang memiliki nama yang sama seperti <em>fasboot</em> ROM.</p>
+  </li>
+  <li>Masuk ke dalam direktori tersebut.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd libra_images_6.1.7_20151221.0000.11_5.1_cn
+</code></pre></div>    </div>
+    <p>Di dalam direktori ini berisi file-file seperti yang sudah saya jelaskan di atas.
+ Kamu dapat mengeceknya dengan perintah.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ls -al
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> total 72
+ drwxr-xr-x 3 bandithijo users 4096 Dec 18  2016 .
+ drwxr-xr-x 4 bandithijo users 4096 Apr 29 07:49 ..
+ -rwxr-xr-x 1 bandithijo users 1362 Jan  7  2016 flash_all.bat
+ -rwxr-xr-x 1 bandithijo users 1310 Jan  7  2016 flash_all_except_data_storage.bat
+ -rwxr-xr-x 1 bandithijo users 1436 Jan  7  2016 flash_all_except_data_storage.sh
+ -rwxr-xr-x 1 bandithijo users 1496 Jan  7  2016 flash_all.sh
+ drwxr-xr-x 2 bandithijo users 4096 Dec 18  2016 images
+ -rwxr-xr-x 1 bandithijo users   66 Jan  7  2016 misc.txt
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Buat <em>smartphone</em> kamu dalam mode <strong>Fastboot</strong> dengan menekan kombinasi tombol. Tekan dan tahan <kbd>Volume Down</kbd> + <kbd>Power</kbd> secara berurutan.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" /></p>
+    <p class="img-caption">Gambar 2 - Mode Fastboot</p>
+    <p>Setelah <em>smartphone</em> kita sudah dalam mode <em>fastboot</em>, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.</p>
+  </li>
+  <li>Deteksi apakah <em>smartphone</em> dengan komputer / laptop sudah terhubung atau tidak.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot devices
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dd46fe2b	fastboot
+</code></pre></div>    </div>
+    <p>Apabila berhasil akan memberikan <em>output</em> seperti di atas. Apabila gagal tidak akan memberikan <em>output</em> apapun.</p>
+  </li>
+  <li>
+    <p>Saat ini di Terminal, pastikan kamu masih berada pada direktori hasil ekstrak dari file <em>fastboot</em> ROM (pada step 2 di atas).
+ Terdapat 2 file BASH <em>script</em> yang memiliki kegunaan berbeda.</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">flash_all_except_data_storage.sh</code> : untuk menghapus system namun tidak menghapus data dan storage</li>
+      <li><code class="highlighter-rouge">flash_all.sh</code> : untuk menghapus semua system, data, dan storage</li>
+    </ul>
+
+    <p>Pilih sesuai kebutuhan kalian. Kalo saya lebih memilih <code class="highlighter-rouge">flash_all.sh</code>. Kita akan membuat file <strong>.sh</strong> yang kita pilih, agar menjadi <em>excutable</em>.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ chmod +x flash_all.sh
+</code></pre></div>    </div>
+    <p>Sebenarnya file BASH <em>script</em> tersebut sudah mendapatkan <em>excutable permission</em> <code class="highlighter-rouge">-rwxr-xr-x</code>, namun saya hanya mengantisipasi apabila ada dari teman-teman yang belum memahami perbedaan file <em>excutable</em> dan <em>non excutable</em>.</p>
+  </li>
+  <li>Eksekusi file <em>script</em> tersebut.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo sh flash_all.sh
+</code></pre></div>    </div>
+    <p>Tunggu prosesnya hingga selesai.</p>
+
+    <p>Setelah selesai, <em>smartphone</em> XiaoMi kalian akan <em>reboot</em> dan masuk ke ROM yang baru saja kita pasang. Mudah bukan ?</p>
+  </li>
+</ol>
+
+<p><br />
+<strong>Video Demonstrasi Proses Flashing ROM</strong></p>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/IwZZbfXzNWA" frameborder="0" allowfullscreen=""></iframe></div>
+
+<p><br /></p>
+<h2 id="unlock-bootloader">Unlock Bootloader</h2>
+
+<p>Salah satu syarat untuk memodifikasi ROM (berganti-ganti ROM dengan menggunakan Custom Recovery) adalah <strong>Bootloader</strong> yang sudah dalam keadaan <strong>Unlock</strong>. Karena dengan ini, kita dapat memasangkan <strong>Custom Recovery</strong> ke dalam partisi <strong>Recovery</strong> di <em>smartphone</em> kita.</p>
+
+<p>Prosesnya simple saja, ndak rumit.</p>
+
+<ol>
+  <li>Masuk kembali ke dalam mode <strong>Fastboot</strong>.</li>
+  <li>Hubungkan <em>smartphone</em> dengan komputer / laptop. Dan periksa apakah sudah terhubung atau belum.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot devices
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dd46fe2b	fastboot
+</code></pre></div>    </div>
+  </li>
+  <li>Periksa status <strong>Bootloader</strong>, apakah <strong>Device unlocked : false</strong> atau <strong>true</strong>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot oem device-info
+</code></pre></div>    </div>
+    <pre>
+ ...
+ (bootloader) 	Device tampered: false
+ (bootloader) 	<mark>Device unlocked: false</mark>
+ (bootloader) 	Charger screen enabled: false
+ (bootloader) 	Display panel:
+ OKAY [  0.060s]
+ finished. total time: 0.060s</pre>
+    <p>Apabila <strong>Device unlocked: false</strong>, lakukan perintah di bawah untuk membuatnya menjadi <strong>true</strong>.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot oem unlock
+</code></pre></div>    </div>
+    <p>Periksa kembali, apakah sudah menjadi <strong>true</strong>.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot oem device-info
+</code></pre></div>    </div>
+    <pre>
+ ...
+ (bootloader) 	Device tampered: false
+ (bootloader) 	<mark>Device unlocked: true</mark>
+ (bootloader) 	Charger screen enabled: false
+ (bootloader) 	Display panel:
+ OKAY [  0.060s]
+ finished. total time: 0.060s</pre>
+    <p>Apabila <strong>Device unlocked:</strong> sudah menjadi <strong>true</strong>, maka kita dapat memasangkan <strong>Custom Recovery</strong>.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h2 id="install-custom-recovery">Install Custom Recovery</h2>
+
+<p>Teman-teman dapat menggunakan <em>custom recovery</em> apa saja, dalam dokumentasi ini saya memilih menggunakan <strong>TWRP</strong> karena saya akan menggunakan <strong>LineageOS</strong> ROM.</p>
+
+<p>Untuk teman-teman yang menggunkan XiaoMi Mi4C dan ingin menggunakan LineageOS, dapat mengunduh versi TWRP yang support untuk tipe <em>smartphone</em> kita.</p>
+<ul>
+  <li><a href="https://dl.twrp.me/libra/twrp-3.1.1-1-libra.img" target="_blank">twrp-3.1.1-1-libra.img</a></li>
+  <li><a href="https://dl.twrp.me/libra/twrp-3.1.1-0-libra.img" target="_blank">twrp-3.1.1-1-libra.img</a></li>
+  <li><a href="https://dl.twrp.me/libra/twrp-3.1.0-0-libra.img" target="_blank">twrp-3.1.0-0-libra.img</a></li>
+  <li><a href="https://dl.twrp.me/libra/twrp-3.0.2-0-libra.img" target="_blank">twrp-3.0.2-0-libra.img</a></li>
+</ul>
+
+<p>Saya masih menggunakan <strong>3.1.0.0</strong> dan belum sempat naik ke versi 3.1.1.0 – mungkin lain waktu.</p>
+
+<p>Proses instalasinya sangat mudah.</p>
+
+<ol>
+  <li>Buka Terminal. Masuk ke dalam direktori tempat kamu menyimpan file <em>image</em> TWRP.</li>
+  <li>Jalankan perintah di bawah.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot flash recovery twrp-3.1.0-0-libra.img
+</code></pre></div>    </div>
+    <p>Sesuaikan dengan <em>image</em> TWRP yang kalian pilih.</p>
+
+    <p>Apabila berhasil, akan menampilkan <em>output</em> seperti ini.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> target reported max download size of 536870912 bytes
+ sending 'recovery' (50584 KB)...
+ OKAY [  1.675s]
+ writing 'recovery'...
+ OKAY [  0.897s]
+ finished. total time: 2.573s
+</code></pre></div>    </div>
+  </li>
+  <li>Kemudian, setelah berhasil, kita langsung masuk saja ke dalam mode <strong>Recovery</strong> menggunakan perintah di bawah.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ sudo fastboot boot twrp-3.1.0-0-libra.img
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> downloading 'boot.img'...
+ OKAY [  1.709s]
+ booting...
+ OKAY [  0.517s]
+ finished. total time: 2.225s
+</code></pre></div>    </div>
+    <p>Tunggu beberapa detik, sampai <em>smartphone</em> kita akan <em>reboot</em> dan masuk ke dalam mode <strong>Recovery</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" /></p>
+    <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
+
+    <p>Cara lain untuk masuk ke dalam mode <strong>Recovery</strong> dengan menggunakan kombinasi tombol.</p>
+
+    <p>Terlebih dahulu matikan <em>smartphone</em> kalian, kemudian tekan dan tahan tombol <kbd>Volume Up</kbd> + <kbd>Power</kbd> secara berurutan.</p>
+
+    <p>Dengan begini, maka penggunaan Terminal cukup sampai di sini saja. Tapi jangan di cabut dulu kabel datanya, karena kita masih harus memasukkan bahan-bahan untuk proses instalasi <em>custom</em> ROM ke dalam <em>internal memory</em> dari <em>smartphone</em>.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+<h2 id="copy-bahan-bahan-ke-dalam-internal-memory">Copy Bahan-bahan ke dalam Internal Memory</h2>
+
+<p>Kita melakukan instalasi <em>custom</em> ROM dengan bantuan TWRP. Untuk itu kita perlu memasukkan semua bahan-bahan yang akan kita pasang ke dalam <em>internal memory</em> dengan bantuan <strong>File Manager</strong>. Dalam hal ini saya menggunakan <strong>Thunar</strong> atau <strong>PCMANFM</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://s20.postimg.cc/fzrafmmrh/gambar_04.png" /></p>
+<p class="img-caption">Gambar 4 - Bahan-bahan yang diperlukan</p>
+
+<p>Ini adalah bahan-bahan untuk memasang sistem operasi <strong>LineageOS</strong> beserta <strong>OpenGAPS</strong> (<em>Google Apps packages</em>) arm64 - 7.1 - nano. Saya juga menambahkan <strong>SuperSU</strong> untuk mendapatkan akses root. Apabila teman-teman tidak ingin menggunakan root, <strong>SuperSU</strong> tidak perlu ikut diinstal.</p>
+
+<blockquote>
+  <p class="title-quote">Bahan-Bahan LineageOS</p>
+  <ol>
+    <li><a href="https://mirrorbits.lineageos.org/full/libra/20180427/lineage-14.1-20180427-nightly-libra-signed.zip"><strong>lineage-14.1-20180427-nightly-libra-signed.zip</strong></a><br />versi paling <em>update</em>, <a href="https://download.lineageos.org/libra" target="_blank">di sini</a></li>
+    <li><a href="https://github-production-release-asset-2e65be.s3.amazonaws.com/35368384/2c2c60a8-46e6-11e8-9419-6589ed209c63?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20180429%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20180429T072524Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=a8d809293ca172444edb4e9dd5294acbf1714b731977b206327ac34716131693&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;response-content-disposition=attachment%3B%20filename%3Dopen_gapps-arm64-7.1-nano-20180423.zip&amp;response-content-type=application%2Foctet-stream"><strong>open_gapps-arm64-7.1-nano-20180423.zip</strong></a><br />versi paling <em>update</em>, <a href="http://opengapps.org/?api=7.1&amp;variant=nano" target="_blank">di sini</a></li>
+    <li><a href="https://s3-us-west-2.amazonaws.com/supersu/download/zip/SuperSU-v2.82-201705271822.zip"><strong>SuperSU-v2.82-201705271822.zip</strong></a><br />versi paling <em>update</em>, <a href="http://www.supersu.com/download" target="_blank">di sini</a> (<em>flashable</em>)</li>
+    <li><a href="https://drive.google.com/open?id=1bQZlsdCkhQxvxqc9KIZGoMlQ_9aul-HL"><strong>BusyBox-v1.22.1-bionic.zip</strong></a><br />versi paling <em>update</em>, terdapat di <a href="https://play.google.com/store/apps/details?id=stericson.busybox&amp;hl=en" target="_blank">PlayStore</a></li>
+  </ol>
+</blockquote>
+
+<p>Download semua bahan-bahan yang diperlukan. Sesuaikan dengan kebutuhan dan tipe XiaoMi kalian.</p>
+
+<p>Selanjutnya, masukkan ke dalam <em>internal memory</em> <em>smartphone</em> XiaoMi kita. Letakkan saja di luar, agar lebih mudah di akses dari TWRP. Untuk melihat file-file tersebut, masuk ke dalam menu <strong>Install</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://s20.postimg.cc/8eo9k7wwt/gambar_06.png" /></p>
+
+<p>Hasilnya akan seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://s20.postimg.cc/4iaxoc6t9/gambar_05.png" /></p>
+<p class="img-caption">Gambar 5 - Bahan-bahan yang sudah dimasukkan</p>
+
+<h2 id="instalasi-custom-rom">Instalasi Custom ROM</h2>
+
+<p>Masih pada menu <strong>Install</strong>, pilih file <strong>.zip</strong> secara berurutan :</p>
+<ol>
+  <li><strong>lineage-14.1-20180427-nightly-libra-signed.zip</strong></li>
+  <li><strong>open_gapps-arm64-7.1-nano-20180423.zip</strong></li>
+  <li><strong>SuperSU-v2.82-201705271822.zip</strong></li>
+  <li><strong>BusyBox-v1.22.1-bionic.zip</strong></li>
+</ol>
+
+<p>Untuk menambahkan lebih dari 1 <strong>.zip</strong>, pilih <strong>Add more Zips</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar7" data-echo="https://s20.postimg.cc/nne6y7o31/gambar_07.png" /></p>
+
+<p>Lakukan terus menerus sampai keempat semua bahan yang diperlukan masuk ke dalam daftar <strong>queued</strong> instalasi.</p>
+
+<p>Kemudian lakukan eksekusi, dengan menggeser tombol biru yang ada di paling bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar8" data-echo="https://s20.postimg.cc/zds4f31al/gambar_08.png" /></p>
+
+<p>Proses instalasi akan seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar9" data-echo="https://s20.postimg.cc/c28m47x4d/gambar_09.png" /></p>
+
+<p>Tunggu sampai proses instalasi dari semua file selesai di eksekusi.</p>
+
+<p>Apabila sudah selesai akan muncul tombol <strong>Reboot</strong>.</p>
+
+<p><em>Reboot</em> dan proses <em>booting</em> akan menampilkan animasi logo <strong>LineageOS</strong>. Proses ini akan berjalan agak lama disertai 1 - 2 kali <em>reboot</em>. Jangan khawatir, proses seperti ini normal sekali.</p>
+
+<p>Tunggu saja sampai proses <em>booting</em> memasuki halaman awal pengaturan sistem operasi <strong>LineageOS</strong> untuk pertama kali.</p>
+
+<p>Saya rasa cukup seperti ini saja proses <em>flash</em>, <em>unlock bootloader</em>, <em>install custom recovery</em> dan instalasi LineageOS. Mudah-mudahan tulisan dokumentasi ini sudah mencakup kesemua dari proses pemasangan <em>custom</em> ROM pada <em>smartphone</em> XiaoMi dengan sistem operasi GNU/Linux.</p>
+
+<p><br />
+<strong>Video Demonstrasi Proses Unlock Bootloader, Install TWRP</strong></p>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/CGyxdElPPcQ" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://en.miui.com/thread-285121-1-1.html" target="_blank">en.miui.com/thread-285121-1-1.html</a>
+<br />Diakses tanggal: 2018/04/28</p>
+  </li>
+  <li>
+    <p><a href="https://forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18" target="_blank">forum.xda-developers.com/mi-4c/general/guide-unlocking-mi4c-bl-verification-t3336779/page18</a>
+<br />Diakses tanggal: 2018/04/28</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.lineageos.org/devices/libra/install" target="_blank">wiki.lineageos.org/devices/libra/install</a>
+<br />Diakses tanggal: 2018/04/28</p>
+  </li>
+</ol>
+
+:ET

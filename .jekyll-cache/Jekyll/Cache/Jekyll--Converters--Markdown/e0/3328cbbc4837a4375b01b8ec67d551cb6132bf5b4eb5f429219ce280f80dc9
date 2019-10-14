@@ -1,0 +1,124 @@
+I"k<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="" alt="banner"> -->
+
+<!-- OUTDATED POST -->
+<p class="notif-post">Post ini Gagal dalam Tahap Pengujian!<br />
+Sebaiknya Tidak Diaplikasikan pada Sistem Anda.
+</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p><code>tlp</code> sepertinya membuat efisiensi manajemen fan pada ThinkPad. Sehingga saya tidak lagi khawatir mengenai hasil output dari perintah <code>$ sensors</code> bernilai <code>0</code> karena mungkin memang saat bernilai <code>0</code> fan benar-benar tidak diperlukan untuk berputar. Karena sekali waktu saya melihat dari indikator fanspeed pada <code>Conky</code> yang saya pasang di desktop menunjukkan angka tertentu. (dalam keadaan tidak menggunakan paket <code>thinkfan</code>).</p>
+<p><strong>Kesimpulannya, tulisan ini tidak benar-benar saya perlukan.</strong></p>
+</div>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Hari ini saya me-<em>ricing</em> tampilan Conky karena sudah merasa jenuh dengan tampilan yang lama. Sembari menyusun <em>script</em> Conky, saya berpindah-pindah tempat duduk. Saya mendapati, saat <em>power adapter</em> saya lepas, <em>output</em> dari <em>fan speed monitor</em> saya <em>blank</em> (tidak menampilkan <em>output</em> apapun). Lantas saya coba jalankan <code class="highlighter-rouge">$ sensors</code> dan hasilnya pun <em>nihil</em>.</p>
+
+<p>Berikut ini adalah ilustrasinya.</p>
+
+<p><strong>Jika Power Adapter Terpasang</strong></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sensors
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>thinkpad-isa-0000
+Adapter: ISA adapter
+fan1:        3076 RPM
+</code></pre></div></div>
+
+<p><strong>Jika Power Adapter Dilepas</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sensors
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>thinkpad-isa-0000
+Adapter: ISA adapter
+fan1:
+</code></pre></div></div>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Tentu saja untuk permasalahan-permasalahan terkait Arch Linux, yang menjadi bahan rujukan pertama kali adalah Arch Wiki.</p>
+
+<p>Dengan keyword pencarian “<em>fanspeed did not respond aftar power adapter disconnected</em>” atau “<em>thinkpad fan arch wiki</em>”, saya pun memilih untuk membuka rekomendasi tautan yang mengarah pada Arch Wiki.</p>
+
+<p>Kemudian, saya melakukan pencarian kata spesifik “thinkpad”, ternyata ketemu. Terdapat <em>section</em> yang spesifik membahas <em>fan</em> pada ThinkPad <em>laptops</em>.</p>
+
+<p>Berikut langkah-langkahnya.</p>
+
+<ol>
+  <li>Instalasi paket bernama <a href="https://aur.archlinux.org/packages/thinkfan/" target="_blank"><code class="highlighter-rouge">thinkfan</code></a> dari (AUR)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$  yay thinkfan
+</code></pre></div>    </div>
+  </li>
+  <li>Kemudian periksa file yang sudah terpasang dengan cara
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -Ql thinkfan
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>thinkfan /usr/
+thinkfan /usr/bin/
+thinkfan /usr/bin/thinkfan
+thinkfan /usr/lib/
+thinkfan /usr/lib/modprobe.d/
+thinkfan /usr/lib/modprobe.d/thinkpad_acpi.conf
+thinkfan /usr/lib/systemd/
+thinkfan /usr/lib/systemd/system/
+thinkfan /usr/lib/systemd/system/thinkfan.service
+thinkfan /usr/share/
+thinkfan /usr/share/doc/
+thinkfan /usr/share/doc/thinkfan/
+thinkfan /usr/share/doc/thinkfan/NEWS
+thinkfan /usr/share/doc/thinkfan/README
+thinkfan /usr/share/doc/thinkfan/examples/
+thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.complex
+thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.simple
+thinkfan /usr/share/man/
+thinkfan /usr/share/man/man1/
+thinkfan /usr/share/man/man1/thinkfan.1.gz
+</code></pre></div>    </div>
+    <p>Perhatikan terdapat file bernama <code class="highlighter-rouge">/usr/lib/modprobe.d/thinkpad_acpi.conf</code>.
+Apabila kita lihat isi di dalamnya akan terdapat baris seperti ini.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>options thinkpad_acpi fan_control=1
+</code></pre></div>    </div>
+  </li>
+  <li>Selanjutnya, me-<em>load</em> kernel module.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo modprobe thinkpad_acpi
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cat /proc/acpi/ibm/fan
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status:		enabled
+speed:		3068
+level:		auto
+</code></pre></div>    </div>
+  </li>
+  <li>Selanjutnya, tinggal mengaktifkan <em>service</em> saat <em>startup</em>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo vim /etc/default/thinkfan
+</code></pre></div>    </div>
+    <p>Isikan dengan.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>START=yes
+</code></pre></div>    </div>
+  </li>
+  <li>Kemudian, <em>copy</em> konfigurasi default <code class="highlighter-rouge">/usr/share/doc/thinkfan/examples/thinkfan.conf.simple</code> ke <code class="highlighter-rouge">/etc/thinkfan.conf</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cp /usr/share/doc/thinkfan/examples/thinkfan.conf.simple /etc/thinkfan.conf
+</code></pre></div>    </div>
+    <p><strong>Perhatian!</strong> Langkah di atas perlu dilakukan. Apabila tidak, maka <em>service</em> dari <code class="highlighter-rouge">thinkfan.service</code> akan kebingungan mencari file konfigurasi default yang diperlukan setelah <em>system reboot</em>.</p>
+  </li>
+  <li>Langkah terakhir, tinggal meng-<em>enable</em>-kan <em>service</em>-nya.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable thinkfan
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created symlink /etc/systemd/system/multi-user.target.wants/thinkfan.service → /usr/lib/systemd/system/thinkfan.service.
+</code></pre></div>    </div>
+    <p>Selesai.</p>
+  </li>
+</ol>
+
+<p>Nah, sekarang coba lepas <em>power adapter</em> dan lakukan pengecekan dengan menjalankan perintah <code class="highlighter-rouge">$ sensors</code>.</p>
+
+<p>Apakah sudah berhasil terdeteksi?</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops" target="_blank">wiki.archlinux.org/index.php/Fan_speed_control#ThinkPad_laptops</a>
+<br />Diakses tanggal: 2018/12/08</li>
+</ol>
+:ET

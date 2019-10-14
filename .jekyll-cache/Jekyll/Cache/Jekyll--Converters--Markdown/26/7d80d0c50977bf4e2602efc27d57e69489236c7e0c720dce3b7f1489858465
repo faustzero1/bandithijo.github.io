@@ -1,0 +1,325 @@
+I"�7<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Kira-kira sudah dua minggu ini saya mengikuti kelas “<a href="https://www.dicoding.com/academies/104" target="_blank">Belajar Menjadi AWS Solutions Architect Associate</a>” yang diadakan oleh Dicoding.</p>
+
+<p>Yang menarik, pada <em>final submission</em>, saya akan mencoba mengumpulkan <em>submission</em> dengan memanfaatkan layanan Amazon Route 53 untuk mengelola DNS dari domain ini, yang sebelumnya saya kelola menggunakan Netlify.</p>
+
+<p>Bukan pertama kali ini saya berpindah-pindah DNS management. Pertama kali saya menggunakan CloudFlare, kemudian Netlify.</p>
+
+<p>Dan sekarang, mumpung sedang ada fasilitas gratis dari Dicoding yang bekerja sama dengan AWS Educate, tidak ada salahnya untuk mencoba, yee kan? Hohoho.</p>
+
+<p>Btw, <strong>kenapa aplikasi DNS management milik AWS ini dinamakan Route 53?</strong></p>
+
+<p>Nomor 53 ini merepresentasikan port yang biasa digunakan untuk service DNS pada umumnya, yaitu <strong>port 53 TCP/UDP</strong>.</p>
+
+<p>Oke, kita langsung ke konfigurasi yaa.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Pada tahap ini, saya akan membagi menjadi 3 tahapan.</p>
+
+<ol>
+  <li><a href="http://0.0.0.0:4000/blog/konfigurasi-custom-domain-github-pages-dengan-amazon-route53#1-konfigurasi-custom-domain-di-github">Konfigurasi <em>Custom Domain</em> di GitHub</a></li>
+  <li><a href="http://0.0.0.0:4000/blog/konfigurasi-custom-domain-github-pages-dengan-amazon-route53#2-konfigurasi-hosted-zone-di-route-53">Konfigurasi <em>Hosted Zone</em> di Route 53</a></li>
+  <li><a href="http://0.0.0.0:4000/blog/konfigurasi-custom-domain-github-pages-dengan-amazon-route53#3-konfigurasi-nameservers-di-penyedia-layanan-domain">Konfigurasi <em>Nameservers</em> di Dewaweb (Platform penyedia layanan Domain yang saya gunakan)</a></li>
+</ol>
+
+<h2 id="1-konfigurasi-custom-domain-di-github">1. Konfigurasi Custom Domain di GitHub</h2>
+
+<p>Di sini, saya mengasumsikan teman-teman sudah memiliki GitHub Pages.</p>
+
+<p>Secara <em>default</em> GitHub Pages memiliki nama domain seperti ini <strong>username.github.io</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/NfDMr5Gt/gambar-01.png" /></p>
+
+<p>Untuk mengatur konfirgurasi dari <em>custom domain</em> pada GitHub Pages, caranya sangat mudah.</p>
+
+<ol>
+  <li>
+    <p>Pergi ke repository tempat teman-teman menyimpan GitHub Pages.</p>
+  </li>
+  <li>
+    <p>Pergi ke tab <strong>Settings</strong>.</p>
+  </li>
+  <li>
+    <p>Scrolling ke bawah, sampai menemukan section “GitHub Pages”, seperti di bawah.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/J4przvK4/gambar-02.png" /></p>
+  </li>
+  <li>
+    <p>Pada bagian <strong>Custom domain</strong>, isikan dengan domain yang teman-teman miliki.</p>
+  </li>
+  <li>
+    <p>Kemudian, <strong>Save</strong> untuk menyimpannya.</p>
+  </li>
+</ol>
+
+<p>Perhatikan pada bagian atas, akan terdapat keterangan,</p>
+
+<p>“✔<strong>Your site is published at http://bandithijo.com</strong>”.</p>
+
+<p>Artinya, kita sudah berhasil mengeset <em>custom domain</em> untuk GitHub Pages.</p>
+
+<p>Sebagai catatan, <strong>Enforce HTTPS</strong> akan terdisable (<em>untick</em>). Namun jangan khawatir, karena konfigurasi HTTPS akan ditangani oleh DNS Management.</p>
+
+<p><strong>Jangan lupa!</strong></p>
+
+<p>Teman-teman perlu menambahkan file bernama <code class="highlighter-rouge">CNAME</code> yang berisi nama domain teman-teman, tanpa <code class="highlighter-rouge">www.</code>.</p>
+
+<p>Contohnya seperti <code class="highlighter-rouge">CNAME</code> milik saya.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandithijo.com
+</code></pre></div></div>
+
+<p>Hanya seperti itu saja isi di dalam <code class="highlighter-rouge">CNAME</code>.</p>
+
+<p><br /></p>
+<h2 id="2-konfigurasi-hosted-zone-di-route-53">2. Konfigurasi Hosted Zone di Route 53</h2>
+
+<p>Di sini saya mengasumsikan teman-teman sudah mempunyai akun Amazon.</p>
+
+<p>Selanjutnya akan saya bagi dalam 3 tahapan.</p>
+
+<h3 id="mendaftarkan-domain-ke-hosted-zone">Mendaftarkan Domain ke Hosted Zone</h3>
+
+<ol>
+  <li>
+    <p>Masuk ke Amazon Console dan pilih layanan <a href="https://console.aws.amazon.com/route53" target="_blank">Route 53</a>.</p>
+  </li>
+  <li>
+    <p>Selanjutnya, pilih tab “<strong>Hosted Zones</strong>”.</p>
+  </li>
+  <li>
+    <p>Buat Hosted Zone baru dengan memilih tombol biru pada bagian atas bertuliskan “<strong>Create Hosted Zone</strong>”.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/wjdjPLWD/gambar-03.png" /></p>
+  </li>
+  <li>
+    <p>Isikan <strong>Domain Name:</strong> dengan domain yang teman-teman miliki.</p>
+  </li>
+  <li>
+    <p>Isikan <strong>Comment:</strong> dengan deskripsi bebas dari domain teman-teman.</p>
+  </li>
+  <li>
+    <p><strong>Type:</strong> biarkan dengan pilihan <strong>Public Hosted Zone</strong>.</p>
+  </li>
+  <li>
+    <p>Kemudian pilih tombol <strong>Create</strong> di bawah.</p>
+  </li>
+  <li>
+    <p>Setelah Hosted Zone jadi, klik namanya untuk masuk ke dalam daftar record set yang dimiliki oleh Hosted Zone kita.</p>
+  </li>
+  <li>
+    <p>Tampilannya akan seperti di bawah ini.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/BvmZXyJC/gambar-04.png" /></p>
+  </li>
+  <li>
+    <p>Saat pertama kali dibuat, hanya akan terdapat dua buah record set, <strong>Nameservers</strong> dan <strong>SOA (<em>Start of authority</em>)</strong>, seperti yang saya kotak merah pada gambar di atas.</p>
+  </li>
+  <li>
+    <p>Catat keempat <strong>Nameservers</strong> yang diberikan secara default oleh Amazon Route 53.</p>
+
+    <p>Seperti milik saya,</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ns-826.awsdns-39.net
+ns-1058.awsdns-04.org
+ns-1923.awsdns-48.co.uk
+ns-84.awsdns-10.com
+</code></pre></div>    </div>
+
+    <p>Karena akan kita inputkan ke dalam konfigurasi Nameserver yang ada pada penyedia domain.</p>
+  </li>
+  <li>
+    <p>Selanjutnya Kita perlu menambahkan 2 record set, A dan CNAME.</p>
+  </li>
+</ol>
+
+<h3 id="menambahkan-record-set-a">Menambahkan Record Set A</h3>
+
+<ol>
+  <li>
+    <p>Buat record set A dengan memilih tombol biru <strong>Create Record Set</strong> di bagian atas.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/52q2MyGT/gambar-05.png" /></p>
+  </li>
+  <li>
+    <p>Lalu isikan seperti gambar di atas.</p>
+  </li>
+  <li>
+    <p><strong>Name:</strong> adalah domain yang kita miliki.</p>
+  </li>
+  <li>
+    <p><strong>Type:</strong>, isikan dengan <code class="highlighter-rouge">A - IPv4 address</code>.</p>
+  </li>
+  <li>
+    <p><strong>Value:</strong>, isikan dengan 4 IP address yang diberikan oleh GitHub Pages.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 185.199.108.153
+ 185.199.109.153
+ 185.199.110.153
+ 185.199.111.153
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Kemudian <strong>Save Record Set</strong> untuk menyimpan konfigurasi ini.</p>
+  </li>
+</ol>
+
+<h3 id="menambahkan-record-set-cname">Menambahkan Record Set CNAME</h3>
+
+<ol>
+  <li>
+    <p>Buat record set CNAME dengan memilih tombol biru <strong>Create Record Set</strong> di bagian atas.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/ZqbKYZzR/gambar-06.png" /></p>
+  </li>
+  <li>
+    <p>Lalu isikan seperti gambar di atas.</p>
+  </li>
+  <li>
+    <p><strong>Name:</strong>, isikan dengan <code class="highlighter-rouge">www</code>.</p>
+  </li>
+  <li>
+    <p><strong>Type:</strong>, isikan dengan <code class="highlighter-rouge">CNAME - Canonical name</code>.</p>
+  </li>
+  <li>
+    <p><strong>Value:</strong>, isikan dengan domain GitHub Pages milik teman-teman.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> username.github.io
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Kemudian <strong>Save Record Set</strong> untuk menyimpan konfigurasi ini.</p>
+  </li>
+</ol>
+
+<p><br />
+Kita perlu melakukan pengujian apakah konfigurasi Name Record A dan CNAME yang kita masukkan di atas berhasil atau belum.</p>
+
+<p>Tapi, nanti akan kita lakukan di akhir. Setelah kita memasukkan konfigurasi Nameservers pada penyedia layanan domain.</p>
+
+<p><br /></p>
+<h2 id="3-konfigurasi-nameservers-di-penyedia-layanan-domain">3. Konfigurasi Nameservers di Penyedia Layanan Domain</h2>
+
+<p>Saya membeli domain pada Dewaweb.com.</p>
+
+<p>Bagi teman-teman yang tidak membeli domain di Dewaweb, jangan khawatir, karena maksud dan tujuan dari tahap ketiga ini adalah memasukkan Nameservers yang sudah diberikan oleh Amazon Route 53 ke dalam pengaturan Nameservers yang disediakan oleh layanan penyedia domain seperti Dewaweb.</p>
+
+<p>Secara garis besar, tampilannya akan mirip seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/MZL7c65v/gambar-07.png" /></p>
+
+<p>Masukkan 4 alamat Nameservers yang sudah kita catat sebelumnya.</p>
+
+<p>Dengan begini, tahap konfigurasi Custom Domain GitHub Pages dengan Route 53 sebagai DNS Management telah selesai.</p>
+
+<p><br /></p>
+<h1 id="pengujian">Pengujian</h1>
+
+<p>Lakukan pengujian <code class="highlighter-rouge">ping</code> terlebih dahulu, apakah domain kita sudah <em>up</em> atau belum.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ping -c 3 bandithijo.com
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PING bandithijo.com (185.199.109.153) 56(84) bytes of data.
+64 bytes from 185.199.109.153 (185.199.109.153): icmp_seq=1 ttl=56 time=43.2 ms
+64 bytes from 185.199.109.153 (185.199.109.153): icmp_seq=2 ttl=56 time=42.7 ms
+64 bytes from 185.199.109.153 (185.199.109.153): icmp_seq=3 ttl=56 time=43.5 ms
+
+--- bandithijo.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 5ms
+rtt min/avg/max/mdev = 42.743/43.145/43.532/0.364 ms
+</code></pre></div></div>
+
+<p><br />
+Selanjutnya tahap menggali informasi DNS nameserver dengan DNS lookup utility bernama <code class="highlighter-rouge">dig</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ dig bandithijo.com
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; &lt;&lt;&gt;&gt; DiG 9.14.2 &lt;&lt;&gt;&gt; bandithijo.com
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16638
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 4, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;bandithijo.com.                        IN      A
+
+;; ANSWER SECTION:
+bandithijo.com.         300     IN      A       185.199.110.153
+bandithijo.com.         300     IN      A       185.199.108.153
+bandithijo.com.         300     IN      A       185.199.111.153
+bandithijo.com.         300     IN      A       185.199.109.153
+
+;; AUTHORITY SECTION:
+bandithijo.com.         172800  IN      NS      ns-1058.awsdns-04.org.
+bandithijo.com.         172800  IN      NS      ns-1923.awsdns-48.co.uk.
+bandithijo.com.         172800  IN      NS      ns-826.awsdns-39.net.
+bandithijo.com.         172800  IN      NS      ns-84.awsdns-10.com.
+
+;; Query time: 469 msec
+;; SERVER: 118.98.44.100#53(118.98.44.100)
+;; WHEN: Sat Jun 01 17:46:12 WITA 2019
+;; MSG SIZE  rcvd: 243
+</code></pre></div></div>
+
+<p>Output di atas dapat berbeda-beda.</p>
+
+<p>Kalau sedang beruntung, dapat menampilkan informasi yang banyak seperti di atas. Terdapat <code class="highlighter-rouge">ANSWER</code> dan <code class="highlighter-rouge">AUTHORITY</code> section.</p>
+
+<p>Terkadang hanya menampilkan <code class="highlighter-rouge">ANSWER</code> section saja.</p>
+
+<p>Perhatikan hasilnya.</p>
+
+<p>Apabila telah sesuai dengan yang kita inputkan pada Amazon Console Route 53, berarti konfigurasi kita telah berhasil.</p>
+
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Perlu diperhatikan bahwa proses perubahan Nameservers di atas sampai menjadi Nameservers yang baru, <mark><b>memerlukan waktu yang tidak sebentar</b></mark>.</p>
+<p>Jadi jangan khawatir apabila setelah teman-teman selesai mengkonfigurasi, tidak langsung dapat dilihat hasilnya.</p>
+</div>
+
+<p><br /></p>
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Apabila mengalami kegagalan, silahkan merujuk juga ke tautan referensi yang saya sertakan di bawah.</p>
+
+<p>Sepertinya cukup segini dulu, ya geys!</p>
+
+<p>Terima kasih.</p>
+
+<p><br />
+<strong>2019/06/01 13:44</strong></p>
+
+<p>Alhamdulillah, Final Submission saya telah dinyatakan lulus.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/q73xftHy/gambar-08.png" /></p>
+
+<p><br /></p>
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://help.github.com/en/articles/using-a-custom-domain-with-github-pages" target="_blank">help.github.com/en/articles/using-a-custom-domain-with-github-pages</a>
+<br />Diakses tanggal: 2019/06/01</p>
+  </li>
+  <li>
+    <p><a href="https://help.github.com/en/articles/securing-your-github-pages-site-with-https" target="_blank">help.github.com/en/articles/securing-your-github-pages-site-with-https</a>
+<br />Diakses tanggal: 2019/06/01</p>
+  </li>
+  <li>
+    <p><a href="https://help.github.com/en/articles/troubleshooting-custom-domains" target="_blank">help.github.com/en/articles/troubleshooting-custom-domains</a>
+<br />Diakses tanggal: 2019/06/01</p>
+  </li>
+  <li>
+    <p><a href="http://sophiafeng.com/technical/2015/02/12/setting-up-custom-domain-name-with-github-pages-and-amazon-route-53/" target="_blank">sophiafeng.com/technical/2015/02/12/setting-up-custom-domain-name-with-github-pages-and-amazon-route-53/</a>
+<br />Diakses tanggal: 2019/06/01</p>
+  </li>
+</ol>
+
+:ET

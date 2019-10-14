@@ -1,0 +1,351 @@
+I"m)<h1 id="rerefensi">REREFENSI</h1>
+<ol>
+  <li><a href="https://kramdown.gettalong.org/syntax.html">kramdown.gettalong.org/syntax.html</a></li>
+</ol>
+
+<h1 id="comment-on-markdown">COMMENT ON MARKDOWN</h1>
+<!-- SINGLE COMMENT -->
+
+<!-- MULTILINE COMMENT -->
+<!-- Ini adalah
+contoh dari
+multi line
+comment -->
+
+<h1 id="outdated-post">OUTDATED POST</h1>
+<!-- OUTDATED POST -->
+<p class="notif-post" style="margin-bottom: -20px;">Post ini sudah tidak up to date !</p>
+
+<h1 id="banner-of-the-post">BANNER OF THE POST</h1>
+<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" alt="banner" /></p>
+
+<h1 id="blockquote">BLOCKQUOTE</h1>
+
+<!-- QUOTE BIASA -->
+<blockquote>
+  <p>Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem.</p>
+</blockquote>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad. Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a>
+</div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini &gt;&gt; <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
+</div>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Apakah ?</div>
+Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini &gt;&gt; <a href="https://ngonfig.net/akun-netacad.html"><b>Cara Mendaftar Akun Netacad</b></a>
+</div>
+
+<h1 id="supersup-for-referensi">SUPERSUP FOR REFERENSI</h1>
+<!-- SUPERSUP -->
+<p><sup><a href="http://0.0.0.0:4000/blog/custom-bios-logo-thinkpad#referensi">2</a></sup></p>
+
+<h1 id="image-caption">IMAGE CAPTION</h1>
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="" /></p>
+<p class="img-caption">Gambar 1 - Settings &gt; Details &gt; Users</p>
+
+<h1 id="list-checkbox">LIST CHECKBOX</h1>
+<!-- LIST CHECKBOX -->
+<ul class="chkbox">
+<li class="chkbox-checked">Melihat layar <i>smartphone</i> langsung dari laptop dan dapat berinteraksi, seperti menggerak-gerakkan menu dan mengetik</li>
+<li>Terhubung dengan WiFi tanpa perlu kabel data</li>
+</ul>
+
+<h1 id="embed-video-youtube">EMBED VIDEO YOUTUBE</h1>
+<!-- EMBED CONTAINER: YOUTUBE -->
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/ID_YOUTUBE" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="multiple-post-controler">MULTIPLE POST CONTROLER</h1>
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l disabled" href="#"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/arch/step-1-connecting-to-the-internet"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+
+<h1 id="keyboard">KEYBOARD</h1>
+<!-- KEYBOARD -->
+<p><kbd>SPACE</kbd> + <kbd>ALT</kbd></p>
+
+<h1 id="code-in-p">CODE IN P</h1>
+<!-- CODE in P -->
+<p><code class="highlighter-rouge">single line code</code></p>
+
+<h1 id="code-in-multiline">CODE IN MULTILINE</h1>
+<!-- CODE MULTILINE -->
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>multi line code
+</code></pre></div></div>
+
+<!-- CODE MULTILINE -->
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span></code></pre></figure>
+
+<h1 id="raw-code-multiline">RAW CODE MULTILINE</h1>
+<!-- LIQUID CODE MULTILINE -->
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+</code></pre></div></div>
+
+<h1 id="stabilo">STABILO</h1>
+<p>Ini adalah contoh <span class="stabilo">kalimat yang di stabilo</span>.</p>
+
+<p>atau <mark>ini juga bisa, lebih praktis</mark>.</p>
+
+<h1 id="strike">STRIKE</h1>
+<p><del>Ini adalah contoh artikel yang dicoret</del></p>
+
+<s>Ini juga contoh artikel yang dicoret menggunakan tag html5 s</s>
+
+<p><del>Ini juga contoh artikel yang dicoret menggunakan tag html5 del</del></p>
+
+<h1 id="no-break-element">NO BREAK ELEMENT</h1>
+<p><span class="nobr">Mas Bro !</span></p>
+
+<h1 id="daftar-isi">DAFTAR ISI</h1>
+<!-- REFERENCES -->
+<ol>
+  <li><a href="https://wiki.archlinux.org/" target="_blank">https://wiki.archlinux.org/</a>
+<br />Diakses tanggal: 2018/01/18</li>
+  <li><a href="https://bbs.archlinux.org/" target="_blank">https://bbs.archlinux.org/</a>
+<br />Diakses tanggal: 2018/01/18</li>
+</ol>
+
+<link rel="icon" type="image/png" href="/assets/img/favicon/favicon.png" />
+
+<h1 id="tabel">TABEL</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">No</th>
+      <th style="text-align: center">Header 1</th>
+      <th style="text-align: center">Header 2</th>
+      <th style="text-align: left"><center>Header 3</center></th>
+      <th style="text-align: center">Header 4</th>
+      <th style="text-align: left"><center>Header 5</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left"><code class="highlighter-rouge">data.service</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left"><code class="highlighter-rouge">data</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left"><code class="highlighter-rouge">data.service</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left"><code class="highlighter-rouge">data.service</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left">Data</td>
+      <td style="text-align: center">Data</td>
+      <td style="text-align: left"><code class="highlighter-rouge">data.service</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="img-caption" style="text-align:left;">Sumber: <a href="" target="_blank">Arch Wiki</a></p>
+
+<h1 id="html-entities">HTML ENTITIES</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mark</th>
+      <th>Character</th>
+      <th>Construct</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>non-breaking space</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>less than</td>
+      <td>&lt;</td>
+      <td>&#60;</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>greater than</td>
+      <td>&gt;</td>
+      <td>&#62;</td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>ampersand</td>
+      <td>&amp;</td>
+      <td>&#38;</td>
+    </tr>
+    <tr>
+      <td>”</td>
+      <td>double quotation mark</td>
+      <td>"</td>
+      <td>"</td>
+    </tr>
+    <tr>
+      <td>’</td>
+      <td>single quotation mark (apostrophe)</td>
+      <td>'</td>
+      <td>'</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>backtick</td>
+      <td> </td>
+      <td>`</td>
+    </tr>
+    <tr>
+      <td>#</td>
+      <td>hastag</td>
+      <td>&amp;num;</td>
+      <td>#</td>
+    </tr>
+    <tr>
+      <td>¢</td>
+      <td>cent</td>
+      <td>¢</td>
+      <td>¢</td>
+    </tr>
+    <tr>
+      <td>£</td>
+      <td>pound</td>
+      <td>£</td>
+      <td>£</td>
+    </tr>
+    <tr>
+      <td>¥</td>
+      <td>yen</td>
+      <td>¥</td>
+      <td>¥</td>
+    </tr>
+    <tr>
+      <td>€</td>
+      <td>euro</td>
+      <td>€</td>
+      <td>€</td>
+    </tr>
+    <tr>
+      <td>©</td>
+      <td>copyright</td>
+      <td>©</td>
+      <td>©</td>
+    </tr>
+    <tr>
+      <td>®</td>
+      <td>registered trademark</td>
+      <td>®</td>
+      <td>®</td>
+    </tr>
+    <tr>
+      <td>▨</td>
+      <td>unknown box</td>
+      <td> </td>
+      <td>▨</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Char</th>
+      <th>Number</th>
+      <th>Entity</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>©</td>
+      <td>©</td>
+      <td>©</td>
+      <td>Copyright Sign</td>
+    </tr>
+    <tr>
+      <td>®</td>
+      <td>®</td>
+      <td>®</td>
+      <td>Registered Sgn</td>
+    </tr>
+    <tr>
+      <td>™</td>
+      <td>™</td>
+      <td>™</td>
+      <td>Trademark Sign</td>
+    </tr>
+    <tr>
+      <td>←</td>
+      <td>←</td>
+      <td>←</td>
+      <td>Leftwards Arrow</td>
+    </tr>
+    <tr>
+      <td>↑</td>
+      <td>↑</td>
+      <td>↑</td>
+      <td>Upwards Arrow</td>
+    </tr>
+    <tr>
+      <td>→</td>
+      <td>→</td>
+      <td>→</td>
+      <td>Rightwards Arrow</td>
+    </tr>
+    <tr>
+      <td>↓</td>
+      <td>↓</td>
+      <td>↓</td>
+      <td>Downwards Arrow</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a href="https://www.w3schools.com/charsets/ref_utf_arrows.asp" target="_blank">Full arrow references</a>
+<br />
+<a href="https://www.w3schools.com/charsets/ref_utf_symbols.asp" target="_blank">Full symbol references</a></p>
+
+<!-- vim: set ft=liquid conceallevel=0: -->
+:ET

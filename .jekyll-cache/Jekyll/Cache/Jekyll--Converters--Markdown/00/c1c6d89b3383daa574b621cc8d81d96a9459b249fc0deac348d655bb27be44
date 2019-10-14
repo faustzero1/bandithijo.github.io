@@ -1,0 +1,196 @@
+I"�8<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Kamu pernah merasa jenuh untuk melakukan pekerjaan yang berulang-ulang ? Untungnya dalam bahasa pemrograman kita dapat membuat proses perulangan itu berjalan secara otomatis. Pada dasarnya, kita hanya perlu mengatur dan menentukan kapan perulangan itu dimulai dan kapan harus berhenti berulang, bahkan kita bisa menentukan pola perulangannya.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<p>Misalnya kita ingin menampilkan nama-nama pemain basket yang ada di dalam tim inti.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Irvan'</span><span class="p">,</span> <span class="s">'Ichsan'</span><span class="p">,</span> <span class="s">'Wisnu'</span><span class="p">,</span> <span class="s">'Cebe'</span><span class="p">,</span> <span class="s">'Bly'</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Irvan
+Ichsan
+Winsu
+Cebe
+Bly
+</code></pre></div></div>
+
+<p>Ini adalah cara menampilkan isi dari variable Python list dengan cara manual. Dapat kita lihat bersama, bahwa kita melakukan print() <em>function</em> sebanyak lima kali.</p>
+
+<p>Dalam bahasa pemrograman Python, teradapat dua cara perulangan (<em>loop</em>) yang dapat kita gunakan untuk menyelesaikan masalah mengenai perulangan. <strong>while</strong> dan <strong>for</strong>. Kedua-duanya memiliki tujuan akhir yang sama, yaitu untuk menyelesaikan masalah perulangan. Keduanya juga dapat dipakai secara bergantian. Tergantung pada preferensi masing-masing dari programmer atau efisiensi. Pada umumnya <em>for loop</em> selalu lebih efisien dibandingkan dengan <em>while loop</em>, namun tidak selalu.</p>
+
+<p>Pada topik ini, kita akan terlebih dahulu membahas mengenai <em>while loop</em>.</p>
+
+<p>Ide dari <em>while loop</em> adalah, ketika sesuatu kondisi sesuai dengan fakta yang ada, lakukan sesuatu sesuai dengan yang telah ditentukan.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="mi">1</span>                             <span class="c1"># fakta
+</span>
+<span class="k">while</span> <span class="n">umurBalita</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>                     <span class="c1"># kondisi
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>     <span class="c1"># pernyataan 1
+</span>    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>                        <span class="c1"># pernyataan 2
+</span></code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Umur Balita = 1
+Umur Balita = 2
+Umur Balita = 3
+Umur Balita = 4
+Umur Balita = 5
+</code></pre></div></div>
+
+<h2 id="bongkar-kode">Bongkar Kode</h2>
+
+<p>Ayo kita <em>breakdown</em> kode di atas sama-sama.</p>
+
+<p><br />
+Untuk baris pertama,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umurBalita = 1
+</code></pre></div></div>
+<p>Pasti kamu sudah paham maksud dari baris ini adalah kita mendeklarasikan / memberikan nilai sebesar <code class="highlighter-rouge">1</code> (tipe data: integer) kepada variable <code class="highlighter-rouge">umurBalita</code>.</p>
+
+<p><br />
+Untuk baris kedua,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while umurBalita &lt;= 5:
+</code></pre></div></div>
+<p>Ini adalah bentuk sebuah kondisi perbandingan. Mungkin, kita dapat membacanya seperti ini, <strong>saat <code class="highlighter-rouge">umurBalita</code> kurang dari sama dengan <code class="highlighter-rouge">5</code>, maka ?</strong>.</p>
+
+<p>Kemudian, kita sudah mempunya variable <code class="highlighter-rouge">umurBalita</code> yang bernilai <code class="highlighter-rouge">1</code> yang akan dibandingkan dengan kondisi pada baris kedua <code class="highlighter-rouge">umurBalita &lt;= 5</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Apakah 1 &lt;= 5 ?
+</code></pre></div></div>
+
+<p>Apakah perbandingan ini bernilai benar ?</p>
+
+<p>Benar! 1 lebih kecil daripada 5.</p>
+
+<p>Apabila kondisi yang menjadi syarat bernilai <strong>benar</strong> / <strong>True</strong>, maka pernyataan yang ada di dalam kondisi tersebut akan di jalankan.</p>
+
+<p><br />
+Untuk baris ketiga dan keempat,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="o">...</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Nah, ini adalah dua buah pernyataan yang ada di dalam blok <em>while loop</em> pada baris kedua. Pada baris sebelumnya sudah menghasilkan kondisi yang bernilai <strong>True</strong>, maka kedua baris ini akan di jalankan secara berurutan dimulai dari atas.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Teman-teman pasti sudah paham baris ini digunakan untuk apa dan akan menghasilkan <em>output</em> seperti apa. Ya, print() digunakan untuk menampilkan <em>output</em> ke dalam <em>console</em>.</p>
+
+<p>Kemudian, pernyataan kedua,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Ini adalah bentuk pendeklarasian variable yang mengandung proses di dalamnya. Seperti yang sudah disinggung pada materi tentang variable pada <em>post</em> sebelumnya. Bentuk operasi penjumlahan seperti di atas, dapat kita uraikan menjadi bentuk seperti ini.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="n">umurBalita</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Pada awal dari kode, variabel <code class="highlighter-rouge">umurBalita</code> sudah di deklarasikan bernilai <code class="highlighter-rouge">1</code>. Yang berarti variable ini adalah variable dengna tipe data integer. Sehingga dapat kita baca seperti ini.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Maka setelah melewati pernyataan ini, variabel <code class="highlighter-rouge">umurBalita</code> akan berubah nilainya, dari semula bernilai <code class="highlighter-rouge">1</code>, akan berubah menjadi <code class="highlighter-rouge">2</code>.</p>
+
+<p>Kemudian, setelah semua pernyataan yang ada di dalam blok kode_ while loop_ telah habis di baca oleh Python <em>interpreter</em>, maka pembacaan akan di mulai kembali ke baris yang menyatakan perulangan, yaitu baris yang mengandung sintaks <em>while loop</em>.</p>
+
+<p>Pada saat ini, variable <code class="highlighter-rouge">umurBalita</code> sudah berubah nilainya menjadi <code class="highlighter-rouge">2</code>. Kemudian, akan dibandingkan dengan kondisi yang telah ditentukan, <code class="highlighter-rouge">umurBalita &lt;= 5</code>, hasil dari perbandingna ini adalah <strong>True</strong>, maka pernyataan di dalam blok kode <em>while loop</em> akan di jalankan persis sama seperti sebelumnya.</p>
+
+<p>Proses yang berulang ini akan berhenti sampai, kondisi yang sudah ditentukan oleh <em>while loop</em> mendapatkan nilai <strong>False</strong>. Yaitu, dimana variable <code class="highlighter-rouge">umurBalita</code> sudah mencapai nilai <code class="highlighter-rouge">6</code>. Maka tahap ini, kondisi akan bernilai False. Apabila telah mencapai kondisi yang salah, maka pernyataan di dalam blok kode <em>while loop</em>, tidak akan dijalankan.</p>
+
+<p>Untuk memudahkan kita melihat apa yang dilakukan oleh Python <em>interpreter</em> dalam melakukan proses perulangan, mungkin kita bisa buatkan tabel perulangannya.</p>
+
+<p><strong>Tabel Perulangan</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">umurBalita</th>
+      <th style="text-align: center">print(‘Umur Balita =’,umurBalita)</th>
+      <th style="text-align: center">umurBalita += 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Umur Balita = 1</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Umur Balita = 2</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Umur Balita = 3</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Umur Balita = 4</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Umur Balita = 5</td>
+      <td style="text-align: center">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nah, gimana kalo dengan tabel perulangan seperti di atas ?</p>
+
+<p>Dengan menggunakan tabel perulangan seperti ini akan lebih mudah untuk kita mendapatkan gambaran bagaimana proses perulangan dari kode perulangan seperti <em>while loop</em> dan <em>for loop</em>.</p>
+
+<p><br />
+<strong>Contoh kasus lain</strong></p>
+
+<p><em>While loop</em> juga akan dapat membantu dalam kasus-kasus seperti ini, misalkan, kalian memiliki sebuah alat, robot, atau mesin yang dapat mendeteksi sesuatu, misalkan hujan.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">diluarHujan</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Di luar hujan! Segera angkat Jemuran !'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Jadi, rumus dari <em>while loop</em>, dapat kita tuliskan secara sederhana seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">something</span>
+</code></pre></div></div>
+
+<p>Kode di atas akan menghasilkan perulangan tanpa batas (<em>infinite loop</em>). Kalo kamu terjebak dalam kondisi seperti ini di <em>console</em>, kamu dapat menghentikan proses perulangan ini dengan menekan kombinasi tombol <kbd>Ctrl</kbd> + <kbd>C</kbd>.</p>
+
+<p>Kita juga dapat mengatur kapan perulangan harus dimulai, berhenti, dan bagaimana cara berulangnya. Saya akan mengambil contoh kode perulangan umur balita di atas.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="mi">1</span>                          <span class="c1"># awalan
+</span>
+<span class="k">while</span> <span class="n">umurBalita</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>                  <span class="c1"># akhiran (kondisi)
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>                     <span class="c1"># langkah
+</span></code></pre></div></div>
+<p>Apabila kita tidak menentukan awalan, maka perulangan tidak akan berjalan.</p>
+
+<p>Apabila kita tidak menentukan kondisi, maka perulangan tidak akan berjalan.</p>
+
+<p>Apabila kita tidak mengatur langkah dari perulangan, maka perulangan tidak akan pernah berhenti karena kondisi selalu bernilai <strong>True</strong>.</p>
+
+<p>Ketentuan di atas sangat tergantun dari kebutuhan perulangan yang akan kita buat. Jadi tidak harus selalu seperti contoh di atas.</p>
+
+<p><br />
+Saya rasa, untuk saat ini, pembahasa perulangan menggunakan <strong>while</strong> cukup seperti ini dulu.</p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/04-variabel-dan-tipe-data"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/06-perulangan-for"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+
+:ET

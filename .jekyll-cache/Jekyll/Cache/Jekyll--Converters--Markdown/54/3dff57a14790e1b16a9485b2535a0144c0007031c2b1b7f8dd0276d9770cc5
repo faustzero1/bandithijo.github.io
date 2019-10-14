@@ -1,0 +1,62 @@
+I"�<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Hello, Mas Bro!</p>
+
+<p>Kita <em>conference pers</em> sebentar yaa.</p>
+
+<p>Cukup lama juga tidak mengupdate tulisan di blog ini. Selain karena alasan pekerjaan juga karena sudah kehabisan kesabaran dengan proses <em>build time</em> dari Jekyll Blog ini yang semakin molor. Sekitar <u>+</u> 59 menitan. Mungkin saja penyebab hal ini dikarenakan blog ini memiliki artikel yang sudah cukup banyak.</p>
+
+<p>Jujur saja, hal ini menghambat proses saya dalam menulis. Namun, masalah ini sudah berhasil saya <del>akalin</del> atasin. Mungkin, setelah ini akan saya posting bagaimana cara saya mengatasi masalah ini.</p>
+
+<h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Oke, kembali ke topik bahasan mengenai “Membuat Rails Project tanpa Database”. Atau dapat pula saya gunakan kalimat “tanpa menggunakan Active Record”.</p>
+
+<p>Artikel ini akan menjadi tulisan yang sederhana.</p>
+
+<p>Dalam membuat sebuah project, mungkin saja dalam kasus yang sedang kita hadapi, kita tidak memerlukan database. Misalnya, membuat aplikasi yang semua data-datanya diambil dari API (<em>Application Program Interface</em>). Tentu akan lebih efektif kalo project yang kita buat, tidak perlu menyertakan database, karena kita tidak memerlukannya.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p><strong>Apakah Rails dapat melakukan ini?</strong></p>
+
+<p>Tentu saja! Bahkan caranya sangat mudah.</p>
+
+<p>Rails menyertakan fitur ini sejak Rails 5.2.</p>
+
+<p>Untuk dapat membuat Rails project tanpa menyertakan default database (sqlite) ikuti cara di bawah ini.</p>
+
+<p>Saat akan menginisialisasi project baru, lakukan perintah di bawah ini.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails new ProjectMahal --skip-active-record
+</code></pre></div></div>
+
+<p>Atau, kalau ingin menggunakan versi Rails tertentu, misal: Rails 5.1.3</p>
+
+<p>Dapat menggunakan cara di bawah ini.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails _5.1.3_ new ProjectMahal --skip-active-record
+</code></pre></div></div>
+
+<p>Nah, mudah sekali kan?</p>
+
+<p>Apabila dikemudian hari ingin menggunakan database, silahkan mengikuti blog post selanjutnya mengenai, “<a href="/blog/menambahkan-database-pada-rails-project" target="_blank">Menambahkan Database pada Rails Project</a>”.</p>
+
+<p>Terima kasih. (^_^)v</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://edgeguides.rubyonrails.org/5_2_release_notes.html" target="_blank">Ruby on Rails 5.2 Release Notes (edgeguides)</a>
+<br />Diakses tanggal: 2019/10/09</p>
+  </li>
+  <li>
+    <p><a href="https://edgeguides.rubyonrails.org/command_line.html" target="_blank">The Rails Command Line (edgeguides)</a>
+<br />Diakses tanggal: 2019/10/09</p>
+  </li>
+</ol>
+:ET

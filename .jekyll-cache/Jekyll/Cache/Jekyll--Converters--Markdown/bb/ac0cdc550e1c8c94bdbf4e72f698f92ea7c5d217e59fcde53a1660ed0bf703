@@ -1,0 +1,352 @@
+I"hR<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Tepat tiga minggu yang lalu, <a href="http://bandithijo.com/blog/migrasi-blog-2-0" target="_blank">saya memigrasikan blog ini dari .blogspot.com ke .github.io</a>. Saya pikir, saya tidak akan tertarik untuk membeli <em>custom domain</em> .com untuk blog ini, karena menurut saya .github.io sudah sangat keren.</p>
+
+<p>Beberapa alasan yang mendorong saya akhirnya membeli <em>custom domain</em> untuk blog ini salah satunya berangkat dari belum familiarnya .github.io dikalangan teman-teman saya. Sedangkan target pembaca dari blog ini adalah mereka, karena blog ini sekaligus akan saya jadikan tempat untuk mengambil bahan-bahan perkuliahan yang sebelumnya harus susah-susah diambil di Google Drive kelas.</p>
+
+<h1 id="pelaksanaan">Pelaksanaan</h1>
+
+<h2 id="pemilihan-layanan">Pemilihan Layanan</h2>
+
+<p>Langkah awal yang perlu dilakukan adalah mencari penyedia layanan <em>custom domain</em>. Sebenarnya, saya pernah beberapa kali membeli <em>custom domain</em> di owned-host, namun untuk kali ini saya memutuskan mencoba layanan dari penyedia <em>custom domain</em> yang lain. Sekalian mencari suasana baru.</p>
+
+<p>Saya pikir akan lebih baik apabila saya memilih penyedia layanan <em>custom domain</em> yang juga dipakai oleh teman sesama blogger. Saya ingat beberapa waktu lalu <a href="https://kabarlinux.web.id/" target="_blank">kabarlinux.web.id</a> milik om <a href="https://ramdziana.wordpress.com/" target="_blank">Ramdziana</a> pernah menuliskan artikel terkait membutuhkan dukungan finansial, namun saya tidak dapat menemukan link terkait perihal ini, mungkin telah diganti dengan artikel lain. Seingat saya terdapat link afiliasi yang merujuk pada nama salah satu penyedia jasa layanan <em>custom domain</em> yang digunakan oleh kabarlinux.web.id. Yaitu, <a href="https://client.dewaweb.com/aff.php?aff=22096" target="_blank">dewaweb.com</a>. Saya pun mencoba mendaftar melalui link afiliasi dewaweb.com yang terdapat pada kabarlinux.web.id.</p>
+
+<p>Selanjutnya saya akan melakukan order.</p>
+
+<h2 id="order-custom-domain">Order Custom Domain</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/zfnikq5t9/gambar_01.png" /></p>
+
+<p>Pilih menu <strong>Order &gt; Domain &gt; Beli Domain Baru</strong>.</p>
+
+<p>Nanti akan terbuka halaman seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/ostpf907x/gambar_02.png" /></p>
+
+<p>Isikan nama <em>domain</em> dan ekstensi <em>domain</em> yang kamu inginkan. Pada contoh di atas, saya menggunakan nama <em>domain</em> <code class="highlighter-rouge">devikamarina</code> dengan ekstensi <em>domain</em> <code class="highlighter-rouge">.com</code>. Kemudian tekan tombol <strong>Cek Domain</strong>.</p>
+
+<p>Apabila tersedia, pilih jangka waktu penagihan pembayaran. 1 tahun, 2 tahun, atau 3 tahun. Kemudian tekan tombol <strong>Order</strong>.</p>
+
+<p>Nanti akan diarahkan pada halaman <strong>Konfigurasi Domain</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" /></p>
+
+<p>Yang perlu diperhatikan pada halaman ini adalah apakah kamu ingin memberikan <strong>Whois Privacy Protection</strong> terhadap domain kamu. Layanan ini bersifat <em>optional</em>.</p>
+
+<p>Maksudnya apa sih bang ?</p>
+
+<p>Maksud dari <em>Whois Privacy Protection</em> ini adalah untuk mengkamuflasekan data-data kamu seperti nama, alamat, nomor telepon yang kamu daftarkan pada dewaweb.com yang tidak ingin kamu bagikan kepada publik. Jadi, setiap kita membeli domain, wajib untuk menyertakan identitas domain tersebut milik siapa. Namun, karena satu dan lain hal terutama masalah <em>privacy</em> data pribadi, saya tidak ingin menampilkan nama, alamat, dan nomor telepon saya kepada publik. Infromasi ini dapat kamu coba cek dengan melakukan perintah <code class="highlighter-rouge">whois namadomain.ekstensidomain</code> kepada salah satu website yang ingin kamu lihat pemiliknya.</p>
+
+<p>Saya akan mencontohkan melakukan pengecekan <code class="highlighter-rouge">whois</code> kepada kaskus.co.id.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>whois kaskus.co.id
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Domain ID:PANDI-DO253792
+Domain Name:KASKUS.CO.ID
+Created On:17-Jul-2008 13:33:41 UTC
+Last Updated On:11-Jun-2017 09:27:06 UTC
+Expiration Date:19-Jul-2019 23:59:59 UTC
+Status:ok
+Registrant ID:08domai47
+Registrant Name:Andrew Darwis
+Registrant Organization:PT Darta Media Indonesia
+Registrant Street1:Menara Palma, Annex Building P11
+Registrant Street2:Jl. HR Rasuna said Blok X2 Kav. 6
+Registrant City:Jakarta
+Registrant State/Province:DKI Jakarta
+Registrant Postal Code:12950
+Registrant Country:ID
+Registrant Phone:+62.2129223600
+Registrant Email:domain@kaskusnetworks.com
+...
+...
+</code></pre></div></div>
+
+<p>Kemudian saya akan melakukan pengecekan informasi domain dengan menggunakan <code class="highlighter-rouge">whois</code> kepada domain yang saya beli di dewaweb.com dengan menggunakan tambahana layanan <em>Whois Privacy Protection</em>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>whois bandithijo.com
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Domain Name: BANDITHIJO.COM
+Registry Domain ID: 2247257697_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.tucows.com
+Registrar URL: http://www.tucowsdomains.com
+Updated Date: 2018-04-03T05:55:28Z
+Creation Date: 2018-04-02T20:53:56Z
+Registry Expiry Date: 2019-04-02T20:53:56Z
+Registrar: Tucows Domains Inc.
+Registrar IANA ID: 69
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Domain Status: ok https://icann.org/epp#ok
+Name Server: ELLE.NS.CLOUDFLARE.COM
+Name Server: WESLEY.NS.CLOUDFLARE.COM
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+...
+...
+</code></pre></div></div>
+
+<p>Gimana? Sudah dapet gambaran kan, apa yang dimaksud dengan layanan <em>Whois Privacy Protection</em>. Setahu saya, hampir setiap penyedia layanan <em>custom domain</em> menyediakan fasilitas ini. Jadi apapun layanan penyedia <em>custom domain</em> yang kamu pilih, apabila kamu ingin melindungi informasi pribadi kamu dari publik, kamu dapat mencari layanan ini. Layanan ini seharga Rp 40.000, di dewaweb.com</p>
+
+<p>Untuk pengaturan <strong>Nameserver</strong> akan kita ubah nanti saja. Saya berencana menggunakan nameserver dari <strong>Cloudflare</strong>, mengikuti rekomendasi yang diberikan oleh sahabat saya kang <a href="https://sucipto.net/" target="_blank">Sucipto.net</a>.</p>
+
+<p>Kemudian tekan tombol <strong>Update Keranjang Belanja</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://s20.postimg.cc/48ovgrzwd/gambar_04.png" /></p>
+
+<p>Setelah dipastikan kembali tidak ada yang kurang atau yang lebih dari daftar item yang kita pesan di atas. Selanjutnya tekan tombol <strong>Checkout dan Bayar</strong>.</p>
+
+<p>Setelah kita menyelesaikan pembayaran dan <em>custom domain</em> yang kita inginkan sudah di tangan kita. Langkah selanjutnya adalah konfigurasi <em>custom domain</em> pada GitHub.</p>
+
+<h2 id="konfigurasi-github">Konfigurasi GitHub</h2>
+
+<p>Untuk membuat GitHub dapat menerima <em>traffic</em> dari <em>custom domain</em> yang sudah kita buat, kita perlu membuat <code class="highlighter-rouge">CNAME</code> records di dalam repositori milik kita.</p>
+
+<p>Buat file bernama <code class="highlighter-rouge">CNAME</code> pada direktori root dari website kita.</p>
+
+<pre>
+├── _drafts
+├── _includes
+├── _layouts
+├── _plugins
+├── _posts
+├── _site
+├── assets
+├── pages
+├── 404.html
+├── _config.yml
+├── <mark>CNAME</mark>  &lt;----- Tambahkan file ini
+├── favicon.ico
+├── Gemfile
+├── Gemfile.lock
+├── index.html
+└── LICENSE
+</pre>
+
+<p>Kemudian, isi dengan nama domain yang ingin kita tampilkan.</p>
+
+<p>Misalkan, kita ingin menampilkan domain berupa nama dan ekstensi domain, seperti halnya blog ini <code class="highlighter-rouge">bandithijo.com</code> (APEX domain) atau <code class="highlighter-rouge">www.bandithijo.com</code> (WWW Sub Domain).</p>
+
+<p>Isikan sebagaimana kalian ingin menampilkan nama blog kalian pada <em>address bar</em>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandithijo.com
+</code></pre></div></div>
+
+<p>*Perhatikan! Isi dari CNAME ini hanya 1 baris.</p>
+
+<p>Langkah selanjutnya commit file CNAME yang baru saja kita buat ke dalam repositori GitHub kita.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add -A
+git commit -m “Added CNAME file.”
+git push origin master
+</code></pre></div></div>
+
+<p>Kemudian, buka repositori GitHub tempat dimana kamu menyimpan repositori dari .github.io. Lakukan pengecekan apakah file CNAME yang kita buat sudah berada pada repositori GitHub kita.</p>
+
+<p>Kemudian selanjutnya pilih menu <strong>Settings</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://s20.postimg.cc/rzo8yvcy5/gambar_05.png" /></p>
+
+<p><br />
+Selanjutnya, <em>scrolling page</em> ke bagian <strong>GitHub Pages</strong> dan isikan nama domain yang baru saja kamu beli pada kolom <strong>Custom domain</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://s20.postimg.cc/irw0i78gt/gambar_06.png" /></p>
+
+<p>Pilih <strong>Save</strong>.</p>
+
+<p>Pada tahap ini konfigurasi GitHub hanya seperti ini saja. Namun, <em>custom domain</em> yang kita konfigurasi belum selesai dan belum dapat kita panggil di <em>browser</em>. Kita perlu melakukan konfigurasi <strong>nameserver</strong> pada <strong>Cloudflare</strong>.</p>
+
+<h2 id="konfigurasi-nameserver-cloudflare">Konfigurasi Nameserver Cloudflare</h2>
+
+<p>Buka <a href="https://www.cloudflare.com/" target="_blank">cloudflare.com</a>. Apabila belum memiliki akun, sebaiknya buat akun terlebih dahulu. Kemudian Login dan tambahkan website kamu. <strong>+ Add site</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar7" data-echo="https://s20.postimg.cc/sp71b8sx9/gambar_07.png" /></p>
+
+<p>Setelah itu, pergi ke tab <strong>DNS</strong>.</p>
+
+<p><img src="https://s20.postimg.cc/dtma8qvwt/gambar_08.png" alt="gambar8" /></p>
+
+<p>Isi dan ikuti seperti gambar di atas.</p>
+
+<p>IP pada <code class="highlighter-rouge">A</code> records tersebut saya dapatkan dari <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">help.github.com</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.30.252.153
+192.30.252.154
+</code></pre></div></div>
+
+<p>Selanjutnya, kita perlu merubah <strong>nameserver</strong> pada dewaweb.com menjadi nameserver yang sudah diberikan oleh Cloudflare. Seperti pada Gambar di atas.</p>
+
+<p>Untuk kasus saya, nameserver yang diberikan oleh Cloudflare adalah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elle.ns.cloudflare.com
+wesley.ns.cloudflare.com
+</code></pre></div></div>
+
+<p>Saya lupa urutan detail konfigurasi nameserver pada Cloudflare ini seperti apa, yang jelas, nanti akan diberikan contoh bagaimana cara melakukan pengisian nameserver pada dewaweb.com menjadi nameserver Cloudflare. Seperti contoh di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar9" data-echo="https://s20.postimg.cc/mo9ce78vx/gambar_09.png" /></p>
+
+<p>Secara <em>default</em>, dewaweb.com sudah memberikan 3 alamat nameserver bawaan dewaweb.com. Kita perlu mengganti Nameserver 1 dan 2 dengan nameserver yang sudah diberikan oleh Cloudflare, kemudian menghapus Nameserver 3.</p>
+
+<p>Buka kembali dewaweb.com, dan pergi ke bagian <a href="https://client.dewaweb.com/clientarea.php" target="_blank"><strong>Login ke Client Area</strong></a>. Setelah login, pilih menu <strong>Domain &gt; Domain Saya</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar10" data-echo="https://s20.postimg.cc/i2d85ufn1/gambar_10.png" /></p>
+
+<p>Selanjutnya, pada domain yang akan kita konfigurasi, pilih tanda panah pada tombol <strong>Edit</strong>. Dan pilih <strong>Pengaturan Nameserver</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar11" data-echo="https://s20.postimg.cc/boo52lq6l/gambar_11.png" /></p>
+
+<p>Masukkan nameserver yang kita dapat dari Cloudflare.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar12" data-echo="https://s20.postimg.cc/mo9ce83r1/gambar_12.png" /></p>
+
+<p>Kosongkan Nameserver 3.</p>
+
+<p>Kemudian, pilih tombol <strong>Ubah Nameserver</strong>.</p>
+
+<p>Sekarang coba lakukan pemanggilan domain kita pada Browser. Apabila belum dapat dipanggil, mungkin <del>perlu menunggu 5-30 menit</del>, sampai konfigurasi yang kita atur dapat diterapkan.</p>
+
+<h2 id="konfigurasi-https">Konfigurasi HTTPS</h2>
+
+<p>Karena kita menggunakan <em>custom domain</em>, maka pengaturan HTTPS pada GitHub Pages tidak dapat kita gunakan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar13" data-echo="https://s20.postimg.cc/k7bdc6ga5/gambar_13.png" /></p>
+
+<p>Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.</p>
+
+<h3 id="ssl">SSL</h3>
+
+<p>Buka tab <strong>Crypto</strong> dan pada bagian SSL, pilih <strong>Full</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar14" data-echo="https://s20.postimg.cc/62am7cg3h/gambar_14.png" /></p>
+
+<p>Setelah mengaktifkan SSL ini kita perlu menunggu 24 jam setelah situs aktif di Cloudflare untuk menerbitkan sertifikat baru.</p>
+
+<p>Sampai nanti status <strong>Active Certificate</strong> sudah tersedia, seperti pada gambar di atas.</p>
+
+<h3 id="page-rules">Page Rules</h3>
+
+<p>Selanjutnya, buka tab <strong>Page Rules</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar19" data-echo="https://s20.postimg.cc/bezglg1f1/gambar_19.png" /></p>
+
+<p>Kita akan menambahkan 3 <em>rules</em> baru untuk <em>domain</em> kita.</p>
+
+<ol>
+  <li>Always Use HTTPS</li>
+  <li>Forwarding URL</li>
+  <li>Cache Everything</li>
+</ol>
+
+<p><br />
+<strong>Always Use HTTPS</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar15" data-echo="https://s20.postimg.cc/q9o1zr8gt/gambar_15.png" /></p>
+
+<p>Saya memilih menggunakan APEX domain, dengan nama <strong>bandithijo.com</strong>, sehingga url yang harus saya masukkan adalah <code class="highlighter-rouge">https://bandithijo.com/*</code>. Penggunaan tanda <code class="highlighter-rouge">*</code> dimaksudkan untuk membuat <em>dynamic patterns</em> yang dapat mencocokkan banyak URL.</p>
+
+<p><br />
+<strong>Forwarding URL</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar16" data-echo="https://s20.postimg.cc/d5ihn2o4t/gambar_16.png" /></p>
+
+<p>Dikarenakan saya menggunakan nama domain <strong>bandithijo.com</strong>, maka saya perlu melakukan <em>forwarding URL</em>. Tujuannya, apabila terdapat pengunjung yang mengetikkan <strong>www.bandithijo.com</strong> akan langsung diarahkan ke URL <strong>https://bandithijo.com</strong>.</p>
+
+<p><br />
+<strong>Cache Level</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar17" data-echo="https://i.postimg.cc/wMxbT1Xw/gambar-17.png" /></p>
+
+<p>Mungkin teman-teman ingin menggunakan fitur cache level yang diberikan oleh CloudFlare.</p>
+
+<p>Berikut ini adalah kutipan yang saya ambil dari halaman <a href="https://support.cloudflare.com/hc/en-us/articles/200172266" target="_blank">support.cloudflare.com</a> yang akan menjelaskan setiap properties dari Cache Level.</p>
+<pre>
+<b>No overrides</b>
+Defaults to the caching level option you have in your Cloudflare performance settings for the domain.
+
+<b>Bypass cache</b>
+Will not cache at all
+
+<b>Standard / Aggressive caching</b>
+Caches all static content that has a query string in it
+
+<b>Ignore query string</b>
+Caches static content that has a query string and treats it as one file
+
+<b>Cache everything</b>
+Caches all file types on your site, including static content and HTML. Cloudflare Cache Everything will automatically respect any default cache headers set by the web server or CMS software like WordPress. See this article for more details on how headers affect this setting.
+
+**NOTE: When using "Cache everything" you might have trouble with login forms on your site. A common one is WordPress. To correct this you'll need to add another rule as the first rule for the wp-login.php  file that is set to "bypass cache"**
+</pre>
+
+<p>Konfigurasi cache level ini akan memungkinkan website kita di-cache dan ditampilkan langsung dari CDN Cloudflare. Tentu saja hal ini akan membuat <em>page load</em> dari website kita menjadi lebih cepat lagi.</p>
+
+<p>Sebagai contoh di atas, saya menggunakan “No Query String”.</p>
+
+<p>Sebelumnya saya menggunakan “Cache Everything”, namun kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, <del>mungkin</del> kita dapat melakukan pembersihan cache dengan <strong>Purge Everything</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar20" data-echo="https://s20.postimg.cc/h4fp62kjh/gambar_20.png" /></p>
+
+<p><br />
+Nah! setelah selesai melakukan 3 konfigurasi <strong>Page Rules</strong> di atas, maka, tampilan akhir dari konfigurasi <strong>Page Rules</strong> akan seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar18" data-echo="https://i.postimg.cc/J0TYyRKM/gambar-18.png" /></p>
+
+<p>*Perhatikan! <strong>Always Use HTTPS</strong>, harus berada di layer paling atas.</p>
+
+<p>Dikarenakan kita menggunakan <strong>Free Plan</strong>, maka kita hanya dapat membuat 3 <em>page rules</em>. Tapi ini bukan masalah, karena sudah mencakup apa yang kita butuhkan.</p>
+
+<blockquote>
+  <p class="title-quote">[ ! ] Perhatian</p>
+  <p>Saya menggunakan <strong>SSH</strong> untuk melakukan <code class="highlighter-rouge">push</code> ke dalam repositori GitHub, bukan menggunakan <strong>HTTPS</strong>.</p>
+
+  <p>Saya mencurigai adanya indikasi kegagalan melakukan push ke dalam repositori GitHub, setelah melakukan konfigurasi di atas.</p>
+
+  <p>Apabila hal ini terjadi, maka teman-teman perlu merubah jalur push ke repositori GitHub melalui SSH.</p>
+
+  <p><strong>Caranya :</strong></p>
+
+  <p>Buka folder <code class="highlighter-rouge">.git</code>, kemudian cari file <code class="highlighter-rouge">config</code>.</p>
+
+  <p>Cari bagian,</p>
+
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[remote "origin"]
+    url = https://github.com/bandithijo/bandithijo.github.io.git
+</code></pre></div>  </div>
+
+  <p>Diganti menjadi,</p>
+
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[remote "origin"]
+    url = git@github.com:bandithijo/bandithijo.github.io.git
+</code></pre></div>  </div>
+
+  <p><strong>Tentunya teman-teman harus melakukan konfigurasi SSH dengan GitHub terlebih dahulu</strong> (<a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">Connecting to GitHub with SSH</a>)</p>
+</blockquote>
+
+<h1 id="akhir-kata">Akhir Kata</h1>
+
+<p>Demikian, pengalaman saya melakukan konfigurasi terhadap <em>custom domain</em> untuk GitHub Page, Cloudflare dan DewaWeb yang dapat saya dokumentasikan pada tulisan ini.</p>
+
+<p>Terima kasih saya ucapkan kepada kang <a href="https://sucipto.net/" target="_blank">Sucipto</a> yang telah meluangkan waktunya untuk dapat membantu saya dalam menjawab pertanyaan-pertanyaan seputar konfigurasi ini.</p>
+
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Pertanggal 28 Januari 2019, saya sudah bermigrasi dari layanan CloudFlare ke Netlify.</p>
+<p>Ceritanya, dapat teman-teman baca di sini, "<a href="http://0.0.0.0:4000/blog/bermigrasi-dari-cloudflare-ke-netlify" target="_blank">BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify</a>".</p>
+</div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</a>
+<br />DiaksesTanggal: 2018/04/08</p>
+  </li>
+  <li>
+    <p><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank">blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/</a>
+<br />DiaksesTanggal: 2018/04/08</p>
+  </li>
+</ol>
+:ET

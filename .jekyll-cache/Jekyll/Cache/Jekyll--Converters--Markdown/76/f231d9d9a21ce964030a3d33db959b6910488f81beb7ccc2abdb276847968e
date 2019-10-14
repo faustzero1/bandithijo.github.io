@@ -1,0 +1,150 @@
+I"|"<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/t810ca5cd/banner_post_00.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p><em>Password</em> atau dalam bahasa Indonesia disebut kata sandi, merupakan hal yang penting untuk menjaga kerahasiaan sesuatu yang kita simpan di balik <em>password</em> tersebut. Namun <em>password</em> itu sendiri juga merupakan hal yang rahasia. Sebuah kunci rahasia untuk membuka sesuatu yang rahasia. Yang artinya, selain sesuatu yang dilindungin oleh <em>password</em> tersebut harus aman, <em>password</em> itu sendiri pun harus diamankan.</p>
+
+<p>Bisa saya katakan, tidak semua orang sudah menerapkan cara membuat <em>password</em> yang baik. Karena memang bukan perkara yang mudah. Apakah kalian cukup yakin dengan <em>password</em> yang telah kalian buat ?</p>
+
+<p>Sedikit saya akan membahas mengenai pengamanan <em>password</em>. Saya bisa mengambil satu contoh, dari <a href="https://support.google.com/accounts/answer/32040?hl=en" target="_blank"><strong>Google Account Help</strong></a>, di sana dikatakan bahwa,</p>
+
+<h1 id="membuat-password-yang-kuat">Membuat <em>Password</em> yang Kuat</h1>
+
+<p>Membuat <em>password</em> yang kuat akan membantu kalian :</p>
+<ol>
+  <li>Menjaga informasi pribadi tetap aman</li>
+  <li>Melindungi email, files, dan konten-konten lain</li>
+  <li>mencegah seseorang membobol akun kalian.</li>
+</ol>
+
+<p>Pada halaman yang berjudul <strong>Create a strong password</strong> tersebut juga tertulis langkah-langkah untuk mengamankan <em>password</em>. Dibagi dalam 3 langkah.</p>
+
+<p><br />
+<strong>Langkah 1, Penuhi persyaratan pembuatan <em>password</em></strong></p>
+
+<p>Buatlah <em>password</em> kalian dengan menggunakan <strong>minimal 8 karakter</strong> atau lebih. Bisa menggunakan kombinasi huruf, angka, atau simbol.</p>
+
+<ol>
+  <li>Sebaiknya hindari penggunaan <em>password</em> yang sama untuk digunakan oleh banyak akun yang lain</li>
+  <li>Hindari pula menggunakan <em>password</em> yang kalian pernah gunakan sebelumnya</li>
+</ol>
+
+<p><br />
+<strong>Langkah 2, Ikuti Saran untuk Membuat <em>Password</em></strong></p>
+
+<p><em>Password</em> yang kuat hampir tidak mungkin dapat ditebak oleh orang lain. Untuk itu, kalian dapat menggunakan kiat-kiat di bawah ini dalam membuat <em>password</em>.</p>
+
+<ol>
+  <li>Gunakan huruf, angka, dan simbol</li>
+  <li>Hindari menggunakan informasi pribadi dan kata-kata yang sudah umum</li>
+  <li>Jangan menggunakan kembali <em>password</em> yang sudah pernah digunakan sebelumnya</li>
+</ol>
+
+<p><br />
+<strong>Langkah 3, Menjaga Keamanan <em>Password</em></strong></p>
+
+<p>Setelah kalian membuat <em>password</em> yang kuat, selanjutnya kalian perlu mengamankannya.</p>
+
+<ol>
+  <li>Jangan tampilkan <em>password</em> kalian</li>
+  <li>Gunakan alat bantu untuk mengelola <em>password</em> kalian</li>
+</ol>
+
+<p><br />
+<strong>Plan B</strong></p>
+
+<p>Buat rencana cadangan apabila kalian lupa dengan <em>password</em> yang telah kalian buat. Namun hati-hati jangan sampai malah orang yang tidak berhak dapat memanfaatkan kelemahan yang kalian buat pada rencana cadangan kalian ini.</p>
+
+<h1 id="alat-bantu-generate-password">Alat Bantu <em>Generate Password</em></h1>
+<p>Pada dokumentasi ini saya akan membahas salah satu alat bantu yang saya gunakan untuk membuat <em>password</em> yang sangat <em>random</em>.</p>
+
+<h2 id="pwgen">Pwgen</h2>
+<p>Dari manual yang ditulis, pwgen dirancang untuk menghasilkan <em>password</em> yang mudah diingaat oleh manusia namun tetap seaman mungkin.</p>
+
+<h3 id="instalasi">Instalasi</h3>
+<p>Untuk distribusi Arch Linux</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S pwgen
+</code></pre></div></div>
+
+<p>Untuk distribusi sistem operasi yang lain, dapat menyesuaikan dan mencari paket yang bernama <code class="highlighter-rouge">pwgen</code>.</p>
+
+<h3 id="melihat-help">Melihat Help</h3>
+<p>Kita perlu mengetahui opsi apa saja yang disediakan oleh pwgen sebelum kita dapat mengenerate <em>password</em>. <em>Help</em> dari pwgen ini sangat sederhana dan mudah dipahami.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen -h
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
+
+Options supported by pwgen:
+  -c or --capitalize
+	Include at least one capital letter in the password
+  -A or --no-capitalize
+	Don't include capital letters in the password
+  -n or --numerals
+	Include at least one number in the password
+  -0 or --no-numerals
+	Don't include numbers in the password
+  -y or --symbols
+	Include at least one special symbol in the password
+  -r &lt;chars&gt; or --remove-chars=&lt;chars&gt;
+	Remove characters from the set of characters to generate passwords
+  -s or --secure
+	Generate completely random passwords
+  -B or --ambiguous
+	Don't include ambiguous characters in the password
+  -h or --help
+	Print a help message
+  -H or --sha1=path/to/file[#seed]
+	Use sha1 hash of given file as a (not so) random generator
+  -C
+	Print the generated passwords in columns
+  -1
+	Don't print the generated passwords in columns
+  -v or --no-vowels
+	Do not use any vowels so as to avoid accidental nasty words
+</code></pre></div></div>
+
+<h3 id="penggunaan">Penggunaan</h3>
+<p>Seperti yang kalian lihat, pwgen menyediakan banyak sekali opsi untuk kita dapat meracik <em>password</em>. Kalian dapat memilih <em>preferensi</em> opsi yang kalian perlukan. Saya biasa menggunakan opsi <code class="highlighter-rouge">-sy</code> dengan panjang karakter sebanyak 15.</p>
+
+<p><code class="highlighter-rouge">-s</code> : untuk mengacak <em>password</em> yang benar-benar <em>random</em>.</p>
+
+<p><code class="highlighter-rouge">-y</code> : untuk menambahkan setidaknya satu simbol spesial di dalam <em>password</em>.</p>
+
+<p>Hasilnya akan seperti ini.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ pwgen -sy 15
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I##3DKHZCA\[S:w (3::;s2P1!ABm7' !WS2LL)Jp[/].ob !1Z%K/E=Rt?1-TC /_,p}73!k|h&amp;pDS
+BmP:Xq#5P[(]BdW "%V1HoH?iR8V#PW wQTJXe6?Xe9$3H- *9{DLU3e-'!~shx I&gt;@{`,[h]R)?h2\
+t["(&gt;OQ`h&amp;hBE0} -Na"0+qOu\{Iotx /}a^x{!o@x{X#\3 8e\zd3[$VM^Hw}! ERGHx?3^60OidVu
+rW9bg8P(D(4.dx} k|v':YaEr]9f/OR xc1gUf$A)FBX|JS 5zw7HZ6P/uD#:Eo %Q~o7'n(NGmH0&amp;H
+d9%e:zUeURz[(9Z Lm~3R2-U2gC.BLd `'Xy5e(k(gg'z,m kW\5NXROyg-Y14s ).I.Oh0AH3Bn\nB
+W}w&lt;CD8C{tQ;ea&amp; EbLhVQtdtX8A[e# :ZROZ0)9kppC`|E {CQu")i!A[H}HA3 W"'IAX9L,3VH;IM
+%3h)aG`SoG71h}&gt; a.h-Ys&gt;ii5=FUd( =&amp;Lq(PPP]9?::3L $3eJZeig{ua2^u% W_E^gD;#":[S'9p
+Wlj}?aNON;ZIK5R `b',vAOJ?2!mfgK *^z1yVhVS~[&amp;2$B Me/WJy8f:o*0_?7 0s|Z1IggAKqpTC6
+YPv@97Q1`3!~J8m =X9d0E;1\;p.)*4 @ytPu:jQ'8MN)9% }S4D._TbfN:@UY, dZ&gt;_`8Gi*hWOaIX
+60r,^r~xn&gt;Cb3W( tdyxgF6])rIjTr\ Xx}+9B}8Xa-Bp:H Fq=~sT2svWr/O9q F:-7]'EOmtfB_ia
+Si6Y*)ci$f;(Wwh kw{#"3iTR\Bxm,~ r&amp;u-(,&amp;@~6qDP.$ pU:&gt;_S3]N'b(v16 l0;K0}.&amp;YuCv/%S
+k%Zm3Z'Wa7Nt~7J N&gt;f4mhc1#]EDIil 9tcF~uE6stt]D.. /8}ZfUiu6xc@y4B &amp;O-*_G8PY9Af$q&gt;
+)rNYOqh[k`74z^&gt; c4iJlJ%\Klh;v0k 9Aoest6Z%^iIN?I R@}`3JW9Bfro+uU jD1J/w4"F$9[P\2
+onhsS}cBLMD_5]+ 1Y7-%LMi#*wp;\k %_Zn5@.;B61Z3Zp j/L)nooB_Q+1s." QQ1cv1B=e@ZGVU=
+3`[liL7D@4rkiLS 1g2Mw|RIdG!vf4\ Ewk,nH0L2Zx.QkM .S+B72!&gt;ak*fFN% n{kh6]KwVu"z3jX
+)7'QWW@qf:I)v&amp;o 7.Y?'#lBzV\A;[k I{CkA;iM*eiH7+T 7e8W(|h*:a/60?k jj/=yg1]*/`xZtd
+n!H{q@}[!+zgz4K 8ZBC6cPK2rLW|G5 L-,&lt;@:&lt;if8A,@YE L7!\Z5j'DnL6(Lx 4SByt!1=:S44?XG
+?HU\LF)9W1nZ@&amp;] /('fY@SX&gt;bT#gn4 Mh%M]j'HFtY&amp;3[h A@iB*9:$.X@eA&amp;/ yX}n/,)q#0f/$cE
+ip0|bE+&amp;\S`-XvA fv8eRE&gt;@.BVd/v) 09TFUyqyFnHqZH/ Y&gt;`u*O^2WfHd"[7 XPus5[&amp;mEb0y3Oz
+[~qzByf#|/K4=g~ Lx@KlJ1&amp;L4\5vKH lvjHx&gt;\vq[r4WHl -GiVZ#Yio-c$8US OKFn"3QQ^L$jr(T
+</code></pre></div></div>
+
+<p>Kemudian, saya akan pilih satu dari 100 <em>random password</em> yang sudah berhasil di <em>generate</em>. Setelah itu saya akan simpan pada alat yang saya khususkan untuk menyimpan <em>password</em>. Untuk pembahasan alat apa yang saya gunakan untuk menyimpan <em>password</em> (<a href="https://wiki.archlinux.org/index.php/List_of_applications/Security#Password_managers" target="_blank"><em>Password Manager</em></a>) akan saya bahas pada dokumentasi yang lain.</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li>
+    <p><a href="https://support.google.com/accounts/answer/32040?hl=en" target="_blank">support.google.com/accounts/answer/32040?hl=en</a>
+<br />Diakses tanggal: 2018/03/27</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Security" target="_blank">wiki.archlinux.org/index.php/Security</a>
+<br />Diakses tanggal: 2018/03/27</p>
+  </li>
+</ol>
+:ET

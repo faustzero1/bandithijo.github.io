@@ -1,0 +1,125 @@
+I"G<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/hs0fmbvwt/banner_post_13.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Kira-kira tiga minggu yang lalu, saya mendapat tugas kuliah oleh dosen saya untuk membuat “Media Pembelajaran bagi siswa SMP atau SMA” dengan menggunakan aplikasi <strong>Flash</strong>. Dalam hati ada sedikit rasa haru karena senang tapi tidak lama rasa senang itu langsung tertutupi kabut kenyataan bahwa saya saat ini sudah menggunakan sistem operasi GNU/Linux.</p>
+
+<p>Sekedar bercerita sedikit, saat masih duduk di bangku SMA, saya memang pernah beberapa kali menggunakan aplikasi Flash ini untuk mengerjakan beberapa proyek-proyek sekolah, antara lain (yang saya masih ingat) :</p>
+
+<ol>
+  <li>Membuat animasi denah sekolah untuk film perkenalan sekolah</li>
+  <li>Membuat bumper untuk film/video pendek yang saya produksi</li>
+  <li>Membuat media pembelajaran berlalu lintas atas permintaan Polres Bontang</li>
+</ol>
+
+<p>Yes, proyek terakhir, menurut saya adalah pencapaian paling tinggi saat itu bagi saya karena kreatifitas saya diakui oleh guru saya dan dipercaya untuk membuat media pembelajaran berlalu lintas ini. Sebuah perjalanan belajar yang panjang dan tidak mudah. Waktu, tenaga, dan ide-ide yang saya habiskan semasa sekolah untuk mempelajari Macromedia Flash dengan sumber yang sangat terbatas karena saya tinggal di kota kecil, di kalimantan timur.</p>
+
+<p>Oke, cukup nostalgia masa lalunya. Sekarang kita kembali ke topik pembahasan.</p>
+
+<h1 id="sedikit-penjelasan">Sedikit Penjelasan</h1>
+
+<p>Kita memerlukan versi Flash yang memiliki dukungan paling baik dengan aplikasi Wine. Yaa tentu saja karena untuk menjalankan aplikasi Windows di sistem operasi GNU/Linux, kita memerlukan Wine.</p>
+
+<p>Saya selalu melakukan pengecekan <strong>Rating</strong> sebuah aplikasi yang berjalan di atas Wine pada situs <a href="https://appdb.winehq.org/" target="_blank">appdb.winehq.org</a>. Saya sudah mengincar versi Macromedia Flash 8, karena versi ini adalah versi yang dulu saya gunakan. Sebagai informasi, sepertinya sekitar tahun 2005 Macromedia telah diakuisisi oleh Adobe. Otomatis Flash sudah bukan lagi milik Macromedia, melainkan sudah berada di bawah bendera Adobe. Dan namanya juga bukan lagi Flash melainkan Adobe Animate.</p>
+
+<p>Setelah saya lakukan pengecekan, ternyata Macromedia Flash 8, ada yang memberikan rating Platinum sebanyak 2 orang, Gold 2 orang, dan Bronze. Ini adalah hasil yang sangat bagus. Karena artinya, ada kesempatan yang sangat besar untuk dapat menjalankan aplikasi ini di atas platform Linux.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Langkah awal adalah, instalasi <strong>Wine</strong>.</p>
+
+<p>Untuk Arch Linux.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S wine wine_gecko wine-mono winetricks
+</code></pre></div></div>
+<p>Untuk distribusi sistem operasi GNU/Linux yang lain, silahkan merujuk pada dokumentasi atau wiki yang tersebar di Internet untuk proses instalasi dari Wine.</p>
+
+<p>Selanjutnya, kamu harus memiliki instalasi Macromedia Flash 8 beserta serial numbernya. Karena alasan tertentu, saya tidak dapat menuliskan pada dokumentasi ini bagaimana cara mendapatkannya. Silahkan teman-teman cari tahu sendiri yaa. Hehehe.</p>
+
+<p>Oke, setelah memasang Wine dan menyediakan Macromedia Flash 8 installer, saatnya kita pasang.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/qhximyfwd/gambar_01.gif" /></p>
+<p class="img-caption">Gambar 1 - Instalasi Macromedia Flash 8 di atas Wine</p>
+
+<p>Nah, setelah berhasil di pasang, saatnya kita menjalankanya.</p>
+
+<p>Saat proses instalasi, kita mencentang pilihan untuk membuat <em>shortcut</em> di dekstop. Kita tinggal pergi ke Desktop dan mencari <em>shortcut</em> bertuliskan <strong>Macromedia Flash 8</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_shortcut" data-echo="https://s20.postimg.cc/u1jgd3qfh/Screenshot_from_2018-05-20_13-18-33.png" /></p>
+
+<p>Akan terdapat file satu lagi bernama <strong>Macromedia Flash 8.lnk</strong>, ini adalah file wine loader, tapi pada prakteknya saya tidak pernah menggunakan file ini, sehingga saya hapus saja, hehehe.</p>
+
+<p>Kalau kalian ingin memindahkan file shortcut <strong>Macromedia Flash 8</strong> ini keluar dari desktop, pindahkan saja ke dalam direktori <code class="highlighter-rouge">~/.local/share/applications/</code>, pada direktori ini adalah tempat berkumpulnya file-file launcher dari semua aplikasi yang kita miliki.</p>
+
+<p>Sekarang, kita coba menjalankannya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/4vii6c20t/gambar_02.gif" /></p>
+<p class="img-caption">Gambar 2 - Menjalankan Shortcut Macromedia Flash 8</p>
+
+<h1 id="pengujian">Pengujian</h1>
+
+<p>Kebetulan karena saya sedang mengerjakan tugas kuliah untuk membuat media pembelajaran, jadi langsung saja sekalian kita coba.</p>
+
+<p>Pengujian ini berdasarkan subjektif saya saja, apakah saya dapat mengerjakan animasi dengan Macromedia Flash 8 di atas Wine semulus saya mengerjakan di atas Microsoft Windows.</p>
+
+<p>Berikut adalah hasilnya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://s20.postimg.cc/lkjy1vo7x/gambar_03.gif" /></p>
+<p class="img-caption">Gambar 3 - SneakPeek timeline dan scene</p>
+
+<p>Selama proses pengerjaan, tidak ada kendala yang mengganggu.</p>
+
+<p>Aspek-aspek yang jadi penilaian subjektif saya adalah sebagai berikut:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Aspek Penilaian</th>
+      <th>Nilai</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Keyboard Shrortcut</td>
+      <td>100% Berfungsi</td>
+    </tr>
+    <tr>
+      <td>Tools</td>
+      <td>100% Berfungsi</td>
+    </tr>
+    <tr>
+      <td>Export GIF</td>
+      <td>100% Berfungsi</td>
+    </tr>
+    <tr>
+      <td>Export EXE</td>
+      <td>100% Berfungsi</td>
+    </tr>
+    <tr>
+      <td>Export AVI</td>
+      <td>100% Berfungsi</td>
+    </tr>
+    <tr>
+      <td>ActionScript</td>
+      <td>100% Berfungsi</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ketika di publish, hasilnya akan seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://s20.postimg.cc/evdelw5gt/gambar_04.gif" /></p>
+<p class="img-caption">Gambar 4 - Setelah di Publish</p>
+
+<h1 id="kesimpulan">Kesimpulan</h1>
+
+<p>Setelah menggunakan Macromedia Flash 8 menggunakan Wine pada sistem operasi GNU/Linux, saya merasa tidak ada kendala yang mengganggu selama proses pengerjaan tugas ini.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://appdb.winehq.org/objectManager.php?sClass=version&amp;iId=3673&amp;iTestingId=57604" target="_blank">appdb.winehq.org/objectManager.php?sClass=version&amp;iId=3673&amp;iTestingId=57604</a>
+<br />Diakses tanggal: 2018/05/20</li>
+</ol>
+
+:ET

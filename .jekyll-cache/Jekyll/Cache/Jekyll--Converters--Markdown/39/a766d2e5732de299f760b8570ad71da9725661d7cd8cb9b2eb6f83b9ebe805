@@ -1,0 +1,76 @@
+I"�<h1 id="step-5--set-language-and-time-zone">STEP 5 : Set Language and Time Zone</h1>
+
+<h2 id="51-locale">5.1 Locale</h2>
+
+<p>Konfigurasi <em>locale</em> dimaksudkan untuk menginformasikan kepada aplikasi yang berjalan pada sistem operasi kita bahwa kita menggunakan <em>locale</em> (yang kita pilih) tersebut.</p>
+
+<p><em>locale</em>, sejauh yang saya gunakan adalah untuk mengatur <em>language</em> (bahasa), <em>first day in calendar</em>, <em>date and time default format</em>, <em>paper format</em>, <em>currency format</em>, <em>distance format</em>, dan lain sebagainya.</p>
+
+<p>Untuk memilih <em>locale</em>, terlebih dahulu kita perlu membuka akses <em>locale</em> yang masih ter-_disable_ pada <em>file</em> <code class="highlighter-rouge">/etc/locale.gen</code>. Dalam hal ini saya akan mengaktifkan / <em>uncommenting</em> <code class="highlighter-rouge">en_US.UTF-8</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vim /etc/locale.gen
+</code></pre></div></div>
+
+<p><em>Scroll</em> ke bawah dan cari baris yang mengandung isi <code class="highlighter-rouge">en_US.UTF-8 UTF-8</code>, lalu hilangkan tanda <code class="highlighter-rouge">#</code> yang ada di depan baris tersebut.</p>
+
+<pre>
+...
+...
+
+#en_SG.UTF-8 UTF-8
+#en_SG ISO-8859-1
+<mark>en_US.UTF-8 UTF-8</mark>
+#en_US ISO-8859-1
+#en_ZA.UTF-8 UTF-8
+...
+...
+</pre>
+
+<p>Kamu dapat juga memilih bahasa <strong>Indonesia</strong>, dengan <em>scrolling</em> ke bawah dan hilangkan tanda <code class="highlighter-rouge">#</code> pada <code class="highlighter-rouge">id_ID.UTF-8 UTF-8</code>. Namun, saya pribadi lebih <em>prefer</em> hanya menggunakan <strong>English</strong> saja.</p>
+
+<p>Kemudian <em>generate</em> <code class="highlighter-rouge">locale</code> dengan perintah.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># locale-gen
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generating locales...
+    en_US.UTF-8... done
+Generating complete.
+</code></pre></div></div>
+
+<p>Mengeset <em>locale</em> yang sudah kita <em>generate</em> ke dalam <em>file</em> <code class="highlighter-rouge">/etc/locale.conf</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># locale &gt; /etc/locale.conf
+</code></pre></div></div>
+
+<p>Konfigurasi lebih jauh mengenai <code class="highlighter-rouge">locale</code>, seperti <em>firstday in week</em>, <em>paper format</em>, dll., akan saya tambahkan pada kesempatan yang lain.</p>
+
+<h2 id="52-time-zone">5.2 Time zone</h2>
+
+<p>Untuk mengatur <em>time zone</em>, gunakan <code class="highlighter-rouge">tzselect</code> dan ikuti alur perintahnya.</p>
+
+<p>Misal, <strong>(4) Asia → (15) Indonesia → (3) Borneo (east, south … ) → (1) Yes</strong>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># tzselect
+</code></pre></div></div>
+
+<p>Kemudian, kita perlu untuk membuat <em>symlink</em> untuk mengeset <code class="highlighter-rouge">localtime</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ln -sf /usr/share/zoneinfo/Asia/Makassar /etc/localtime
+</code></pre></div></div>
+
+<p>Saya berada pada waktu lokal WITA, jadi saya pilih <em>localtime</em> Makassar. Kamu dapat menggantinya dengan <em>localtime</em> Jakarta untuk WIB.</p>
+
+<p>Selanjutnya adalah <em>hardware clock</em>. Bagaimanapun juga <em>hardware clock</em> akan menggunakan UTC. Sehingga kita perlu megesetnya dengan cara sebagai berikut.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># hwclock --systohc --utc
+</code></pre></div></div>
+
+<p>Sampai sini, proses konfigurasi <em>locale</em> dan <em>time zone</em> telah selesai. Kita dapat melangkah ke <em>step</em> selanjutnya.</p>
+
+<!-- NEXT PREV BUTTON -->
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-4-set-up-bootloader"><img style="width:20px;" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/arch/step-6-create-user-password-and-hostname"><img style="width:20px;" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+:ET

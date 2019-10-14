@@ -1,0 +1,11 @@
+I"><div style="margin-top:30px;"></div>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/dOqB0ybFlNM" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Mengatasi error saat boot “failed to set xfermode”.Yaitu dengan menambahkan “irqpoll” pada kernel paramater.</p>
+
+<p>Referensi:
+<a href="https://fak3r.com/2007/06/22/howto-failed-to-set-xfermode-solved/?fbclid=IwAR0We3lc3CHpnewvB7iK38yimwXthEmkLktNK-Aqf76qLoRr9WM8Ppx_HUM" target="_blank">How to Failed to set xfermode solved</a></p>
+:ET

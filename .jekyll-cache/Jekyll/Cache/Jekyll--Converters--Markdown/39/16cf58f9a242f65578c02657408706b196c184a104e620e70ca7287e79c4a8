@@ -1,0 +1,561 @@
+I"xR<!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Teman-teman pasti memiliki pemutar video favorit masing-masing. Begitupun saya, <strong>MPV</strong> adalah pemutar video favorit sepanjang 2016 sampai saat tulisan ini dibuat. (2016 - 2019).</p>
+
+<p>Selama menggunakan MPV tidak habis-habisnya saya menemukan fitur-fitur yang berguna untuk memudahkan urusan-urusan saya dalam hal video. Awalnya saya hanya ingin pemutar video yang memiliki <em>user interface</em> yang minimalis (karena hanya ingin fokus pada video), ringan, dan cepat saat dipanggil.</p>
+
+<p>Namun, seiring berjalannya waktu, ternyata banyak sekali fitur-fitur yang dimiliki oleh MPV, dengan fitur yang hampir menyerupai VLC. Malah beberapa fitur pada MPV, saya belum pernah menggunakannya pada saat menggunakan VLC, karena belum adanya kebutuhan akan hal tersebut saat masih menggunakan VLC.</p>
+
+<h1 id="sekilas-tentang-mpv">Sekilas Tentang MPV</h1>
+
+<p>MPV adalah fork dari MPlayer dan mplayer2. Memiliki banyak dukungan terhadap hampir semua format file video dan audio codecs dan subtitle.</p>
+
+<p>Kelebihan-kelebihan yang dimiliki oleh MPV:</p>
+
+<ol>
+  <li><strong>Memiliki banyak <em>command option</em></strong> layaknya MPLayer. Namun, sudah lebih diperbaiki dalam hal susunan sintaksis agar lebih mudah digunakan dan diingat</li>
+  <li><strong>MPV tidak memiliki official GUI</strong>, namun begitu, dapat dengan mudah kita operasikan dengan menggunakan <em>keyboard shortcuts</em> atau gerakan mouse</li>
+  <li><strong>MPV memiliki video output berbasis OpenGL</strong> yang memiliki banyak sekali fitur-fitur yang digemari oleh penggemar video, seperti video scaling, color correction, frame timing, interpolation, HDR, dan masih banyak lagi</li>
+  <li><strong>MPV memanfaatkan API FFmpeg hwaccel</strong> untuk mendukung format VDPAU, VAAPI, DXVA2, VDA dan akselerasi decoding video VideoToolbox</li>
+  <li>Tentu saja <strong>MPV masih aktif dikembangkan</strong>, berfokus pada refactoring dan pembersihan kode serta menambahkan fitur</li>
+  <li><strong>Free, open source dan multi platform</strong></li>
+</ol>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk distribusi Arch Linux, langsung saja pasang dari repository.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S mpv
+</code></pre></div></div>
+<p>Untuk distribusi lain, silahkan menyesuaikan.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Secara <em>default</em>, MPV akan membaca file konfigurasi yang terdapat pada direktori <code class="highlighter-rouge">/etc/mpv</code> (untuk <em>system wide</em>) atau <code class="highlighter-rouge">~/.config/mpv/</code> (untuk <em>user</em>).</p>
+
+<p>Untuk membantu konfigurasi awal, kita dapat mengambil sampel konfigurasi default settings, dengan cara sebagai berikut.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp -r /usr/share/doc/mpv/ ~/.config/
+</code></pre></div></div>
+<p>Saat ini saya hanya menggunakan 2 file yang ada pada direktori config ini, yaitu:</p>
+<ol>
+  <li><code class="highlighter-rouge">input.conf</code> - Untuk <em>keyboard shortcuts</em></li>
+  <li><code class="highlighter-rouge">mpv.conf</code> - Untuk konfigurasi mpv itu sendiri</li>
+</ol>
+
+<p>Saya akan mulai dari file <code class="highlighter-rouge">mpv.conf</code> terlebih dahulu.</p>
+
+<h2 id="konfigurasi-mpvconf">Konfigurasi mpv.conf</h2>
+
+<p>Buka Terminal dan edit file <code class="highlighter-rouge">mpv.conf</code>.</p>
+
+<p>Saya menambahkan pada baris paling akhir setelah bagian/blok <code class="highlighter-rouge">profiles</code>, option-option di bawah.</p>
+<pre>
+###########
+# General #
+###########
+
+input-ipc-server=/tmp/mpvsocket           # listen for IPC on this socket
+<mark>save-position-on-quit=no</mark>                  # handled by a script
+
+#no-border                                # no window title bar
+msg-module                                # prepend module name to log messages
+msg-color                                 # color log messages on terminal
+<mark>term-osd-bar</mark>                              # display a progress bar on the terminal
+use-filedir-conf                          # look for additional config files in the directory of the opened file
+#pause                                    # no autoplay
+<mark>keep-open</mark>                                 # keep the player open when a file's end is reached
+<mark>autofit-larger=90%x90%</mark>                    # resize window in case it's larger than W%xH% of the screen
+cursor-autohide-fs-only                   # don't autohide the cursor in window mode, only fullscreen
+input-media-keys=no                       # enable/disable OSX media keys
+cursor-autohide=1000                      # autohide the curser after 1s
+prefetch-playlist=yes
+force-seekable=yes
+
+<mark>screenshot-format=png
+screenshot-png-compression=8
+screenshot-template='~/pix/ScreenShot/%F (%P) %n'</mark>
+
+hls-bitrate=max                           # use max quality for HLS streams
+
+<mark>[ytdl-desktop]
+profile-desc=cond:is_desktop()
+ytdl-format=bestvideo[height&lt;=?720]+bestaudio/best</mark>
+
+<mark>[ytdl-laptop]
+profile-desc=cond:is_laptop()
+ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9][protocol!=http_dash_segments]+bestaudio/best</mark>
+
+[default]
+
+
+#########
+# Cache #
+#########
+
+# Configure the cache to be really big (multiple GBs)
+# We have a lot of memory, so why not use it for something
+
+cache=no
+#cache-default=4000000                    # size in KB
+#cache-backbuffer=250000                  # size in KB
+#demuxer-max-bytes=1147483647             # ~1 GiB in bytes
+
+
+#############
+# OSD / OSC #
+#############
+
+osd-level=1                               # enable osd and display --osd-status-msg on interaction
+osd-duration=2500                         # hide the osd after x ms
+osd-status-msg='${time-pos} / ${duration}${?percent-pos:　(${percent-pos}%)}${?frame-drop-count:${!frame-drop-count==0:　Dropped: ${frame-drop-count}}}\n${?chapter:Chapter: ${chapter}}'
+
+osd-font='Source Sans Pro'
+osd-font-size=32
+osd-color='#CCFFFFFF'                     # ARGB format
+osd-border-color='#DD322640'              # ARGB format
+#osd-shadow-offset=1                      # pixel width for osd text and progress bar
+osd-bar-align-y=0                         # progress bar y alignment (-1 top, 0 centered, 1 bottom)
+osd-border-size=2                         # size for osd text and progress bar
+osd-bar-h=2                               # height of osd bar as a fractional percentage of your screen height
+osd-bar-w=60                              # width of " " "
+
+
+#############
+# Subtitles #
+#############
+
+sub-auto=all                              # membuat mpv tetap mendeteksi file subtitle
+no-sub-visibility                         # namun dalam keadaan terhidden
+#sub-auto=fuzzy                           # external subs don't have to match the file name exactly to autoload
+sub-file-paths-append=ass                 # search for external subs in these relative subdirectories
+sub-file-paths-append=srt
+sub-file-paths-append=sub
+sub-file-paths-append=subs
+sub-file-paths-append=subtitles
+
+demuxer-mkv-subtitle-preroll              # try to correctly show embedded subs when seeking
+embeddedfonts=yes                         # use embedded fonts for SSA/ASS subs
+sub-fix-timing=no                         # do not try to fix gaps (which might make it worse in some cases)
+sub-ass-force-style=Kerning=yes           # allows you to override style parameters of ASS scripts
+sub-use-margins
+sub-ass-force-margins
+
+# the following options only apply to subtitles without own styling (i.e. not ASS but e.g. SRT)
+sub-font="Source Sans Pro Semibold"
+sub-font-size=36
+sub-color="#FFFFFFFF"
+sub-border-color="#FF262626"
+sub-border-size=3.2
+sub-shadow-offset=1
+sub-shadow-color="#33000000"
+sub-spacing=0.5
+
+
+#############
+# Languages #
+#############
+
+slang=enm,en,eng,de,deu,ger               # automatically select these subtitles (decreasing priority)
+alang=ja,jp,jpn,en,eng,de,deu,ger         # automatically select these audio tracks (decreasing priority)
+
+
+#########
+# Audio #
+#########
+
+audio-file-auto=fuzzy                     # external audio doesn't has to match the file name exactly to autoload
+audio-pitch-correction=yes                # automatically insert scaletempo when playing with higher speed
+volume-max=200                            # maximum volume in %, everything above 100 results in amplification
+volume=100                                # default volume, 100 = unchanged
+</pre>
+
+<p>Berikut ini adalah penjelasan dari beberapa option yang saya gunakan. Saya tidak dapat menjelaskan semuanya secara detail.</p>
+
+<h3 id="save-position-on-quit">Save Position on Quit</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save-position-on-quit=no
+</code></pre></div></div>
+<p>Option di atas digunakan untuk menyimpan posisi terakhir dari <em>seek bar</em>. Sehingga memungkinkan kita saat membuka file video yang sama, akan kembali dimulai pada menit sebelum mpv di-<em>quit</em>.</p>
+
+<h3 id="display-progress-bar-on-terminal">Display Progress Bar on Terminal</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>term-osd-bar
+</code></pre></div></div>
+<p>Karena terkadang saya menjalankan mpv juga dari Terminal, misalkan menonton video melalui url youtube, saya membutuhkan progress bar untuk memberikan saya referensi di mana posisi saya saat ini (sudah berapa menit).</p>
+
+<h3 id="keep-open-after-video-end">Keep Open After Video End</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keep-open
+</code></pre></div></div>
+<p>Option ini digunakan agar mpv tidak otomatis keluar saat selesai menjalankan video/audio.</p>
+
+<h3 id="default-window-size">Default Window Size</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autofit-larger=90%x90%
+</code></pre></div></div>
+<p>Option ini saya pergunakan agar saat membuka mpv, video tidak lebih besar dari resolusi layar yang saya gunakan.</p>
+
+<h3 id="screenshot-format">ScreenShot Format</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screenshot-format=png
+screenshot-png-compression=8
+screenshot-template='~/pix/ScreenShot/%F (%P) %n'
+</code></pre></div></div>
+<p>Option ini saya pergunakan untuk mengatur screenshot file type dan lokasi dimana hasil screenshot disimpan beserta format namanya.</p>
+
+<h3 id="youtube-dl-format">youtube-dl Format</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ytdl-desktop]
+profile-desc=cond:is_desktop()
+ytdl-format=bestvideo[height&lt;=?720]+bestaudio/best
+
+[ytdl-laptop]
+profile-desc=cond:is_laptop()
+ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9][protocol!=http_dash_segments]+bestaudio/best
+</code></pre></div></div>
+<p>Option di atas saya pergunakan untuk mengatur format video yang akan dipilih pada saat menonton streaming YouTube. Saya menggunakan fiber optik internet, sehingga tidak ada masalah untuk mengeset pada resoulsi 720.</p>
+
+<h2 id="konfigurasi-inputconf">Konfigurasi input.conf</h2>
+
+<p>Untuk file konfigurasi <code class="highlighter-rouge">input.conf</code> saya tidak menambahkan banyak pengaturan <em>keyboard shortcuts</em>.</p>
+
+<p>Saya hanya menambahkan untuk pengaturan <strong>horizontal flip</strong> dan <strong>rotate</strong> video.</p>
+
+<p>Edit file <code class="highlighter-rouge">input.conf</code> dan tambahkan di paling bawah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- cycle-values video-rotate "90" "180" "270" "0"
+= vf toggle hflip
+</code></pre></div></div>
+<p>Option di atas bertujuan untuk melakukan rotate ke kanan dengan menekan tombol <kbd> - </kbd> dan tombol <kbd> = </kbd> untuk membuat video menjadi horizontal flip.</p>
+
+<p>Saya menggunakan kedua tombol tersebut, karena belum terdapat command apapun yang dimiliki oleh keduanya.</p>
+
+<h1 id="contoh-pemanfaatan-mpv">Contoh Pemanfaatan MPV</h1>
+
+<h2 id="menonton-youtube">Menonton YouTube</h2>
+<p>Sangat praktis sekali untuk dapat menonton video YouTube di MPV.</p>
+
+<p>Caranya pun sangat mudah. Hanya perlu mengcopy paste url video YouTube setelah perintah mpv.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo
+</code></pre></div></div>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa Menonton YouTube Menggunakan MPV ?</div>
+Berikut ini adalah beberapa alasan saya:
+<ol>
+<li><b>Praktis</b> dan <b>simpel</b></li>
+<li><b>Minim distraksi</b> dari user interface YouTube</li>
+<li><b>Bebas dari iklan</b></li>
+<li><b>Volume</b> dapat kita push hingga <b>lebih dari 100%</b> untuk video yang memiliki suara yang kecil</li>
+<li><b>Brightness, Contrast</b> serta <b>Saturation</b> yang <b>dapat kita atur</b> sendiri. Karena terkadang ada video yang terlalu gelap</li>
+<li><b>Video dapat dikontrol</b>, seperti: fast, slow, maju satu frame, maju 10 frame, dll</li>
+<li>dll.</li>
+</ol>
+</div>
+
+<h2 id="webcam-viewer">WebCam Viewer</h2>
+<p>Selain dapat memutar video, MPV juga saya pergunakan untuk menampilkan output dari kamera WebCam.</p>
+
+<p>Tidak seperti aplikasi WebCam pada umumnya yang harus bergantian dalam menampilkan output dari kamera. MPV dapat melakukannya secara bersamaan. Yaa jelas, karena mpv memanggil alamat dari masing-masing WebCam.</p>
+
+<p>Sepertinya untuk menggunakan fitur ini, kita memerlukan paket <code class="highlighter-rouge">v4l-utils</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S v4l-utils
+</code></pre></div></div>
+<p>Namun, saya belum yakin apakah fitur ini membutuhkan paket <code class="highlighter-rouge">v4l-utils</code> atau tidak.</p>
+
+<p>Sebelumnya cek dulu apakah terdapat webcam yang aktif.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -l /dev/video*
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crw-rw----+ 1 root video 81, 0 Jan 11 21:39 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jan 11 21:39 /dev/video1
+</code></pre></div></div>
+
+<p>Setelah itu baru kita panggil WebCam yang aktif.</p>
+
+<p>Dalam kasus ini hanya <code class="highlighter-rouge">/dev/video0/</code> saja yang saya gunakan.</p>
+<pre>
+$ mpv <mark>av://v4l2:/dev/video0</mark>
+</pre>
+
+<p>Apabila ingin menambahkan propertis lain seperti hitam putih dan horizontal flip, kira-kira seperti ini contohnya.</p>
+
+<p>Horizontal flip.</p>
+<pre>
+$ mpv av://v4l2:/dev/video0 <mark>--vf=hflip</mark>
+</pre>
+<p>Atau hitam putih.</p>
+<pre>
+$ mpv av://v4l2:/dev/video0 <mark>--saturation=-100</mark>
+</pre>
+
+<p>Hasilnya,</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Mengapa Mengunakan MPV sebagai WebCam viewer ?</div>
+Berikut ini adalah beberapa alasan saya:
+<ol>
+<li><b>Praktis</b> dan <b>simpel</b></li>
+<li><b>Minim distraksi</b> dari user interface YouTube</li>
+<li><b>Brightness, Contrast</b> serta <b>Saturation</b> yang <b>dapat kita atur</b> sendiri.</li>
+<li> Dapat <b>Multi Cam</b></li>
+<li>Cenderung <b>ringan</b> dan tidak membuat laptop menjadi panas</li>
+</ol>
+</div>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" /></p>
+<p class="img-caption">Gambar 1 - MPV menampilkan output dari banyak WebCam</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif" /></p>
+<p class="img-caption">Gambar 2 - Demonstrasi Horizontal Flip dan Rotate menggunakan keyboard Shortcut</p>
+
+<h2 id="subtitle">Subtitle</h2>
+
+<p>pada konfigurasi yang saya buat, saya menghidden visibility dari subtitle.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>no-sub-visibility
+</code></pre></div></div>
+<p>Tujuannya, agar subtitle tidak langsung ditampilkan pada semua video.</p>
+
+<p>Cara menggunakannya,</p>
+<ol>
+  <li>Tekan <kbd>V</kbd> untuk meng-<em>enable</em> dan <em>disable</em> visibility dari subtitle.</li>
+  <li>Apabila terdapat lebih dari 1 subtitle, kita dapat berpindah antar subtitle menggunakan <kbd>J</kbd> untuk Next Subtitle dan <kbd>SHIFT</kbd> + <kbd>J</kbd> untuk Previous Subtitle.</li>
+</ol>
+
+<h1 id="keyboard-shortcuts">Keyboard Shortcuts</h1>
+
+<p>Default Keyboard Shortcuts berdasarkan file <code class="highlighter-rouge">input.conf</code>.</p>
+
+<p><strong>Play/Pause</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd>SPACE</kbd></td>
+      <td>toggle play/pause</td>
+    </tr>
+    <tr>
+      <td><kbd> p </kbd></td>
+      <td>toggle play/pause</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Show Progress</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> o </kbd></td>
+      <td>show progress</td>
+    </tr>
+    <tr>
+      <td><kbd> P </kbd></td>
+      <td>show progress</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Skip 5 atau 60 detik</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> → </kbd></td>
+      <td>seek 5</td>
+    </tr>
+    <tr>
+      <td><kbd> ← </kbd></td>
+      <td>seek -5</td>
+    </tr>
+    <tr>
+      <td><kbd> ↑ </kbd></td>
+      <td>seek 60</td>
+    </tr>
+    <tr>
+      <td><kbd> ↓ </kbd></td>
+      <td>seek -60</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Kecepatan Play Video</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> [ </kbd></td>
+      <td>multiply speed 0.9091</td>
+    </tr>
+    <tr>
+      <td><kbd> ] </kbd></td>
+      <td>multiply speed 1.1</td>
+    </tr>
+    <tr>
+      <td><kbd> { </kbd></td>
+      <td>multiply speed 0.5</td>
+    </tr>
+    <tr>
+      <td><kbd> } </kbd></td>
+      <td>multiply speed 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Keluar</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> q </kbd></td>
+      <td>quit</td>
+    </tr>
+    <tr>
+      <td><kbd> Q </kbd></td>
+      <td>quit-watch-later</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Subtitle</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> v </kbd></td>
+      <td>toggle subtitle visibility</td>
+    </tr>
+    <tr>
+      <td><kbd> j </kbd></td>
+      <td>toggle next subtitle</td>
+    </tr>
+    <tr>
+      <td><kbd> J </kbd></td>
+      <td>toggle previous subtitle</td>
+    </tr>
+    <tr>
+      <td><kbd> z </kbd></td>
+      <td>add sub-delay -0.1</td>
+    </tr>
+    <tr>
+      <td><kbd> x </kbd></td>
+      <td>add sub-delay +0.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Volume</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> 0 </kbd></td>
+      <td>add volume +2</td>
+    </tr>
+    <tr>
+      <td><kbd> 9 </kbd></td>
+      <td>add volume -2</td>
+    </tr>
+    <tr>
+      <td><kbd> m </kbd></td>
+      <td>toggle mute</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Color Correction</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> 1 </kbd></td>
+      <td>add contrast -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 2 </kbd></td>
+      <td>add contrast +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 3 </kbd></td>
+      <td>add brightness -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 4 </kbd></td>
+      <td>add brightness +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 5 </kbd></td>
+      <td>add gamma -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 6 </kbd></td>
+      <td>add gamma +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 7 </kbd></td>
+      <td>add saturation -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 8 </kbd></td>
+      <td>add saturation +1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fullscreen</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> f </kbd></td>
+      <td>fullscreen</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Looping</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> l </kbd></td>
+      <td>A-B loop</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Keyboard Shortcuts yang saya tambahkan.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> - </kbd></td>
+      <td>rotate left 90 180 270 0</td>
+    </tr>
+    <tr>
+      <td><kbd> = </kbd></td>
+      <td>horizontal flip</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Masih banyak fitur-fitur keren dari MPV yang mungkin belum tercover oleh tulisan ini. Mudah-mudahan dapat saya tambahkan lagi dilain waktu apabila menemukan penerapan lain dari penggunaan MPV.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://mpv.io/" target="_blank">mpv.io</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/mpv-player/mpv" target="_blank">github.com/mpv-player/mpv</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/mpv" target="_blank">wiki.archlinux.org/index.php/mpv</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+</ol>
+
+:ET

@@ -52,7 +52,6 @@ plugins:
     - jekyll-sitemap
     - jekyll-last-modified-at
     - jekyll-pwa-plugin
-    - jekyll-netlify
 
 
 # Newsline

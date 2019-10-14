@@ -1,0 +1,103 @@
+I"›<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/9myvdtav1/banner_post_19.png" alt="banner" /></p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+<p>Terkadang kita ingin membuat tombol tertentu pada keyboard untuk tidak aktif atau mengganti fungsinya menjadi fungsi yang lain. Misal, menonaktifkan tombol <kbd>PrtSc</kbd> pada keyboard ThinkPad keluaran 2014 ke atas karena letaknya yang diapit dua tombol lain, <kbd>Right Alt</kbd> <kbd>PrtSc</kbd> <kbd>Right Ctrl</kbd> sehingga lebih sering salah pencet saat akan menekan Alt atau Ctrl.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Lagkah-langkah yang saya lakukan di bawah ini saya lakukan pada distribusi sistem operasi Arch Linux. Seharusnya tidak jauh berbeda dengan distribusi yang lain.</p>
+
+<h1 id="menonaktifkan-tombol-pada-console">Menonaktifkan Tombol pada Console</h1>
+
+<ol>
+  <li>Deteksi <strong>keycode</strong> dari tombol keyboard yang kita tekan menggunakan perintah di bawah.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo showkey
+</code></pre></div>    </div>
+    <p>Kemudian tekan tombol yang ingin dinonaktifkan fungsinya (dalam contoh ini adalah <kbd>PrtSc</kbd>), nanti akan keluar output seperti di bawah.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keycode 99 press
+keycode 99 release
+</code></pre></div>    </div>
+    <p>Berarti keycode dari tombol <kbd>PrtSc</kbd> adalah <code class="highlighter-rouge">99</code>.
+Langkah selanjutnya, kita akan mengedit file <code class="highlighter-rouge">.map</code> dan memasukkan keycode <code class="highlighter-rouge">99</code> dalam daftar. <code class="highlighter-rouge">showkey</code> akan keluar secara otomatis apabila dalam waktu 10 detik kita tidak menekan tombol apapun pada keyboard.</p>
+  </li>
+  <li>Masuk ke dalam direktori <code class="highlighter-rouge">/usr/share/kbd/keymaps/i386/qwerty</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /usr/share/kbd/keymaps/i386/qwerty
+</code></pre></div>    </div>
+  </li>
+  <li>Kita copy-kan <em>default keymap</em> menjadi nama file yang lain. Keymaps saya adalah US.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo cp us.map.gz personal.map.gz
+</code></pre></div>    </div>
+  </li>
+  <li>Ekstrak file <code class="highlighter-rouge">personal.map.gz</code> menggunakan perintah <code class="highlighter-rouge">gunzip</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gunzip personal.map.gz
+</code></pre></div>    </div>
+  </li>
+  <li>Edit file <code class="highlighter-rouge">personal.map</code> menggunakan <em>text editor</em> favorit kalian.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim personal.map
+</code></pre></div>    </div>
+    <p>lalu tambahkan di baris paling bawah.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+...
+keycode 99 = nul
+</code></pre></div>    </div>
+    <p>Ingat, <code class="highlighter-rouge">99</code> disini adalah <em>keycode</em> dari tombol <kbd>PrtSc</kbd> yang kita dapatkan pada langkah nomor 1 di atas. Apabila ingin menonaktifkan tombol lain, silahkan diganti dengan keycode dari tombol yang ingin dinonaktifkan.</p>
+  </li>
+  <li>Kompres kembali file <code class="highlighter-rouge">personal.map</code> menggunakan perintah <code class="highlighter-rouge">gzip</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gzip personal.map
+</code></pre></div>    </div>
+    <p>kemudian untuk mengaktifkan file map yang kita buat ini, jalankan.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo loadkeys personal
+</code></pre></div>    </div>
+    <p>Lakukang pengujian dengan mnenjalankan <code class="highlighter-rouge">showkey</code> kembali.</p>
+  </li>
+  <li>Namun pengaturan <code class="highlighter-rouge">loadkeys</code> ini tidak permanen, kita dapat membuat menjadi permanen dengan mengedit isi dari file <code class="highlighter-rouge">/etc/vconsole.conf</code> (buat file <code class="highlighter-rouge">vconsole.conf</code> apabila belum tersedia).
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /etc/vconsole.conf
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KEYMAP=us
+</code></pre></div>    </div>
+    <p>diganti dengan</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KEYMAP=personal
+</code></pre></div>    </div>
+  </li>
+  <li>Lakukan pengujian dengan me-<em>Reboot</em> sistem kamu.</li>
+</ol>
+
+<h1 id="menonaktifkan-tombol-pada-x">Menonaktifkan Tombol pada X</h1>
+<p>Langkah-langkah di atas hanya berlaku pada <strong>console</strong>, apabila kita ingin menonaktifkan tombol <kbd>PrtSc</kbd> juga pada <strong>X</strong>, salah satu cara yang dapat dilakukan adalah meng-<em>comment</em> <em>keycode</em> nya dari dalam file <code class="highlighter-rouge">evdev</code>.</p>
+
+<ol>
+  <li>Buka file <code class="highlighter-rouge">/usr/share/X11/xkb/keycodes/evdev</code> dengan menggunakan <em>text editor</em> favorit kalian.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /usr/share/X11/xkb/keycodes/evdev
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Cari <em>key code</em> untuk tombol <kbd>PrtSc</kbd>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ...
+ &lt;PRSC&gt; = 107;
+ ...
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Kemudian, <em>disable</em> dengan memberikan tanda komentar (<code class="highlighter-rouge">//</code>).</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ...
+ // &lt;PRSC&gt; = 107;
+ ...
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p><br />
+Dengan begini maka tombol <kbd>PrtSc</kbd> benar-benar dinonaktifkan baik di console, terminal, dan X window.</p>
+
+<p>Saya rasa cukup seperti ini dulu.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://unix.stackexchange.com/questions/74151/fully-disable-prntscr-key" target="_blank">unix.stackexchange.com/questions/74151/fully-disable-prntscr-key</a>
+<br />Diakses tanggal: 18/08/02</li>
+</ol>
+:ET

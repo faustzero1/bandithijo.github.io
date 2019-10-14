@@ -1,0 +1,128 @@
+I"O<p class="notif-post">Post ini sudah tidak up to date !</p>
+
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://3.bp.blogspot.com/-Rwnz4BKPMJA/UdMVgTfGWeI/AAAAAAAABAM/8QDqK8DfU08/s1600/Default+Header+Template+Post+10.jpg" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Sudah beralih ke OS X dan masih berharap bisa download video di Youtube, donwload kontent-kontetn di website yang tidak terdapat menu download, download dari situs-situs yang membutuhkan account premium, ketergantungan dengan IDM (Internet Download Manager) di Windows ? Tapi sudah benar-benar terpojok dengan OS X ? Jangan khawatir. Saya akan memperkenalkan sebuah software sebagai alternatif bagi anda sebagai pengganti IDM di Windows.</p>
+
+<h1 id="jdownloader">JDownloader</h1>
+<p>Adalah software gratis, open-source download manajemen tool yang di tulis dengan bahasa pemrograman Java, dengan komunitas pengembang yang besar, yang membuat download menjadi mudah dan secepat seharusnya. Pengguna dapat memulai, menghentikan atau memberikan jeda, menetapkan batasan bandwidth, arsip auto-ekstrak dan banyak lagi. Termasuk dapat mendownload dari website bertipe One-Click Hoster seperti Rapidshare.com atau Megaupload.com -tidak hanya untuk pengguna dengan account premium, tetapi juga untuk pengguna yang gak bayar.</p>
+
+<p>Bagaimana ? Tertarik untuk menggunakannya ? Kalau anda sudah pernah menggunakannya pasti sangat menyukai software ini. Apalagi bagi user yang suka berselancar ke website-website “zona merah”.</p>
+
+<p>Ada lagi kelebihan pada JDownloader yaitu semua link yang kita copy, akan otomatis terdeteksi pada JDownloader. Hahaha entah ini kelebihan atau kekurangan.</p>
+
+<p>Bagi pengguna Ubuntu &amp; Windows, tutorial pada artikel ini bisa digunakan untuk memandu anda menggunakan JDownloader.</p>
+
+<h1 id="step-by-step">Step by Step</h1>
+<ol>
+  <li>
+    <p>Download dulu aplikasinya <a href="http://jdownloader.org/download/index" target="_blank">di sini</a> (link ini tidak langsung dapat mendownload aplikasi JDownloader. Tetapi anda diarahkan untuk memilih platform yang sesuai dengan yang anda gunakan berikut dengan update Java-nya).</p>
+  </li>
+  <li>
+    <p>Saya anggap anda sudah selesai menginstal JDownloader di komputer anda. Sekarang buka JDownloader yang sudah anda instal. Harap maklum, starting up aplikasi ini memang agak sedikit lambat. Namanya juga aplikasi hebat. (ngeles)</p>
+  </li>
+  <li>
+    <p>Setelah terbuka, maka cuekin saja nih aplikasinya dulu. Sekarang kita balik lagi ke browser kita.</p>
+  </li>
+  <li>
+    <p>Copy &amp; paste link yang ada di address bar browser kita. Sebagai contoh tutorial kali ini saya meng-copy link dari Youtube.com</p>
+  </li>
+  <li>
+    <p>Maka pada JDownloader, akan terdapat proses decrypt yang dapat dilihat pada progress bar di bagian bawah window JDownloader (bagian yang di kotak merah).</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://3.bp.blogspot.com/-8GjrfW_D_7E/UdMYhKSgqnI/AAAAAAAABAc/PK07SOvT12Y/s320/Screen+Shot+2013-07-03+at+1.09.19+AM.png" /></p>
+  </li>
+  <li>
+    <p>Ini memerlukan proses agak lama. Setelah selesai, makan akan secara otomatis berpidah ke tab “LinkGrabber” dan keluarlah file-file yang available untuk kita donwload. Seperti gambar di bawah.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://2.bp.blogspot.com/-nQKf7O2eafc/UdMZcBDF8fI/AAAAAAAABAo/GWIVNCrG-ww/s320/Screen+Shot+2013-07-03+at+1.17.00+AM.png" /></p>
+  </li>
+  <li>
+    <p>Perhatikan gambar di atas. Sama seperti IDM bukan ? Apabila website tersebut menyediakan banyak format dan ukuran file maka akan ditampilakan juga di JDownloader.</p>
+  </li>
+  <li>
+    <p>Selanjutnya, pilih satu atau lebih (bisa menggunakan <kbd>Command</kbd> pada Apple atau <kbd>Ctrl</kbd> pada Windows) file yang akan anda download, dan klik kanan</p>
+  </li>
+  <li>
+    <p>Pada tahap pemilihan, perhatikan besar dan ukuran file yang anda inginkan.</p>
+  </li>
+  <li>
+    <p>Lalu pilih “Continue with selected item”</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://1.bp.blogspot.com/-zlxWJkkNd1Q/UdMa1-B-rzI/AAAAAAAABA4/ezFy7D37y5U/s320/Screen+Shot+2013-07-03+at+1.22.49+AM.png" /></p>
+  </li>
+  <li>
+    <p>Maka secara otomatis akan berpindah ke tab “Download” dimana proses download sedang berlangsung.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://3.bp.blogspot.com/-I381ubNLUCE/UdMeLyUpCGI/AAAAAAAABBI/A6acYnZslJM/s320/Screen+Shot+2013-07-03+at+1.28.34+AM.png" /></p>
+  </li>
+  <li>
+    <p>Disini kita dapat melihat kecepatan bandwidth yang digunakan (lihat kotak nomer 1), melihat progress bar besar file yang sudah ter-download dan estimasi waktunya (lihat kotak nomer 2), mengatur banyaknya part donwload dalam satu file (lihat kotak nomer 3), mengatur maksimal jumlah file download dalam sekali download (lihat kotak nomer 3), dan mengatur kecepatan download apabila kita sedang menggunakan koneksi kita untuk buffering (lihat kotak nomer 3)</p>
+  </li>
+</ol>
+
+<h1 id="jangan-lupa">Jangan Lupa</h1>
+<ol>
+  <li>
+    <p>Pada tab “Linkgrabber” masih terdapat sisa link yang tadi tidak kita pilih</p>
+  </li>
+  <li>
+    <p>Tentu saja link ini akan merepotkan apabila kita meng-copy link baru dan akan bertumpuk pada tab Linkgrabber. Jadi kita harus menghapusnya agar memudahkan proses pemilihan file pada link selanjutnya.</p>
+  </li>
+  <li>
+    <p>Cara menghapusnya cukup mudah</p>
+  </li>
+  <li>
+    <p>Pilih tombol pojok kanan bawah “Clear List” untuk menghapus semua.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://3.bp.blogspot.com/-IDN9DQ3ylNo/UdMhYcEZfqI/AAAAAAAABBY/6DGTZBT7JPE/s320/Screen+Shot+2013-07-03+at+1.45.50+AM.png" /></p>
+  </li>
+  <li>
+    <p>Atau jika ingin menghapus yang kita pilih saja caranya</p>
+  </li>
+  <li>
+    <p>Klik kanan file link yang mau dihapus (bisa di pilihin juga pake command pada  atau ctrl pada windows) lalu pilih Remove &gt; Remove seperti pada gambar</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://1.bp.blogspot.com/-Guq_Fd42OAk/UdMhleo5FiI/AAAAAAAABBg/dAV94eAikRE/s320/Screen+Shot+2013-07-03+at+1.48.58+AM.png" /></p>
+  </li>
+  <li>
+    <p>Jadi dengan kata lain kita bisa men-nahan dahulu untuk mendownload dan mengumpulkan file-file link lalu mendownload setelah semua file yang kita inginkan terkumpul.</p>
+  </li>
+</ol>
+
+<h1 id="error-no-connection-">Error No Connection !</h1>
+<ol>
+  <li>
+    <p>Banyak faktor, bisa jadi server situsnya sedang trouble, atau</p>
+  </li>
+  <li>
+    <p>Yang paling menyebalkan terjadi Error No Connection kalau internet kita “LEMODDD” seperti punya saya.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar7" data-echo="https://2.bp.blogspot.com/-nvLri5xZWBE/UdMiz2aNyII/AAAAAAAABBw/QUAa2J2FF2s/s320/Screen+Shot+2013-07-03+at+1.40.58+AM.png" /></p>
+  </li>
+  <li>
+    <p>Kalau terjadi hal ini apa yang kita lakukan ?</p>
+  </li>
+  <li>
+    <p>Coba saja klik kanan dan Resume</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga, coba Close dulu JDownloadernya, lalu buka kembali dan Start download lagi</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga coba link grab ulang</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga, jongkok gan sapa tahu nemu ide bagus. Hehehe</p>
+  </li>
+</ol>
+
+<p>Demikian tutorial mengenai cara penggunaan aplikasi JDownloader ini. Yaa tentu saja setiap aplikasi ada kelebihan dan kekurangannya masing-masing. Ribet ? Ini cuman salah satu trik kok. Sebenarnya sudah ada fasilitas terintegrasi dengan Flashget untuk browser Mozilla Firefox. Tapi saya lebih suka dengan gaya seperti ini. jadi, tutorial ini saya persembahkan untuk mereka-mereka yang mau ribet sedikit. Hehehe</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="http://jdownloader.org/" target="_blank">jdownloader.org/</a>
+<br />Diakses tanggal: 2013/07/03</li>
+</ol>
+:ET

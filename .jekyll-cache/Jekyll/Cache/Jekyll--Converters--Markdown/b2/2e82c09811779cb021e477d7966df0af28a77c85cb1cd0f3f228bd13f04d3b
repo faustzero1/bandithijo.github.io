@@ -1,0 +1,47 @@
+I"¥
+<!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/yjw814lz1/banner_post_08.png" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p><strong>GNOME-ScreenShot</strong> adalah aplikasi untuk mengambil gambar layar monitor yang sudah tersedia secara <em>native</em> pada <strong>GNOME</strong> <em>desktop environment</em>. Saya sudah menggunakan aplikasi ini sejak masih GNOME versi 2. Saat ini saya sedang menggunakan <strong>XFCE4</strong>, namun saya kurang menyukai aplikasi <em>screenshot</em> milik XFCE4 karena terlalu sederhana (subjektif penulis).</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saat mengambil <em>screenshot</em> menggunakan <em>shortcut</em> dengan kombinasi tombol pada keyboard. File gambar otomatis langsung diletakkan pada direktori <strong>~/Pictures</strong>. Tentunya hal ini sangat tidak menyenangkan buat saya, karena file tidak terorganisir sesuai tempatnya.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Kita membutuhkan aplikasi bantuan untuk merubah konfigurasi, yang bernama <a href="https://www.archlinux.org/packages/extra/x86_64/dconf-editor/" target="_blank"><strong>dconf-editor</strong></a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S dconf-editor
+</code></pre></div></div>
+
+<p>Setelah, dconf-editor berhasil dipasang. Buka dconf-editor.</p>
+
+<p>Lalu pergi ke <strong>org</strong> &gt; <strong>gnome</strong> &gt; <strong>gnome-screenshot</strong>.</p>
+
+<p>Klik dua kali pada bagian <strong>auto-save-directory</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png" /></p>
+
+<p>Nanti akan terbuka <em>section</em> seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png" /></p>
+
+<p>Pada bagian paling bawah, <strong>Custom value</strong>, ganti ke direktori tempat dimana kalian ingin menyimpan hasil <em>screenshot</em>.</p>
+
+<p>Namun sebelumnya, untuk memberikan nilai pada Custom value, harus men-disable <strong>Use default value</strong>.</p>
+
+<p>Pada contoh di atas, saya meletakkan hasil <em>screenshot</em> pada direktori <code class="highlighter-rouge">file:///home/bandithijo/pix/ScreenShot</code>.</p>
+
+<p><span class="font-latin">And weâ€™re redy to go !</span></p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot" target="_blank">askubuntu.com/questions/114429/default-save-directory-for-gnome-screenshot</a>
+<br />Diakses tanggal: 2018/04/28</li>
+</ol>
+
+:ET

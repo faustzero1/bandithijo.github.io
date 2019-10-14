@@ -1,0 +1,207 @@
+I"5<!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Selama ini saya tidak pernah menggunakan aplikasi <em>clipboard manager</em> semacam <strong>Clipman</strong> (<code class="highlighter-rouge">xfce4-clipman-plugin</code>) yang kegunaannya untuk menangkap, mengumpulkan, dan memanajemen hasil inputan copy. Saya merasa belum membutuhkannya. Saya pikir <em>copy</em> dan <em>paste</em> adalah hal yang sangat sederhana, tidak perlu sampai dimanajemen segala.</p>
+
+<p>Sampai beberapa hari lalu, saya membalas pertanyaan di group openSUSE Indonesia, dan salah mention, lalu saya <em>copy</em> jawaban dan hapus. Saat akan saya <em>paste</em> ke bubble yang bertanya, ternyata <em>clipboard</em> saya sudah tertumpuk oleh inputan <em>copy</em> yang lain. Hahaha. Beginilah yaa, usia sudah tidak lagi muda, terdistraksi sedikit dapat menimbulkan kelupaan.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Hal yang saya alami tidak akan terjadi apabila saya menggunakan <em>clipboard manager</em>. Tahun ini sebenarnya sudah pernah juga mencoba <em>clipboard manager</em>, karena melihat video dari <a href="https://youtu.be/2rs1l4YZxRo" target="_blank">Kai Hendry tentang bagaimana dia menghandle clipboard pada sistemnya</a>. Ia mengunakan <a href="https://github.com/cdown/clipmenu" target="_blank"><strong>cdown/clipmenu</strong></a>. Lantas saat saya coba pasang, Hahaha, selama pemakaian <em>resource memory</em> saya terus naik. Karena kurangnya ilmu saat itu dan motivasi yang sekedar ikut-ikutan, lantas niat menggunakan <em>clipboard manager</em> pupus di pinggr jalan.</p>
+
+<p>Clipmenu adalah <em>clipboard manager</em> yang menggunakan dmenu atau Rofi sebagai antar muka.
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png" /></p>
+<p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk memasang <strong>clipmenu</strong> pada sistem, terdapat dua cara yang saya ketahui.</p>
+<ol>
+  <li>
+    <p><a href="https://www.archlinux.org/packages/community/any/clipmenu/" target="_blank"><code class="highlighter-rouge">community/clipmenu</code></a> (Arch Linux)</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/cdown/clipmenu" target="_blank"><code class="highlighter-rouge">cdown/clipmenu</code></a> (GitHub)</p>
+  </li>
+</ol>
+
+<p>Dalam catatan ini, saya akan mencoba meng-<em>cover</em> kedua cara ini.</p>
+
+<p>Konfigurasi akan saya tulis pada bagian <a href="#konfigurasi">Konfigurasi</a>.</p>
+
+<h2 id="clipmenu-from-arch-repo">Clipmenu from Arch Repo</h2>
+
+<p>Cara pasangnya sangat mudah.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo pacman -S clipmenu xsel
+</code></pre></div></div>
+<p>Clipmenu memerlukan paket <code class="highlighter-rouge">xsel</code> untuk menhandle <em>clipboard</em>.</p>
+
+<h2 id="clipmenu-from-github">Clipmenu from GitHub</h2>
+
+<p>Pertama-tama beri bintang pada repository <a href="https://github.com/cdown/clipmenu" target="_blank">cdown/clipmenu</a>. Sebagai bentuk apresiasi kita terhadap waktu dan pikiran developer.</p>
+
+<ol>
+  <li>Kloning dari GitHub repo dan letakkan pada direkotri tempat kalian mengumpulkan repository dari GitHub. Saya mempunyai direktori <code class="highlighter-rouge">~/app/</code> tempat saya mengumpulkan resource aplikasi.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd app
+ $ git clone https://github.com/cdown/clipmenu.git
+</code></pre></div>    </div>
+  </li>
+  <li>Masuk ke dalam direktori <code class="highlighter-rouge">clipmenu</code> dan buat symbolic link ke direktori <code class="highlighter-rouge">/usr/bin/</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd clipmenu
+ $ sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu
+ $ sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud
+</code></pre></div>    </div>
+    <p>Sesuaikan sumber dari link (<code class="highlighter-rouge">$HOME/app/</code>) dengan path tempat kalian menyimpan kloning repo.</p>
+  </li>
+  <li>Masuk ke direktori <code class="highlighter-rouge">init</code> dan buat symbolic link dari file service ke <code class="highlighter-rouge">/usr/lib/systemd/user/</code>.
+ <!-- PERHATIAN -->
+    <div class="blockquote-red">
+ <div class="blockquote-red-title">[ ! ] Perhatian</div>
+ <p>Saya tidak berhasil menjalankan <code>clipmenud.service</code>. Sehingga saya tidak menggunakan cara ini.</p>
+ </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd init
+ $ sudo ln -sf $HOME/app/clipmenu/init/clipmenud.service /usr/lib/systemd/user/clipmenud.service
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.</p>
+
+    <p><strong>File Binary</strong></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ll /usr/bin | grep -E 'clipmenu|clipmenud'
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> lrwxrwxrwx 1 root root  38 Dec 16 15:18 clipmenu -&gt; /home/bandithijo/app/clipmenu/clipmenu
+ lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -&gt; /home/bandithijo/app/clipmenu/clipmenud
+</code></pre></div>    </div>
+    <p><strong>File Service</strong></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ ll /usr/lib/systemd/user/ | grep -i clipmenud.service
+</code></pre></div>    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> lrwxrwxrwx 1 root root  52 Dec 16 15:26 clipmenud.service -&gt; /home/bandithijo/app/clipmenu/init/clipmenud.service
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Sebagai informasi, konfigurasi yang saya tulis ini adalah konfigurasi untuk <strong>i3wm</strong>/<strong>i3-gaps</strong>. Untuk teman-teman yang tidak menggunakan wm yang sama, dapat menyesuaikan dan memodifikasi dengan wm masing-masing.</p>
+
+<h2 id="aktifkan-clipmenu-daemon">Aktifkan Clipmenu Daemon</h2>
+
+<p>Ada diua cara untuk menggukana mengaktifkan <code class="highlighter-rouge">clipmenud</code> (clipmenu daemon). Dengan menjalankannya saat sistem startup atau saat sistem booting.</p>
+
+<p><strong>System Startup i3wm</strong></p>
+
+<p>Tambahkan baris berikut pada file config i3wm.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim .config/i3/config
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># clipmenu daemon
+exec --no-startup-id clipmenud
+</code></pre></div></div>
+<p><br />
+Atau,</p>
+
+<p><strong>Systemd Service</strong>
+<!-- PERHATIAN --></p>
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Saya tidak berhasil menjalankan <code>clipmenud.service</code>. Sehingga saya tidak menggunakan cara ini.</p>
+</div>
+<p>Aktifkan/enable service, agar saat sistem booting, clipmenud akan sekalian di jalankan.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl enable clipmenud.service
+$ sudo systemctl start clipmenud.service
+</code></pre></div></div>
+
+<h2 id="definisikan-default-path">Definisikan Default Path</h2>
+
+<p>Sebelum mengkonfigurasi, selalu biasakan untuk melihat help atau manual dari clipmenu terlebih dahulu.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ clipmenu -h
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clipmenu is a simple clipboard manager using dmenu and xsel. Launch this
+when you want to select a clip.
+
+All arguments are passed through to dmenu itself.
+
+Environment variables:
+
+- $CM_DIR: specify the base directory to store the cache dir in (default: $XDG_RUNTIME_DIR, $TMPDIR, or /tmp)
+- $CM_HISTLENGTH: specify the number of lines to show in dmenu/rofi (default: 8)
+- $CM_LAUNCHER: specify a dmenu-compatible launcher (default: dmenu)
+</code></pre></div></div>
+<p>Nah, kita perlu menambahkan <strong>environment variable</strong>.</p>
+
+<p>Secara default, clipmenu menggunakan dmenu sebagai antar muka. Namun bagi yang menggunakan rofi dapat menambahkan <code class="highlighter-rouge">rofi</code> pada <code class="highlighter-rouge">CM_LAUNCHER</code>.</p>
+
+<p>Jangan lupa juga untuk mendefinisikan path dari <code class="highlighter-rouge">CM_DIR</code>. Saya memilih untuk membuat direktori <code class="highlighter-rouge">clipmenu</code> pada <code class="highlighter-rouge">/tmp</code> agar dapat saya manipulasi, seperti menghapus clipboard yang tersimpan.</p>
+
+<p>Untuk teman-teman yang menggunakan Display Manager seperti LightDM dan GDM, silahkan tambahkan baris di bawah ini pada file <code class="highlighter-rouge">~/.profile</code>. Untuk yang menggunakan startx dapat menambahkannya pada <code class="highlighter-rouge">~/.xinitrc</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim ~/.profile
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Clipmenu Environment Variables
+export CM_LAUNCHER=rofi-clipmenu
+export CM_DIR=/tmp/clipmenu
+</code></pre></div></div>
+<p><strong>Perhatian!</strong> Pada <code class="highlighter-rouge">CM_LAUNCHER=</code> di atas, saya membuat <em>custom</em> bash script yang bernama <code class="highlighter-rouge">rofi-clipmenu</code> untuk memanggil perintah rofi yang sudah saya modif agar menampilkan tulisan “CLIPBOARD” dengan baris dan lebar tertentu.</p>
+
+<p>Maka kita akan membuatnya. Kalian bisa membuatnya di lokal <code class="highlighter-rouge">~/.local/bin/</code> (kalau punya), atau langsung saja di <code class="highlighter-rouge">/usr/bin/</code>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vim /usr/bin/rofi-clipmenu
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
+
+rofi <span class="nt">-dmenu</span> <span class="nt">-p</span> <span class="s1">'CLIPBOARD'</span> <span class="nt">-lines</span> 8 <span class="nt">-width</span> 500
+</code></pre></div></div>
+<p>Sesuaikan dengan preferensi yang kalian inginkan.</p>
+
+<p>Jangan lupa buat menjadi excutable.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chmod +x /usr/bin/rofi-clipmenu
+</code></pre></div></div>
+
+<h2 id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+
+<p>Selanjutnya tinggal mendefiniskan keyboard shortcut.</p>
+
+<p>Karena menggunakan i3wm, maka caranya sangat mudah sekali, tinggal tambahkan baris di bawah pada file config i3 <code class="highlighter-rouge">~/.config/i3/config</code>. Tambahkan di bawah baris <code class="highlighter-rouge">clipmenud</code> yang sudah kita tambahkan sebelumnya, agar rapi.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindsym $mod+p exec --no-startup-id clipmenu
+bindsym $mod+Shift+p exec --no-startup-id rm -rf /tmp/clipmenu/*
+</code></pre></div></div>
+<p>Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah <code class="highlighter-rouge">$ rm -rvf /tmp/clipmenu/*</code>. Sebenarnya Clipmenu sudah menyediakan <code class="highlighter-rouge">clipdel</code> namun tidak saya pergunakan. Alternatif lain dapatpula menggunakan <code class="highlighter-rouge">trash-cli</code>.</p>
+
+<p>Sesuaikan keyboard shortcut sesuai preferensi kalian.</p>
+
+<p>Saya menggunakan :</p>
+
+<p><kbd>SUPER</kbd> + <kbd>P</kbd>, untuk memanggil clipmenu.</p>
+
+<p><kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, untuk menghapus seluruh clipboard yang ada di clipmenu.</p>
+
+<p>Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arrow key <kbd> ↓ </kbd> / <kbd> ↑ </kbd> untuk memilih, tekan <kbd>ENTER</kbd> untuk memasukkannya pada PRIMARY. Kemudian, tinggal kita <em>paste</em> di mana saja.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif" /></p>
+<p class="img-caption">Gambar 2 - Ilustrasi penggunaan Clipmenu dengan Rofi</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Terdapat banyak sekali <em>clipboard management</em> yang dapat kita pergunakan. Saat ini saya sedang mengunakan clipmenu, entah besok akan mencoba yang mana lagi.</p>
+
+<p>Catatan dokumentasi ini masih jauh dari kata sempurna. Sebaik-baik dokumentasi adalah dokumentasi resmi yang ditulis oleh developer pengembang aplikasi. Silahkan bereksplorasi terhadap clipmenu dengan merujuk pada referensi yang saya sertakan di bawah.</p>
+
+<p>Karena keterbatasan pengetahuan, Saya masih mengalami kegagalan dalam menjalankan clipmenud daemon melalui systemd service. Hehehe.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Clipboard" target="_blank">wiki.archlinux.org/index.php/Clipboard</a>
+<br />Diakses tanggal: 2018/12/16</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/cdown/clipmenu" target="_blank">github.com/cdown/clipmenu</a>
+<br />Diakses tanggal: 2018/12/16</p>
+  </li>
+</ol>
+
+:ET
