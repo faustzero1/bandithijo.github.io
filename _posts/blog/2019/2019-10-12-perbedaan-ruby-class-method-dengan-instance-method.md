@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: "Perbedaan Ruby Class Method dengan Instance Method"
-date: 2019-10-12 23.02
+date: 2019-10-12 23:02
 permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true

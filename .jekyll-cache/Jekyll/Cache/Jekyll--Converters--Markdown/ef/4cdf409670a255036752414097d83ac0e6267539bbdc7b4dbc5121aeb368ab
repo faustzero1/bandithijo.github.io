@@ -1,0 +1,280 @@
+I"h5<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Tidak saya pungkiri bahwa <a href="https://github.com/kaihendry" target="_blank">Kai Hendry</a> yang memperkenalkan saya dengan <a href="https://suckless.org/" target="_blank">suckless.org</a> melalui <a href="https://www.youtube.com/user/kaihendry" target="_blank">video-video log-nya di YouTube</a> banyak memberikan saya pengaruh dalam menggunakan sistem operasi GNU/Linux, terkhusus Arch Linux.</p>
+
+<p>Ditambah lagi <a href="https://www.i-bsd.com/" target="_blank">Donovan Nagel</a> melalui <a href="https://www.youtube.com/c/iBSDTV" target="_blank">video-video log-nya</a> yang memperkenalkan BSD family dengan menggunakan beberapa aplikasi Suckless juga. Rasa-rasanya sayang kalau saya tidak ikut-ikutan mencoba aplikasi-aplikasi dari Suckless.</p>
+
+<p>Selama ini saya hanya memanfaatkan <strong>dmenu</strong>, itu pun tidak benar-benar menggunakan dmenu karena saya kombinasikan dengan <strong>Rofi</strong> sebagai application launcher dan banyak hal lainnya.</p>
+
+<p>Saya tertarik menggunakan <strong>dwm</strong>, <em>Dynamic Window Manager</em>, sebuah window manager yang dikelola oleh Suckless. Karena kedua orang di atas menggunakan window manager ini. Namun, saya masih menyukai <a href="https://bandithijo.com/blog/i3wm-window-manager-yang-taktis-namun-praktis" target="_blank"><strong>i3wm</strong> dan belum menemukan jalan buntu</a>.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Malam tadi, <strong>Termite</strong> salah satu Terminal emulator yang saya gunakan dan saya andalkan tiba-tiba saja salah dalam menampilkan glyph font untuk simbol-simbol bawaan dari <strong>Devicons</strong>. Saya mendapati kesalahan ini pada <strong>NERDTree</strong> (vim sidebar file manager) dan <strong>Ranger</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/4N8gJ2p5/gambar-01.png" /></p>
+<p class="img-caption">Gambar 1 - Termite (VTE-Based Terminal) dan ST</p>
+
+<p>Saya sudah mencoba Terminal emulator yang lain, seperti gnome-terminal, xfce4-terminal, lxterminal, kitty, alacritty, semua menampilkan kesalahan yang sama seperti yang dialami oleh Termite. Permasalahan ini hanya dialami oleh Terminal yang berbasis VTE.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Karena alasan tersebut, saya akhirnya memutuskan untuk bermigrasi secara penuh dalam menggunakan St Terminal.</p>
+
+<p>Mungkin saja, sebenarnya saya dapat mengatasi permasalahan dalam menampilkan glyph font ini, namun saya lebih memilih jalan untuk memigrasikan Terminal. Mumpung momennya sedang pas. Karena saya memang ingin pelan-pelan bermigrasi menggunakan aplikasi besutan dari Suckless. Karena dapat sekalian mengerti sedikit-sedikit bahasa C.</p>
+
+<p><strong>Apa itu Simple/Suckless Terminal?</strong></p>
+
+<p>Dapat di baca sendiri <a href="https://st.suckless.org/patches/alpha/" target="_blank">di sini</a></p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Proses instalasi St Terminal menurut saya sangat-sangat mudah.</p>
+
+<ol>
+  <li>
+    <p>Kunjungi link dari St Terminal, <a href="https://st.suckless.org/" target="_blank">di sini</a>.</p>
+  </li>
+  <li>
+    <p>Scroll ke bagian paling bawah dari halaman, kita akan menemukan dua versi St yang dapat kita gunakan. Saya memilih versi <code class="highlighter-rouge">st 0.8.1</code> ketimbang menggunakan versi development dari Git.</p>
+  </li>
+  <li>
+    <p>Klik kanan link dari <a href="https://dl.suckless.org/st/st-0.8.1.tar.gz" target="_blank"><code class="highlighter-rouge">st 0.8.1</code></a> (2018-03-20) dan pilih <strong>Copy Link Location</strong>.</p>
+  </li>
+  <li>Buka Terminal, dan arahkan ke dalam direktori <code class="highlighter-rouge">~/.config/</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd ~/.config
+</code></pre></div>    </div>
+  </li>
+  <li>Download dengan menggunakan <code class="highlighter-rouge">wget</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ wget "https://dl.suckless.org/st/st-0.8.1.tar.gz"
+</code></pre></div>    </div>
+  </li>
+  <li>Ekstraksi paket <code class="highlighter-rouge">st-0.8.1.tar.gz</code> tersebut.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ tar -xvf st-0.8.1.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>Rename direktori hasil ekstraksi.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mv st-0.8.1 st
+</code></pre></div>    </div>
+  </li>
+  <li>Masuk ke dalam direktori <code class="highlighter-rouge">st</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd st
+</code></pre></div>    </div>
+    <p>Secara default paket <code class="highlighter-rouge">st-0.8.1</code> akan berisi seperti ini.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>total 292
+-rw-r--r--  1036 arg.h
+-rw-r--r-- 20114 config.def.h
+-rw-r--r--   602 config.mk
+-rw-r--r--  7158 FAQ
+-rw-r--r--   732 LEGACY
+-rw-r--r--  1834 LICENSE
+-rw-r--r--  1253 Makefile
+-rw-r--r--   723 README
+-rw-r--r--  3667 st.1
+-rw-r--r-- 55693 st.c
+-rw-r--r--  2835 st.h
+-rw-r--r--  3685 st.info
+-rw-r--r--   458 TODO
+-rw-r--r--  1039 win.h
+-rw-r--r-- 44048 x.c
+</code></pre></div>    </div>
+  </li>
+  <li>Saya memilih untuk me-<em>rename</em> file <code class="highlighter-rouge">config.def.h</code> daripada meng-<em>copy</em> nya.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mv config.def.h config.h
+</code></pre></div>    </div>
+    <p>File konfig header ini berisi konfigurasi untuk font style, font size, fungsi keyboard, colorscheme, dan lain-lain.</p>
+  </li>
+  <li>Selanjutnya, bisa coba di compile dulu. Sekedar memastikan bisa di compile saja.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo make install
+</code></pre></div>    </div>
+    <p>Nanti akan terbuat file binary yang bernama <code class="highlighter-rouge">st</code>.</p>
+
+    <p>Kalau ingin dibuild lagi secara <strong>clean</strong>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo make uninstall; sudo make install
+</code></pre></div>    </div>
+
+    <p>Hasil make ini akan berada pada <code class="highlighter-rouge">/usr/local/bin/st</code>.</p>
+  </li>
+</ol>
+
+<p><br />
+<br />
+Pada versi <code class="highlighter-rouge">0.8.1</code> ini, St sudah memiliki fitur-fitur bawaan seperti:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>C</kbd></td>
+      <td>Copy</td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>V</kbd></td>
+      <td>Paste</td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>PgUp</kbd></td>
+      <td>Zoom In</td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>PgDn</kbd></td>
+      <td>Zoom Out</td>
+    </tr>
+    <tr>
+      <td><kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>Home</kbd></td>
+      <td>Zoom Normal</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+Namun, belum terdapat beberapa fungsi yang saya perlukan seperti:</p>
+<ol>
+  <li>Scroll back dengan keyboard dan mouse</li>
+  <li>Transparansi (optional)</li>
+</ol>
+
+<p>Untuk itu, saya perlu untuk menambahkan beberapa patch.</p>
+
+<h1 id="patch">Patch</h1>
+
+<p>Patch yang saya gunakan tidak banyak. Beberapa di antaranya.</p>
+
+<p><strong>Solarized Colors</strong></p>
+
+<ol>
+  <li>
+    <p><a href="https://st.suckless.org/patches/solarized/st-no_bold_colors-0.8.1.diff" target="_blank">st-no bold colors-0.8.1.diff</a>
+<br />Patch ini untuk memperbaiki warna pada bold font yang biasanya ditampilkan salah.</p>
+  </li>
+  <li>
+    <p><a href="https://st.suckless.org/patches/solarized/st-solarized-both-0.8.1.diff" target="_blank">st-solarized-both-0.8.1.diff</a>
+<br />Patch ini untuk dapat menggunakan Solarized colorshceme dan berganti antara Dark dan Light menggunakan <kbd>F6</kbd>.</p>
+  </li>
+</ol>
+
+<p><strong>Scrollback</strong></p>
+
+<ol>
+  <li>
+    <p><a href="https://st.suckless.org/patches/scrollback/st-scrollback-0.8.diff" target="_blank">st-scrollback-0.8.diff</a>
+<br />Patch ini untuk menambahkan fitur scrolling back ke atas dan ke bawah menggunakan keyboard, <kbd>SHIFT</kbd>+<kbd>PgUp</kbd> dan <kbd>SHIFT</kbd>+<kbd>PgDn</kbd>.</p>
+  </li>
+  <li>
+    <p><a href="https://st.suckless.org/patches/scrollback/st-scrollback-mouse-0.8.diff" target="_blank">st-scrollback-mouse-0.8.diff</a>
+<br />Patch ini untuk menambahkan fitur scrolling back ke atas dan ke bawah menggunakan mouse, <kbd>SHIFT</kbd>+Scrolling Up  dan <kbd>SHIFT</kbd>+Scrolling Down.</p>
+  </li>
+  <li>
+    <p><a href="https://st.suckless.org/patches/scrollback/st-scrollback-mouse-altscreen-0.8.diff" target="_blank">st-scrollback-mouse-altscreen-0.8.diff</a>
+<br />Patch ini untuk membuat scrolling back ke atas dan ke bawah tanpa perlu menekan tombol <kbd>SHIFT</kbd> terlebih dahulu.</p>
+  </li>
+</ol>
+
+<p><strong>Alpha</strong></p>
+
+<ol>
+  <li>
+    <p><a href="https://st.suckless.org/patches/alpha/st-alpha-0.8.1.diff" target="_blank">st-alpha-0.8.1.diff</a>
+<br />Patch ini untuk menambahkan fitur alpha atau transparansi pada background Terminal.</p>
+
+    <div class="blockquote-blue">
+ <div class="blockquote-blue-title">[ i ] Informasi</div>
+ <p><b>2019/04/24</b>, Saya sudah tidak lagi menggunakan patch Alpha. Saya lebih memilih mengatur alpha atau opacity menggunakan <i>compsitor</i> seperti <b>compton</b>.</p>
+ <p>Berikut ini adalah pengaturan pada compton yang saya gunakan.</p>
+ <pre>
+ opacity-rule = [
+ "95:class_g = 'URxvt'",
+ <mark>"95:class_g = 'st-256color'",</mark>
+ ];</pre>
+ <p>Nilai dari <code>95</code> adalah nilai dari opacity (0 - 100).</p>
+ </div>
+  </li>
+</ol>
+
+<p><br />
+<strong>Bagaimana cara menggunakan patch ini?</strong></p>
+
+<p>Saya melakukan <em>patching</em> secara manual dan tidak menggunakan perintah <code class="highlighter-rouge">patch</code>. Proses <em>patching</em> inipun tidak sulit, hanya copy dan paste saja. Tidak memerlukan pengetahuan bahasa C.</p>
+
+<p>Setelah melakukan <em>patching</em> jangan lupa di <em>compile</em> kembali untuk dapat melihat hasilnya.</p>
+
+<p><strong>Bagaimana caranya?</strong></p>
+
+<p>Akan saya buatkan video tutorialnya di kesempatan yang lain. Saat ini sedang kurang enak badan.</p>
+
+<p>Saya kasih previewnya dulu saja gpp yaa. Hehe.</p>
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/w9l3-ZkXPT4" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="hasilnya">Hasilnya</h1>
+
+<p>Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak dapati pada Terminal emulator yang lain. Seperti:</p>
+
+<ol>
+  <li>Sangat cepat saat dipanggil (<em>startup</em>)</li>
+  <li>Bold font dapat menampilkan warna yang sesuai</li>
+  <li>Perpindahan dari Solarized Dark dan Light sangat halus dan tidak ada warna yang salah.</li>
+  <li>Glyph font yang sesuai</li>
+  <li>Dapat menghandle w3m dalam Ranger dengan baik</li>
+</ol>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/gcQWhNYs/gambar-02.gif" /></p>
+
+<h1 id="kekurangan">Kekurangan</h1>
+
+<ol>
+  <li>
+    <p>Saya masih belum dapat menggunakan tombol <kbd>DELETE</kbd> sebagai mana fungsinya. Karena saat ini fungsi tombol ini malah menampilkan karakter <code class="highlighter-rouge">~</code>.</p>
+
+    <p>Ada patch untuk <strong>delkey</strong>, namun setelah saya coba, malah berfungsi selayaknya <kbd>BACKSPACE</kbd>.</p>
+
+    <p>Saya memerlukan <kbd>DELETE</kbd> untuk fungsi “Move to Trash” pada Ranger. Sehingga saat ini saya memindahkan fungsinya ke tombol <kbd>F8</kbd>.</p>
+  </li>
+  <li>
+    <p>Link/URL yang <em>clickable</em>. Fitur ini juga masih belum saya cari tahu.</p>
+  </li>
+</ol>
+
+<h1 id="tambahan-konfigurasi">Tambahan Konfigurasi</h1>
+
+<h2 id="window-title">Window Title</h2>
+
+<p>Secara <em>default</em>, pada Window Title, st hanya menampilkan detail berupa tulisan “st”.</p>
+
+<p>Untuk dapat membuat Window Title menjadi lebih dinamis, dapat mengikuti catatan yang sudah saya tulis pada artikel ini, <a href="https://bandithijo.com/blog/konfigurasi-window-title-st-terminal" target="_blank">“Konfigurasi Window Title untuk Simple/Suckless Terminal”</a>.</p>
+
+<h2 id="pengetesan-font">Pengetesan Font</h2>
+
+<p>Akan sangat melelahkan apabila kita melakukan kompilasi berulang kali hanya sekedar untuk melihat dan menguji tampilan dari font yang ingin kita gunakan.</p>
+
+<p>Teman-teman dapat menggunakan perintah di bawah ini,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ st -f "Fira Code Retina:pixelsize=12"
+</code></pre></div></div>
+
+<p>atau seperti ini untuk penambahan style,</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ st -f "FuraCode Nerd Font:style=Retina:pixelsize=12"
+</code></pre></div></div>
+
+<p>Perintah di atas akan menghasilkan Simple/Suckless Terminal yang terbuka dengan konfigurasi font yang sudah kita berikan pada argument dengan option <code class="highlighter-rouge">-f</code>.</p>
+
+<p>Gampang kan?</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://st.suckless.org/" target="_blank">st.suckless.org/</a>
+<br />Diakses tanggal: 2019/02/08</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/St" target="_blank">wiki.archlinux.org/index.php/St</a>
+<br />Diakses tanggal: 2019/02/08</p>
+  </li>
+</ol>
+
+:ET

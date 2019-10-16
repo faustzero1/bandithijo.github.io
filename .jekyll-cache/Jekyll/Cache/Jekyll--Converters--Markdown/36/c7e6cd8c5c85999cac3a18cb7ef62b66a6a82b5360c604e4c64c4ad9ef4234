@@ -1,0 +1,188 @@
+I"p$<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p><strong>Apa itu <em>NoteTaking</em>?</strong></p>
+
+<p><em>Notetaking</em> adalah kegiatan pencatatan informasi yang perlu kita catat. Misalnya, saat guru/dosen menerangkan di kelas, saat seminar, kajian, dan lain sebagainya. Terdengar sangat familiar bukan?</p>
+
+<p>Tujuan dari <em>notetaking</em> dapat beraneka ragam, salah satu yang mendasari adalah untuk mengikat/mengabadikan informasi yang kita dapatkan, agar tidak hilang begitu saja.</p>
+
+<p>Ada berbagai cara untuk melakukan <em>notetaking</em>, tapi dalam tulisan ini, tentu saja bukan itu yang ingin saya ulas. Hehe.</p>
+
+<p>Bagi Teman-teman tertarik mempelajari beberapa metode <em>notetaking</em>, mungkin dapat memulai dari tautan ini: <a href="https://medium.goodnotes.com/the-best-note-taking-methods-for-college-students-451f412e264e" target="_blank">The Best Note-Taking Methods For college students &amp; serious note-takers</a>.</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Saya tidak ingin menggunakan aplikasi pihak ketiga untuk melakukan <em>notetaking</em>, dengan beberapa alasan yang mungkin dapat saya rincikan sebagai berikut:</p>
+
+<ol>
+  <li>Saya tidak ingin bergantung pada <em>platform</em> tertentu</li>
+  <li>Saya ingin menggunakan Vim text editor agar proses pencatatan menjadi lebih efektif dan efisien</li>
+  <li>Saya ingin menggunakan Markdown format, agar dapat dengan mudah saya salin menjadi bahan tulisan untuk Blog – yang juga menggunakan Markdown format untuk menuliskan artikel</li>
+  <li>Saya ingin <em>notetaking</em> yang saya panggil dapat keluar dengan cepat, tanpa harus menunggu lama</li>
+</ol>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Sekenario saat ini yang terpikirkan untuk memecahkan masalah yang saya hadapi adalah:</p>
+
+<ol>
+  <li>Membuat direktori khusus untuk menyimpan hasil dari <em>notetaking</em></li>
+  <li>Membuat Shell script untuk memanggil Vim dan langsung membuka direktori dimana <em>notetaking</em> disimpan</li>
+</ol>
+
+<p>Seperti itu saja. Sederhana bukan?</p>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<ol>
+  <li>
+    <p>Buat direktori untuk menyimpan hasil <em>notetaking</em>. Terserah teman-teman.</p>
+
+    <p>Saya memilih untuk meletakkan di dalam direktori <code class="highlighter-rouge">~/doc/notetaking/</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ mkdir -p ~/doc/notetaking
+</code></pre></div>    </div>
+
+    <p><strong>doc</strong> – adalah Kependekan dari <strong>Documents</strong>. <a href="https://bandithijo.com/blog/merubah-nama-direktori-pada-home" target="_blank">Lihat bagaimana cara saya merubah penamaan direktori ini</a>.</p>
+  </li>
+  <li>
+    <p>Selanjutnya, saya akan membuat file <code class="highlighter-rouge">README.md</code>, hanya untuk gaya-gaya saja, sebagai penanda bahwa ini adalah direktori yang saya pergunakan untuk <em>notetaking</em> dan mungkin di lain waktu akan saya tambahkan beberapa <em>rules</em> yang akan saya pergunakan dalam melakukan <em>notetaking</em> versi saya sendiri.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd ~/doc/notetaking
+ $ touch README.md
+</code></pre></div>    </div>
+
+    <p>Isikan terserah kalian, saya akan mengisikan seperti ini.</p>
+
+    <pre>
+ &#96;&#96;&#96;
+  ████     ██            ██
+ ░██░██   ░██           ░██
+ ░██░░██  ░██  ██████  ██████  █████
+ ░██ ░░██ ░██ ██░░░░██░░░██░  ██░░░██
+ ░██  ░░██░██░██   ░██  ░██  ░███████
+ ░██   ░░████░██   ░██  ░██  ░██░░░░
+ ░██    ░░███░░██████   ░░██ ░░██████
+ ░░      ░░░  ░░░░░░     ░░   ░░░░░░
+
+  ██████████           ██     ██
+ ░░░░░██░░░           ░██    ░░            █████
+     ░██      ██████  ░██  ██ ██ ███████  ██░░░██
+     ░██     ░░░░░░██ ░██ ██ ░██░░██░░░██░██  ░██
+     ░██      ███████ ░████  ░██ ░██  ░██░░██████
+     ░██     ██░░░░██ ░██░██ ░██ ░██  ░██ ░░░░░██
+     ░██    ░░████████░██░░██░██ ███  ░██  █████
+     ░░      ░░░░░░░░ ░░  ░░ ░░ ░░░   ░░  ░░░░░
+ &#96;&#96;&#96;
+
+ &#35; NOTETAKING
+
+ Adalah kumpulan dari notetaking yang saya kumpulkan dalam format markdown.
+ Berada dalam satu direkotri bernama `notetaking`.
+
+ Dipanggil menggunkaan shell script.
+
+ &#96;&#96;&#96;
+ $ touch ~/.local/bin/notetaking
+ $ chmod +x ~/local/bin/notetaking
+ $ vim ~/.local/bin/notetaking
+ &#96;&#96;&#96;
+
+ &#96;&#96;&#96;
+ #!/bin/env sh
+
+ cd $HOME/doc/notetaking
+ vim .
+ &#96;&#96;&#96;</pre>
+  </li>
+  <li>
+    <p>Selanjutnya, saya akan membuat Shell script agar dapat saya panggil menggunakan Terminal atau <em>application launcher</em> seperti Rofi.</p>
+
+    <p>Saya beri nama Shell script ini dengan <code class="highlighter-rouge">notetaking</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd ~/.local/bin
+ $ touch notetaking
+ $ chmod +x notetaking
+ $ vim notetaking
+</code></pre></div>    </div>
+
+    <p>Saya isikan dengan perintah dasar saja.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">#!/bin/env sh</span>
+
+ <span class="c"># Diperlukan untuk masuk ke dalam direktori</span>
+ <span class="nb">cd</span> <span class="nv">$HOME</span>/doc/notetaking
+
+ <span class="c"># Diperlukan untuk membuka Vim pada current dir.</span>
+ <span class="c"># dan langsung membuka NERDtree</span>
+ vim <span class="nb">.</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Agar dapat mengaktifkan <strong>NERDTree</strong> pada Vim yang terbuka pada <em>current directory</em>, saya perlu menambahkan perintah di bawah pada <code class="highlighter-rouge">~/.vimrc</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ vim ~/.vimrc
+</code></pre></div>    </div>
+    <p>Tambahkan saja pada bagian/section NERDTree apabila teman-teman memilikinya.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ...
+ ...
+
+ " Open NERDTree when open a directory
+ autocmd StdinReadPre * let s:std_in=1
+ autocmd VimEnter * if argc() == 1 &amp;&amp; isdirectory(argv()[0]) &amp;&amp; !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+ ...
+ ...
+</code></pre></div>    </div>
+
+    <p><strong>Sebelum,</strong></p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" /></p>
+
+    <p><strong>Sesudah,</strong></p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" /></p>
+
+    <p>Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.</p>
+
+    <p>Dengan menggunakan <em>keyboard shortcut</em>, <kbd>M</kbd>, Lalu untuk membuat file baru, <kbd>A</kbd>. Tinggal isi nama file yang akan kita buat.</p>
+  </li>
+  <li>
+    <p>Terakhir, tinggal membuat lauchernya saja, agar dapat dipanggil menggunakan <em>application launcher</em> seperti Rofi.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd ~/.local/share/applications
+ $ touch notetaking.desktop
+ $ vim notetaking.desktop
+</code></pre></div>    </div>
+
+    <p>Lalu, saya isikan seperti di bawah.</p>
+
+    <pre>
+ [Desktop Entry]
+ Name=Notetaking
+ Comment=Script for Calling Vim to open Note-Taking Directory
+ <mark>Exec=st -e '/home/bandithijo/.local/bin/notetaking'</mark>
+ Icon=tomboy
+ Categories=Documents;</pre>
+
+    <p>Pada bagian yang saya <em>marking</em>, saya menggunakan <strong>St</strong> terminal. Teman-teman dapat mengganti dengan Terminal emulator yang kalian pergunakan.</p>
+  </li>
+</ol>
+
+<h1 id="hasilnya">Hasilnya</h1>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/mkGQFW7P/gambar-01.gif" /></p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sejauh ini saya puas dan sangat nyaman menggunakan cara ini untuk melakukan <em>notetaking</em>. Saya dapat memanggil <em>notetaking</em> dengan cepat tanpa harus ketinggalan mencatat informasi yang saya perlukan dari dosen. Sangat memudahkan urusan saya.</p>
+
+<p>Sebenarnya cara inilah yang saya pergunakan sembari belajar menggunakan Vim text editor. Melakukan hal remeh temeh namun bermanfaat. Hehe.</p>
+
+<p>Bagaimana? Apakah teman-teman memiliki cara yang seru juga? Boleh dong bagi-bagi informasinya.</p>
+
+<p>Mudah-mudah tulisan sederhana ini dapat bermanfaat.</p>
+
+:ET

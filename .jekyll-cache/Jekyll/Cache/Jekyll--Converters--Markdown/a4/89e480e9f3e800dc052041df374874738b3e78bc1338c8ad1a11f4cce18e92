@@ -1,0 +1,13 @@
+I"'<div style="margin-top:30px;"></div>
+<!-- EMBED CONTAINER: YOUTUBE -->
+
+<div class="embed-container"><iframe width="560" height="315" src="//www.youtube.com/embed/nixRL8esSa8" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="deskripsi">Deskripsi</h1>
+
+<p>Sudah sejak bulan Juli 2018 saya memigrasikan aplikasi-aplikasi GUI (Graphical User Interface) menjadi aplikasi CLI (Command Line Interface), maksud saya selain text editor Vim. Memang terdengar absurd. Namun, ternyata setelah saya mencoba satu aplikasi, saya pun ketagihan dan mencoba mencari-cari aplikasi mana yang dapat saya migrasikan ke CLI. Untuk cerita migrasi aplikasi ini aka saya sambung pada artikel yang lain.</p>
+
+<p>Karena alasan tersebut di atas, saya sampai pada tahap memigrasikan File Manager. File Manager yang menjadi favorite saya adalah PCManFM. Mungkin kapan-kapan File Manager ini akan saya bahas, mengapa menjadi satu-satunya File Manager yang saya pasang di sistem operasi saya.</p>
+
+<p><a href="https://bandithijo.com/blog/menggunakan-udiskctl">Selengkapnya…</a></p>
+:ET

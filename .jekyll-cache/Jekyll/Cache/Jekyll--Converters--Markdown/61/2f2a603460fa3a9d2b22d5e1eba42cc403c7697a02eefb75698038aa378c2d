@@ -1,0 +1,279 @@
+I"i9<!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Sudah ada versi yang lebih baru dari topik ini.</p>
+<p>Silahkan mengunjungi alamat di bawah.</p>
+<p>"<a href="https://bandithijo.com/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
+</div>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sebenarnya agak malu menuliskan dokumentasi kali ini. Karena merasa algoritma pemecahan solusinya terlalu bertele-tele. Hihihi. Tapi ah sudahlah! Namanya juga belajar.</p>
+
+<p>Mungkin sebagian dari teman-teman yang menggunakan <em>environment</em> sistem yang mirip seperti saya, pernah mengalami “lupa” terhadap beberapa <em>keyboard shortcut</em> yang jarang digunakan.</p>
+
+<p>Hal ini sangat wajar – setidaknya menurut saya. Karena <em>environment</em> kami dalam menggunakan aplikasi mengharuskan untuk menggunakan <em>keyboard shortcut</em>.</p>
+
+<p>Sebentar…</p>
+
+<p>Mungkin ada beberapa dari teman-teman yang belum mengerti. <em>Environment</em> seperti apa sih itu?</p>
+
+<ol>
+  <li><strong>i3 Window Manager</strong></li>
+  <li><strong>Tmux</strong></li>
+  <li><strong>Vim</strong></li>
+  <li><strong>Ranger</strong></li>
+  <li><strong>Neomutt</strong></li>
+  <li><strong>Newsboat</strong></li>
+  <li><strong>MPV</strong></li>
+  <li><strong>st Terminal</strong></li>
+  <li>dst…</li>
+</ol>
+
+<p>Di atas adalah contoh dari beberapa aplikasi yang memiliki konfigurasi <em>keyboard shortcut</em> agar dapat digunakan.</p>
+
+<p>Memang tidak semua kita gunakan dan kita perlukan.</p>
+
+<p>Maka dari itu, tujuan tulisan kali ini adalah untuk memecahkan permasalahan <strong>apabila kita mengalami kelupaan dan tidak ingin repot membuka <code class="highlighter-rouge">man</code> (manual) dari aplikasi tersebut</strong>. Cukup dengan membuat <em>script</em> sederhana untuk memanggil “catatan” berisi <em>keyboard shortcut</em> yang sudah kita rangkum sebelumnya.</p>
+
+<p>Sangat memudahkan sekali (menurut saya). Hehe.</p>
+
+<h1 id="sekenario">Sekenario</h1>
+
+<p>Ada banyak sekali <em>blueprint</em> yang terpikirkan, namun untuk saat ini, saya menggunakan cara yang akan saya tuliskan ini terlebih dahulu.</p>
+
+<p>Karena daripada menunggu sampai berhasil menerapkan rancangan yang ideal namun tidak sempat menuliskan proses awalnya. Saya memutuskan untuk langsung menuliskan catatan di blog ini.</p>
+
+<p>Sekenarionya secara sederhana akan seperti ini:</p>
+
+<ol>
+  <li>Membuat Shell <em>script</em> yang digunakan untuk menampilkan isi dari sebuah direktori, sekaligus dapat mengeksekusi isi file yang ada di dalamnya apabila dipilih.</li>
+  <li>Membuat Shell <em>script</em> yang digunakankan untuk memanggil <code class="highlighter-rouge">dunstify</code> yang akan menampilkan file text yang berisi daftar <em>keyboard shortcut</em>.</li>
+  <li>Membuat file text berisi daftar <em>keyboard shortcut</em>.</li>
+</ol>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<h2 id="membuat-script-file-browser">Membuat Script File Browser</h2>
+
+<p>Pada tahap ke-1 ini, saya menyebut ini sebagai <strong>file browser</strong> karena secara global memang menggunakan perintah <code class="highlighter-rouge">ls</code> yang berarti <em>list</em> atau daftar. Namun dengan menambahkan kemampuan untuk eksekusi file yang dipilih.</p>
+
+<ol>
+  <li>
+    <p>Buat file bernama <code class="highlighter-rouge">help-script-browser.sh</code>.</p>
+
+    <p>Saya memilih untuk meletakannya pada direktori <code class="highlighter-rouge">~/.config/rofi/</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd ~/.config/rofi
+ $ touch help-script-browser.sh
+ $ chmod +x help-script-browser.sh
+ $ vim help-script-browser.sh
+</code></pre></div>    </div>
+
+    <p>Isikan di dalamnya seperti ini.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">#!/bin/env sh</span>
+
+ <span class="c"># direktori target tempat script dunstify berada</span>
+ <span class="nv">helpDir</span><span class="o">=</span>~/.config/rofi-help
+
+ <span class="c"># untuk menghandle argument</span>
+ <span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+ </span><span class="nv">helpDir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">/</span><span class="nv">$@</span><span class="s2">"</span>
+ <span class="k">fi</span>
+
+ <span class="c"># untuk menghandle apabila argument bukan merupakan direktori</span>
+ <span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+     </span>coproc <span class="o">(</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> &amp; <span class="o">&gt;</span> /dev/null  2&gt;&amp;1 <span class="o">)</span>
+     <span class="nb">exit</span><span class="p">;</span>
+ <span class="k">fi</span>
+
+ <span class="c"># proses direktori target</span>
+ <span class="nv">helpDir</span><span class="o">=</span><span class="si">$(</span><span class="nb">readlink</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span>
+ <span class="nb">pushd</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> <span class="o">&gt;</span>/dev/null
+
+ <span class="c"># tampilkan hanya shell script kecuali file text</span>
+ <span class="nb">ls</span> <span class="nt">--group-directories-first</span> <span class="nt">--hide</span><span class="o">=</span><span class="s2">"keybinds-*"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Apabila teman-teman menggunakan <strong>i3wm</strong> dan <strong>Rofi</strong>, tinggal kita buatkan konfigurasi <code class="highlighter-rouge">bindkey</code> nya saja. Pada konfigurasi i3wm.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ vim ~/.config/i3/config
+</code></pre></div>    </div>
+
+    <p>Tambahkan seperti ini, kira-kira.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ...
+ ...
+ # Keybind Bantuan
+ bindsym $mod+F10 exec --no-startup-id rofi -modi "KEYBINDS:~/.config/rofi/help-script-browser.sh" -show KEYBINDS -lines 6 -width 300
+ ...
+ ...
+</code></pre></div>    </div>
+
+    <p>Dapat dilihat bahwa saya meletakkannya pada <kbd>SUPER</kbd>+<kbd>F10</kbd>.</p>
+
+    <p>Silahkan menyesuaikan dengan preferensi masing-masing.</p>
+
+    <p>Tahap ke-1, telah selesai.</p>
+  </li>
+</ol>
+
+<h2 id="membuat-script-dunstify">Membuat Script Dunstify</h2>
+
+<p>Pada tahap ke-2, saya akan membuat Shell <em>script</em> yang akan berpasangan dengan file text berisi daftar <em>keyboard shortcut</em>.</p>
+
+<p>Jadi, pada tahap ini, satu Shell <em>script</em> mewakili satu file text.</p>
+
+<p>Misalnya,</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><center>Shell Script</center></th>
+      <th style="text-align: left"><center>File Text</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">i3 Window Manager.sh</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">keybinds-i3.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">MPV Video Player.sh</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">keybinds-mpv.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="highlighter-rouge">VIM Text Editor.sh</code></td>
+      <td style="text-align: left"><code class="highlighter-rouge">keybinds-vim.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dst…</td>
+      <td style="text-align: left">dst…</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>
+    <p>Buat direktori khusus untuk menyimpan Shell <em>script</em> ini. Saya akan memilih membuat direktori baru dengan nama <code class="highlighter-rouge">~/.config/rofi-help/</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ mkdir -p ~/.config/rofi-help
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Buat file Shell <em>script</em> dari <em>keyboard shortcut</em> yang akan kita gunakan.</p>
+
+    <p>Misalkan i3wm. Namun, jangan berikan ekstensi <code class="highlighter-rouge">.sh</code> agar tampilannya lebih rapi.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ cd ~/.config/rofi-help
+ $ touch "I3WM Window Manager"
+ $ chmod +x "I3WM Window Manager"
+ $ vim "I3 Window Manager"
+</code></pre></div>    </div>
+
+    <p>Kemudian isikan seperti ini.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">#!/bin/env sh</span>
+ dunstify <span class="s2">"i3WM KEYBINDS:"</span> <span class="s2">"</span><span class="sb">`</span><span class="nb">tail</span> <span class="nt">-n</span> 50 <span class="nv">$HOME</span>/.config/rofi-help/keybinds-i3<span class="sb">`</span><span class="s2">"</span>
+</code></pre></div>    </div>
+
+    <p>Shell <em>script</em> di atas, memanggil file text dengan nama <code class="highlighter-rouge">keybinds-i3</code> yang akan kita buat setelah ini.</p>
+  </li>
+</ol>
+
+<h2 id="membuat-daftar-keyboard-shortcut">Membuat Daftar Keyboard Shortcut</h2>
+
+<p>Pada tahap ke-3, kita perlu membuat file text yang berisi daftar dari <em>keyboard shortcut</em>.</p>
+
+<p>Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar <em>keyboard shortcut</em> dari i3wm.</p>
+
+<ol>
+  <li>
+    <p>Masih pada direktori sebelumnya, yaitu di <code class="highlighter-rouge">~/.config/rofi-help/</code>.</p>
+
+    <p>Buat file text dengan nama yang relevan dengan Shell <em>script</em> yang kita buat di atas.</p>
+
+    <p>Dalam konteks ini, kita sedang membuat untuk daftar <em>keyboard shortcut</em> dari i3wm.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ touch keybinds-i3
+</code></pre></div>    </div>
+
+    <p><strong>Perhatian!</strong> Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan <code class="highlighter-rouge">keybinds-</code>.</p>
+
+    <p>Tujuannya agar saat dipanggil dengan program <code class="highlighter-rouge">help-script-browser.sh</code>, semua file yang tidak berawalan <code class="highlighter-rouge">keybinds-</code>, tidak ikut ditampilkan di dalam rofi.</p>
+  </li>
+  <li>
+    <p>Selanjutnya tinggal mengisi daftar dari <em>keyboard shortcut</em> dari i3wm yang kita perlukan.</p>
+
+    <p>Sebagai contoh, ini adalah beberapa daftar <em>keyboard shortcut</em> i3wm yang saya perlukan.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;b&gt;LAUNCHER--------------------------------&lt;/b&gt;
+ mod+Enter          Terminal
+ mod+Shift+End      Sessions Dialog
+ mod+Shift+x        Lock Screen
+ mod+Shift+q        Kill Window Focus
+ mod+Shift+r        Restart i3 Config
+ mod+d              Rofi: App Launcher
+ mod+Tab            Rofi: Window Switcher
+ mod+/              Rofi: Help
+ mod+p              Rofi: Clipboard
+ mod+Shift+p        Clipboard Cleared
+ mod+Print          Screenshot Silently
+ mod+Shift+Print    Screenshot GUI
+ mod+F7             Arandr
+ mod+F8             Wifi ON/OFF [T]
+ &lt;b&gt;LAYOUT----------------------------------&lt;/b&gt;
+ mod+s              Layout: Stacking
+ mod+w              Layout: Tabbed
+ mod+e              layout: Split [T]
+ mod+b              Split Horizontal
+ mod+v              Split Vertical
+ mod+o              Blank Space
+ &lt;b&gt;WINDOW----------------------------------&lt;/b&gt;
+ mod+f              Fullscreen Window [T]
+ mod+r              Resize Window
+ mod+Shift+Plus     Sticky Window [T]
+ mod+Shift+Minus    Scratchpad Mode [T]
+ mod+Minus          Scratchpad Show [T]
+ mod+Shift+Space    Floating Window [T]
+ mod+Space          Change Focus [T]
+ mod+a              Focus Parent
+ mod+Shidt+a        Focus Child
+ &lt;b&gt;BORDER----------------------------------&lt;/b&gt;
+ mod+t              Border Normal 1
+ mpd+shift+t        Border Normal 0
+ mod+y              Border None
+ mod+shift+y        Border Pixer 1
+ &lt;b&gt;WALLPAPER-------------------------------&lt;/b&gt;
+ mod+F5             Blogging Mode
+ mod+F6             Unixporn Mode
+</code></pre></div>    </div>
+
+    <p>Tinggi dari notifikasi ini tidak kurang dari 50 baris dan lebarnya tidak lebih dari 40 karakter.</p>
+
+    <p>Pengaturan lebar dari notifikasi <strong>Dunst</strong> ini akan berbeda setiap dari teman-teman. Bergantung pada konfigurasi lebar notifikasi dunst yang teman-teman pergunakan (pada <code class="highlighter-rouge">dunstrc</code> bagian <code class="highlighter-rouge">geometry = </code>).</p>
+
+    <p>Contoh-contoh daftar <em>keboard shortcut</em> yang saya pergunakan dapat di lihat pada dotfiles milik saya, <a href="https://github.com/bandithijo/dotfiles/tree/master/.config/rofi-help" target="_blank">di sini</a>.</p>
+  </li>
+</ol>
+
+<p><br />
+Silahkan menambahkan menambahkan sendiri untuk membuat daftar <em>keyboard shortcut</em> aplikasi yang lain. Dengan mengulang tahap ke-2 dan ke-3.</p>
+
+<h1 id="hasilnya">Hasilnya</h1>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/vZsSj7b9/gambar-01.gif" /></p>
+<p class="img-caption">Gambar 1 - Demonstrasi hasil akhir dari semua proses di atas</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Saya menyadari bahwa masih terdapat banyak kekurangan dari metode yang saya gunakan untuk membuat “bantuan pengingat <em>keyboard shortcut</em>” ini. Sehingga tidak menutup kemungkinan pada kesempatan berikutnya akan ada metode lain yang saya tulisakan kembali.</p>
+
+<p>Mudah-mudahan catatan saya yang sederhana ini dapat memberikan inspirasi kepada teman-teman untuk membuat metode yang lebih baik.</p>
+
+<p>Saya rasa, seperti ini saja.</p>
+:ET
