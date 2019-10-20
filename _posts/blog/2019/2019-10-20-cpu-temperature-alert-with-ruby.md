@@ -133,3 +133,5 @@ Mungkin dilain waktu, berdasarkan kebutuhan-kebutuhan tertentu, akan mulai ditam
 Mudah-mudahan bermanfaat.
 
 Terima kasih (^_^)v
+
+Oh ya, kalo mau audio `aircraftalarm.wav`, dapat diunduh [di sini](https://freesound.org/people/guitarguy1985/sounds/57806/){:target="_blank"} yaa.
