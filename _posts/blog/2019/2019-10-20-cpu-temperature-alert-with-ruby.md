@@ -128,7 +128,7 @@ Penambahakan `kill -9 $(pidof notify-hightemp)` bertujuan agar ketika saya meres
 
 Kira-kira seperti ini saja Ruby script yang ~~sederhana~~ cupu ini.
 
-Mungkin dilain waktu, berdasarkan kebutuhan-kebutuhan tertentu, akan mulai dtidambahkan fitur-fitur dan kemampuan dari script ini agar lebih mudah dan interaktif untuk digunakan.
+Mungkin dilain waktu, berdasarkan kebutuhan-kebutuhan tertentu, akan mulai ditambahkan fitur-fitur dan kemampuan dari script ini agar lebih mudah dan interaktif untuk digunakan.
 
 Mudah-mudahan bermanfaat.
 

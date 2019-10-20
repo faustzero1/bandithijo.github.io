@@ -45,7 +45,7 @@ ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
 <div class="blockquote-blue-title">[ i ] Informasi</div>
 <p>Seharusnya saat tulisan ini dibuat, versi Ruby yang paling terbaru adalah,
 <pre>
-ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
 </pre>
 Namun, karena satu dan lain hal, salah satunya untuk kebutuhan deploy di Netlify, saya hanya dapat menggunakan Ruby versi,
 <pre>
