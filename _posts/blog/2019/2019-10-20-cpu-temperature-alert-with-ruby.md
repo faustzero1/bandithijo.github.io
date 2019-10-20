@@ -74,7 +74,7 @@ end
 
 begin
   while true
-    capture_temp = "cat /proc/acpi/ibm/thermal | tail -c +15 | head -c +2"
+    capture_temp = "cat /sys/class/thermal/thermal_zone0/temp"
     temp = Open3.capture2(capture_temp)
     temp_cpu = temp[0].to_i
     temp_threshold = CPU_TEMP_THRESHOLD
@@ -96,6 +96,12 @@ end
 Saya beri nama file `notify-hightemp`.
 
 Saya tidak menggunakan ekstensi `.rb` karena saya sudah mendefinisikan *SheBang* <mark>#!/usr/bin/env ruby</mark> dari file ini, agar sistem dapat mengenali bahwa saya ingin mengeksekusi file ini dengan Ruby intepreter.
+
+Saya menggunakan perintah `cat /sys/class/thermal/thermal_zone0/temp` agar lebih fleksibel digunakan pada distribusi GNU/Linux yang lain.
+
+Selain itu saya hanya menangkap nilai untuk `thermal_zone0` yang saya asumsikan sebagai temperatur untuk core0.
+
+Teman-teman bisa mengolahny asendiri untuk menangkap nilai dari core yang lain.
 
 Kemudian, berikan permission untuk execute.
 
