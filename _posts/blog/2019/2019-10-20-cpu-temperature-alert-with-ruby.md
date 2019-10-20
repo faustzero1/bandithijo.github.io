@@ -64,7 +64,7 @@ Process.setproctitle("notify-hightemp")
 
 require 'open3'
 
-CPU_TEMP_THRESHOLD = 80  # <- Normaly 90-100
+CPU_TEMP_THRESHOLD = 90  # <- Normaly 90-100
 NOTIF_DURATION = 2.5     # <- Second
 NOTIF_VOLUME = 5         # <- Range 0-10
 
@@ -72,20 +72,24 @@ def notif_volume_converter(value)
   volume_rate = value * 6553.6
 end
 
-while true
-  capture_temp = "cat /proc/acpi/ibm/thermal | tail -c +15 | head -c +2"
-  temp = Open3.capture2(capture_temp)
-  temp_cpu = temp[0].to_i
-  temp_threshold = CPU_TEMP_THRESHOLD
-  notif_duration = (NOTIF_DURATION * 1000).to_i
-  notif_volume = notif_volume_converter(NOTIF_VOLUME)
+begin
+  while true
+    capture_temp = "cat /proc/acpi/ibm/thermal | tail -c +15 | head -c +2"
+    temp = Open3.capture2(capture_temp)
+    temp_cpu = temp[0].to_i
+    temp_threshold = CPU_TEMP_THRESHOLD
+    notif_duration = (NOTIF_DURATION * 1000).to_i
+    notif_volume = notif_volume_converter(NOTIF_VOLUME)
 
-  if temp_cpu > temp_threshold
-    system("notify-send 'High CPU Temperature''!' 'The CPU has been hard at work in the past minute.' --urgency=critical --expire-time=#{notif_duration}")
-    system("paplay /home/bandithijo/snd/Ringtones/Alert/aircraftalarm.wav --volume=#{notif_volume}")
+    if temp_cpu > temp_threshold
+      system("notify-send 'High CPU Temperature''!' 'The CPU has been hard at work in the past minute.' --urgency=critical --expire-time=#{notif_duration}")
+      system("paplay /home/bandithijo/snd/Ringtones/Alert/aircraftalarm.wav --volume=#{notif_volume}")
+    end
+
+    sleep(5)
   end
-
-  sleep(5)
+rescue Interrupt
+  puts "\nExiting..."
 end
 ```
 
