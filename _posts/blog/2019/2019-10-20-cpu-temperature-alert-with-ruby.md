@@ -89,7 +89,7 @@ while true
 end
 ```
 
-Saya berinama file `notify-hightemp`.
+Saya beri nama file `notify-hightemp`.
 
 Saya tidak menggunakan ekstensi `.rb` karena saya sudah mendefinisikan *SheBang* <mark>#!/usr/bin/env ruby</mark> dari file ini, agar sistem dapat mengenali bahwa saya ingin mengeksekusi file ini dengan Ruby intepreter.
 
