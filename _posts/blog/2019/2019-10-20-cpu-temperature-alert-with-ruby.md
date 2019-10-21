@@ -81,7 +81,7 @@ begin
     notif_duration = (NOTIF_DURATION * 1000).to_i
     notif_volume = notif_volume_converter(NOTIF_VOLUME)
 
-    if temp_cpu > temp_threshold
+    if temp_cpu >= temp_threshold
       system("notify-send 'High CPU Temperature''!' 'The CPU has been hard at work in the past minute.' --urgency=critical --expire-time=#{notif_duration}")
       system("paplay /home/bandithijo/snd/Ringtones/Alert/aircraftalarm.wav --volume=#{notif_volume}")
     end
@@ -159,3 +159,5 @@ Mudah-mudahan bermanfaat.
 Terima kasih (^_^)v
 
 Oh ya, kalo mau audio `aircraftalarm.wav`, dapat diunduh [di sini](https://freesound.org/people/guitarguy1985/sounds/57806/){:target="_blank"} yaa.
+
+Tapi tidak saya rekomendasikan karena mungkin dapat menyebabkan serangan panik, hehe.
