@@ -95,18 +95,18 @@ end
 
 Saya beri nama file `notify-hightemp`.
 
-Saya tidak menggunakan ekstensi `.rb` karena saya sudah mendefinisikan *SheBang* <mark>#!/usr/bin/env ruby</mark> dari file ini, agar sistem dapat mengenali bahwa saya ingin mengeksekusi file ini dengan Ruby intepreter.
+Saya tidak menggunakan ekstensi `.rb` karena saya sudah mendefinisikan *SheBang* <mark>#!/usr/bin/env ruby</mark> dari file ini, agar sistem dapat mengenali bahwa saya ingin mengeksekusi file ini dengan Ruby intepreter. Selain itu agar lebih mudah dipanggil di Terminal, hehe.
 
-Saya menggunakan perintah `cat /sys/class/thermal/thermal_zone0/temp` agar lebih fleksibel digunakan pada distribusi GNU/Linux yang lain.
+Saya menggunakan perintah `cat /sys/class/thermal/thermal_zone0/temp` agar lebih fleksibel digunakan pada mesin yang lain. Karena selain `/sys` kita juga dapat menggunakan `/proc`
 
 Selain itu saya hanya menangkap nilai untuk `thermal_zone0` yang saya asumsikan sebagai temperatur untuk core0.
 
-Teman-teman bisa mengolahny asendiri untuk menangkap nilai dari core yang lain.
+Teman-teman bisa mengolahnya sendiri untuk menangkap nilai dari core yang lain.
 
-Kemudian, berikan permission untuk execute.
+Selanjutnya, berikan permission untuk execute.
 
 ```
-$ chmod +x notify-hightemp.rb
+$ chmod +x notify-hightemp
 ```
 
 Copykan ke direktori `/usr/bin/` untuk dieksekusi semua user atau `~/.local/bin/` untuk user kita saja.
@@ -133,6 +133,20 @@ kill -9 $(pidof notify-hightemp); notify-hightemp &
 ```
 
 Penambahakan `kill -9 $(pidof notify-hightemp)` bertujuan agar ketika saya merestart WM, script ini tidak dipanggil lagi. Namun, akan dikill terlebih dahulu, kemudian baru dijalankan kembali.
+
+Nama dari processs title berupa `notify_hightemp` ini saya set pada Ruby script di bagian
+
+```
+Process.setproctitle("notify-hightemp")
+```
+
+Sebenarnya bisa juga menggunakan,
+
+```
+$0="notify-hightemp"
+```
+
+Namun, terlihat seperti kurang Ruby banget, hehe.
 
 # Akhir Kata
 
