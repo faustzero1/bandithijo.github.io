@@ -24,7 +24,7 @@ Sudah mengikuti Arch Wiki, namun tetap tidak mengerti.
 
 Umm, saya mengerti, memang agak sedikit membingungkan membaca Arch Wiki, terutama bagi yang benar-benar tidak tahu alur dari konfigurasi PostgreSQL yang diperlukan hingga siap untuk digunakan.
 
-Mungkin juga kebingungan, perintah (*command*) mana yang dijalankan, karena terlalu banya tulisan yang terdapat pada panduan PostgreSQL pada Arch Wiki tersebut. Hehe.
+Mungkin juga kebingungan, perintah (*command*) mana yang dijalankan, karena terlalu banyak tulisan yang terdapat pada panduan PostgreSQL pada Arch Wiki tersebut. Hehe.
 
 Jujur saja, saya pertama kali dulu juga begitu. Bahkan sampai beberapa kali setiap melakukan instalasi PostgreSQL pada Arch Linux merupakan hal yang menantang dan bikin deg-degan.
 
