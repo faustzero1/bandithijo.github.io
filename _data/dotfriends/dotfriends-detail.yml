@@ -106,7 +106,7 @@ friends:
 
 - nama: "Yunindyo Prabowo"
   photo: "https://github.com/ypraw.png?size=200"
-  url1: "https://yupraw.me"
+  url1: "https://ypraw.github.io/"
   url2: "https://github.com/ypraw"
   detail: |
       <p>Noob Programmer , always getting errors everywhere when typing the codes.</p>
@@ -137,3 +137,11 @@ friends:
   detail: |
       <p>Makanan, kodingan, dan kehidupan.</p>
       <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p>
+
+- nama : "Tsara Fatma"
+  photo: "https://github.com/tsara27.png?size=200"
+  url1: "https://tsarafatma.com/"
+  url2: "https://github.com/tsara27"
+  detail: |
+      <p>I am a mom, a wife, and also a programmer who is trying to improve and spread good things for others.</p>
+      <p>I am a full stack Ruby on Rails developer with more than 4 years experience and have contributed/developed various web application and RESTful API. I have worked with many clients around the world and helped building and maintaining various products.</p>
