@@ -18,7 +18,7 @@ hot:
 
 # Prakata
 
-Pada proyek yang sedang saya kerjakan, saya mendapatkan kasus dimana saya harus membuat "duration" field dengan tipe data integer. Yang mana sebelumnya duration field ini saya set dengan tipe data time.
+Pada project yang sedang saya kerjakan, saya mendapatkan kasus dimana saya harus membuat "duration" field dengan tipe data integer. Yang mana sebelumnya duration field ini saya set dengan tipe data time.
 
 Tujuan dari penggunaan tipe data integer pada duration field agar nantinya dapat dengan mudah diolah, seperti difilter berdasarkan jumlah menit tertentu, dan lain sebagainya.
 
