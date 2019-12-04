@@ -91,7 +91,7 @@ duration: ['01:30', '03:00', '06:30', '08:00'].sample
 **Sesudah**,
 
 ```
-duration: [90, 180, 390, 480].sampe
+duration: [90, 180, 390, 480].sample
 ```
 
 Karena data sudah disimpan dalam bentuk integer dan dalam satuan menit, maka saya perlu bantuan helper method untuk mengkonversi bentuk dari "hanya menit" menjadi "jam dan menit".
