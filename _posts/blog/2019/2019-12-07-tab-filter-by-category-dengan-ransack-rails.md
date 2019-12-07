@@ -97,20 +97,20 @@ Pada model dan route, tidak perlu kita tambahkan apa-apa.
 
 Selanjutnya, tinggal bermain pada view template.
 
-Pada view template, saya mempasing nilai dari `params[:q][:country_cont]`.
+Pada view template, saya mem-*passing* nilai dari `params[:q][:country_cont]` yang dikirimkan oleh view ke controller.
 
-`country_cont` dapet dari mana?
+Dapat teman-teman perhatikan, terdapat object `country_cont` pada params tersebut, dapet dari mana?
 
 `country` adalah salah satu field di dalam tabel careers.
 
 ```
 # careers table
-+--------------------+--------------------------------------------+-----------+-----------+
-| position_name      | description                                | city      | country   |
-|--------------------+--------------------------------------------+-----------+-----------|
-| Technology Planner | Responsibilities and Duties:               | Singapore | Thailand  |
-|                    | - Neutra stumptown literally.              |           |           |
-|                    |  - Goth squid yolo etsy cliche kogi beard. |           |           |
++--------------------+-------------------------------------------+-----------+-----------+
+| position_name      | description                               | city      | country   |
+|--------------------+-------------------------------------------+-----------+-----------|
+| Technology Planner | Responsibilities and Duties:              | Singapore | Thailand  |
+|                    | - Neutra stumptown literally.             |           |           |
+|                    | - Goth squid yolo etsy cliche kogi beard. |           |           |
 ```
 
 `_cont` adalah **predicate** yang disediakan oleh Ransack yang berarti **Contains value**.
