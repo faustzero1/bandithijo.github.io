@@ -289,7 +289,7 @@ Pertama, saya akan membuat form dulu dengan bantuan `simple_form`.
 Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan membuatnya menjadi render partial template.
 
 ```html
-# app/views/articles/new.html.erb
+<!-- app/views/articles/new.html.erb -->
 
 <%= simple_form_for(@article, url: { action: :create }, html: { id: 'form' } ) do |f| %>
   <%= render 'form', f: f, article: @article, tag_list: @tag_list %>
@@ -297,7 +297,7 @@ Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan
 ```
 
 ```html
-# app/views/articles/edit.html.erb
+<!-- app/views/articles/edit.html.erb -->
 
 <%= simple_form_for(@article, url: { action: :update }, html: { id: 'form' } ) do |f| %>
   <%= render 'form', f: f, article: @article, tag_list: @tag_list %>
