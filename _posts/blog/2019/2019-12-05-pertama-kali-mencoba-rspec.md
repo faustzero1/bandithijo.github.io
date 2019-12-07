@@ -394,6 +394,38 @@ Nah, gimana?
 
 Mudah dipahami kan?
 
+Nah, untuk menalankan test-nya gunakan perintah ini,
+
+```
+$ bundle exec rspec
+```
+
+Nanti akan keluar output seperti ini.
+
+```
+Author
+  Validation Presence Tests
+    Ensures full name presence
+    Ensures email presence
+    Ensures password presence
+    Should save successfully
+  Validation Length Tests
+    Ensures full name character length, more than 5
+    Ensures full name character length, less than 30
+    Ensures email character length, less than 50
+    Ensures password character length, same or more than 8
+  Email Format Tests
+    Ensures email format not valid
+    Ensures email format valid
+  Email Uniqueness Tests
+    Ensures email has uniqueness
+
+Finished in 2.1 seconds (files took 8.29 seconds to load)
+11 examples, 0 failures
+```
+
+Sesuai dengan jumlah spesifikasi yang kita tulis, ada 11 buah. Dan kesemuanya berhasil.
+
 Selanjutnya untuk controller spec.
 
 # Controller Spec
@@ -477,6 +509,10 @@ Okeh!
 
 Sepertinya hanya ini saja yang ingin saya tuliskan.
 
+Untuk referensi yang lebih lengkap seputar RSpec pada Rails, dapat dimulai dari membaca dokumentasi pada gem `rspec-rails` yang saya sertakan pada referensi di bawah.[<sup>1</sup>](#referensi)
+
+Untuk referensi seputar RSpec dapat membaca pada dokumentasi RSpec yang disediakan di Relishapp.[<sup>3</sup>](#referensi)
+
 Mudah-mudahan dapat sedikit banyak bermanfaat buat teman-teman yaa.
 
 Terima kasih.
@@ -490,4 +526,7 @@ Terima kasih.
 <br>Diakses tanggal: 2019/12/05
 
 2. [Everyday Rails Testing with RSpec : A practical approach to test-driven development by Aaron Sumner](http://leanpub.com/everydayrailsrspec){:target="_blank"}
+<br>Diakses tanggal: 2019/12/05
+
+3. [relishapp.com/rspec/rspec-rails/docs](https://relishapp.com/rspec/rspec-rails/docs){:target="_blank"}
 <br>Diakses tanggal: 2019/12/05
