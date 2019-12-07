@@ -211,19 +211,53 @@ Nah, gimana? Asik kan?
 
 Wkwkwk
 
-Nah, sekarang kalo kita klik tab buttonnya, maka akan menghasilkan list yang sudah terfilter berdasarkan country.
+Selanjutnya, untuk menampilkan hasil dari index listnya, seperti ini.
+
+```html
+<!-- app/views/careers/index.html.erb -->
+
+...
+...
+
+<div class="row no-gutters mb-5">
+  <!-- Available Position -->
+  <% @careers.each do |career| %>
+   <div class="col-sm-12">
+     <div>
+       <div>
+         <h6><%= career.position_name.upcase %></h6>
+         <div>
+           <i class="icon-location"></i>
+           <%= career.city.titleize %>, <%= career.country.titleize %>
+         </div>
+       </div>
+       <div>
+         <%= link_to "View Detail", career_path(career), class: "btn btn-primary" %>
+       </div>
+     </div>
+   </div>
+  <% end %>
+  <!-- END Available Position -->
+</div>
+```
+
+Selesai!
+
+Apabila berhasil, apabila kita klik tab buttonnya, maka akan menghasilkan list yang sudah terfilter berdasarkan country.
+
+Seperti ilustrasi pada Gambar 1 dan Gambar 2 di atas.
 
 Namun, ada hal yang masih kurang memuaskan.
 
 Saya masih belum dapat membuat URL nya menjadi lebih cantik.
 
-<pre>
+<pre style="background-color:white;border:1px solid black;color:black;">
 http://localhost:3000/careers<mark>?q%5Bcountry_cont%5D=Malaysia</mark>
 </pre>
 
 Mungkin akan saya cari pada kesempatan yang lain.
 
-Atau teman-teman punya rekomendasi untuk membuat URL menjadi lebih canti, boleh tulis pada komentar di bawah yaa.
+Atau teman-teman punya rekomendasi untuk membuat URL menjadi lebih cantik, boleh tulis pada komentar di bawah yaa.
 
 Oke, sepertinya segini saja.
 
