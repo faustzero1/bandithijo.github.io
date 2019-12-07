@@ -30,7 +30,12 @@ Tujuan dari penggunaan tipe data integer pada duration field agar nantinya dapat
 
 Target yang ingin dicapai adalah, saya perlu **menyimpan data di dalam kolom duration dalam satuan menit**.
 
-Contoh, untuk durasi selama **1 jam 30 menit**, berarti data akan disimpan sebesar **90 menit**.
+Contoh, untuk durasi selama **8 jam 30 menit**, berarti data akan disimpan sebesar **510 menit**.
+
+Tampilannya kira-kira seperti ini, untuk pemilihan jam dan menit.
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5s63RNM/gambar-01.png"}
+<p class="img-caption">Gambar 1 - time_select untuk jam dan menit</p>
 
 # Permasalahan
 
