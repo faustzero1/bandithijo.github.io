@@ -18,7 +18,7 @@ hot:
 
 # Prakata
 
-Sekitar seminggu yang lalu, diwaktu badan sedang meriang dan meler hebat namun terkadang tersumbat, saya mencoba untuk mempelajari salah satu test atau pengujian untuk membantu kita menguji web aplikasi yang kita bangun.
+Sekitar seminggu yang lalu, pada waktu badan sedang meriang dan meler hebat namun terkadang tersumbat, saya mencoba untuk mempelajari salah satu test atau pengujian untuk membantu kita menguji web aplikasi yang kita bangun.
 
 RSpec, adalah salah satu test tersebut.
 

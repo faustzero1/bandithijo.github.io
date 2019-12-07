@@ -336,7 +336,7 @@ Kemudian formnya akan seperti ini.
 </div>
 ```
 
-Kemudian pada bagian bawah dari file `_form.html.erb` ini, tambahkan javascript.
+Kemudian pada bagian bawah dari file `_form.html.erb` ini, kita akan menambahkan javascript library dari Select2.
 
 ```html
 <!-- app/views/articles/_form.html.erb -->
