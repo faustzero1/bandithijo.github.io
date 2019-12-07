@@ -16,6 +16,10 @@ hot:
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
+# Prerequisite
+
+`Ruby 2.6.3` `Rails 5.2.3` `PostgreSQL 11.5`
+
 # Prakata
 
 Pada project yang sedang saya kerjakan, saya mendapatkan kasus dimana saya harus membuat "duration" field dengan tipe data integer. Yang mana sebelumnya duration field ini saya set dengan tipe data time.

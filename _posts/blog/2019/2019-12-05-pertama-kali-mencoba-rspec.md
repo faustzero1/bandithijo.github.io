@@ -16,6 +16,10 @@ hot:
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
+# Prerequisite
+
+`Ruby 2.6.3` `Rails 6.0.1` `PostgreSQL 11.5` `RSpec 4.0.0.beta3`
+
 # Prakata
 
 Sekitar seminggu yang lalu,  di saat badan sedang meriang dan meler hebat namun kadang tersumbat, saya mencoba untuk mempelajari salah satu test atau pengujian untuk membantu kita menguji web aplikasi yang kita bangun.

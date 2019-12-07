@@ -16,6 +16,10 @@ hot:
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
+# Prerequisite
+
+`Ruby 2.6.3` `Rails 5.2.3` `PostgreSQL 11.5`
+
 # Prakata
 
 Membuat *tagging system* pada Blog mungkin sudah menjadi sebuah keharusan. Rasanya tidak lengkap apabila sebuah Blog tidak memiliki fitur *tagging*. Seperti makan nasi goreng tidak pakai telur. Hihihi.
