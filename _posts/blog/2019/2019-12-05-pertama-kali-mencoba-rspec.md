@@ -259,6 +259,10 @@ Begitu seterusnya untuk presence validation pada field `password`.
 
 Coba teman-teman buat spesifikasinya untuk presence validation pada field `password` ini.
 
+Oh ya!
+
+Saya menggunakan bantuan gem `faker` untuk meng-*generate* data *dummy*. Agar lebih mudah, dan tidak perlu menghabiskan waktu untuk memikirkan data secara manual.
+
 Nah, dengan begitu, saya langsung dapat menuliskan spesifikasi untuk menguji semua spesifikasi validation yang ada pada model author.
 
 Kira-kira seperti ini.
