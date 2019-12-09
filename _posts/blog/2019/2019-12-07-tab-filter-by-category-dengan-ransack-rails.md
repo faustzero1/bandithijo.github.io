@@ -28,11 +28,11 @@ Sedikit penjelasan mengenai Ransack,
 
 Ransack sendiri pengertian singkatnya adalah **Object-based searching**.
 
-Ditulis ulang dari MetaSearch yang dibuat oleh [Ernie Miller](http://twitter.com/erniemiller){:target="_blank"} dan didevelop/dimaintain selama bertahun-tahun oleh [Jon Atack](http://twitter.com/jonatack){:target="_blank"} dan [Ryan Bigg](http://twitter.com/ryanbigg){:target="_blank"} serta mendapat bantuan dari group yang hebat dari [beberapa controbutor](https://github.com/activerecord-hackery/ransack/graphs/contributors){:target="_blank"}.
+Ditulis ulang dari MetaSearch yang dibuat oleh [Ernie Miller](http://twitter.com/erniemiller){:target="_blank"} dan didevelop/dimaintain selama bertahun-tahun oleh [Jon Atack](http://twitter.com/jonatack){:target="_blank"} dan [Ryan Bigg](http://twitter.com/ryanbigg){:target="_blank"} serta mendapatkan bantuan dari [sekelompok contributor](https://github.com/activerecord-hackery/ransack/graphs/contributors){:target="_blank"} yang hebat.
 
 Ransack dapat membantu kita membuat [simple](http://ransack-demo.herokuapp.com/){:target="_blank"} dan [advanced](http://ransack-demo.herokuapp.com/users/advanced_search){:target="_blank"} search forms untuk Rails aplikasi kita.
 
-Jika kamu mencari gem untuk menyederhanakan pembuatan query pada model dan controller, Ransack mungkin bukan gem yang tepat. Mungkin bisa mencoba [Squeel](https://github.com/activerecord-hackery/squeel){:target="_blank"}.
+Jika teman-teman mencari gem untuk menyederhanakan pembuatan query pada model dan controller, Ransack mungkin bukan gem yang tepat. Mungkin bisa mencoba [Squeel](https://github.com/activerecord-hackery/squeel){:target="_blank"}.
 
 Ransack kompatibel dengan Rails versi 6.0, 5.2, 5.1, 5.0, dan pada Ruby 2.3 ke atas.
 
