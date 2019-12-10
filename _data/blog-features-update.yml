@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '19/12/10'
+  url:
+  detail: |
+      Menambahkan default image jika image request not responding
+
 - tanggal: '19/05/11'
   url:
   detail: |
