@@ -230,6 +230,11 @@ Variable `$input` berisi variable `$("[data-behavior='autocomplete']")`.
 
 Kemudian tinggal saya panggil dengan `$input.easyAutocomplete(options)`.
 
+Apabila kita coba di Browser, akan seperti ini hasilnya.
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9XBGF43f/gambar-03.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 3 - Hasil pencarian dalam bentuk JSON.</p>
+
 Sekarang saya buat form pencariannya di view template.
 
 # View
