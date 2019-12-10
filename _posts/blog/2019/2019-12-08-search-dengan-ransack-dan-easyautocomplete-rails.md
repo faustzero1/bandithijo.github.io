@@ -146,8 +146,8 @@ class ExperiencesController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json {
-        @experience_locations = @experience_locations.limit(10)
-        @experience_names = @experience_names.limit(10)
+        @experience_locations = @experience_locations
+        @experience_names = @experience_names
       }
     end
   end
@@ -230,11 +230,6 @@ Variable `$input` berisi variable `$("[data-behavior='autocomplete']")`.
 
 Kemudian tinggal saya panggil dengan `$input.easyAutocomplete(options)`.
 
-Apabila kita coba di Browser, akan seperti ini hasilnya.
-
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9XBGF43f/gambar-03.png" onerror="imgError(this);"}
-<p class="img-caption">Gambar 3 - Hasil pencarian dalam bentuk JSON.</p>
-
 Sekarang saya buat form pencariannya di view template.
 
 # View
@@ -292,6 +287,17 @@ end
 Dapat dilihat pada blok kode di atas, bahwa saya memanggil instance variable `@experience_locations` dan `@experience_names` yang sudah saya definisikan sebelumnya pada experiences controller.
 
 `location_cont` dan `name_cont` adalah predicates `_cont` yang disediakan oleh Ransack yang berarti "*Contains value*".
+
+Apabila kita coba di Browser, dengan url form seperti ini,
+
+<pre style="background:white,border:1px solid black,color:black;">
+http://localhost:3000/experiences.json?q=location_atau_nama_experience
+</pre>
+
+akan seperti ini hasilnya.
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9XBGF43f/gambar-03.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 3 - Hasil pencarian dalam bentuk JSON.</p>
 
 Nah, langkah terakhir tinggal membuat blok kode untuk menampilkan hasil pencarian pada `index.html.erb`.
 
