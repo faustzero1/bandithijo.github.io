@@ -141,3 +141,10 @@ echo.init({
     //console.log(element, 'has been', op + 'ed')
     }
 });
+
+// If image url not respond
+function imgError(image) {
+  image.onerror = "";
+  image.src = "/assets/img/logo/logo_blank.svg";
+  return true;
+}
