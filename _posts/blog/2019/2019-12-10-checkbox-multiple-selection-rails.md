@@ -144,7 +144,7 @@ Lebih mudah, dibuatkan render partial agar bisa berbagi form. Wkwkwk.
 ```html
 <!-- app/view/experiences/new.html.erb -->
 
-<%= form_for(@experience, url: { action: :create }, html: { id: 'form' } ) do |f| %>
+<%= form_for(@experience, url: {action: :create}, html: {id: 'form'}) do |f| %>
   <%= render 'form', f: f, experience: @experience %>
 <% end %>
 ```
@@ -152,7 +152,7 @@ Lebih mudah, dibuatkan render partial agar bisa berbagi form. Wkwkwk.
 ```html
 <!-- app/view/experiences/edit.html.erb -->
 
-<%= form_for(@experience, url: { action: :update }, html: { id: 'form' } ) do |f| %>
+<%= form_for(@experience, url: {action: :update}, html: {id: 'form'}) do |f| %>
   <%= render 'form', f: f, experience: @experience %>
 <% end %>
 ```
