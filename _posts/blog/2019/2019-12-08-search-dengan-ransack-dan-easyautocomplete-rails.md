@@ -290,8 +290,8 @@ Dapat dilihat pada blok kode di atas, bahwa saya memanggil instance variable `@e
 
 Apabila kita coba di Browser, dengan url form seperti ini,
 
-<pre style="background:white,border:1px solid black,color:black;">
-http://localhost:3000/experiences.json?q=location_atau_nama_experience
+<pre style="background:white;border:1px solid black;color:black;">
+http://localhost:3000/experiences.json?q=<mark>location_atau_nama_experience</mark>
 </pre>
 
 akan seperti ini hasilnya.
