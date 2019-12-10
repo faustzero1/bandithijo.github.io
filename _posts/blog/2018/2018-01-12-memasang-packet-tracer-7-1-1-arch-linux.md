@@ -13,7 +13,7 @@ pin:
 hot: true
 ---
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 Oktober 2017, saya menglami kepanikan dikarenakan aplikasi penunjang perkuliahan Jaringan Komunikasi 2 (CCNA 2) yaitu [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer-download/){:target="_blank"} versi 7.1.1, yang secara tiba-tiba tidak dapat dibuka di sistem saya (Arch Linux).

@@ -37,7 +37,7 @@ comment
 
 # BANNER OF THE POST
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" onerror="imgError(this);" alt="banner">
 
 # BLOCKQUOTE
 
@@ -68,7 +68,7 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 
 # IMAGE CAPTION
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo=""}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 # LIST CHECKBOX

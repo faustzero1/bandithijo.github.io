@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" onerror="imgError(this);" alt="banner">
 
 # Permasalahan
 Tulisan kali ini sebenarnya bukan konfigurasi secara langsung terkait dengan `postbanner`, namun lebih ke konfigurasi **Figlet Font** sebagai salah satu unsur yang diperlukan oleh `postbanner` dalam memproduksi tulisan.

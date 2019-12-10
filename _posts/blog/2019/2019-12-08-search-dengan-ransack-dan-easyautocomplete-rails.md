@@ -32,10 +32,10 @@ Misal, dalam project yang saya kerjakan adalah field location dan nama dari expe
 
 Kira-kira, hasilnya akan seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PxTsjZ4z/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PxTsjZ4z/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Autocomplete suggestion pada input field pencarian</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KzfXvzpX/gambar-02.gif"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KzfXvzpX/gambar-02.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Ilustrasi bergerak dari autocomplete suggestion pada pencarian</p>
 
 Nah, pada implementasi fitur ini, saya menggunakan bantuan JQuery plugin yang bernama [**EasyAutocomplete**](http://easyautocomplete.com/){:target="_blank"}. Saya menggunakan tipe [**categories**](http://easyautocomplete.com/guide#sec-categories){:target="_blank"}.

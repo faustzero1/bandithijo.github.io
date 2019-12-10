@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/yjw814lz1/banner_post_08.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/yjw814lz1/banner_post_08.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 
@@ -38,11 +38,11 @@ Lalu pergi ke **org** > **gnome** > **gnome-screenshot**.
 
 Klik dua kali pada bagian **auto-save-directory**.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png" onerror="imgError(this);"}
 
 Nanti akan terbuka *section* seperti di bawah.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png" onerror="imgError(this);"}
 
 Pada bagian paling bawah, **Custom value**, ganti ke direktori tempat dimana kalian ingin menyimpan hasil *screenshot*.
 

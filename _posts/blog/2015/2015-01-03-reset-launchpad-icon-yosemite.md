@@ -15,7 +15,7 @@ hot:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/pm0zdqf0t/Default_Header_Template_Post_7.jpg" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/pm0zdqf0t/Default_Header_Template_Post_7.jpg" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 Sudah mengupgrade OS X anda dengan OS X Yosemite 10.10 ?

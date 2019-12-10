@@ -28,7 +28,7 @@ Setelah saya amati, statusline yang dihandle oleh `vim-airline` mengalami delay 
 Coba perhatikan perbandingan Vim pada user biasa dan pada user root di bawah ini.
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JzcBJfsM/gambar-01.gif"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JzcBJfsM/gambar-01.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Perbandingan startup Vim pada root dan Vim pada user</p>
 
 Sisi kanan adalah Vim pada user biasa, perhatikan delay yang terjadi pada Vim-Airline saat proses *startup* berlangsung. Bandingkan dengan sisi kiri, yaitu Vim pada root.
@@ -50,23 +50,23 @@ Dan untuk menghandle bufferline, saya menggunakan [**mengelbrecht/lightline-buff
 Berikut ini adalah gambar perbandingan tampilan antara **Vim-Airline** versus **Lightline** dan **Lightline-Bufferline**.
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/05dcfybJ/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/05dcfybJ/gambar-02.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Vim-Airline (Kiri), Lightline (Kanan)</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wB5t1V5t/gambar-07.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 3 - Startup dengan Vim-Airline</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif"}
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5sDP7vM/gambar-08.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 4 - Startup dengan Lightline</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/2SDs8SVk/gambar-05.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/2SDs8SVk/gambar-05.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 5 - Vim-Airline</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52SZHWCw/gambar-06.png"}
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52SZHWCw/gambar-06.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 6 - Lightline</p>
 
 
@@ -246,11 +246,11 @@ let g:lightline.tabline = {
 
 # Hasilnya
 <!-- IMAGE CAPTION -->
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TwHHXRWc/gambar-03.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 7 - Lightline + Lightline-Bufferline</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png"}
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 8 - Tampilan saat tidak sibuk</p>
 
 # Tambahan Fugitive, Readonly dan Modified
@@ -313,7 +313,7 @@ Saya juga melakukan modifikasi terhadap `modified` indikator yang tadinya `+` sa
 
 **Hasilnya**,
 <!-- IMAGE CAPTION -->
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TPc2p3Zj/gambar-09.png"}
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TPc2p3Zj/gambar-09.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 9 - Dengan tambahan powerline symbol untuk master dan readonly</p>
 
 

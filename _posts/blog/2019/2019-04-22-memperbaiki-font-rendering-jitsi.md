@@ -51,7 +51,7 @@ Selanjutnya, **logout** dan **login** kembali.
 
 Selanjutnya, buka Jitsi dan lihat perbedannya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0QLRVrZ2/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0QLRVrZ2/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Setelah ditambahkan JAVA_OPTIONS</p>
 
 Sekian, mudah-mudahan bermanfaat.

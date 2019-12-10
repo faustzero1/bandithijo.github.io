@@ -20,7 +20,7 @@ hot:
 
 Kemarin, 2019/03/17, ada salah satu anggota group Telegram BGLI (Belajar GNU/Linux Indonesia) menanyakan perihal ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/N0n68vqS/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/N0n68vqS/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Pertanyaan oleh: <b>./XiongXong @sandy147</b></p>
 
 Sebelumnya saya tidak pernah mencobanya. Jadi tidak pernah terpikirkan sebelumnya.
@@ -41,7 +41,7 @@ Alur program yang terpikirkan oleh saya adalah seperti ini:
 2. Mengulang-ulang perintah pembuatan user baru sesuai dengan jumlah yang diinputkan oleh user.
 
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0jQVk0v1/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0jQVk0v1/gambar-02.png" onerror="imgError(this);"}
 
 ## Ngoding
 

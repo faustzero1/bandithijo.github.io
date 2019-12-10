@@ -13,7 +13,7 @@ pin:
 hot:
 ---
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 Sebagai pengguna GNU/Linux, tentu pernah mendapati beberapa aplikasi membawa _default theme_ yang terkadang tidak sesuai dengan _theme_ yang sedang kita gunakan. Sekedar informasi sedikit, tampilan _engine_ untuk GUI (_Graphical User Interface_) pada GNU/Linux yang banyak digunakan biasanya **GTK+** atau **Qt**. GTK+ biasanya digunakan oleh aplikasi yang dipaketkan bersama Gnome, sedangkan Qt biasanya digunakan oleh aplikasi yang dipaketkan bersama KDE.
@@ -60,7 +60,7 @@ Untuk penerapan konfigurasi ini, dampaknya adalah semua aplikasi yang menggunaka
 
 Konfigurasinya cukup mudah karena kita menggunakan aplikasi GUI yang bernama Qt5 Settings (`qt5ct`).
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Qt5 Settings</p>
 
 Tampilan GUI Qt5 Settings seperti pada Gambar 1. Kalian dapat melihat pada bagian “_Style_” saya menggunakan Adwaita _theme_.

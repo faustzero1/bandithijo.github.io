@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/wzvhg7ngd/banner_post_09.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/wzvhg7ngd/banner_post_09.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 
@@ -58,7 +58,7 @@ Perhatikan pada bagian `Exec=`. Saya men-disable yang lama dengan menjadikannya 
 
 Apabila berhasil, nanti akan seperti ini hasilnya.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Open With Text Format pada PCMANFM File Manager</p>
 
 # Referensi

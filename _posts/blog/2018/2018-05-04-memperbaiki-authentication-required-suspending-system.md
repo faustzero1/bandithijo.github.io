@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/j770ed1tp/banner_post_11.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/j770ed1tp/banner_post_11.png" onerror="imgError(this);" alt="banner">
 
 # Permasalahan
 

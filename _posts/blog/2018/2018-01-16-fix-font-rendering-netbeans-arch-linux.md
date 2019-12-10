@@ -13,7 +13,7 @@ pin:
 hot:
 ---
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-t8rFinLgSyM/WmCaNEg1ffI/AAAAAAAAG5Y/MteYia1GKyg3j6SGVMOAxT7slgPeX84YwCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-t8rFinLgSyM/WmCaNEg1ffI/AAAAAAAAG5Y/MteYia1GKyg3j6SGVMOAxT7slgPeX84YwCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 _Font rendering_ yang buruk pada beberapa aplikasi GUI tentu sangat mengganggu _mood_ kita dalam menggunakan aplikasi tersebut. Apalagi kalau aplikasi yang kita gunakan adalah aplikasi yang sehari-harinya kita gunakan.  Netbeans adalah salah satu aplikasi yang memiliki _font rendering_ yang buruk pada [i3wm](https://wiki.archlinux.org/index.php/I3) saya.

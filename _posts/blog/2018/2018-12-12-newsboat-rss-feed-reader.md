@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="" onerror="imgError(this);" alt="banner"> -->
 
 # Prakata
 
@@ -219,7 +219,7 @@ Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 Biasanya pemilik blog/website tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.
 
 <!-- IMAGE CAPTION -->
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nzRT1sRY/gambar-04.png"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nzRT1sRY/gambar-04.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 0 - Icon dari RSS Feed</p>
 
 Teman-teman bisa mencari dan menelusuri *layout* dari blog/website yang teman-teman incar.
@@ -244,17 +244,17 @@ Namun, cara di atas tidak sepenuhnya berhasil. Hanya berhasil terhadap blog/webs
 # Tampilan Newsboat
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Vs3fvJ7t/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Vs3fvJ7t/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Tampilan Depan, daftar RSS feed</p>
 
 <br>
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fW3WMcvZ/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fW3WMcvZ/gambar-02.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Daftar Artikel dari Salah Satu Blog</p>
 
 <br>
 <!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/DyL2X7DM/gambar-03.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/DyL2X7DM/gambar-03.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 3 - Tampilan Isi</p>
 
 

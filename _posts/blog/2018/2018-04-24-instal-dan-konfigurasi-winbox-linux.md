@@ -14,7 +14,7 @@ hot: true
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/402x64szx/banner_post_05.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/402x64szx/banner_post_05.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 
@@ -116,7 +116,7 @@ Dengan demikian proses instalasi dan konfigurasi WinBox pada GNU/Linux saya rasa
 <p>Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(</p>
 <br>
 <p><b>Solusi 3</b>:</p>
-<p><img src="{{ site.lazyload.logo_blank }}" data-echo="https://i.postimg.cc/zf8KN0zy/komentar-01.png"></p>
+<p><img src="{{ site.lazyload.logo_blank }}" data-echo="https://i.postimg.cc/zf8KN0zy/komentar-01.png" onerror="imgError(this);"></p>
 </div>
 
 # Video Sample

@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/tbrdrb9t9/banner_post_07.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/tbrdrb9t9/banner_post_07.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 
@@ -30,7 +30,7 @@ Mayoritas teman-teman yang mempunyai urusan dengan saya belum menggunakan platfo
 
 Sebenarnya, WhatsApp menyediakan layanan [WhatsApp-Web](https://web.whatsapp.com/){:target="_blank"} untuk pengguna Linux -- sedangkan untuk Windows dan macOS, mereka memberikan aplikasi *native desktop*.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/cd9zmy9lp/gambar_02.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/cd9zmy9lp/gambar_02.png" onerror="imgError(this);"}
 
 Namun, saya merasa kurang praktis karena sebagian besar saya beraktifitas menggunakan browser yang saya tidak ingin diganggu oleh hal-hal lain selain pekerjaan yang sedang saya kerjakan.
 
@@ -41,7 +41,7 @@ Pada tahun 2016 - 2017 saya masih sempat menggunakan aplikasi *unofficial* yang 
 
 Beberapa waktu lalu saya menemukan sebuah aplikasi yang mirip dengan Whatsie. Aplikasi yang berbasis Whatsapp Web dan dibangun menggunakan [Electron](http://electron.atom.io/){:target="_blank"} juga. Aplikasi ini bernama **Whatsapp-Desktop** yang dikelola oleh **Enrico204** yang semula dikelola oleh **bcalik**.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ujj3orbst/gambar_01.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ujj3orbst/gambar_01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - User Interface dari Whatsapp-Desktop</p>
 
 Whatsapp-Desktop ini juga mempunyai *tray icon* dan memiliki notifikasi yang terintegrasi dengan sistem.

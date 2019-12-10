@@ -14,7 +14,7 @@ hot: true
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" onerror="imgError(this);" alt="banner"> -->
 
 <!-- PERHATIAN -->
 <div class="blockquote-red">
@@ -29,7 +29,7 @@ hot: true
 Sudah sejak 15 Oktober 2018 lalu, saya begitu mengincar untuk dapat mengganti BIOS logo ThinkPad saya yang bertuliskan gambar ini.
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rmLd5HKn/gambar-01.jpg"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rmLd5HKn/gambar-01.jpg" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Default BIOS Logo pada ThinkPad X260 saya</p>
 
 Alasan saya begitu gigih untuk mengganti logo ini adalah, karena boot time yang molor pada saat BIOS logo ini. Luamaaaaaa aseeeeeliii. Saya berpikir akan sangat pas kalau BIOS logo ini diganti dengan logo yang saya inginkan.
@@ -111,7 +111,7 @@ Nah, dari penjelasan README.TXT tersebut kita dapat mengambil kesimpulan:
 Setelah mendapatkan informasi yang valid, saya pun menyiapkan gambar yang saya inginkan.
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/76K9VL6h/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/76K9VL6h/gambar-02.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Gambar pertama yang saya siapkan (440x440)</p>
 
 File gambar ini saya buat berukuran lebar 440px dan tinggi 440px, tidak transparan, *background* saya buat hitam, dan berukuran 22KB.
@@ -124,7 +124,7 @@ File gambar ini saya buat berukuran lebar 440px dan tinggi 440px, tidak transpar
 
 Caranya sangat mudah. Dengan menggunakan GIMP, buka menu **Image → Mode → Indexed...**.
 <!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/V69hq1yH/gambar-06.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/V69hq1yH/gambar-06.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 3 - Mode Indexed Window pada GIMP</p>
 
 Kemudian, ubah nilai **Maximum number of colors** mnejadi **16** seperti pada gambar di atas.
@@ -204,7 +204,7 @@ Akan ada tambahan pertanyaan yang kira-kira berisi konfirmasi bahwa di dalam dir
 Setelah selesai, hasilnya akan seperti ini.
 
 <!-- IMAGE CAPTION -->
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pVzWSnvg/gambar-04.gif"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pVzWSnvg/gambar-04.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 4 - Percobaan pertama</p>
 
 Gimana? Agak aneh yaa?
@@ -216,7 +216,7 @@ Kemduian saya coba menambahkan **Canvas Size** pada bagian atas dengan menggunak
 Kira-kira seperti ini hasilnya.
 
 <!-- IMAGE CAPTION -->
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C5dN6VBN/gambar-03.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C5dN6VBN/gambar-03.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 5 - Gambar kedua dengan ukuran (440x600)</p>
 
 Gambar kedua ini berukuran masih 440px dan tinggi yang saya ubah menjadi 600px. Dapat dilihat pada iliustrasi di atas. Tujuannya agar logo terlihat lebih di tengah dari screen laptop.
@@ -226,7 +226,7 @@ Kemudian saya ulangin langkah memasukkan gambar ke dalam *bootable flash drive* 
 Hasilnya seperti ini.
 
 <!-- IMAGE CAPTION -->
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pLxgqqY6/gambar-05.gif"}
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pLxgqqY6/gambar-05.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 6 - Percobaan kedua, logo terlihat lebih di tengah.</p>
 
 <!-- PERTANYAAN -->

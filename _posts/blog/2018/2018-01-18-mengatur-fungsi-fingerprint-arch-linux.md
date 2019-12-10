@@ -13,7 +13,7 @@ pin:
 hot:
 ---
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 Untuk dapat menggunakan _fingerprint scanner_, terlebih dahulu kalian harus memastikan apakah tipe dari _fingerprint scanner_ yang kalian miliki telah didukung atau tidak. Kalian dapat melakukan pengecekan dengan mengunjungi link berikut ini: [libfprint_supported_devices](https://www.freedesktop.org/wiki/Software/fprint/libfprint/Supported_devices/){:target="_blank"}.
@@ -47,7 +47,7 @@ Setelah melakukan instalasi paket fprintd, lantas kita perlu melakukan beberapa 
 ## Login
 Untuk kalian yang menggunakan Gnome 3.26, _login manager_ diatur oleh GDM. Apabila kalian ingin menggunakan _fingerprint scanner_ untuk _login_ pada GDM, kalian dapat mengikuti langkah ini. Gnome sudah menyediakan _fingerprint option_ yang dapat kalian atur pada **Settings > Details > Users**. Kalian akan melihat window seperti di bawah ini,
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-QCKqPEIkctA/WmBdqy0o-kI/AAAAAAAAG4w/39ie3sVWaCA7Cn5U0Mkmwbk2lhNE3TiHwCLcBGAs/s1600/gambar_1.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-QCKqPEIkctA/WmBdqy0o-kI/AAAAAAAAG4w/39ie3sVWaCA7Cn5U0Mkmwbk2lhNE3TiHwCLcBGAs/s1600/gambar_1.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 Kalian dapat melihat pada Gambar 1, terdapat _Fingerprint Login option_ dengan nilai “_Enabled_”. Bagi teman-teman yang belum melakukan konfigurasi maka akan tertulis “_Disabled_”.

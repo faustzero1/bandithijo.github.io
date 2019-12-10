@@ -48,7 +48,7 @@ Di sini, saya mengasumsikan teman-teman sudah memiliki GitHub Pages.
 
 Secara *default* GitHub Pages memiliki nama domain seperti ini **username.github.io**.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfDMr5Gt/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfDMr5Gt/gambar-01.png" onerror="imgError(this);"}
 
 Untuk mengatur konfirgurasi dari *custom domain* pada GitHub Pages, caranya sangat mudah.
 
@@ -58,7 +58,7 @@ Untuk mengatur konfirgurasi dari *custom domain* pada GitHub Pages, caranya sang
 
 3. Scrolling ke bawah, sampai menemukan section "GitHub Pages", seperti di bawah.
 
-    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4przvK4/gambar-02.png"}
+    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4przvK4/gambar-02.png" onerror="imgError(this);"}
 
 4. Pada bagian **Custom domain**, isikan dengan domain yang teman-teman miliki.
 
@@ -100,7 +100,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 3. Buat Hosted Zone baru dengan memilih tombol biru pada bagian atas bertuliskan "**Create Hosted Zone**".
 
-    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wjdjPLWD/gambar-03.png"}
+    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wjdjPLWD/gambar-03.png" onerror="imgError(this);"}
 
 4. Isikan **Domain Name:** dengan domain yang teman-teman miliki.
 
@@ -114,7 +114,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 9. Tampilannya akan seperti di bawah ini.
 
-    ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BvmZXyJC/gambar-04.png"}
+    ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BvmZXyJC/gambar-04.png" onerror="imgError(this);"}
 
 10. Saat pertama kali dibuat, hanya akan terdapat dua buah record set, **Nameservers** dan **SOA (*Start of authority*)**, seperti yang saya kotak merah pada gambar di atas.
 
@@ -137,7 +137,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 1. Buat record set A dengan memilih tombol biru **Create Record Set** di bagian atas.
 
-    ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52q2MyGT/gambar-05.png"}
+    ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52q2MyGT/gambar-05.png" onerror="imgError(this);"}
 
 2. Lalu isikan seperti gambar di atas.
 
@@ -160,7 +160,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 1. Buat record set CNAME dengan memilih tombol biru **Create Record Set** di bagian atas.
 
-    ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqbKYZzR/gambar-06.png"}
+    ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqbKYZzR/gambar-06.png" onerror="imgError(this);"}
 
 2. Lalu isikan seperti gambar di atas.
 
@@ -193,7 +193,7 @@ Bagi teman-teman yang tidak membeli domain di Dewaweb, jangan khawatir, karena m
 
 Secara garis besar, tampilannya akan mirip seperti di bawah ini.
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MZL7c65v/gambar-07.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MZL7c65v/gambar-07.png" onerror="imgError(this);"}
 
 Masukkan 4 alamat Nameservers yang sudah kita catat sebelumnya.
 
@@ -286,7 +286,7 @@ Terima kasih.
 
 Alhamdulillah, Final Submission saya telah dinyatakan lulus.
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/q73xftHy/gambar-08.png"}
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/q73xftHy/gambar-08.png" onerror="imgError(this);"}
 
 
 <br>

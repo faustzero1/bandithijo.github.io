@@ -14,7 +14,7 @@ hot: true
 ---
 
 <!-- BANNER OF THE POST -->
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/hvtdtlfa5/banner_post_20.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/hvtdtlfa5/banner_post_20.png" onerror="imgError(this);" alt="banner">
 
 # Pendahuluan
 DNSCrypt ? Apa itu ?

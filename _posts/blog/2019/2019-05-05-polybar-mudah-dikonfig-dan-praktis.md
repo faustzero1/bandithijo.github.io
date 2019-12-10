@@ -48,9 +48,9 @@ Status indikator yang *optional* seperti:
 
 Di bawah ini adalah contoh Polybar yang saya pergunakan.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfwPVNhT/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfwPVNhT/gambar-01.png" onerror="imgError(this);"}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZYNMVGQ4/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZYNMVGQ4/gambar-02.png" onerror="imgError(this);"}
 
 Jangan bingung, tampilan Polybar saya memang sederhana seperti ini saja.
 
@@ -320,7 +320,7 @@ Kalau sudah, restart BSPWM.
 
 Saat pertama kali menjalankan Polybar, secara *default* akan menampilkan tampilan seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C5N3j57m/gambar-03.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C5N3j57m/gambar-03.png" onerror="imgError(this);"}
 
 Gambar di atas adalah contoh dari pemanggilan `[bar/example]` dari file `config` yang belum kita modifikasi.
 
@@ -1220,7 +1220,7 @@ Saya menggunakan kombinasi keyboard <kbd>SUPER</kbd>+<kbd>F12</kbd> untuk mengak
 
 Berikut ini adalah demonstrasinya.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/FKKM6wWh/gambar-04.gif"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/FKKM6wWh/gambar-04.gif" onerror="imgError(this);"}
 
 
 # Contoh File Konfigurasi

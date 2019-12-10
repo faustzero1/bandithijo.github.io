@@ -66,10 +66,10 @@ Namun, saya akan menuliskan penggunaan Ransack untuk membuat tab filter berdasar
 
 Kira-kira seperti ini hasilnya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jSsxsCTt/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jSsxsCTt/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Hasil dari filter pada tab All</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wj063HxJ/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wj063HxJ/gambar-02.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Hasil dari filter pada tab tertentu, berdasarkan negara</p>
 
 Contoh di atas, sudah dapat kita perkirakan bahwa hasil dari object yang sudah difilter akan ditampilkan pada view `index.html.erb`.

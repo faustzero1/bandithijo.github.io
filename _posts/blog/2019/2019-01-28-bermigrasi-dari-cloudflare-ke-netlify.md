@@ -43,10 +43,10 @@ Proses-proses di bawah ini ~~tidak~~ harus berurutan. Saya mencoba menyusun dan 
 Sebenarnya langkah ini tidak diperlukan. Ini hanya preferensi saya saja.
 
 1. Buka tab **Settings** pada repository GitHub.
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kgV8Y97C/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kgV8Y97C/gambar-01.png" onerror="imgError(this);"}
 
 2. Scrolling ke bawah, pada bagian "GitHub Pages". Ganti **Source** dari **master branch** menjadi **None**.
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QnZw071/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QnZw071/gambar-02.png" onerror="imgError(this);"}
 Kemudian, **Save**.
 
     Karena saya memiliki **custom domain** maka saya hapus dahulu isian dari **Custom domain**. Setelah itu, baru merubah **Source** menjadi **None**.
@@ -54,11 +54,11 @@ Kemudian, **Save**.
     Dengan begini, repository **bandithijo.github.io** sudah tidak lagi menjadi GitHub page.
 
 3. Selanjutnya, rename repository dari **bandithijo.github.io** menjadi **bandithijo.com**.
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0QCJKy0Y/gambar-03.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0QCJKy0Y/gambar-03.png" onerror="imgError(this);"}
 Kemudian **Rename**.
 
     Setelah berhasil, nama dari repositori saya akan berubah.
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wvzmBmLx/gambar-04.png"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wvzmBmLx/gambar-04.png" onerror="imgError(this);"}
 Tujuannya hanya untuk menyamakan presepsi saja, bahwa sudah tidak ada lagi repositori yang bernama **bandithijo.github.io**.
 
     Agar dikemudian hari tidak menimbulkan ambigu.
@@ -87,7 +87,7 @@ Ganti pada section `[remote "origin"]`, `/bandithijo.github.io.git` menjadi `/ba
 ...
 ...</pre>
 Perubahan alamat remote ini adalah hal yang direkomendasikan oleh perintah `git` saat saya melakukan `git push -u origin master`.
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jS5Cdr51/gambar-05.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jS5Cdr51/gambar-05.png" onerror="imgError(this);"}
 
 ### Menghapus CNAME
 
@@ -116,10 +116,10 @@ $ rm CNAME
 ### Tambah Site Baru
 
 1. Setelah login dan otomatis di arahkan ke alamat [app.netlify.com/](https://app.netlify.com/){:target="_blank"}. Saya menambahkan site baru.
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8PS526Mt/gambar-06.png"}
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8PS526Mt/gambar-06.png" onerror="imgError(this);"}
 
 2. Karena saya menggunakan GitHub repo, maka pada langkah 1, ini saya memilih GitHub.
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RFhfnnXc/gambar-07.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RFhfnnXc/gambar-07.png" onerror="imgError(this);"}
 Asiknya dengan Netlify, saya dapat berganti-ganti **resource**.
 
     Jadi meskipun saya memilih GitHub saat ini, nanti saya masih dapat berubah ke resource yang lain, GitLab misalnya.
@@ -127,10 +127,10 @@ Asiknya dengan Netlify, saya dapat berganti-ganti **resource**.
 3. Saya akan diminta untuk memberikan hak autorisasi Netlify dengan akun GitHub. (Saya tidak memiliki gambarnya)
 
 4. Pada tahap ini, saya diminta untuk memilih repository GitHub.
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QvVHZdt/gambar-08.png"}
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QvVHZdt/gambar-08.png" onerror="imgError(this);"}
 
 5. Padah tahap ini saya diminta untuk melakukan setting untuk mendeploy repository.
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png"}
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png" onerror="imgError(this);"}
 Saya menambahkan `;rm _site/feed.xml` karena saya tidak menggunakan `feed.xml`.
 
     Pada langkah ini, sebenarnya di laptop (*local*/*development*), saya membuild Jekyll dengan menggunakan *custom command*.
@@ -162,46 +162,46 @@ Saya menambahkan `;rm _site/feed.xml` karena saya tidak menggunakan `feed.xml`.
     Kalau sudah yakin, klik **Deploy site**.
 
 6. Akan keluar tampilan seperti ini.
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JntfdM1b/gambar-10.png"}
+![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JntfdM1b/gambar-10.png" onerror="imgError(this);"}
 Saat ini statusnya project kita sedang di build dan di deploy oleh Netlify.
 
 ### Konfigurasi Custom Domain
 
 1. Sembari menunggu proses deploy selesai, saya melakukan **Domain settings**.
-![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7PFFXFj2/gambar-11.png"}
+![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7PFFXFj2/gambar-11.png" onerror="imgError(this);"}
 
 2. Karena saya memiliki domain sendiri, yaitu **bandithijo.com**, maka saya melakukan konfigurasi custom domain, pilih **Add custom domain**.
-![gambar_12]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vB3WDw9S/gambar-12.png"}
+![gambar_12]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vB3WDw9S/gambar-12.png" onerror="imgError(this);"}
 
 3. Saya mengisikan "bandithijo.com", lebih direkomendasikan untuk menggunakan "www". Namun pada tulisan kali ini saya akan menunjukkan mudahnya konfigurasi custom domain pada Netlify.
-![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png"}
+![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png" onerror="imgError(this);"}
 Tekan **Verify**.
 
 4. Netlify akan mengkonfirmasi bahwa "bandithijo.com" sudah ada yang punya, apakah pemiliknya adalah saya?
-![gambar_14]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y00QWDz2/gambar-14.png"}
+![gambar_14]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y00QWDz2/gambar-14.png" onerror="imgError(this);"}
 Tentu saja, **Yes, add domain**.
 
 5. Akan tampil domain "bandithijo.com" dan "www.bandithijo.com" yang memiliki status **Check DNS configuration**.
-![gambar_15]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/76zY5gpG/gambar-15.png"}
+![gambar_15]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/76zY5gpG/gambar-15.png" onerror="imgError(this);"}
 Pilih salah satu dari kedua warning tersebut.
 
 6. Akan terbuka popup window yang berisi tentang rekomendasi konfigurasi DNS. Untuk melakukan *pointing root domain* ke Netlify.
-![gambar_16]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T1qd9T2T/gambar-16.png"}
+![gambar_16]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T1qd9T2T/gambar-16.png" onerror="imgError(this);"}
 Namun, saya hiraukan saja, karena saya hanya ingin praktis dengan menggunakan DNS dari Netlify.
 
 7. Scrolling ke bawah, untuk menemukan bantuan dalam menggunakan DNS dari Netlify.
-![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8cVkM7Sy/gambar-17.png"}
+![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8cVkM7Sy/gambar-17.png" onerror="imgError(this);"}
 Saat ini, saya memilih menggunakan Netlify DNS agar lebih praktis.
 
 8. Sekali lagi saya diminta untuk memastikan apakah domain **bandithijo.com** benar saya miliki atau tidak.
-![gambar_18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vZ1R8QRD/gambar-18.png"}
-![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png"}
+![gambar_18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vZ1R8QRD/gambar-18.png" onerror="imgError(this);"}
+![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png" onerror="imgError(this);"}
 
 9. Bagian menambahkan DNS record yang lain, saya **continue** saja.
-![gambar_19]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5bBhPDJ/gambar-19.png"}
+![gambar_19]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5bBhPDJ/gambar-19.png" onerror="imgError(this);"}
 
 10. Copy paste domain Nameserver milik Netlify yang nanti akan saya letakkan pada konfigurasi Nameserver di Dewaweb.
-![gambar_20]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fbX6XBRN/gambar-20.png"}
+![gambar_20]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fbX6XBRN/gambar-20.png" onerror="imgError(this);"}
 ```
 dns1.p06.nsone.net
 dns2.p06.nsone.net
@@ -212,16 +212,16 @@ dns4.p06.nsone.net
 ### Mengganti Default Domain Netlify
 
 1. Saya perlu mengganti Default subdomain yang diberikan secara random oleh Netlify.
-![gambar_21]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LX5Lw0gd/gambar-21.png"}
+![gambar_21]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LX5Lw0gd/gambar-21.png" onerror="imgError(this);"}
 Pilih **Edit site name**. Untuk merubahnya.
 
 2. Saya isikan sesuai nama domain yang saya miliki. **bandithijo**.
-![gambar_22]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/W179PCzt/gambar-22.png"}
+![gambar_22]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/W179PCzt/gambar-22.png" onerror="imgError(this);"}
 Pilih **Save**.
 
 3. Lakukan pengecekan. **Go to DNS panel**.
-![gambar_23]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/YqHfqRJF/gambar-23.png"}
-![gambar_24]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m2y3cMs5/gambar-24.png"}
+![gambar_23]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/YqHfqRJF/gambar-23.png" onerror="imgError(this);"}
+![gambar_24]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m2y3cMs5/gambar-24.png" onerror="imgError(this);"}
 Maka target dari DNS record sudah di arahkan ke alamat Default domain yang baru.
 
 ### Redirect Default Subdomain Netlify ke Primary Domain
@@ -229,7 +229,7 @@ Maka target dari DNS record sudah di arahkan ke alamat Default domain yang baru.
 1. Untuk melakukan redirect secara otomatis saat pengunjung mengakses **bandithijo.netlify.com** akan langsung diarahkan ke **bandithijo.com**, saya perlu melakukan konfigurasi tambahan untuk ini.
 
 2. Netlify sudah menyarankan untuk membuat file `_redirects` pada direktori root dari direktori site saya.
-![gambar_25]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sDgxcZW8/gambar-25.png"}
+![gambar_25]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sDgxcZW8/gambar-25.png" onerror="imgError(this);"}
 Namun, saya lebih memilih cara lain.
 
 3. Saya memilih menambahkan file `netlify.toml` pada direktori root Jekyll saya. Yang isinya mirip seperti file `_redirects` yang disarankan oleh Netlify.
@@ -255,15 +255,15 @@ Saya menggunakan cara ini karena, saat menggunakan file `_redirects`, pada bagia
 1. Buka Client Area pada Dewaweb.
 
 2. Saya hanya perlu mengganti default Dewaweb Nameserver dengan 4 buah Nameserver yang sudah diberikan oleh Netlify.
-![gambar_26]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4dMGQmTC/gambar-26.png"}
-![gambar_27]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/brthCpzZ/gambar-27.png"}
+![gambar_26]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4dMGQmTC/gambar-26.png" onerror="imgError(this);"}
+![gambar_27]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/brthCpzZ/gambar-27.png" onerror="imgError(this);"}
 
 3. Pastikan berhasil memasukkan Nameserver Netlify.
-![gambar_28]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/GhRL7Tyr/gambar-28.png"}
+![gambar_28]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/GhRL7Tyr/gambar-28.png" onerror="imgError(this);"}
 Apabila gagal, ulangi sampai Nameserver benar-benar tersimpan.
 
 3. Pada Dewaweb, saya tidak perlu melakukan konfigurasi **DNS Management**.
-![gambar_29]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qM2tgd8B/gambar-29.png"}
+![gambar_29]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qM2tgd8B/gambar-29.png" onerror="imgError(this);"}
 Karena saya sudah menggunakan DNS management milik Netlify.
 
 # Konfigurasi HTTPS
@@ -277,18 +277,18 @@ Namun untuk mencatat prosedur manualnya, saya akan tetap menuliskan langkah-lang
 1. Kembali lagi ke Netlify
 
 2. Scrolling ke bagian paling bawah dari halaman Settings Domain.
-![gambar_30]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7L6jtw9q/gambar-30.png"}
+![gambar_30]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7L6jtw9q/gambar-30.png" onerror="imgError(this);"}
 Pilih **Verify DNS configuration**.
 
 3. Apabila berhasil.
-![gambar_31]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J05LVKk8/gambar-31.png"}
+![gambar_31]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J05LVKk8/gambar-31.png" onerror="imgError(this);"}
 Tinggal menunggu (paling lama 24 jam) hingga Netlify memberikan sertifikat Let's Encrypt (TLS/SSL certificate) untuk mendapatkan HTTPS.
 
 4. Yak! Tidak sampai 5 menit, SSL/TLS certificate dari Let's Encrypt saya sudah jadi.
-![gambar_32]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/VsW5XP7K/gambar-32.png"}
+![gambar_32]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/VsW5XP7K/gambar-32.png" onerror="imgError(this);"}
 
 5. Saya coba cek di browser.
-![gambar_33]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/63N5GMCs/gambar-33.png"}
+![gambar_33]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/63N5GMCs/gambar-33.png" onerror="imgError(this);"}
 
 # Tips
 
@@ -299,7 +299,7 @@ Untuk masalah ini, Belum akan saya bahas di sini.
 Namun apabila ingin berpindah dari "tanpa WWW (apex domain)" dan ingin menggunakan "WWW (subdomain)" caranya sangat mudah.
 
 Cukup klik menu pada domain **www.bandithijo.com**.
-![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png"}
+![gambar_34]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png" onerror="imgError(this);"}
 Lalu klik **Set as primary domain**.
 
 

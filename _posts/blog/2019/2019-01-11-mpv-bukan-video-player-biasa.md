@@ -14,7 +14,7 @@ hot:
 ---
 
 <!-- BANNER OF THE POST -->
-<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" alt="banner"> -->
+<!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" onerror="imgError(this);" alt="banner"> -->
 
 # Prakata
 
@@ -325,11 +325,11 @@ Berikut ini adalah beberapa alasan saya:
 </div>
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - MPV menampilkan output dari banyak WebCam</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif" onerror="imgError(this);"}
 <p class="img-caption">Gambar 2 - Demonstrasi Horizontal Flip dan Rotate menggunakan keyboard Shortcut</p>
 
 

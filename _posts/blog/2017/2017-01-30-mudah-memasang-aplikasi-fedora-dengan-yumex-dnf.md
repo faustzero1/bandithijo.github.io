@@ -15,7 +15,7 @@ hot:
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
 
-<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-FigjG_LNp7I/WI51ZWdr7gI/AAAAAAAAEOw/MsEHYJhXqT0qqEVjnKp9Lwo_Ms5DFthvACLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B23.5.png" alt="banner">
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-FigjG_LNp7I/WI51ZWdr7gI/AAAAAAAAEOw/MsEHYJhXqT0qqEVjnKp9Lwo_Ms5DFthvACLcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B23.5.png" onerror="imgError(this);" alt="banner">
 
 # Latar Belakang
 ## Apa itu YumEx-DNF ?
@@ -34,7 +34,7 @@ Sebelumnya saya mencari tahu lewat Google, aplikasi apa yang saya butuhkan untuk
 # Anatomi dari YumEx-DNF
 Agar lebih mudah dalam menggunakan YumEx-DNF maka saya akan mengenalkan anatomi (bagian-bagian) dari YumEx-DNF.
 
-![Gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://2.bp.blogspot.com/-WfLRR64IQ8w/WI5mGxDBydI/AAAAAAAAEMc/xSm_8GySBO4lf_4ZerS3cv9rDfWzuyOgQCLcB/s1600/Gambar%2B1.0.png"}
+![Gambar1](/assets/img/logo/logo_blank.png){:data-echo="https://2.bp.blogspot.com/-WfLRR64IQ8w/WI5mGxDBydI/AAAAAAAAEMc/xSm_8GySBO4lf_4ZerS3cv9rDfWzuyOgQCLcB/s1600/Gambar%2B1.0.png" onerror="imgError(this);"}
 
 <p class="img-caption">Gambar 1.0 – YumEx-DNF</p>
 
