@@ -196,7 +196,7 @@ document.addEventListener("turbolinks:load", function() {
       },
       {
         listLocation: "experience_names",
-        header: "<i class='icon-trip_planner2'></i> Experiences",
+        header: "<i class='icon-map'></i> Experiences",
       },
     ],
     list: {
@@ -267,7 +267,7 @@ Kemudian, properties `data: {behavior: "autocomplete"}` adalah lokasi dari EasyA
 
 Untuk mengambil nilai JSON yang sudah saya buat pada controller, saya menggunakan JSON Builder.
 
-Kemudian, saya membuat file bernama `index.json.jbuilder` pada `app/view/experiences/`, berdampingan dengan `index.html.erb` pada viewe template dari experiences.
+Kemudian, saya membuat file bernama `index.json.jbuilder` pada `app/view/experiences/`, berdampingan dengan `index.html.erb` pada view template dari experiences.
 
 Isinya seperti ini.
 
