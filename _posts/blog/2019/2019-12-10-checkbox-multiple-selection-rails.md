@@ -26,7 +26,7 @@ Rails, menyediakan helper method untuk menampilkan multiple checkbox pada view t
 
 Kalau tidak salah, helper method ini mulai diperkenalkan pada Rails versi 4.0.2 hingga sekarang (6.0.0).
 
-Herlper ini masuk ke dalam kelas **ActionView::Helpers::FormOptionsHelper**. Nah, artinya, helper method ini kita gunakan di dalam form.
+Helper ini masuk ke dalam kelas **ActionView::Helpers::FormOptionsHelper**. Nah, artinya, helper method ini kita gunakan di dalam form.
 
 > **collection_check_boxes**(object, method, collection, value_method, text_method, options = {}, html_options = {}, &block) *public*
 
