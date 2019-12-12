@@ -261,6 +261,24 @@ kbd {
     overflow: hidden;
 }
 
+.flex-parent {
+  display: flex;
+}
+
+.flex-child-1 {
+  order: 2;
+  flex-direction: column;
+}
+
+.flex-child-2 {
+  order: 1;
+}
+
+.flex-child-3 {
+  order: 3;
+  flex-direction: column;
+}
+
 /* Post ------------------------------------------------------------------- */
 article.homepage {
     padding: 15px 0;
@@ -448,8 +466,8 @@ p.post-details-index-pin:before {
 
 /* Sidebar ---------------------------------------------------------------- */
 aside.sidebar {
-    width: 27%;
     /* width: 245px; */
+    width: 27%;
     float: right;
     margin-right: 20px;
 }
@@ -1517,8 +1535,8 @@ select:-moz-focusring {
 }
 
 select:focus::-ms-value {
-    background-color: $input-bg;
-    color: $input-color;
+    background-color: none;
+    color: none;
 }
 
 /* Checkbox --------------------------------------------------------------- */
@@ -1527,7 +1545,7 @@ ul.chkbox {
 }
 
 ul.chkbox li {
-    /* text-align: left; */
+    text-align: left;
 }
 
 ul.chkbox li:before {
@@ -1884,7 +1902,7 @@ a.disqus_button {
 
 @media (max-width: 1024px) {
     .container {
-        max-width: 87%;
+        max-width: 92%;
     }
 
     #header .nav ul {
