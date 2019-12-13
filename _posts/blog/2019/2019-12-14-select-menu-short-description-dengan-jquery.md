@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Menampilkan Short Description pada Select Menu Menggunakan jQuery pada Rails"
+title: "Select Menu dengan Short Description Menggunakan jQuery pada Rails"
 date: 2019-12-14 01:44
 permalink: '/blog/:title'
 author: 'BanditHijo'
