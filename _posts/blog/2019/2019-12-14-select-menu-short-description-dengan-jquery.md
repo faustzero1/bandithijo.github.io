@@ -31,7 +31,7 @@ Misalnya, seperti pada project yang sedang saya kerjakan. Terdapat menu select u
 
 # Permasalahan
 
-Pada umumnya, memang menu select tidak tedapat penjelasan singkat. Hanya tertulis nama dari value yang dijadikan menu selection.
+Pada umumnya, memang menu select tidak terdapat penjelasan singkat. Hanya tertulis nama dari value yang dijadikan menu selection.
 
 Client merasa membutuhkan penjelasan singkat dari masing-masing menu selection selain dari nama menu selection.
 
