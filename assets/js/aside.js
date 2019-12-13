@@ -1,7 +1,7 @@
 // aside
 $(document).ready(function(){
   $('.hideAside').on('click',function(){
-      $('aside').toggle('slide',function(){
+      $('aside').toggle(1,function(){
           var visibilityStatus=$('aside').attr('data-visible');
           // alert(!visibilityStatus);
           $('aside').attr('data-visible',!visibilityStatus);
