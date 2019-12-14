@@ -54,10 +54,12 @@ _Mount_ partisi `/dev/sda1` ke partisi `/mnt/boot`.
 Setelah partisi yang kita siapkan telah kita _mounting_, langkah selanjutnya adalah kita akan menggunakan `pacstrap` _script_ untuk menginstal `base` _package_ Arch Linux.
 
 ```
-# pacstrap /mnt base base-devel
+# pacstrap /mnt base base-devel linux linux-headers linux-firmware
 ```
 
 Pada proses instalasi di atas saya menambahkan `base-devel` _package_. Proses instalasi ini akan berjalan lumayan lama. “Total _download size_” saat dokumentasi ini dibuat adalah 266.60 MiB.
+
+Saya juga menambahkan kernel `linux` beserta `linux-headers` (yang biasanya diperlukan oleh paket seperti virtualbox, dll), serta `linux-firmware`. Karena pada berita ini, [(New kernel packages and mkinitcpio hooks 2019-11-10)](https://www.archlinux.org/news/new-kernel-packages-and-mkinitcpio-hooks/){:target="_blank"}, paket linux sudah dipisahkan dari group `base`. Tentunya ini merupakan keuntungan untuk yang ingin menggunakan paket kernel yang lain, seperti kernel `linux-lts`, `linux-hardened` dan `linux-zen`.
 
 Apabila proses `pacstrap` telah selesai, langkah selanjutnya ada _generate_ `fstab`.
 

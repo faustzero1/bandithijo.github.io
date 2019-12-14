@@ -855,7 +855,7 @@ article.homepage .notif-157-kalender a {
     font-weight: normal;
     border-bottom: none;
     text-align: left;
-    /* untuk indentasi title*/
+    /* untuk indentasi title */
     padding-left: 64px;
     text-indent: -128px;
 }
@@ -1504,8 +1504,10 @@ button.active {
 .log-page ul li {
     /* float:left; */
     text-align: left;
+    /* untuk indentasi list */
     padding-left: 75px;
-    text-indent: -67px;
+    text-indent: -90px;
+    list-style-position: inside;
 }
 
 .log-page a {
@@ -2467,8 +2469,10 @@ a.disqus_button {
     .log-page ul li {
         /* float:left; */
         text-align: left;
-        padding-left: 75px;
-        text-indent: -67px;
+        /* untuk indentasi list */
+        padding-left: 85px;
+        text-indent: -90px;
+        list-style-position: inside;
     }
 
     .penulis-img {
