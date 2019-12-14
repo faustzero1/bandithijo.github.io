@@ -164,6 +164,12 @@ HOOKS=(base udev autodetect modconf block <mark>keyboard encrypt lvm2</mark> fil
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat simpan dan keluar dari Vim.
 
+Berdasarkan [Arch Wiki](https://wiki.archlinux.org/index.php/LVM#Configure_mkinitcpio){:target="_blank"}, paket `lvm2` belum terpasang pada sistem yang kita masuki dengan menggunakan arch-chroot ini. Maka, kita perlu memasang paket tersebut.
+
+```
+# pacman -S lvm2
+```
+
 Langkah terakhir pada proses _bootloader configuration_ ini adalah, _update_ `initramfs` dengan cara sebagai berikut.
 
 ```
