@@ -22,18 +22,20 @@ hot:
 
 # Prakata
 
-Catatan kali ini saya ingin menulis tentang pengalaman saya dikerjaan, mengenai permintaan client yang menginginkan adanya keterangan singkat pada menu select.
+Pernah membuat menu select atau dropdown menu, namun merasa keterngan nama yang tertulis di menu tersebut tidak dapat menjelaskan secara detail karena keterbatasan tempat.
 
 Misalnya, seperti pada project yang sedang saya kerjakan. Terdapat menu select untuk memilih salah satu Cancellation Policy melalui menu select. Seperti di bawah ini.
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4NKCw592/gambar-01.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 1 - Cancellation Policy Menu Select</p>
 
+Lihat, tidak ada informasi yang lebih detail mengenail masing-masing menu.
+
+Kalau seperti ini, tentunya kita akan bingung, mana menu yang pas untuk kita pilih.
+
 # Permasalahan
 
 Pada umumnya, memang menu select tidak terdapat penjelasan singkat. Hanya tertulis nama dari value yang dijadikan menu selection.
-
-Client merasa membutuhkan penjelasan singkat dari masing-masing menu selection selain dari nama menu selection.
 
 # Sekenario
 

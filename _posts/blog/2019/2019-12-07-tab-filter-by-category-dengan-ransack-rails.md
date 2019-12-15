@@ -22,7 +22,7 @@ hot:
 
 # Prakata
 
-Pada project yang saya garap di startup tempat saya bekerja, menggunakan **Ransack** gem untuk menghandle [MetaSearch](https://github.com/activerecord-hackery/meta_search){:target="_blank"}.
+Beberapa waktu yang lalu, saya pernah membangun project dengan menggunakan **Ransack** gem untuk menghandle [MetaSearch](https://github.com/activerecord-hackery/meta_search){:target="_blank"}.
 
 Sedikit penjelasan mengenai Ransack,
 
