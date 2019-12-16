@@ -474,7 +474,7 @@ Kita mulai dari `layouts/`.
 ```
 
 ```html
-<!-- app/views/layouts/admins.html.erb -->
+<!-- app/views/layouts/users.html.erb -->
 
 <!DOCTYPE html>
 <html>
@@ -497,6 +497,21 @@ Kita mulai dari `layouts/`.
 Pada ketiga file view template di atas, saya menambahkan render partial untuk menu navigasi.
 
 Saya juga mengarahkan `stylesheet_link_tag` dan `javascript_include_tag` pada path masing-masing sesuai struktur yang sudah dibuat sebelumnya di atas.
+
+Oh ya, saya perlu untuk menambahkan configurasi tambahan untuk precompile additional assets, karena saya sudah membuat admins dan users.
+
+Buka file `initializers/assets.rb`.
+
+```
+# config/initializers/assets.rb
+
+# Precompile additional assets.
+# application.js, application.css, and all non-JS/CSS in the app/assets
+# folder are already added.
+Rails.application.config.assets.precompile += %w( admins.js admins.css users.js users.css )
+```
+
+*Uncomment* dan tambahkan `users.js` dan `users.css`.
 
 *Bersambung...*
 
