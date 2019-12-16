@@ -85,7 +85,7 @@ Yay! Berhasil.
 
 Entah mengapa saya suka melihat Default Rails Welcome Page ini. Dari sedikit web framework yang sudah saya coba seperti Codeigniter, Laravel, Django dan React. Rails memiliki tampilan Default Welcome Page yang menurut saya paling menarik.
 
-## Pasang Devise
+## Devise Gem
 
 Devise adalah gem yang akan saya gunakan untuk menghandle authentication system.
 
@@ -630,7 +630,9 @@ Selanjutnya Homepage.
 </header>
 
 <div>
-  <p>=> <%= controller_name %>#<%= action_name %></p>
+  <p>
+    => <%= controller_name %>#<%= action_name %>
+  </p>
 </div>
 ```
 
@@ -645,7 +647,9 @@ Halaman About dan Contact.
 </header>
 
 <div>
-  <p>=> <%= controller_name %>#<%= action_name %></p>
+  <p>
+    => <%= controller_name %>#<%= action_name %>
+  </p>
 </div>
 ```
 
@@ -657,7 +661,9 @@ Halaman About dan Contact.
 </header>
 
 <div>
-  <p>=> <%= controller_name %>#<%= action_name %></p>
+  <p>
+    => <%= controller_name %>#<%= action_name %>
+  </p>
 </div>
 ```
 
@@ -863,7 +869,27 @@ $ rails s
 
 Kira-kira, seperti inilah hasilnya.
 
-*Bersambung...*
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/15mvFB1T/gambar-02.gif" onerror="imgError(this);"}
+<p class="img-caption">Gambar 2 - Public Page</p>
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif" onerror="imgError(this);"}
+<p class="img-caption">Gambar 3 - User Login, Register Dashboard</p>
+
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pXsqJj2d/gambar-04.gif" onerror="imgError(this);"}
+<p class="img-caption">Gambar 4 - Admin Login dan Register</p>
+
+Selesai!
+
+Kerangka untuk membuat Web Aplikasi yang memiliki Halaman Public, Admin Dashboard dan User Dashboard sudah selesai.
+
+Teman-teman dapat melihat source codenya pada halaman GitHub [di sini](https://github.com/bandithijo/blog_spot){:target="_blank"}.
+
+Mudah-mudahan dapat bermanfaat.
+
+Terima kasih.
+
+(^_^)
+
 
 
 
