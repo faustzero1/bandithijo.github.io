@@ -99,14 +99,14 @@ pwa:
     sw_src_filepath: service-worker.js # Optional
     sw_dest_filename: service-worker.js # Optional
     dest_js_directory: assets/js # Required
-    precache_recent_posts_num: 5 # Optional
+    precache_recent_posts_num: 1 # Optional
     precache_glob_directory: / # Optional
     precache_glob_patterns: # Optional
         - "{js,css,fonts}/**/*.{js,css,eot,svg,ttf,woff}"
         - index.html
     precache_glob_ignores: # Optional
         - sw-register.js
-        - "assets/fonts/*"
+        - "fonts/**/*"
 
 keep_files:
     - images
@@ -119,7 +119,6 @@ keep_files:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
-    - lazyhandling.py
     - lazyhandling.rb
     - Gemfile
     - Gemfile.lock
