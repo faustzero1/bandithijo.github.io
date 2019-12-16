@@ -498,9 +498,9 @@ Pada ketiga file view template di atas, saya menambahkan render partial untuk me
 
 Saya juga mengarahkan `stylesheet_link_tag` dan `javascript_include_tag` pada path masing-masing sesuai struktur yang sudah dibuat sebelumnya di atas.
 
-Oh ya, saya perlu untuk menambahkan configurasi tambahan untuk precompile additional assets, karena saya sudah membuat admins dan users.
+Oh ya, saya perlu untuk menambahkan configurasi tambahan untuk precompile additional assets, karena saya sudah membuat custom assets untuk admins dan users.
 
-Buka file `initializers/assets.rb`.
+Buka file `config/initializers/assets.rb`.
 
 ```ruby
 # config/initializers/assets.rb
