@@ -28,6 +28,8 @@ Contoh mudahnya seperti aplikasi blog, Wordpress atau Blogspot.
 
 Kedua aplikasi ini disebut CMS (*Content Management System*). Di mana web aplikasi ini mempunyai dua buah tampilan yang berbeda antara tampilan untuk pengunjung dan tampilan untuk author (penulis) atau admin.
 
+Nah, kegunaan pemisahan User dengan Admin pada catatan kali ini, nantinya dapat dimanfaatkan untuk membuat web aplikasi seperti CMS.
+
 # Eksekusi
 
 Kali ini saya sedikit rajin.
@@ -258,6 +260,8 @@ Saya akan menggunakan **Controller Namespaces and Routing**.[<sup>2</sup>](https
 │  │  │  └─ <mark>dashboard_controller.rb</mark>
 │  │  ├─ concerns/
 │  │  ├─ <mark>public/</mark>
+│  │  │  └─ <mark>about_controller.rb</mark>
+│  │  │  └─ <mark>contact_controller.rb</mark>
 │  │  │  └─ <mark>homepage_controller.rb</mark>
 │  │  ├─ <mark>users/</mark>
 │  │  │  └─ <mark>dashboard_controller.rb</mark>
@@ -296,7 +300,6 @@ Untuk Controller Namespaces pada Users.
 # app/controllers/users_controller.rb
 
 class UsersController < ApplicationController
-  layout :users
 end
 ```
 
@@ -308,12 +311,50 @@ class Users::DashboardController < UsersController
 end
 ```
 
+Karena saya ingin membuat tampilan login yang berbeda antara Admin dengan User. Saya perlu mengaturnya pada `application_controller.rb`.[<sup>3</sup>](https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts){:target="_blank"}
+
+```ruby
+# app/controllers/application_controller.rb
+
+class ApplicationController < ActionController::Base
+  layout :layout_by_resource
+
+  private
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :admin
+      'admins_devise'
+    else
+      'users'
+    end
+  end
+end
+```
+
 Saya juga membuat `homepage_controller.rb` untuk menghandle halaman Homepage yang saya letakkan pada direktori `public/`
 
 ```ruby
 # app/controllers/public/homepage_controller.rb
 
 class Public::HomepageController < ApplicationController
+  def index; end
+end
+```
+
+Serta halaman About dan Contact.
+
+```ruby
+# app/controllers/public/about_controller.rb
+
+class Public::AboutController < ApplicationController
+  def index; end
+end
+```
+
+```ruby
+# app/controllers/public/contact_controller.rb
+
+class Public::ContactController < ApplicationController
   def index; end
 end
 ```
@@ -376,26 +417,6 @@ Berikut ini struktur direktorinya.
 <pre>
 ├─ app/
 │  ├─ assets/
-│  │  ├─ config/
-│  │  ├─ images/
-│  │  ├─ javascripts/
-│  │  │  ├─ <mark>admins/</mark>
-│  │  │  │  └─ <mark>custom.js</mark>
-│  │  │  ├─ channels/
-│  │  │  ├─ <mark>users/</mark>
-│  │  │  │  └─ <mark>custom.js</mark>
-│  │  │  ├─ <mark>admins.js</mark>
-│  │  │  ├─ application.js
-│  │  │  ├─ cable.js
-│  │  │  └─ <mark>users.js</mark>
-│  │  └─ stylesheets/
-│  │     ├─ <mark>admins/</mark>
-│  │     │  └─ <mark>custom.css</mark>
-│  │     ├─ <mark>users/</mark>
-│  │     │  └─ <mark>custom.css</mark>
-│  │     ├─ <mark>admins.css</mark>
-│  │     ├─ application.css
-│  │     └─ <mark>users.css</mark>
 │  ├─ channels/
 │  ├─ controllers/
 │  ├─ helpers/
@@ -412,11 +433,16 @@ Berikut ini struktur direktorinya.
 │     │  ├─ <mark>users/</mark>
 │     │  │  └─ <mark>_nav.html.erb</mark>
 │     │  ├─ <mark>admins.html.erb</mark>
+│     │  ├─ <mark>admins_devise.html.erb</mark>
 │     │  ├─ application.html.erb
 │     │  ├─ mailer.html.erb
 │     │  ├─ mailer.text.erb
 │     │  └─ <mark>users.html.erb</mark>
 │     ├─ <mark>public/</mark>
+│     │  ├─ <mark>about/</mark>
+│     │  │  └─ <mark>index.html.erb</mark>
+│     │  ├─ <mark>contact/</mark>
+│     │  │  └─ <mark>index.html.erb</mark>
 │     │  └─ <mark>homepage/</mark>
 │     │     └─ <mark>index.html.erb</mark>
 │     └─ <mark>users/</mark>
@@ -494,11 +520,325 @@ Kita mulai dari `layouts/`.
 </html>
 ```
 
-Pada ketiga file view template di atas, saya menambahkan render partial untuk menu navigasi.
+Saya membuat halaman login yang berbeda antara Admin dengan User.
 
-Saya juga mengarahkan `stylesheet_link_tag` dan `javascript_include_tag` pada path masing-masing sesuai struktur yang sudah dibuat sebelumnya di atas.
+Halamn login untuk User akan menggunakan template dari Devise, sedangkan Admin, akan saya custom sendiri. Seperti di bawah ini.
 
-Oh ya, saya perlu untuk menambahkan configurasi tambahan untuk precompile additional assets, karena saya sudah membuat custom assets untuk admins dan users.
+```html
+<!-- app/views/layouts/admins_devise.html.erb -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin - BlogSpot</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'admins', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admins', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/admins/nav' %>
+
+    <!-- Admin Custom Sign In -->
+    <% if controller_name == 'sessions' %>
+      <h2>Hello, Admin</h2>
+    <% elsif controller_name == 'registrations' %>
+      <h2>Become an Admin</h2>
+    <% end %>
+    <div>
+    <% if controller_name == 'sessions' %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", placeholder: "Email" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "", placeholder: "Password" %>
+        <%= f.submit "Sign In", class: "" %>
+      <% end %>
+    <% elsif controller_name == 'registrations' %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "", placeholder: "Email" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "", placeholder: "Password" %>
+        <%= f.submit "Sign Up", class: "" %>
+      <% end %>
+    <% end %>
+    </div>
+    <div>
+      <% unless controller_name == 'registrations' %>
+        <%= link_to "Become an Admin", new_admin_registration_path, class: "" %>
+      <% end %>
+    </div>
+    <!-- END Admin Custom Sign In -->
+
+  </body>
+</html>
+```
+
+Pada keempat file view template di atas, saya menambahkan render partial untuk menu navigasi.
+
+Saya juga mengarahkan `stylesheet_link_tag` dan `javascript_include_tag` pada masing-masing direktori asset (`application`, `users`, `admins`) yang nantinya akan saya tambahkan setelah selesai dengan strukturl html.
+
+Oke, selanjutnya file render partial untuk menu navigasi.
+
+```html
+<!-- app/views/layouts/admins/_nav.html.erb -->
+
+<nav>
+  <% unless controller_name == 'homepage' && action_name == 'index' %>
+      <%= link_to "Homepage", root_path %> |
+  <% end %>
+  <%= link_to "About", about_index_path, class: "#{'active' if controller_name == 'about'}" %> |
+  <%= link_to "Contact", contact_index_path, class: "#{'active' if controller_name == 'contact'}" %> |
+  <% if admin_signed_in? %>
+    <%= link_to "Admin Dashboard", admins_root_path, class: "#{'active' if controller_name == 'dashboard'}" %> |
+    <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log In", admin_session_path, class: "#{'active' if controller_name == 'sessions'}" %>
+    | <%= link_to "User?", user_session_path %>
+  <% end %>
+</nav>
+```
+
+```html
+<!-- app/views/layouts/users/_nav.html.erb -->
+
+<nav>
+  <% unless controller_name == 'homepage' && action_name == 'index' %>
+      <%= link_to "Homepage", root_path %> |
+  <% end %>
+  <%= link_to "About", about_index_path, class: "#{'active' if controller_name == 'about'}" %> |
+  <%= link_to "Contact", contact_index_path, class: "#{'active' if controller_name == 'contact'}" %> |
+  <% if user_signed_in? %>
+    <%= link_to "User Dashboard", users_root_path, class: "#{'active' if controller_name == 'dashboard'}" %> |
+    <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+  <% elsif admin_signed_in? %>
+    <%= link_to "Admin Dashboard", admins_root_path, class: "#{'active' if controller_name == 'dashboard'}" %> |
+    <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Log In", user_session_path, class: "#{'active' if controller_name == 'sessions'}" %>
+    | <%= link_to "Admin?", admin_session_path %>
+  <% end %>
+</nav>
+```
+
+Selanjutnya Homepage.
+
+```html
+<!-- app/views/public/homepage/index.html.erb -->
+
+<header>
+  <h1>Homepage</h1>
+</header>
+
+<div>
+  <p>=> <%= controller_name %>#<%= action_name %></p>
+</div>
+```
+
+Halaman About dan Contact.
+
+
+```html
+<!-- app/views/public/about/index.html.erb -->
+
+<header>
+  <h1>About</h1>
+</header>
+
+<div>
+  <p>=> <%= controller_name %>#<%= action_name %></p>
+</div>
+```
+
+```html
+<!-- app/views/public/contact/index.html.erb -->
+
+<header>
+  <h1>Contact</h1>
+</header>
+
+<div>
+  <p>=> <%= controller_name %>#<%= action_name %></p>
+</div>
+```
+
+Kemudian, halan Dashboard untuk Admin dan User.
+
+```html
+<!-- app/views/admins/dashboard/index.html.erb -->
+
+<header>
+  <h1>DashBoard Admin</h1>
+</header>
+
+<div>
+  Admin: <%= current_admin.email %>
+</div>
+```
+
+```html
+<!-- app/views/users/dashboard/index.html.erb -->
+
+<header>
+  <h1>DashBoard User</h1>
+</header>
+
+<div>
+  User: <%= current_user.email %>
+</div>
+```
+
+Sekarang tinggal Stylesheet dan Javascript.
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  │  ├─ config/
+│  │  ├─ images/
+│  │  ├─ javascripts/
+│  │  │  ├─ <mark>admins/</mark>
+│  │  │  │  └─ <mark>custom.js</mark>
+│  │  │  ├─ channels/
+│  │  │  ├─ <mark>users/</mark>
+│  │  │  │  └─ <mark>custom.js</mark>
+│  │  │  ├─ <mark>admins.js</mark>
+│  │  │  ├─ application.js
+│  │  │  ├─ cable.js
+│  │  │  └─ <mark>users.js</mark>
+│  │  └─ stylesheets/
+│  │     ├─ <mark>admins/</mark>
+│  │     │  └─ <mark>custom.css</mark>
+│  │     ├─ <mark>users/</mark>
+│  │     │  └─ <mark>custom.css</mark>
+│  │     ├─ <mark>admins.css</mark>
+│  │     ├─ application.css
+│  │     └─ <mark>users.css</mark>
+│  ├─ ...
+│  ├─ ...
+...
+</pre>
+
+Mengikuti struktur direktori di atas.
+
+## Javascript Assets
+
+Pada `javascripts/application.js` tambahkan `user.js`. Karena saya akan menggunakan sebagai satu kesatuan assets.
+
+```javascript
+// app/assets/javascripts/application.js
+
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require users
+```
+
+Lalu pada masing-masing file Javascript untuk Admin dan User, tambahkan `rails-ujs` agar Devise dapat Logout.
+
+Kalau tidak menambahkan ini, Devise akan mengalami routing error saat melakukan Logout.
+
+```javascript
+// app/assets/javascripts/admins.js
+
+//= require rails-ujs
+```
+
+```javascript
+// app/assets/javascripts/users.js
+
+//= require rails-ujs
+```
+
+Untuk `admins/custom.js` dan `users/custom.js` digunakan untuk Javascript buatan kita sendiri. Namun karena masih kosong, jadi tidak saya contohkan.
+
+## Stylesheet Assets
+
+Pada `stylesheets/application.css` tambahkan `user.css`. Karena saya akan menggunakan sebagai satu kesatuan assets.
+
+Saya menghapus `*=require ` file yang lain agar file stylesheet tidak saling tumpang tindih dan dipanggil dimana-mana.
+
+```css
+/* app/assets/stylesheets/application.css */
+
+/*
+ *= require users
+ */
+```
+
+Kemudian pada `admins.css` dan `users.css` saya akan mengarahkan asset pada `custom.css` di masing-masing direktori.
+
+File `custom.css` inilah yang nantinya akan digunakan apabila ingin mengkostumisasi style pada Admin atau User view.
+
+```css
+/* app/assets/stylesheets/admins.css */
+
+@import 'admins/custom.css';
+```
+
+```css
+/* app/assets/stylesheets/users.css */
+
+@import 'users/custom.css';
+```
+
+Selanjutnya, isi dari `../admins/custom.css` dan `../users/custom.css`.
+
+Untuk contoh kali ini, saya membuat style antar Admin dan User menjadi terlihat serupa.
+
+Namun, pada project yang sesungguhnya, kedua file ini akan memiliki isi yang berbeda, sesuai dengan keperluan.
+
+```css
+/* app/assets/stylesheets/admins/custom.css */
+
+h1,h2 {
+  color: #c52f24;
+}
+
+div {
+  margin: 5px;
+}
+
+a {
+  color: #c52f24;
+  text-decoration: none;
+  border-bottom: 1px dotted #c52f24;
+}
+
+nav {
+  margin: 5px;
+}
+
+.active {
+  font-weight: bold;
+}
+```
+
+```css
+/* app/assets/stylesheets/users/custom.css */
+
+h1,h2 {
+  color: #c52f24;
+}
+
+div {
+  margin: 5px;
+}
+
+a {
+  color: #c52f24;
+  text-decoration: none;
+  border-bottom: 1px dotted #c52f24;
+}
+
+nav {
+  margin: 5px;
+}
+
+.active {
+  font-weight: bold;
+}
+```
+
+Selanjutnya, saya perlu untuk menambahkan konfigurasi tambahan untuk **Precompile Additional Assets**, karena saya sudah membuat custom assets untuk admins dan users.
 
 Buka file `config/initializers/assets.rb`.
 
@@ -513,7 +853,20 @@ Rails.application.config.assets.precompile += %w( admins.js admins.css users.js 
 
 *Uncomment* dan tambahkan `users.js` dan `users.css`.
 
+Oke, saya rasa, sudah semuanya.
+
+Sekarang web aplikasi siap untuk di jalankan.
+
+```
+$ rails s
+```
+
+Kira-kira, seperti inilah hasilnya.
+
 *Bersambung...*
+
+
+
 
 
 
@@ -525,4 +878,7 @@ Rails.application.config.assets.precompile += %w( admins.js admins.css users.js 
 <br>Diakses tanggal: 2019/12/15
 
 2. [guides.rubyonrails.org/routing.html#controller-namespaces-and-routing](https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing){:target="_blank"}
+<br>Diakses tanggal: 2019/12/15
+
+3. [github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts](https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts){:target="_blank"}
 <br>Diakses tanggal: 2019/12/15
