@@ -502,7 +502,7 @@ Oh ya, saya perlu untuk menambahkan configurasi tambahan untuk precompile additi
 
 Buka file `initializers/assets.rb`.
 
-```
+```ruby
 # config/initializers/assets.rb
 
 # Precompile additional assets.
