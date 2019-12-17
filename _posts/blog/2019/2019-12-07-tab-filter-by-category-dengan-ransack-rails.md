@@ -251,13 +251,85 @@ Namun, ada hal yang masih kurang memuaskan.
 
 Saya masih belum dapat membuat URL nya menjadi lebih cantik.
 
-<pre style="background-color:white;border:1px solid black;color:black;">
+<pre class="url">
 http://localhost:3000/careers<mark>?q%5Bcountry_cont%5D=Malaysia</mark>
 </pre>
 
 Mungkin akan saya cari pada kesempatan yang lain.
 
 Atau teman-teman punya rekomendasi untuk membuat URL menjadi lebih cantik, boleh tulis pada komentar di bawah yaa.
+
+# Update
+
+## Nice URL Form
+
+Oke, akhirnya saya berhasil untuk membuat bentuk dari URL menjadi lebih bagus.
+
+Kira-kira akan saya buat seperti ini.
+
+<pre class="url">
+http://localhost:3000/careers<mark>?country=Malaysia</mark>
+</pre>
+
+Caranya sangat mudah, saya hanya perlu bermain pada router dan controller.
+
+Pertama-tama definiskan url form yang diinginkan pada `routes.rb`.
+
+```ruby
+# config/routes.rb
+
+  ...
+  ...
+
+  get 'careers?country=:country', to: 'careers#index', as: 'career_country'
+```
+
+Pendefinisan routing ini, akan menghasilkan sebuah path baru untuk kita, yaitu `career_country_path`.
+
+```
+career_country_path GET    (/careers?country=:country(.:format)    careers#index
+```
+
+Selanjutnya akan saya gunakan pada controller.
+
+Pada instance variable `@q`, ubah object params yang ditangkap  dari `:q` menjadi `:country`.
+
+```ruby
+# app/controllers/careers_controller.rb
+
+class CareersController < ApplicationController
+  def index
+    @q = Career.ransack(country_cont: params[:country])
+    @careers = @q.result(distinct: true).page(params[:page]).per(10)
+
+    @country_list = Career.all.pluck(:country).uniq.sort
+  end
+
+  ...
+  ...
+  ...
+end
+```
+
+Langkah terakhir, tinggal menggunakan path yang sudah didefinisikan di atas ke view template.
+
+Serta merubah beberapa properti untuk `.active` class pada button tab yang aktif.
+
+```html
+<!-- app/views/careers/index.html.erb -->
+
+<nav class="nav">
+  <%= link_to 'All', careers_path, class: "nav-link #{params.has_key?(:country) ? '' : 'active'}" %>
+  <% @country_list.each do |country| %>
+    <%= link_to country, career_country_path(country: country),
+                         class: "nav-link #{'active' if params[:country] == country}" %>
+  <% end %>
+</nav>
+```
+
+Selesai.
+
+Sekarang bentuk dari url menjadi lebih bagus.
 
 Oke, sepertinya segini saja.
 
