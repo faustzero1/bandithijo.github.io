@@ -51,7 +51,6 @@ plugins:
     - jekyll-feed
     - jekyll-sitemap
     - jekyll-last-modified-at
-    - jekyll-pwa-plugin
 
 
 # Newsline
@@ -92,21 +91,6 @@ feed:
         - vlog
         - python
 
-
-# Jekyll PWA Plugin
-# Url: https://github.com/lavas-project/jekyll-pwa
-pwa:
-    sw_src_filepath: service-worker.js # Optional
-    sw_dest_filename: service-worker.js # Optional
-    dest_js_directory: assets/js # Required
-    precache_recent_posts_num: 1 # Optional
-    precache_glob_directory: / # Optional
-    precache_glob_patterns: # Optional
-        - "{js,css,fonts}/**/*.{js,css,eot,svg,ttf,woff}"
-        - index.html
-    precache_glob_ignores: # Optional
-        - sw-register.js
-        - "fonts/**/*"
 
 keep_files:
     - images
