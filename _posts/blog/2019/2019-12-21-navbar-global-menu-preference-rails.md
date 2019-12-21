@@ -299,7 +299,10 @@ Struktur file dan direktorinya seperti ini.
 │     ├─ layouts/
 │     │  ├─ admins/
 │     │  ├─ <mark>users/</mark>
-│     │  │  └─ <mark>_flash_message.html.erb</mark>
+│     │  │  ├─ <mark>navbar/</mark>
+│     │  │  │  ├─ <mark>_locale.html.erb</mark>
+│     │  │  │  └─ <mark>_rate.html.erb</mark>
+│     │  │  ├─ <mark>_flash_message.html.erb</mark>
 │     │  │  └─ <mark>_navbar.html.erb</mark>
 │     │  ├─ admins.html.erb
 │     │  ├─ admins_devise.html.erb
@@ -337,6 +340,8 @@ Saya mulai dari membuat render partial dari navigation bar pada `application.htm
 ```
 
 Berikut ini isi dari file `_navbar.html.erb`.
+
+Saya membuat render partial untuk blok language dan currency.
 
 ```html
 <!-- app/views/layouts/users/_navbar.html.erb -->
@@ -396,106 +401,11 @@ Berikut ini isi dari file `_navbar.html.erb`.
           <div class="row no-gutters">
 
             <!-- Language Preferences -->
-            <div class="col-md-auto border-bottom">
-              <span>Language</span>
-              <!-- Change language for user -->
-              <% if user_signed_in? %>
-                <%= button_to users_locale_path(current_user, locale: "en"), method: :put, class: "dropdown-item", style: "outline:none" do %>
-                  <% if current_user.locale == "en" %>
-                    <i class="icon-check-selected"></i>
-                  <% else %>
-                    <i class="icon-check-none"></i>
-                  <% end %>
-                  <span class="text-normal">
-                    <%= image_tag("label/flag/us.svg", class: "mr-1", width: "20", height: "20") %>
-                    English
-                  </span>
-                <% end %>
-                <%= button_to users_locale_path(current_user, locale: "ch"), method: :put, class: "dropdown-item", style: "outline:none" do %>
-                  <% if current_user.locale == "ch" %>
-                    <i class="icon-check-selected"></i>
-                  <% else %>
-                    <i class="icon-check-none"></i>
-                  <% end %>
-                  <span class="text-normal">
-                    <%= image_tag("label/flag/ch.svg", class: "mr-1", width: "20", height: "20") %>
-                    Chinese
-                  </span>
-                <% end %>
-              <!-- Change language for guest -->
-              <% else %>
-                <%= link_to({locale: "en"}, class: "dropdown-item #{"active" if current_page?(locale: "en") || current_page?(locale: "")}") do %>
-                  <%= image_tag("label/flag/us.svg", class: "mr-1", width: "20", height: "20") %>
-                  English
-                <% end %>
-                <%= link_to({locale: "ch"}, class: "dropdown-item #{"active" if current_page?(locale: "ch")}") do %>
-                  <%= image_tag("label/flag/ch.svg", class: "mr-1", width: "20", height: "20") %>
-                  Chinese
-                <% end %>
-              <% end %>
-            </div>
+            <%= render 'layouts/users/navbar/locale.html.erb %>
             <!-- END Language Preferences -->
 
             <!-- Currency Preferences -->
-            <div class="col-md-auto px-2">
-              <span><%= t("navbar_menu.currency_title") %></span>
-              <!-- Change currency for user -->
-              <% if user_signed_in? %>
-                <%= button_to users_rate_path(current_user), params: {:rate => "MYR"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
-                  <% if current_user.rate == "MYR" %>
-                    <i class="icon-check-selected"></i>
-                  <% else %>
-                    <i class="icon-check-none"></i>
-                  <% end %>
-                  MYR
-                  <span class="text-normal">
-                    Malaysian Ringgit
-                  </span>
-                <% end %>
-                <%= button_to users_rate_path(current_user), params: {:rate => "USD"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
-                  <% if current_user.rate == "USD" %>
-                    <i class="icon-check-selected"></i>
-                  <% else %>
-                    <i class="icon-check-none"></i>
-                  <% end %>
-                  USD
-                  <span class="text-normal">
-                    US Dollar
-                  </span>
-                <% end %>
-                <%= button_to users_rate_path(current_user), params: {:rate => "CNY"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
-                  <% if current_user.rate == "CNY" %>
-                    <i class="icon-check-selected"></i>
-                  <% else %>
-                    <i class="icon-check-none"></i>
-                  <% end %>
-                  RMB
-                  <span class="text-normal">
-                    Chinese Yuan
-                  </span>
-                <% end %>
-              <!-- Change currency for guest -->
-              <% else %>
-                <%= link_to({rate: "MYR"}, class: "dropdown-item #{(params[:rate] == 'USD' || params[:rate] == 'CNY')  ? '' : 'active'}") do %>
-                  MYR
-                  <span class="text-normal">
-                    Malaysian Ringgit
-                  </span>
-                <% end %>
-                <%= link_to({rate: "USD"}, class: "dropdown-item #{params[:rate] == 'USD' ? 'active' : ''}") do %>
-                  USD
-                  <span class="text-normal">
-                    US Dollar
-                  </span>
-                <% end %>
-                <%= link_to({rate: "CNY"}, class: "dropdown-item #{params[:rate] == 'CNY' ? 'active' : ''}") do %>
-                  RMB
-                  <span class="text-normal">
-                    Chinese Yuan
-                  </span>
-                <% end %>
-              <% end %>
-            </div>
+            <%= render 'layouts/users/navbar/rate.html.erb %>
             <!-- END Currency Preferences -->
 
           </div>
@@ -512,6 +422,114 @@ Berikut ini isi dari file `_navbar.html.erb`.
   <!-- END Right Menu -->
 </nav>
 ```
+
+```html
+<!-- app/views/layouts/users/navbar/_locale.html.erb -->
+
+<div class="col-md-auto border-bottom">
+  <span>Language</span>
+  <!-- Change language for user -->
+  <% if user_signed_in? %>
+    <%= button_to users_locale_path(current_user, locale: "en"), method: :put, class: "dropdown-item", style: "outline:none" do %>
+      <% if current_user.locale == "en" %>
+        <i class="icon-check-selected"></i>
+      <% else %>
+        <i class="icon-check-none"></i>
+      <% end %>
+      <span class="text-normal">
+        <%= image_tag("label/flag/us.svg", class: "mr-1", width: "20", height: "20") %>
+        English
+      </span>
+    <% end %>
+    <%= button_to users_locale_path(current_user, locale: "ch"), method: :put, class: "dropdown-item", style: "outline:none" do %>
+      <% if current_user.locale == "ch" %>
+        <i class="icon-check-selected"></i>
+      <% else %>
+        <i class="icon-check-none"></i>
+      <% end %>
+      <span class="text-normal">
+        <%= image_tag("label/flag/ch.svg", class: "mr-1", width: "20", height: "20") %>
+        Chinese
+      </span>
+    <% end %>
+  <!-- Change language for guest -->
+  <% else %>
+    <%= link_to({locale: "en"}, class: "dropdown-item #{"active" if current_page?(locale: "en") || current_page?(locale: "")}") do %>
+      <%= image_tag("label/flag/us.svg", class: "mr-1", width: "20", height: "20") %>
+      English
+    <% end %>
+    <%= link_to({locale: "ch"}, class: "dropdown-item #{"active" if current_page?(locale: "ch")}") do %>
+      <%= image_tag("label/flag/ch.svg", class: "mr-1", width: "20", height: "20") %>
+      Chinese
+    <% end %>
+  <% end %>
+</div>
+```
+
+```html
+<!-- app/views/layouts/users/navbar/_rate.html.erb -->
+
+<div class="col-md-auto px-2">
+  <span><%= t("navbar_menu.currency_title") %></span>
+  <!-- Change currency for user -->
+  <% if user_signed_in? %>
+    <%= button_to users_rate_path(current_user), params: {:rate => "MYR"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
+      <% if current_user.rate == "MYR" %>
+        <i class="icon-check-selected"></i>
+      <% else %>
+        <i class="icon-check-none"></i>
+      <% end %>
+      MYR
+      <span class="text-normal">
+        Malaysian Ringgit
+      </span>
+    <% end %>
+    <%= button_to users_rate_path(current_user), params: {:rate => "USD"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
+      <% if current_user.rate == "USD" %>
+        <i class="icon-check-selected"></i>
+      <% else %>
+        <i class="icon-check-none"></i>
+      <% end %>
+      USD
+      <span class="text-normal">
+        US Dollar
+      </span>
+    <% end %>
+    <%= button_to users_rate_path(current_user), params: {:rate => "CNY"}, method: :put, class: "dropdown-item", style: "outline:none" do %>
+      <% if current_user.rate == "CNY" %>
+        <i class="icon-check-selected"></i>
+      <% else %>
+        <i class="icon-check-none"></i>
+      <% end %>
+      RMB
+      <span class="text-normal">
+        Chinese Yuan
+      </span>
+    <% end %>
+  <!-- Change currency for guest -->
+  <% else %>
+    <%= link_to({rate: "MYR"}, class: "dropdown-item #{(params[:rate] == 'USD' || params[:rate] == 'CNY')  ? '' : 'active'}") do %>
+      MYR
+      <span class="text-normal">
+        Malaysian Ringgit
+      </span>
+    <% end %>
+    <%= link_to({rate: "USD"}, class: "dropdown-item #{params[:rate] == 'USD' ? 'active' : ''}") do %>
+      USD
+      <span class="text-normal">
+        US Dollar
+      </span>
+    <% end %>
+    <%= link_to({rate: "CNY"}, class: "dropdown-item #{params[:rate] == 'CNY' ? 'active' : ''}") do %>
+      RMB
+      <span class="text-normal">
+        Chinese Yuan
+      </span>
+    <% end %>
+  <% end %>
+</div>
+```
+
 
 Selanjutnya, isi dari file `_flash_message.html.erb`
 
