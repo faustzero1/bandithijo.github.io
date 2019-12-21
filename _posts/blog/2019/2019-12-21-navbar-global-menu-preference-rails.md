@@ -300,7 +300,7 @@ Struktur file dan direktorinya seperti ini.
 │     │  ├─ admins/
 │     │  ├─ <mark>users/</mark>
 │     │  │  └─ <mark>_flash_message.html.erb</mark>
-│     │  │  └─ <mark>_nav.html.erb</mark>
+│     │  │  └─ <mark>_navbar.html.erb</mark>
 │     │  ├─ admins.html.erb
 │     │  ├─ admins_devise.html.erb
 │     │  ├─ application.html.erb
@@ -336,10 +336,10 @@ Saya mulai dari membuat render partial dari navigation bar pada `application.htm
 </html>
 ```
 
-Berikut ini isi dari file `_nav.html.erb`.
+Berikut ini isi dari file `_navbar.html.erb`.
 
 ```html
-<!-- app/views/layouts/users/_nav.html.erb -->
+<!-- app/views/layouts/users/_navbar.html.erb -->
 
 <nav class="navbar navbar-expand-xl">
   <!-- Right Menu -->
