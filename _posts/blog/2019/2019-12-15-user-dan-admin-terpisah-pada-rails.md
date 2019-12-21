@@ -260,8 +260,8 @@ Saya akan menggunakan **Controller Namespaces and Routing**.[<sup>2</sup>](https
 │  │  │  └─ <mark>dashboard_controller.rb</mark>
 │  │  ├─ concerns/
 │  │  ├─ <mark>public/</mark>
-│  │  │  └─ <mark>about_controller.rb</mark>
-│  │  │  └─ <mark>contact_controller.rb</mark>
+│  │  │  ├─ <mark>about_controller.rb</mark>
+│  │  │  ├─ <mark>contact_controller.rb</mark>
 │  │  │  └─ <mark>homepage_controller.rb</mark>
 │  │  ├─ <mark>users/</mark>
 │  │  │  └─ <mark>dashboard_controller.rb</mark>
