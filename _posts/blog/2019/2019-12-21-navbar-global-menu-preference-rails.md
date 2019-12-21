@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Navigation Bar Global Menu Preferences dengan Rails"
+title: "Navigation Bar Global Menu Preferences pada Rails"
 date: 2019-12-21 10:23
 permalink: '/blog/:title'
 author: 'BanditHijo'
