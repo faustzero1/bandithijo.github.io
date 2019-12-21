@@ -401,11 +401,11 @@ Saya membuat render partial untuk blok language dan currency.
           <div class="row no-gutters">
 
             <!-- Language Preferences -->
-            <%= render 'layouts/users/navbar/locale.html.erb %>
+            <%= render 'layouts/users/navbar/locale' %>
             <!-- END Language Preferences -->
 
             <!-- Currency Preferences -->
-            <%= render 'layouts/users/navbar/rate.html.erb %>
+            <%= render 'layouts/users/navbar/rate' %>
             <!-- END Currency Preferences -->
 
           </div>
