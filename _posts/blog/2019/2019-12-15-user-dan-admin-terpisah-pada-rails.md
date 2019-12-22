@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Rails', 'Javascript']
+tags: ['Tips', 'Rails']
 pin:
 hot:
 ---
