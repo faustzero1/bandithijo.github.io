@@ -11,6 +11,9 @@ permalink: '/python/'
 {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'python'" %}
 {% for post in posts %}
 <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+<div class="post-title-tags">
+  <span class="notag"></span>
+</div>
 <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
 {% endfor %}
 
