@@ -39,7 +39,7 @@ Beberapa fitur yang diberikan oleh **create_ap** adalah:
 3. Menyembunyikan SSID
 4. Menonaktifkan komunikasi antara client (client isolation)
 5. Mendukung IEEE 802.11n dan 802.11ac
-6. Internet sharing dengna metode: NATed, Bridged atau None (tidak ada internet sharing)
+6. Internet sharing dengan metode: NATed, Bridged atau None (tidak ada internet sharing)
 7. Memilih IP Gateway untuk AP (hanya dapat dilakukan pada NATed dan None)
 8. Membuat Access Point (AP) dengan interface yang sama dengan koneksi internet yang kita gunakan.
 9. Dapat membuat SSID dengan pipe atau dengan argument
