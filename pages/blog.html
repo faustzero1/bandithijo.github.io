@@ -39,10 +39,23 @@ permalink: '/blog/'
     {% for post in year.items %}
       {% if post.category == 'blog' and post.pin == nil %}
         {% if post.hot %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">HOT</span></p>
+          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+          <div class="post-title-tags">
+            {% assign tag_list = post.tags | sort %}
+            {% for tag in tag_list %}
+              <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+            {% endfor %}
+            <span class="new">HOT</span>
+          </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
           <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+          <div class="post-title-tags">
+            {% assign tag_list = post.tags | sort %}
+            {% for tag in tag_list %}
+              <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+            {% endfor %}
+          </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% endif %}
       {% endif %}

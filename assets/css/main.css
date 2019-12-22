@@ -386,6 +386,11 @@ p.post-title-index a:hover {
   border-bottom: none;
 }
 
+.post-title-tags {
+  padding-left: 12px;
+  line-height: 2px;
+}
+
 .post-details {
   /* background: #9E9E9E; */
   background: #626262;
@@ -411,7 +416,7 @@ p.post-details-index {
   background: #B8B8B8;
   padding: 3px 4px;
   position: relative;
-  top: -34px;
+  top: -38px;
   float: right;
   margin: 0;
   border-radius: 4px;
@@ -1068,7 +1073,7 @@ button.active {
   padding: 5px;
   color: #FFF;
   animation: 1s blink infinite;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .new {
@@ -1077,24 +1082,54 @@ button.active {
   padding: 1px 2px;
   margin-left: 1px;
   color: #FFF;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: bold;
   /* animation: 1s blink infinite; */
   position: relative;
   top: -2px;
 }
 
-.voice {
-  background: #000;
-  border-radius: 3px;
-  padding: 2px 3px;
-  margin-left: 2px;
+.tag {
+  background: #008352;
+  border-radius: 2px;
+  padding: 1px 2px;
+  margin-left: 1px;
   color: #FFF;
   font-size: 10px;
   /* font-weight: bold; */
   /* animation: 1s blink infinite; */
   position: relative;
-  top: -1px;
+  top: -2px;
+}
+
+.tag a {
+  color: #FFF;
+}
+
+.voice {
+  background: #000;
+  border-radius: 3px;
+  padding: 2px 3px;
+  margin-left: 1px;
+  color: #FFF;
+  font-size: 10px;
+  /* font-weight: bold; */
+  /* animation: 1s blink infinite; */
+  position: relative;
+  top: -2px;
+}
+
+.notag {
+  background: #FFF;
+  border-radius: 3px;
+  padding: 2px 3px;
+  margin-left: 1px;
+  color: #FFF;
+  font-size: 10px;
+  /* font-weight: bold; */
+  /* animation: 1s blink infinite; */
+  position: relative;
+  top: -2px;
 }
 
 .emblem-l {
