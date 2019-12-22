@@ -19,6 +19,9 @@ permalink: '/vlog/'
   {% for post in posts reversed %}
   {% if post.pin == true and post.voice == nil %}
     <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+      <div class="post-title-tags">
+        <span class="notag"></span>
+      </div>
     <p class="post-details-index-pin"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
   {% elsif post.pin == true and post.voice == true %}
     <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
