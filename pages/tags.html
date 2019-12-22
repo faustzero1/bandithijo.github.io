@@ -17,10 +17,16 @@ permalink: '/tags/'
       {% if post.title != null %}
         {% if group == null or group == post.group %}
           {% if post.category == 'blog' %}
-          <p class="post-title-index">+&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></a>&nbsp;<span class="tags-hollow">BLOG</span></p>
+          <p class="post-title-index">+&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+          <div class="post-title-tags">
+            <span class="tags-hollow">BLOG</span>
+          </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
           {% elsif post.category == 'vlog' %}
-          <p class="post-title-index">+&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></a>&nbsp;<span class="tags-hollow">VLOG</span></p>
+          <p class="post-title-index">+&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+          <div class="post-title-tags">
+            <span class="tags-hollow">VLOG</span>
+          </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
           {% endif %}
         {% endif %}
