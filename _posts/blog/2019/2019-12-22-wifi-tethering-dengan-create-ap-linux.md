@@ -171,7 +171,7 @@ Sangat mudah sekali penggunaannya.
 Bentuk dari perintahnya akan seperti ini.
 
 ```
-$ Usage: create_ap [options] <wifi-interface> [<interface-with-internet>] [<access-point-name> [<passphrase>]]
+$ create_ap [options] <wifi-interface> [<interface-with-internet>] [<access-point-name> [<passphrase>]]
 ```
 
 ### Tanpa passphrase (open network)
