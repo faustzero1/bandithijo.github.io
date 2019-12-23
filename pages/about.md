@@ -52,7 +52,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 <br>
 **Tabel Mesin**
 
-| <center>Mesin</center> | <center>Tahun Produksi</center> | <center>Tahun</center> |
+| <center>Mesin</center> | <center>Tahun Produksi</center> | <center>Tahun Digunakan</center> |
 | :--- | :--- | :--- |
 | **Apple Macbook 4.1** | 2008 | 2009 - 2011 |
 | **Apple Macbook Pro 8.1** | 2011 | 2012 - 2016 |
