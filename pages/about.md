@@ -52,12 +52,12 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 <br>
 **Tabel Mesin**
 
-| <center>Tahun</center> | <center>Mesin</center> |
-| :--- | :--- |
-| 2009 - 2011 | **Apple Macbook 4.1** (2008) |
-| 2012 - 2016 | **Apple Macbook Pro 8.1** (2011) |
-| 2017 - 2018 | **Lenovo ThinkPad X260** (2016) |
-| 2019 - Sekarang | **Lenovo ThinkPad X61** (2007) |
+| <center>Mesin</center> | <center>Tahun Produksi</center> | <center>Tahun</center> |
+| :--- | :--- | :--- |
+| **Apple Macbook 4.1** | 2008 | 2009 - 2011 |
+| **Apple Macbook Pro 8.1** | 2011 | 2012 - 2016 |
+| **Lenovo ThinkPad X260** | 2016 | 2017 - 2018 |
+| **Lenovo ThinkPad X61** | 2007 | 2019 - Sekarang |
 
 <br>
 **Tabel Aplikasi**
@@ -127,7 +127,7 @@ Setelah MacBook Pro yang saya gunakan mengalami kendala pada akhir Desember 2016
 
 Di awali dengan ThinkPad X260 pada awal tahun 2017, mesin ini benar-benar membuat saya semakin produktif. Tidak ada kendala resource yang berarti, yang menghalangi saya untuk berkreasi membuat sesuatu dengan mesin ini.
 
-Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop, istri menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu mnejadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
+Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop. Istri saya, menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu mnejadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
 
 Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang tidak terbatas oleh vendor, sehingga dapat saya gunakan selama mungkin hingga menemukan batas maksimalnya.
 
