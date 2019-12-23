@@ -21,13 +21,13 @@ Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempuny
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 
-Saat ini sudah bekerja sebagai Junior Backend Rails Developer di [VirtualSpirit.me](https://virtualspirit.me){:target="_blank"}.
+Saat ini sudah bekerja sebagai Junior Backend Web Developer di [VirtualSpirit.me](https://virtualspirit.me){:target="_blank"}.
 
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
 
-_Blogging_ merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
+*Blogging* merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
@@ -39,7 +39,9 @@ Sebaik-baik tulisan dokumentasi tentu saja yang dibuat langsung oleh developer a
 
 # Blognya Dibuat Pakai Apa?
 
-Blog ini saya buat *from scratch* menggunakan *Static Site Generator* yang bernama **Jekyll**. Tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih bebas bongkar pasang fitur-fitur yang ingin saya tambah dan kurangi di dalam blog ini.
+Blog ini saya bangun menggunakan *Static Site Generator* yang bernama **Jekyll**.
+
+Tampilan dari tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih bebas membongkar dan memasang fitur-fitur yang ingin saya tambah dan kurangi di dalam blog ini.
 
 Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0){:target="_blank"}.
 
@@ -52,6 +54,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 
 | <center>Tahun</center> | <center>Mesin</center> |
 | :--- | :--- |
+| 2009 - 2011 | **Apple Macbook 4.1** (2008) |
 | 2012 - 2016 | **Apple Macbook Pro 8.1** (2011) |
 | 2017 - 2018 | **Lenovo ThinkPad X260** (2016) |
 | 2019 - Sekarang | **Lenovo ThinkPad X61** (2007) |
@@ -69,7 +72,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama me
 | Distribusi | **Arch Linux** |
 | Desktop Env. | - |
 | Window Manager | **BSPWM** |
-| Terminal Emulator | **St** |
+| Terminal Emulator | **Simple Terminal** + **Tmux** |
 | Text Editor | **NeoVim** |
 | Image Editor | **GIMP** & **Inkscape** |
 | Video Editor | **Kdenlive** |
@@ -108,23 +111,30 @@ Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar bar
 
 2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
 
-Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam. Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
+Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam.
 
+Apalagi setelah akhir 2016, masuk dunia **Desktop Customization**, wah semakin menambah kekaguman dan kegigihan untuk tidak beralih menggunakan OSX lagi. Pada saat inilah saya sedikit banyak mendapatkan pengetahuan mengenai komponen-komponen apa saja yang digunakan untuk membuat sebuah distribusi sistem operasi GNU/Linux dapat digunakan.
+
+Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
 # Sekarang
 
-Saat ini sudah tidak lagi menggunakan Macbook Pro sejak Januari 2017. Saya memilih untuk mencoba brand dan tipe yang sudah saya incar sejak SMA, yes, ThinkPad! Kebetulan saya memang sangat mengincar ThinkPad, kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki. Seandainya kalian dapat merasakan nikmat yang saya rasakan saat ini, mungkin juga akan berkata hal yang serupa.
+Saat ini sudah tidak lagi menggunakan MacBook Pro sejak Januari 2017. Saya sudah cukup lama berada di Apple Environment. Di mulai sekitar tahun 2009 dengan MacBook White. Dan berakhir dengan MacBook Pro pada tahun 2012.
 
-Sedang senang dengan programming. Bermodalkan belajar dari video-video di YouTube.
+Dengan waktu yang cukup lama tersebut, tidak menjadikan saya sebagai Apple FanBoy yang fanatik. Mungkin, karena rasa ingin tahu yang sangat besar akan dunia GNU/Linux yang masih asing buat saya, maka saya pun mulai beralih menggunakan sistem operasi GNU/Linux pada tahun 2014 yang berjalan di atas mesin Apple. Wkwkwk.
 
-Sebenarnya, sangat tertarik dengan Cloud Computing. Namun, karena tidak ada yang membimbing, jadi dipending dulu.
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BQjBZc5c/gambar-06.png"}
-<p class="img-caption">Raport pada Daftar Pelatihan NolSatu</p>
-Jujur saja, saya mengikuti [**NolSatu**](https://www.nolsatu.id/){:target="_blank"} tanpa mengetahui apa itu Cloud Computing. Dan beginilah hasil yang saya dapatkan. Bermodalkan pengalaman *troubleshooting* selama menggunakan sistem operasi GNU/Linux.
+Setelah MacBook Pro yang saya gunakan mengalami kendala pada akhir Desember 2016, saya pun memilih untuk mencoba brand dan tipe yang sudah saya incar sejak SMA, yes, ThinkPad! Kebetulan saya memang sangat mengincar ThinkPad, kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki.
 
-Kurang puas namun bagaimana lagi, saya benar-benar tidak tahu harus jalan kemana. Saya akan simpan keinginan belajar Cloud Computing sampai datang kesempatan lagi.
+Di awali dengan ThinkPad X260 pada awal tahun 2017, mesin ini benar-benar membuat saya semakin produktif. Tidak ada kendala resource yang berarti, yang menghalangi saya untuk berkreasi membuat sesuatu dengan mesin ini.
+
+Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop, istri menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu mnejadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
+
+Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang tidak terbatas oleh vendor, sehingga dapat saya gunakan selama mungkin hingga menemukan batas maksimalnya.
+
+Sedang asik dengan Web programming. Bermodalkan belajar dari video-video di YouTube.
 
 # Akhir Kata
+
 Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
 
 Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
