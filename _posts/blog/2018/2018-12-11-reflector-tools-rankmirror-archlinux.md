@@ -18,9 +18,9 @@ hot:
 
 # Prakata
 
-Jika sebelum posting ini saya tulis, saya hanya mengetahui *tools* bernama `rankmirrors` untuk memfilter mirrors tercepat. Dan sepertinya *scripts* ini sudah *deprecated* dari *official repository* Arch Linux.
+Jika sebelum *posting* ini saya tulis, saya hanya mengetahui *tools* bernama `rankmirrors` untuk memfilter mirrors tercepat. Dan sepertinya *scripts* ini sudah *deprecated* dari *official repository* Arch Linux.
 
-Selama ini saya hanya menggunakan mirror dari Indonesia.
+Selama ini saya hanya menggunakan *mirror* dari Indonesia.
 ```
 Server = http://mirror.poliwangi.ac.id/archlinux/$repo/os/$arch
 Server = http://suro.ubaya.ac.id/archlinux/$repo/os/$arch
@@ -29,7 +29,9 @@ Namun, beberapa hari belakangan ini, terasa ada yang aneh dengan mirror-mirror i
 
 Singkat cerita, bertemulah saya dengan tools [`reflector`](https://www.archlinux.org/packages/community/any/reflector/){:target="_blank"}.
 
-Kemalasan saya menggunakan `rankmirrors` dikarenakan kita harus menunggu lama sekali untuk mendapatkan hasilnya, meskipun hanya 5 mirror. Mungkin karena keterbatasan ilmu dan pemahaman saya pada saat itu. Namun, `reflector` memberikan hasil yang sangat timpang dalam hal kecepatan memberikan hasil. Lantas saya pun langsung mencoba mengkonfigurasikan `reflector` ke dala msistem saya.
+Kemalasan saya menggunakan `rankmirrors` dikarenakan kita harus menunggu lama sekali untuk mendapatkan hasilnya, meski pun hanya 5 mirror. Mungkin karena keterbatasan ilmu dan pemahaman saya pada saat itu.
+
+Namun, `reflector` memberikan hasil yang sangat timpang dalam hal kecepatan dalam menampilkan hasil pencarian. Lantas saya pun langsung mencoba mengkonfigurasikan `reflector` ke dalam sistem saya.
 
 Berikut ini adalah catatan-catatan yang tentu saja saya kutip dari Arch Wiki.
 
