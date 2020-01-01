@@ -115,7 +115,7 @@ class Users::SessionsController < Devise::SessionsController
   ...
   ...
 
-  # path yang akan dituju setelah sing in
+  # path yang akan dituju setelah sign in
   def after_sign_in_path_for(resource_or_scope)
     # memeriksa apakah ada data order yang tersimpan pada session
     if session[:order].present?
@@ -149,7 +149,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   ...
   ...
 
-  # path yang akan dituju setelah sing up
+  # path yang akan dituju setelah sign up
   def after_sign_up_path_for(resource_or_scope)
     # memeriksa apakah ada data order yang tersimpan pada session
     if session[:order].present?
