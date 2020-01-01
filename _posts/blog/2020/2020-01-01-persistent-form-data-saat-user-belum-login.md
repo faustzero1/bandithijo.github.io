@@ -97,6 +97,8 @@ Pastikan pada callback `before_action :authenticate_user!`, buat pengecualian un
 
 Selanjutnya, tinggal memodifikasi controller yang menghandle proses login/register.
 
+## Sessions & Registrations Controller
+
 Kedua controller ini adalah controller yang digenerate oleh Devise.
 
 ```ruby
