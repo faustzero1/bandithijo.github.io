@@ -54,6 +54,11 @@ Beberapa aplikasi Microsoft Office yang belum dapat dijalankan, diantaranya :
 ![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsgV8pc3/gambar-10.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 10 - Microsoft PowerPoint 2010</p>
 
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p> Ternyata, untuk dapat menjalankan Microsoft PowerPoint, kita perlu menambahkan library pada <code>winecfg</code> bernama <code>riched20</code>.</p>
+</div>
+
 Meski begitu saat ini saya tidak benar-benar menggunakan aplikasi Microsoft Office.
 
 Saya hanya menggunakan Microsoft Word untuk melihat template dokumen-dokumen dari tugas akhir yang disediakan oleh kampus dalam format `.doc` dan `.docx` kemudian secara manual saya buat ulang untuk format `.odt` (LibreOffice Word Document).
