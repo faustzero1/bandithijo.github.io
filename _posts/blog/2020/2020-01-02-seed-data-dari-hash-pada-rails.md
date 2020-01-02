@@ -31,7 +31,21 @@ Maksud dari catatan ini adalah, untuk membuat data pada seed untuk web aplikasi 
 
 # Gambaran Masalah
 
-Misal data hashnya, memiliki kunci berupa nama kota, dan valuenya berupa tempat yang ramai dikunjungi orang-orang (*point of interest*).
+Misal, saya memiliki field `location` dan `meeting_point` yang merupakan entitas dari tabel experiences.
+
+```ruby
+irb(main):001:0> Experience
+=> Experience(id: integer, ..., ..., location: string, meeting_point: string, ... )
+```
+
+Kedua entitas ini merupakan entitas yang berkaitan. Seperti key dan value. Antara kota dengan tempat populer di kota tersebut.
+
+Maka, saya bisa membuat populasi data untuk kedua entitas ini sebagai hash yang menampung nilai kota dan tempat populer.
+
+1. location, berisi key
+2. meeting_point, berisi value
+
+Seperti di bawah ini.
 
 ```ruby
 # ruby hash
@@ -46,16 +60,6 @@ places = {
   ...
 }
 ```
-
-Misalkan, data dari variable hash `places` tersebut akan saya masukkan ke dalam dua entitas `location` dan `meeting_point` yang terdapat pada tabel experiences.
-
-```ruby
-irb(main):001:0> Experience
-=> Experience(id: integer, ..., ..., location: string, meeting_point: string, ... )
-```
-
-1. location, berisi key
-2. meeting_point, berisi value
 
 # Pemecahan Masalah
 
