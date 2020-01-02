@@ -76,7 +76,7 @@ puts "Creating Fake Experiences"
 end
 ```
 
-Setelah jadi, say akan mengupdate data2 pada experience untuk menambahkan data location dan meeting_point.
+Setelah jadi, saya akan mengupdate data2 pada experience untuk menambahkan data location dan meeting_point.
 
 ```ruby
 # db/seeds.rb
