@@ -50,7 +50,7 @@ Proses instalasinya juga cukup mudah.
 Barrier sudah terdapat pada repositori distro masing-masing.
 
 <a href="https://repology.org/project/barrier/versions">
-<img src="https://repology.org/badge/vertical-allrepos/barrier.svg" style="margin:0;">
+<img src="https://repology.org/badge/vertical-allrepos/barrier.svg" style="margin:0;" onerror="imgError(this);">
 </a>
 
 Karena saya menggunakan Arch, maka saya menggunakan AUR helper.
