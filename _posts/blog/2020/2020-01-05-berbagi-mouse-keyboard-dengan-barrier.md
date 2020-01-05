@@ -70,7 +70,7 @@ Terdapat dua tipe, Barrier GUI dan Barrier Headless
 ```
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m21vg70q/gambar-02.png" onerror="imgError(this);"}
-<p class="img-caption">Gambar 2 - Proses instalasi dengan Yay</p>
+<p class="img-caption">Gambar 2 - Proses instalasi Barrier dengan Yay</p>
 
 Saya mencoba memasang yang GUI, untuk mendapatkan *user experience* GUI terlebih dahulu.
 
