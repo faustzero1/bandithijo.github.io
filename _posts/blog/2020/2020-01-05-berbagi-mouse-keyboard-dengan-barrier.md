@@ -47,7 +47,15 @@ Lantas, baru-baru saja, saya menemukan alternatif dari Synergy namun bersifat op
 
 Proses instalasinya juga cukup mudah.
 
-Barrier sudah terdapat pada repositori distro masing-masing.
+Barrier sudah menyediakan aplikasi GUI untuk Windows, macOS dan GNU/Linux.
+
+Saya hanya akan menjelaskan proses instalasi untuk GNU/Linx.
+
+Untuk sistem operasi Windows dan macOS, dapat langsung mengunduh file instalasi pada halaman berikut ini.
+
+[Download Barrier New Stable Release](https://github.com/debauchee/barrier/releases){:target="_blank"}
+
+Untuk GNU/Linux, Barrier sudah terdapat pada repositori distro masing-masing.
 
 <a href="https://repology.org/project/barrier/versions">
 <img src="https://repology.org/badge/vertical-allrepos/barrier.svg" style="margin:0;" onerror="imgError(this);">
