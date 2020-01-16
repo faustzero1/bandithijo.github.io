@@ -118,7 +118,7 @@ Lalu, jalankan perintah di bawah ini untuk mem-*compile* Polybar.
 ```
 $ mkdir build
 $ cd build
-$ cmake ...
+$ cmake ..
 $ make -j$(nproc)
 $ sudo make install
 ```
