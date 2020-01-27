@@ -83,11 +83,12 @@ Plug 'mengelbrecht/lightline-bufferline'
 ## Lightline
 
 Pada konfigurasi `lightline` ini saya hanya menambahkan:
-1. Colorscheme
+1. Colorscheme modifikasi dari `solarized` Lightline theme
 2. Menampilkan `git-branch` (membutuhkan [`vim-fugitive`](https://github.com/tpope/vim-fugitive){:target="_blank"})
 3. Menggunakan simbol `powerline`
 4. Menambahkan konfigurasi buffer dengan menggunakan [`lightline-bufferline`](https://github.com/mengelbrecht/lightline-bufferline){:target="_blank"}
 5. Mengkostumisasi tabline sebelah kiri (atas)
+6. Menambahkan Devicons, perlu plugin `ryanoasis/vim-devicons`.
 
 Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 
@@ -95,14 +96,18 @@ Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 let g:lightline = {
 \   'colorscheme': 'solarized',
 \   'active': {
-\     'left':[[ 'mode', 'paste' ],
-\             [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+\    'left' :[[ 'mode', 'paste' ],
+\             [ 'readonly' ],
+\             [ 'filename', 'modified' ]],
+\    'right':[[ 'lineinfo' ],
+\             [ 'percent' ],
+\             [ 'filetype', 'fileencoding', 'fileformat' ]]
 \   },
 \   'component': {
 \     'lineinfo': ' %3l:%-2v',
 \   },
 \   'component_function': {
-\     'gitbranch': 'fugitive#head',
+\     'fugitive': 'fugitive#head',
 \   }
 \}
 let g:lightline.separator = {
@@ -161,10 +166,12 @@ Value yang saya gunakan hampir rata-rata adalah value *default* kecuali `unnamed
 let g:lightline#bufferline#unnamed = "[NO NAME]"
 let g:lightline#bufferline#filename_modifier= ":."
 let g:lightline#bufferline#more_buffers = "..."
-let g:lightline#bufferline#modified = " +"
-let g:lightline#bufferline#read_only = " -"
+let g:lightline#bufferline#modified = " ●"
+let g:lightline#bufferline#read_only = " "
 let g:lightline#bufferline#shorten_path = 1
-let g:lightline#bufferline#show_number = 0
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#unicode_symbols = 1
 ```
 
 # Modifikasi
@@ -173,27 +180,59 @@ Beberapa modifikasi yang saya lakukan adalah,
 
 ## Colorscheme
 
-Modifikasi terhadap `solarized` colorscheme, saya membuat cetak tebal pada mode dan beberapa bagian.
+Modifikasi terhadap `solarized` colorscheme.
+
+Saya akan menduplikasi (Copy) dan mengganti namanya, agar tetap mempertahankan theme solarized default dari Lightline.
+
 ```
-$ vim .vim/plugged/lightline.vim/autoload/lightline/colorscheme/solarized.vim
+$ cd .vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+$ cp solarized.vim lightline_solarized.vim
+```
+
+Saya akan memodifikasi beberapa bagian.
+
+```
+$ vim lightline_solarized.vim
 ```
 <pre>
+" =============================================================================
+" Filename: autoload/lightline/colorscheme/<mark>lightline_solarized.vim</mark>
+" Author: itchyny
+" License: MIT License
+" Last Change: 2017/11/25 11:13:46.
+" =============================================================================
 ...
-let s:p.normal.left = [ [ s:base03, s:base1, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
+...
+
+" The following condition only applies for the console and is the same
+" condition vim-colors-solarized uses to determine which set of colors
+" to use.
+let s:<mark>lightline_solarized_termcolors</mark> = get(g:, 'solarized_termcolors', 256)
+if s:<mark>lightline_solarized_termcolors</mark> != 256 && &t_Co >= 16
+  let s:cuiindex = 0
+elseif s:<mark>lightlinesolarized_termcolors</mark> == 256
+  let s:cuiindex = 1
+else
+  let s:cuiindex = 2
+endif
+
+let s:p.normal.left = [ [ s:base03, <mark>s:base1</mark>, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
 let s:p.normal.right = [ [ s:base03, s:base1, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
-let s:p.inactive.right = [ [ s:base03, s:base00 ], [ s:base0, s:base02 ] ]
-let s:p.inactive.left =  [ [ s:base0, s:base02 ], [ s:base0, s:base02 ] ]
-let s:p.insert.left = [ [ s:base03, s:yellow, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
+let s:p.inactive.right = [ [ <mark>s:base02</mark>, s:base00 ], [ <mark>s:base02, s:base00</mark> ] ]
+let s:p.inactive.left =  [ [ <mark>s:base02</mark>, s:base00 ], [ <mark>s:base02, s:base00</mark> ] ]
+let s:p.insert.left = [ [ s:base03, <mark>s:yellow, 'bold'</mark> ], [ s:base03, s:base00 ] ]
 let s:p.replace.left = [ [ s:base03, s:red, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
-let s:p.visual.left = [ [ s:base03, s:green, <mark>'bold'</mark> ], [ s:base03, s:base00 ] ]
+let s:p.visual.left = [ [ s:base03, <mark>s:green, 'bold'</mark> ], [ s:base03, s:base00 ] ]
 let s:p.normal.middle = [ [ s:base1, s:base02 ] ]
-let s:p.inactive.middle = [ [ s:base01, s:base02 ] ]
+let s:p.inactive.middle = [ [ <mark>s:base02, s:base00</mark> ] ]
 let s:p.tabline.left = [ [ s:base03, s:base00, <mark>'bold'</mark> ] ]
 let s:p.tabline.tabsel = [ [ s:base03, s:base1, <mark>'bold'</mark> ] ]
 let s:p.tabline.middle = [ [ s:base0, s:base02 ] ]
 let s:p.tabline.right = copy(s:p.normal.right)
 let s:p.normal.error = [ [ s:base03, s:red, <mark>'bold'</mark> ] ]
 let s:p.normal.warning = [ [ s:base03, s:yellow, <mark>'bold'</mark> ] ]
+
+let g:lightline#colorscheme#<mark>lightline_solarized</mark>#palette = lightline#colorscheme#flatten(s:p)
 </pre>
 
 ## Tabline
@@ -207,7 +246,7 @@ $ vim .vim/plugged/lightline.vim/autoload/lightline.vim
 ```
 
 <br>
-**Periksa pada line 97**.
+**Periksa pada line 101**.
 <pre>
 \   'tabline': {
 \     'left': [['tabs']],
@@ -217,14 +256,14 @@ $ vim .vim/plugged/lightline.vim/autoload/lightline.vim
 Saya merubah nilai `close` menjadi `string1` dan `string2`.
 
 <br>
-**Periksa pada line 109**.
+**Periksa pada line 113**.
 <pre>
 \     'lineinfo': '%3l:%-2v', 'line': '%l', 'column': '%c', <mark>'string1': '%999X BANDITHIJO.COM ', 'string2': '%999X BUFFERS '</mark>, 'winnr': '%{winnr()}'
 </pre>
 Saya mengganti `'close': '%999X X'` menjadi seperti di atas.
 
 <br>
-**Perhatikan line 120**.
+**Perhatikan line 124**.
 <pre>
 \   'component_type': {
 \     'tabs': 'tabsel', <mark>'string1': 'raw', 'string2': 'raw',</mark>
@@ -253,36 +292,47 @@ let g:lightline.tabline = {
 ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxfHSq5Q/gambar-04.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 8 - Tampilan saat tidak sibuk</p>
 
-# Tambahan Fugitive, Readonly dan Modified
+# Tambahan Fugitive, Readonly, Modified, FileFormat, dan FileType
 
 Kita juga dapat menambahkan simbol untuk **vim-fugitive** dan **readonly** agar lebih mirip lagi dengan **vim-airline**.
 
-Perhatikan baik-baik, saya melakukan modifikasi pada beberapa bagian. Bagian yang saya *marking* kuning adalah bagian-bagian yang saya modifikasi dari konfigurasi sebelumnya (di atas).
+**Perhatikan baik-baik**, saya melakukan modifikasi pada beberapa bagian.
+
+Bagian yang saya *marking* kuning adalah bagian-bagian yang saya modifikasi dari konfigurasi sebelumnya (di atas).
+
+
 <pre>
 let g:lightline = {
-\   'colorscheme': 'solarized',
+\   'colorscheme': <mark>'lightline_solarized',</mark>
 \   'active': {
-\     'left':[[ 'mode', 'paste' ],
-\             [ '<mark>fugitive</mark>', 'readonly', 'filename', 'modified' ]]
+\    'left' :[[ 'mode', 'paste' ],
+\             [ <mark>'fugitive'</mark>, 'readonly' ],
+\             [ 'filename', 'modified' ]],
+\    'right':[[ 'lineinfo' ],
+\             [ 'percent' ],
+\             [ 'filetype', 'fileencoding', 'fileformat' ]]
 \   },
 \   'component': {
 \     'lineinfo': ' %3l:%-2v',
+\     <mark>'filename': '%<%f'</mark>
 \   },
 \   'component_function': {
-\     <mark>'fugitive': 'LightlineFugitive',</mark>
+\     'fugitive': <mark>'LightlineFugitive',</mark>
 \     <mark>'readonly': 'LightlineReadonly',</mark>
 \     <mark>'modified': 'LightlineModified',</mark>
+\     <mark>'fileformat': 'LightlineFileformat',</mark>
+\     <mark>'filetype': 'LightlineFiletype',</mark>
 \   }
 \}
 let g:lightline.separator = {
-\   'left': '', 'right': ''
+\  'left': '', 'right': ''
 \}
 let g:lightline.subseparator = {
 \   'left': '', 'right': ''
 \}
 let g:lightline.tabline = {
 \   'left': [['buffers']],
-\   'right': [['string1'], ['string2']]
+\   'right': <mark>[['string1'], ['string2']]</mark>
 \}
 let g:lightline.component_expand = {
 \   'buffers': 'lightline#bufferline#buffers'
@@ -292,29 +342,55 @@ let g:lightline.component_type = {
 \}
 
 <mark>function! LightlineModified()
-    return &modified ? '●' : ''
-endfunction</mark>
+  return &modified ? '●' : ''
+endfunction
 
-<mark>function! LightlineReadonly()
-    return &readonly ? '' : ''
-endfunction</mark>
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
 
-<mark>function! LightlineFugitive()
-    if exists('*fugitive#head')
-        let branch = fugitive#head()
-        return branch !=# '' ? ' '.branch : ''
-    endif
-    return ''
-endfunction</mark>
+function! LightlineFugitive()
+  if exists('*fugitive#head')
+    let branch = fugitive#head()
+    return branch !=# '' ? ' '.branch : ''
+  endif
+  return fugitive#head()
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
+" autoreload
+command! LightlineReload call LightlineReload()
+
+function! LightlineReload()
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endfunction
+
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline</mark>
 </pre>
+
 Pada bagian `'right': [['string1'], ['string2']]` juga sudah saya lakukan modifikasi dari yang sebelumnya `'right': [[close]]` pada bagian [Tabline]({{ site.url }}/blog/lightline-alternatif-vim-statusline#tabline){:target="_blank"}.
 
 Saya juga melakukan modifikasi terhadap `modified` indikator yang tadinya `+` saya ubah agar lebih terlihat jelas menjadi `●`.
+
+Juga penambahan Devicons pada Filetype dan Fileformat.
 
 **Hasilnya**,
 <!-- IMAGE CAPTION -->
 ![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TPc2p3Zj/gambar-09.png" onerror="imgError(this);"}
 <p class="img-caption">Gambar 9 - Dengan tambahan powerline symbol untuk master dan readonly</p>
+
+![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CKn1Fgcd/gambar-10.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 10 - Dengan penambahan Devicon pada Filetype dan Fileformat</p>
 
 
 # Pesan Penulis
@@ -324,7 +400,6 @@ Saya memutuskan untuk bermigrasi bukan berarti `vim-airline` tidak bagus dan ber
 Kesempatan ini saya pergunakan untuk berekplorasi dengan statusline plugin yang lain, selain dari `vim-airline` yang tersohor. Hehehe.
 
 Sebaik-baik dokumentasi adalah yang ditulis oleh developer pengembang dari masing-masing plugin. Silahkan kunjungin GitHub pages dari masing-masing plugin untuk penjelasan yang lebih kompleks.
-
 
 
 # Referensi
