@@ -1417,7 +1417,7 @@ Hasilnya, akan seperti di bawah ini.
 
 # Dotfiles
 
-Bagi yang memerlukan contoh file konfig secara lengkap, dapat melihat pada dotfiles milik saya, [di sini](https://github.com/bandithijo/dotfiles/blob/master/.config/i3/config-dark){:target="_blank"}. (Sedang Diperbaiki)
+Bagi yang memerlukan contoh file konfig secara lengkap, dapat melihat pada dotfiles milik saya, [di sini](https://github.com/bandithijo/dotfiles/blob/master/.config/i3/config){:target="_blank"}. (Sedang Diperbaiki)
 
 
 # Pesan Penulis
