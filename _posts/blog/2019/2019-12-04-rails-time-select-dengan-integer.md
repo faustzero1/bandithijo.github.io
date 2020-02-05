@@ -123,7 +123,7 @@ Dengan begini, saya memiliki helper method bernama `formatted_duration()` yang d
 
 Kira-kira seperti ini contoh penggunaannya dalam view template.
 
-```html
+```erb
 <!-- app/views/experiences/index.html.erb -->
 
 <div class="row no-gutters">
@@ -140,7 +140,7 @@ Pada bagian ini, harus saya akui, cukup merepotkan. Saya menghabiskan banyak sek
 
 Pertama-tama pada view template dulu.
 
-```html
+```erb
 <!-- app/views/experiences/new.html.erb -->
 <!-- app/views/experiences/edit.html.erb -->
 

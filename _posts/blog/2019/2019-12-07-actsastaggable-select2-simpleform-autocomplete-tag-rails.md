@@ -288,7 +288,7 @@ Pertama, saya akan membuat form dulu dengan bantuan `simple_form`.
 
 Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan membuatnya menjadi render partial template.
 
-```html
+```erb
 <!-- app/views/articles/new.html.erb -->
 
 <%= simple_form_for(@article, url: { action: :create }, html: { id: 'form' } ) do |f| %>
@@ -296,7 +296,7 @@ Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan
 <% end %>
 ```
 
-```html
+```erb
 <!-- app/views/articles/edit.html.erb -->
 
 <%= simple_form_for(@article, url: { action: :update }, html: { id: 'form' } ) do |f| %>
@@ -306,7 +306,7 @@ Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan
 
 Kemudian formnya akan seperti ini.
 
-```html
+```erb
 <!-- app/views/articles/_form.html.erb -->
 
 <div class="form-row">
@@ -342,7 +342,7 @@ Kemudian formnya akan seperti ini.
 
 Kemudian pada bagian bawah dari file `_form.html.erb` ini, kita akan menambahkan javascript library dari Select2.
 
-```html
+```erb
 <!-- app/views/articles/_form.html.erb -->
 
 ...

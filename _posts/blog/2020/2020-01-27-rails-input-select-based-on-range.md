@@ -157,7 +157,7 @@ Contoh blok html di bawah ini hanya sebagai dummy.
 
 Hanya blok code ERB saja yang perlu dilihat.
 
-```html
+```erb
 <!-- app/views/homepage/index.html -->
 
 <%= search_form_for @search, url: experiences_path do |f| %>

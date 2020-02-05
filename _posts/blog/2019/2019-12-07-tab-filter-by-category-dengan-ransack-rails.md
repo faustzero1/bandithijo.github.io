@@ -122,7 +122,7 @@ Untuk view template style dari tab, sesuaikan dengan style yang teman-teman guna
 
 Yang saya berikan di bawah, hanya contoh saja.
 
-```html
+```erb
 <!-- app/views/careers/index.html.erb -->
 
 <nav class="nav">
@@ -152,7 +152,7 @@ Wkwkwkwk
 
 Mungkin bisa disederhanakan lagi seperti ini.
 
-```html
+```erb
 <!-- app/views/careers/index.html.erb -->
 
 <nav class="nav">
@@ -195,7 +195,7 @@ end
 
 Sekarang kita memiliki instance variable `@country_list` yang dapat kita gunakan pada view template.
 
-```html
+```erb
 <!-- app/views/careers/index.html.erb -->
 
 <nav class="nav">
@@ -213,7 +213,7 @@ Wkwkwk
 
 Selanjutnya, untuk menampilkan hasil dari index listnya, seperti ini.
 
-```html
+```erb
 <!-- app/views/careers/index.html.erb -->
 
 ...
@@ -315,7 +315,7 @@ Langkah terakhir, tinggal menggunakan path yang sudah didefinisikan di atas ke v
 
 Serta merubah beberapa properti untuk `.active` class pada button tab yang aktif.
 
-```html
+```erb
 <!-- app/views/careers/index.html.erb -->
 
 <nav class="nav">

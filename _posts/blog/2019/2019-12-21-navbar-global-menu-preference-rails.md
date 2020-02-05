@@ -316,7 +316,7 @@ Struktur file dan direktorinya seperti ini.
 
 Saya mulai dari membuat render partial dari navigation bar pada `application.html.erb`.
 
-```html
+```erb
 <!-- app/views/layouts/application.html.erb -->
 
 <!DOCTYPE html>
@@ -343,7 +343,7 @@ Berikut ini isi dari file `_navbar.html.erb`.
 
 Saya membuat render partial untuk blok language dan currency.
 
-```html
+```erb
 <!-- app/views/layouts/users/_navbar.html.erb -->
 
 <nav class="navbar navbar-expand-xl">
@@ -423,7 +423,7 @@ Saya membuat render partial untuk blok language dan currency.
 </nav>
 ```
 
-```html
+```erb
 <!-- app/views/layouts/users/navbar/_locale.html.erb -->
 
 <div class="col-md-auto border-bottom">
@@ -466,7 +466,7 @@ Saya membuat render partial untuk blok language dan currency.
 </div>
 ```
 
-```html
+```erb
 <!-- app/views/layouts/users/navbar/_rate.html.erb -->
 
 <div class="col-md-auto px-2">
@@ -533,7 +533,7 @@ Saya membuat render partial untuk blok language dan currency.
 
 Selanjutnya, isi dari file `_flash_message.html.erb`
 
-```html
+```erb
 <!-- app/views/layouts/users/_flash_message.html.erb -->
 
 <% flash.each do |name, msg| %>

@@ -141,7 +141,7 @@ Berdasarkan sekenario di atas, pada nomor 1 dan 2, artinya, saya memiliki form p
 
 Lebih mudah, dibuatkan render partial agar bisa berbagi form. Wkwkwk.
 
-```html
+```erb
 <!-- app/view/experiences/new.html.erb -->
 
 <%= form_for(@experience, url: {action: :create}, html: {id: 'form'}) do |f| %>
@@ -149,7 +149,7 @@ Lebih mudah, dibuatkan render partial agar bisa berbagi form. Wkwkwk.
 <% end %>
 ```
 
-```html
+```erb
 <!-- app/view/experiences/edit.html.erb -->
 
 <%= form_for(@experience, url: {action: :update}, html: {id: 'form'}) do |f| %>
@@ -163,7 +163,7 @@ Namun, saya akan pangkas hanya pada bagian input untuk `:age_preference` saja.
 
 CSS class yang ada pada contoh di bawah, hanya *dummy*.
 
-```html
+```erb
 <!-- app/view/experiences/_form.html.erb -->
 
 <div class="form-group">
@@ -188,7 +188,7 @@ Puanjang sekali yaa? Wkwkwk
 
 Apa gunanya option,
 
-```html
+```erb
 (experience.age_preference.nil? ? {} : {checked: JSON.parse(experience.age_preference.to_json).split(", ")})
 ```
 Option tersebut saya tambahan untuk menampilkan data yang sudah ada pada database pada saat proses `:edit`. Kalau tanpa baris itu, maka pada saat proses edit, checkbox akan kembali uncheck all.
@@ -201,7 +201,7 @@ Pada class yang dimiliki oleh `check_box`, terdapat 2 kelas yang berbeda.
 
 Langsung kita tambahkan Javascript pada bagian paling bawah dari file `_form.html.erb` ini.
 
-```html
+```erb
 <!-- app/view/experiences/_form.html.erb -->
 
 <script>
@@ -266,7 +266,7 @@ Dengan begini, pada saat akan menggunakan data `:age_preference` untuk digunakan
 
 Misal pada `:show`.
 
-```html
+```erb
 <!-- app/view/experiences/show.html -->
 
 Age Preference : <%= @experience.age_preference %>

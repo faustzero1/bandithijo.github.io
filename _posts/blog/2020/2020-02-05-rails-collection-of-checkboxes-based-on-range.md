@@ -183,10 +183,10 @@ Hanya blok kode ERB saja yang perlu diperhatikan.
 
 Perhatikan pada masing-masing check box, saya memberikan nama,
 
-```html
+```erb
 name: 'q[price_in]'
 ```
-```html
+```erb
 name: 'q[duration_id_in]'
 ````
 
@@ -194,10 +194,10 @@ Agar output dari params tersebut menghasilkan string.
 
 Karena, apabila saya tidak saya memberikan nama, check box ini secara default akan memiliki nama,
 
-```html
+```erb
 name: 'q[price_in][]'
 ````
-```html
+```erb
 name: 'q[duration_id_in][]'
 ```
 

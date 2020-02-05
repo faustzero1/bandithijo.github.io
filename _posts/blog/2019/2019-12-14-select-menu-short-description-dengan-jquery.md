@@ -51,7 +51,7 @@ Data yang ditampilkan akan mengikuti menu select yang sedang dipilih (*selected*
 
 Pada view template, pada bagian form, seperti ini yang saya lakukan.
 
-```html
+```erb
 <!-- app/view/experiences/_form.html.erb -->
 
 <style>
@@ -105,7 +105,7 @@ Pada bagian `class="description"` berisi tag DIV yang nantinya akan dijadikan se
 
 Selanjutnya, tinggal meracik jQuery saja.
 
-```html
+```erb
 <!-- app/view/experiences/_form.html.erb -->
 
 ...

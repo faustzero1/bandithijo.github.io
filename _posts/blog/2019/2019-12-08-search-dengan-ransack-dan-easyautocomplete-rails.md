@@ -240,7 +240,7 @@ Nah, karena saya menggunakan Bootstrap Navigation Bar, pasti sudah paham, kalau 
 
 Class pada contoh di bawah, hanya ilustrasi yaa.
 
-```html
+```erb
 <!-- app/views/layouts/navigation_bar.html.erb -->
 
 ...
@@ -303,7 +303,7 @@ Nah, langkah terakhir tinggal membuat blok kode untuk menampilkan hasil pencaria
 
 Untuk detailnya dapat teman-teman olah sendiri.
 
-```html
+```erb
 <!-- app/views/experience/index.html.erb -->
 
 <% @experiences.each do |experience| %>

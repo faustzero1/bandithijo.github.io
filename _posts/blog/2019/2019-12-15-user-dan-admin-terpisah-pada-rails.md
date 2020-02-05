@@ -457,7 +457,7 @@ Berikut ini isi dari file-file view tersebut.
 
 Kita mulai dari `layouts/`.
 
-```html
+```erb
 <!-- app/views/layouts/application.html.erb -->
 
 <!DOCTYPE html>
@@ -499,7 +499,7 @@ Kita mulai dari `layouts/`.
 </html>
 ```
 
-```html
+```erb
 <!-- app/views/layouts/users.html.erb -->
 
 <!DOCTYPE html>
@@ -524,7 +524,7 @@ Saya membuat halaman login yang berbeda antara Admin dengan User.
 
 Halamn login untuk User akan menggunakan template dari Devise, sedangkan Admin, akan saya custom sendiri. Seperti di bawah ini.
 
-```html
+```erb
 <!-- app/views/layouts/admins_devise.html.erb -->
 
 <!DOCTYPE html>
@@ -579,7 +579,7 @@ Saya juga mengarahkan `stylesheet_link_tag` dan `javascript_include_tag` pada ma
 
 Oke, selanjutnya file render partial untuk menu navigasi.
 
-```html
+```erb
 <!-- app/views/layouts/admins/_nav.html.erb -->
 
 <nav>
@@ -598,7 +598,7 @@ Oke, selanjutnya file render partial untuk menu navigasi.
 </nav>
 ```
 
-```html
+```erb
 <!-- app/views/layouts/users/_nav.html.erb -->
 
 <nav>
@@ -622,7 +622,7 @@ Oke, selanjutnya file render partial untuk menu navigasi.
 
 Selanjutnya Homepage.
 
-```html
+```erb
 <!-- app/views/public/homepage/index.html.erb -->
 
 <header>
@@ -639,7 +639,7 @@ Selanjutnya Homepage.
 Halaman About dan Contact.
 
 
-```html
+```erb
 <!-- app/views/public/about/index.html.erb -->
 
 <header>
@@ -653,7 +653,7 @@ Halaman About dan Contact.
 </div>
 ```
 
-```html
+```erb
 <!-- app/views/public/contact/index.html.erb -->
 
 <header>
@@ -669,7 +669,7 @@ Halaman About dan Contact.
 
 Kemudian, halan Dashboard untuk Admin dan User.
 
-```html
+```erb
 <!-- app/views/admins/dashboard/index.html.erb -->
 
 <header>
@@ -681,7 +681,7 @@ Kemudian, halan Dashboard untuk Admin dan User.
 </div>
 ```
 
-```html
+```erb
 <!-- app/views/users/dashboard/index.html.erb -->
 
 <header>
