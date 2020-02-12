@@ -21,7 +21,7 @@ Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempuny
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 
-Saat ini sudah bekerja sebagai Junior Backend Web Developer di [VirtualSpirit.me](https://virtualspirit.me){:target="_blank"}.
+Saat ini sudah bekerja sebagai Junior Backend Web Developer di [~~Virtual Spirit Technology Sdn. Bhd.~~](https://virtualspirit.me){:target="_blank"}.
 
 # Apa Alasan Menulis Blog?
 
@@ -140,4 +140,3 @@ Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan 
 Akhir kata, atas berkat rahmat Allah, saya mengucapkan terima kasih.
 
 Best Regards, **BanditHijo**
-
