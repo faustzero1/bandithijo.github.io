@@ -217,7 +217,7 @@ before_action :convert_string_into_range, only: [:index]
 
 Yang akan mengkonversi nilai string menjadi bentuk range.
 
-**Mengapa harus dikonversi sdari string menjadi range?**
+**Mengapa harus dikonversi dari string menjadi range?**
 
 Karena Ransack option `_in` hanya dapat dipakai oleh inputan yang bertipe data range.
 

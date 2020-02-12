@@ -137,7 +137,7 @@ Sedang asik dengan Web programming. Bermodalkan belajar dari video-video di YouT
 
 Dengan segala kerendahan hati, saya mengucapkan selamat membaca tulisan-tulisan di blog yang sederhana ini. Bebaskan diri kalian untuk bertanya, berkomentar, membagikan artikel kepada teman, dan berinteraksi dengan saya.
 
-Akhir kata, atas berkat rahmat Allah SWT, saya mengucapkan terima kasih.
+Akhir kata, atas berkat rahmat Allah, saya mengucapkan terima kasih.
 
 Best Regards, **BanditHijo**
 
