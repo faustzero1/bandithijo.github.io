@@ -47,7 +47,7 @@ Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0)
 
 # Spesifikasi Mesin Ketik
 
-Berikut ini adalah spesifikasi mesin maupun aplikasi yang saya gunakan selama mengukir tulisan di blog ini.
+Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saat ini saya gunakan untuk berkomputasi ataupun untuk mengukir tulisan di blog ini.
 
 <br>
 **Tabel Mesin**
