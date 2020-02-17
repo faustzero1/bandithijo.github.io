@@ -73,7 +73,7 @@ $ rails generate model friendship
 Selanjutnya, modifikasi file migration tersebut, seperti di bawah ini.
 
 ```ruby
-# db/migrate/20200128121401_create_userss.rb
+# db/migrate/20200128121401_create_users.rb
 
 class CreateFriendships < ActiveRecord::Migration[5.2]
   def change
