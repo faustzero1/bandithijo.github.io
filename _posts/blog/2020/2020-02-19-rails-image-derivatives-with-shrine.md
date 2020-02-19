@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Membuat Image Derivatives with Shrine pada Rails"
+title: "Membuat Image Derivatives dengan Shrine pada Rails"
 date: 2020-02-19 14:22
 permalink: '/blog/:title'
 author: 'BanditHijo'
