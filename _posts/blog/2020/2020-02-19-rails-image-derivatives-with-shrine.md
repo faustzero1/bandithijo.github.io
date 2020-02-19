@@ -22,7 +22,7 @@ hot:
 
 # Prakata
 
-Pada catatan kali ini saya akan mendokumentasikan proses implementasi Shrine gem pada aplikasi Ruby on Rails.
+Pada catatan kali ini saya akan mendokumentasikan proses implementasi image processing dengan Shrine gem pada aplikasi Ruby on Rails.
 
 ## Shrine itu apa yaa?
 
