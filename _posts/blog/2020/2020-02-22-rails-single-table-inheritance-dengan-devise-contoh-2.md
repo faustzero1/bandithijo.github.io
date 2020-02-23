@@ -30,7 +30,7 @@ Ahahaha (^_^) definisi macam apa itu.
 
 Abaikan.
 
-Pada saat mengimplmentasi Single Table Inheritance (STI), saya menemukan lebih dari satu cara pada Rails. Maka dari itu, tulisan ini akan saya bagi dalam beberapa contoh.
+Pada saat mengimplementasikan Single Table Inheritance (STI), saya menemukan lebih dari satu cara pada Rails. Maka dari itu, tulisan ini akan saya bagi dalam beberapa contoh.
 
 Catatan kali ini adalah contoh kedua.
 
