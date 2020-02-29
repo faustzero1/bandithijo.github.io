@@ -56,6 +56,8 @@ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;tex
 </pre>
 Perhatikan pada bagian `Exec=`. Saya men-disable yang lama dengan menjadikannya komentar -- memberi tanda `#` pada bagian awal dari baris. Kemudian membuat `Exec=` baru pada baris di bawahnya yang berisi `xfce4-terminal -x nvim %F`.
 
+Jangan lupa untuk mengeset atribute `Terminal=false` apabila nilainya masih `true`. Karena akan menyebabkan terbukanya dua buah terminal.
+
 Apabila berhasil, nanti akan seperti ini hasilnya.
 
 ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif" onerror="imgError(this);"}
