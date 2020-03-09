@@ -9,9 +9,9 @@ comments: true
 toc: true
 category: 'blog'
 tags:
-# Arch Linux, BSPWM, Database, Django, I3WM, Java, Javascript, Jekyll, jQuery
-# Network, Python, Rails, Ruby, Script, Security, Terminal, ThinkPad, Tips,
-# Tools, Ulasan, Vim, Wine, XFCE
+# Arch Linux, BSPWM, Database, Django, FreeBSD, I3WM, Java, Javascript, Jekyll,
+# jQuery, Network, Python, Rails, Ruby, Script, Security, Terminal, ThinkPad,
+# Tips, Tools, Ulasan, Vim, Wine, XFCE
 pin:
 hot:
 ---
