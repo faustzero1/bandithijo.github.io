@@ -68,6 +68,8 @@ Saya akan menggunakan pkg.
 $ <b>doas pkg install dnscrypt-proxy2</b>
 </pre>
 
+# Konfigurasi
+
 Biasanya, setelah proses instalasi selesai, akan keluar *message*. Saat tulisan ini dibuat, *message* yang dikeluarkan adalah seperti ini.
 
 ```
@@ -377,18 +379,20 @@ Nah, outputnya akan seperti ini.
 ```
 Lihat, akan ada penilaian besar latency.
 
+Dapat dilihat bahwa server bernama `quad9-doh-ip4-nofilter-pri` memiliki rtt (*round-trip delay time*) paling kecil diantara server lainnya, sebesar 36ms.
+
 Dan pada akhirnya akan ada output,
 
 ```
 [2020-03-22 22:45:18] [NOTICE] dnscrypt-proxy is ready - live servers: 58
 ```
 
-Langsung bisa kita gunakan.
+Kalau sudah begini, langsung bisa kita gunakan.
 
 Coba lakukan pengetesan dengan [**dnsleaktest.com**](https://www.dnsleaktest.com/){:target="_blank"}.
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="" onerror="imgError(this);"}
-<p class="img-caption">Gambar 1 - Hasil pengetesan dengan dnsleaktest.com</p>
+<p class="img-caption">Gambar 1 - Hasil pengetesan dengan dnsleaktest.com<br>(<i>gambar menyusul server postimages sedang maintenance</i>)</p>
 
 Selanjutnya, saya perlu untuk membuat proses pemanggilan DNSCrypt-proxy ini menjadi otomatis saat sistem pertama kali di jalankan. Agar tidak perlu repot-repot.
 
@@ -407,7 +411,9 @@ Dan tambahkan command untuk menjalankan DNSCrypt-proxy seperti saat kita menjala
 ...
 sudo dnscrypt-proxy -config /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml &
 ```
+Untuk teman-teman yang menggunakan Desktop Environment atau Window Manager yang lain, silahkan menyesuaikan sendiri yaa. (^_^)
 
+<br>
 Nah, permasalahannya, adalah saya memerlukan **sudo**.
 
 Sementara, saya akan izinkan user saya, agar menjalankan DNSCrypt-proxy tanpa perlu memasukkan password.
@@ -423,6 +429,12 @@ bandithijo ALL=(ALL) NOPASSWD: /usr/bin/killall,/usr/local/sbin/dnscrypt-proxy
 ```
 
 Nah, saya juga sekalian menambahkan untuk `killall` agar dapat dijalankan tanpa perlu memasukkan password.
+
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p><b>visudo</b> hanya akan terdapat pada teman-teman yang menggunakan paket <b>sudo</b> pada FreeBSD.</p>
+<p>Untuk yang menggunakan <b>doas</b>, silahkan menyesuaikan sendiri untuk pengaturannya yaa. (^_^)</p>
+</div>
 
 # Pesan Penulis
 
