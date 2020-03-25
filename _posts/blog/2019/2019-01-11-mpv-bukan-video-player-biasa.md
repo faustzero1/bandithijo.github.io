@@ -335,7 +335,7 @@ Berikut ini adalah beberapa alasan saya:
 
 ## Subtitle
 
-pada konfigurasi yang saya buat, saya menghidden visibility dari subtitle.
+Pada konfigurasi yang saya buat, saya menghidden visibility dari subtitle.
 ```
 no-sub-visibility
 ```
@@ -344,6 +344,18 @@ Tujuannya, agar subtitle tidak langsung ditampilkan pada semua video.
 Cara menggunakannya,
 1. Tekan <kbd>V</kbd> untuk meng-*enable* dan *disable* visibility dari subtitle.
 2. Apabila terdapat lebih dari 1 subtitle, kita dapat berpindah antar subtitle menggunakan <kbd>J</kbd> untuk Next Subtitle dan <kbd>SHIFT</kbd> + <kbd>J</kbd> untuk Previous Subtitle.
+
+
+## Dual Subtitle
+
+MPV juga dapat menampilkan dual subtitle.
+
+```
+$ mpv video.mp4 --sub-file=subtitle1.srt --sub-file=subtitle2.srt --secondary-sid=2
+```
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tTtgmqnz/gambar-03.png" onerror="imgError(this);"}
+
 
 # Keyboard Shortcuts
 
