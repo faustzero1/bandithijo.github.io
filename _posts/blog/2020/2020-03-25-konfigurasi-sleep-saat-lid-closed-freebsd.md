@@ -111,6 +111,22 @@ hw.acpi.lid_switch_state: <b>S3</b>
 
 Hasilnya sudah sesuai dengan harapan.
 
+Nah, kita perlu untuk membuat konfigurasi ini menjadi permanen.
+
+Caranya sangat mudah. Tinggal tambahkan pada file `/etc/sysctl.conf`.
+
+<pre>
+$ <b>doas vim /etc/sysctl.conf</b>
+</pre>
+
+```conf
+...
+...
+
+# ACPI sleep when lid closed
+hw.acpi.lid_switch_state=S3
+```
+
 # Pengujian
 
 Nah, enaknya lagi, tanpa perlu restart, kita langsung dapat mencoba pengaturan yang baru saja kita lakukan.
