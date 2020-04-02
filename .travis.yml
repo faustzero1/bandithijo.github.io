@@ -3,9 +3,9 @@ language: ruby
 rvm:
   - 2.5.3
   - 2.6.5
-  - ruby-head
 env:
   - RUBY_VERSION_FOR_DEPLOY=2.6.5
+  - JEKYLL_ENV=production
 branches:
   only:
     - master
@@ -23,7 +23,7 @@ deploy:
   keep-history: true
   github-token: $GITHUB_TOKEN
   local-dir: _site
-  target-branch: gh-pages
+  target-branch: master
   fqdn: bandithijo.github.io
   on:
     branch: master
