@@ -95,10 +95,8 @@ feed:
 keep_files:
     - images
 
-include:
-  - Gemfile
-  - Gemfile.lock
-  # - netlify.toml
+# include:
+#   - netlify.toml
 
 
 # Exclude from processing.
