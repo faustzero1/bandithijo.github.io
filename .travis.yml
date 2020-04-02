@@ -19,12 +19,10 @@ deploy:
   provider: pages
   skip-cleanup: true
   keep-history: true
-  github-token: $GITHUB_TOKEN
   local-dir: _site
   target-branch: master
   fqdn: bandithijo.github.io
   on:
     branch: master
-    rvm: $RUBY_VERSION_FOR_DEPLOY
 notifications:
   email: false
