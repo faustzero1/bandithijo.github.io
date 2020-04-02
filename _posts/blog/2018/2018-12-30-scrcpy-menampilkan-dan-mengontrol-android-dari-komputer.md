@@ -199,8 +199,7 @@ $ scrcpy
 
 # Sekilas Penggunaan
 
-<!-- EMBED CONTAINER: YOUTUBE -->
-{% youtube Pn_YhMWnZVE %}
+{% include youtube_embed.html id="Pn_YhMWnZVE" %}
 
 # Pesan Penulis
 

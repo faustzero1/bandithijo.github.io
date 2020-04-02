@@ -15,13 +15,9 @@ voice:
 
 <div style="margin-top:30px;"></div>
 
-{% youtube WkuspokChBI %}
+{% include youtube_embed.html id="WkuspokChBI" %}
 <br>
-<!-- EMBED CONTAINER: YOUTUBE -->
-{% assign url = 'BBr--Pj2aTs' %}
-<div class='embed-container'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{% include youtube_embed.html id="BBr--Pj2aTs" %}
 
 # Deskripsi
 

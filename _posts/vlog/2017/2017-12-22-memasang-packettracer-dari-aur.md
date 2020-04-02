@@ -15,7 +15,7 @@ voice: true
 
 <div style="margin-top:30px;"></div>
 
-{% youtube elCMIpfneSk %}
+{% include youtube_embed.html id="elCMIpfneSk" %}
 
 # Deskripsi
 

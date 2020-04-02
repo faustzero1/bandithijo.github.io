@@ -14,9 +14,8 @@ voice: true
 ---
 
 <div style="margin-top:30px;"></div>
-<!-- EMBED CONTAINER: YOUTUBE -->
 
-{% youtube e4CwLL6nZZE %}
+{% include youtube_embed.html id="e4CwLL6nZZE" %}
 
 # Deskripsi
 

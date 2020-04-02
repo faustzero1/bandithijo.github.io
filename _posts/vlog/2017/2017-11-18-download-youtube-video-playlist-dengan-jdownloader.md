@@ -15,7 +15,7 @@ voice: true
 
 <div style="margin-top:30px;"></div>
 
-{% youtube JCNUV_u0Tik %}
+{% include youtube_embed.html id="JCNUV_u0Tik" %}
 
 # Deskripsi
 

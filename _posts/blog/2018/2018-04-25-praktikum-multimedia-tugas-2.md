@@ -24,7 +24,7 @@ hot:
 
 # Video Dokumentasi
 
-{% youtube X59On7MV0Co %}
+{% include youtube_embed.html id="X59On7MV0Co" %}
 
 > | Nama | **Rizqi Nur Assyaufi** |
 > | NIM | **15.01.157** |

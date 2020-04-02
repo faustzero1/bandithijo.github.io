@@ -80,7 +80,7 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 
 # EMBED VIDEO YOUTUBE
 <!-- EMBED CONTAINER: YOUTUBE -->
-{% youtube ID_YOUTUBE %}
+{% include youtube_embed.html id="ID_YOUTUBE" %}
 
 # MULTIPLE POST CONTROLER
 <!-- NEXT PREV BUTTON -->

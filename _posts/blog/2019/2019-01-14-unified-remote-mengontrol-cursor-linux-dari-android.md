@@ -281,7 +281,7 @@ Silahkan bereksplorasi sendiri, karena di dalamnya terdapat banyak sekali fungsi
 
 # Preview Video
 
-{% youtube 7QACnojH5Ks %}
+{% include youtube_embed.html id="7QACnojH5Ks" %}
 
 # Pesan Penulis
 

@@ -15,7 +15,7 @@ voice:
 
 <div style="margin-top:30px;"></div>
 
-{% youtube LwiMqQaZMRQ %}
+{% include youtube_embed.html id="LwiMqQaZMRQ" %}
 
 # Deskripsi
 

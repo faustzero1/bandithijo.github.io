@@ -121,7 +121,7 @@ Dengan demikian proses instalasi dan konfigurasi WinBox pada GNU/Linux saya rasa
 
 # Video Sample
 
-{% youtube 2DVKiNiCiI8 %}
+{% include youtube_embed.html id="2DVKiNiCiI8" %}
 
 # Referensi
 

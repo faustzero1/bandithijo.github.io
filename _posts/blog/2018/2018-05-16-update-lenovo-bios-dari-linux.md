@@ -224,7 +224,7 @@ Dengan begini, *flash drive* sudah siap untuk kita gunakan untuk mengupdate BIOS
 
 Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini terlalu lama, sekitar 6 menit. Saya tidak ingin memotong bagian-bagian penting dari proses update ini.
 
-{% youtube VjPw1RP0fYc %}
+{% include youtube_embed.html id="VjPw1RP0fYc" %}
 
 # Pesan Penulis
 

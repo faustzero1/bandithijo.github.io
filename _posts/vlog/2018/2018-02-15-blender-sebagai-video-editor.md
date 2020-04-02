@@ -15,7 +15,7 @@ voice: true
 
 <div style="margin-top:30px;"></div>
 
-{% youtube 24-ynNcql7g %}
+{% include youtube_embed.html id="24-ynNcql7g" %}
 
 # Deskripsi
 

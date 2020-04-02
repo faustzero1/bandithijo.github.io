@@ -189,7 +189,7 @@ Akan saya buatkan video tutorialnya di kesempatan yang lain. Saat ini sedang kur
 
 Saya kasih previewnya dulu saja gpp yaa. Hehe.
 
-{% youtube w9l3-ZkXPT4 %}
+{% include youtube_embed.html idi="w9l3-ZkXPT4" %}
 
 # Hasilnya
 

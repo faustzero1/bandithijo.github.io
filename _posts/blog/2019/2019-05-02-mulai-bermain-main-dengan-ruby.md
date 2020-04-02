@@ -128,7 +128,7 @@ Secara struktur sintaks, sama-sama mudah untuk dibaca dan ndak bikin ngebong.
 
 ## Contoh 2
 
-{% youtube jr43cIer1Fw %}
+{% include youtube_embed.html id="jr43cIer1Fw" %}
 
 <br>
 Nah! Dari kedua contoh di atas. Masih banyak lagi yang akan saya coba konfersikan. Karena setiap Python script memiliki fungsi yang berbeda-beda.

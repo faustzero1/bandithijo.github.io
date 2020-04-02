@@ -152,7 +152,7 @@ Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berha
 
 # Video Ilustrasi
 
-{% youtube nixRL8esSa8 %}
+{% include youtube_embed.html id="nixRL8esSa8" %}
 
 # Akhir Kata
 

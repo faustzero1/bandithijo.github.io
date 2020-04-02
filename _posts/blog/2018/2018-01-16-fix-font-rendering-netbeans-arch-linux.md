@@ -65,7 +65,7 @@ Apakah _font rendering_ sudah lebih bagus dan _smooth_ ?
 
 # Video Dokumentasi
 
-{% youtube Bw1RYFkCXYs %}
+{% include youtube_embed.html id="Bw1RYFkCXYs" %}
 
 # Referensi
 1. [thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/](https://thomashunter.name/blog/enabling-anti-aliasing-in-the-netbeans-editor/)

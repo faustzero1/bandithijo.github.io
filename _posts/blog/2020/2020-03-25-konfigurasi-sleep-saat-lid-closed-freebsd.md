@@ -139,7 +139,7 @@ Mantap.
 
 Berikut ini video demonstrasinya.
 
-{% youtube 73eF71y_AxI %}
+{% include youtube_embed.html id="73eF71y_AxI" %}
 
 <br>
 Pada video di atas, terlihat bahwa saya mendemonstrasikan proses sebelum dan sesudah mengubah atribut **lid_switch_state** tanpa perlu melakukan restart.

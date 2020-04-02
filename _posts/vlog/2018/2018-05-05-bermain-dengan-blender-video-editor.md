@@ -15,7 +15,7 @@ voice:
 
 <div style="margin-top:30px;"></div>
 
-{% youtube ERMFU-mk1Jw %}
+{% include youtube_embed.html id="ERMFU-mk1Jw" %}
 
 # Deskripsi
 
