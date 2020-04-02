@@ -1,4 +1,32 @@
+sudo: false
 language: ruby
 rvm:
   - 2.5.3
-script: "gem install bundler; bundle exec jekyll build"
+  - 2.6.5
+  - ruby-head
+env:
+  - RUBY_VERSION_FOR_DEPLOY=2.6.5
+branches:
+  only:
+    - master
+cache: bundler
+before_install:
+  - travis_retry gem update --system
+  - travis_retry gem install bundler
+install:
+  - travis_retry bundle install
+  - travis_retry bundle update
+  - bundle exec jekyll build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: _site
+  target-branch: gh-pages
+  fqdn: bandithijo.github.io
+  on:
+    branch: master
+    rvm: $RUBY_VERSION_FOR_DEPLOY
+notifications:
+  email: false
