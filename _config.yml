@@ -87,27 +87,29 @@ sitemap:
 # Url : https://github.com/jekyll/jekyll-feed
 feed:
     categories:
-        - blog
-        - vlog
-        - python
+      - blog
+      - vlog
+      - python
 
 
 keep_files:
     - images
 
-# include:
-#   - netlify.toml
+include:
+  - Gemfile
+  - Gemfile.lock
+  # - netlify.toml
 
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude: [ vendor ]
-    # - lazyhandling.rb
-    # - Gemfile
-    # - Gemfile.lock
-    # - node_modules
-    # - vendor/bundle/
-    # - vendor/cache/
-    # - vendor/gems/
-    # - vendor/ruby/
+  # - lazyhandling.rb
+  # - Gemfile
+  # - Gemfile.lock
+  # - node_modules
+  # - vendor/bundle/
+  # - vendor/cache/
+  # - vendor/gems/
+  # - vendor/ruby/
