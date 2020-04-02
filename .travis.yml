@@ -1,4 +1,3 @@
-sudo: false
 language: ruby
 rvm:
   - 2.6.5
@@ -15,14 +14,5 @@ install:
   - travis_retry bundle install
   - travis_retry bundle update
   - bundle exec jekyll build
-deploy:
-  provider: pages
-  skip-cleanup: true
-  keep-history: true
-  local-dir: _site
-  target-branch: master
-  fqdn: bandithijo.github.io
-  on:
-    branch: master
 notifications:
   email: false
