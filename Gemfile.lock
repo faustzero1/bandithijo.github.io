@@ -248,6 +248,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.17.2)
   github-pages (~> 204)
   jekyll-feed (~> 0.13.0)
   jekyll-last-modified-at (~> 1.1.0)
