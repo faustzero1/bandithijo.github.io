@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Welcome to Jekyll!'
-date: 2018-03-18 02:32:58 +0800
+date: 2018-03-18 02:32:58
 permalink: /blog/:title
 author: 'BanditHijo'
 license: true
