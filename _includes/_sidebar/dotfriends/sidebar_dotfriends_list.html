@@ -2,6 +2,7 @@
     <h1 style="font-size:1.5em;">Daftar dotFriends</h1>
     <div style="margin-top:5px;"></div>
     <div class="toc">
-        {{ content | toc_only }}
+        {% comment %} {{ content | toc_only }} {% endcomment %}
+        {% include toc.html html=content %}
     </div>
 </div>
