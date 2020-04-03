@@ -29,7 +29,7 @@
 # email   : bandithijo@gmail.com
 # created : 01 May 2019
 
-# lazyhandling.rb, adalah python script sederhana untuk menghandle Jekyll Build
+# lazyhandling.rb, adalah ruby script sederhana untuk menghandle Jekyll Build
 # , git add, commit dan push ke GitHub dan GitLab repository bandithijo.com
 
 # TODO
@@ -37,7 +37,6 @@
 
 # Daftar direktori
 srcDir = '$HOME/dex/bandithijo.com'
-pubDir = '$HOME/dex/bandithijo.com/_site'
 
 # Meminta commit message kepada user
 if ARGV.inspect == '[]'

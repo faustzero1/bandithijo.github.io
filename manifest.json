@@ -1,7 +1,7 @@
 {
-    "name": "BanditHijo.Com",
-    "short_name": "BanditHijo.Com",
-    "start_url": "https://bandithijo.com",
+    "name": "BanditHijo (R)-Chive",
+    "short_name": "BanditHijo",
+    "start_url": "https://bandithijo.github.io",
     "display": "standalone",
     "background_color": "#FFFFFF",
     "theme_color": "#006F46",

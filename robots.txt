@@ -3,4 +3,4 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 #
 User-agent: *
-Sitemap: https://bandithijo.com/sitemap.xml
+Sitemap: https://bandithijo.github.io/sitemap.xml
