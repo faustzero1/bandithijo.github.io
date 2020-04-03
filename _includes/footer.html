@@ -9,7 +9,7 @@
         Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
         Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
         Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
-        Terakhir digenerate: {{ site.time | date: '%d/%m/%Y' }} | {{ site.github.build_revision }}
+        Terakhir digenerate: {{ site.time | date: '%d/%m/%Y' }}<br>{{ site.github.build_revision }}
       </p>
       <!-- <p style="margin&#45;top:&#45;25px;">BitCoin: <code>1ozyTenXAq7FhzSJ26CaNKtXSDpbzz52S</code><br> -->
       <p class="footer-menu">
@@ -66,17 +66,23 @@
         <a href="https://github.com/bandithijo" target="_blank" rel="noopener">
           <img class="footer-img-github" src="/assets/img/logo/logo_github.png">
         </a>
+        <a href="https://travis-ci.org" target="_blank" rel="noopener">
+          <img class="footer-img-travisci" src="/assets/img/logo/logo_travisci.png">
+        </a>
         {% comment %} <a href="https://gitlab.com/bandithijo" target="_blank" rel="noopener"> {% endcomment %}
         {% comment %}   <img class="footer-img-gitlab" src="/assets/img/logo/logo_gitlab.png"> {% endcomment %}
         {% comment %} </a> {% endcomment %}
-        <a href="https://netlify.com" target="_blank" rel="noopener">
-          <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
-        </a>
+        {% comment %} <a href="https://netlify.com" target="_blank" rel="noopener"> {% endcomment %}
+        {% comment %}   <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png"> {% endcomment %}
+        {% comment %} </a> {% endcomment %}
       </div><!-- tech-i-used-desktop -->
 
       <div class="tech-i-used-mobile">
-        <a href="https://netlify.com/" target="_blank" rel="noopener">
-          <img class="footer-img-1" src="/assets/img/logo/logo_netlify_mobile.png">
+        {% comment %} <a href="https://netlify.com/" target="_blank" rel="noopener"> {% endcomment %}
+        {% comment %}   <img class="footer-img-1" src="/assets/img/logo/logo_netlify_mobile.png"> {% endcomment %}
+        {% comment %} </a> {% endcomment %}
+        <a href="https://travis-ci.org/" target="_blank" rel="noopener">
+          <img class="footer-img-1" src="/assets/img/logo/logo_travisci_mobile.png">
         </a>
         <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer">
           <img class="footer-img-2" src="/assets/img/logo/logo_github_mobile.png">

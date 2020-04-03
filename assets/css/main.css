@@ -678,6 +678,12 @@ img.footer-img-netlify {
   width: 120px;
 }
 
+img.footer-img-travisci {
+  float: right;
+  margin: -54px 263px 0 0;
+  width: 120px;
+}
+
 img.footer-bedge-1 {
   float: right;
   margin: -195px 20px 0 0;
@@ -2396,6 +2402,14 @@ a.disqus_button {
   }
 
   img.footer-img-netlify {
+    float: none;
+    width: 150px;
+    margin: auto;
+    margin-top: -5px;
+    margin-bottom: 20px;
+  }
+
+  img.footer-img-travisci {
     float: none;
     width: 150px;
     margin: auto;
