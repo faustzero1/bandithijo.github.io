@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/04/03'
+  url:
+  detail: |
+      Mengganti ToC dengan allejo/jekyll-toc untuk GitHub Pages Compatibiltas ToC
+
 - tanggal: '19/12/22'
   url:
   detail: |
