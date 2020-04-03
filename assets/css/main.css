@@ -182,8 +182,7 @@ kbd {
 }
 
 #header .container .title h1 {
-  /* font-size: 370%; */
-  font-size: 400%;
+  font-size: 370%;
 }
 
 #header .container .description {
@@ -1935,7 +1934,7 @@ a.disqus_button {
 @media (max-width: 1150px) {
 
   #header .container .title h1 {
-    font-size: 300%;
+    font-size: 350%;
   }
 
   #header .logo {

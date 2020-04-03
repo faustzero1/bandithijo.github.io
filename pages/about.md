@@ -15,6 +15,12 @@ toc: true
 
 Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren para penulis buku,  meskipun saya masih sangat terlampau jauh untuk dapat menyebut diri saya sebagai seorang penulis.
 
+# Bagaimana Cara Membaca Nama Blog Ini?
+
+**BanditHijo (R)-Chive**, **(R)-Chive** sendiri diambil dari kata **ar.chive** /ˈärˌkīv/ yang berarti **arsip** dalam bahasa Indonesia.
+
+Sehingga, apabila dibaca secara utuh menjadi, /BanditHijo Arkaiv/ yang berarti Arsip milik BanditHijo (anggap saja begitu, haha).
+
 # Nama Asli, Status, dan Pekerjaan?
 
 Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
