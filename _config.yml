@@ -34,23 +34,23 @@ google_analytics: UA-116004889-1
 
 # LazyLoad
 lazyload:
-    logo_blank: /assets/img/logo/logo_blank.svg
-    logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
+  logo_blank: /assets/img/logo/logo_blank.svg
+  logo_blank_banner: /assets/img/logo/logo_blank_banner.svg
 
 # Build settings
 incremental: false
 markdown: kramdown
 kramdown:
-    input: GFM
-    hard_wrap: false
-    syntax_highlighter: rouge
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
 
 plugins:
-    - rouge
-    - jekyll-toc
-    - jekyll-feed
-    - jekyll-sitemap
-    - jekyll-last-modified-at
+  - rouge
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-last-modified-at
+  # - jekyll-toc
 
 
 # Newsline
@@ -60,36 +60,36 @@ newsline: true
 
 # Navigation Menu on Header
 navigation:
-    - title: Blog
-      url: /blog/
-    - title: Vlog
-      url: /vlog/
-    - title: Books
-      url: /book/
-    - title: About
-      url: /about/
+  - title: Blog
+    url: /blog/
+  - title: Vlog
+    url: /vlog/
+  - title: Books
+    url: /book/
+  - title: About
+    url: /about/
 
 
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
 sitemap:
-    filename: "/sitemap.xml"
-    exclude:
-        - "/feed.xml"
-        - "/feed/blog.xml"
-        - "/feed/vlog.xml"
-        - "/feed/python.xml"
-    include_posts:
-        - "/index.html"
+  filename: "/sitemap.xml"
+  exclude:
+    - "/feed.xml"
+    - "/feed/blog.xml"
+    - "/feed/vlog.xml"
+    - "/feed/python.xml"
+  include_posts:
+    - "/index.html"
 
 
 # Jekyll-Feed
 # Url : https://github.com/jekyll/jekyll-feed
 feed:
-    categories:
-      - blog
-      - vlog
-      - python
+  categories:
+    - blog
+    - vlog
+    - python
 
 
 keep_files:
