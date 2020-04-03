@@ -22,7 +22,6 @@ gem 'bundler',                                 '~> 2.1', '>= 2.1.4'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'rouge',                                 '~> 3.13.0'
-  # gem 'jekyll-toc',                            '~> 0.13.1'
   gem 'jekyll-feed',                           '~> 0.13.0'
   gem 'jekyll-sitemap',                        '~> 1.4.0'
   gem 'jekyll-seo-tag',                        '~> 2.6.1'

@@ -48,9 +48,6 @@ GEM
       jekyll (>= 3.3, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
-    jekyll-toc (0.13.1)
-      jekyll (>= 3.7)
-      nokogiri (~> 1.9)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     kramdown (1.17.0)
@@ -95,7 +92,6 @@ DEPENDENCIES
   jekyll-last-modified-at (~> 1.2.1)
   jekyll-seo-tag (~> 2.6.1)
   jekyll-sitemap (~> 1.4.0)
-  jekyll-toc (~> 0.13.1)
   rouge (~> 3.13.0)
 
 BUNDLED WITH
