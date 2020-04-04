@@ -32,6 +32,9 @@ logo_author: /assets/img/logo/logo_author.png
 # Google Analytics
 google_analytics: UA-116004889-1
 
+# Google Site Verification (Webmaster)
+google_verify: qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc
+
 # LazyLoad
 lazyload:
   logo_blank: /assets/img/logo/logo_blank.svg
