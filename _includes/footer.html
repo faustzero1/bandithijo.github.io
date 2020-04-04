@@ -9,9 +9,8 @@
         Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
         Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
         Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
-        Terakhir digenerate: {{ site.time | date: '%d/%m/%Y' }}<br>{{ site.github.build_revision }}
+        Terakhir digenerate: <b>{{ site.time | date: '%d/%m/%Y' }}</b><br>{{ site.github.build_revision }}
       </p>
-      <!-- <p style="margin&#45;top:&#45;25px;">BitCoin: <code>1ozyTenXAq7FhzSJ26CaNKtXSDpbzz52S</code><br> -->
       <p class="footer-menu">
         <br>
         <a href="/contact/">Contact</a> |&nbsp;
@@ -19,14 +18,15 @@
         <a rel="me" href="https://gitlab.com/bandithijo" target="_blank" rel="noreferrer">GitLab</a> |&nbsp;
         <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
         {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
-        <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+          <a href="/feed/blog.xml" target="_blank">RSS</a>
         {% elsif page.permalink == '/vlog/' or page.permalink == '/vlog/:title' %}
-        <a href="/feed/vlog.xml" target="_blank">RSS</a></p>
+          <a href="/feed/vlog.xml" target="_blank">RSS</a>
         {% elsif page.permalink == '/python/' or page.permalink == '/python/:title' %}
-        <a href="/feed/python.xml" target="_blank">RSS</a></p>
+          <a href="/feed/python.xml" target="_blank">RSS</a>
         {% else %}
-        <a href="/feed/blog.xml" target="_blank">RSS</a></p>
+          <a href="/feed/blog.xml" target="_blank">RSS</a>
         {% endif %}
+      </p>
 
       <div class="tab">
         <button class="tablinks active" onclick="openPlatform(event, 'gopay')" id="defaultOpen">GoPay</button>
