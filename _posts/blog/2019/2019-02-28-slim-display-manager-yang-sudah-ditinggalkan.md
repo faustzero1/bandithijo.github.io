@@ -88,9 +88,9 @@ Untuk teman-teman yang menggunakan distribusi selain Arch atau turunan Arch, sil
 
 Untuk distribusi Arch Linux, sangat saya sarankan memasang paket SLiM menggunakan *package manager*, dikarenakan alasan di atas. Agar paket yang kita gunakan, adalah paket yang sudah jelas ter-*maintained* dengan baik.
 
-```
-$ sudo pacman -S slim
-```
+<pre>
+$ <b>sudo pacman -S slim</b>
+</pre>
 
 Untuk distribusi yang lain, silahkan menyesuaikan.
 
@@ -102,15 +102,15 @@ Setelah memasang paket SLiM, kita perlu menjalankan `slim.service`.
 
 Dikarenakan kita harus memilih salah satu Display Manager yang digunakan, karena sebelumnya saya menggunakan LightDM Display Manager, saya akan men-*disable* service dari LightDM terlebih dahulu.
 
-```
-$ sudo systemctl disable lightdm.service
-```
+<pre>
+$ <b>sudo systemctl disable lightdm.service</b>
+</pre>
 
 Selanjutnya, baru meng-*enable*-kan service dari SLiM.
 
-```
-$ sudo systemctl enable slim.service
-```
+<pre>
+$ <b>sudo systemctl enable slim.service</b>
+</pre>
 
 ## Sessions
 
@@ -148,9 +148,9 @@ Saya mulai dari cara pertama.
 
 Edit file `/etc/slim.conf` dengan *text editor* favorit kalian.
 
-```
-$ sudo vim /etc/slim.conf
-```
+<pre>
+$ <b>sudo vim /etc/slim.conf</b>
+</pre>
 
 <pre>
 ...
@@ -168,6 +168,19 @@ Perhatikan baris yang saya *marking*, pastikan sudah *enable* (tidak ada tanda #
 
 Bagian inilah yang akan mengaktifkan pilihan session pada saat login.
 
+(Perbaikan dari: **Harry Kurn**)
+
+**Penting!** untuk menambahkan baris di bawah ini pada file `~/.xinitrc`.
+
+```
+...
+...
+
+exec $1
+```
+
+Tujuannya agar inputan yang dipilih menggunakan <kbd>F1</kbd> akan dieksekusi.
+
 ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d35FFTvd/gambar-06.gif" onerror="imgError(this);"}
 
 Kita dapat memilih session dengan menekan tombol <kbd>F1</kbd>.
@@ -178,9 +191,9 @@ Untuk Cara kedua ini, dapat pula kita sebut sebagai *automatic session*, karena 
 
 Edit file `/etc/slim.conf` dengan *text editor* favorit teman-teman.
 
-```
-$ sudo vim /etc/slim.conf
-```
+<pre>
+$ <b>sudo vim /etc/slim.conf</b>
+</pre>
 
 <pre>
 ...
@@ -200,9 +213,9 @@ Selanjutnya, definisikan *default session* yang akan kita pergunakan.
 
 Edit file `~/.xinitrc` dengan *text editor* favorit kalian.
 
-```
-$ vim ~/.xinitrc
-```
+<pre>
+$ <b>vim ~/.xinitrc</b>
+</pre>
 
 Ada dua cara yang saya tawarkan.
 
@@ -222,6 +235,11 @@ Karena saya menggunakan i3wm sebagai *default session* saya, maka saya meng-*ena
 
 #### Cara Keren
 
+(Perbaikan dari: **Harry Kurn**)
+
+Cara keren ini sudah **tidak direkomendasikan** lagi.
+
+<strike>
 <pre>
 ...
 ...
@@ -241,7 +259,8 @@ esac</mark>
 ...
 </pre>
 
-Untuk mengganti *default session* yang ingin digunakan, ubah nilai dari *variabel* `DEFAULTSESSION=`.
+Untuk mengganti <i>default session</i> yang ingin digunakan, ubah nilai dari <i>variabel</i> <code>DEFAULTSESSION=</code>.
+</strike>
 
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxs6sHRq/gambar-07.png" onerror="imgError(this);"}
 
@@ -461,8 +480,11 @@ Mudah-mudahan dapat bermanfaat buat teman-teman.
 
 Terima kasih.
 
+# Terima Kasih
 
+Terima kasih, Bro **Harry Kurn**.
 
+![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/xdSvWxK2/gambar-11.png" onerror="imgError(this);"}
 
 # Referensi
 
