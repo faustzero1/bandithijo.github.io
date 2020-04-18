@@ -63,6 +63,24 @@ Oh yaa, untuk class dari stylesheet di atas, saya menggunakan Bootstrap CSS Fram
 
 Kalau teman-teman menggunakan CSS framework yang lain atau membuat sendiri, silahkan dimodifikasi sendiri yaa.
 
+Selanjutnya tinggal memangilnya.
+
+Karena saya akan menggunakannya pada halaman/layout post, maka akan saya pasangkan di `_layouts/post.html`.
+
+{% raw %}
+```html
+<!-- _layouts/post.html -->
+
+...
+...
+
+{% include page-navigation.html %}
+
+...
+```
+{% endraw %}
+
+
 Kelar!
 
 Sudah deh, saya rasa segini saja catatannya.
