@@ -32,7 +32,7 @@ Kalau berdasarkan *user experience*, setelah pembaca membaca artikel pada sebuah
 
 Maka dari itu, kita perlu untuk memasang, setidaknya menu navigasi untuk ke post sebelumnya atau ke post selanjutnya.
 
-# Penyelsaian Masalah
+# Penyelesaian Masalah
 
 Saya akan membuat sebuah file bernama `page-navigation.html` di dalam direktori `_includes`.
 
