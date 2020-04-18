@@ -47,7 +47,8 @@ permalink: :title
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
           <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><span class="tombol-a"><b>Selengkapnya >></b></span></a></p>
-        </div><!-- notif-home -->
+          <!-- END Judul Blog Terbaru -->
+        </div>
 
         <div class="notif-home">
           <!-- Judul Vlog Terbaru -->
@@ -59,7 +60,8 @@ permalink: :title
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
           <p style="text-align:left;"><a style="border-bottom:0;" href="/vlog/"><span class="tombol-a"><b>Selengkapnya >></b></span></a></p>
-        </div><!-- notif-home -->
+          <!-- END Judul Vlog Terbaru -->
+        </div>
 
         <div class="notif-home">
           <!-- Blog Feature Update -->
@@ -74,7 +76,8 @@ permalink: :title
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
           <p style="text-align:left;"><a style="border-bottom:0;" href="/blog-features-update/"><span class="tombol-a"><b>Selengkapnya >></b></span></a></p>
-        </div><!-- notif-home -->
+          <!-- END Blog Feature Update -->
+        </div>
       </article><!-- homepage -->
 
       <div style="margin:20px;"></div>
@@ -110,13 +113,14 @@ permalink: :title
               <div style="margin:5px 0;border-bottom:1px dashed #FFF;"></div>
               <p> Apalah guna ilmu bila tidak bermanfaat bagi orang lain. Saya mencoba memberanikan menulis buku demi generasi yang akan datang.</p>
             </div>
+          </a>
         </div>
 
-      </article>
+      </article><!-- box-container -->
 
       <article class="box-container-github">
         <link rel="stylesheet" href="/assets/css/github-contributions.css">
-        {% include github_contributions.html %}
+        {% comment %} {% include github_contributions.html %} {% endcomment %}
       </article>
 
       <br>
