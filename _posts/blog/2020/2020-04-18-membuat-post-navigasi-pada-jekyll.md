@@ -39,7 +39,7 @@ Saya akan membuat sebuah file bernama `page-navigation.html` di dalam direktori 
 Tujuannya agar lebih modular. Maksudnya, kita dapat memasang page navigation di mana saja yang kita perlukan, tinggal dipanggil menggunakan `include`.
 
 {% raw %}
-```html
+```liquid
 <!-- _inlcudes/page-navigation.html -->
 
 <div class="page-navigation mt-5">
@@ -68,7 +68,7 @@ Selanjutnya tinggal memangilnya.
 Karena saya akan menggunakannya pada halaman/layout post, maka akan saya pasangkan di `_layouts/post.html`.
 
 {% raw %}
-```html
+```liquid
 <!-- _layouts/post.html -->
 
 ...
