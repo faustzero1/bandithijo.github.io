@@ -34,6 +34,10 @@ layout: baseof
 
             <div style="clear:both;"></div>
 
+            {% include mail_subscriber.html %}
+
+            <div style="clear:both;"></div>
+
             <!-- License -->
             {% if page.category == 'blog'
               or page.category == 'vlog' %}
@@ -52,7 +56,6 @@ layout: baseof
           {% endif %}
           <br>
         </div>
-        {% include mail_subscriber.html %}
       </article>
 
       {% include sidebar_tail.html %}
