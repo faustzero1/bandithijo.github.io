@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/04/19'
+  url:
+  detail: |
+      Menambahkan Email Subscribtion form di halaman post
+
 - tanggal: '20/04/03'
   url:
   detail: |
