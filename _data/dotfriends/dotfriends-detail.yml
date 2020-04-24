@@ -138,10 +138,17 @@ friends:
       <p>Makanan, kodingan, dan kehidupan.</p>
       <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p>
 
-- nama : "Tsara Fatma"
+- nama: "Tsara Fatma"
   photo: "https://github.com/tsara27.png?size=200"
   url1: "https://tsarafatma.com/"
   url2: "https://github.com/tsara27"
   detail: |
       <p>I am a mom, a wife, and also a programmer who is trying to improve and spread good things for others.</p>
       <p>I am a full stack Ruby on Rails developer with more than 4 years experience and have contributed/developed various web application and RESTful API. I have worked with many clients around the world and helped building and maintaining various products.</p>
+
+- nama: "Galih Wisnuaji"
+  photo: "https://github.com/galihx11.png?size=200"
+  url1: "https://www.linuxisekai.site"
+  url2: "https://github.com/galihx11"
+  detail: |
+    <p>Saya sangat tertaik dengan linux dan programming. Saya masih fresh gradiate walaupun begitu tapi yakin bisa belajar dengan cepat karena saya sudah terbiasa belajar otodidak. Saat ini saya menggunakan linux (manjaro) sebagai sistem operasi utama saya dalam belajar programming dan membuat web (https://linuxisekai.site) sebagai tempat untuk menulis catatan dari apa yang saya pelajari.</p>
