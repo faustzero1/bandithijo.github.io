@@ -214,7 +214,236 @@ Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.
 
 Repositorinya dapat dilihat [di sini](https://github.com/bandithijo/dwm){:target="_blank"}.
 
-*Bersambung...*
+# Tambahan
+
+## Personal Branch
+
+Saya membuat beberapa branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.
+
+Jadi, saya menambahkan 3 branch yang bukan termasuk dwm *patch*., yaitu:
+
+1. config
+2. rules
+3. keys
+
+Saya akan jabarkan.
+
+<br>
+**config** branch
+
+Berisi konfigurasi global, seperti font, border, gaps, warn, dll.
+
+```c
+// config.def.h
+...
+static const unsigned int snap      = 5;        /* snap pixel */
+
+...
+static const char *fonts[]          = { "FuraCode Nerd Font:style=Medium:size=8" };
+static const char dmenufont[]       = "FuraCode Nerd Font:style=Medium:size=8";
+
+...
+    { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
+
+// config.mk
+...
+X11INC = /usr/local/include
+X11LIB = /usr/local/lib
+
+```
+
+<br>
+**rules** branch
+
+Berisi pengaturan window aplikasi.
+
+```c
+// config.def.h
+
+static const Rule rules[] = {
+    /* xprop(1):
+     *	WM_CLASS(STRING) = instance, class
+     *	WM_NAME(STRING) = title
+     */
+    /* class                  instance              title                         tags mask     iscentered     isfloating   monitor */
+    // Non FLoating
+    { "Gimp-2.10",            NULL,                 NULL,                         0,            1,             0,           -1 },
+    { "firefox",              NULL,                 NULL,                         2,            1,             0,           -1 },
+    { "Chromium-browser",     NULL,                 NULL,                         2,            1,             0,           -1 },
+    { "TelegramDesktop",      NULL,                 NULL,                         1 << 7,       1,             0,           -1 },
+    { "Thunderbird",          NULL,                 NULL,                         1 << 6,       1,             0,           -1 },
+    { "Hexchat",              NULL,                 NULL,                         1 << 5,       1,             0,           -1 },
+    { "mpv",                  NULL,                 NULL,                         0,            1,             0,           -1 },
+    { NULL,                   "libreoffice",        NULL,                         0,            1,             0,           -1 },
+    { "Thunar",               "thunar",             NULL,                         0,            1,             0,           -1 },
+    // Floating
+    { "St",                   NULL,                 "st+",                        0,            1,             1,           -1 },
+    { "copyq",                NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Arandr",               NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Gcolor3",              NULL,                 "Color picker",               0,            1,             1,           -1 },
+    { "Gnome-calculator",     NULL,                 "Calculator",                 0,            1,             1,           -1 },
+    { "Hexchat",              NULL,                 "Network List - HexChat",     1 << 5,       1,             1,           -1 },
+    { "SimpleScreenRecorder", NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Soffice",              NULL,                 "Print",                      0,            1,             1,           -1 },
+    { "Chrome",               NULL,                 "Save File",                  2,            1,             1,           -1 },
+    { "Barrier",              NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Soffice",              "soffice",            NULL,                         0,            1,             0,           -1 },
+    { "Thunar",               "thunar",             "File Operation Progress",    0,            1,             1,           -1 },
+    { "System-config-printer.py", NULL,             NULL,                         0,            1,             1,           -1 },
+    { "Nm-connection-editor", NULL,                 "Network Connections",        0,            1,             1,           -1 },
+    { "Pavucontrol",          NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Gpick",                NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "vokoscreen",           NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "Blueman-manager",      NULL,                 NULL,                         0,            1,             1,           -1 },
+};
+```
+
+<br>
+**keys** branch
+
+Berisi pengaturan keybindings.
+
+```c
+// config.def.h
+
+static Key keys[] = {
+    /* modifier                     key        function        argument */
+    { MODKEY,                       XK_d,      spawn,          SHCMD("/usr/bin/dmenu-apps") },
+    { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+    { MODKEY,                       XK_b,      togglebar,      {0} },
+    { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+    { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+    { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
+    { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
+    { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+    { MODKEY,                       XK_Return, zoom,           {0} },
+    { MODKEY,                       XK_Tab,    view,           {0} },
+    { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+    { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+    { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY,                       XK_space,  setlayout,      {0} },
+    { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+    { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+    { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+    { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+    { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+    { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    TAGKEYS(                        XK_1,                      0)
+    TAGKEYS(                        XK_2,                      1)
+    TAGKEYS(                        XK_3,                      2)
+    TAGKEYS(                        XK_4,                      3)
+    TAGKEYS(                        XK_5,                      4)
+    TAGKEYS(                        XK_6,                      5)
+    TAGKEYS(                        XK_7,                      6)
+    TAGKEYS(                        XK_8,                      7)
+    TAGKEYS(                        XK_9,                      8)
+    { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+    // Custom Keys
+    /* modifier                     key                        function        argument */
+    { MODKEY|ControlMask,           XK_Return,                 spawn,          SHCMD("st -T 'st+'") },
+    { MODKEY,                       XK_F12,                    spawn,          SHCMD("polybar-tray off; polybar-tray on") },
+    { MODKEY|ShiftMask,             XK_F12,                    spawn,          SHCMD("polybar-tray off") },
+    { MODKEY|ShiftMask,             XK_End,                    spawn,          SHCMD("/usr/bin/rofi-power 'killall dwm'") },
+    { MODKEY,                       XK_e,                      spawn,          SHCMD("/usr/bin/rofi-emoji") },
+    { MODKEY,                       XK_Print,                  spawn,          SHCMD("scrot 'Screenshot_%Y-%m-%d_%H-%M-%S.png' -e 'mv *.png ~/pic/ScreenShots/'; notify-send 'Scrot' 'Screen has been captured!'") },
+    { MODKEY|ControlMask,           XK_Print,                  spawn,          SHCMD("scrot -d 5 'Screenshot_%Y-%m-%d_%H-%M-%S.png' -e 'mv *.png ~/pic/ScreenShots/'; notify-send 'Scrot' 'Screen has been captured!'") },
+    { MODKEY|ShiftMask,             XK_Print,                  spawn,          SHCMD("/usr/bin/flameshot gui") },
+    { MODKEY|ShiftMask,             XK_x,                      spawn,          SHCMD("/usr/bin/lock-dark") },
+    { MODKEY,                       XK_F7,                     spawn,          SHCMD("/usr/bin/arandr") },
+    { MODKEY,                       XK_F10,                    spawn,          SHCMD("/usr/bin/keybind-helper") },
+    { MODKEY,                       XK_p,                      spawn,          SHCMD("/usr/bin/clipmenu") },
+    { MODKEY|ShiftMask,             XK_p,                      spawn,          SHCMD("rm -f /tmp/clipmenu*/*") },
+    { MODKEY|ShiftMask,             XK_backslash,              spawn,          SHCMD("/usr/bin/dmenu-pass") },
+    { MODKEY,                       XK_backslash,              spawn,          SHCMD("/usr/bin/passtore 0") },
+    { 0,                            0x1008ff13,                spawn,          SHCMD("pamixer --increase 5") },
+    { 0,                            0x1008ff11,                spawn,          SHCMD("pamixer --decrease 5") },
+    { 0,                            0x1008ff12,                spawn,          SHCMD("pamixer --toggle-mute") },
+};
+```
+
+## suckpush script
+
+`suckpush` script adalah script untuk melakukan *push* setiap *commit* yang sudah terjadi pada tiap-tiap *patch* branch di lokal repo ke GitHub repo dengan cara memasuki (*checkout*) ke dalam tiap-tiap *patch* branch dan melakukan *push*.
+
+Berikut ini scriptnya.
+
+**suckpush** - Created by: BanditHijo
+
+```ruby
+#!/usr/bin/env ruby
+
+remote_repo = "bandithijo"
+
+puts "=> Reset the master branch"
+system """
+git checkout master
+git reset --hard origin/master
+"""
+puts "=> Reseting COMPLETE!"
+
+branch_list = `git branch`
+branches = branch_list.split(" ").reject{ |n| n == "*" || n == "master" }.unshift("master")
+
+puts "\n=> Push each branch to GitHub"
+for branch in branches do
+  print "Pushing #{branch}... "
+  `git checkout #{branch}  > /dev/null 2>&1`
+  `git push -u #{remote_repo} #{branch} > /dev/null 2>&1`
+  print "DONE\n"
+end
+`git checkout master > /dev/null 2>&1`
+puts "=> All Pushing COMPLETE!"
+```
+
+**Perhatikan!** Saya menambahkan dan menamakan GitHub repo saya sebagai 'bandithijo', bisa dilihat pada variabale `remote_repo`.
+
+Outputnya akan seperti ini.
+
+<pre>
+$ <b>suckpush</b>
+</pre>
+
+```
+=> Reset the master branch
+Already on 'master'
+Your branch is up to date with 'bandithijo/master'.
+HEAD is now at f09418b dwm crashes when opening 50+ clients (tile layout)
+=> Reseting COMPLETE!
+
+=> Push each branch to GitHub
+Pushing master... DONE
+Pushing actualfullscreen... DONE
+Pushing autostart... DONE
+Pushing center... DONE
+Pushing cfacts... DONE
+Pushing config... DONE
+Pushing focusonnetactive... DONE
+Pushing fullgaps... DONE
+Pushing keys... DONE
+Pushing movestack... DONE
+Pushing pertag... DONE
+Pushing resizecorners... DONE
+Pushing rules... DONE
+Pushing statusallmons... DONE
+Pushing zoomswap... DONE
+=> All Pushing COMPLETE!
+```
+
+Selesai!
+
+Sepertinya segini dulu yang bisa saya bagikan.
+
+Terima kasih.
+
+(^_^)
+
+
+
+
 
 
 

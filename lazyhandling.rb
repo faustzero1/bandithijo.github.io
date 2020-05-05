@@ -53,7 +53,7 @@ puts '#' * 29 + ' PROSES JEKYLL BUILD ' + '#' * 30
 puts '#' * 80
 system """
 cd #{srcDir}
-JEKYLL_ENV=production jekyll build
+JEKYLL_ENV=production bundle exec jekyll build
 """
 puts "\n[ DONE ] Jekyll Build Env=production"
 puts '-' * 80
