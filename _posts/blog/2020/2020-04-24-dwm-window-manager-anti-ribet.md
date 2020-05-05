@@ -77,7 +77,7 @@ Eits! Namun, bukan berarti DWM hanya sesederhana itu. Buat yang menggemari kompl
 
 Ada banyak sekali daftar *patch* yang tersedia.
 
-Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari sekian banyak patch yang tesedia, saya memilah-milah, kira-kira *patch* mana saja yang saya benar-benar perlukan. Kenapa saya memilah-milah? Ada beberapa alasan, diantaranya:
+Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari sekian banyak *patch* yang tesedia, saya memilah-milah, kira-kira *patch* mana saja yang saya benar-benar perlukan. Kenapa saya memilah-milah? Ada beberapa alasan, diantaranya:
 
 1. Dengan banyaknya *patch* yang tersedia, saya tidak ingin dibingungkan dengan fungsi yang sama namun saling tumpang tindih.
 2. Mengelola banyak *patch* sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana *best practice* dalam mengelola dan mengaplikasikan *patch.
@@ -97,12 +97,12 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 10. statusallmons
 11. zoomswap
 
-Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing patch, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
+Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
 Berikut ini daftar script yang saya gunakan.
 
 1. **suckclean** : untuk mereset master
-2. **suckdiff** : untuk membuat backup branch dalam bentuk patch yang tersimpan di `~/.config/suckless/`
+2. **suckdiff** : untuk membuat backup branch dalam bentuk *patch* yang tersimpan di `~/.config/suckless/`
 3. **suckmerge-dwm** : untuk me-*merge*-kan branch-branch terpilih ke master branch, sekaligus mengcompilenya
 
 Nah, berikut ini adalah isi dari script-script tersebut.
@@ -195,17 +195,17 @@ Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.
 2. Jalankan `suckmerge-dwm`
 3. Apabila berhasil, restart dwm.
 4. Saat ini master branch dalam keadaan kotor, jalankan `suckclean` untuk mereset dan membersihkannya.
-5. Untuk mengedit patch branch dengan cara `git checkout <nama_branch>`, wajib menjalankan `suckclean` terlebih dahulu.
+5. Untuk mengedit *patch* branch dengan cara `git checkout <nama_branch>`, wajib menjalankan `suckclean` terlebih dahulu.
 
-Apabila terdapat perubahan di dalam branch patch, ulangi lagi dari langkah ke dua. Mudah bukan?
+Apabila terdapat perubahan di dalam branch *patch*, ulangi lagi dari langkah ke dua. Mudah bukan?
 
 **Apakah akan terdapat conflict?**
 
 Jelas! Pasti akan ada kalau kita menggunakan banyak *patch*.
 
-Biasanya kalau terjadi *conflict*, saya selesaikan dengan me-*merge*-kan kedua patch branch yang berkonflik, lalu saya selesaikan baris-baris kode yang *conflict* dengan cara manual.
+Biasanya kalau terjadi *conflict*, saya selesaikan dengan me-*merge*-kan kedua *patch* branch yang berkonflik, lalu saya selesaikan baris-baris kode yang *conflict* dengan cara manual.
 
-Bisa dilihat, beberapa patch branch yang berkonflik pada script **suckmerge-dwm** di atas, saya catat branch apa dan merge dengan branch apa saja.
+Bisa dilihat, beberapa *patch* branch yang berkonflik pada script **suckmerge-dwm** di atas, saya catat branch apa dan merge dengan branch apa saja.
 
 Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.
 
