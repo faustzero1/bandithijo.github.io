@@ -82,6 +82,10 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 <!-- EMBED CONTAINER: YOUTUBE -->
 {% include youtube_embed.html id="ID_YOUTUBE" %}
 
+# FOOTNOTE REFERENCES
+Adipisicing quia numquam id quisquam soluta. Repudiandae quae at amet a voluptatum, tempore, tempora Ut nemo quo laboriosam architecto commodi cum Sunt neque non consequatur magni distinctio! Animi impedit obcaecati.[^1]
+[^1]: [suckless](https://suckless.org){:target="_blank"}
+
 # MULTIPLE POST CONTROLER
 <!-- NEXT PREV BUTTON -->
 <div class="post-nav">
