@@ -109,8 +109,6 @@ Selain itu saya hanya menangkap nilai untuk `thermal_zone0` yang saya asumsikan 
 
 Teman-teman bisa mengolahnya sendiri untuk menangkap nilai dari core yang lain.
 
-Saya menambahkan `thinkalert` bagi pengguna ThinkPad yang masih memiliki ThinkLight sebagai indikator tambahan.
-
 Selanjutnya, berikan permission untuk execute.
 
 ```
@@ -156,6 +154,85 @@ $0="notify-hightemp"
 
 Namun, terlihat seperti kurang Ruby banget, hehe.
 
+# Tambahan
+
+## ThinkAlert
+
+Untuk pengguna ThinkPad jadul seperti saya (ThinkPad X61), saya menambahkan `thinkalert` bagi pengguna ThinkPad yang masih memiliki ThinkLight sebagai indikator tambahan.
+
+Untuk pengguna distro selain Arch, mungkin tidak ada `thinkalert` di repository. Tinggal pasang saja dari GitHub repo dari thinkalert.
+
+<pre>
+$ <b>git clone https://github.com/floriandejonckheere/thinkalert.git</b>
+$ <b>cd thinkalert</b>
+</pre>
+
+Isinya cuma dua file.
+
+<pre>
+$ <b>ls</b>
+</pre>
+
+```
+README.md  thinkalert  thinkalert.c
+```
+
+Nah, `thinkalert.c` ini yang akan kita compile menjadi file binary.
+
+<pre>
+$ <b>gcc -c thinkalert thinkalert.c</b>
+</pre>
+
+Kalau ada warning (peringatan) mengenai penggunaan `setgroups`, bisa ganti menjadi `getgroups`
+
+```c
+// thinkalert.c
+
+...
+...
+
+// Programming Cookbook for C and C++.
+void dropPrivs() {
+
+        ...
+        ...
+
+        // Drop ancillary group memberships.
+        if (!olduid) getgroups(1, &newgid);
+```
+
+Kemudian compile ulang.
+
+Selanjutnya, install ke `/usr/bin/`.
+
+<pre>
+$ <b>sudo install -Dm4755 thinkalert /usr/bin/thinkalert</b>
+$ <b>rehash</b>
+</pre>
+
+Nah, coba jalankan **thinkalert**.
+
+<pre>
+$ <b>thinkalert</b>
+</pre>
+
+```
+thinkalert <on|off|toggle>
+thinkalert <times> [interval (microseconds)]
+thinkalert <times> <on period (microseconds)> <off period (microseconds)>
+```
+
+Kalau keluar output seperti di atas, artinya **thinkalert** telah berhasil dipasang.
+
+Coba test dengan menjalankan **thinkalert** kedip 5 kali.
+
+<pre>
+$ <b>thinkalert 5</b>
+</pre>
+
+Kalau berhaisl, thinklight akan berkedip 5 kali. Keren!
+
+
 # Akhir Kata
 
 Kira-kira seperti ini saja Ruby script yang ~~sederhana~~ cupu ini.
@@ -169,3 +246,12 @@ Terima kasih (^_^)v
 Oh ya, kalo mau audio `aircraftalarm.wav`, dapat diunduh [di sini](https://freesound.org/people/guitarguy1985/sounds/57806/){:target="_blank"} yaa.
 
 Tapi tidak saya rekomendasikan karena mungkin dapat menyebabkan serangan panik, hehe.
+
+
+# Referensi
+
+1. [github.com/floriandejonckheere/thinkalert](https://github.com/floriandejonckheere/thinkalert){:target="_blank"}
+<br>Diakses tanggal: 2020/05/06
+
+2. [aur.archlinux.org/packages/thinkalert](https://aur.archlinux.org/packages/thinkalert){:target="_blank"}
+<br>Diakses tanggal: 2020/05/06
