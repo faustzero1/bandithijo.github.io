@@ -68,8 +68,8 @@ Process.setproctitle("notify-hightemp")
 require 'open3'
 
 CPU_TEMP_THRESHOLD = 90  # <- Normaly 90-100
-NOTIF_DURATION = 2.5     # <- Second
-NOTIF_VOLUME = 5         # <- Range 0-10
+NOTIF_DURATION = 2.5     # <- Duration in second
+NOTIF_VOLUME = 5         # <- Range between 0-10
 
 def notif_volume_converter(value)
   volume_rate = value * 6553.6
@@ -79,7 +79,7 @@ begin
   while true
     capture_temp = "cat /sys/class/thermal/thermal_zone0/temp"
     temp = Open3.capture2(capture_temp)
-    temp_cpu = temp[0].to_i
+    temp_cpu = (temp[0].to_i / 1000)
     temp_threshold = CPU_TEMP_THRESHOLD
     notif_duration = (NOTIF_DURATION * 1000).to_i
     notif_volume = notif_volume_converter(NOTIF_VOLUME)
@@ -87,6 +87,9 @@ begin
     if temp_cpu >= temp_threshold
       system("notify-send 'High CPU Temperature''!' 'The CPU has been hard at work in the past minute.' --urgency=critical --expire-time=#{notif_duration}")
       system("paplay /home/bandithijo/snd/Ringtones/Alert/aircraftalarm.wav --volume=#{notif_volume}")
+      if system("which thinkalert > /dev/null 2>&1") == true
+        system("thinkalert 5")
+      end
     end
 
     sleep(5)
@@ -105,6 +108,8 @@ Saya menggunakan perintah `cat /sys/class/thermal/thermal_zone0/temp` agar lebih
 Selain itu saya hanya menangkap nilai untuk `thermal_zone0` yang saya asumsikan sebagai temperatur untuk core0.
 
 Teman-teman bisa mengolahnya sendiri untuk menangkap nilai dari core yang lain.
+
+Saya menambahkan `thinkalert` bagi pengguna ThinkPad yang masih memiliki ThinkLight sebagai indikator tambahan.
 
 Selanjutnya, berikan permission untuk execute.
 
