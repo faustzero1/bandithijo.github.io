@@ -433,14 +433,7 @@ Pushing zoomswap... DONE
 => All Pushing COMPLETE!
 ```
 
-Selesai!
-
-Sepertinya segini dulu yang bisa saya bagikan.
-
-Terima kasih.
-
-(^_^)
-
+*Bersambung...*
 
 
 
