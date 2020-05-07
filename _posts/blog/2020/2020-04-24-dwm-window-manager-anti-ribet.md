@@ -365,6 +365,191 @@ static Key keys[] = {
 };
 ```
 
+## Status Bar
+
+Seperti yang teman-teman ketahui, sebelumnya saya menggunakan Polybar. Namun, setelah migrasi menggunakan DWM, saya memutuskan untuk putus dengan Polybar dan memilih untuk meracik bar sendiri, tujuannya agar lebih sederhana.
+
+Saya juga hanya menggunakan top bar saja, yang sebelumnya saya menggunakan top dan bottom bar. Dengan alasan, lagi-lagi untuk meminimalisir proses yang berlangsung. Karena saya hanya menggunakan top bar, artinya terdapat beberapa module yang saya tidak gunakan, seperti module CPU dan Brightness. Module CPU tidak saya pergunakan lagi karena saya sudah merujuk pada indikator suhu.
+
+Nah, seperti ini tampilan bar yang saya pergunakan sekarang.
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4NNsVpvT/gambar-02.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 2 - dwmsatus (custom made)</p>
+
+Saya membuat file bernama `~/.local/bin/dwmstatus`. Dan tambahkan *execute permission* `$ chmod +x dwmstatus`.
+
+```bash
+#!/usr/bin/env bash
+
+# For dwmstatus
+while true; do
+    xsetroot -name " $($HOME/bin/network-wlan-tfc.sh) $($HOME/bin/cpu-temp.sh) $($HOME/bin/memory.sh) $($HOME/bin/filesystem.sh) $($HOME/bin/volume.sh) $(date +" 0%u%y%m%d%H%M") $($HOME/bin/bat-state.sh) $($HOME/bin/bat-capacity.sh)  BANDITHIJO "
+    sleep 1
+done
+```
+
+Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain atau saya sebut saja sebagai module. Saya akan jabarkan di sini masing-masing module tersebut.
+
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Kode-kode di bawah ini, karena keterbatasan dari Blog, sehingga tidak dapat menampilkan simbol-simbol seperti yang ada pada screenshot Gambar 2.</p>
+</div>
+
+<br>
+**network-wlan-tfc.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+wlan_card='wls3'
+
+wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
+wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
+
+echo "" $wlan_do "" $wlan_up "KB/s"
+```
+
+<br>
+**cpu-temp.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+get_temp_cpu0=$(cat /sys/class/thermal/thermal_zone0/temp)
+temp_cpu0=$(($get_temp_cpu0/1000))
+echo " "$temp_cpu0"°C"
+```
+
+<br>
+**memory.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+mem_total=$(free | awk 'NR%2==0 {print $2}')
+mem_used=$(free | awk 'NR%2==0 {print $3}')
+mem_usage=$(( $mem_used * 100 / $mem_total ))
+echo " "$mem_usage"%"
+```
+
+<br>
+**filesystem.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}')
+echo ""$cap_percentage
+```
+
+<br>
+**volume.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+mute=$(pamixer --get-mute)
+if [ $mute = "true" ]; then
+    echo " MUTE"
+elif [ $mute = "false" ]; then
+    volume=$(pamixer --get-volume-human)
+    echo " "$volume
+else
+    echo " ERROR"
+fi
+```
+
+<br>
+**bat-state.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+state=$(cat /sys/devices/platform/smapi/BAT0/state)
+if [ $state = "charging" ]; then
+    echo " " # charging
+elif [ $state = "discharging" ]; then
+    echo " " # discharging
+elif [ $state = "idle" ]; then
+    echo " " # idle
+else
+    echo " " # unknown
+fi
+```
+
+<br>
+**bat-capacity.sh** - Created by: BanditHijo
+
+```bash
+#!/usr/bin/env bash
+
+cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
+if [ $cap -ge 0 ] && [ $cap -le 20 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 21 ] && [ $cap -le 40 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 41 ] && [ $cap -le 60 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 61 ] && [ $cap -le 90 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
+    echo "" $cap"%"
+else
+    echo "UNKNWN"
+fi
+```
+
+## Autorun
+
+Saya menggunakan *patch* autostart untuk menghandle program-program yang akan dijalankan pada autorun.
+
+Dan saya merubah *default path* yang diberikan oleh *patch* di alamat `~/.dwm/autostart.sh` menjadi `~/.local/bin/autostart.sh`.
+
+```c
+// dwm.c
+
+...
+...
+
+void
+runAutostart(void) {
+	system("cd ~/.local/bin; ./autostart_blocking.sh");
+	system("cd ~/.local/bin; ./autostart.sh &");
+}
+
+...
+...
+```
+
+Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
+
+```bash
+#!/usr/bin/env bash
+
+sanitizer
+pkill -f "bash /home/bandithijo/bin/dwmstatus"; dwmstatus &
+killall dunst; dunst -config ~/.config/dunst/dunstrc &
+xsetroot -solid "#222222"
+xsetroot -cursor_name left_ptr
+xinput set-button-map "TPPS/2 IBM TrackPoint" 1 0 3
+killall unclutter; unclutter --timeout 3
+pkill -f "notify-hightemp"; notify-hightemp &
+pkill -f "bash /usr/bin/clipmenud";killall clipnotify; clipmenud &
+killall flameshot; flameshot &
+killall lxpolkit; lxpolkit &
+feh --bg-fill -Z $WALLPAPER2
+xcompmgr &
+
+
+# I'm not use this anymore
+#killall xautolock; xautolock -time 60 -locker "~/bin/lock-dark" &
+#$HOME/.config/polybar/launch.sh
+#killall picom; picom --config ~/.config/picom/picom.conf --no-use-damage &
+#xfce4-power-manager &
+#killall notify-listener; # notify-listener.py &
+#$HOME/.config/conky/conky-launch.sh &
+```
+
 ## suckpush script
 
 `suckpush` script adalah script untuk melakukan *push* setiap *commit* yang sudah terjadi pada tiap-tiap *patch* branch di lokal repo ke GitHub repo dengan cara memasuki (*checkout*) ke dalam tiap-tiap *patch* branch dan melakukan *push*.
@@ -433,7 +618,9 @@ Pushing zoomswap... DONE
 => All Pushing COMPLETE!
 ```
 
+
 *Bersambung...*
+
 
 
 
