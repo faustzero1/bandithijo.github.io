@@ -83,7 +83,7 @@ Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari
 2. Mengelola banyak *patch* sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana *best practice* dalam mengelola dan mengaplikasikan *patch.
 3. Saya tidak ingin menambahkan *patch* yang saya tidak benar-benar perlukan.
 
-Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 11 *patches*. yaitu:
+Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 12 *patches*. yaitu:
 
 1. actualfullscreen
 2. autostart
@@ -96,6 +96,7 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 9. resizecorners
 10. statusallmons
 11. zoomswap
+12. scratchpad-gaspar (outside suckless)
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
