@@ -160,12 +160,13 @@ branches = [
 'resizecorners',
 'focusonnetactive',
 'statusallmons',
+'scratchpad-gaspar',  # merge /w: actualfullscreen
 'zoomswap',
 'center',
 'rules',              # merge /w: config, center
 'fullgaps',           # merge /w: config
 'cfacts',             # merge /w: config, movestack, fullgaps
-'keys',               # merge /w: config
+'keys',               # merge /w: config, scratchpad-gaspar
 
 # Disable branch
 #'singularborders',
@@ -215,6 +216,14 @@ Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.
 Repositorinya dapat dilihat [di sini](https://github.com/bandithijo/dwm){:target="_blank"}.
 
 # Tambahan
+
+## Patch from User
+
+**sracthpad by Gaspar Vardanyan**
+
+Sejauh yang saya ingat, ada satu *patch* yang saya gunakan namun bukan dari halaman website suckless. Yaitu [**GasparVardanyan/dwm-scratchpad**](https://github.com/GasparVardanyan/dwm-scratchpad){:target="_blank"}.
+
+*Patch* scratchpad ini berbeda dengan scratchpad yang ada pada website suckless. Perilaku dari scratphad ini mirip dengan yang ada di i3WM. Dimana, window yang dijadikan scratphad akan memiliki kemampuan untuk menghilang dan muncul kembali, layaknya seorang ninja -- apasih wkwk.
 
 ## Personal Branch
 
