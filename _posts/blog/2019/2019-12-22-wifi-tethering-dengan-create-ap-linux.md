@@ -266,6 +266,16 @@ $ sudo systemctl start create_ap
 $ sudo systemctl enable create_ap
 ```
 
+# Troubleshooting
+
+## ERROR: Failed to initialize lock
+
+Apabila saat menjalankan `create_ap` muncul pesan seperti di atas, maka cukup hapus file `.lock` yang tersimpan pada direktori `/tmp`.
+
+<pre>
+$ <b>rm /tmp/create_ap.all.lock</b>
+</pre>
+
 # Pesan Penulis
 
 Gimana?
