@@ -100,6 +100,28 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
+## Bagaimana Cara Patching?
+
+Seperti yang dijelaskan pada website [suckless.org/hacking](https://suckless.org/hacking/){:target="_blank"}. Terdapat 3 cara.
+Namun, karena saya menggunakan git, maka, saya akan memanfaatkan cara *patching* menggunakan git.
+
+**Menggunakan Git Apply**
+
+<pre>
+$ <b>git apply path/to/patch.diff</b>
+</pre>
+
+Nah, kalau cara pertama tidak berhasil, lakukan cara terakhir.
+
+**Manual Patching**
+
+Dengan mengcopykan baris demi bari yang ada di dalam *patch* ke dalam file-file yang berkaitan di dalam direktori dwm kita.
+
+
+<br>
+
+Nah! untuk mempermudah proses *compiling*, saya menggunakan bantuan beberapa script.
+
 Berikut ini daftar script yang saya gunakan.
 
 1. **suckclean** : untuk mereset master
@@ -228,13 +250,15 @@ Sejauh yang saya ingat, ada satu *patch* yang saya gunakan namun bukan dari hala
 
 ## Personal Branch
 
-Saya membuat beberapa branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.
+Saya membuat ~~beberapa~~ branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.
 
 Jadi, saya menambahkan 3 branch yang bukan termasuk dwm *patch*., yaitu:
 
 1. config
-2. rules
-3. keys
+2. ~~rules~~
+3. ~~keys~~
+
+Per, 2020/05/11, saya memilih untuk menjadikan satu dari ketiga branch di atas. Menggabungkan isi dari brnach rules & keys di dalam satu branch config. Tujuannya untuk meminimilisir *conflict* karena ketiga branch tersebut menginterfensi file yang sama, ayitu `config.def.h`.
 
 Saya akan jabarkan.
 
@@ -260,15 +284,8 @@ static const char dmenufont[]       = "FuraCode Nerd Font:style=Medium:size=8";
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
 
-```
-
-<br>
-**rules** branch
-
-Berisi pengaturan window aplikasi.
-
-```c
-// config.def.h
+...
+...
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -306,15 +323,9 @@ static const Rule rules[] = {
     { "vokoscreen",           NULL,                 NULL,                         0,            1,             1,           -1 },
     { "Blueman-manager",      NULL,                 NULL,                         0,            1,             1,           -1 },
 };
-```
 
-<br>
-**keys** branch
-
-Berisi pengaturan keybindings.
-
-```c
-// config.def.h
+...
+...
 
 static Key keys[] = {
     ...
