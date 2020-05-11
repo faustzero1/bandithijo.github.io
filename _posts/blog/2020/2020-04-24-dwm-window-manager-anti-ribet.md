@@ -87,16 +87,16 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 
 1. actualfullscreen
 2. autostart
-3. center
-4. cfacts
-5. focusonnetactive
-6. fullgaps
-7. movestack
-8. pertag
-9. resizecorners
-10. statusallmons
-11. zoomswap
-12. scratchpad-gaspar (outside suckless)
+3. cfacts
+4. focusonnetactive
+5. fullgaps
+6. movestack
+7. pertag
+8. resizecorners
+9. statusallmons
+10. savefloats
+11. scratchpad-gaspar (outside suckless)
+12. zoomswap
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
@@ -250,22 +250,29 @@ Sejauh yang saya ingat, ada satu *patch* yang saya gunakan namun bukan dari hala
 
 ## Personal Branch
 
-Saya membuat ~~beberapa~~ branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.
+### config branch
+Saya membuat branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.
 
-Jadi, saya menambahkan 3 branch yang bukan termasuk dwm *patch*., yaitu:
+Jadi, saya menambahkan 1 branch yang bukan termasuk dwm *patch*, yaitu:
 
-1. config
-2. ~~rules~~
-3. ~~keys~~
+Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang sebagian besar berada pada file **config.def.h** atau **dwm.c**.
 
-Per, 2020/05/11, saya memilih untuk menjadikan satu dari ketiga branch di atas. Menggabungkan isi dari brnach rules & keys di dalam satu branch config. Tujuannya untuk meminimilisir *conflict* karena ketiga branch tersebut menginterfensi file yang sama, ayitu `config.def.h`.
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat pengaturan <i>keys</i>, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke branch config pada file <b>config.def.h</b>.</p>
+</div>
 
-Saya akan jabarkan.
+File **config.mk**.
 
-<br>
-**config** branch
+```c
+// config.mk
+...
+X11INC = /usr/local/include
+X11LIB = /usr/local/lib
 
-Berisi konfigurasi global, seperti font, border, gaps, warn, dll.
+```
+
+File **config.def.h**.
 
 ```c
 // config.def.h
@@ -278,11 +285,6 @@ static const char dmenufont[]       = "FuraCode Nerd Font:style=Medium:size=8";
 
 ...
     { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
-
-// config.mk
-...
-X11INC = /usr/local/include
-X11LIB = /usr/local/lib
 
 ...
 ...
@@ -352,6 +354,30 @@ static Key keys[] = {
     { 0,                            0x1008ff11,                spawn,          SHCMD("pamixer --decrease 5") },
     { 0,                            0x1008ff12,                spawn,          SHCMD("pamixer --toggle-mute") },
 };
+```
+
+File **dwm.c**
+
+```c
+// dwm.c
+
+void
+manage(Window w, XWindowAttributes *wa)
+{
+...
+...
+
+    wc.border_width = c->bw;
+
+    /* for centering window client open */
+    if (c->x == selmon->wx) c->x += (c->mon->ww - WIDTH(c)) / 2 - c->bw;
+    if (c->y == selmon->wy) c->y += (c->mon->wh - HEIGHT(c)) / 2 - c->bw;
+
+    XConfigureWindow(dpy, w, CWBorderWidth, &wc);
+
+...
+...
+}
 ```
 
 ## Status Bar
