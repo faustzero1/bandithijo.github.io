@@ -152,7 +152,12 @@ fi
 
 **GNU/Linux**
 
-*Menyusul...*
+```bash
+#!/usr/bin/env bash
+
+backlight=$(xbacklight -get | cut -d "." -f1)
+echo "" $backlight"%"
+```
 
 **FreeBSD**
 
