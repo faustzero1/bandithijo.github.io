@@ -68,9 +68,10 @@ echo "" $temp_cpu0"°C"
 #!/usr/bin/env bash
 
 mem_total=$(free | awk 'NR%2==0 {print $2}')
-mem_used=$(free | awk 'NR%2==0 {print $3}')
+mem_avail=$(free | awk 'NR%2==0 {print $7}')
+mem_used=$(( $mem_total - $mem_avail))
 mem_usage=$(( $mem_used * 100 / $mem_total ))
-echo "" $mem_usage"%"
+echo " "$mem_usage"%"
 ```
 
 **FreeBSD**
