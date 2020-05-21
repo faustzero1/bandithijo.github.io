@@ -94,9 +94,11 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 7. pertag
 8. resizecorners
 9. statusallmons
-10. savefloats
-11. scratchpad-gaspar (outside suckless)
-12. zoomswap
+10. sticky
+11. savefloats
+12. scratchpad-gaspar (outside suckless)
+13. systray
+14. zoomswap
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
@@ -175,27 +177,26 @@ puts "=> Converting COMPLETE!"
 
 branches = [
 # Enable branch
-'config',
+'config',               # merge w/: actualfullscreen, scratchpad-gaspar
+'sticky',               # merge w/: actualfullscreen
 'actualfullscreen',
 'autostart',
 'movestack',
 'pertag',
 'resizecorners',
 'focusonnetactive',
-'statusallmons',
-'scratchpad-gaspar',  # merge /w: actualfullscreen
+'systray',              # merge w/: scratchpad-gaspar, zoomswap
+'scratchpad-gaspar',
 'zoomswap',
+'savefloats',
 'center',
-'rules',              # merge /w: config, center
-'fullgaps',           # merge /w: config
-'cfacts',             # merge /w: config, movestack, fullgaps
-'keys',               # merge /w: config, scratchpad-gaspar
+'fullgaps',             # merge w/: config
+'cfacts',               # merge w/: config, movestack, fullgaps
 
 # Disable branch
 #'singularborders',
 #'noborder',
 #'gaps',
-#'attachbottom',
 ]
 
 puts "\n=> Patching All Branch to Master"
@@ -278,6 +279,10 @@ File **config.def.h**.
 // config.def.h
 ...
 static const unsigned int snap      = 5;        /* snap pixel */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static int showsystray                   = 0;   /* 0 means no systray */
 
 ...
 static const char *fonts[]          = { "FuraCode Nerd Font:style=Medium:size=8" };
@@ -294,50 +299,73 @@ static const Rule rules[] = {
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class                  instance              title                         tags mask     iscentered     isfloating   monitor */
+    /* class                  instance              title                         tags mask     iscentered     isfloating      monitor */
     // Non FLoating
-    { "Gimp-2.10",            NULL,                 NULL,                         0,            1,             0,           -1 },
-    { "firefox",              NULL,                 NULL,                         2,            1,             0,           -1 },
-    { "Chromium-browser",     NULL,                 NULL,                         2,            1,             0,           -1 },
-    { "TelegramDesktop",      NULL,                 NULL,                         1 << 7,       1,             0,           -1 },
-    { "Thunderbird",          NULL,                 NULL,                         1 << 6,       1,             0,           -1 },
-    { "Hexchat",              NULL,                 NULL,                         1 << 5,       1,             0,           -1 },
-    { "mpv",                  NULL,                 NULL,                         0,            1,             0,           -1 },
-    { NULL,                   "libreoffice",        NULL,                         0,            1,             0,           -1 },
-    { "Thunar",               "thunar",             NULL,                         0,            1,             0,           -1 },
+    { "Gimp-2.10",            NULL,                 NULL,                         0,            1,             0,              -1 },
+    { "firefox",              NULL,                 NULL,                         2,            1,             0,              -1 },
+    { "Chromium-browser",     NULL,                 NULL,                         2,            1,             0,              -1 },
+    { "TelegramDesktop",      NULL,                 NULL,                         1 << 7,       1,             0,              -1 },
+    { "Thunderbird",          NULL,                 NULL,                         1 << 6,       1,             0,              -1 },
+    { "Hexchat",              NULL,                 NULL,                         1 << 5,       1,             0,              -1 },
+    { "mpv",                  NULL,                 NULL,                         0,            1,             0,              -1 },
+    { NULL,                   "libreoffice",        NULL,                         0,            1,             0,              -1 },
+    { "Thunar",               "thunar",             NULL,                         1 << 2,       1,             0,              -1 },
+    { "St",                   NULL,                 "neomutt",                    1 << 6,       1,             0,              -1 },
+    { "St",                   NULL,                 "ranger",                     1 << 2,       1,             0,              -1 },
+    { "St",                   NULL,                 "newsboat",                   1 << 5,       1,             0,              -1 },
+    { "St",                   NULL,                 "WeeChat",                    1 << 5,       1,             0,              -1 },
+    { "Transmission-gtk",     NULL,                 NULL,                         1 << 5,       1,             0,              -1 },
+    { "Postbird",             NULL,                 NULL,                         0,            1,             0,              -1 },
     // Floating
-    { "St",                   NULL,                 "st+",                        0,            1,             1,           -1 },
-    { "copyq",                NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Arandr",               NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Gcolor3",              NULL,                 "Color picker",               0,            1,             1,           -1 },
-    { "Gnome-calculator",     NULL,                 "Calculator",                 0,            1,             1,           -1 },
-    { "Hexchat",              NULL,                 "Network List - HexChat",     1 << 5,       1,             1,           -1 },
-    { "SimpleScreenRecorder", NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Soffice",              NULL,                 "Print",                      0,            1,             1,           -1 },
-    { "Chrome",               NULL,                 "Save File",                  2,            1,             1,           -1 },
-    { "Barrier",              NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Soffice",              "soffice",            NULL,                         0,            1,             0,           -1 },
-    { "Thunar",               "thunar",             "File Operation Progress",    0,            1,             1,           -1 },
-    { "System-config-printer.py", NULL,             NULL,                         0,            1,             1,           -1 },
-    { "Nm-connection-editor", NULL,                 "Network Connections",        0,            1,             1,           -1 },
-    { "Pavucontrol",          NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Gpick",                NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "vokoscreen",           NULL,                 NULL,                         0,            1,             1,           -1 },
-    { "Blueman-manager",      NULL,                 NULL,                         0,            1,             1,           -1 },
+    { "St",                   NULL,                 "st+",                        0,            1,             1,              -1 },
+    { "copyq",                NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Arandr",               NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Gcolor3",              NULL,                 "Color picker",               0,            1,             1,              -1 },
+    { "Gnome-calculator",     NULL,                 "Calculator",                 0,            1,             1,              -1 },
+    { "Hexchat",              NULL,                 "Network List - HexChat",     1 << 5,       1,             1,              -1 },
+    { "SimpleScreenRecorder", NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Soffice",              NULL,                 "Print",                      0,            1,             1,              -1 },
+    { "Chrome",               NULL,                 "Save File",                  2,            1,             1,              -1 },
+    { "Barrier",              NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Soffice",              "soffice",            NULL,                         0,            1,             0,              -1 },
+    { "Thunar",               "thunar",             "File Operation Progress",    0,            1,             1,              -1 },
+    { "System-config-printer.py", NULL,             NULL,                         0,            1,             1,              -1 },
+    { "Nm-connection-editor", NULL,                 "Network Connections",        0,            1,             1,              -1 },
+    { "Pavucontrol",          NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Gpick",                NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "vokoscreen",           NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Blueman-manager",      NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "Xsane",                NULL,                 "No devices available",       0,            1,             1,              -1 },
+    { "scrcpy",               NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "GParted",              NULL,                 NULL,                         0,            1,             1,              -1 },
+    { "zoom",                 NULL,                 "Question and Answer",        0,            1,             1,              -1 },
+    { "guvcview",             NULL,                 "Guvcview  (8.32 fps)",       0,            1,             1,              -1 },
+    // Scratchpad
+    { NULL,                   NULL,                 "hidden",       scratchpad_mask,            0,             1,              -1 },
 };
 
 ...
 ...
 
 static Key keys[] = {
+    /* modifier                     key        function        argument */
     ...
     ...
+    { MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
+    ...
+    ...
+    { MODKEY,                       XK_s,      togglesticky,   {0} },
+    { MODKEY,                       XK_0,      view,           {.ui = ~scratchpad_mask } },
+    { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~scratchpad_mask } },
+    ...
+    ...
+    { MODKEY,                       XK_minus, scratchpad_show, {0} },
+    { MODKEY|ShiftMask,             XK_minus, scratchpad_hide, {0} },
+    { MODKEY|ControlMask,           XK_minus,scratchpad_remove,{0} },
 
     // Custom Keys
     /* modifier                     key                        function        argument */
     { MODKEY|ControlMask,           XK_Return,                 spawn,          SHCMD("st -T 'st+'") },
-    { MODKEY,                       XK_F12,                    spawn,          SHCMD("polybar-tray off; polybar-tray on") },
-    { MODKEY|ShiftMask,             XK_F12,                    spawn,          SHCMD("polybar-tray off") },
     { MODKEY|ShiftMask,             XK_End,                    spawn,          SHCMD("/usr/bin/rofi-power 'killall dwm'") },
     { MODKEY,                       XK_e,                      spawn,          SHCMD("/usr/bin/rofi-emoji") },
     { MODKEY,                       XK_Print,                  spawn,          SHCMD("scrot 'Screenshot_%Y-%m-%d_%H-%M-%S.png' -e 'mv *.png ~/pic/ScreenShots/'; notify-send 'Scrot' 'Screen has been captured!'") },
