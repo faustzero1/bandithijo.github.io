@@ -54,7 +54,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   color: #000;
-  font-family: Ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-family: Fira Sans,Ubuntu,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   font-size: 15px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -319,7 +319,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   margin-top: 0;
   text-align: left;
   color: #000;
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   /* disable selected */
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -599,7 +599,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body blockquote h5,
 .markdown-body blockquote h6 {
   border-bottom: 1px dashed #00603C;
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
 }
 
 .markdown-body blockquote>:first-child {

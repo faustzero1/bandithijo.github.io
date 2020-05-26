@@ -8,6 +8,7 @@ Created : Maret 2018
 /* FONTS */
 /* @import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory); */
 /* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans|Fira+Sans+Condensed);
 @import url(/assets/fonts/ubuntu.css);
 @import url(/assets/fonts/Give-You-Glory.css);
 @import url(/assets/fonts/FiraCode.css);
@@ -24,7 +25,7 @@ Created : Maret 2018
 body {
   /* background: #F3EBE0; */
   background: #D7CCBC;
-  font: 15px/1.5 'Ubuntu';
+  font: 15px/1.5 'Fira Sans';
   letter-spacing: 0;
   width: 100%;
   margin: 0;
@@ -338,7 +339,7 @@ img.post-header-img {
 }
 
 .post-title {
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 28px;
   color: #000;
   border-bottom: 1px dashed #B8B8B8;
@@ -556,7 +557,7 @@ aside .sidebar-body-img {
 }
 
 aside.sidebar h1 {
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed', 'Ubuntu Condensed';
   font-size: 100%;
   border-bottom: 1px dashed #C4BBB0;
 }
@@ -1389,7 +1390,7 @@ button.active {
 }
 
 .blockquote-red-title {
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
   /* color: #444d56 !important; */
@@ -1425,7 +1426,7 @@ button.active {
 }
 
 .blockquote-blue-title {
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
   /* color: #444d56 !important; */
@@ -1461,7 +1462,7 @@ button.active {
 }
 
 .blockquote-yellow-title {
-  font-family: 'Ubuntu Condensed';
+  font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
   /* color: #444d56 !important; */
