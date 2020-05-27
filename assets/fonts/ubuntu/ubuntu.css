@@ -4,7 +4,7 @@
 @font-face {
     font-family: 'Ubuntu';
     src: local("Ubuntu"),
-         url('/assets/fonts/ubuntu-regular-webfont.woff') format('woff');
+         url('/assets/fonts/ubuntu/ubuntu-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -14,7 +14,7 @@
 @font-face {
     font-family: 'Ubuntu';
     src: local("Ubuntu Italic"),
-         url('/assets/fonts/ubuntu-regular-italic-webfont.woff') format('woff');
+         url('/assets/fonts/ubuntu/ubuntu-regular-italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
@@ -24,7 +24,7 @@
 @font-face {
     font-family: 'Ubuntu';
     src: local("Ubuntu Bold"),
-         url('/assets/fonts/ubuntu-bold-webfont.woff') format('woff');
+         url('/assets/fonts/ubuntu/ubuntu-bold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -34,7 +34,7 @@
 @font-face {
     font-family: 'Ubuntu Bold Italic';
     src: local("Ubuntu"),
-         url('/assets/fonts/ubuntu-bold-italic-webfont.woff') format('woff');
+         url('/assets/fonts/ubuntu/ubuntu-bold-italic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
@@ -45,7 +45,7 @@
 @font-face {
     font-family: 'Ubuntu Condensed';
     src: local("Ubuntu Condensed"),
-         url('/assets/fonts/ubuntu-condensed-webfont.woff') format('woff');
+         url('/assets/fonts/ubuntu/ubuntu-condensed-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
