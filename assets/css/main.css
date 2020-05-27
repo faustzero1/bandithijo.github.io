@@ -838,8 +838,8 @@ article.homepage .notif-home a {
   border-bottom: none;
   text-align: left;
   /* untuk indentasi title*/
-  padding-left: 57px;
-  text-indent: -115px;
+  padding-left: 68px;
+  text-indent: -136px;
 }
 
 article.homepage .notif-157 {
@@ -1567,8 +1567,8 @@ button.active {
   /* float:left; */
   text-align: left;
   /* untuk indentasi list */
-  padding-left: 75px;
-  text-indent: -90px;
+  padding-left: 77px;
+  text-indent: -92px;
   list-style-position: inside;
 }
 
@@ -2281,8 +2281,8 @@ a.disqus_button {
   article.homepage .notif-home p,
   article.homepage .notif-home a {
     /* untuk indentasi title*/
-    padding-left: 60px;
-    text-indent: -120px;
+    padding-left: 67px;
+    text-indent: -135px;
   }
 
   article.homepage .notif-157 {
@@ -2540,8 +2540,10 @@ a.disqus_button {
     /* float:left; */
     text-align: left;
     /* untuk indentasi list */
+    /* padding-left: 85px; */
+    /* text-indent: -90px; */
     padding-left: 85px;
-    text-indent: -90px;
+    text-indent: -93px;
     list-style-position: inside;
   }
 

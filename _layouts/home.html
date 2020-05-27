@@ -40,9 +40,9 @@ permalink: :title
           {% assign posts = site.posts | where_exp:"page", "page.category == 'blog'" %}
           {% for post in posts limit: 5 %}
             {% if post.hot %}
-              <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a>&nbsp;<span class="new">HOT</span></p>
+              <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post.date | date: '%y/%m/%d' }}</span>: {{ post.title }}</a>&nbsp;<span class="new">HOT</span></p>
             {% else %}
-              <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
+              <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post.date | date: '%y/%m/%d' }}</span>: {{ post.title }}</a></p>
             {% endif %}
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
@@ -56,7 +56,7 @@ permalink: :title
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
           {% assign posts = site.posts | where_exp:"page", "page.category == 'vlog'" %}
           {% for post in posts limit: 5 %}
-              <p><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }}: {{ post.title }}</a></p>
+            <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post.date | date: '%y/%m/%d' }}</span>: {{ post.title }}</a></p>
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
           <p style="text-align:left;"><a style="border-bottom:0;" href="/vlog/"><span class="tombol-a"><b>Selengkapnya >></b></span></a></p>
@@ -69,9 +69,9 @@ permalink: :title
           <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
           {% for log in site.data.blog-features-update limit: 5 %}
             {% if log.url == nill %}
-              <p><a href="" onclick="return false;">{{ log.tanggal }}: {{ log.detail }}</a></p>
+              <p><a href="" onclick="return false;"><span style="font-family:'Fira Code'">{{ log.tanggal }}</span>: {{ log.detail }}</a></p>
             {% else %}
-              <p><a href="{{ log.url }}">{{ log.tanggal }}: {{ log.detail }}</a></p>
+              <p><a href="{{ log.url }}"><span style="font-family:'Fira Code'">{{ log.tanggal }}</span>: {{ log.detail }}</a></p>
             {% endif %}
           {% endfor %}
           <div style="margin:10px 0 10px 0;"></div>
