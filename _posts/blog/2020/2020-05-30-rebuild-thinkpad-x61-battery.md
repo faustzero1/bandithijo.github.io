@@ -45,7 +45,7 @@ Cell ini mengeluarkan cairan, meski tidak terlihat basah namun terasa basah di t
 Setelah cukup yakin bahwa saya mencatat semua yang saya perlukan untuk nantinya dapat saya rangkai kembali, saya mulai membongkar rangkaian. Saya mulai dari melepas kabel-kabel yang terhubung dengan battery.
 
 ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CLTd88wH/gambar-04.jpg" onerror="imgError(this);"}
-<p class="img-caption">Gambar 4 - Rangkaian battery yang sudah saya lepas perkabelannya</p>
+<p class="img-caption">Gambar 3 - Rangkaian battery yang sudah saya lepas perkabelannya</p>
 
 Pada Gambar 3, terlihat bahwa masing-masing battery terhubung dengan plat tipis. Plat ini yang saya baru paham, ditempel ke kutub-kutub battery dengan menggunakan sebuah teknik yang bernama "*Spot Welding*". Pantas saja ketika saya coba panaskan dengan solder, tidak bergeming sama sekali. Mungkin dilain kesempatan saya akan coba membuat alat *spot welder* saya sendiri. Agar memudahkan untuk perakitan battery. Sayang sekali saya tidak memiliki gambar dari battery yang dipasang plat dengan *spot welding*. Mungkin teman-teman dapat mencari saja di internet, bentuknya seperti titik-titik di kepala Kurilin. Hehe.
 
