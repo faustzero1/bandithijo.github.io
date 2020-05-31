@@ -43,28 +43,28 @@ Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun statu
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 get_temp_cpu0=$(cat /sys/class/thermal/thermal_zone0/temp)
 temp_cpu0=$(($get_temp_cpu0/1000))
 echo "" $temp_cpu0"°C"
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 temp_cpu0=$(sysctl -n dev.cpu.0.temperature | cut -d "." -f1)
 echo "" $temp_cpu0"°C"
-```
+{% endhighlight %}
 
 ## Memory
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 mem_total=$(free | awk 'NR%2==0 {print $2}')
@@ -72,11 +72,11 @@ mem_avail=$(free | awk 'NR%2==0 {print $7}')
 mem_used=$(( $mem_total - $mem_avail))
 mem_usage=$(( $mem_used * 100 / $mem_total ))
 echo " "$mem_usage"%"
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 mem_phys=$(sysctl -n hw.physmem)
@@ -90,22 +90,22 @@ mem_avail=$(( $mem_inactive + $mem_cache + $mem_free ))
 mem_used=$(( $mem_total - $mem_avail ))
 mem_usage=$(( $mem_used * 100 / $mem_total ))
 echo "" $mem_usage"%"
-```
+{% endhighlight %}
 
 ## File System
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}')
 echo ""$cap_percentage
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 cap_percentage=$(df -h / | tail -1 | awk '{print $(NF-1)}' | cut -d "G" -f1)
@@ -113,13 +113,13 @@ cap_avail=$(df -h / | tail -1 | awk '{print $(NF-2)}' | cut -d "G" -f1)
 cap_total=$(df -h / | tail -1 | awk '{print $(NF-4)}' | cut -d "G" -f1)
 echo $cap_avail"/"$cap_total"G ("$cap_percentage")"
 echo ""$cap_percentage
-```
+{% endhighlight %}
 
 ## Volume
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 mute=$(pamixer --get-mute)
@@ -131,11 +131,11 @@ elif [ $mute = "false" ]; then
 else
     echo " ERROR"
 fi
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 mute=$(sysctl -n dev.acpi_ibm.0.mute)
@@ -147,46 +147,46 @@ elif [ $mute = "0" ]; then
 else
     echo " ERROR"
 fi
-```
+{% endhighlight %}
 
 ## Backlight
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 backlight=$(xbacklight -get | cut -d "." -f1)
 echo "" $backlight"%"
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 backlight=$(sysctl -n hw.acpi.video.lcd0.brightness | awk '{print $(NF)}')
 echo "" $backlight"%"
-```
+{% endhighlight %}
 
 ## Network Traffic
 
 **GNU/Linux** & **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/bin/bash
 
 wlan_card='wls3'
 wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
 wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
 echo "" $wlan_do "" $wlan_up "KB/s"
-```
+{% endhighlight %}
 
 ## Battery Capacity
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
@@ -203,11 +203,11 @@ elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
 else
     echo "UNKNWN"
 fi
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 cap=$(sysctl -n hw.acpi.battery.life)
@@ -224,13 +224,13 @@ elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
 else
     echo "UNKNWN"
 fi
-```
+{% endhighlight %}
 
 ## Battery Status
 
 **GNU/Linux**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 state=$(cat /sys/devices/platform/smapi/BAT0/state)
@@ -243,11 +243,11 @@ elif [ $state = "idle" ]; then
 else
     echo " " # unknown
 fi
-```
+{% endhighlight %}
 
 **FreeBSD**
 
-```bash
+{% highlight bash linenos %}
 #!/usr/local/bin/bash
 
 state=$(sysctl -n hw.acpi.battery.state)
@@ -260,7 +260,7 @@ elif [ $state = "0" ]; then
 else
     echo ""  # unknown
 fi
-```
+{% endhighlight %}
 
 Selesai!
 

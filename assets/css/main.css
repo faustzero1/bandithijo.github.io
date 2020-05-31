@@ -6,10 +6,12 @@ Created : Maret 2018
 --------------------------------------------------------------------------- */
 
 /* FONTS */
+/* @import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory); */
+/* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
 @import url(https://fonts.googleapis.com/css2?family=Fira+Sans|Fira+Sans+Condensed);
-@import url(/assets/fonts/ubuntu/ubuntu.css);
-@import url(/assets/fonts/give_you_glory/Give-You-Glory.css);
-@import url(/assets/fonts/fira_code/FiraCode.css);
+@import url(/assets/fonts/ubuntu.css);
+@import url(/assets/fonts/Give-You-Glory.css);
+@import url(/assets/fonts/FiraCode.css);
 
 /* CODE COLORSCHEME */
 @import url(/assets/css/solarizeddark.css);
@@ -32,11 +34,21 @@ body {
 pre, code {
   color: #FFF;
   font-size: 12px !important;
+  border-radius: 5px;
 }
 
-pre {
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
+pre.highlight {
+  /* margin-top: 15px !important; */
+  /* margin-bottom: 15px !important; */
+  border-radius: 5px;
+}
+
+pre.lineno {
+  padding-right: 0 !important;
+}
+
+td.gutter.gl, td.code {
+  background: #002b36;
 }
 
 mark {
