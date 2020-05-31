@@ -44,11 +44,14 @@ pre.highlight {
 }
 
 pre.lineno {
+  color: #586e75;
   padding-right: 0 !important;
 }
 
 td.gutter.gl, td.code {
   background: #002b36;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 mark {

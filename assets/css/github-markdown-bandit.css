@@ -296,7 +296,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body table {
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
   border-spacing: 0;
 }
 
@@ -702,6 +702,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body ol,
 .markdown-body ul {
   padding-left: 2em;
+  margin-bottom: 10px;
 }
 
 .markdown-body ol ol,
@@ -746,7 +747,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body table {
-  /* display: block; */
+  display: block;
   overflow: auto;
   width: 100%;
   /* disable selected */
@@ -769,8 +770,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body table td,
 .markdown-body table th {
-  /* border: 1px solid #289C70; */
-  /* padding: 6px 13px; */
+  border: 1px solid #002b36;
+  padding: 6px 13px;
 }
 
 .markdown-body table tr {
@@ -844,12 +845,12 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   /* background color pre ``` */
   /* background-color: #272822; <-- monokai */
   background: #002b36; /* <-- solarized */
-  /* border-radius: 5px; */
+  border-radius: 5px;
   /* font-size: 90%; */
   font-size: 14px;
   font-family: 'Fira Code', 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', 'Ubuntu Mono', monospace;
   line-height: 1.45;
-  /* overflow: auto; */
+  overflow: auto;
   padding: 10px;
 }
 
