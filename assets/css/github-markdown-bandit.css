@@ -845,7 +845,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   /* background-color: #272822; <-- monokai */
   background: #002b36; /* <-- solarized */
   /* border-radius: 5px; */
-  font-size: 90%;
+  /* font-size: 90%; */
   font-size: 14px;
   font-family: 'Fira Code', 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', 'Ubuntu Mono', monospace;
   line-height: 1.45;
