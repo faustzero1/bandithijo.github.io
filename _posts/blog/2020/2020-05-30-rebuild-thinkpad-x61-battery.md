@@ -177,6 +177,20 @@ Perhatikan grafik discharge (biru) dan charge (merah), terdapat *drop* pada saat
 
 Saya kurang paham, ini perilaku dari Cell atau module controller dari battery ini yang kurang bagus. Saya akan coba dengan cell yang lain bila cell yang sekarang telah rusak. Mungkin saya akan mencoba merek yang lebih baik dengan mAh yang sedikit lebih besar. Hehe.
 
+<br>
+**Update: 2020-05-31**
+
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/zfwwdDHb/gambar-09.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 9 - Hasil discharge setelah kalibrasi kedua</p>
+
+Pada Gambar 9, ini adalah grafik discharging yang saya laukan setelah rekalibrasi yang kedua. Saya tidak menyangka, tidak drop pada 40% namun pada 19%. Oh yaa, discharging ini juga dilakukan sambil menjalankan perintah:
+
+<pre>
+$ <b>sudo powertop --calibrate</b>
+</pre>
+
+Saya juga sedikit terkejut karena setelah dikalibrasi dengan powertop, dapat menambah efisiensi penggunaan power menjadi 30 menit lebih lama, yang awalnya hanya bertahan 30 menitan, sekarang dapat mencapai 1 jam. Padahal saya melakukan pengetesan sambil menonton YouTube.
+
 # Pesan Penulis
 
 Saat tulisan ini dibuat, sudah hari kedua saya mengguanakan battery ini. Dan sejauh ini tidak ada masalah sama sekali.
