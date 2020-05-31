@@ -651,20 +651,95 @@ Pushing autostart... DONE
 Pushing center... DONE
 Pushing cfacts... DONE
 Pushing config... DONE
+Pushing deck... DONE
 Pushing focusonnetactive... DONE
-Pushing fullgaps... DONE
-Pushing keys... DONE
 Pushing movestack... DONE
 Pushing pertag... DONE
 Pushing resizecorners... DONE
-Pushing rules... DONE
-Pushing statusallmons... DONE
+Pushing rmaster... DONE
+Pushing savefloats... DONE
+Pushing scratchpad-gaspar... DONE
+Pushing sticky... DONE
+Pushing systray... DONE
 Pushing zoomswap... DONE
 => All Pushing COMPLETE!
 ```
 
+# Instalasi
 
-*Bersambung...*
+Saya menyimpan konfigurasi yang sudah saya buat dalam bentuk branch kemudian saya simpan di GitHub.
+
+Bisa teman-teman lihat [di sini](https://github.com/bandithijo/dwm){:target="_blank"}.
+
+Cara pasangnya sangat mudah.
+
+<pre>
+$ <b>git clone https://github.com/bandithijo/dwm.git $HOME/.config/dwm</b>
+$ <b>cd $HOME/.config/dwm</b>
+</pre>
+
+Kalau kita menjalankan,
+
+<pre>
+$ <b>git branch</b>
+</pre>
+
+Maka yang ada hanya branch Master.
+
+Kita perlu melakukan `git checkout` ke setiap branch. Karena saya adalah orang yang malas, maka saya memilih untuk membuat script automatis saja. Hehe.
+
+Saya beri nama **suckchkout**.
+
+{% highlight ruby linenos %}
+#!/usr/bin/env ruby
+
+branch_list = `git branch -a`
+branches = branch_list.split(" ").reject{ |n| n == "*" || n == "master" || n == "remotes/origin/HEAD" || n == "->" || n == "origin/master" || n == "remotes/origin/master" }.map{ |n| n.gsub("remotes/origin/", "") }
+
+puts "\n=> Check Out each branch to Local"
+for branch in branches do
+  print "Checkout #{branch}... "
+  `git checkout #{branch}  > /dev/null 2>&1`
+  print "DONE\n"
+end
+`git checkout master > /dev/null 2>&1`
+puts "=> All Check Out COMPLETE!"
+{% endhighlight %}
+
+Jangan lupa buat menjadi executeable.
+
+<pre>
+$ <b>chmod +x suckchkout</b>
+</pre>
+
+Lalu jalankan.
+
+Kalau berhasil, hasilnya akan seperti ini.
+
+```
+=> Check Out each branch to Local
+Checkout actualfullscreen... DONE
+Checkout autostart... DONE
+Checkout center... DONE
+Checkout cfacts... DONE
+Checkout config... DONE
+Checkout deck... DONE
+Checkout focusonnetactive... DONE
+Checkout movestack... DONE
+Checkout pertag... DONE
+Checkout resizecorners... DONE
+Checkout rmaster... DONE
+Checkout savefloats... DONE
+Checkout scratchpad-gaspar... DONE
+Checkout sticky... DONE
+Checkout systray... DONE
+Checkout zoomswap... DONE
+=> All Check Out COMPLETE!
+```
+
+Nah, kalo sudah bisa check menggunakan `git branch`.
+
+Apabila sudah keluar semua daftar branch, tinggal jalankan script **suckmerge2**.
 
 
 
