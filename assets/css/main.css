@@ -9,9 +9,9 @@ Created : Maret 2018
 /* @import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory); */
 /* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
 @import url(https://fonts.googleapis.com/css2?family=Fira+Sans|Fira+Sans+Condensed);
-@import url(/assets/fonts/ubuntu.css);
-@import url(/assets/fonts/Give-You-Glory.css);
-@import url(/assets/fonts/FiraCode.css);
+@import url(/assets/fonts/ubuntu/ubuntu.css);
+@import url(/assets/fonts/give_you_glory/Give-You-Glory.css);
+@import url(/assets/fonts/fira_code/FiraCode.css);
 
 /* CODE COLORSCHEME */
 @import url(/assets/css/solarizeddark.css);
