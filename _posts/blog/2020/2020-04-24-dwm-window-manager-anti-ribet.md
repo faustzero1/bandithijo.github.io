@@ -135,15 +135,17 @@ Nah, berikut ini adalah isi dari script-script tersebut.
 # Suckless Script
 
 **suckclean** - Created by: HexDSL
-```bash
+
+{% highlight bas linenos %}
 #!/usr/bin/env bash
 
 make clean &&
 rm -f config.h && git reset --hard origin/master
-```
+{% endhighlight %}
 
 **suckdiff** - Created by: HexDSL
-```bash
+
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 git checkout master &&
@@ -161,10 +163,11 @@ for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -
 		git diff master..$branch > "${diffdir}${project}_${branch}.diff"
 	fi
 done
-```
+{% endhighlight %}
 
 **suckmerge-dwm** - Created by: BanditHijo
-```ruby
+
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
 puts "=> Convert All Branch to Patch"
@@ -212,7 +215,7 @@ system """
 make && sudo make clean install
 """
 puts "=> Installation COMPLETE!"
-```
+{% endhighlight %}
 
 Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.
 
@@ -265,17 +268,16 @@ Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang
 
 File **config.mk**.
 
-```c
+{% highlight c linenos %}
 // config.mk
 ...
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
-
-```
+{% endhighlight %}
 
 File **config.def.h**.
 
-```c
+{% highlight c linenos %}
 // config.def.h
 ...
 static const unsigned int snap      = 5;        /* snap pixel */
@@ -382,11 +384,11 @@ static Key keys[] = {
     { 0,                            0x1008ff11,                spawn,          SHCMD("pamixer --decrease 5") },
     { 0,                            0x1008ff12,                spawn,          SHCMD("pamixer --toggle-mute") },
 };
-```
+{% endhighlight %}
 
 File **dwm.c**
 
-```c
+{% highlight c linenos %}
 // dwm.c
 
 void
@@ -406,7 +408,7 @@ manage(Window w, XWindowAttributes *wa)
 ...
 ...
 }
-```
+{% endhighlight %}
 
 ## Status Bar
 
@@ -421,7 +423,7 @@ Nah, seperti ini tampilan bar yang saya pergunakan sekarang.
 
 Saya membuat file bernama `~/.local/bin/dwmstatus`. Dan tambahkan *execute permission* `$ chmod +x dwmstatus`.
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 # For dwmstatus
@@ -429,7 +431,7 @@ while true; do
     xsetroot -name " $($HOME/bin/network-wlan-tfc.sh) $($HOME/bin/cpu-temp.sh) $($HOME/bin/memory.sh) $($HOME/bin/filesystem.sh) $($HOME/bin/volume.sh) $(date +" 0%u%y%m%d%H%M") $($HOME/bin/bat-state.sh) $($HOME/bin/bat-capacity.sh)  BANDITHIJO "
     sleep 1
 done
-```
+{% endhighlight %}
 
 Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain atau saya sebut saja sebagai module. Saya akan jabarkan di sini masing-masing module tersebut.
 
@@ -441,7 +443,7 @@ Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain a
 <br>
 **network-wlan-tfc.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 wlan_card='wls3'
@@ -450,45 +452,45 @@ wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
 wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
 
 echo "" $wlan_do "" $wlan_up "KB/s"
-```
+{% endhighlight %}
 
 <br>
 **cpu-temp.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 get_temp_cpu0=$(cat /sys/class/thermal/thermal_zone0/temp)
 temp_cpu0=$(($get_temp_cpu0/1000))
 echo " "$temp_cpu0"°C"
-```
+{% endhighlight %}
 
 <br>
 **memory.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 mem_total=$(free | awk 'NR%2==0 {print $2}')
 mem_used=$(free | awk 'NR%2==0 {print $3}')
 mem_usage=$(( $mem_used * 100 / $mem_total ))
 echo " "$mem_usage"%"
-```
+{% endhighlight %}
 
 <br>
 **filesystem.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}')
 echo ""$cap_percentage
-```
+{% endhighlight %}
 
 <br>
 **volume.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 mute=$(pamixer --get-mute)
@@ -500,12 +502,12 @@ elif [ $mute = "false" ]; then
 else
     echo " ERROR"
 fi
-```
+{% endhighlight %}
 
 <br>
 **bat-state.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 state=$(cat /sys/devices/platform/smapi/BAT0/state)
@@ -518,12 +520,12 @@ elif [ $state = "idle" ]; then
 else
     echo " " # unknown
 fi
-```
+{% endhighlight %}
 
 <br>
 **bat-capacity.sh** - Created by: BanditHijo
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
@@ -540,7 +542,7 @@ elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
 else
     echo "UNKNWN"
 fi
-```
+{% endhighlight %}
 
 ## Autorun
 
@@ -548,7 +550,7 @@ Saya menggunakan *patch* autostart untuk menghandle program-program yang akan di
 
 Dan saya merubah *default path* yang diberikan oleh *patch* di alamat `~/.dwm/autostart.sh` menjadi `~/.local/bin/autostart.sh`.
 
-```c
+{% highlight c linenos %}
 // dwm.c
 
 ...
@@ -562,11 +564,11 @@ runAutostart(void) {
 
 ...
 ...
-```
+{% endhighlight %}
 
 Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 
-```bash
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 sanitizer
@@ -591,7 +593,7 @@ pkill -f "lxpolkit"; lxpolkit &
 #killall notify-listener; # notify-listener.py &
 #$HOME/.config/conky/conky-launch.sh &
 #xsetroot -cursor_name left_ptr
-```
+{% endhighlight %}
 
 ## suckpush script
 
@@ -601,7 +603,7 @@ Berikut ini scriptnya.
 
 **suckpush** - Created by: BanditHijo
 
-```ruby
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
 remote_repo = "bandithijo"
@@ -625,7 +627,7 @@ for branch in branches do
 end
 `git checkout master > /dev/null 2>&1`
 puts "=> All Pushing COMPLETE!"
-```
+{% endhighlight %}
 
 **Perhatikan!** Saya menambahkan dan menamakan GitHub repo saya sebagai 'bandithijo', bisa dilihat pada variabale `remote_repo`.
 
