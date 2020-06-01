@@ -85,6 +85,35 @@ Setelah battery selesai dirakit, saatnya pengukuran voltase bagian akhir. pabila
 
 Loh, nilai voltase pada battery di Gambar 6 kok lebih dari 14,4V? Nah, saya juga kurang paham. Battery ini yang saya pakai, dan masih dapat bertahan sekitar 30 menitan.
 
+Battery ini adalah battery yang disertakan saat saya membeli ThinkPad X61. Kalau saya cek statusnya dengan TLP, sedari awal memang sudah aneh. Hehe.
+
+<pre>
+/sys/devices/platform/smapi/BAT0/manufacturer               = PSPSP
+/sys/devices/platform/smapi/BAT0/model                      = COMPATIBLE
+/sys/devices/platform/smapi/BAT0/manufacture_date           = 2010-04-28
+/sys/devices/platform/smapi/BAT0/first_use_date             = 2010-10-18
+/sys/devices/platform/smapi/BAT0/cycle_count                =     60
+/sys/devices/platform/smapi/BAT0/temperature                =     30 [°C]
+/sys/devices/platform/smapi/BAT0/design_capacity            =  31680 [mWh]
+/sys/devices/platform/smapi/BAT0/last_full_capacity         = <mark>654360</mark> [mWh]
+/sys/devices/platform/smapi/BAT0/remaining_capacity         =  63690 [mWh]
+/sys/devices/platform/smapi/BAT0/remaining_percent          =     10 [%]
+/sys/devices/platform/smapi/BAT0/remaining_running_time_now = not_discharging [min]
+/sys/devices/platform/smapi/BAT0/remaining_charging_time    =   <mark>2880</mark> [min]
+/sys/devices/platform/smapi/BAT0/power_now                  =  26267 [mW]
+/sys/devices/platform/smapi/BAT0/power_avg                  =  23128 [mW]
+/sys/devices/platform/smapi/BAT0/state                      = charging
+
+/sys/devices/platform/smapi/BAT0/start_charge_thresh        =     70 [%]
+/sys/devices/platform/smapi/BAT0/stop_charge_thresh         =     99 [%]
+/sys/devices/platform/smapi/BAT0/force_discharge            =      0
+
+Charge                                                      =    9.7 [%]
+Capacity                                                    = <mark>2065.5</mark> [%]
+</pre>
+
+Bisa dilihat, pada bagian yang saya marking, menunjukkan value yang aneh.
+
 Kemudian, saya mengukur battery yang saya rakit (*rebuild*).
 
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vmBmyLvM/gambar-07.jpg" onerror="imgError(this);"}
