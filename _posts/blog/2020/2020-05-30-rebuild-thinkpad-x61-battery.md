@@ -226,7 +226,6 @@ Saya juga sedikit terkejut karena setelah dikalibrasi dengan powertop, dapat men
 
 {% include youtube_embed.html id="GGiT3v6GM9w" %}
 
-<br>
 {% include youtube_embed.html id="xLnRxfz0d7I" %}
 
 Dari video di atas, terlihat saya sedang menguji coba penggunaan battery yang sudah di rebuild ke laptop. Saya ingin melihat apakah ada indikasi *whitelisting* oleh BIOS atau tidak.

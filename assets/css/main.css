@@ -60,6 +60,10 @@ td.gutter.gl, td.code {
   padding-bottom: 0 !important;
 }
 
+.youtube {
+  margin-bottom: 10px !important;
+}
+
 mark {
   padding: 0.1em;
   background-color: #FFCC00; /* <-- yellow */
