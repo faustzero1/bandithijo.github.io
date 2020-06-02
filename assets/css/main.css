@@ -37,6 +37,10 @@ pre, code {
   border-radius: 5px;
 }
 
+pre {
+  margin-bottom: 10px !important;
+}
+
 pre.highlight {
   /* margin-top: 15px !important; */
   /* margin-bottom: 15px !important; */

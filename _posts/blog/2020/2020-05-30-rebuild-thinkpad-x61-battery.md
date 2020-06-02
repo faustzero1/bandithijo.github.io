@@ -80,12 +80,23 @@ Sambil dirakit, setiap blok pararelnya, jangan lupa sambil dilakukan pengukuran 
 
 Setelah battery selesai dirakit, saatnya pengukuran voltase bagian akhir. pabila setiap battery bervoltase 3,6V dikalikan 4 cell, berarti seharusnya akan memiliki total 14,4V.
 
+### Pengukuran Battery Bawaan
+
 ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rpPww0h4/gambar-06.jpg" onerror="imgError(this);"}
 <p class="img-caption">Gambar 6 - Battery yang saya beli (abal)</p>
 
 Loh, nilai voltase pada battery di Gambar 6 kok lebih dari 14,4V? Nah, saya juga kurang paham. Battery ini yang saya pakai, dan masih dapat bertahan sekitar 30 menitan.
 
-Battery ini adalah battery yang disertakan saat saya membeli ThinkPad X61. Kalau saya cek statusnya dengan TLP, sedari awal memang sudah aneh. Hehe.
+Battery ini adalah battery yang disertakan saat saya membeli ThinkPad X61.
+
+Kalau saya ukur berapa lama battery ini dapat digunakan dengan GNome Power Statistics.
+
+![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wTdV1BMy/gambar-10.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 10 - Pengukuran dengan Gnome Power Statistics Battery Bawaan</p>
+
+Presentase sangat tidak akurat, lebih dari 40 menit berada pada presentase 99-98% kemudian drop ke 10%.
+
+Kalau saya cek statusnya dengan TLP, sedari awal memang sudah aneh. Hehe.
 
 <pre>
 /sys/devices/platform/smapi/BAT0/manufacturer               = PSPSP
@@ -114,6 +125,7 @@ Capacity                                                    = <mark>2065.5</mark
 
 Bisa dilihat, pada bagian yang saya marking, menunjukkan value yang aneh.
 
+### Pengukuran Battery Rebuild
 Kemudian, saya mengukur battery yang saya rakit (*rebuild*).
 
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vmBmyLvM/gambar-07.jpg" onerror="imgError(this);"}
@@ -122,17 +134,6 @@ Kemudian, saya mengukur battery yang saya rakit (*rebuild*).
 Nah, hasil pengukuran voltasenya sebesar 14,26V. Mendekai lah yaa dengan nilai normal.
 
 Dalam proses ini saya juga melihat dan menunggu apakah battery sudah aman dan tidak ada perubahan suhu.
-
-Berikut ini cuplikasn videonya.
-
-{% include youtube_embed.html id="GGiT3v6GM9w" %}
-
-# Hasilnya
-
-{% include youtube_embed.html id="xLnRxfz0d7I" %}
-
-<br>
-Dari video di atas, terlihat saya sedang menguji coba penggunaan battery yang sudah di rebuild ke laptop. Saya ingin melihat apakah ada indikasi *whitelisting* oleh BIOS atau tidak.
 
 Selanjutnya adalah proses kalibrasi dengan tlp.
 
@@ -219,6 +220,16 @@ $ <b>sudo powertop --calibrate</b>
 </pre>
 
 Saya juga sedikit terkejut karena setelah dikalibrasi dengan powertop, dapat menambah efisiensi penggunaan power menjadi 30 menit lebih lama, yang awalnya hanya bertahan 30 menitan, sekarang dapat mencapai 1 jam. Padahal saya melakukan pengetesan sambil menonton YouTube.
+
+
+# Video
+
+{% include youtube_embed.html id="GGiT3v6GM9w" %}
+
+<br>
+{% include youtube_embed.html id="xLnRxfz0d7I" %}
+
+Dari video di atas, terlihat saya sedang menguji coba penggunaan battery yang sudah di rebuild ke laptop. Saya ingin melihat apakah ada indikasi *whitelisting* oleh BIOS atau tidak.
 
 # Pesan Penulis
 
