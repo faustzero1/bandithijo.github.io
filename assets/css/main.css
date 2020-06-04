@@ -282,7 +282,7 @@ kbd {
 #header .logo {
   float: left;
   /* margin: 1.5% 5.5% 0 0; */
-  margin: 1.0% 0 0 0;
+  margin: 0.7% 0 0 0;
 }
 
 #header .logo img {
@@ -1972,7 +1972,7 @@ a.disqus_button {
   #header .logo {
     float: left;
     /* margin: 1.5% 5.5% 0 0; */
-    margin: 1.0% 0 0 0;
+    margin: 1.5% 0 0 0;
   }
 
   #header .logo img {
@@ -1992,6 +1992,11 @@ a.disqus_button {
 @media (max-width: 1024px) {
   .container {
     max-width: 92%;
+  }
+
+  #header .logo {
+    float: left;
+    margin: 1.5% 0 0 0;
   }
 
   #header .nav ul {
