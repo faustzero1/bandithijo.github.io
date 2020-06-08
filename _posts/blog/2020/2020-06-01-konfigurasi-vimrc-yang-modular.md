@@ -35,7 +35,7 @@ Memodularkan konfigurasi vim (vimrc), bisa dikatakan mengelompokkan konfigurasi 
 Berikut ini adalah struktur direktori yang saya pergunakan, saya sedikit melakukan penyesuaian dari yang direkomendasi oleh **@mnabila**.
 
 1. **autoload/**<br>
-Direktori ini saya pergunakan, apabila terdapat plugin yang mengharuskan untuk menambahkan konfigurasi pada autoload.
+Direktori ini saya pergunakan, apabila terdapat plugin yang mengharuskan untuk menambahkan konfigurasi pada autoload. Atau kadang juga saya pergunakan untuk mengoverride konfig.
 
 2. **colors/**<br>
 Direktori ini biasa saya gunakan untuk menyimpan colorscheme hasil modifikasi saya.
@@ -61,12 +61,14 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 <pre>
 <b>~/.config/nvim/</b>
 ├── <b>autoload/</b>
+│   ├── <b>lightline/</b>
+│   │   └── <b>colorscheme</b>
+│   │       ├── codedark.vim
+│   │       └── dwm.vim
 │   ├── buffer.vim
 │   └── nrrwrgn.vim
+│   └── lightline.vim
 ├── <b>colors/</b>
-│   ├── <b>lightline/</b>
-│   │   ├── codedark.vim
-│   │   └── dwm.vim
 │   ├── codedark.vim
 │   └── Tomorrow-Night-Bandit.vim
 ├── <b>doc/</b>
