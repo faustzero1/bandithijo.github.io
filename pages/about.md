@@ -27,8 +27,6 @@ Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempuny
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 
-Saat ini sudah bekerja sebagai Junior Backend Web Developer di ~~**Virtual Spirit Technology Sdn. Bhd. Kuala Lumpur, Malaysia**~~.
-
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
