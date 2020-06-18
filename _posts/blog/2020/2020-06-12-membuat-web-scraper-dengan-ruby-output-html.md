@@ -88,7 +88,7 @@ def scraper
       dosens << dosen   # dosens, variable array yang menampung data para dosen
     end
   end
-  # aktifkan buybug apabila diperlukan
+  # aktifkan byebug apabila diperlukan
   #byebug
 
   # blog ini bertugas untuk membuat file html
