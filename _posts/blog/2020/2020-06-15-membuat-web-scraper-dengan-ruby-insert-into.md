@@ -151,7 +151,7 @@ def scraper
     # blok ini bertugas untuk membuat koneksi ke database engine
     conn = PG::Connection.open(dbname: 'web_scraper')
 
-    # blog ini bertugas untuk membuat tabel dan menghapus apabila sudah ada
+    # blok ini bertugas untuk membuat tabel dan menghapus apabila sudah ada
     conn.exec("DROP TABLE IF EXISTS daftar_dosens")
     conn.exec("CREATE TABLE daftar_dosens(
               id BIGSERIAL NOT NULL PRIMARY KEY,
