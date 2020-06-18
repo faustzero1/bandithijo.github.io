@@ -140,6 +140,10 @@ Hasilnya akan seprti ini.
 
 Selesai!
 
+# Demonstrasi Video
+
+{% include youtube_embed.html id="P3cHb_wlLtc" %}
+
 
 
 
