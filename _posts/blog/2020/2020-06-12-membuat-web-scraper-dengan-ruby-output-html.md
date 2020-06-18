@@ -93,7 +93,7 @@ def scraper
   # aktifkan byebug apabila diperlukan
   #byebug
 
-  # blog ini bertugas untuk membuat file html
+  # blok ini bertugas untuk membuat file html
   File.delete("daftar_dosen.html") if File.exist?("daftar_dosen.html")
   File.open("daftar_dosen.html", "w") do |f|
     f.puts '<!DOCTYPE html>'
