@@ -1,7 +1,7 @@
 ---
 layout: 'post'
 title: "Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: INSERT INTO)"
-date: 2020-06-16 18:49
+date: 2020-06-15 18:49
 permalink: '/blog/:title'
 author: 'BanditHijo'
 license: true
