@@ -255,13 +255,13 @@ Selesai!
 # Referensi
 
 1. [It's Time To HTTParty!](https://blog.teamtreehouse.com/its-time-to-httparty){:target="_blank"}
-<br>Diakses tanggal: 2020/06/15
+<br>Diakses tanggal: 2020/06/16
 
 2. [nokogiri.org](https://nokogiri.org/){:target="_blank"}
-<br>Diakses tanggal: 2020/06/15
+<br>Diakses tanggal: 2020/06/16
 
 3. [pg documentation](https://deveiate.org/code/pg/){:target="_blank"}
-<br>Diakses tanggal: 2020/06/15
+<br>Diakses tanggal: 2020/06/16
 
 4. [pgcli](https://www.pgcli.com/){:target="_blank"}
-<br>Diakses tanggal: 2020/06/15
+<br>Diakses tanggal: 2020/06/16
