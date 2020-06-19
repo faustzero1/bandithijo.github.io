@@ -33,6 +33,17 @@ body {
   margin: 0;
 }
 
+.markdown-body p {
+  margin-bottom: 6px !important;
+  margin-top: 6px !important;
+}
+
+
+.markdown-body table {
+  padding-bottom: 6px !important;
+  margin-top: 6px !important;
+}
+
 pre, code {
   color: #FFF;
   font-size: 12px !important;
@@ -40,7 +51,8 @@ pre, code {
 }
 
 pre {
-  margin-bottom: 10px !important;
+  margin-bottom: 5px !important;
+  margin-top: 5px !important;
 }
 
 pre.highlight {
