@@ -425,7 +425,7 @@ p.post-title-index a:hover {
 
 .post-title-tags {
   padding-left: 12px;
-  line-height: 2px;
+  line-height: 0;
 }
 
 .post-details {
