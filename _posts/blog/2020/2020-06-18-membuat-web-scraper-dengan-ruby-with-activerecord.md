@@ -429,7 +429,7 @@ Setelah itu, jalankan dengan perintah,
 $ <b>ruby app/main.rb</b>
 </pre>
 
-Apabila berhasil, akan keluar output di terminal seperti ini. Tidak ada error apapun kecuali output jumlah dosen.
+Apabila berhasil, akan keluar output di Terminal seperti ini.
 
 ```
 == 20200618031037 CreateDaftarDosens: reverting ===============================
