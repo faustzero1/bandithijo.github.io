@@ -313,15 +313,59 @@ Time: 0.026s
 
 Tentu saja tabel tersebut belum ada isinya.
 
-Setelah database sudah dibuat, sekarang kita akan membuat aktor utamanya.
+Langkah selanjutnya adalah membuat model.
 
-Beri nama `scraper.rb`.
+Sambil mdembuat model, saya akan merapikan struktur direktori saya dan mengganti nama dari aktor utama dari `scrapper.rb` menjadi `main.rb`.
+
+<pre>
+ruby-web-scraper-dosen/
+├── app
+│   ├── <mark>main.rb</mark>
+│   └── models
+│       └── <mark>daftar_dosen.rb</mark>
+├── db
+│   ├── config.yml
+│   ├── migrate
+│   │   └── 20200618031037_create_daftar_dosens.rb
+│   └── schema.rb
+├── Gemfile
+├── Gemfile.lock
+└── Rakefile
+</pre>
+
+Penamaan dari model `daftar_dosen.rb` menggunakan penamaan tunggal karena convention dari Ruby on Rails mengharuskan kita membuat model dengan penamaan singular.
+
+Buka file `app/models/daftar_dosen.rb` dan isi seperti di bawah ini.
+
+{% highlight ruby linenos %}
+class DaftarDosen < ActiveRecord::Base
+  validates :nama_dosen, presence: true
+end
+{% endhighlight %}
+
+Saya menambahkan validasi `presence` ke kolom nama_dosen. Teman-teman dapat mempelajari tentang validasi [di sini](https://guides.rubyonrails.org/active_record_validations.html){:target="_blank"}
+
+Setelah membuat model, sekarang kita akan membuat aktor utamanya.
+
+Buka file `app/main.rb`.
 
 {% highlight ruby linenos %}
 # daftar gem yang diperlukan
 require 'httparty'
 require 'nokogiri'
 require 'byebug'
+require 'active_record'
+require_relative './models/daftar_dosen'
+require 'rake'
+
+# blok untuk menghubungkan project dengan postgresql
+def db_configuration
+  db_configuration_file = File.join(File.expand_path('..', __FILE__), '..', 'db', 'config.yml')
+  YAML.load(File.read(db_configuration_file))
+end
+
+# blok untuk menghubungkan project dengan active record
+ActiveRecord::Base.establish_connection(db_configuration['development'])
 
 def scraper
   # blok ini bertugas untuk mengambil data dengan output berupa variabel array
@@ -343,96 +387,74 @@ def scraper
   # aktifkan byebug apabila diperlukan
   #byebug
 
-  # blok ini bertugas untuk membuat file csv yang berisi daftar dosen
-  File.open("/data/daftar_dosen.csv", "w") do |f|
-    f.puts "id;nama_dosen;nidn_dosen"
-    dosens.each.with_index(1) do |dosen, index|
-      f.puts "#{index};#{dosen[:nama_dosen]};#{dosen[:nidn_dosen]}"
+  # blok ini bertugas untuk membuat membandingkan jumlah dosen dari target
+  # dengan jumlah dosen yang ada di lokal database
+  # apabila sama, maka tidak akan diinputkan ke database
+  # apabila berbeda, maka akan tabel akan dihapus dan data baru akan diinput
+  if dosens.size == DaftarDosen.all.size
+    puts "INFO: Data Dosen sudah diparsing. Tidak ada data baru."
+    puts "TOTAL DOSEN: #{DaftarDosen.all.size} dosen"
+  elsif DaftarDosen.all.size.nil? || dosens.size > DaftarDosen.all.size
+    unless DaftarDosen.all.size.nil?
+      total_dosen_lama = DaftarDosen.all.size
+
+      # blok ini untuk menjalankan rake task rollback & migrasi untuk menghapus & membuat tabel
+      rake = Rake.application
+      rake.init
+      rake.load_rakefile
+      rake['db:rollback'].invoke
+      rake['db:migrate'].invoke
+    else
+      total_dosen_lama = 0
     end
+
+    # blok ini untuk memasukkan data ke dalam tabel
+    dosens.each do |dosen|
+      DaftarDosen.create(nama_dosen: dosen[:nama_dosen], nidn_dosen: dosen[:nidn_dosen])
+      puts "Dosen: #{dosen[:nama_dosen]}, berhasil diinputkan!"
+    end
+
+    puts "TOTAL DOSEN (remote): #{dosens.size} dosen"
+    puts "TOTAL DOSEN (local) : #{DaftarDosen.all.size} dosen"
+    puts "TOTAL DOSEN BARU    : #{dosens.size - total_dosen_lama} dosen" if total_dosen_lama != 0
   end
-
-  begin
-    # blok ini bertugas untuk membuat koneksi ke database engine
-    conn = PG::Connection.open(dbname: 'web_scraper')
-
-    # blok ini bertugas untuk membuat tabel dan menghapus apabila sudah ada
-    conn.exec("DROP TABLE IF EXISTS daftar_dosens")
-    conn.exec("CREATE TABLE daftar_dosens(
-              id BIGSERIAL NOT NULL PRIMARY KEY,
-              nama_dosen VARCHAR(100) NOT NULL,
-              nidn_dosen VARCHAR(10))")
-
-    # blok ini bertugas untuk memasukkan data ke dalam tabel database
-    conn.exec("COPY daftar_dosens(id, nama_dosen, nidn_dosen) FROM '/data/daftar_dosen.csv' DELIMITER ';' CSV HEADER")
-  rescue PG::Error => e
-    puts e.message
-  ensure
-    conn.close if conn
-  end
-
-  puts "TOTAL DOSEN: #{dosens.count} orang"
 end
 
 scraper
 {% endhighlight %}
 
-Sebelum kita menjalankan perintah untuk memanggil sang aktor utama, kita perlu menyipakan tempat untuk file .csv yang akan kita simpan pada direktori `/data/`. Alasan kenapa kita perlu menyiapkan tempat khusus karena permasalahan dengan permission user postgres. Jadi untuk kemudahan, kita siapkan tempat khusus yang dapat digunakan oleh keduabelah pihak baik user kita dan user postgres.
-
-Saya sudah coba mengekspor file .csv ke direktori `/tmp/` dan mengimportnya, namun gagal dan mendapatkan pesan error seperti ini.
-
-```
-ERROR:  could not open file "/tmp/daftar_dosen.csv" for reading: No such file or directory
-```
-
-Terkadang juga pesan error nya adalah *permission denied*.
-
-```
-ERROR:  could not open file "/tmp/daftar_dosen.csv" for reading: Permission Denied
-```
-
-Berdasarkan rekomendasi dari jawaban yang diberikan pada [dba.stackexchange: Cannot read from /tmp with PostgreSQL COPY](https://dba.stackexchange.com/questions/114568/cannot-read-from-tmp-with-postgresql-copy-but-able-to-read-the-same-file-from){:target="_blank"} --saya mendemonstrasikan pada dokumentasi video di bawah--.
-
-Maka dari itu saya mengakali dengan membuat sebuah temp direktori yang dapat diakses oleh keduabelah pihak.
-
-Kita perlu membuat direktori `/data/` terlebih dahulu.
-
-<pre>
-$ <b>sudo mkdir /data</b>
-</pre>
-
-Kemudian, mount dengan tipe **tmpfs**.
-
-<pre>
-$ <b>sudo mount -t tmpfs -o rw tmpfs /data</b>
-</pre>
-
 Setelah itu, jalankan dengan perintah,
 
 <pre>
-$ <b>ruby scraper.rb</b>
+$ <b>ruby app/main.rb</b>
 </pre>
 
 Apabila berhasil, akan keluar output di terminal seperti ini. Tidak ada error apapun kecuali output jumlah dosen.
 
 ```
-TOTAL DOSEN: 138 orang
-```
+== 20200618031037 CreateDaftarDosens: reverting ===============================
+-- drop_table(:daftar_dosens)
+   -> 0.0028s
+== 20200618031037 CreateDaftarDosens: reverted (0.0154s) ======================
 
-Sekarang, kita akan punya file .csv yang berada pada direktori `/data/daftar_dosen.csv`.
+== 20200618031037 CreateDaftarDosens: migrating ===============================
+-- create_table(:daftar_dosens)
+   -> 0.0144s
+== 20200618031037 CreateDaftarDosens: migrated (0.0145s) ======================
 
-```
-id;nama_dosen;nidn_dosen
-1;Abdul Fatah;1114107001
-2;Abdul Hamid Kurniawan, S.kom., M.TI;1114107001
-3;Abi Habibi;1114107001
+Dosen: Abdul Fatah, berhasil diinputkan!
+Dosen: Abdul Hamid Kurniawan, S.kom., M.TI, berhasil diinputkan!
+Dosen: Abi Habibi, berhasil diinputkan!
 ...
 ...
-136;Teguh Pribadi, S.H., M.H;-
-137;Sampara, S.H., M.H.;-
-138;Candra Bagus Agung P, S.E., M.M.;-
+Dosen: Teguh Pribadi, S.H., M.H, berhasil diinputkan!
+Dosen: Sampara, S.H., M.H., berhasil diinputkan!
+Dosen: Candra Bagus Agung P, S.E., M.M., berhasil diinputkan!
+TOTAL DOSEN (remote): 138 dosen
+TOTAL DOSEN (local) : 138 dosen
 ```
 
-File .csv ini lah yang akan di import ke dalam database menggunakan SQL Query `COPY FROM`.
+nah, data sudah masuk ke dalam database.
 
 Sekarang coba cek ke database.
 
@@ -477,6 +499,13 @@ SELECT 138
 (END)
 ```
 
+Kalau kita coba jalankan kembali, tapi tidak ada data baru dari website target, maka akan seperti ini hasil outputnya.
+
+```
+INFO: Data Dosen sudah diparsing. Tidak ada data baru.
+TOTAL DOSEN: 138 dosen
+```
+
 Selesai!
 
 # Demonstrasi Video
@@ -494,11 +523,14 @@ Selesai!
 2. [nokogiri.org](https://nokogiri.org/){:target="_blank"}
 <br>Diakses tanggal: 2020/06/18
 
-3. [pg documentation](https://deveiate.org/code/pg/){:target="_blank"}
+3. [pgcli](https://www.pgcli.com/){:target="_blank"}
 <br>Diakses tanggal: 2020/06/18
 
-4. [pgcli](https://www.pgcli.com/){:target="_blank"}
+4. [Active Record Basics](https://guides.rubyonrails.org/active_record_basics.html){:target="_blank"}
 <br>Diakses tanggal: 2020/06/18
 
-5. [Cannot read from /tmp with PostgreSQL COPY, but able to read the same file from another directory with the exact same permissions](https://dba.stackexchange.com/questions/114568/cannot-read-from-tmp-with-postgresql-copy-but-able-to-read-the-same-file-from){:target="_blank"}
+5. [Active Record Validations](https://guides.rubyonrails.org/active_record_validations.html){:target="_blank"}
+<br>Diakses tanggal: 2020/06/18
+
+6. [thuss/standalone-migrations](https://github.com/thuss/standalone-migrations/){:target="_blank"}
 <br>Diakses tanggal: 2020/06/18
