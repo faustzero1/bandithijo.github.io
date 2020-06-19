@@ -27,6 +27,8 @@ Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempuny
 
 Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
 
+Pekerjaan: tukang ketik.
+
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
