@@ -76,7 +76,7 @@ $ <b>sudo systemctl status postgresql.service</b>
 ```
 ● postgresql.service - PostgreSQL database server
      Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
-     Active: active (running) since Thu 2020-06-18 11:06:53 WITA; 8h ago
+     Active: active (running) since Thu 2020-06-16 18:49:53 WITA; 1m ago
    Main PID: 36698 (postgres)
       Tasks: 8 (limit: 4610)
      Memory: 28.9M
