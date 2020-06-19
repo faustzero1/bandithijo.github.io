@@ -15,7 +15,7 @@ hot:
 
 <!-- INFORMATION -->
 <div class="blockquote-red">
-<div class="blockquote-red-title">[ i ] Disclaimer</div>
+<div class="blockquote-red-title">[ ! ] Disclaimer</div>
 <p>Data yang penulis gunakan adalah data yang bersifat <b><i>free public data</i></b>. Sehingga, siapa saja dapat mengakses dan melihat tanpa perlu melalui layer authentikasi.</p>
 <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
 </div>
