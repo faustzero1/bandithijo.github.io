@@ -6,9 +6,6 @@ Created : Maret 2018
 --------------------------------------------------------------------------- */
 
 /* FONTS */
-/* @import url(https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Condensed|Roboto+Mono|Give+You+Glory); */
-/* @import url(https://cdn.jsdelivr.net/npm/@typopro/web-fantasque-sans-mono@3.7.5/TypoPRO-FantasqueSansMono.css); */
-/* @import url(https://fonts.googleapis.com/css2?family=Fira+Sans|Fira+Sans+Condensed); */
 @import url(/assets/fonts/ubuntu/ubuntu.css);
 @import url(/assets/fonts/give_you_glory/Give-You-Glory.css);
 @import url(/assets/fonts/fira_code/FiraCode.css);
@@ -1333,13 +1330,6 @@ button.active {
   justify-content: center;
 }
 
-.box-container-github {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
 .box {
   width: 27.5%;
   margin: 0 20px 40px 20px;
@@ -2643,11 +2633,6 @@ a.disqus_button {
   aside p.sidebar-isi a {
     text-align: left;
     margin: 0 0 0 3.0%;
-  }
-
-  .box-container-github {
-    visibility: hidden;
-    display: none;
   }
 
   .hideAside {
