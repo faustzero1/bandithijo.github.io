@@ -271,11 +271,11 @@ Kemudian tambahkan fungsi di bawah.
 
 ```viml
 function! String1()
-  return ' BANDITHIJO.COM '
+  return 'BANDITHIJO.COM'
 endfunction
 
 function! String2()
-  return ' BUFFERS '
+  return 'BUFFERS'
 endfunction
 ```
 
@@ -365,11 +365,11 @@ function! LightlineFiletype()
 endfunction
 
 function! String1()
-  return ' BANDITHIJO.COM '
+  return 'BANDITHIJO.COM'
 endfunction
 
 function! String2()
-  return ' BUFFERS '
+  return 'BUFFERS'
 endfunction
 
 " autoreload
