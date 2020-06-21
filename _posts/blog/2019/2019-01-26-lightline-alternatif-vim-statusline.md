@@ -239,48 +239,44 @@ let g:lightline#colorscheme#<mark>lightline_solarized</mark>#palette = lightline
 
 Modifikasi yang saya lakukan adalah merubah dan menambah **tabline** sebelah kanan atas. Yang sebelumnya hanya menampilkan tanda **X**, saya rubah menjadi menampilkan **BUFFERS** dan **BANDITHIJO.COM**.
 
-Terdapat 3 baris yang saya modifikasi.
+Cari baris di bawah ini.
 
+```viml
+let g:lightline.tabline = {
+\   'left': [ ['buffers'] ],
+\   'right': [ ['close'] ]
+\}
 ```
-$ vim .vim/plugged/lightline.vim/autoload/lightline.vim
-```
 
-<br>
-**Periksa pada line 101**.
-<pre>
-\   'tabline': {
-\     'left': [['tabs']],
-\     'right': <mark>[['string1'], ['string2']]</mark>
-\   },
-</pre>
-Saya merubah nilai `close` menjadi `string1` dan `string2`.
-
-<br>
-**Periksa pada line 113**.
-<pre>
-\     'lineinfo': '%3l:%-2v', 'line': '%l', 'column': '%c', <mark>'string1': '%999X BANDITHIJO.COM ', 'string2': '%999X BUFFERS '</mark>, 'winnr': '%{winnr()}'
-</pre>
-Saya mengganti `'close': '%999X X'` menjadi seperti di atas.
-
-<br>
-**Perhatikan line 124**.
-<pre>
-\   'component_type': {
-\     'tabs': 'tabsel', <mark>'string1': 'raw', 'string2': 'raw',</mark>
-\   },
-</pre>
-Saya mengganti `'close': 'raw'` menjadi seperti di atas.
-
-<br>
-Setelah merubah 3 baris pada file `lightline.vim` di atas, **jangan lupa mengganti nilai** `'tabline'` pada bagian `'right':` yang ada pada `~/.vimrc`.
-
-Ubah dari `close` menjadi `string1`, dan `string2`.
+Ubah `'close'` menjadi `'string1'` dan `'string2'`.
 
 ```viml
 let g:lightline.tabline = {
 \   'left': [ ['buffers'] ],
 \   'right': [ ['string1'], ['string2'] ]
 \}
+```
+
+Tambahkan pada `.component_expand`.
+
+```viml
+let g:lightline.component_expand = {
+\   'buffers': 'lightline#bufferline#buffers',
+\   'string1': 'String1',
+\   'string2': 'String2'
+\}
+```
+
+Kemudian tambahkan fungsi di bawah.
+
+```viml
+function! String1()
+  return ' BANDITHIJO.COM '
+endfunction
+
+function! String2()
+  return ' BUFFERS '
+endfunction
 ```
 
 # Hasilnya
@@ -335,7 +331,10 @@ let g:lightline.tabline = {
 \   'right': <mark>[['string1'], ['string2']]</mark>
 \}
 let g:lightline.component_expand = {
-\   'buffers': 'lightline#bufferline#buffers'
+\   'buffers': 'lightline#bufferline#buffers',
+\   <mark>'string1': 'String1',</mark>
+\   <mark>'string2': 'String2'</mark>
+\}
 \}
 let g:lightline.component_type = {
 \   'buffers': 'tabsel'
@@ -365,6 +364,14 @@ function! LightlineFiletype()
   return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
 endfunction
 
+function! String1()
+  return ' BANDITHIJO.COM '
+endfunction
+
+function! String2()
+  return ' BUFFERS '
+endfunction
+
 " autoreload
 command! LightlineReload call LightlineReload()
 
@@ -378,7 +385,7 @@ set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline</mark>
 </pre>
 
-Pada bagian `'right': [['string1'], ['string2']]` juga sudah saya lakukan modifikasi dari yang sebelumnya `'right': [[close]]` pada bagian [Tabline]({{ site.url }}/blog/lightline-alternatif-vim-statusline#tabline){:target="_blank"}.
+Pada bagian `'right': [['string1'], ['string2']]` juga sudah saya lakukan modifikasi dari yang sebelumnya `'right': [['close']]` pada bagian [Tabline]({{ site.url }}/blog/lightline-alternatif-vim-statusline#tabline){:target="_blank"}.
 
 Saya juga melakukan modifikasi terhadap `modified` indikator yang tadinya `+` saya ubah agar lebih terlihat jelas menjadi `●`.
 
