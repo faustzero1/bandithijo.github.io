@@ -217,9 +217,13 @@ Namun, sistem kita masih belum lengkap karena kita perlu melakukan beberapa konf
 Untuk itu, sementara kita lanjutkan saja pada _session_ ini. Dan jangan *reboot* dahulu, nanti susah lagi konek internetnya (sebenarnya gampang aja, via *usb tethering*).
 
 
+
 <!-- NEXT PREV BUTTON -->
+{% assign btn-next = "/arch/step-3-installing-arch-linux-base-packages" %}
+{% assign btn-menu = "/arch/" %}
+{% assign btn-prev = "/arch/step-5-set-language-and-time-zone" %}
 <div class="post-nav">
-<a class="btn-blue-l" href="/arch/step-3-installing-arch-linux-base-packages"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r" href="/arch/step-5-set-language-and-time-zone"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+<a class="btn-blue-l" href="{{ btn-next }}"><img class="btn-img" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="{{ btn-menu }}"><img class="btn-img" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="{{ btn-prev }}"><img class="btn-img" src="/assets/img/logo/logo_an.png"></a>
 </div>

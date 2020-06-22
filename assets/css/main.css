@@ -820,6 +820,12 @@ a.btn-blue-c {
   transform: translateY(2px)
 }
 
+.btn-img {
+  width: 20px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+}
+
 .disabled,
 .disabled a,
 .disabled:active {

@@ -150,8 +150,11 @@ Banyak lagi hal-hal lain yang dapat menyebabkan _system failure_. Contoh dan met
 
 
 <!-- NEXT PREV BUTTON -->
+{% assign btn-next = "/arch/step-7-install-gnome-and-complete-installation" %}
+{% assign btn-menu = "/arch/" %}
+{% assign btn-prev = "/arch/references" %}
 <div class="post-nav">
-<a class="btn-blue-l" href="/arch/step-7-install-gnome-and-complete-installation"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r" href="/arch/references"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+<a class="btn-blue-l" href="{{ btn-next }}"><img class="btn-img" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="{{ btn-menu }}"><img class="btn-img" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="{{ btn-prev }}"><img class="btn-img" src="/assets/img/logo/logo_an.png"></a>
 </div>

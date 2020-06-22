@@ -44,8 +44,11 @@ pin:
 
 
 <!-- NEXT PREV BUTTON -->
+{% assign btn-next = "/arch/bonus-backup-restore-and-recovery" %}
+{% assign btn-menu = "/arch/" %}
+{% assign btn-prev = "#" %}
 <div class="post-nav">
-<a class="btn-blue-l" href="/arch/bonus-backup-restore-and-recovery"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/arch/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r disabled" href="#"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+<a class="btn-blue-l" href="{{ btn-next }}"><img class="btn-img" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="{{ btn-menu }}"><img class="btn-img" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="{{ btn-prev }}"><img class="btn-img" src="/assets/img/logo/logo_an.png"></a>
 </div>
