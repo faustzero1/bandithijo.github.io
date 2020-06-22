@@ -54,7 +54,7 @@ _Mount_ partisi `/dev/sda1` ke partisi `/mnt/boot`.
 Setelah partisi yang kita siapkan telah kita _mounting_, langkah selanjutnya adalah kita akan menggunakan `pacstrap` _script_ untuk menginstal `base` _package_ Arch Linux.
 
 ```
-# pacstrap /mnt base base-devel linux linux-headers linux-firmware
+# pacstrap /mnt base base-devel linux linux-headers linux-firmware archlinux-keyring
 ```
 
 Pada proses instalasi di atas saya menambahkan `base-devel` _package_. Proses instalasi ini akan berjalan lumayan lama. “Total _download size_” saat dokumentasi ini dibuat adalah 266.60 MiB.
