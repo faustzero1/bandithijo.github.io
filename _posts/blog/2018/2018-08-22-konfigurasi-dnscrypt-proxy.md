@@ -107,76 +107,83 @@ Sekarang lanjut ke konfigurasi nameserver pada `/etc/resolv.conf`.
 
 ## Konfigurasi resolv.conf
 
-Mengapa kita perlu mengkonfigurasi file `/etc/resolv.conf` ?
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Bagian ini telah diperbaharui sejak tanggal 2020-06-26.</p>
+</div>
 
-Untuk teman-teman yang menggunakan ISP (*Internet Service Provider*) seperti IndiH0ME, biasanya konfigurai router yang dilakukan oleh ISP akan memaksa kita untuk menggunakan `nameserver 192.168.0.1` atau IP address tertentu seperti:
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d1F4dHzX/gambar-01.png" onerror="imgError(this);"}
+
+Sebelumnya, terima kasih kepada mas [DØNIX (@dsnvhlm)](https://t.me/dsnvhlm){:target="_blank"} yang telah memberikan informasi dan masukan untuk bagian ini.
+
+Saya sependapat, karena menggunakan service **dhcpcd** hanya untuk membuat static dns pada file `/etc/resolv.conf` terlalu *overkill* (berlebihan).
+
+Saya memang menanti-nantikan ada cara yang lebih praktis. Dan cara yang diberikan oleh mas **DØNIX** ini sangat mudah untuk kita aplikasikan.
+
+Saran tersebut juga didukung dari [sini](https://wiki.archlinux.org/index.php/Domain_name_resolution#Conditional_forwarding){:target="_blank"}, yang menginformasikan seperti ini.
+
+> *In a dynamic environment (laptops and to some extents desktops), you need to configure your resolver based on the network(s) you are connected to. The best way to do that is to use **openresolv** because it supports multiple subscribers.*
+
+Nah, sudah cukup banyak pendapat yang mengarah pada **openresolv**.
+
+Yuk, langsung kita sikat!
+
+Pertama, kita perlu mengintervensi NetworkManager, karena isi dari file `/etc/resolv.conf` merupakan *symlink* dari salah satu dari 3 file ini:
+
+1. `/run/systemd/resolve/stub-resolv.conf`
+2. `/run/systemd/resolve/resolv.conf`
+3. `/usr/lib/systemd/resolv.conf`
+
+Kalau saya, ada di no. 2. Saya tebak, teman-teman juga biasanya no. 2.
+
+Untuk memerintahkan NetworkManager agar mengguanakn **openresolv**, kita perlu membuat sebuah file config di dalam direktori NetworkManager config.
+
 ```
-nameserver 118.98.44.100
-nameserver 118.98.44.10
-nameserver fe80::1%wls3
+$ sudo vim /etc/NetworkManager/conf.d/rc-manager.conf
 ```
-Hal ini menyebabkan setiap kita mengganti `nameserver` tersebut, misal mengganti manjadi DNS Google (`nameserver 8.8.8.8`) maka akan tetap terganti ke `nameserver 192.168.0.1` setelah sistem sleep/restart. Sehingga sifatnya tidak dapat permanen.
 
-Yang jadi permasalahan adalah, untuk dapat menggunakan `dnscrypt-proxy` service, kita harus menggunakan `nameserver 127.0.0.1`. Kita memang dapat mengganti `nameserver` ini secara *manual*, namun tentu saja saya malas untuk mengganti setiap kali akan mengguanakan `dnscrypt-proxy` service.
-
-Saya mendapati banyak cara untuk membuat *value* dari `nameserver` yang terdapat di dalam file `/etc/resolv.conf` tidak dapat berubah / ter-*regenerate* secara otomatis. Namun, saya hanya akan menuliskan cara yang saya gunakan. Saya juga belum tahu ini cara yang mudah atau tidak. Apabila teman-teman punya cara yang lebih baik, mungkin bisa menambahkan di kolom komentar.
-
-Cara ini saya beri nama, "**Membuat nameserver static dengan dhcpcd.service**".
-
-Saya menganggap teman-teman yang ingin menggunakan cara ini, setuju untuk menggunakan service dhcpcd. Karena diluar sana, ada teman-teman yang tidak menggunakan dhcpcd untuk mengatur layanan jaringan pada sistem operasi mereka.
-
-Oke kita lanjutkan.
-
-Cara ini memerlukan bantuan dari service bernama `dhcpcd.service`.
-
-Service ini dibawa oleh paket `dhcpcd`. Biasanya paket ini sudah ada di dalam distribusi yang kita gunakan.
-
-Coba cek apakah servicenya sudah jalan atau belum.
+Lalu isikan seperti ini.
 
 ```
-$ sudo systemctl status dhcpcd.service
+[main]
+rc-manager=resolvconf
 ```
+
+Oke, urusan kita dengan NetworkManager selesai.
+
+Selanjutnya, kita perlu mengkonfigurasi **openresolv**.
+
+Openresolv sudah merupakan paket dari **core/openresolv**, yang artinya sudah berada pada core package dari Arch Linux. Jadi kita tidak perlu memasangnya.
+
+Nah, openresolv menyediakan file binary perintah bernama `resolvconf` dan file konfigurasi di `/etc/resolvconf.conf`.
+
+Buka file konfig tersebut, dan **uncomment** baris yang mengandung `name_servers=`.
 
 <pre>
-● dhcpcd.service - dhcpcd on all interfaces
-   Loaded: loaded (/usr/lib/systemd/system/dhcpcd.service; enabled; vendor preset: disabled)
-   Active: <span style="color:#859900;font-weight:bold;">active (running)</span> since Sun 2019-05-26 09:59:07 WITA; 1h 59min ago
-  Process: 412 ExecStart=/usr/bin/dhcpcd -q -b (code=exited, status=0/SUCCESS)
- Main PID: 480 (dhcpcd)
-    Tasks: 1 (limit: 4624)
-   Memory: 2.2M
-   CGroup: /system.slice/dhcpcd.service
-           └─480 /usr/bin/dhcpcd -q -b</pre>
+# Configuration for resolvconf(8)
+# See resolvconf.conf(5) for details
 
-Kalau sudah jalan akan seperti di atas tampilannya.
+resolv_conf=/etc/resolv.conf
+# If you run a local name server, you should uncomment the below line and
+# configure your subscribers configuration files below.
+<mark>name_servers=127.0.0.1</mark>
+</pre>
 
-Kalau belum, silahkan di jalankan terlebih dahulu.
+**Uncomment** baris yang saya marking.
 
-```
-$ sudo systemctl start dhcpcd.service
-```
+Untuk konfigurasi dnscrypt-proxy yang kita lakukan, kita menggunakan nameserver 127.0.0.1.
 
-Cek lagi statusnya, apakah sudah *active running*.
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Sekedar info saja, kalau kita perhatikan nama dari option tersebut <code>name_servers=</code> yang berbentuk plural, artinya kita dapat mendefinisikan lebih dari satu name server. Caranya dengan mengapit dengan petik dua (") dan setiap name server dipisahkan oleh spasi.</p>
+<pre>
+name_servers="127.0.0.1 8.8.8.8 4.4.4.4 1.1.1.1"
+</pre>
+</div>
 
-Kalau sudah, saatnya kita menambahkan konfigurasi *static dns*. menggunakan dhcpcd.
-
-Langkah-langkahnya sebagai berikut:
-
-1. Edit file `/etc/dhcpcd.conf`.<sup>[2,3](https://bandithijo.com/blog/konfigurasi-dnscrypt-proxy#referensi)</sup>
-```
-$ sudo vim /etc/dhcpcd.conf
-```
-Tambahkan pada baris paling bawah.
-```
-static domain_name_servers=127.0.0.1
-```
-Save dan exit.
-
-Kemudian restart serivce dari `dhcpcd.service`.
-
-```
-$ sudo systemctl restart dhcpcd.service
-```
+Nah, dengan begini tahap konfigurasi static DNS dengan file resolv.conf telah selesai.
 
 Untuk memastikan `nameserver` berubah menjadi static, coba restart serivice dari `NetworkManager.service` terlebih dahulu.
 
@@ -194,9 +201,18 @@ Apakah nameserver sudah berubah menjadi `nameserver 127.0.0.1` ?
 
 Kalau belum, tunggu sekitar 2-3 menit. Sambil melakukan restart terhadap kedua service di atas.
 
-Berikut adalah tampilan file `/etc/resolv.conf`.
+Kalau gak sabar, bisa jalankan perintah di bawah, untuk mengenerate isi dari file `/etc/resolv.conf` sesuai dengan yang kita konfig.
 
-**Sebelum restart**.
+```
+$ sudo resolvconf -u
+```
+
+Selesai!
+
+<br>
+Berikut adalah tampilan file `/etc/resolv.conf` sebelum dan sesudah kita konfig.
+
+**Sebelum**.
 ```
 # Generated by NetworkManager
 nameserver 118.98.44.100
@@ -204,21 +220,20 @@ nameserver 118.98.44.10
 nameserver fe80::1%wls3
 ```
 
-**Sesudah restart**.
+**Sesudah**.
 ```
 # Generated by resolvconf
 nameserver 127.0.0.1
 ```
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Untuk merestart jaringan, kita tidak perlu restart system. Cukup merestart service-nya saja, seperti contoh di atas.</p>
-<p>Namun apabila merasa frustasi, ya boleh lah restart. Hihihi</p>
-</div>
+<br>
+**Video demonstrasinya**
+
+{% include youtube_embed.html id="1zf1Dpyzq84" %}
 
 
 # Hasilnya
+
 Apabila kedua langkah di atas sudah kita lakukan, sekarang tinggal melakukan pengujian.
 ```
 $ ping -c 5 reddit.com
@@ -261,12 +276,18 @@ Yang dibutuhkan untuk dapat mennggunakan `dnscrypt-proxy` adalah :
 1. [wiki.archlinux.org/index.php/DNSCrypt](https://wiki.archlinux.org/index.php/DNSCrypt){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
-2. [wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head](https://wiki.archlinux.org/index.php/Domain_name_resolution#Use_resolv.conf.head){:target="_blank"}
+2. [wiki.archlinux.org/index.php/Domain_name_resolution#Conditional_forwarding](https://wiki.archlinux.org/index.php/Domain_name_resolution#Conditional_forwarding){:target="_blank"}
+<br>Diakses tanggal: 2020/06/26
+
+3. [wiki.archlinux.org/index.php/NetworkManager#Use_openresolv](https://wiki.archlinux.org/index.php/NetworkManager#Use_openresolv){:target="_blank"}
+<br>Diakses tanggal: 2020/06/26
+
+4. [wiki.archlinux.org/index.php/Openresolv](https://wiki.archlinux.org/index.php/Openresolv){:target="_blank"}
+<br>Diakses tanggal: 2020/06/26
+
+5. [superuser.com/questions/442096/change-default-dns-server-in-arch-linux](https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
-3. [superuser.com/questions/442096/change-default-dns-server-in-arch-linux](https://superuser.com/questions/442096/change-default-dns-server-in-arch-linux){:target="_blank"}
-<br>Diakses tanggal: 2018/09/22
-
-4. [github.com/jedisct1/dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy){:target="_blank"}
+6. [github.com/jedisct1/dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
