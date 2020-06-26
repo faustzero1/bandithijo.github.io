@@ -1185,10 +1185,10 @@ $ sudo vim /usr/bin/polybar-tray
 
 status=${1}
 
-if [[ $status == 'on' ]]; then
-    polybar traybspwm -r
-elif [[ $status == 'off' ]]; then
-    kill `ps -eo pid,args --cols=10000 | awk '/polybar traybspwm -r/ && $1 != PROCINFO["pid"] { print $1 }'`
+if [ $status == 'on' ]; then
+    polybar traybspwm &
+elif [ $status == 'off' ]; then
+    kill `ps aux | awk '/[p]olybar traybspwm/ {print $2}'`
 else
     echo 'Wrong argument! Only [on/off]'
 fi
