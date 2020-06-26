@@ -1322,7 +1322,7 @@ radius = 5.0
 offset-x = -3
 offset-y = 0.6%
 fixed-center = true
-bottom = yes
+bottom = true
 
 foreground = ${colors.foreground}
 background = ${colors.background}
