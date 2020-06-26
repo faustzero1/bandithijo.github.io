@@ -1181,16 +1181,16 @@ $ sudo vim /usr/bin/polybar-tray
 ```
 
 ```
-#!/bin/env sh
+#!/bin/sh
 
 status=${1}
 
-if [ $status == 'on' ]; then
+if [ $status = 'on' ]; then
     polybar traybspwm &
-elif [ $status == 'off' ]; then
+elif [ $status = 'off' ]; then
     kill `ps aux | awk '/[p]olybar traybspwm/ {print $2}'`
 else
-    echo 'Wrong argument! Only [on/off]'
+    echo 'Wrong argument! [on/off]'
 fi
 ```
 
