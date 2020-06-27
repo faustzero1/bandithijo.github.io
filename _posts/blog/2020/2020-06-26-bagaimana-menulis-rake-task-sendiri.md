@@ -134,6 +134,10 @@ Meskipun sintaks dari Rake task ditulis dengan bahasa Ruby, namun ekstensi dalam
 
 Misalnya hanya ada satu jenis tugas, kita dapat mendefiniskan seperti ini.
 
+Buat dulu Rake file pada direktori `lib/tasks/`, kasih nama bebas.
+
+Misalkan saya kasih nama sesuai dengan tugas yang akan dikerjakan, yaitu `run.rake`.
+
 {% highlight ruby linenos %}
 desc "Menjalankan main script"
 tasks :run do
@@ -157,9 +161,13 @@ Dengan begini, saya tidak perlu lagi menjalankan command `$ ruby app/main.rb` ya
 
 ## Tugas Bercabang (Bertingkat) / Namespace
 
+### Tingkat Satu
+
 Tugas yang bercabang atau bertingkat ini, maksudnya seperti kita punya kategori tugas yang sama, namun detail pekerjaannya yang berbeda. Kalau yang pernah menggunakan Ruby on Rails, pasti pernah menggunakan perintah `$ rake db:create`, `$ rake db:migrate`, `$ rake db:rollback`, dll.
 
 Nah, kira-kira begini cara buatnya (blok codenya hanya ilustrasi yaa, bro).
+
+Karena ada banyak tugas yang merupakan tugas yang mirip, yaitu untuk mengintervensi database, maka saya beri nama `database.rake`.
 
 {% highlight ruby linenos %}
 namespace :db do
@@ -190,6 +198,173 @@ rake db:fixtures:load                # Loads fixtures into the current environme
 
 Secara sederhana *namesapce* akan mengkategorikan task yang sejenis, dalam hal ini, task yang memiliki tugas untuk berinteraksi dengan database `db` akan dimasukkan ke dalam *namespace* ini agar task list menjadi lebih rapi dan terorganisir.
 
+### Tingkat Lebih dari Satu
+Nah, mungkin teman-teman yang menggunakan Ruby on Rails juga pernah melihat perintah `$ rake db:migrate:status`, pasti sudah bisa ketebak dong yaa, gimana cara membuatnya.
+
+{% highlight ruby linenos %}
+namespace :db do
+  desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
+  task :migrate do
+    ActiveRecord::Tasks::DatabaseTasks.migrate
+  end
+
+  namespace :migrate do
+    desc "Display status of migrations"
+    task :status do
+        ActiveRecord::Tasks::DatabaseTasks.migrate_status
+    end
+  end
+end
+{% endhighlight %}
+
+Kalau kita cek dengan perintah `$ rake --tasks`, akan menampilkan output:
+
+<pre>
+rake db:environment:set              # Set the environment value for the database
+rake db:fixtures:load                # Loads fixtures into the current environment's database
+<mark>rake db:migrate                      # Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)</mark>
+<mark>rake db:migrate:status               # Display status of migrations</mark>
+rake db:new_migration[name,options]  # Creates a new migration file with the specified name
+rake db:prepare                      # Runs setup if database does not exist, or runs migrations if it does
+</pre>
+
+## Memasukkan Argument
+
+Terkadang kita membutuhkan argument yang akan diolah di dalam task.
+
+Misalkan kita punya Rake task seperti ini.
+
+{% highlight ruby linenos %}
+desc "Menjalankan operasi penjumlahan"
+task :penjumlahan do
+  puts 1 + 2
+end
+{% endhighlight %}
+
+<pre>
+$ <b>rake penjumlahan</b>
+# => 3
+</pre>
+
+Nah, kita ingin membuat dua angka yang dijumlahkan tersebut menjadi dinamis, diambil dari argumen yang diberikan.
+
+Berikut ini adalah 4 cara dalam memasukkan argument ke dalam Rake task.
+
+### 1. The Rake Way
+
+Rake memiliki built-in function yang dapat menerima argument, caranya seperti ini.
+
+{% highlight ruby linenos %}
+desc "Menjalankan operasi penjumlahan"
+task :penjumlahan, [:num1, :num] do |t, args|
+  puts args[:num1].to_i + args[:num].to_i
+end
+{% endhighlight %}
+
+<pre>
+$ <b>rake penjumlahan[1,2]</b>
+# => 3
+</pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Namun, cara ini memiliki kelemahan apabila kita menggunakan ZSH Shell. Biasanya kita akan mendapatkan error berupa,</p>
+<pre>zsh: no matches found ...</pre>
+<p>Untuk mengatasi hal ini, kita perlu <b>menambahkan escape charater</b> pada perintahnya. Menjadi seperti ini:</p>
+<pre>
+$ <b>rake penjumlahan\[1,2\]</b>
+# => 3
+</pre>
+<p>Terlihat tidak cantik yaa.</p>
+<p>Selain itu, kita <b>tidak boleh menggunakan spasi setelah tanda koma "," diantara argument</b>, hal ini akan menyebabkan error yang lain.</p>
+</div>
+
+### 2. Environment Variables
+
+Kita akan menggunakan cara *environment variables* seperti yang biasa dijalankan di terminal, misal `RAILS_ENV=`.
+
+Nah, kita dapat menggunakan metode yang sama.
+
+{% highlight ruby linenos %}
+desc "Menjalankan operasi penjumlahan"
+task :penjumlahan do
+  puts ENV['NUM1'].to_i + ENV['NUM2'].to_i
+end
+{% endhighlight %}
+
+Cara menjalankannya akan seperti ini:
+
+<pre>
+$ <b>rake penjumlahan NUM1=1 NUM2=2</b>
+# => 3
+</pre>
+
+Cara ini dapat dilakukan, namun agak sia-sia kalau menjalankan task dengan melakukan pengesetan/pendefinisian *environment variables*.
+
+### 3. Menggunakan ARGV
+
+ARGV adalah *command line argument*. Untuk teman-teman yang pernah membuat Ruby script dan ingin mengambil inputan dari user bersamaan dengan menjalankan command, pasti pernah menggunakannya.
+
+<pre>
+$ <b>ruby script.rb <mark>nama</mark></b>
+</pre>
+
+Nah, `nama` itu adalah *command line argument* yang akan digunakan di dalam `script.rb` tersebut. Inilah yang disebut Ruby ARGV.
+
+Berikut ini adalah contoh task yang memanfaatkan Ruby ARGV.
+
+{% highlight ruby linenos %}
+desc "Menjalankan operasi penjumlahan"
+task :penjumlahan do
+  ARGV.each { |a| task a.to_sym do ; end }
+  puts ARGV[1].to_i + ARGV[2].to_i
+end
+{% endhighlight %}
+
+Cara menjalankannya akan seperti ini:
+
+<pre>
+$ <b>rake penjumlahan 1 2</b>
+# => 3
+</pre>
+
+### 4. Menggunakan Ruby OptionParser
+
+Cara memberikan argument dengan **OptionParser** ini mirip seperti yang kita lakukan untuk menjalankan commmand dengan penambahan **flag**, misal yang umum kita gunakan untuk mengetahui command help, yaitu dengan menambahkan flag `-h`.
+
+Nah, yang akan kita buat, mirip seperti itu.
+
+{% highlight ruby linenos %}
+require 'optparse'
+
+desc "Menjalankan operasi penjumlahan"
+task :penjumlahan do
+  options = {}
+
+  OptionParser.new do |opts|
+    opts.banner = "Gunakan: rake penjumlahan [options]"
+    opts.on("-o", "--one ARG", Integer) { |num1| options[:num1] = num1 }
+    opts.on("-t", "--two ARG", Integer) { |num2| options[:num2] = num2 }
+  end.parse!
+
+  puts options[:num1].to_i + options[:num2].to_i
+  exit
+end
+{% endhighlight %}
+
+Cara menjalankannya seperti ini:
+
+<pre>
+$ <b>rake penjumlahan -- -o 1 -t 2</b>
+</pre>
+
+atau,
+
+<pre>
+$ <b>rake penjumlahan -- --one 1 --two 2</b>
+</pre>
+
 # Melihat Daftar Rake Task
 
 Untuk melihat daftar task apa saja, sekaligus task yang sudah kita buat, jalankan perintah berikut.
@@ -204,11 +379,17 @@ atau,
 $ <b>rake -T</b>
 </pre>
 
+# Pesan Penulis
 
+Yang saya tuliskan pada catatan ini adalah hal sederhana dalam membuat Rake tasks. Apabila teman-teman mendapatkan kasus yang lebih kompleks, dapat menelusuri Google sendiri yaa.
 
+Silahkan mendalami daftar referensi yang saya berikan di bawah.
 
+Mudah-mudahan dapat bermanfaat buat teman-teman.
 
+Terima kasih.
 
+(^_^)
 
 
 
@@ -221,5 +402,11 @@ $ <b>rake -T</b>
 1. [cobwwweb.com/how-to-write-a-custom-rake-task](https://cobwwweb.com/how-to-write-a-custom-rake-task){:target="_blank"}
 <br>Diakses tanggal: 2020/06/26
 
-2. [www.rubyguides.com/2019/02/ruby-rake](https://www.rubyguides.com/2019/02/ruby-rake/){:target="_blank"}
+2. [cobwwweb.com/4-ways-to-pass-arguments-to-a-rake-task](https://cobwwweb.com/4-ways-to-pass-arguments-to-a-rake-task){:target="_blank"}
+<br>Diakses tanggal: 2020/06/26
+
+3. [www.rubyguides.com/2019/02/ruby-rake](https://www.rubyguides.com/2019/02/ruby-rake/){:target="_blank"}
+<br>Diakses tanggal: 2020/06/26
+
+4. [ruby-doc.org/stdlib-2.7.1/libdoc/optparse/rdoc/OptionParser.html](https://ruby-doc.org/stdlib-2.7.1/libdoc/optparse/rdoc/OptionParser.html){:target="_blank"}
 <br>Diakses tanggal: 2020/06/26
