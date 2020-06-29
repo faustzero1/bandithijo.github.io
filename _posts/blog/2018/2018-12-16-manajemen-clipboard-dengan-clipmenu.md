@@ -64,38 +64,30 @@ Pertama-tama beri bintang pada repository [cdown/clipmenu](https://github.com/cd
 2. Masuk ke dalam direktori `clipmenu` dan buat symbolic link ke direktori `/usr/bin/`.
     ```
     $ cd clipmenu
+    $ sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel
     $ sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu
     $ sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud
     ```
     Sesuaikan sumber dari link (`$HOME/app/`) dengan path tempat kalian menyimpan kloning repo.
-5. Masuk ke direktori `init` dan buat symbolic link dari file service ke `/usr/lib/systemd/user/`.
-    <!-- PERHATIAN -->
-    <div class="blockquote-red">
-    <div class="blockquote-red-title">[ ! ] Perhatian</div>
-    <p>Saya tidak berhasil menjalankan <code>clipmenud.service</code>. Sehingga saya tidak menggunakan cara ini.</p>
-    </div>
-    ```
-    $ cd init
-    $ sudo ln -sf $HOME/app/clipmenu/init/clipmenud.service /usr/lib/systemd/user/clipmenud.service
-    ```
-4. Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.
+
+3. Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.
 
     **File Binary**
     ```
-    $ ll /usr/bin | grep -E 'clipmenu|clipmenud'
+    $ ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'
     ```
     ```
+    lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipdel -> /home/bandithijo/app/clipmenu/clipdel
     lrwxrwxrwx 1 root root  38 Dec 16 15:18 clipmenu -> /home/bandithijo/app/clipmenu/clipmenu
     lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -> /home/bandithijo/app/clipmenu/clipmenud
     ```
-    **File Service**
-    ```
-    $ ll /usr/lib/systemd/user/ | grep -i clipmenud.service
-    ```
-    ```
-    lrwxrwxrwx 1 root root  52 Dec 16 15:26 clipmenud.service -> /home/bandithijo/app/clipmenu/init/clipmenud.service
-    ```
-
+    <!-- INFORMATION -->
+    <div class="blockquote-blue">
+    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
+    <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
+    <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
+    </div>
 
 # Konfigurasi
 
@@ -103,9 +95,11 @@ Sebagai informasi, konfigurasi yang saya tulis ini adalah konfigurasi untuk **i3
 
 ## Aktifkan Clipmenu Daemon
 
-Ada diua cara untuk menggukana mengaktifkan `clipmenud` (clipmenu daemon). Dengan menjalankannya saat sistem startup atau saat sistem booting.
+Ada dua cara untuk menggukana mengaktifkan `clipmenud` (clipmenu daemon). Dengan menjalankannya saat sistem startup atau saat sistem booting.
 
-**System Startup i3wm**
+## Konfigurasi Startup pada WM
+
+**i3wm**
 
 Tambahkan baris berikut pada file config i3wm.
 ```
@@ -115,10 +109,23 @@ $ vim .config/i3/config
 # clipmenu daemon
 exec --no-startup-id clipmenud
 ```
-<br>
-Atau,
 
-**Systemd Service**
+**dwm**
+
+Tambahkan baris berikut pada script autorun/autostart
+
+```
+pkill -f "bash /usr/bin/clipmenud"; pkill -f "clipnotify"; /usr/bin/clipmenud &
+```
+
+Pada perintah di atas, saya melakukan proses `kill` terlebih dahulu kepada `clipmenud` & `clipnotify`, tujuannya agar tidak terjadi redundancy pada proses yang sedang berjalan apabila dwm direstart.
+
+Kemudian, baru saya memanggil `clipmenud` dan membuatnya berjalan di background dengan menambahkan simbol ampersand (&). `clipmenud` secara otomatis akan menjalankan `clipnotify` yang bertugas untuk menangkap clipboard.
+
+
+
+
+## Systemd Service
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
@@ -162,7 +169,7 @@ $ vim ~/.profile
 ```
 # Clipmenu Environment Variables
 export CM_LAUNCHER=rofi-clipmenu
-export CM_DIR=/tmp/clipmenu
+export CM_DIR=/tmp
 ```
 **Perhatian!** Pada `CM_LAUNCHER=` di atas, saya membuat *custom* bash script yang bernama `rofi-clipmenu` untuk memanggil perintah rofi yang sudah saya modif agar menampilkan tulisan "CLIPBOARD" dengan baris dan lebar tertentu.
 
@@ -182,18 +189,27 @@ Jangan lupa buat menjadi excutable.
 $ sudo chmod +x /usr/bin/rofi-clipmenu
 ```
 
+Kalau teman-teman yang menggunakan dmenu, tinggal menggantinya menjadi dmenu.
+
 
 ## Keyboard Shortcuts
 
 Selanjutnya tinggal mendefiniskan keyboard shortcut.
 
-Karena menggunakan i3wm, maka caranya sangat mudah sekali, tinggal tambahkan baris di bawah pada file config i3 `~/.config/i3/config`. Tambahkan di bawah baris `clipmenud` yang sudah kita tambahkan sebelumnya, agar rapi.
+Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada konfigurasi masing-masing.
 
 ```
 bindsym $mod+p exec --no-startup-id clipmenu
-bindsym $mod+Shift+p exec --no-startup-id rm -rf /tmp/clipmenu/*
+bindsym $mod+Shift+p exec --no-startup-id clipdel -r '.'
 ```
-Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ rm -rvf /tmp/clipmenu/*`. Sebenarnya Clipmenu sudah menyediakan `clipdel` namun tidak saya pergunakan. Alternatif lain dapatpula menggunakan `trash-cli`.
+Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -r '.'`.
+
+**dwm**
+
+```
+{ MODKEY,             XK_p,   spawn,   SHCMD("/usr/bin/clipmenu") },
+{ MODKEY|ShiftMask,   XK_p,   spawn,   SHCMD("clipdel -d '.'") },
+```
 
 Sesuaikan keyboard shortcut sesuai preferensi kalian.
 
