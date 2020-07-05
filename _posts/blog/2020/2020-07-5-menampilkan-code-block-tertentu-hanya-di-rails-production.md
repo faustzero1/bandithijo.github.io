@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Menampilkan Code Tertentu Hanya di Production pada Rails"
+title: "Menampilkan Code Block Tertentu Hanya di Production pada Rails"
 date: 2020-07-05 08:14
 permalink: '/blog/:title'
 author: 'BanditHijo'
