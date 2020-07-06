@@ -53,6 +53,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-last-modified-at
+  - jekyll-redirect-from
 
 
 # Newsline
