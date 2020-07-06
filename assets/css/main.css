@@ -1132,6 +1132,40 @@ button.active {
   padding: 5px !important;
 }
 
+.notif-info {
+  width: 40%;
+  padding: 0 !important;
+  color: #404040;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  display: flex;
+  float: right;
+  margin: 0 auto;
+}
+
+.notif-info-col-1 {
+  flex: 70%;
+  padding: 5px 10px !important
+}
+
+.notif-info-col-2 {
+  flex: 30%;
+  border-left: 1px dashed #404040;
+  /* background-color: #B7B8B8; */
+}
+
+.notif-info p {
+  font-size: 10px !important;
+  padding: 0 !important;
+  font-weight: normal !important;
+  text-align: left !important;
+  margin: 0 !important;
+}
+
+.notif-info-img {
+  padding: 5px !important;
+}
+
 /* HOT TUGAS -------------------------------------------------------------- */
 .hot {
   background: red;
@@ -2555,6 +2589,45 @@ a.disqus_button {
   }
 
   .notif-donasi-img {
+    padding: 5px !important;
+    margin-top: -5px;
+  }
+
+  .notif-info {
+    width: 80%;
+    max-width: 290px;
+    padding: 0 !important;
+    color: #404040;
+    border: 1px solid #404040;
+    border-radius: 5px;
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+
+  .notif-info-col-1 {
+    margin: 0 auto;
+    flex: none;
+    padding: 5px 10px !important
+  }
+
+  .notif-info-col-2 {
+    margin: 0 auto;
+    flex: none;
+    border-top: 1px dashed #404040;
+    border-left: none;
+    /* background-color: #B7B8B8; */
+  }
+
+  .notif-info p {
+    font-size: 10px !important;
+    padding: 0 !important;
+    font-weight: normal !important;
+    text-align: center !important;
+    margin: 0 !important;
+  }
+
+  .notif-info-img {
     padding: 5px !important;
     margin-top: -5px;
   }
