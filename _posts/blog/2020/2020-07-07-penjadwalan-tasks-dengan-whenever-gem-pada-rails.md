@@ -131,7 +131,7 @@ every 2.hours do
 end
 {% endhighlight %}
 
-Ketiga perintah `rake` tersebut, akan dijalankan secara bersamaan. Hal ini dapat menyebabkan terjadinya error dikarenakan seharusnya perintah tersebut dijalankan secara berurutan.
+Ketiga perintah `rake` tersebut, akan dijalankan secara bersamaan. **Hal ini dapat menyebabkan terjadinya error** dikarenakan seharusnya perintah tersebut dijalankan secara berurutan.
 
 Lantas, bagaimana cara membuat ketiga tasks tersebut berjalan secara berurutan? Mudah, tinggal gunakan perintah `command`.
 
