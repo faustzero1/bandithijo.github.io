@@ -1,0 +1,23 @@
+{% if page.permalink == nil %}
+<div style="padding-top:10px;margin:auto;display:flex;align-items:center;justify-content:center;">
+    <div class="notif-info">
+{% else %}
+<div style="padding-top:20px;margin:auto;display:flex;align-items:center;justify-content:center;">
+    <div class="notif-info" style="width:60%;float:left;">
+{% endif %}
+    <a href="/covid19/" style="text-decoration:none;color:black;" target="_blank">
+      <div class="notif-info-col-1">
+        <p style="font-size:13px !important;"><b>COVID-19 INDONESIA</b></p>
+        <p style="font-size:12px !important;">TABEL PENCATATAN DATA PERHARI</p>
+        <p>Ruby on Rails app. untuk pencatatan data dan disajikan dalam bentuk tabel perhari, berkenaan tentang "Situasi COVID-19" pada website KemKes.</p>
+        <p><b><a href="/covid19/">https://bandithijo.github.io/covid19</a></b></p>
+      </div>
+    </a>
+    <a href="/covid19/" style="text-decoration:none;color:black;border-bottom:none;" target="_blank">
+      <div class="notif-info-col-2" style="display:flex;align-items:center;justify-content:center;">
+        <img class="notif-info-img" src="/assets/img/logo/logo_rails_corona.png">
+      </div>
+    </a>
+  </div><!-- notif-info -->
+</div>
+
