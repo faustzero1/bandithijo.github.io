@@ -52,7 +52,7 @@ gem 'rake'
 Lalu jalankan instalasi gem baru dengan bantuan Bundler.
 
 <pre>
-$ <b>bundler install</b>
+$ <b>bundle install</b>
 </pre>
 
 # Konfgurasi
