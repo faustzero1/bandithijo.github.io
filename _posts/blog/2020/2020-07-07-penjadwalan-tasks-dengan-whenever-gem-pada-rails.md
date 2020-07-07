@@ -188,7 +188,7 @@ Kita dapat menyimpan output tasks yang dijalankan ke dalam file log.
 {% highlight ruby linenos %}
 set :output, 'log/rake.log'
 every 2.hours do
-  # tasks
+  # task
 end
 {% endhighlight %}
 
@@ -218,7 +218,7 @@ Tidak kalah penting adalah, kita perlu mendefinisikan environment path.
 {% highlight ruby linenos %}
 env :PATH, ENV['PATH']
 every 2.hours do
-  # tasks
+  # task
 end
 {% endhighlight %}
 
@@ -227,7 +227,7 @@ end
 {% highlight ruby linenos %}
 ENV.each { |k, v| env(k, v) }
 every 2.hours do
-  # tasks
+  # task
 end
 {% endhighlight %}
 
