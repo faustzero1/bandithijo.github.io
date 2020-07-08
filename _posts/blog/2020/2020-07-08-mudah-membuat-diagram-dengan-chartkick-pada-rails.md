@@ -188,6 +188,12 @@ Definisikan instance variable di controller.
   end
 {% endhighlight %}
 
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p>Saya menggunakan method <code>.group_by_day()</code> yang disediakan oleh <b><a href="https://github.com/ankane/groupdate" target="_blank">groupdate</a></b> gem.</p>
+</div>
+
 Kemudian, tinggal dipakai di view template.
 
 {% highlight erb linenos %}
