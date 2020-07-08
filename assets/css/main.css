@@ -1152,6 +1152,7 @@ button.active {
   flex: 30%;
   border-left: 1px dashed #404040;
   /* background-color: #B7B8B8; */
+  padding: 5px !important;
 }
 
 .notif-info p {
@@ -2617,6 +2618,7 @@ a.disqus_button {
     border-top: 1px dashed #404040;
     border-left: none;
     /* background-color: #B7B8B8; */
+    padding: 5px !important;
   }
 
   .notif-info p {
