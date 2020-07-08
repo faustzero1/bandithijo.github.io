@@ -60,10 +60,10 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 
 | <center>Mesin</center> | <center>Tahun Produksi</center> | <center>Tahun Digunakan</center> |
 | :--- | :--- | :--- |
-| **Apple Macbook 4.1** | 2008 | 2009 - 2011 |
+| **Apple Macbook 4.1**     | 2008 | 2009 - 2011 |
 | **Apple Macbook Pro 8.1** | 2011 | 2012 - 2016 |
-| **Lenovo ThinkPad X260** | 2016 | 2017 - 2018 |
-| **Lenovo ThinkPad X61** | 2007 | 2019 - Sekarang |
+| **Lenovo ThinkPad X260**  | 2016 | 2017 - 2018 |
+| **Lenovo ThinkPad X61**   | 2007 | 2019 - Sekarang |
 
 <br>
 **Tabel Aplikasi**
@@ -71,18 +71,18 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | <center>Data</center> | <center>Keterangan</center> |
 | :--- | :--- |
 | Static Site Generator | **Jekyll** |
-| Hosting | **GitHub** & **GitLab** |
-| CDN | **Netlify** |
-| Format Text | **Markdown** |
-| Sistem Operasi | **GNU/Linux** |
-| Distribusi | **Arch Linux** |
-| Desktop Env. | - |
-| Window Manager | **BSPWM** |
-| Terminal Emulator | **Simple Terminal** + **Tmux** |
-| Text Editor | **NeoVim** |
-| Image Editor | **GIMP** & **Inkscape** |
-| Video Editor | **Kdenlive** |
-| Screen Recorder | **Vokoscreen** |
+| Hosting               | **GitHub Page** |
+| CDN                   | **Fastly** |
+| Format Text           | **Markdown** |
+| Sistem Operasi        | **GNU/Linux** |
+| Distribusi            | **Arch Linux** |
+| Desktop Env.          | - |
+| Window Manager        | **dwm** |
+| Terminal Emulator     | **Simple Terminal (st)** |
+| Text Editor           | **NeoVim** |
+| Image Editor          | **GIMP** & **Inkscape** |
+| Video Editor          | **Kdenlive** |
+| Screen Recorder       | **ffmpeg** |
 
 # Ilustrasi Workflow
 
