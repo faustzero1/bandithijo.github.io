@@ -208,9 +208,9 @@ Nah, contoh-contoh lain, mengenai bagaimana cara mengambil data yang kita miliki
 
 Catatan ini bukan merupakan tutorial, saya hanya ingin memberikan gambaran betapa mudahnya memasang grafik ke dalam Rails menggunakan ChartKick gem.
 
-Maka dari itu, apabila teman-teman ingin mendapatkan penjelasan yang lebih baik, silahkan mengunjungin dokumentasi ChartKick. tentunya akan lebih *up to date* dari yang saya tulis di sini.
+Maka dari itu, apabila teman-teman ingin mendapatkan penjelasan yang lebih baik, silahkan mengunjungin dokumentasi ChartKick. Tentunya akan lebih *up to date* dari yang saya tulis di sini.
 
-Saya juga memanfaatkan gem ini untu menampilkan grafik seperti yang saya lakukan di [bandithijo.github.io/covid19](https://bandithijo.github.io/covid19){:target="_blank"}
+Saya juga memanfaatkan gem ini untuk menampilkan grafik seperti yang saya lakukan di [bandithijo.github.io/covid19](https://bandithijo.github.io/covid19){:target="_blank"}
 
 Saya rasa hanya ini yang dapat saya tuliskan saat ini.
 
