@@ -79,10 +79,17 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Desktop Env.          | - |
 | Window Manager        | **dwm** |
 | Terminal Emulator     | **Simple Terminal (st)** |
+| Application Launcher  | **dmenu** |
 | Text Editor           | **NeoVim** |
 | Image Editor          | **GIMP** & **Inkscape** |
 | Video Editor          | **Kdenlive** |
 | Screen Recorder       | **ffmpeg** |
+| Browser               | **Firefox** |
+| File Manager          | **Ranger** |
+| Video Player          | **MPV** |
+| Email Client          | **Neomutt** |
+| IRC Client            | **WeeChat** |
+| RSS Feed Reader       | **Newsboat** |
 
 # Ilustrasi Workflow
 
