@@ -114,9 +114,9 @@ wb.add_worksheet(name: "Cases") do |sheet|
 end
 {% endhighlight %}
 
-Perhatikan pada baris ke-6 dan ke-10, basicnya `.add_row()` ini menampung value berupa Array.
+Perhatikan pada baris ke-7 dan ke-12, basicnya `.add_row()` ini menampung value berupa Array.
 
-Pada baris ke-6, adalah salah satu bentuk lain cara pemanggilan Array di Ruby.
+Pada baris ke-7, adalah salah satu bentuk lain cara pemanggilan Array di Ruby.
 
 Selesai!
 
