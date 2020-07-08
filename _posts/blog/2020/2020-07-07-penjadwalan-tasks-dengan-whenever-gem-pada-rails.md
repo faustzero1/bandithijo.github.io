@@ -135,7 +135,7 @@ Ketiga perintah `rake` tersebut, akan dijalankan secara bersamaan. **Hal ini dap
 
 Lantas, bagaimana cara membuat ketiga tasks tersebut berjalan secara berurutan? Mudah, tinggal gunakan perintah `command`.
 
-Dengan menggunakan `command`, kita sleayaknya menjalankan perintah di atas Terminal, dengan memisahkan masing-masing perintah dengan tanda titik koma (;).
+Dengan menggunakan `command`, kita selayaknya menjalankan perintah di atas Terminal, dengan memisahkan masing-masing perintah dengan tanda titik koma (;).
 
 {% highlight ruby linenos %}
 project_dir = `echo $PWD`.strip
@@ -147,7 +147,7 @@ every 2.hours do
 end
 {% endhighlight %}
 
-Perintah di atas, sudah dapat dibaca denga mudah kan yaa?
+Perintah di atas, sudah dapat dibaca dengan mudah kan yaa?
 
 Saya masuk ke dalam direktori project yang sudah lebih dahulu saya definisikan variabel `project_dir=` secara dinamis menggunakan <code>`echo $PWD`.strip</code> untuk mendapatkan lokasi project direktori, kemudian baru menjalankan ketiga tasks secara berurutan.
 
@@ -270,7 +270,7 @@ Selesai!
 
 # Pesan Penulis
 
-Apabila teman-teman memiliki kebutuhan yang lebih kompleks dan belum tersedia pada catatan ini, silahkan merujuk pada README pada GitHub dari Whenever gem yang sudah penulis sertakan pada bagian referensi di bawah.
+Apabila teman-teman memiliki kebutuhan yang lebih kompleks dan belum tersedia pada catatan ini, silahkan merujuk pada README pada GitHub dari Whenever gem yang cukup mengcover semua kebutuhan dan sangat deskriptif. Saya sudah sertakan pada bagian referensi di bawah.
 
 Sepertinya segini saja.
 
