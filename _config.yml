@@ -26,7 +26,7 @@ keywords: bandithijo, rizqi nur assyaufi, arch linux, vim, i3wm, jekyll, thinkpa
 timezone: Asia/Makassar
 
 # Opengraph
-locale: id
+lang: id
 logo_author: /assets/img/logo/logo_author.png
 
 # Google Analytics
@@ -53,12 +53,11 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll-sitemap
-
+  - jekyll-last-modified-at
 
 # Newsline
 # Nilai: true/false
 newsline: true
-
 
 # Navigation Menu on Header
 navigation:
@@ -70,7 +69,6 @@ navigation:
     url: /book/
   - title: About
     url: /about/
-
 
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
@@ -84,7 +82,6 @@ sitemap:
   include_posts:
     - "/index.html"
 
-
 # Jekyll-Feed
 # Url : https://github.com/jekyll/jekyll-feed
 feed:
@@ -93,13 +90,11 @@ feed:
     - vlog
     - python
 
-
 keep_files:
     - images
 
 # include:
 #   - netlify.toml
-
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
