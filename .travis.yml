@@ -10,5 +10,6 @@ deploy:
   keep_history: true
   verbose: true
   local_dir: _site
+  target_branch: master
   on:
-    branch: master
+    branch: source
