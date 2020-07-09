@@ -45,7 +45,7 @@ $ <b>bundle install</b>
 
 # Implementasi
 
-Kita akan membuat tombol pada view template dan akan di respon oleh controller.
+Kita akan membuat tombol pada view template dan akan di-respon oleh controller.
 
 ## Controller
 
