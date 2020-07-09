@@ -1,6 +1,5 @@
 deploy:
   provider: pages
-  repo: bandithijo/bandithijo.github.io
   github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   skip_cleanup: true
   keep_history: true
