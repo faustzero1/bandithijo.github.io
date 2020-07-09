@@ -23,7 +23,6 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap',                        '~> 1.4.0'
   gem 'jekyll-seo-tag',                        '~> 2.6.1'
   gem 'jekyll-redirect-from',                  '~> 0.16.0'
-  gem 'jekyll-last-modified-at',               '~> 1.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

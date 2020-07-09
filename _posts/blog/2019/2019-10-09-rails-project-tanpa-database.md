@@ -46,17 +46,17 @@ Untuk dapat membuat Rails project tanpa menyertakan default database (sqlite) ik
 
 Saat akan menginisialisasi project baru, lakukan perintah di bawah ini.
 
-```
-$ rails new ProjectMahal --skip-active-record
-```
+<pre>
+$ <b>rails new ProjectMahal --skip-active-record</b>
+</pre>
 
 Atau, kalau ingin menggunakan versi Rails tertentu, misal: Rails 5.1.3
 
 Dapat menggunakan cara di bawah ini.
 
-```
-$ rails _5.1.3_ new ProjectMahal --skip-active-record
-```
+<pre>
+$ <b>rails _5.1.3_ new ProjectMahal --skip-active-record</b>
+</pre>
 
 Nah, mudah sekali kan?
 

@@ -48,9 +48,9 @@ Pada catatan ini tidak akan jauh berbeda dengan Arch Wiki pada saat tulisan ini 
 
 Pasang paket PostgreSQL yang sudah terdapat pada *official repo* Arch.
 
-```
-$ sudo pacman -S postgresql
-```
+<pre>
+$ <b>sudo pacman -S postgresql</b>
+</pre>
 
 Ikuti proses instalasi sampai selesai.
 
@@ -68,17 +68,17 @@ Anggaplah saya akan menggunakan user dengan nama yang sama dengan username Linux
 ### Berpindah User Postgres
 Sekarang, kita perlu berpindah menggunkaan aku `postgres` ini dengna cara.
 
-```
-$ sudo -iu postgres
-```
+<pre>
+$ <b>sudo -iu postgres</b>
+</pre>
 
 Saya anggap mayoritas dari teman-teman pasti menggunakan `sudo`.
 
 Apabila berhasil, akan menampilkan shell akan diawali dengan bentuk seperti di bawah ini.
 
-```
+<pre>
 [postgres]$
-```
+</pre>
 
 Atau, apabila teman-teman sudah pernah mengkonfigurasi nama hostname pada Arch, akan menjadi seperti ini.
 
@@ -92,9 +92,9 @@ Intinya adalah kita sudah berpindah menggunakan user `postgres`.
 
 Kita perlu mengeset *default data directory*, biar mudah tidak usah *custom* deh, ikutin *default*-nya saja, seperti yang dicontohkan oleh Arch Wiki.
 
-```
-[postgres]$ initdb -D /var/lib/postgres/data
-```
+<pre>
+[postgres]$ <b>initdb -D /var/lib/postgres/data</b>
+</pre>
 
 `-D` menunjukkan lokasi *default* dimana *database cluster* harus disimpan.
 
@@ -102,9 +102,9 @@ Secara *default* inisialisasi di atas akan menggunakan *default locale* dan *enc
 
 Namun, kalau teman-teman merasa tidak pernah mengesetnya dan tidak mengerti, sebaiknya gunakan cara di bawah ini saja untuk berjaga-jaga. Karena saya khawatir beberapa diantara teman-teman ada yang belum mengkonfigrasi *locale* secara benar karena hanya ikut-ikutan memasang Arch Linux.
 
-```
-[postgres]$ initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data
-```
+<pre>
+[postgres]$ <b>initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data</b>
+</pre>
 
 Setelah kita tekan tombol <kbd>ENTER</kbd>, makan akan keluar *output* seperti di bawah ini.
 
@@ -143,9 +143,9 @@ Langkah selanjutnya kita perlu menjalankan service dari PostgreSQL.
 
 Keluar dari user `postgres` dengan perintah
 
-```
-[postgres]$ exit
-```
+<pre>
+[postgres]$ <b>exit</b>
+</pre>
 
 ### Jalankan PostgreSQL Service
 
@@ -153,15 +153,16 @@ Pastikan kita sudah keluar dari user `postgres` seperti perintah di atas.
 
 Kemudian jalankan perintah di bawah, untuk menjalankan service dari PostgreSQL.
 
-```
-$ sudo systemctl start postgresql.service
-```
+<pre>
+$ <b>sudo systemctl start postgresql.service</b>
+</pre>
 
 Apabila teman-teman ingin membuat service ini berjalan otomatis saat sistem kita dinyalakan/dijalankan, gunakan perintah `enable`.
 
-```
-$ sudo systemctl enable postgresql.service
-```
+<pre>
+$ <b>sudo systemctl enable postgresql.service</b>
+</pre>
+
 Apabila berhasil akan menampilkan *output* seperti di bawah ini.
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
@@ -175,9 +176,9 @@ Tujuannya adalah agar sistem saya tidak perlu menjalankan service-service yang t
 
 Untuk melihat apakah postgresql.serive sudah berhasil dijalankan, gunakan perintah di bawah ini.
 
-```
-$ sudo systemctl status postgresql.service
-```
+<pre>
+$ <b>sudo systemctl status postgresql.service</b>
+</pre>
 
 Apabila, service berhasil dijalankan, akan menampilkan output seperti ini.
 
@@ -214,15 +215,15 @@ Saya akan membuat user dengan nama yang sama seperti user Linux yang saya pergun
 
 Kita memerlukan bantuan user `postgres` lagi.
 
-```
-$ sudo -iu postgres
-```
+<pre>
+$ <b>sudo -iu postgres</b>
+</pre>
 
 Kemudian, buat user baru.
 
-```
-[postgres]$ createuser --interactive
-```
+<pre>
+[postgres]$ <b>createuser --interactive</b>
+</pre>
 
 Kita akan disuguhkan 2 buah pertanyaan mengenai nama user dan role.
 
@@ -240,7 +241,7 @@ Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username L
 Kita **HARUS** membuat database untuk user yang baru saja kita buat. Kalau tidak, tentu saja tidak akan dapat kita gunakan.
 
 <pre>
-[postgres]$ createdb <mark>bandithijo</mark>
+[postgres]$ <b>createdb <mark>bandithijo</mark></b>
 </pre>
 
 Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.
@@ -249,9 +250,9 @@ Proses tersebut akan membuat database baru dengan nama yang sama seperti usernam
 
 Sekarang `exit` dan coba masuk ke dalam PostgreSQL shell menggunakan perintah,
 
-```
-$ psql
-```
+<pre>
+$ <b>psql</b>
+</pre>
 
 Kalau berhasil, akan seperti ini tampilan dari PostgreSQL shell.
 
@@ -268,9 +269,9 @@ Langkah selanjutnya, kita perlu merubah kepemilikan (*owner*) dari database atas
 
 Cek dulu dengan perintah,
 
-```
-bandithijo=# \l
-```
+<pre>
+bandithijo=# <b>\l</b>
+</pre>
 
 <pre>
                                             List of databases
@@ -289,17 +290,19 @@ Lihat, pada bagian yang saya *marking*, database `bandithijo` masih dimiliki ole
 
 Rubah kepemilikannya menjadi milik kita dengan perintah sql seperti ini,
 
-```
-bandithijo=# ALTER DATABASE <mark>bandithijo</mark> OWNER TO <mark>bandithijo</mark>;
-```
+<pre>
+bandithijo=# <b>ALTER DATABASE <mark>bandithijo</mark> OWNER TO <mark>bandithijo</mark>;</b>
+</pre>
 
 Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.
 
 Contoh perintah SQL-nya seperti ini,
 
 ```
-# ALTER DATABASE target_database OWNER TO new_onwer;
 ```
+<pre>
+<b>ALTER DATABASE target_database OWNER TO new_onwer;</b>
+</pre>
 
 Kalau berhasil, akan menampilkan *output* seperti ini,
 
@@ -309,9 +312,9 @@ ALTER DATABASE
 
 Selanjutnya periksa lagi, apakah database kita sudah berubah kepemilikan.
 
-```
-bandithijo=# \l
-```
+<pre>
+bandithijo=# <b>\l</b>
+</pre>
 
 <pre>
                                             List of databases
@@ -338,22 +341,22 @@ Untuk menghapus database dan menghapus role (user), gunakan perintah ini.
 
 Masuk menggunakan user `postgres`.
 
-```
-$ psql -U postgres
-```
+<pre>
+$ <b>psql -U postgres</b>
+</pre>
 
 Lalu jalankan perintah `DROP DATABASE` dan `DROP USER`.
 
-```
+<pre>
 psql (11.5)
 Type "help" for help.
 
-postgres=# DROP DATABASE bandithijo;
+postgres=# <b>DROP DATABASE bandithijo;</b>
 DROP DATABASE
 
-postgres=# DROP USER bandithijo;
+postgres=# <b>DROP USER bandithijo;</b>
 DROP ROLE
-```
+</pre>
 
 # Upgrade
 
@@ -388,6 +391,12 @@ IgnorePkg = postgresql postgresql-libs
 Sekian catatan mengenai proses instalasi dan konfigurasi awal dari PostgreSQL pada Arch Linux.
 
 Mudah-mudahan dapat membantu teman-teman yang memerlukan.
+
+Terima kasih.
+
+(^_^)
+
+
 
 # Referensi
 

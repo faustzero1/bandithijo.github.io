@@ -80,7 +80,7 @@ Nah, karena saat ini sedang belajar Ruby, saya akan mulai mengkonfersikan Python
 
 Di bawah ini adalah contoh Python script sederhana yang saya gunakan untuk membuat multiple user pada sistem operasi GNU/Linux.
 
-```python
+{% highlight python linenos %}
 #!/usr/bin/env python3
 
 import os
@@ -98,11 +98,11 @@ for user in range(1, userDibuat+1):
     print('Username:', username, 'berhasil ditambahkan !')
 
 print('>> SELESAI MAS BROH !')
-```
+{% endhighlight %}
 
 Nah, sekarang versi Ruby nya.
 
-```ruby
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
 puts 'Masukkan jumlah user yang ingin dibuat: '
@@ -119,7 +119,7 @@ userDibuat.times do |user|
 end
 
 puts '>> SELESAI MAS BROH !'
-```
+{% endhighlight %}
 
 Gimana? Mirip bukan?
 
