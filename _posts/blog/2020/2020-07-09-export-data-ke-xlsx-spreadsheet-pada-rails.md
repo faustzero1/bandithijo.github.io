@@ -71,7 +71,7 @@ class CasesController < ApplicationController
 end
 {% endhighlight %}
 
-Apabila ingin merubah nama file, dapat merubah pada bagian `filename=...` di bari ke-13 tersebut.
+Apabila ingin merubah nama file, dapat merubah pada bagian `filename=...` di baris ke-13 tersebut.
 
 ## View Template
 
