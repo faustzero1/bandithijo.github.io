@@ -65,6 +65,21 @@ Cara kedua, dengan mendefinisikan `host:` pada file `_config.yml`.
 host: 0.0.0.0
 {% endhighlight %}
 
+Nah dengan begini, kita dapat mengakses dari semua perangkat dalam satu jaringan yang sama dengan sistem localhost kita.
+
+Misal, sistem kita memiliki ip `192.168.1.5`.
+
+Maka, kita akses dari smartphone dengan tujuan `192.168.1.5:4000`.
+
+Voila!
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QN7PjjdX/gambar-01.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 1 - Tampilan Desktop dan Mobile</p>
+
+Tampilan mobile dari web yang sedang kita kerjakan, dapat kita ekplorasi secara langsung dari smartphone.
+
+Enak banget kan!
+
 # Tambahan
 
 ## Mengganti Port
