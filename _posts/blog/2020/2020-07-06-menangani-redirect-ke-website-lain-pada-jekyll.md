@@ -88,6 +88,37 @@ Selesai!
 
 Dokumentasi lebih lengkap dapat teman-teman baca pada halaman README dari **jekyll-redirect-from** gem di GitHub. Alamat URL nya sudah saya berikan pada bagian referensi di bawah.
 
+# Tambahan
+
+## Membuat Redirecting Layout
+
+Kalau hanya menggunakan cara di atas, maka halaman redirect kita akan putih polos saja.
+
+Tentu ini akan "berbahaya" apabila respon yang diberikan oleh web server tujuan ternyata lambat. Pengunjung dapat kabur meninggalkan halaman redirecting yang putih polos.
+
+Maka dari itu, kita dapat menyiasati dengan menghias halaman redirecting kita.
+
+Buat layout dengan nama `_layouts/redirect.html`.
+
+{% highlight html linenos %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting to {{ page.redirect.to }}</title>
+    <meta http-equiv="refresh" content="0; URL={{ page.redirect.to }}">
+    <link rel="canonical" href="{{ page.redirect.to }}">
+  </head>
+  <body>
+    <h3>Redirecting...</h3>
+  </body>
+</html>
+{% endhighlight %}
+
+Saya hanya mencontohkan sederhana, namun teman-teman dapat bermain-main dengan layout ini, seperti memberikan gif loading dan sebagainya.
+
+Perhatikan bagian `page.redirect.to`, adalah variabel yang saya pergunakan pada front matter dari page yang saya pergunakan untuk membuat page redirect.
+
 # Sekedar Simpan
 
 Sebelum menggunakan **jekyll-redirect-from** gem, saya sempat mencoba menggunakan cara manual dengan mengisi file page untuk redirect seperti di bawah ini.
