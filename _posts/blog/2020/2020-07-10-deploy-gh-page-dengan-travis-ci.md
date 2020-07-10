@@ -309,6 +309,9 @@ Isikan environment variable seperti contoh di atas.
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
 <p>Jangan meng-<b>ON</b>-kan "<b>Display value in build log</b>", karena akan ditampilkan pada verbose proses build.</p>
+<p>Apabila kita set <b>OFF</b>, maka akan ditampilkan seperti ini</p>
+<pre>$ export GITHUB_TOKEN=[secure]</pre>
+<p>Tentunya hal ini lebih <i>secure</i>.</p>
 </div>
 
 Setelah itu, tekan tombol <kbd>Add</kbd>.
