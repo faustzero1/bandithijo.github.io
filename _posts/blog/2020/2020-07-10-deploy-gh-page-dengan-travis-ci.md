@@ -324,7 +324,13 @@ Sekedar info, saya tidak mengutak atik pengaturan **General** & **Auto Cancellat
 Mantap! Konfigurasi pada Travis CI sudah selesai.
 
 <br>
-Sekarang, kalau teman-teman membuat commit baru dan melakukan push ke brnach **source**, kita akan melihat Travis CI akan menjalankan proses build.
+Sekarang, kalau teman-teman membuat commit baru dan melakukan push ke branch **source**,
+
+<pre>
+$ <b>git push -u origin source</b>
+</pre>
+
+Kita akan melihat Travis CI akan menjalankan proses build.
 
 Kalau berhasil akan sepeti ini tampilannya.
 
@@ -334,6 +340,9 @@ Kalau berhasil akan sepeti ini tampilannya.
 
 Perhatikan pada baris ke-320, kita dapat melihat pada akhir proses build, akan mendeploy hasil generate static site `_site/` di branch **master** ke GitHub Pages.
 
+Selesai!
+
+Selamat nge-Jekyll!!!
 
 
 
