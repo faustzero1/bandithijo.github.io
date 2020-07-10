@@ -1,13 +1,21 @@
+// https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+
 // aside
-$(document).ready(function(){
-  $('.hideAside').on('click',function(){
-      $('aside').toggle(1,function(){
-          var visibilityStatus=$('aside').attr('data-visible');
-          // alert(!visibilityStatus);
-          $('aside').attr('data-visible',!visibilityStatus);
-      });
-  });
-});
+function toggleShowHideSidebar() {
+  var x = document.getElementById("sidebar-head");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  var x = document.getElementById("sidebar-tail");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 
 // article
 (function(){
