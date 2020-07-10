@@ -15,9 +15,9 @@ voice:
 
 <div style="margin-top:30px;"></div>
 
-{% include youtube_embed.html id="WkuspokChBI" %}
+{% youtube WkuspokChBI %}
 <br>
-{% include youtube_embed.html id="BBr--Pj2aTs" %}
+{% youtube BBr--Pj2aTs %}
 
 # Deskripsi
 

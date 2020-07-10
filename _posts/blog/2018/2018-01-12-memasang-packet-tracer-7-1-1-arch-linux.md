@@ -91,7 +91,7 @@ Tidak masalah. Proses upgradenya tetap sama mudahnya seperti proses instalasinya
 
 Proses upgrade 7.1.1 ke 7.2 tidak sempat di dokumentasikan. Sebagai gantinya pada upgrade 7.2.1 saya sudah membuatkan video dokumentasinya.
 
-{% include youtube_embed.html id="Soox7yWWRqo" %}
+{% youtube Soox7yWWRqo %}
 
 # Referensi
 1. [aur.archlinux.org/packages/packettracer](https://aur.archlinux.org/packages/packettracer){:target="_blank"}

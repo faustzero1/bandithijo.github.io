@@ -247,7 +247,7 @@ Selesai!
 
 # Demonstrasi Video
 
-{% include youtube_embed.html id="SlX4wfzvKjU" %}
+{% youtube SlX4wfzvKjU %}
 
 
 

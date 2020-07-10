@@ -199,7 +199,7 @@ $ scrcpy
 
 # Sekilas Penggunaan
 
-{% include youtube_embed.html id="Pn_YhMWnZVE" %}
+{% youtube Pn_YhMWnZVE %}
 
 # Pesan Penulis
 

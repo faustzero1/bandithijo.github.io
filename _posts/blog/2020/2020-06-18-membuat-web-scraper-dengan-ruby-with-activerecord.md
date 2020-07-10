@@ -510,7 +510,7 @@ Selesai!
 
 # Demonstrasi Video
 
-{% include youtube_embed.html id="2zYDrEaj9EQ" %}
+{% youtube 2zYDrEaj9EQ %}
 
 
 

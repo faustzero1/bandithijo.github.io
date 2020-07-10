@@ -142,7 +142,7 @@ Selesai!
 
 # Demonstrasi Video
 
-{% include youtube_embed.html id="P3cHb_wlLtc" %}
+{% youtube P3cHb_wlLtc %}
 
 
 

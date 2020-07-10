@@ -295,7 +295,7 @@ $ <b>sudo fusermount -u /data</b>
 
 # Demonstrasi Video
 
-{% include youtube_embed.html id="qdFkae_mYbE" %}
+{% youtube qdFkae_mYbE %}
 
 
 

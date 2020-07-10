@@ -158,7 +158,7 @@ Selesai.
 
 # Demonstrasi Hasil
 
-{% include youtube_embed.html id="y0h6pbkrITo" %}
+{% youtube y0h6pbkrITo %}
 
 
 

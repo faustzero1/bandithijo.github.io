@@ -15,4 +15,4 @@ voice: true
 
 <div style="margin-top:30px;"></div>
 
-{% include youtube_embed.html id="K0GeN-QnDgc" %}
+{% youtube K0GeN-QnDgc %}

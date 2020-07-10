@@ -229,7 +229,7 @@ nameserver 127.0.0.1
 <br>
 **Video demonstrasinya**
 
-{% include youtube_embed.html id="1zf1Dpyzq84" %}
+{% youtube 1zf1Dpyzq84 %}
 
 
 # Hasilnya

@@ -29,7 +29,7 @@ Aplikasi dan soal dapat diunduh pada tautan di bawah.
 <br>
 # Step 01: Membuat ERD
 
-{% include youtube_embed.html id="fqYOZk1S8RQ" %}
+{% youtube fqYOZk1S8RQ %}
 
 ><p class="title-quote">Resources:</p>
 >1. [dw_toko_erd.sql](https://drive.google.com/open?id=1b4bFkEKAo4kPcNbkblS2tnDYyfzaJkMi){:target="_blank"}
@@ -37,7 +37,7 @@ Aplikasi dan soal dapat diunduh pada tautan di bawah.
 <br>
 # Step 02: Memasukkan Data
 
-{% include youtube_embed.html id="sSW-VXeeOXY" %}
+{% youtube sSW-VXeeOXY %}
 
 ><p class="title-quote">Resources:</p>
 >1. [dw_toko_data.sql](https://drive.google.com/open?id=1BCNlwRDsynvgv5sQZ9qBfAqGaer_IiGA){:target="_blank"}
