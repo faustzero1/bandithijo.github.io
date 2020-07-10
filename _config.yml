@@ -51,8 +51,9 @@ kramdown:
 plugins:
   - rouge
   - jekyll-feed
-  - jekyll-redirect-from
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Newsline
 # Nilai: true/false
