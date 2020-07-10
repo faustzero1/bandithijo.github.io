@@ -20,6 +20,10 @@ hot:
 <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
 </div>
 
+# Prerequisite
+
+`Ruby 2.6.6` `Rails 5.2.4` `PostgreSQL 12.3`
+
 # Pendahuluan
 
 *Web scraping* adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik, spesifik dalam arti hanya data tertentu saja yang diambil. Script atau program untuk melakukan hal tersebut, disebut dengan *web scraper*.

@@ -13,6 +13,10 @@ pin:
 hot:
 ---
 
+# Prerequisite
+
+`Ruby 2.6.6` `Rails 5.2.4` `PostgreSQL 12.3`
+
 # Sekenario Masalah
 
 Saya punya data yang ingin di-*eksport* ke dalam bentuk *spreadsheet* dengan format **.xlsx**.
