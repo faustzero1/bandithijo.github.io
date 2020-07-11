@@ -43,7 +43,7 @@ $ wine uninstaller
 
 Berikut saya sertakan ilustrasinya.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/b3uovt4zx/gambar_01.gif" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/b3uovt4zx/gambar_01.gif" onerror="imgError(this);"}{:class="myImg"}
 
 Gimana? Sangat mudah sekali bukan?
 

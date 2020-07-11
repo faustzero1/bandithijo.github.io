@@ -236,11 +236,11 @@ Selesai.
 
 Sebenarnya, sudah pernah mengalami hal ini, namun karena lupa melakukan pencatatan, dan ternyata mengalami untuk kedua kali, malah jadi kebingungan.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1Xs2bb4M/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1Xs2bb4M/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
 Dapat dilihat pada ilustrasi di atas, apapun perintah (*command*) yang saya tulisakan, akan ditampilkan kembali pada baris *output*.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR8WbpBz/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR8WbpBz/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Saya mengalami permasalah ini pada terminal URxvt dan Termite, namun tidak pada ST terminal yang sehari-hari saya pergunakan.
 
@@ -250,7 +250,7 @@ Untung saja ada group [BGLI (Belajar GNU/Linux Indonesia)](https://t.me/GNULinux
 
 >Terkadang perlu "sudut pandang" orang lain dalam menemukan "kata kunci" yang tepat untuk mencari solusi dari sebuah masalah.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/K8MfrJ8Y/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/K8MfrJ8Y/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
 <p class="img-caption">URL: <a href="https://stackoverflow.com/questions/30940299/zsh-repeats-command-in-output">ZSH repeats command in output</a></p>
 

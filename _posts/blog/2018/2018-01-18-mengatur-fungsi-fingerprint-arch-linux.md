@@ -47,7 +47,7 @@ Setelah melakukan instalasi paket fprintd, lantas kita perlu melakukan beberapa 
 ## Login
 Untuk kalian yang menggunakan Gnome 3.26, _login manager_ diatur oleh GDM. Apabila kalian ingin menggunakan _fingerprint scanner_ untuk _login_ pada GDM, kalian dapat mengikuti langkah ini. Gnome sudah menyediakan _fingerprint option_ yang dapat kalian atur pada **Settings > Details > Users**. Kalian akan melihat window seperti di bawah ini,
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-QCKqPEIkctA/WmBdqy0o-kI/AAAAAAAAG4w/39ie3sVWaCA7Cn5U0Mkmwbk2lhNE3TiHwCLcBGAs/s1600/gambar_1.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-QCKqPEIkctA/WmBdqy0o-kI/AAAAAAAAG4w/39ie3sVWaCA7Cn5U0Mkmwbk2lhNE3TiHwCLcBGAs/s1600/gambar_1.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 Kalian dapat melihat pada Gambar 1, terdapat _Fingerprint Login option_ dengan nilai “_Enabled_”. Bagi teman-teman yang belum melakukan konfigurasi maka akan tertulis “_Disabled_”.

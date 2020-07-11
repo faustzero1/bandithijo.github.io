@@ -253,7 +253,7 @@ Silahkan menambahkan menambahkan sendiri untuk membuat daftar *keyboard shortcut
 
 # Hasilnya
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vZsSj7b9/gambar-01.gif" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vZsSj7b9/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Demonstrasi hasil akhir dari semua proses di atas</p>
 
 

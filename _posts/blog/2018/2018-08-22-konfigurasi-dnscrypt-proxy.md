@@ -113,7 +113,7 @@ Sekarang lanjut ke konfigurasi nameserver pada `/etc/resolv.conf`.
 <p>Bagian ini telah diperbaharui sejak tanggal 2020-06-26.</p>
 </div>
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d1F4dHzX/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d1F4dHzX/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Sebelumnya, terima kasih kepada mas [DØNIX (@dsnvhlm)](https://t.me/dsnvhlm){:target="_blank"} yang telah memberikan informasi dan masukan untuk bagian ini.
 

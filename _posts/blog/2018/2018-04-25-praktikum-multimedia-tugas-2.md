@@ -18,9 +18,9 @@ hot:
 
 # Hasil
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ev897h365/gambar_01.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ev897h365/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/6xn0xertp/gambar_02.png" onerror="imgError(this);"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/6xn0xertp/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
 
 # Video Dokumentasi
 

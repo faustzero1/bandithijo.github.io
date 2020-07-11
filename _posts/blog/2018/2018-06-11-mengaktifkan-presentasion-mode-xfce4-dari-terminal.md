@@ -24,7 +24,7 @@ Jadi, yang dimaksud dengan *presentation mode* adalah mode dimana laptop kita ti
 
 Kenapa harus mengaktifkan **Presentation Mode** pada aplikasi **xfce4-power-manager** melalui Terminal? Bukankah sudah terdapat GUI?
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/awi675yml/gambar_01.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/awi675yml/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - xfce4-power-manager graphical user interface</p>
 
 Sederhana saja jawabannya. Kita pasti selalu mencari cara untuk melakukan hal-hal yang rumit agar menjadi lebih praktis. Yaa, praktis.
@@ -168,7 +168,7 @@ Dapat dilihat pada baris *alias* di atas, saya menggunakan nama `presentationmod
 
 Untuk mencobanya, kalian bisa membuka Terminal baru, atau merefresh Terminal yang saat ini sedang terbuka. `$ exec $SHELL`
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif" onerror="imgError(this);"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif" onerror="imgError(this);"}{:class="myImg"}
 
 Kalian juga dapat menambahkan *output* berupa `echo` agar menampilkan tulisan seperti yang saya lakukan pada contoh di atas.
 ```

@@ -38,7 +38,7 @@ Menurut ilmu sotoy ane, dilihat dari gejalanya tiap kali delete file, diminta ma
 
 5. Perhatikan folder .Trash anda, apabila normal akan tampak seperti screeshot yang saya berikan. Namun apabila tidak normal, akan terdapat icon attribut kecil bergambar "tanda lingkaran dilarang berwarna merah".
 
-    ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-2-w-ahuuL1I/UeUyQWGLQ6I/AAAAAAAABNo/QcCtS-YzpJg/w701-h491-no/Screen+Shot+2013-07-16+at+6.40.08+PM.png" onerror="imgError(this);"}
+    ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-2-w-ahuuL1I/UeUyQWGLQ6I/AAAAAAAABNo/QcCtS-YzpJg/w701-h491-no/Screen+Shot+2013-07-16+at+6.40.08+PM.png" onerror="imgError(this);"}{:class="myImg"}
 
 6. Apabila benar terdapat icon attribut dilarang berwarna merah, berarti benar, .Trash anda bermasalah dengan permission aksesnya. Silahkan ikuti step selanjutnya. Namun apabila tidak, hehe saya belum bisa menganalisis lebih jauh mengapa ke-ngacoan itu bisa terjadi.
 
@@ -52,7 +52,7 @@ $ sudo chmod 755 ~/.Trash
 
 3. Tekan enter dan masukkan password user anda. Kalo user-nya gak ada password, bisa langsung enter saja (sepertinya. Soalnya user saya selalu berpassword, jadi belum pernah coba klo user nya gak di password).
 
-    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-8pQyn-S6yLA/UeU0ihAQgNI/AAAAAAAABOA/oWavVRiUMsg/w664-h480-no/Screen+Shot+2013-07-16+at+6.54.09+PM.png" onerror="imgError(this);"}
+    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-8pQyn-S6yLA/UeU0ihAQgNI/AAAAAAAABOA/oWavVRiUMsg/w664-h480-no/Screen+Shot+2013-07-16+at+6.54.09+PM.png" onerror="imgError(this);"}{:class="myImg"}
 
 4. Lalu check lagi apakah permission pada .Trash folder sudah menjadi milik kita atau belum, dengan membuka kembali aplikasi Cloak, klo Cloak masih terbuka, close dulu lalu open lagi agar ter-refresh tampilan file folder yang sudah kita rubah tadi.
 
@@ -79,7 +79,7 @@ $ sudo rm -rv ~/.Trash
 
 12. Selanjutnya lakukan "Verify & Repair Disk". Dimulai dari Hardisk anda terlebih dahulu. Setelah selesai, dilanjutnya pada partisi nya. Ilustrasi seperti screenshot yang saya berikan.
 
-    ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-xF3iMU0yYBI/UeU5Wwz-A-I/AAAAAAAABOY/FK8XnVKCLvQ/w733-h648-no/Screen+Shot+2013-07-16+at+7.09.04+PM.png" onerror="imgError(this);"}
+    ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-xF3iMU0yYBI/UeU5Wwz-A-I/AAAAAAAABOY/FK8XnVKCLvQ/w733-h648-no/Screen+Shot+2013-07-16+at+7.09.04+PM.png" onerror="imgError(this);"}{:class="myImg"}
 
 13. Setelah selesai melakukan Verify & Repair Disk pada Recovery Mode, silahkan restart.
 

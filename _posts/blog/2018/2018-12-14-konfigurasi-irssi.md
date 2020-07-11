@@ -29,7 +29,7 @@ IRC client yang saya pergunakan adalah **Irssi**.
 Hal pertama adalah, Irssi berjalan di atas Terminal yang dibuat dengan library ncurses sehingga dapat menampilkan "GUI-like" di dalam Terminal.
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vBxPZQ8Y/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vBxPZQ8Y/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Antarmuka dari Irssi</p>
 
 Hal kedua adalah, Irssi bersifat modular. Saya kurang begitu memahami maksud dari modular ini, namun apabila tidak salah menafsirkan, modular disini berarti kita bebas mencabut-pasang fitur-fitur yang kita ingin pergunakan. Enak sekali bukan. Fitur-fitur ini dapat kita tambahkan dengan menggunakan *scripts* yang ditulis dengan bahasa Perl.
@@ -76,7 +76,7 @@ Pada bagian `Exec=` bagian `termite` dapat disesuaikan dengan Terminal Emulator 
 Sekarang coba jalankan. Kalian akan bertemu dengan tampilan awal dari Irssi.
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/h4VsVszD/gambar-02.png" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/h4VsVszD/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Antarmuka Default dari Irssi</p>
 
 
@@ -252,13 +252,13 @@ Perlu diperhatikan, terkadang tampilan yang ada pada *screenshot* tidak sesuai d
 Saya menggunakan tema hasil modifikasi dari [`solarized.theme`](https://github.com/huyz/irssi-colors-solarized){:target="_blank"} dari **Huy Z**.
 
 <!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dzh0YRqZ/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dzh0YRqZ/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 3 - Theme Solarized dari Huy Z</p>
 
 Karena terdapat beberapa bagian yang kurang sesuai dengan selera saya, seperti indentasi pada username dan beberapa color, saya memodifikasi sesuai dengan preferensi saya.
 
 <!-- IMAGE CAPTION -->
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/P5s1T3WG/gambar-04.png" onerror="imgError(this);"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/P5s1T3WG/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Theme Solarized setelah dimodifikasi</p>
 
 Tema ini dapat diunduh [di sini](https://raw.githubusercontent.com/bandithijo/dotfiles/master/.irssi/solarized-bandit.theme){:target="_blank"}.
@@ -456,7 +456,7 @@ Awalnya saya langsung mengutak atik file konfigurasi, googling sana sini untuk m
 Kecurigaan saya adalah, Freenode memblokir alamat IP publik saya. Karena saya selalu menyalan Irssi dan terhubung secara konstan dengan Freenode. Sepanjang hari, sepanjang minggu. Mungkin ada limitasi trafik keluar dan masuk dari sebuah IP. Mungkin...Hanya asumsi.
 
 <!-- IMAGE CAPTION -->
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JzqMX79N/gambar-05.png" onerror="imgError(this);"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JzqMX79N/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 5 - Error Closing Link</p>
 
 # Pesan Penulis

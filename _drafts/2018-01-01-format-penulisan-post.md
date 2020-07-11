@@ -68,7 +68,7 @@ Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownl
 
 # IMAGE CAPTION
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Settings > Details > Users</p>
 
 # LIST CHECKBOX

@@ -38,11 +38,11 @@ Lalu pergi ke **org** > **gnome** > **gnome-screenshot**.
 
 Klik dua kali pada bagian **auto-save-directory**.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kq7vc3vyl/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Nanti akan terbuka *section* seperti di bawah.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png" onerror="imgError(this);"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rhyaek099/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
 
 Pada bagian paling bawah, **Custom value**, ganti ke direktori tempat dimana kalian ingin menyimpan hasil *screenshot*.
 

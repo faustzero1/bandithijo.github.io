@@ -183,7 +183,7 @@ Begini kira-kira hasilnya.
 | 2    | Baik Budiman          | 1                  | 0                      |
 </pre>
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/P5NkZJFn/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/P5NkZJFn/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Baik Budiman melakukan registrasi dengan menggunakan kode referral yang diberikan oleh Rizqi Assyaufi.</p>
 
 Selesai!

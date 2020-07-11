@@ -32,13 +32,13 @@ Selanjutnya saya akan melakukan order.
 
 ## Order Custom Domain
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zfnikq5t9/gambar_01.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zfnikq5t9/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Pilih menu **Order > Domain > Beli Domain Baru**.
 
 Nanti akan terbuka halaman seperti di bawah.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ostpf907x/gambar_02.png" onerror="imgError(this);"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ostpf907x/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
 
 Isikan nama _domain_ dan ekstensi _domain_ yang kamu inginkan. Pada contoh di atas, saya menggunakan nama _domain_ `devikamarina` dengan ekstensi _domain_ `.com`. Kemudian tekan tombol **Cek Domain**.
 
@@ -46,7 +46,7 @@ Apabila tersedia, pilih jangka waktu penagihan pembayaran. 1 tahun, 2 tahun, ata
 
 Nanti akan diarahkan pada halaman **Konfigurasi Domain**.
 
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" onerror="imgError(this);"}
+![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
 
 Yang perlu diperhatikan pada halaman ini adalah apakah kamu ingin memberikan **Whois Privacy Protection** terhadap domain kamu. Layanan ini bersifat _optional_.
 
@@ -113,7 +113,7 @@ Untuk pengaturan **Nameserver** akan kita ubah nanti saja. Saya berencana menggu
 
 Kemudian tekan tombol **Update Keranjang Belanja**.
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/48ovgrzwd/gambar_04.png" onerror="imgError(this);"}
+![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/48ovgrzwd/gambar_04.png" onerror="imgError(this);"}{:class="myImg"}
 
 Setelah dipastikan kembali tidak ada yang kurang atau yang lebih dari daftar item yang kita pesan di atas. Selanjutnya tekan tombol **Checkout dan Bayar**.
 
@@ -168,12 +168,12 @@ Kemudian, buka repositori GitHub tempat dimana kamu menyimpan repositori dari .g
 
 Kemudian selanjutnya pilih menu **Settings**.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rzo8yvcy5/gambar_05.png" onerror="imgError(this);"}
+![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rzo8yvcy5/gambar_05.png" onerror="imgError(this);"}{:class="myImg"}
 
 <br>
 Selanjutnya, _scrolling page_ ke bagian **GitHub Pages** dan isikan nama domain yang baru saja kamu beli pada kolom **Custom domain**.
 
-![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/irw0i78gt/gambar_06.png" onerror="imgError(this);"}
+![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/irw0i78gt/gambar_06.png" onerror="imgError(this);"}{:class="myImg"}
 
 Pilih **Save**.
 
@@ -183,7 +183,7 @@ Pada tahap ini konfigurasi GitHub hanya seperti ini saja. Namun, _custom domain_
 
 Buka [cloudflare.com](https://www.cloudflare.com/){:target="_blank"}. Apabila belum memiliki akun, sebaiknya buat akun terlebih dahulu. Kemudian Login dan tambahkan website kamu. **+ Add site**.
 
-![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sp71b8sx9/gambar_07.png" onerror="imgError(this);"}
+![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sp71b8sx9/gambar_07.png" onerror="imgError(this);"}{:class="myImg"}
 
 Setelah itu, pergi ke tab **DNS**.
 
@@ -209,21 +209,21 @@ wesley.ns.cloudflare.com
 
 Saya lupa urutan detail konfigurasi nameserver pada Cloudflare ini seperti apa, yang jelas, nanti akan diberikan contoh bagaimana cara melakukan pengisian nameserver pada dewaweb.com menjadi nameserver Cloudflare. Seperti contoh di bawah.
 
-![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce78vx/gambar_09.png" onerror="imgError(this);"}
+![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce78vx/gambar_09.png" onerror="imgError(this);"}{:class="myImg"}
 
 Secara _default_, dewaweb.com sudah memberikan 3 alamat nameserver bawaan dewaweb.com. Kita perlu mengganti Nameserver 1 dan 2 dengan nameserver yang sudah diberikan oleh Cloudflare, kemudian menghapus Nameserver 3.
 
 Buka kembali dewaweb.com, dan pergi ke bagian [**Login ke Client Area**](https://client.dewaweb.com/clientarea.php){:target="_blank"}. Setelah login, pilih menu **Domain > Domain Saya**.
 
-![gambar10]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/i2d85ufn1/gambar_10.png" onerror="imgError(this);"}
+![gambar10]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/i2d85ufn1/gambar_10.png" onerror="imgError(this);"}{:class="myImg"}
 
 Selanjutnya, pada domain yang akan kita konfigurasi, pilih tanda panah pada tombol **Edit**. Dan pilih **Pengaturan Nameserver**.
 
-![gambar11]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/boo52lq6l/gambar_11.png" onerror="imgError(this);"}
+![gambar11]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/boo52lq6l/gambar_11.png" onerror="imgError(this);"}{:class="myImg"}
 
 Masukkan nameserver yang kita dapat dari Cloudflare.
 
-![gambar12]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce83r1/gambar_12.png" onerror="imgError(this);"}
+![gambar12]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce83r1/gambar_12.png" onerror="imgError(this);"}{:class="myImg"}
 
 Kosongkan Nameserver 3.
 
@@ -235,7 +235,7 @@ Sekarang coba lakukan pemanggilan domain kita pada Browser. Apabila belum dapat 
 
 Karena kita menggunakan _custom domain_, maka pengaturan HTTPS pada GitHub Pages tidak dapat kita gunakan.
 
-![gambar13]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/k7bdc6ga5/gambar_13.png" onerror="imgError(this);"}
+![gambar13]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/k7bdc6ga5/gambar_13.png" onerror="imgError(this);"}{:class="myImg"}
 
 Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.
 
@@ -243,7 +243,7 @@ Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.
 
 Buka tab **Crypto** dan pada bagian SSL, pilih **Full**.
 
-![gambar14]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/62am7cg3h/gambar_14.png" onerror="imgError(this);"}
+![gambar14]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/62am7cg3h/gambar_14.png" onerror="imgError(this);"}{:class="myImg"}
 
 Setelah mengaktifkan SSL ini kita perlu menunggu 24 jam setelah situs aktif di Cloudflare untuk menerbitkan sertifikat baru.
 
@@ -253,7 +253,7 @@ Sampai nanti status **Active Certificate** sudah tersedia, seperti pada gambar d
 
 Selanjutnya, buka tab **Page Rules**.
 
-![gambar19]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/bezglg1f1/gambar_19.png" onerror="imgError(this);"}
+![gambar19]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/bezglg1f1/gambar_19.png" onerror="imgError(this);"}{:class="myImg"}
 
 Kita akan menambahkan 3 _rules_ baru untuk _domain_ kita.
 
@@ -264,21 +264,21 @@ Kita akan menambahkan 3 _rules_ baru untuk _domain_ kita.
 <br>
 **Always Use HTTPS**
 
-![gambar15]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/q9o1zr8gt/gambar_15.png" onerror="imgError(this);"}
+![gambar15]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/q9o1zr8gt/gambar_15.png" onerror="imgError(this);"}{:class="myImg"}
 
 Saya memilih menggunakan APEX domain, dengan nama **bandithijo.com**, sehingga url yang harus saya masukkan adalah `https://bandithijo.com/*`. Penggunaan tanda `*` dimaksudkan untuk membuat _dynamic patterns_ yang dapat mencocokkan banyak URL.
 
 <br>
 **Forwarding URL**
 
-![gambar16]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/d5ihn2o4t/gambar_16.png" onerror="imgError(this);"}
+![gambar16]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/d5ihn2o4t/gambar_16.png" onerror="imgError(this);"}{:class="myImg"}
 
 Dikarenakan saya menggunakan nama domain **bandithijo.com**, maka saya perlu melakukan _forwarding URL_. Tujuannya, apabila terdapat pengunjung yang mengetikkan **www.bandithijo.com** akan langsung diarahkan ke URL **https://bandithijo.com**.
 
 <br>
 **Cache Level**
 
-![gambar17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wMxbT1Xw/gambar-17.png" onerror="imgError(this);"}
+![gambar17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wMxbT1Xw/gambar-17.png" onerror="imgError(this);"}{:class="myImg"}
 
 Mungkin teman-teman ingin menggunakan fitur cache level yang diberikan oleh CloudFlare.
 
@@ -308,12 +308,12 @@ Sebagai contoh di atas, saya menggunakan "No Query String".
 
 Sebelumnya saya menggunakan "Cache Everything", namun kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, ~~mungkin~~ kita dapat melakukan pembersihan cache dengan **Purge Everything**.
 
-![gambar20]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/h4fp62kjh/gambar_20.png" onerror="imgError(this);"}
+![gambar20]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/h4fp62kjh/gambar_20.png" onerror="imgError(this);"}{:class="myImg"}
 
 <br>
 Nah! setelah selesai melakukan 3 konfigurasi **Page Rules** di atas, maka, tampilan akhir dari konfigurasi **Page Rules** akan seperti ini.
 
-![gambar18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J0TYyRKM/gambar-18.png" onerror="imgError(this);"}
+![gambar18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J0TYyRKM/gambar-18.png" onerror="imgError(this);"}{:class="myImg"}
 
 *Perhatikan! **Always Use HTTPS**, harus berada di layer paling atas.
 

@@ -135,7 +135,7 @@ Kalau berhasil, file arsip berformat ZIP yang terenkripsi telah berhasil dibuat.
 
 Ilustrasinya kira-kira seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y9W5f9Xs/gambar-01.gif" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y9W5f9Xs/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
@@ -195,7 +195,7 @@ Nah kalau berhasil,
 
 Ilustrasinya kira-kira seperti ini.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SRGtDzcD/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SRGtDzcD/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
 # Pesan Penulis
 

@@ -93,22 +93,22 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 
 # Ilustrasi Workflow
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3wM3s7N/gambar-01.png"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3wM3s7N/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">i3 Window Manger + Polybar + Conky + Solarized Dark = My Perfect Desktop</p>
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/x8vrsbC7/gambar-07.png"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/x8vrsbC7/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Another Desktop with Wallpaper and Vim</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-02.png"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqNTJg0t/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Tools yang saya pergunakan untuk menulis, Vim + Tmux</p>
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8CZqQmmQ/gambar-03.png"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8CZqQmmQ/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Tools yang saya pergunakan untuk membuat vector image, Inkscape</p>
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/251xydff/gambar-04.png"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/251xydff/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Tools yang saya pergunakan untuk membuat banner image, GIMP</p>
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-05.png"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7YvPWqL1/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Tools yang saya pergunakan untuk image croping, gThumb</p>
 
 Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). Biasanya saya menyesuaikan dengan kondisi pencahayaan dari ruangan/lingkungan.

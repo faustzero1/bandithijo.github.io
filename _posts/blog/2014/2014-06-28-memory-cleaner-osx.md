@@ -24,7 +24,7 @@ OSX berbeda dengan windows, kita dapat merefresh sistem dengan cara klik kanan >
 Pada sistem OSX memang tidak terdapat aplikasi default yang dapat digunakan untuk me-refresh sistem yang terasa lambat dan berat. namun kita bisa menggunakan aplikasi pihak ketiga.
 Salah satu yang saya rekomendasikan dan saya gunakan sampai saat blog ini di tulis adalah Memory Clean dari FIPLAB Ltd.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-VXHX69juzd4/U637oH4OKaI/AAAAAAAABYU/vOU0weTGRG8/s1600/Screen+Shot+2014-06-28+at+5.31.38.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-VXHX69juzd4/U637oH4OKaI/AAAAAAAABYU/vOU0weTGRG8/s1600/Screen+Shot+2014-06-28+at+5.31.38.png" onerror="imgError(this);"}{:class="myImg"}
 
 Alasan saya menggunakan aplikasi ini sebagai pilihan untuk membersihakan memory saya karena aplikasi ini sangat ringan dan memberikan detail yang dapat kita lihat.
 
@@ -32,20 +32,20 @@ Aplikasi ini dapat diinstal memalui App Store dan tentunya free. Jadi saya tidak
 
 Setelah anda selesai men-download, indikator penggunaan alokasi memory akan terdapat pada toolbar OS X di atas.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-KGsiuAqI2o8/U6398T4JHiI/AAAAAAAABYc/9KY1YVqcfGI/s1600/Screen+Shot+2014-06-28+at+5.50.11.png" onerror="imgError(this);"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-KGsiuAqI2o8/U6398T4JHiI/AAAAAAAABYc/9KY1YVqcfGI/s1600/Screen+Shot+2014-06-28+at+5.50.11.png" onerror="imgError(this);"}{:class="myImg"}
 
 Silahkan klik dan akan menampilkan window seperti di bawah, yang tentunya bisa dipahami dengan sangat mudah. Apa-apa saja alokasi memory yang digunakan. Dan di paling bawah window terdapat kotak biru yang dapat digunakan untuk meng clean memory.
 
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-dVCRNwgaveI/U63-cQjErSI/AAAAAAAABYk/Qsfd8G8lvv4/s1600/Screen+Shot+2014-06-28+at+5.31.44.png" onerror="imgError(this);"}
+![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-dVCRNwgaveI/U63-cQjErSI/AAAAAAAABYk/Qsfd8G8lvv4/s1600/Screen+Shot+2014-06-28+at+5.31.44.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Sebelum melakukan Cleaning</p>
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-WKGMR4s2LMA/U63-qDC_lMI/AAAAAAAABYs/uEVApKiVhEQ/s1600/Screen+Shot+2014-06-28+at+5.32.16.png" onerror="imgError(this);"}
+![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-WKGMR4s2LMA/U63-qDC_lMI/AAAAAAAABYs/uEVApKiVhEQ/s1600/Screen+Shot+2014-06-28+at+5.32.16.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Setelah melakukan Cleaning</p>
 
 Terlihat bukan perbedaannya ? Ringan dan terkadang membutuhkan waktu 1-2 menit apabila aplikasi yang kita buka begitu banyak.
 
 Agar lebih nyaman, jangan lupa lakukan penyesuaian terlebih dahulu. Caranya klik kanan pada indikator RAM pada toolbar. Saya sih menggunakan settingan seperti di bawah.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-nNHfEtKn6ko/U63_JLKlPKI/AAAAAAAABY0/z55WxD_bdiE/s1600/Screen+Shot+2014-06-28+at+5.31.58.png" onerror="imgError(this);"}
+![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-nNHfEtKn6ko/U63_JLKlPKI/AAAAAAAABY0/z55WxD_bdiE/s1600/Screen+Shot+2014-06-28+at+5.31.58.png" onerror="imgError(this);"}{:class="myImg"}
 
 Demikian review aplikasi Memory Clean keluaran FIPLAB dari saya. Mudah-mudahan bermanfaat bagi yang sedang mencari-cari aplikasi untuk membersihkan alokasi memory anda.

@@ -79,7 +79,7 @@ Kita perlu menurunkan versi ROM MIUI atau memasang MIUI ver. 6 ke dalam ROM *sma
 
 Untuk melakukan *flashing* pada ROM *smartphone* pada sistem operasi Windows, kita menggunakan MiFlash atau MiPhone2015 yang terlebih dahulu harus kita pasang di sistem kita.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/4beeipcv1/gambar_01.jpg" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/4beeipcv1/gambar_01.jpg" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - MiFlash 2015 Windows</p>
 
 Sejujurnya, proses *flashing* menggunakan aplikasi ini lebih ribet, karena kita harus memasang driver Qualcom dan berpindah ke mode EDL (*Emergency Download Mode*) agar kita mendapatkan akses level tertinggi dari sistem. Untuk masuk ke dalam mode EDL seingat saya menggunakan perintah `$ sudo fastboot oem edl`.
@@ -157,7 +157,7 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 
 3. Buat *smartphone* kamu dalam mode **Fastboot** dengan menekan kombinasi tombol. Tekan dan tahan <kbd>Volume Down</kbd> + <kbd>Power</kbd> secara berurutan.
 
-    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" onerror="imgError(this);"}
+    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
     <p class="img-caption">Gambar 2 - Mode Fastboot</p>
     Setelah *smartphone* kita sudah dalam mode *fastboot*, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.
 
@@ -284,7 +284,7 @@ Proses instalasinya sangat mudah.
     ```
     Tunggu beberapa detik, sampai *smartphone* kita akan *reboot* dan masuk ke dalam mode **Recovery**.
 
-    ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" onerror="imgError(this);"}
+    ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
     <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
 
     Cara lain untuk masuk ke dalam mode **Recovery** dengan menggunakan kombinasi tombol.
@@ -298,7 +298,7 @@ Proses instalasinya sangat mudah.
 
 Kita melakukan instalasi *custom* ROM dengan bantuan TWRP. Untuk itu kita perlu memasukkan semua bahan-bahan yang akan kita pasang ke dalam *internal memory* dengan bantuan **File Manager**. Dalam hal ini saya menggunakan **Thunar** atau **PCMANFM**.
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/fzrafmmrh/gambar_04.png" onerror="imgError(this);"}
+![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/fzrafmmrh/gambar_04.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Bahan-bahan yang diperlukan</p>
 
 Ini adalah bahan-bahan untuk memasang sistem operasi **LineageOS** beserta **OpenGAPS** (*Google Apps packages*) arm64 - 7.1 - nano. Saya juga menambahkan **SuperSU** untuk mendapatkan akses root. Apabila teman-teman tidak ingin menggunakan root, **SuperSU** tidak perlu ikut diinstal.
@@ -313,11 +313,11 @@ Download semua bahan-bahan yang diperlukan. Sesuaikan dengan kebutuhan dan tipe 
 
 Selanjutnya, masukkan ke dalam *internal memory* *smartphone* XiaoMi kita. Letakkan saja di luar, agar lebih mudah di akses dari TWRP. Untuk melihat file-file tersebut, masuk ke dalam menu **Install**.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/8eo9k7wwt/gambar_06.png" onerror="imgError(this);"}
+![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/8eo9k7wwt/gambar_06.png" onerror="imgError(this);"}{:class="myImg"}
 
 Hasilnya akan seperti di bawah.
 
-![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/4iaxoc6t9/gambar_05.png" onerror="imgError(this);"}
+![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/4iaxoc6t9/gambar_05.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 5 - Bahan-bahan yang sudah dimasukkan</p>
 
 ## Instalasi Custom ROM
@@ -330,17 +330,17 @@ Masih pada menu **Install**, pilih file **.zip** secara berurutan :
 
 Untuk menambahkan lebih dari 1 **.zip**, pilih **Add more Zips**.
 
-![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/nne6y7o31/gambar_07.png" onerror="imgError(this);"}
+![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/nne6y7o31/gambar_07.png" onerror="imgError(this);"}{:class="myImg"}
 
 Lakukan terus menerus sampai keempat semua bahan yang diperlukan masuk ke dalam daftar **queued** instalasi.
 
 Kemudian lakukan eksekusi, dengan menggeser tombol biru yang ada di paling bawah.
 
-![gambar8]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zds4f31al/gambar_08.png" onerror="imgError(this);"}
+![gambar8]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zds4f31al/gambar_08.png" onerror="imgError(this);"}{:class="myImg"}
 
 Proses instalasi akan seperti di bawah ini.
 
-![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/c28m47x4d/gambar_09.png" onerror="imgError(this);"}
+![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/c28m47x4d/gambar_09.png" onerror="imgError(this);"}{:class="myImg"}
 
 Tunggu sampai proses instalasi dari semua file selesai di eksekusi.
 

@@ -73,7 +73,7 @@ Maka, kita akses dari smartphone dengan tujuan `192.168.1.5:4000`.
 
 Voila!
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QN7PjjdX/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QN7PjjdX/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Tampilan Desktop dan Mobile</p>
 
 Tampilan mobile dari web yang sedang kita kerjakan, dapat kita ekplorasi secara langsung dari smartphone.

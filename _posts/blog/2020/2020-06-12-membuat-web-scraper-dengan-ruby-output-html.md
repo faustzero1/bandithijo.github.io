@@ -139,7 +139,7 @@ Coba buka file tersebut dengan Browser.
 
 Hasilnya akan seprti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kGmFChFf/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kGmFChFf/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Tabel daftar dosen hasil web scraping</p>
 
 Selesai!

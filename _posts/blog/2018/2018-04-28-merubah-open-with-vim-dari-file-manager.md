@@ -60,7 +60,7 @@ Jangan lupa untuk mengeset atribute `Terminal=false` apabila nilainya masih `tru
 
 Apabila berhasil, nanti akan seperti ini hasilnya.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iupoeprd9/nvim-on-pcmanfm.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Open With Text Format pada PCMANFM File Manager</p>
 
 # Referensi

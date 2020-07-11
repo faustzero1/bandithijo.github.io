@@ -28,7 +28,7 @@ Hal yang saya alami tidak akan terjadi apabila saya menggunakan *clipboard manag
 
 Clipmenu adalah *clipboard manager* yang menggunakan dmenu atau Rofi sebagai antar muka.
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
 
 
@@ -222,7 +222,7 @@ Saya menggunakan :
 Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arrow key <kbd> ↓ </kbd> / <kbd> ↑ </kbd> untuk memilih, tekan <kbd>ENTER</kbd> untuk memasukkannya pada PRIMARY. Kemudian, tinggal kita *paste* di mana saja.
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Ilustrasi penggunaan Clipmenu dengan Rofi</p>
 
 # Pesan Penulis

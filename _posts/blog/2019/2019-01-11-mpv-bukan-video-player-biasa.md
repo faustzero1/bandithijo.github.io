@@ -325,11 +325,11 @@ Berikut ini adalah beberapa alasan saya:
 </div>
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - MPV menampilkan output dari banyak WebCam</p>
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Demonstrasi Horizontal Flip dan Rotate menggunakan keyboard Shortcut</p>
 
 
@@ -354,7 +354,7 @@ MPV juga dapat menampilkan dual subtitle.
 $ mpv video.mp4 --sub-file=subtitle1.srt --sub-file=subtitle2.srt --secondary-sid=2
 ```
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tTtgmqnz/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tTtgmqnz/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
 
 # Keyboard Shortcuts

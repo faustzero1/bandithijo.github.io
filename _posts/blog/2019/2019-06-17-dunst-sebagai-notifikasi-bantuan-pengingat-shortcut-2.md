@@ -22,17 +22,17 @@ Latar belakang dari ditulisnya post ini adalah, untuk menyempurnakan [post sebel
 
 Berkat pertanyaan dari Nabil, saya memikirkan kembali script untuk Keyboard Shortcut Helper ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CLxBq08Z/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CLxBq08Z/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Kalau kita lihat pada *command* di atas, saya menggunakan script bernama **help-script-browser.sh** untuk menyeleksi file dan membukanya.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wMLCxM51/gambar-02.png" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wMLCxM51/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 
 Cara ini sangat tidak praktis.
 
 Alhamdulillahnya terpikirlah cara untuk menggunakan `dmenu` saja.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WbmBQDbK/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WbmBQDbK/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
 Dengan begini, akan lebih sederhana dan singkat proses pemanggilan plain text yang berisi Keyboard Shortcut Helper.
 
@@ -265,12 +265,12 @@ Kalau sekenario di atas sudah teman-teman selesaikan, hasilnya akan seperti ini.
 
 **Rofi**
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MKgFcjbP/gambar-04.gif" onerror="imgError(this);"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MKgFcjbP/gambar-04.gif" onerror="imgError(this);"}{:class="myImg"}
 
 <br>
 **dmenu**
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5tX58P48/gambar-05.gif" onerror="imgError(this);"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5tX58P48/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
 
 Tinggal kita pasangkan pemanggilannya pada *keyboard shortcut* pada Window Manager masing-masing.
 

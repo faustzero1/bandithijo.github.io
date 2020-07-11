@@ -53,7 +53,7 @@ Misalkan:
 - RM 501 - RM 1000
 ```
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dz531bWD/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dz531bWD/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 
 # Pemecahan Masalah

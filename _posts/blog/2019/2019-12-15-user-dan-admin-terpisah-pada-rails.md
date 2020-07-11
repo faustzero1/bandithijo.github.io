@@ -78,7 +78,7 @@ Lalu, jalankan Rails server untuk sekedar melihat apakah project berhasil dijala
 $ rails s
 ```
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QdHVbnLy/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QdHVbnLy/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Default Welcome Page pada Rails Project</p>
 
 Yay! Berhasil.
@@ -869,13 +869,13 @@ $ rails s
 
 Kira-kira, seperti inilah hasilnya.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/15mvFB1T/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/15mvFB1T/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Public Page</p>
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 3 - User Login, Register Dashboard</p>
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pXsqJj2d/gambar-04.gif" onerror="imgError(this);"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pXsqJj2d/gambar-04.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Admin Login dan Register</p>
 
 Selesai!

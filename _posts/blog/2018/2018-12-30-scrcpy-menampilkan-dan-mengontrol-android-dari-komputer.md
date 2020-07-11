@@ -99,7 +99,7 @@ Apabila `adb` belum pernah di jalankan maka perintah di atas akan memanggil dan 
 
     Pada saat ini, akan muncul *window* baru yang akan menampilkan tampilan dari layar *smartphone* Andorid kita.
     <!-- IMAGE CAPTION -->
-    ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Ls6GBwK5/gambar-01.png" onerror="imgError(this);"}
+    ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Ls6GBwK5/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
     <p class="img-caption">Gambar 1 - Scrcpy saat dijalankan</p>
 
 ## Menggunakan Wifi
@@ -108,7 +108,7 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
 
 1. Langkah pertama, kita harus mengetahui **IP address** yang dimilii oleh *smartphone* kita. Langkah paling mudah menurut saya, buka menu **Settings → About Phone → Status**.
     <!-- IMAGE CAPTION -->
-    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wxZHxqKV/gambar-02.jpg" onerror="imgError(this);"}
+    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wxZHxqKV/gambar-02.jpg" onerror="imgError(this);"}{:class="myImg"}
     <p class="img-caption">Gambar 2 - Melihat IP address dari smartphone</p>
     Dapat dilihat pada gambar di atas, area yang saya kotak merah adalah IP address yang dimiliki oleh *smartphone*.
 

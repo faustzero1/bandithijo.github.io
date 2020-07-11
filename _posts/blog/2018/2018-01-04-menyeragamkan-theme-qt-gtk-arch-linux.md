@@ -60,7 +60,7 @@ Untuk penerapan konfigurasi ini, dampaknya adalah semua aplikasi yang menggunaka
 
 Konfigurasinya cukup mudah karena kita menggunakan aplikasi GUI yang bernama Qt5 Settings (`qt5ct`).
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Qt5 Settings</p>
 
 Tampilan GUI Qt5 Settings seperti pada Gambar 1. Kalian dapat melihat pada bagian “_Style_” saya menggunakan Adwaita _theme_.

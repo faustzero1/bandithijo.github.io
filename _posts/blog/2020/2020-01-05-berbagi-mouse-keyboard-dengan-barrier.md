@@ -26,7 +26,7 @@ Artinya, semakin banyak komputer/laptop, semakin banyak mouse dan keyboard yang 
 
 Saat masih menggunakan MacbookPro, beberapa tahun silam, saya pernah mencari-cari tools yang dapat mempermudah saya untuk berpindah-pindah cursor di antara dua laptop. Dalam pencarian ini, saya menemukan aplikasi yang bernama **Synergy**.[<sup>1</sup>](#referensi)
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qqPyBc24/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qqPyBc24/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Synergy</p>
 
 Synergy adalah aplikasi pembantu yang didevelop oleh Symless, yang dapat kita gunakan untuk berbagi mouse dan keyboard dengan banyak komputer  dengan usaha yang minim, yaitu, dengan menggerakkan cursor ke arah di mana posisi mesin yang lain kita tempatkan (*mapping*).
@@ -77,7 +77,7 @@ Terdapat dua tipe, Barrier GUI dan Barrier Headless
     Open-source KVM software based on Synergy (GUI)
 ```
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m21vg70q/gambar-02.png" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/m21vg70q/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Proses instalasi Barrier dengan Yay</p>
 
 Saya mencoba memasang yang GUI, untuk mendapatkan *user experience* GUI terlebih dahulu.
@@ -86,17 +86,17 @@ Bagi yang ingin memasang sendiri dari source code, dapat merujuk ke panduan yang
 
 Nah, kalo sudah dipasang, saat pertama kali dijalankan, kita akan dihadapkan pada tampilan window seperti ini.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/brW4Rv23/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/brW4Rv23/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 3 - Welcome Page dari Barrier</p>
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sfLFzT07/gambar-04.png" onerror="imgError(this);"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sfLFzT07/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Window Utama untuk Memilih Sebagai Client atau Server</p>
 
 Pada contoh di atas, saya menggunakan ThinkPad X61 (GNU/Linux) sebagai server, dan ThinkPad X260 (Windows 10) sebagai client.
 
 Server artinya, mesin yang kita setup sebagai server akan kita gunakan mouse dan keyboardnya untuk menjelajah ke mesin-mesin lain yang di setup sebagai client.
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/VN7RQVLC/gambar-05.png" onerror="imgError(this);"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/VN7RQVLC/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 5 - Konfigurasi Layout yang ada di Server</p>
 
 Nah, sepertinya segini saja dulu.

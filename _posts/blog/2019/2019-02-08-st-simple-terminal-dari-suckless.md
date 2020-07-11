@@ -30,7 +30,7 @@ Saya tertarik menggunakan **dwm**, *Dynamic Window Manager*, sebuah window manag
 
 Malam tadi, **Termite** salah satu Terminal emulator yang saya gunakan dan saya andalkan tiba-tiba saja salah dalam menampilkan glyph font untuk simbol-simbol bawaan dari **Devicons**. Saya mendapati kesalahan ini pada **NERDTree** (vim sidebar file manager) dan **Ranger**.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4N8gJ2p5/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4N8gJ2p5/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Termite (VTE-Based Terminal) dan ST</p>
 
 Saya sudah mencoba Terminal emulator yang lain, seperti gnome-terminal, xfce4-terminal, lxterminal, kitty, alacritty, semua menampilkan kesalahan yang sama seperti yang dialami oleh Termite. Permasalahan ini hanya dialami oleh Terminal yang berbasis VTE.
@@ -201,7 +201,7 @@ Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak d
 4. Glyph font yang sesuai
 5. Dapat menghandle w3m dalam Ranger dengan baik
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gcQWhNYs/gambar-02.gif" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gcQWhNYs/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
 # Kekurangan
 

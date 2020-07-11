@@ -56,19 +56,19 @@ Apa keunggulan dari Evince yang membuat saya menjadikan Evince sebagai PDF reade
 
 ## User Interface yang Sederhana
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pX1kRpZp/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pX1kRpZp/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Dual Page</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HLbtw3Cy/gambar-02.png" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HLbtw3Cy/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Single Page</p>
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/GhpzWkvW/gambar-03.png" onerror="imgError(this);"}
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/GhpzWkvW/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 3 - Side Pane: Thumbnails (kiri), Outline(tengah), Annotations(kanan)</p>
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sgkcGqbz/gambar-04.png" onerror="imgError(this);"}
+![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sgkcGqbz/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Night Mode <kbd>CTRL</kbd>+<kbd>i</kbd></p>
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XYGLJ4Hx/gambar-05.png" onerror="imgError(this);"}
+![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XYGLJ4Hx/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 5 - Highlight (Membuat dan Menghapus)</p>
 
 ## Last Page Read
@@ -137,7 +137,7 @@ Maksud dari "*default*" di sini adalah konfigurasi yang akan diterapkan kepada E
 
 Apabila teman-teman berurusan dengan edit-mengedit file PDF, misalkan seperti LaTeX yang kemudian dikonversi ke PDF menggunakan `pdflatex`. Maka setelah proses kompilasi `.tex` menjadi `.pdf` selesai, Evince akan langsung mengupdate isi dari file PDF tersebut secara otomatis.
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png" onerror="imgError(this);"}
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 7 - Vim (kiri) sebagai LaTeX editor dengan Evince (kanan)</p>
 
 

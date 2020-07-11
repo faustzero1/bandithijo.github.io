@@ -36,7 +36,7 @@ Catatan kali ini adalah contoh pertama.
 
 Kira-kira seperti ini ERD-nya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/2yPq01Rv/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/2yPq01Rv/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - ERD Single Table Inheritance contacts dengan friends dan emergencies</p>
 
 # Migrations

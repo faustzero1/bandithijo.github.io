@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/07/11'
+  url:
+  detail: |
+      Menambahkan fitur enlarge image ketika di klik
+
 - tanggal: '20/07/10'
   url:
   detail: |

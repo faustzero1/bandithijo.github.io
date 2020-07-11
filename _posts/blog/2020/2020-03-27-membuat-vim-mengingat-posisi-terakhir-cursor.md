@@ -53,16 +53,11 @@ autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   execute "normal! g`\"" |
     \ endif
-
-" save session
-autocmd VimLeave * if s:isActiveSession() | call s:saveSession() | endif
 ```
 
 Kira-kira begini penjelasannya,
 
 Jika tanda `"` mengandung nilai **X** line number lebih dari 1 dan tidak lebih dari line number dari baris terakhir di dalam file, maka posisi cursor akan di bawa ke baris **X** tersebut.
-
-Saya juga menambahkan `saveSession()` pada `autocmd VimLeave`.
 
 Nah, dengan begini, cursor akan tetap berada pada posisi terakhir ketika file atau buffer ditutup.
 
@@ -71,10 +66,10 @@ Kalau teman-teman menggunakan **Vim**, kalian dapat melihan informasi yang disim
 Kalau teman-teman menggunakan **NeoVim**, kalian dapat melihat informasi yang disimpan pada **ShaDa File** yang berada di `~/.local/share/nvim/shada/main.shada`.
 
 <br>
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1X2HrLyc/gambar-01.png" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1X2HrLyc/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - NeoVim (kiri), Vim (kanan), Posisi kursor berada di baris 59</p>
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/v8N3y65g/gambar-02.png" onerror="imgError(this);"}
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/v8N3y65g/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Data disimpan pada ShaDa file di NeoVim (kiri), Data disimpan pada .viminfo pada Vim (kanan)</p>
 
 <!-- PERTANYAAN -->

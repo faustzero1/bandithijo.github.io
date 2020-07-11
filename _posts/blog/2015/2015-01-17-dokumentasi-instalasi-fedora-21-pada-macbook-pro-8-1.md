@@ -185,7 +185,7 @@ Gedit adalah aplikasi texteditor yang secara default sudah terinstal pada Fedora
 ```
 rw,force,x-gvfs-show,noauto
 ```
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png" onerror="imgError(this);"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png" onerror="imgError(this);"}{:class="myImg"}
 Kemudian klik tombol OK. Sekarang anda bisa mencoba dengan meng-klik Macintosh HD pada file manager Nautilus pada aplikasi Files, kemudian anda akan diminta memasukkan password username anda.
 13. Kemudian check apakah anda dapat membuat folder baru, me-rename, men-delete, dan meng-copy pada direktori `/User/namauseranda/Desktop/`.
 

@@ -151,11 +151,11 @@ Seperti itu saja. Sederhana bukan?
 
     **Sebelum,**
 
-    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" onerror="imgError(this);"}
+    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 
     **Sesudah,**
 
-    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" onerror="imgError(this);"}
+    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
     Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.
 
@@ -183,7 +183,7 @@ Seperti itu saja. Sederhana bukan?
 
 # Hasilnya
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mkGQFW7P/gambar-01.gif" onerror="imgError(this);"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mkGQFW7P/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 
 # Pesan Penulis
 
