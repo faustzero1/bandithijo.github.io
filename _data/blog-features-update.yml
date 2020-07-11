@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/07/10'
+  url:
+  detail: |
+      Menghilangkan ketergantungan terhadap JQuery
+
 - tanggal: '20/05/31'
   url:
   detail: |
