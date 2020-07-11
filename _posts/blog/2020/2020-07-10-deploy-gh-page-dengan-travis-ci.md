@@ -26,7 +26,7 @@ hot:
 
 # Sekenario Masalah
 
-Kenapa kok sudah pakai Jekyll tapi malah pakai Travis CI untuk mendeploy ke GitHub Pages. Bukankan GitHub Pages sangat suport dengan Jekll?
+Kenapa kok sudah pakai Jekyll tapi malah pakai Travis CI untuk mendeploy ke GitHub Pages. Bukankan GitHub Pages sangat support dengan Jekll?
 
 Benar. Namun, kita tidak fleksibel karena akan terbatasi oleh environment yang sudah dibentuk oleh GitHub Pages.
 
@@ -254,7 +254,7 @@ end
 
 File `Rakefile` tersebut akan dijalankan setiap build.
 
-Proses knfigurasi di branch **source** telah selesai.
+Proses konfigurasi di branch **source** telah selesai.
 
 ## Konfigurasi GitHub PAT (Personal Access Token)
 
