@@ -13,6 +13,9 @@ pin:
 hot:
 ---
 
+<!-- BANNER OF THE POST -->
+<img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://i.postimg.cc/9MKp2vsR/banner-2020-07-10-deploy-gh-page-dengan-travis-ci.png" onerror="imgError(this);" alt="banner">
+
 <!-- PERHATIAN -->
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
