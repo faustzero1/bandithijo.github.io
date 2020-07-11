@@ -66,7 +66,16 @@ Saya juga menambahkan `saveSession()` pada `autocmd VimLeave`.
 
 Nah, dengan begini, cursor akan tetap berada pada posisi terakhir ketika file atau buffer ditutup.
 
+Kalau teman-teman menggunakan **Vim**, kalian dapat melihan informasi yang disimpan pada `.viminfo`.
+
 Kalau teman-teman menggunakan **NeoVim**, kalian dapat melihat informasi yang disimpan pada **ShaDa File** yang berada di `~/.local/share/nvim/shada/main.shada`.
+
+<br>
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1X2HrLyc/gambar-01.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 1 - NeoVim (kiri), Vim (kanan), Posisi kursor berada di baris 59</p>
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/v8N3y65g/gambar-02.png" onerror="imgError(this);"}
+<p class="img-caption">Gambar 2 - Data disimpan pada ShaDa file di NeoVim (kiri), Data disimpan pada .viminfo pada Vim (kanan)</p>
 
 <!-- PERTANYAAN -->
 <div class="blockquote-yellow">
