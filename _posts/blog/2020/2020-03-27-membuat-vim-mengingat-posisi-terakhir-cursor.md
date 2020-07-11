@@ -43,16 +43,37 @@ Maka dari itu saya memilih untuk tidak menggunakan kedua plugin tersebut. Karena
 
 Cukup tambahkan konfigurasi berikut ini pada `.vimrc`.
 
+Kita akan menggunakan bantuan viminfo agar dapat mengingat **marks**.
+
+Tanda `"` akan mengingat posisi cursor di dalam buffer saat kita keluar (delete buffer/keluar vim).
+
 ```viml
 " restore cursor position when opening file
 autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   execute "normal! g`\"" |
     \ endif
+
+" save session
+autocmd VimLeave * if s:isActiveSession() | call s:saveSession() | endif
 ```
 
-Nah, dengan begini, cursor akan tetap berada pada posisi terakhir ketika file ditutup.
+Kira-kira begini penjelasannya,
 
+Jika tanda `"` mengandung nilai **X** line number lebih dari 1 dan tidak lebih dari line number dari baris terakhir di dalam file, maka posisi cursor akan di bawa ke baris **X** tersebut.
+
+Saya juga menambahkan `saveSession()` pada `autocmd VimLeave`.
+
+Nah, dengan begini, cursor akan tetap berada pada posisi terakhir ketika file atau buffer ditutup.
+
+Kalau teman-teman menggunakan **NeoVim**, kalian dapat melihat informasi yang disimpan pada **ShaDa File** yang berada di `~/.local/share/nvim/shada/main.shada`.
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title">Apa itu ShaDa File?</div>
+<p><i>If you exit Vim and later start it again, you would normally lose a lot of information</i>.</p>
+<p><i>The ShaDa file can be used to remember that information, which enables you to continue where you left off.  Its name is the abbreviation of <b>SHAred DAta</b> because it is used for sharing data between Neovim sessions</i>.</p>
+</div>
 
 
 
@@ -65,3 +86,9 @@ Nah, dengan begini, cursor akan tetap berada pada posisi terakhir ketika file di
 
 1. [github.com/mhinz/vim-galore#restore-cursor-position-when-opening-file](https://github.com/mhinz/vim-galore#restore-cursor-position-when-opening-file){:target="_blank"}
 <br>Diakses tanggal: 2020/03/27
+
+2. [StackOverflow - How to make vim restore last cursor position for CURRENT buffer?](https://stackoverflow.com/a/57261040/4862516){:target="_blank"}
+<br>Diakses tanggal: 2020/07/11
+
+3. [neovim.io/doc/user/starting.html#shada](https://neovim.io/doc/user/starting.html#shada){:target="_blank"}
+<br>Diakses tanggal: 2020/07/11
