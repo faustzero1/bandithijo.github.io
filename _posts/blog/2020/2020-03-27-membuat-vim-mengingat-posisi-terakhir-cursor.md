@@ -101,3 +101,6 @@ Kalau teman-teman menggunakan **NeoVim**, kalian dapat melihat informasi yang di
 
 3. [neovim.io/doc/user/starting.html#shada](https://neovim.io/doc/user/starting.html#shada){:target="_blank"}
 <br>Diakses tanggal: 2020/07/11
+
+4. [vim.fandom.com/wiki/Using_marks](https://vim.fandom.com/wiki/Using_marks){:target="_blank"}
+<br>Diakses tanggal: 2020/07/11
