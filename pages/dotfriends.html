@@ -11,7 +11,7 @@ toc: true
     <div style="margin-top:10px;"></div>
     <div class="dotfriends-page-img">
     <!-- <img src="{{ site.lazyload.logo_blank }}" data&#45;echo="/assets/img/dotfriends/{{ friend.photo }}.jpg" alt="profile_picture"> -->
-      <img src="{{ site.lazyload.logo_blank }}" data-echo="{{ friend.photo }}" alt="">
+      <img src="{{ site.lazyload.logo_blank }}" data-echo="{{ friend.photo }}" onerror="imgError(this);" alt="">
     </div><!-- dotfriends-box-img -->
     <div class="dotfriends-page-detail">
       <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="{{ friend.nama | downcase }}">{{ friend.nama }}</h3>

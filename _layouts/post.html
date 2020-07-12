@@ -31,7 +31,12 @@ layout: baseof
               or page.category == 'arch'
               or page.category == 'python' %}
               <div style="text-align:center; margin:0 0 10px 0;"></div>
+
               {% include penulis.html %}
+
+              {% if page.contributors.size > 0 %}
+                {% include kontributor.html %}
+              {% endif %}
             {% endif %}
 
             <div style="clear:both;"></div>

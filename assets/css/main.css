@@ -1577,11 +1577,25 @@ button.active {
   float: left;
   margin: 0 10px 0 0;
   width: 14%;
+  border: 1px solid #C4BBB0;
+  border-radius: 50%;
 }
 
 .penulis-text {
   padding-top: 0;
   font-size: 14px;
+}
+
+/* kontributor ------------------------------------------------------------ */
+.kontributor-box {
+  display: flex;
+}
+
+.kontributor-img {
+  margin: 2px;
+  width: 7%;
+  border: 1px solid #C4BBB0;
+  border-radius: 50%;
 }
 
 /* collapsible ------------------------------------------------------------ */
@@ -1898,6 +1912,11 @@ a.disqus_button {
     float: left;
     margin: 0 10px 0 0;
     width: 5.5em;
+  }
+
+  .kontributor-img {
+    margin: 2px;
+    width: 4%;
   }
 
   .dotfriends-page-img img {
@@ -2686,11 +2705,10 @@ a.disqus_button {
     margin: 0 auto;
   }
 
-  .penulis-text {
-    /* text-align: center; */
-    /* padding-top: 10px; */
+  .kontributor-img {
+    margin: 2px;
+    width: 7%;
   }
-
 }
 
 /* ------------------------------------------------------------------------ */
@@ -2724,9 +2742,9 @@ a.disqus_button {
     margin: 0 auto;
   }
 
-  .penulis-text {
-    /* text-align: center; */
-    /* padding-top: 10px; */
+  .kontributor-img {
+    margin: 2px;
+    width: 7%;
   }
 
   aside p.sidebar-isi,
@@ -2771,6 +2789,11 @@ a.disqus_button {
 
   button.active {
     background-color: #404040;
+  }
+
+  .kontributor-img {
+    margin: 2px;
+    width: 13%;
   }
 }
 
