@@ -14,6 +14,7 @@ tags:
 # Tips, Tools, Ulasan, Vim, Wine, XFCE
 pin:
 hot:
+contributors: []
 ---
 
 # REREFENSI

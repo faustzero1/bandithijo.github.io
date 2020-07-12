@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

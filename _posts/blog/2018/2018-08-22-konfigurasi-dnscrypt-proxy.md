@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Security', 'Tips', 'Arch Linux']
 pin:
 hot: true
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

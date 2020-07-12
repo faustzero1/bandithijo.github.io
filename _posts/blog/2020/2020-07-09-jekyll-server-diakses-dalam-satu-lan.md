@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Jekyll']
 pin:
 hot:
+contributors: []
 ---
 
 # Sekenario Masalah

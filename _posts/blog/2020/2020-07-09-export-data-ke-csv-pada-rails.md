@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Rails']
 pin:
 hot:
+contributors: []
 ---
 
 # Prerequisite

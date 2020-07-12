@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Rails', 'jQuery']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

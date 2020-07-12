@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['ThinkPad', 'Ulasan']
 pin:
 hot:
+contributors: []
 ---
 
 {% include nouptodate.html %}

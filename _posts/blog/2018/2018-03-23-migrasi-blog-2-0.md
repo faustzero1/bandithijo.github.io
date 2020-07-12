@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Jekyll', 'Ulasan']
 pin:
 hot: true
+contributors: []
 ---
 
 # Latar Belakang

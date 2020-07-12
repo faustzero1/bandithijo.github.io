@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Arch Linux', 'Tips', 'Ulasan']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

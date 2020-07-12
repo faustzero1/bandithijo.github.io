@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Terminal', 'Tools', 'I3WM', 'Ulasan']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Ruby']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- INFORMATION -->

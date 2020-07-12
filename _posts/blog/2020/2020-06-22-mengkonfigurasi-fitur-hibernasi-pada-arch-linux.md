@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Arch Linux']
 pin:
 hot:
+contributors: []
 ---
 
 # Pendahuluan

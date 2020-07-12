@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Tools', 'Terminal']
 pin:
 hot: true
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Arch Linux', 'Ulasan']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- banner of the post -->

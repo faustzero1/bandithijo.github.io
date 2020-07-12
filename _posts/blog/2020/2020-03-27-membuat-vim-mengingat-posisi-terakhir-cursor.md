@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Vim']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

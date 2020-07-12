@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['BSPWM']
 pin:
 hot:
+contributors: []
 ---
 
 # Prakata

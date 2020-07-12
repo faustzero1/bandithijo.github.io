@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['XFCE', 'Tips', 'Terminal']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

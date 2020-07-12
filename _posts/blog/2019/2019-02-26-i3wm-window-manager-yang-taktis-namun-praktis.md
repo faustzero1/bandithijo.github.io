@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['I3WM', 'Ulasan', 'Tips']
 pin:
 hot: true
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

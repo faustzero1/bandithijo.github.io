@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Database', 'Tools']
 pin:
 hot: true
+contributors: []
 ---
 
 # TUGAS 1

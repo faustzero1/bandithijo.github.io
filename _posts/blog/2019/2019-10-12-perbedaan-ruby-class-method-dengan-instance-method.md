@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Tips', 'Ruby', 'Rails']
 pin:
 hot:
+contributors: []
 ---
 
 <!-- BANNER OF THE POST -->

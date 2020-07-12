@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['OSX', 'Tips']
 pin:
 hot:
+contributors: []
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>

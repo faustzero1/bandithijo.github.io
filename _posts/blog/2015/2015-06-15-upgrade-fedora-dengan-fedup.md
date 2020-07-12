@@ -11,6 +11,7 @@ category: 'blog'
 tags: ['Ulasan']
 pin:
 hot:
+contributors: []
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>
