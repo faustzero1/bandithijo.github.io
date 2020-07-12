@@ -6,7 +6,7 @@
 <style>
   /* Style the Image Used to Trigger the Modal */
   .myImg {
-    cursor: pointer;
+    cursor: zoom-in;
     transition: 0.3s;
   }
 
@@ -15,8 +15,8 @@
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
+    position: fixed; /* Stay in place */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -32,31 +32,13 @@
     display: block;
     max-width: 100%;
     max-height: 100%;
-  }
-
-  /* Add Animation - Zoom in the Modal */
-  .modal-content {
-    -webkit-animation-name: zoom;
-    -webkit-animation-duration: 0.6s;
-    animation-name: zoom;
-    animation-duration: 0.6s;
-  }
-
-  @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)}
-    to {-webkit-transform:scale(1)}
-  }
-
-  @keyframes zoom {
-    from {transform:scale(0)}
-    to {transform:scale(1)}
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   /* 100% Image Width on Smaller Screens */
   @media only screen and (max-width: 700px){
-    .modal {
-      padding-top: 55px;
-    }
     .modal-content {
       width: 100%;
     }
