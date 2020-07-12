@@ -126,11 +126,11 @@ Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak menga
 
 # Gambar
 ## Gambar Besar
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxBZdyR4/gambar-01.png"}
+![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxBZdyR4/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Contoh gambar besar</p>
 
 ## Gambar Kecil
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1b8SQzs/gambar-02.png"}
+![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1b8SQzs/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Contoh gambar kecil</p>
 
 # Bullets & Numbering

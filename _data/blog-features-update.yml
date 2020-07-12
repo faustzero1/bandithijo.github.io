@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/07/12'
+  url:
+  detail: |
+      Menambahkan dynamix author & contributor on post
+
 - tanggal: '20/07/11'
   url:
   detail: |
