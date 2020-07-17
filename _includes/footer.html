@@ -9,13 +9,13 @@
         Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
         Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
         Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
-        Terakhir digenerate: <b>{{ site.time | date: '%d/%m/%Y' }}</b>
+        Terakhir update: <b>{{ site.time | date: '%d/%m/%Y' }}</b>
       </p>
       <p class="footer-menu">
         <br>
         <a href="/contact/">Contact</a> |&nbsp;
         <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer">Twitter</a> |&nbsp;
-        <a rel="me" href="https://gitlab.com/bandithijo" target="_blank" rel="noreferrer">GitLab</a> |&nbsp;
+        <a rel="me" href="https://bandithijo.github.io/youtube" target="_blank" rel="noreferrer">YouTube</a> |&nbsp;
         <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
         {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
           <a href="/feed/blog.xml" target="_blank">RSS</a>
@@ -27,6 +27,7 @@
           <a href="/feed/blog.xml" target="_blank">RSS</a>
         {% endif %}
       </p>
+
 
       <div class="tab">
         <button class="tablinks active" onclick="openPlatform(event, 'gopay')" id="defaultOpen">GoPay</button>
@@ -69,34 +70,19 @@
         <a href="https://travis-ci.org" target="_blank" rel="noopener">
           <img class="footer-img-travisci" src="/assets/img/logo/logo_travisci.png">
         </a>
-        {% comment %} <a href="https://gitlab.com/bandithijo" target="_blank" rel="noopener"> {% endcomment %}
-        {% comment %}   <img class="footer-img-gitlab" src="/assets/img/logo/logo_gitlab.png"> {% endcomment %}
-        {% comment %} </a> {% endcomment %}
-        {% comment %} <a href="https://netlify.com" target="_blank" rel="noopener"> {% endcomment %}
-        {% comment %}   <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png"> {% endcomment %}
-        {% comment %} </a> {% endcomment %}
       </div><!-- tech-i-used-desktop -->
 
       <div class="tech-i-used-mobile">
-        {% comment %} <a href="https://netlify.com/" target="_blank" rel="noopener"> {% endcomment %}
-        {% comment %}   <img class="footer-img-1" src="/assets/img/logo/logo_netlify_mobile.png"> {% endcomment %}
-        {% comment %} </a> {% endcomment %}
         <a href="https://travis-ci.org/" target="_blank" rel="noopener">
           <img class="footer-img-1" src="/assets/img/logo/logo_travisci_mobile.png">
         </a>
         <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer">
           <img class="footer-img-2" src="/assets/img/logo/logo_github_mobile.png">
         </a>
-        {% comment %} <a href="https://gitlab.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer"> {% endcomment %}
-        {% comment %}   <img class="footer-img-4" src="/assets/img/logo/logo_gitlab_mobile.png"> {% endcomment %}
-        {% comment %} </a> {% endcomment %}
         <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
           <img class="footer-img-3" src="/assets/img/logo/logo_jekyll_mobile.png">
         </a>
       </div><!-- tech-i-used-mobile -->
-  {% comment %}
-  <p style="margin-top:-25px;"><img class="footer-bedge-1" src="https://api.netlify.com/api/v1/badges/cd22ac2e-8bbd-4d4e-adf8-06c60ea63038/deploy-status"></p>
-  {% endcomment %}
     </div><!-- footer-line -->
     </div><!-- container-innner -->
   </div><!-- footer container -->
