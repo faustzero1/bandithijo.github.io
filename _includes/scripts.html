@@ -4,35 +4,5 @@
 <script type="text/javascript" src="/assets/js/footer-donasi.js"></script>
 {% if page.layout == 'post' or page.layout == 'page' %}
 <script type="text/javascript" src="/assets/js/aside.js"></script>
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
 {% endif %}
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript">
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-//var img = $('.myImg');
-//var modalImg = $("#modal-img");
-//$('.myImg').click(function(){
-//    modal.style.display = "block";
-//    var newSrc = this.src;
-//    modalImg.attr('src', newSrc);
-//});
-
-// Convert JQuery to Javascript
-var img = document.getElementsByClassName('myImg')
-var modalImg = document.getElementById('modal-img')
-img.addEventListener('click', function() {
-    modal.style.display = "block";
-    modalImg.src = img.dataset.src
-});
-
-// Get the <span> element that closes the modal
-var close = document.getElementsByClassName("modal")[0];
-
-// When the user clicks image or modal, close the modal
-close.onclick = function() {
-  modal.style.display = "none";
-}
-</script>
