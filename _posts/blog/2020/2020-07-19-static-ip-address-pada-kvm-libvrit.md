@@ -353,11 +353,11 @@ Terima kasih.
 1. [KVM libvirt assign static guest IP addresses using DHCP on the virtual machine](https://www.cyberciti.biz/faq/linux-kvm-libvirt-dnsmasq-dhcp-static-ip-address-configuration-for-guest-os/){:target="_blank"}
 <br>Diakses tanggal: 2020/07/19
 
-2. [](){:target="_blank"}
+2. [20.36. Displaying Per-guest Virtual Machine Information](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/virtualization_deployment_and_administration_guide/sect-managing_guest_virtual_machines_with_virsh-displaying_per_guest_virtual_machine_information){:target="_blank"}
 <br>Diakses tanggal: 2020/07/19
 
-3. [](){:target="_blank"}
+3. [14.22.6. Editing a Virtual Network's XML Configuration File](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/virtualization_administration_guide/sub-sect-virtual_networking_commands-eding_a_virtual_networks_xml_configuration_file){:target="_blank"}
 <br>Diakses tanggal: 2020/07/19
 
-4. [](){:target="_blank"}
+4. [libvirt - 2.61. net-edit](https://libvirt.org/sources/virshcmdref/html/sect-net-edit.html){:target="_blank"}
 <br>Diakses tanggal: 2020/07/19
