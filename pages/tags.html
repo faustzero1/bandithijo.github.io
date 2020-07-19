@@ -11,7 +11,8 @@ permalink: '/tags/'
     <div style="clear:both;">
       <img class="post-header-img" src="/assets/img/logo/logo_tags.svg">
       <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;text-transform:capitalize;"id="{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">&nbsp;{{ tag[0] | camelcase }}</h3>
-    </div>
+    </div><!-- clear:both -->
+    <div style="clear:both;">
     {% assign pages_list = tag[1] %}
     {% for post in pages_list %}
       {% if post.title != null %}
@@ -21,17 +22,24 @@ permalink: '/tags/'
           <div class="post-title-tags">
             <span class="tags-hollow">BLOG</span>
           </div>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
+          <p class="post-details-index">
+            <a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a>
+          </p>
           {% elsif post.category == 'vlog' %}
-          <p class="post-title-index">+&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></p>
+            <p class="post-title-index">
+              +&nbsp;<a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+            </p>
           <div class="post-title-tags">
             <span class="tags-hollow">VLOG</span>
           </div>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a></p>
+          <p class="post-details-index">
+            <a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a>
+          </p>
           {% endif %}
         {% endif %}
       {% endif %}
     {% endfor %}
+    </div><!-- clear:both -->
     {% assign pages_list = nil %}
     {% assign group = nil %}
   {% endfor %}
