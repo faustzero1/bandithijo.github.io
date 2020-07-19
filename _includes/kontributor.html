@@ -1,13 +1,21 @@
 <div class="noselect">
 <h1 style="font-size:2em;">Kontributor</h1>
 <div class="kontributor-box">
-  {% assign contributors = page.contributors %}
-  {% for contributor in contributors %}
-    <div class="kontributor-img">
-      <a href="https://github.com/{{ contributor }}" style="border-bottom:none;" target="_blank">
-        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/{{ contributor }}.png" alt="{{ contributor }}" onerror="imgError(this);">
-      </a>
-    </div><!-- penulis -->
-  {% endfor %}
+  {% if page.contributors.size > 0 %}
+    {% assign contributors = page.contributors %}
+    {% for contributor in contributors %}
+      <div class="kontributor-img">
+        <a href="https://github.com/{{ contributor }}" style="border-bottom:none;" target="_blank">
+          <img style="margin:0 auto;border-radius:50%;" src="https://github.com/{{ contributor }}.png" alt="{{ contributor }}" onerror="imgError(this);">
+        </a>
+      </div><!-- penulis -->
+    {% endfor %}
+  {% endif %}
+
+<blockquote style="width:100%;" class="penulis-text">
+  <p>Sekarang teman-teman dapat ikut berkontribusi di BanditHijo (R)-Chive, seperti: menulis artikel atau memperbaiki tulisan.</p>
+  <p>Kalau tertarik, bisa baca-baca panduan untuk ikut berkontribusi pada tautan di bawah yaa.</p>
+  <p><a href="/kontributor/"><b>Panduan Berkontribusi</b></a></p>
+</blockquote>
 </div>
 <div>
