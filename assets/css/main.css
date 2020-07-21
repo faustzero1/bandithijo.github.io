@@ -22,7 +22,6 @@ Created : Maret 2018
 @import url(/assets/css/add-to-homescreen.css);
 
 body {
-  /* background: #F3EBE0; */
   background: #D7CCBC;
   font: 15px/1.5 'Fira Sans';
   letter-spacing: 0;
@@ -53,8 +52,6 @@ pre {
 }
 
 pre.highlight {
-  /* margin-top: 15px !important; */
-  /* margin-bottom: 15px !important; */
   border-radius: 5px;
 }
 
@@ -116,10 +113,7 @@ mark {
 .container {
   background: #FFF;
   /* width: menggunakan % untuk responsif design */
-  /* max-width: 67%; */
-  /* max-width: 68%; */
   max-width: 940px;
-  /* max-width: 74%; */
   /* untuk membuat halaman menjadi center */
   margin: auto;
   /* untuk mencegah parameter float terabaikan */
@@ -202,8 +196,6 @@ kbd {
 
 /* Header ----------------------------------------------------------------- */
 #header {
-  /* background: #DAD0C4; */
-  /* border-bottom: 1px solid #C4BBB0; */
   background: #B2A493;
   border-bottom: 1px solid #9B9185;
   margin: 0;
@@ -222,7 +214,6 @@ kbd {
 }
 
 #header .container-inner {
-  /* background: #008352; */
   border-radius: 8px 8px 0 0;
   height: 100%;
   margin: 0 auto;
@@ -251,17 +242,10 @@ kbd {
 
 /* Navigation Bar --------------------------------------------------------- */
 #header .nav ul {
-  /* background: #0C4B33; */
   margin-top: 2.7em;
   padding: 13px 15px;
   min-height: 22px;
   text-align: right;
-  /* navbar fixed */
-  /* position: fixed; */
-  /* right: 16.5%; */
-  /* left: 16.5%; */
-  /* BORDER TOP */
-  /* border-top: 1.8px solid #05452D; */
 }
 
 #header .nav li {
@@ -270,7 +254,6 @@ kbd {
 }
 
 #header .nav li a {
-  /* font-family: 'Ubuntu Condensed'; */
   font-size: 16px;
   font-weight: bold;
   color: #FFF;
@@ -311,13 +294,11 @@ kbd {
 /* Header Logo ------------------------------------------------------------ */
 #header .logo {
   float: left;
-  /* margin: 1.5% 5.5% 0 0; */
   margin: 0.7% 0 0 0;
 }
 
 #header .logo img {
   width: 80%;
-  /* width: 200px; */
 
 }
 
@@ -368,20 +349,14 @@ article.homepage p {
 
 .post {
   padding: 21px 20px;
-  /* width: 600px; */
   width: 66.0%;
   float: left;
-  /* display: flex; */
-  /* flex-direction: row; */
 }
 
 .post-wide {
   padding: 21px 20px;
   width: auto !important;
   float: none;
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* flex-wrap: wrap; */
 }
 
 img.post-header-img {
@@ -435,8 +410,6 @@ p.post-title-index a {
 }
 
 p.post-title-index a:hover {
-  /* color: #00603C; */
-  /* font-weight: bold; */
   color: #0C4B33;
   border-bottom: none;
 }
@@ -447,15 +420,12 @@ p.post-title-index a:hover {
 }
 
 .post-details {
-  /* background: #9E9E9E; */
   background: #626262;
   color: #FFF;
   text-align: center;
   font-size: 11px;
   font-weight: bold;
   width: 26em;
-  /* margin-left: 43px; */
-  /* margin-top: -1px; */
   position: relative;
   top: -7px;
   padding: 0 2px;
@@ -547,7 +517,6 @@ p.post-details-index-pin:before {
 
 /* Sidebar ---------------------------------------------------------------- */
 aside.sidebar {
-  /* width: 245px; */
   width: 27%;
   float: right;
   margin-right: 20px;
@@ -561,12 +530,10 @@ aside p.sidebar-isi {
 }
 
 aside .sidebar-body {
-  /* background:#E9FCF4; */
   background:#EBFFB4;
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
   width: 91%;
-  /* margin: 25px 20px 25px -20px; */
   margin: 25px 0 0 0;
   padding: 5px 10px;
 }
@@ -576,7 +543,6 @@ aside .sidebar-body-rss {
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
   width: 91%;
-  /* margin: 25px 20px 25px -20px; */
   margin: 25px 0;
   padding: 5px 10px;
 }
@@ -586,7 +552,6 @@ aside .sidebar-body-hollow {
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
   width: 91%;
-  /* margin: 25px 20px 25px -20px; */
   margin: 25px 0;
   padding: 5px 10px;
   border: 1px dashed #8A8A8A;
@@ -597,18 +562,15 @@ aside .sidebar-body-helper {
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
   width: 91%;
-  /* margin: 25px 20px 25px -20px; */
   margin: 25px 0;
   padding: 5px 10px;
   display: none;
 }
 
 aside .sidebar-body-img {
-  /* background:#E9FCF4; */
   border-radius: 10px;
   width: 99%;
   margin: 25px 20px 25px -20px;
-  /* padding: 5px 10px; */
 }
 
 aside.sidebar h1 {
@@ -877,7 +839,6 @@ a.btn-blue-c {
 
 /* Notification Box ------------------------------------------------------- */
 article.homepage .notif-home {
-  /* width: 55%; */
   width: 530px;
   padding: 1em 1em;
   font-size: 95%;
@@ -885,10 +846,8 @@ article.homepage .notif-home {
   margin: auto;
   margin-top: 10px;
   margin-bottom: 30px;
-  /* border: 1px solid #00603C; */
   border: 1px solid #000;
   border-radius: 5px;
-  /* background:#EBFFB4; */
 }
 
 article.homepage .notif-home p,
@@ -1072,8 +1031,6 @@ p.notif-post {
 .tab {
   overflow: hidden;
   float: right;
-  /* margin-top: -208px !important; */
-  /* margin-right: 290px !important; */
   margin-right: -65px !important;
   margin-bottom: -20px !important;
   position: relative;
@@ -1106,7 +1063,6 @@ button.active {
   color: #404040;
   border: 1px solid #404040;
   border-radius: 5px;
-  /* background:#FFF; */
   display: flex;
   float: right;
   margin: auto;
@@ -1152,7 +1108,6 @@ button.active {
 .notif-info-col-2 {
   flex: 30%;
   border-left: 1px dashed #404040;
-  /* background-color: #B7B8B8; */
   padding: 5px !important;
 }
 
@@ -1198,8 +1153,6 @@ button.active {
   margin-left: 1px;
   color: #FFF;
   font-size: 10px;
-  /* font-weight: bold; */
-  /* animation: 1s blink infinite; */
   position: relative;
   top: -2px;
 }
@@ -1215,8 +1168,6 @@ button.active {
   margin-left: 1px;
   color: #FFF;
   font-size: 10px;
-  /* font-weight: bold; */
-  /* animation: 1s blink infinite; */
   position: relative;
   top: -2px;
 }
@@ -1228,8 +1179,6 @@ button.active {
   margin-left: 1px;
   color: #FFF;
   font-size: 10px;
-  /* font-weight: bold; */
-  /* animation: 1s blink infinite; */
   position: relative;
   top: -2px;
 }
@@ -1429,13 +1378,8 @@ button.active {
 .banner-home img {
   background: #000;
   width: 100%;
-  /* border-bottom: 40px solid #000; */
   border-radius: 6px;
-  /* border-radius: 0; */
   justify-content: center;
-  /* position: relative; */
-  /* right: 3px; */
-  /* top: -20px; */
 }
 
 /* font-latin ------------------------------------------------------------- */
@@ -1461,8 +1405,6 @@ button.active {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 0.7em 0.7em;
-  /* color: #444d56; */
-  /* color: #24292E; */
   color: #000;
   /* background color quote */
   background: #FBD7D2;
@@ -1482,8 +1424,6 @@ button.active {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
-  /* color: #444d56 !important; */
-  /* color: #24292E !important; */
   color: #000 !important;
   border-bottom: 1px dashed #BE7000 !important;
   margin-top: 0 !important;
@@ -1497,8 +1437,6 @@ button.active {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 0.7em 0.7em;
-  /* color: #444d56; */
-  /* color: #24292E; */
   color: #000;
   /* background color quote */
   background: #BDDFF1;
@@ -1518,8 +1456,6 @@ button.active {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
-  /* color: #444d56 !important; */
-  /* color: #24292E !important; */
   color: #000 !important;
   border-bottom: 1px dashed #0B4AB9 !important;
   margin-top: 0 !important;
@@ -1533,8 +1469,6 @@ button.active {
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 0.7em 0.7em;
-  /* color: #444d56; */
-  /* color: #24292E; */
   color: #000;
   /* background color quote */
   background: #F3E681;
@@ -1554,8 +1488,6 @@ button.active {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
   font-size: 1.5em;
   font-weight: bold;
-  /* color: #444d56 !important; */
-  /* color: #24292E !important; */
   color: #000 !important;
   border-bottom: 1px dashed #BE7000 !important;
   margin-top: 0 !important;
@@ -1630,7 +1562,6 @@ button.active {
 }
 
 .dotfriends-page-img img {
-  /* background: yellow; */
   border-radius: 50%;
   float: left;
   width: 25%;
@@ -1640,7 +1571,6 @@ button.active {
 }
 
 .dotfriends-page-detail {
-  /* background: green; */
   float: left;
   width: 72%;
   margin-left: 15px;
@@ -1655,11 +1585,9 @@ button.active {
 
 /* log-page --------------------------------------------------------------- */
 .log-page {
-  /* background: red; */
   width: 100%;
   margin-left: 0;
   padding-left: 20px;
-  /* border-left: 1px dashed #A09991; */
 }
 
 .log-page ul {
@@ -1667,7 +1595,6 @@ button.active {
 }
 
 .log-page ul li {
-  /* float:left; */
   text-align: left;
   /* untuk indentasi list */
   padding-left: 77px;
@@ -1742,7 +1669,6 @@ ul.chkbox li.chkbox-checked:before {
 
 /* BREADCRUMBS ------------------------------------------------------------ */
 .breadcrumbs {
-  /* margin-top: 5px; */
   font-size: 11px;
 }
 
@@ -1852,7 +1778,6 @@ a.disqus_button {
 
 .newsline-high {
   height: 25px;
-  /* background-color: #FF1800; */
   background: repeating-linear-gradient(
   45deg,
   #FF422F,
@@ -1863,7 +1788,6 @@ a.disqus_button {
 
 .newsline-low {
   height: 25px;
-  /* background-color: #FF1800; */
   background: repeating-linear-gradient(
   45deg,
   #CA9900,
@@ -1884,7 +1808,6 @@ a.disqus_button {
 
 /* MODAL ------------------------------------------------------------------- */
 
-/* Style the Image Used to Trigger the Modal */
 .myImg {
   cursor: zoom-in;
   transition: 0.3s;
@@ -1892,21 +1815,19 @@ a.disqus_button {
 
 .myImg:hover {opacity: 0.9;}
 
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  z-index: 1; /* Sit on top */
-  position: fixed; /* Stay in place */
+  display: none;
+  z-index: 1;
+  position: fixed;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
 }
 
-/* Modal Content (Image) */
 img.modal-content {
   margin: auto;
   display: block;
@@ -1917,7 +1838,6 @@ img.modal-content {
   transform: translateY(-50%);
 }
 
-/* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
   .modal-content {
     width: 100%;
@@ -1928,7 +1848,7 @@ img.modal-content {
 
 /* ------------------------------------------------------------------------ */
 /*
-████     ████              ██ ██
+ ████     ████              ██ ██
 ░██░██   ██░██             ░██░░
 ░██░░██ ██ ░██  █████      ░██ ██  ██████
 ░██ ░░███  ░██ ██░░░██  ██████░██ ░░░░░░██
@@ -1937,15 +1857,15 @@ img.modal-content {
 ░██        ░██░░██████░░██████░██░░████████
 ░░         ░░  ░░░░░░  ░░░░░░ ░░  ░░░░░░░░
 
-███████                           ██
-██░░░░░██                         ░░
-██     ░░██  ██   ██  █████  ██████ ██  █████   ██████
+   ███████                           ██
+  ██░░░░░██                         ░░
+ ██     ░░██  ██   ██  █████  ██████ ██  █████   ██████
 ░██      ░██ ░██  ░██ ██░░░██░░██░░█░██ ██░░░██ ██░░░░
 ░██    ██░██ ░██  ░██░███████ ░██ ░ ░██░███████░░█████
 ░░██  ░░ ██  ░██  ░██░██░░░░  ░██   ░██░██░░░░  ░░░░░██
 ░░███████ ██░░██████░░██████░███   ░██░░██████ ██████
 ░░░░░░░ ░░  ░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░ ░░░░░░
- */
+*/
 /* ------------------------------------------------------------------------ */
 /* Untuk mengcover layar fullhd */
 @media (min-width: 1920px) {
@@ -1962,7 +1882,6 @@ img.modal-content {
   }
 
   .dotfriends-page-img img {
-    /* background: yellow; */
     width: 15%;
     top: 10%;
     position: relative;
@@ -1971,31 +1890,23 @@ img.modal-content {
 
   .container {
     max-width: 74%;
-    /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
 
   .post {
     padding: 21px 20px;
-    /* width: 600px; */
     width: 67.0%;
     float: left;
-    /* display: flex; */
-    /* flex-direction: row; */
   }
 
   .post-wide {
     padding: 21px 20px;
     width: auto;
     float: none;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
   }
 
   aside.sidebar {
     width: 25%;
-    /* width: 245px; */
     float: right;
     margin-right: 20px;
   }
@@ -2004,33 +1915,23 @@ img.modal-content {
 @media (max-width: 1320px) {
   .container {
     max-width: 74%;
-    /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
 
   .post {
     padding: 21px 20px;
-    /* width: 600px; */
-    /* width: 67.0%; */
     width: 68.0%;
     float: left;
-    /* display: flex; */
-    /* flex-direction: row; */
   }
 
   .post-wide {
     padding: 21px 20px;
     width: auto;
     float: none;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
   }
 
   aside.sidebar {
-    /* width: 24%; */
     width: 25%;
-    /* width: 245px; */
     float: right;
     margin-right: 20px;
   }
@@ -2044,44 +1945,32 @@ img.modal-content {
 
   #header .logo {
     float: left;
-    /* margin: 1.5% 5.5% 0 0; */
     margin: 1.0% 0 0 0;
   }
 
   #header .logo img {
     width: 76%;
-    /* width: 200px; */
   }
 
   .container {
     max-width: 940px;
-    /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
 
   .post {
     padding: 21px 20px;
-    /* width: 600px; */
-    /* width: 67.0%; */
     width: 68.0%;
     float: left;
-    /* display: flex; */
-    /* flex-direction: row; */
   }
 
   .post-wide {
     padding: 21px 20px;
     width: auto;
     float: none;
-    /* display: flex; */
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
   }
 
   aside.sidebar {
-    /* width: 24%; */
     width: 25%;
-    /* width: 245px; */
     float: right;
     margin-right: 20px;
   }
@@ -2095,18 +1984,15 @@ img.modal-content {
 
   #header .logo {
     float: left;
-    /* margin: 1.5% 5.5% 0 0; */
     margin: 1.5% 0 0 0;
   }
 
   #header .logo img {
     width: 73%;
-    /* width: 200px; */
   }
 
   .container {
     max-width: 940px;
-    /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
 }
@@ -2166,7 +2052,6 @@ img.modal-content {
   #header .container {
     padding-top: 49px;
     height: 95vh;
-    /* background: #008352 url('') no-repeat; */
     background: repeating-linear-gradient(
     135deg,
     #007D4F,
@@ -2260,7 +2145,6 @@ img.modal-content {
     display: block;
     background: #0C4B33;
     border-top: none;
-    /* margin: -5px 0 0 -8px; */
     margin: 0 0 0 -8px;
   }
 
@@ -2304,7 +2188,6 @@ img.modal-content {
   }
 
   p.post-title-index a {
-    /* padding-right: 20%; */
     word-break: keep-all;
   }
 
@@ -2359,7 +2242,6 @@ img.modal-content {
   aside .sidebar-body {
     float: none;
     width: 100%;
-    /* margin: 0 0 10px 0; */
     margin: 0;
     padding: 10px 0 20px 0;
     border-radius: 0;
@@ -2369,7 +2251,6 @@ img.modal-content {
   aside .sidebar-body-rss {
     float: none;
     width: 100%;
-    /* margin: 0 0 20px 0; */
     margin: 0;
     padding: 10px 0 20px 0;
     border-radius: 0;
@@ -2379,7 +2260,6 @@ img.modal-content {
   aside .sidebar-body-hollow {
     float: none;
     width: 100%;
-    /* margin: 0 0 20px 0; */
     margin: 0;
     padding: 10px 0 20px 0;
     border-radius: 0;
@@ -2392,7 +2272,6 @@ img.modal-content {
   aside .sidebar-body-helper {
     float: none;
     width: 100%;
-    /* margin: 0 0 20px 0; */
     margin: 0;
     padding: 10px 0 20px 0;
     border-radius: 0;
@@ -2402,17 +2281,10 @@ img.modal-content {
 
   aside .sidebar-body-img {
     float: none;
-    /* background:#E9FCF4; */
-    /* border-radius: 10px; */
     width: 100%;
     margin: -20px 0 10px 0;
     padding: 0;
     position: static;
-    /* padding: 5px 10px; */
-  }
-
-  aside .sidebar-body p {
-    /* padding-top: 10px; */
   }
 
   img.post-body-img-sidebar {
@@ -2484,8 +2356,6 @@ img.modal-content {
     width: 60px;
     float: none;
     margin: auto;
-    /* margin-top: 20px; */
-    /* margin-bottom: 20px; */
     position: relative;
     top: 20px;
     right: 70px;
@@ -2496,8 +2366,6 @@ img.modal-content {
     width: 80px;
     float: none;
     margin: auto;
-    /* margin-top: -85px; */
-    /* margin-bottom: 20px; */
     position: relative;
     top: -40px;
     left: 0;
@@ -2508,8 +2376,6 @@ img.modal-content {
     width: 35px;
     float: none;
     margin: auto;
-    /* margin-top: -86px; */
-    /* margin-bottom: 20px; */
     position: relative;
     top: -100px;
     left: 55px;
@@ -2520,8 +2386,6 @@ img.modal-content {
     width: 65px;
     float: none;
     margin: auto;
-    /* margin-top: -85px; */
-    /* margin-bottom: 20px; */
     position: relative;
     top: -40px;
     left: 0;
@@ -2596,7 +2460,6 @@ img.modal-content {
   }
 
   .container-inner-strip {
-    /* background: #008352; */
     background: repeating-linear-gradient(
     135deg,
     #007D4F,
@@ -2626,7 +2489,6 @@ img.modal-content {
     color: #404040;
     border: 1px solid #404040;
     border-radius: 5px;
-    /* background:#FFF; */
     display: block;
     float: none;
     margin: 0 auto !important;
@@ -2678,7 +2540,6 @@ img.modal-content {
     flex: none;
     border-top: 1px dashed #404040;
     border-left: none;
-    /* background-color: #B7B8B8; */
     padding: 5px !important;
   }
 
@@ -2700,11 +2561,9 @@ img.modal-content {
   .dotfriends-page {
     background: none;
     width: 100%;
-    /* border: 1px dashed #A09991; */
   }
 
   .dotfriends-page-img img {
-    /* background: yellow; */
     border-radius: 50%;
     float: none;
     width: 180px;
@@ -2714,10 +2573,8 @@ img.modal-content {
   }
 
   .dotfriends-page-detail {
-    /* background: green; */
     float: none;
     width: 100%;
-    /* padding-top: 15px; */
     margin-left: 0;
     padding: 10px;
     border-top: 1px dashed #A09991;
@@ -2731,7 +2588,6 @@ img.modal-content {
   }
 
   .log-page ul li {
-    /* float:left; */
     text-align: left;
     /* untuk indentasi list */
     /* padding-left: 85px; */
