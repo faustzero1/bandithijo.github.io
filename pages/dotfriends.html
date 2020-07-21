@@ -7,6 +7,7 @@ toc: true
 ---
 
 {% for friend in site.data.dotfriends.dotfriends-detail.friends %}
+{% unless friend.nama contains 'Rizqi Nur Assyaufi' %}
   <div class="dotfriends-page noselect">
     <div style="margin-top:10px;"></div>
     <div class="dotfriends-page-img">
@@ -25,4 +26,5 @@ toc: true
       <div style="margin-bottom:30px;"></div>
     </div><!-- dotfriends-box-detail -->
   </div><!-- dotfriends-box -->
+{% endunless %}
 {% endfor %}
