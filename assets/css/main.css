@@ -117,7 +117,8 @@ mark {
   background: #FFF;
   /* width: menggunakan % untuk responsif design */
   /* max-width: 67%; */
-  max-width: 68%;
+  /* max-width: 68%; */
+  max-width: 940px;
   /* max-width: 74%; */
   /* untuk membuat halaman menjadi center */
   margin: auto;
@@ -2053,7 +2054,7 @@ img.modal-content {
   }
 
   .container {
-    max-width: 74%;
+    max-width: 940px;
     /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
@@ -2104,7 +2105,7 @@ img.modal-content {
   }
 
   .container {
-    max-width: 74%;
+    max-width: 940px;
     /* max-width: 74%; */
     /* untuk membuat halaman menjadi center */
   }
