@@ -315,3 +315,6 @@ Yang dibutuhkan untuk dapat mennggunakan `dnscrypt-proxy` adalah :
 6. [github.com/jedisct1/dnscrypt-proxy](https://github.com/jedisct1/dnscrypt-proxy){:target="_blank"}
 <br>Diakses tanggal: 2018/09/22
 
+7. [www.privacytools.io/providers/dns/](https://www.privacytools.io/providers/dns/){:target="_blank"}
+<br>Diakses tanggal: 2020/07/26
+
