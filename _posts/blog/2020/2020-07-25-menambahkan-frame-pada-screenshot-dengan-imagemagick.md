@@ -81,7 +81,7 @@ Misal, seperti saya, sedang menggunakan BSPWM.
 # screenshot
 super + Print
     scrot "Screenshot_%Y-%m-%d_%H-%M-%S.png" \
-    -e "convert ~/pic/ScreenShots/obs-frame.png *.png -geometry 1024x768^
+    -e "convert ~/pic/ScreenShots/obs-frame.png *.png -geometry 1024x768^ \
     -composite *.png; mv *.png ~/pic/ScreenShots/" \
     ; notify-send "Scrot" "Screen has been captured!"
 {% endhighlight %}
