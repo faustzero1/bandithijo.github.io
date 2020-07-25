@@ -236,35 +236,58 @@ nameserver 127.0.0.1
 # Hasilnya
 
 Apabila kedua langkah di atas sudah kita lakukan, sekarang tinggal melakukan pengujian.
+
+**Apabila berhasil**.
+
+<pre>
+$ <b>dig +short txt qnamemintest.internet.nl</b>
+</pre>
+
 ```
-$ ping -c 5 reddit.com
+a.b.qnamemin-test.internet.nl.
+"HOORAY - QNAME minimisation is enabled on your resolver :)!"
 ```
-Apabila berhasil.
+<pre>
+$ <b>ping -c 3 reddit.com</b>
+</pre>
+
 ```
 PING reddit.com (151.101.1.140) 56(84) bytes of data.
 64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=1 ttl=55 time=32.3 ms
 64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=2 ttl=55 time=32.6 ms
 64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=3 ttl=55 time=32.7 ms
-64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=4 ttl=55 time=32.10 ms
-64 bytes from 151.101.1.140 (151.101.1.140): icmp_seq=5 ttl=55 time=32.4 ms
 
 --- reddit.com ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 10ms
+3 packets transmitted, 3 received, 0% packet loss, time 10ms
 rtt min/avg/max/mdev = 32.330/32.623/32.977/0.278 ms
 ```
-Apabila gagal.
+
+**Apabila gagal**.
+
+<pre>
+$ <b>dig +short txt qnamemintest.internet.nl</b>
+</pre>
+
+```
+a.b.qnamemin-test.internet.nl.
+"NO - QNAME minimisation is NOT enabled on your resolver :("
+```
+<pre>
+$ <b>ping -c 3 reddit.com</b>
+</pre>
+
 ```
 PING internetpositif.uzone.id (36.86.63.185) 56(84) bytes of data.
 64 bytes from 36.86.63.185: icmp_seq=1 ttl=245 time=30.2 ms
 64 bytes from 36.86.63.185: icmp_seq=2 ttl=245 time=30.8 ms
 64 bytes from 36.86.63.185: icmp_seq=3 ttl=245 time=31.6 ms
-64 bytes from 36.86.63.185: icmp_seq=4 ttl=245 time=29.6 ms
-64 bytes from 36.86.63.185: icmp_seq=5 ttl=245 time=29.7 ms
 
 --- internetpositif.uzone.id ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 9ms
+3 packets transmitted, 3 received, 0% packet loss, time 9ms
 rtt min/avg/max/mdev = 29.596/30.352/31.551/0.755 ms
 ```
+
+
 Sekarang buka browser *favorite* kalian, dan buka halaman [www.reddit.com](https://www.reddit.com){:target="_blank"}.
 
 # Kesimpulan
