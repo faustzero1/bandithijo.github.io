@@ -36,7 +36,7 @@ Memodularkan konfigurasi vim (vimrc), bisa dikatakan mengelompokkan konfigurasi 
 Berikut ini adalah struktur direktori yang saya pergunakan, saya sedikit melakukan penyesuaian dari yang direkomendasi oleh **@mnabila**.
 
 1. **autoload/**<br>
-Direktori ini saya pergunakan, apabila terdapat plugin yang mengharuskan untuk menambahkan konfigurasi pada autoload. Atau kadang juga saya pergunakan untuk mengoverride konfig.
+Direktori ini saya pergunakan, apabila terdapat plugin yang mengharuskan untuk menambahkan konfigurasi pada autoload. Atau kadang juga saya pergunakan untuk mengoverride konfig yang dibawa oleh plugin.
 
 2. **colors/**<br>
 Direktori ini biasa saya gunakan untuk menyimpan colorscheme hasil modifikasi saya.
@@ -48,7 +48,10 @@ Biasanya plugin menyertakan dokumentasi. Kita dapat pula mnyimpan secara terpisa
 Direktori ini berisi pecahan konfigurasi yang sebagian besar ada di vimrc.
 
 5. **plugin/**<br>
-Direktori ini berisi konfigurasi dari masing-masing plugin. Penamaan file di dalamnya bebas. Contoh: `name_of_plugin.vim`.
+Direktori ini berisi plugin. Penamaan file di dalamnya bebas. Contoh: `name_of_plugin.vim`.
+
+6. **plugin/config**<br>
+Direktori yang berisi konfigurasi dari masing-masing plugin.
 
 6. **syntax/**<br>
 Direktori ini saya gunakan untuk menambahkan file sintaks tanpa perlu menggunakan plugin.
@@ -67,7 +70,7 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 │   │       ├── codedark.vim
 │   │       └── dwm.vim
 │   ├── buffer.vim
-│   └── nrrwrgn.vim
+│   ├── nrrwrgn.vim
 │   └── lightline.vim
 ├── <b>colors/</b>
 │   ├── codedark.vim
@@ -80,31 +83,22 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 │   ├── plugin.vim
 │   └── settings.vim
 ├── <b>plugin/</b>
+│   ├── <b>config/</b>
+│   │   ├── config-coc-snippets.vim
+│   │   ├── config-coc.vim
+│   │   ├── config-emmet-vim.vim
+│   │   ├── config-fzf.vim
+│   │   ├── config-indentline.vim
+│   │   ├── config-lightline-bufferline.vim
+│   │   ├── config-lightline.vim
+│   │   ├── config-nerdtree.vim
+│   │   ├── config-pylint.vim
+│   │   ├── config-python-mode.vim
+│   │   ├── config-vim-commentary.vim
+│   │   └── config-vim-devicons.vim
 │   ├── autoscroll.vim
-│   ├── config-coc-snippets.vim
-│   ├── config-coc.vim
-│   ├── config-emmet-vim.vim
-│   ├── config-fzf.vim
-│   ├── config-greplace.vim
-│   ├── config-indentline.vim
-│   ├── config-languagetool.vim
-│   ├── config-lightline-bufferline.vim
-│   ├── config-lightline.vim
-│   ├── config-markdown-preview.vim
-│   ├── config-nerdtree.vim
-│   ├── config-pgsql.vim
-│   ├── config-pylint.vim
-│   ├── config-python-mode.vim
-│   ├── config-restore-view.vim
-│   ├── config-rubycomplete.vim
-│   ├── config-tagbar.vim
-│   ├── config-vim-commentary.vim
-│   ├── config-vim-devicons.vim
-│   ├── config-vim-gutter.vim
-│   ├── config-vim-orgmode.vim
-│   ├── config-vim-table-mode.vim
-│   ├── config-vimtex.vim
 │   ├── NrrwRgn.vim
+│   ├── ranger.vim
 │   └── taglist.vim
 ├── <b>syntax/</b>
 │   ├── coffee.vim
@@ -124,12 +118,15 @@ Yang paling penting adalah proses sourcing di dalam file **init.vim**.
 <pre>
 source $HOME/.config/nvim/init.d/<b>settings.vim</b>
 source $HOME/.config/nvim/init.d/<b>formating.vim</b>
-source $HOME/.config/nvim/init.d/<b>plugin.vim</b>
 source $HOME/.config/nvim/init.d/<b>filetype.vim</b>
 source $HOME/.config/nvim/init.d/<b>keybinding.vim</b>
+
+source $HOME/.config/nvim/init.d/<b>plugin.vim</b>
+for f in split(glob('$HOME/.config/nvim/plugin/config/*.vim'), '\n')
+    exe 'source' f
 </pre>
 
-Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/**.
+Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/** dan file-file configurasi plugin yang ada di dalam direktori **plugin/config**.
 
 Selesai!
 
