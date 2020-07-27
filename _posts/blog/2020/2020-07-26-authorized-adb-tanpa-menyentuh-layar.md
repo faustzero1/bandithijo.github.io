@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Mendapatkan ADB Authorized pada Layar Android yang Rusak (TWRP) di GNU/Linux"
+title: "Mendapatkan ADB Authorized pada Layar Android yang Rusak (TWRP) di GNU/Linux & Windows"
 date: 2020-07-26 15:08
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -32,7 +32,7 @@ $ <b>adb devices</b>
 
 ```
 List of devices attached
-dd46fe2b      unauthorized
+dd46fe2b        unauthorized
 ```
 
 # Pemecahan Masalah
@@ -64,7 +64,7 @@ Agar proses mendaapatkan akses ke dalam *smartphone*, ada beberapa persyaratan y
 
     ```
     List of devices attached
-    dd46fe2b      fastboot
+    dd46fe2b        recovery
     ```
 
     Nah, device kita sudah terdeteksi dan sedang berada di Recovery Mode (Fasboot).
@@ -79,6 +79,13 @@ Agar proses mendaapatkan akses ke dalam *smartphone*, ada beberapa persyaratan y
 
     <pre>
     adbkey  <mark>adbkey.pub</mark></pre>
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue">
+    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <p>Kalau di windows, lokasinya berada di:</p>
+    <pre>C:\Users\&lt;username&gt;\.android\</pre>
+    </div>
 
     File **adbkey.pub** adalah file RSA public key yang kita akan *push* ke dalam *smartphone*.
 
@@ -103,7 +110,7 @@ Agar proses mendaapatkan akses ke dalam *smartphone*, ada beberapa persyaratan y
 
     ```
     List of devices attached
-    dd46fe2b      authorized
+    dd46fe2b        device
     ```
 
 <br>
