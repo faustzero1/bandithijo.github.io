@@ -81,17 +81,15 @@ File inilah yang akan ditangkap oleh Ruby script dan dipermak.
 screenshot_dir = "/home/bandithijo/pic/ScreenShots"
 Dir.chdir(screenshot_dir)
 ss_dir = Dir.pwd
-list_file =`ls -p | grep -v /`
+list_file = %w(ls -p | grep -v /)
 files = list_file.split(" ")
 target_file = files.last
 target_file_mod = files.last.split("").insert(-5, 'X').join
 
-system """
-convert #{target_file} \\( +clone -background black -shadow 50x10+0+10 \\) \
+%x(convert #{target_file} \\( +clone -background black -shadow 50x10+0+10 \\) \
 +swap -background none -layers merge +repage tmp.png; \
 convert tmp.png -bordercolor none -border 30 #{target_file_mod}; \
-rm tmp.png
-"""
+rm tmp.png)
 
 puts "SS_DIR: #{ss_dir}"
 puts "SOURCE: #{target_file}
