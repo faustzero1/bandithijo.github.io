@@ -39,10 +39,9 @@ Pastinya tools yang diperlukan adalah **ImageMagick**.
 Kira-kira begini command formula nya.
 
 <pre>
-$ <b>convert source.png \( +clone -background black -shadow 50x10+0+0 \) \
-+swap -background none -layers merge +repage tmp.png; \
-convert tmp.png -bordercolor none -border 30 source.png; \
-rm tmp.png</b>
+$ <b>convert gambar.png \( +clone -background black -shadow 50x10+0+10 \) \
++swap -background none -layers merge +repage gambar.png; \
+convert gambar.png -bordercolor none -border 30 gambar.png</b>
 </pre>
 
 Misal, saya punya gambar hasil screenshot seperti ini:
@@ -87,9 +86,8 @@ target_file = files.last
 target_file_mod = files.last.split("").insert(-5, 'X').join
 
 %x(convert #{target_file} \\( +clone -background black -shadow 50x10+0+10 \\) \
-+swap -background none -layers merge +repage tmp.png; \
-convert tmp.png -bordercolor none -border 30 #{target_file_mod}; \
-rm tmp.png)
++swap -background none -layers merge +repage #{target_file_mod}; \
+convert #{target_file_mod} -bordercolor none -border 30 #{target_file_mod})
 
 puts "SS_DIR: #{ss_dir}"
 puts "SOURCE: #{target_file}
