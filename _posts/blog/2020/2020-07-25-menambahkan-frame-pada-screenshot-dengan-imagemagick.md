@@ -90,6 +90,31 @@ Hasilnya seperti ini.
 
 ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yNGTs9VP/hasil-screenshot-frame-imagemagick.png" onerror="imgError(this);"}{:class="myImg"}
 
+# Tambahan
+
+Terkadang saya tidak ingin setiap hasil screenshot langsung diframing. Namun, saya malas menulis command ImageMagick yang panjang. Maka sayapun membuat Ruby script untuk menghandle hal tersebut.
+
+{% highlight ruby linenos %}
+#!/usr/bin/env ruby
+
+# Please write your screenshot dir with full path. Later, I'll improve this.
+ss_dir = "/home/bandithijo/pic/ScreenShots"
+ss_frame = "/home/bandithijo/pic/ScreenShots/obs-frame.png"
+Dir.chdir(ss_dir)
+list_file = %x(ls -p | grep -v /)
+files = list_file.split(" ")
+target_file = files.last
+target_file_mod = files.last.split("").insert(-5, 'X').join
+
+%x(convert #{ss_frame} #{target_file} -geometry 124x768^ \
+-composite #{target_file_mod})
+
+puts "SS_DIR: #{ss_dir}"
+puts "SOURCE: #{target_file}
+TARGET: #{target_file_mod}
+FRAMING SUCCESS!"
+{% endhighlight %}
+
 Mantap!!!
 
 Saya rasa hanya ini yang dapat saya tuliskan saat ini.
