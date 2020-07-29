@@ -1507,7 +1507,6 @@ button.active {
   float: left;
   margin: 0 10px 0 0;
   width: 14%;
-  border: 1px solid #C4BBB0;
   border-radius: 50%;
 }
 
@@ -1524,7 +1523,6 @@ button.active {
 .kontributor-img {
   margin: 2px;
   width: 7%;
-  border: 1px solid #C4BBB0;
   border-radius: 50%;
 }
 
