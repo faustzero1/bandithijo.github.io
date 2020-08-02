@@ -106,7 +106,7 @@ files = list_file.split(" ")
 target_file = files.last
 target_file_mod = files.last.split("").insert(-5, 'X').join
 
-%x(convert #{ss_frame} #{target_file} -geometry 124x768^ \
+%x(convert #{ss_frame} #{target_file} -geometry 1024x768^ \
 -composite #{target_file_mod})
 
 puts "SS_DIR: #{ss_dir}"
