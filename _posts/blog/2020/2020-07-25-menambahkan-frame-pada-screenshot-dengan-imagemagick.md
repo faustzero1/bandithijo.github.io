@@ -107,7 +107,7 @@ target_file = files.last
 target_file_mod = files.last.split("").insert(-5, 'X').join
 
 %x(convert #{ss_frame} #{target_file} -geometry 1024x768^ \
--composite #{target_file_mod})
+-set gamma 2.2 -composite #{target_file_mod})
 
 puts "SS_DIR: #{ss_dir}"
 puts "SOURCE: #{target_file}
@@ -137,3 +137,6 @@ Terima kasih.
 
 1. [imagemagick.org/script/command-line-processing.php#geometry](https://imagemagick.org/script/command-line-processing.php#geometry){:target="_blank"}
 <br>Diakses tanggal: 2020/07/25
+
+2. [PNG image becomes too bright](https://www.imagemagick.org/discourse-server/viewtopic.php?t=27131){:target="_blank"}
+<br>Diakses tanggal: 2020/08/03

@@ -87,7 +87,8 @@ target_file_mod = files.last.split("").insert(-5, 'X').join
 
 %x(convert #{target_file} \\( +clone -background black -shadow 50x10+0+10 \\) \
 +swap -background none -layers merge +repage #{target_file_mod}; \
-convert #{target_file_mod} -bordercolor none -border 30 #{target_file_mod})
+convert #{target_file_mod} -bordercolor none -border 30 -set gamma 2.2 \
+#{target_file_mod})
 
 puts "SS_DIR: #{ss_dir}"
 puts "SOURCE: #{target_file}
@@ -136,3 +137,6 @@ Terima kasih.
 
 2. [imagemagick.org/script/command-line-options.php#shadow](https://imagemagick.org/script/command-line-options.php#shadow){:target="_blank"}
 <br>Diakses tanggal: 2020/07/28
+
+3. [PNG image becomes too bright](https://www.imagemagick.org/discourse-server/viewtopic.php?t=27131){:target="_blank"}
+<br>Diakses tanggal: 2020/08/03
