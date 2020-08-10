@@ -58,7 +58,7 @@ Sangat merepotkan. 😅
 
 # Hasilnya
 
-Kalau sudah diset, sekarang coba buka salah satu plain text, dengan klik kanan "Open With Vim/NoeVim". Seperti yang saya demokan di bawah.
+Kalau sudah diset, sekarang coba buka salah satu plain text, dengan klik kanan "Open With Vim/NeoVim". Seperti yang saya demokan di bawah.
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ryWmMDwS/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 
