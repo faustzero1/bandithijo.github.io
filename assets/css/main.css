@@ -372,7 +372,9 @@ img.post-header-img {
   font-size: 28px;
   color: #000;
   border-bottom: 1px dashed #B8B8B8;
+  padding-bottom: 14px;
   text-align: left;
+  line-height: 28px;
   /* untuk indentasi title*/
   /* padding-left: 40px; */
   /* text-indent: -35px; */
