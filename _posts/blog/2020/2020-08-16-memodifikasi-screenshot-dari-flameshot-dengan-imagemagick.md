@@ -138,7 +138,7 @@ author            = "ScreenShoter: @assyaufi"
 
 Baris ke 35-38, adalah proses pemberian author.
 
-Kalau ingin dihilangkan, cukup dengan memberikan tanda `#` di setiap awal baris ke-34 sampai baris ke -36.
+Kalau ingin dihilangkan, cukup dengan memberikan tanda `#` di setiap awal baris ke-34 sampai baris ke-37.
 
 {% highlight ruby %}
 %x(
