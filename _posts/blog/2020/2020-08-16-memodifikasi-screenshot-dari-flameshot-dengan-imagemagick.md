@@ -88,9 +88,9 @@ convert #{target_file} -profile #{color_profile} #{target_file}
 
 %x(optipng #{target_file}) if %x(which optipng > /dev/null 2>&1)
 
-#list_file = %x(ls -p | grep -v /)
-#last_file = (list_file.split(" ")).last
-#%x(rm -rf #{last_file})
+list_file = %x(ls -p | grep -v /)
+last_file = (list_file.split(" ")).last
+%x(rm -rf #{last_file})
 {% endhighlight %}
 
 Kalau kita menjalankan script di atas, akan menghasilkan dua buah file.
@@ -345,9 +345,9 @@ convert {target_file} -profile {color_profile} {target_file}
 if os.system("which optipng > /dev/null 2>&1"):
     os.system(f"optipng {target_file}")
 
-#list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
-#last_file = list_file[-1]
-#os.system(f"rm -rf {last_file}")
+list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
+last_file = list_file[-1]
+os.system(f"rm -rf {last_file}")
 {% endhighlight %}
 
 
