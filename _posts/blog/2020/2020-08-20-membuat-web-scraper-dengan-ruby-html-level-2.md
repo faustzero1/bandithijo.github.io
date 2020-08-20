@@ -466,7 +466,7 @@ Terima kasih sudah mampir.
 # Referensi
 
 1. [It's Time To HTTParty!](https://blog.teamtreehouse.com/its-time-to-httparty){:target="_blank"}
-<br>Diakses tanggal: 2020/06/12
+<br>Diakses tanggal: 2020/08/20
 
 2. [nokogiri.org](https://nokogiri.org/){:target="_blank"}
-<br>Diakses tanggal: 2020/06/12
+<br>Diakses tanggal: 2020/08/20
