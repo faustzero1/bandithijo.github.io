@@ -231,9 +231,9 @@ class Template
       '''
 
       f.puts '<div class="tab">'
-      f.puts "<button class='tablinks' onclick=\"openTab(event, 'tab1')\">Semua Dosen</button>"
-      f.puts "<button class='tablinks' onclick=\"openTab(event, 'tab2')\">Dosen Pria</button>"
-      f.puts "<button class='tablinks' onclick=\"openTab(event, 'tab3')\">Dosen Wanita</button>"
+      ['Semua Dosen', 'Dosen Pria', 'Dosen Wanita'].each.with_index(1) do |dosen, index|
+        f.puts "<button class='tablinks' onclick=\"openTab(event, 'tab#{index}')\">#{dosen}</button>"
+      end
       f.puts '</div>'
 
       f.puts '<div id="tab1" class="tabcontent active">'
@@ -376,51 +376,29 @@ class Template
             inputPria, filterPria, tablePria, trPria,
             inputWanita, filterWanita, tableWanita, trWanita,
             td, i, txtValue;
-        input = document.getElementById("inputDosens");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("tableDosens");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[0];
+      '''
+
+      ['', 'Pria', 'Wanita'].each do |dosen|
+        f.puts """
+        input#{dosen} = document.getElementById('inputDosens#{dosen}');
+        filter#{dosen} = input#{dosen}.value.toUpperCase();
+        table#{dosen} = document.getElementById('tableDosens#{dosen}');
+        tr#{dosen} = table#{dosen}.getElementsByTagName('tr');
+        for (i = 0; i < tr#{dosen}.length; i++) {
+          td = tr#{dosen}[i].getElementsByTagName('td')[0];
           if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
+            if (txtValue.toUpperCase().indexOf(filter#{dosen}) > -1) {
+              tr#{dosen}[i].style.display = '';
             } else {
-              tr[i].style.display = "none";
+              tr#{dosen}[i].style.display = 'none';
             }
           }
         }
-        inputPria = document.getElementById("inputDosensPria");
-        filterPria = inputPria.value.toUpperCase();
-        tablePria = document.getElementById("tableDosensPria");
-        trPria = tablePria.getElementsByTagName("tr");
-        for (i = 0; i < trPria.length; i++) {
-          td = trPria[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filterPria) > -1) {
-              trPria[i].style.display = "";
-            } else {
-              trPria[i].style.display = "none";
-            }
-          }
-        }
-        inputWanita = document.getElementById("inputDosensWanita");
-        filterWanita = inputWanita.value.toUpperCase();
-        tableWanita = document.getElementById("tableDosensWanita");
-        trWanita = tableWanita.getElementsByTagName("tr");
-        for (i = 0; i < trWanita.length; i++) {
-          td = trWanita[i].getElementsByTagName("td")[0];
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filterWanita) > -1) {
-              trWanita[i].style.display = "";
-            } else {
-              trWanita[i].style.display = "none";
-            }
-          }
-        }
+        """
+      end
+
+      f.puts '''
       }
       </script>
       '''
