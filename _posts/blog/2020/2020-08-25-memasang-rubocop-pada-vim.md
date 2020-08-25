@@ -263,8 +263,6 @@ Setelah kita mengkonfigurasi vim-rubocop, kita juga perlu mengkonfigurasi ALE un
 let g:ale_linters = {
 \   'ruby': ['rubocop'],
 \}
-
-let g:ale_fix_on_save = 0
 ```
 
 Kemudian, definisikan juga fixer yang akan digunakan.
@@ -303,6 +301,51 @@ Try the following generic fixers:
 See :help ale-fix-configuration
 
 Press q to close this window
+```
+
+Tambahkan juga beberapa dekorasi.
+
+```viml
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️ '
+```
+
+Saya tidak mengaktifkan fix pada saat save.
+
+```viml
+let g:ale_fix_on_save = 0
+```
+
+Untuk melihat Linter Variable gunakan perintah:
+
+```
+:ALEInfo
+```
+
+```
+ Current Filetype: ruby
+Available Linters: ['brakeman', 'debride', 'rails_best_practices', 'reek', 'rubocop', 'ruby', 'solargraph', 'sorbet', 'standardrb']
+   Linter Aliases:
+'sorbet' -> ['srb']
+  Enabled Linters: ['rubocop']
+ Suggested Fixers:
+  'remove_trailing_lines' - Remove all blank lines at the end of a file.
+  'rubocop' - Fix ruby files with rubocop --auto-correct.
+  'rufo' - Fix ruby files with rufo
+  'sorbet' - Fix ruby files with srb tc --autocorrect.
+  'standardrb' - Fix ruby files with standardrb --fix
+  'trim_whitespace' - Remove all trailing whitespace characters at the end of every line.
+ Linter Variables:
+let g:ale_ruby_rails_best_practices_executable = 'rails_best_practices'
+let g:ale_ruby_rails_best_practices_options = ''
+let g:ale_ruby_rubocop_executable = 'rubocop'
+let g:ale_ruby_rubocop_options = ''
+ Global Variables:
+let g:ale_cache_executable_check_failures = v:null
+let g:ale_change_sign_column_color = 0
+let g:ale_command_wrapper = ''
+...
+...
 ```
 
 <!-- INFORMATION -->
