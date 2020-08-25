@@ -68,6 +68,8 @@ Saya menggunakan **vim-plug** sebagai plugin manager.
 
 Untuk memasang Rubocop, kita akan menggunakan bantuan plugin yang bernama [**ngmy/vim-rubocop**](https://github.com/ngmy/vim-rubocop){:target="_blank"}.
 
+Dan juga, untuk Asynchronous Lint Engine, kita akan menggunakan [**ALE**](https://github.com/dense-analysis/ale){:target="_blank"}
+
 Tambahkan pada `.vimrc`.
 
 ```viml
@@ -380,4 +382,7 @@ Terima kasih.
 <br>Diakses tanggal: 2020/08/25
 
 3. [Vim for Ruby and Rails in 2019](https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019/){:target="_blank"}
+<br>Diakses tanggal: 2020/08/25
+
+4. [github.com/dense-analysis/ale](https://github.com/dense-analysis/ale){:target="_blank"}
 <br>Diakses tanggal: 2020/08/25
