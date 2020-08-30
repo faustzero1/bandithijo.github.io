@@ -84,28 +84,36 @@ Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari
 2. Mengelola banyak *patch* sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana *best practice* dalam mengelola dan mengaplikasikan *patch.
 3. Saya tidak ingin menambahkan *patch* yang saya tidak benar-benar perlukan.
 
-Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 12 *patches*. yaitu:
+Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 22 *patches*. yaitu:
 
 1. actualfullscreen
 2. autostart
-3. cfacts
-4. focusonnetactive
-5. fullgaps
-6. movestack
-7. pertag
-8. resizecorners
-9. statusallmons
-10. sticky
-11. savefloats
-12. scratchpad-gaspar (outside suckless)
-13. systray
-14. zoomswap
+3. canfocusrule
+4. center
+5. centerkeybinding
+6. cfacts
+7. deck
+8. dwmc
+9. focusonnetactive
+10. moveresize
+11. movestack
+12. noborder
+13. pertag
+14. resizecorners
+15. rmaster
+16. savefloats
+17. scratchpad-gaspar
+18. statusallmons
+19. sticky
+20. systray
+21. xrdb
+22. zoomswap
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
 ## Bagaimana Cara Patching?
 
-Seperti yang dijelaskan pada website [suckless.org/hacking](https://suckless.org/hacking/){:target="_blank"}. Terdapat 3 cara.
+Seperti yang dijelaskan pada website [suckless.org/hacking](https://suckless.org/hacking/){:target="_blank"}. Terdapat 2-3 cara.
 Namun, karena saya menggunakan git, maka, saya akan memanfaatkan cara *patching* menggunakan git.
 
 **Menggunakan Git Apply**
@@ -114,11 +122,13 @@ Namun, karena saya menggunakan git, maka, saya akan memanfaatkan cara *patching*
 $ <b>git apply path/to/patch.diff</b>
 </pre>
 
-Nah, kalau cara pertama tidak berhasil, lakukan cara terakhir.
+Nah, kalau cara pertama tidak berhasil, lakukan cara manual.
 
 **Manual Patching**
 
-Dengan mengcopykan baris demi bari yang ada di dalam *patch* ke dalam file-file yang berkaitan di dalam direktori dwm kita.
+Biasanya manual patching dilakukan apabila patching tersebut tidak dibuat dengan versi master yang sama dengan master yang kita miliki.
+
+Manula patching adalah melakukan patching dengan meng-copy-kan baris demi baris yang ada di dalam *patch* ke dalam file-file yang berkaitan di dalam direktori dwm kita.
 
 
 <br>
@@ -129,7 +139,7 @@ Berikut ini daftar script yang saya gunakan.
 
 1. **suckclean** : untuk mereset master
 2. **suckdiff** : untuk membuat backup branch dalam bentuk *patch* yang tersimpan di `~/.config/suckless/`
-3. **suckmerge-dwm** : untuk me-*merge*-kan branch-branch terpilih ke master branch, sekaligus mengcompilenya
+3. **suckmerge2** : untuk me-*merge*-kan branch-branch terpilih ke master branch, sekaligus mengcompilenya
 
 Nah, berikut ini adalah isi dari script-script tersebut.
 
@@ -166,67 +176,81 @@ for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -
 done
 {% endhighlight %}
 
-**suckmerge-dwm** - Created by: BanditHijo
+**suckmerge2** - Created by: BanditHijo
 
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
-puts "=> Convert All Branch to Patch"
-system """
-suckdiff &&
-git checkout master
-git reset --hard origin/master
-"""
-puts "=> Converting COMPLETE!"
+# For dwm
+dwm_branches = [
+  'config',                # merge w/: actualfullscreen, scratchpad-gaspar
+  'sticky',                # merge w/: actualfullscreen
+  'rmaster',               # merge w/: sticky, cfacts
+  'canfocusrule',          # merge w/: systray
+  'actualfullscreen',
+  'xrdb',
+  'noborder',
+  'autostart',
+  'movestack',
+  'moveresize',
+  'pertag',
+  'resizecorners',
+  'focusonnetactive',
+  'systray',               # merge w/: scratchpad-gaspar, zoomswap, sticky
+  'scratchpad-gaspar',
+  'zoomswap',
+  'savefloats',
+  'centerkeybinding',
+  'center',
+  'cfacts',
+  'deck',
+  'dwmc',                 # merge w/: systray
+  'statusallmons'         # merge w/: systray
 
-branches = [
-# Enable branch
-'config',               # merge w/: actualfullscreen, scratchpad-gaspar
-'sticky',               # merge w/: actualfullscreen
-'actualfullscreen',
-'autostart',
-'movestack',
-'pertag',
-'resizecorners',
-'focusonnetactive',
-'systray',              # merge w/: scratchpad-gaspar, zoomswap
-'scratchpad-gaspar',
-'zoomswap',
-'savefloats',
-'center',
-'fullgaps',             # merge w/: config
-'cfacts',               # merge w/: config, movestack, fullgaps
-
-# Disable branch
-#'singularborders',
-#'noborder',
-#'gaps',
+  # Disable
+  # 'config-swallow',
+  # 'swallow',              # merge w/: center, sticky, canfocusrule
 ]
 
+dir_name = `basename $PWD`.strip
+if dir_name == 'dwm'
+  branches = dwm_branches
+else
+  puts 'You are not in suckless directory!'
+  exit
+end
+
+puts '=> Convert All Branch to Patch'
+system '''
+suckdiff &&
+git reset --hard origin/master
+'''
+puts '=> Converting COMPLETE!'
+
 puts "\n=> Patching All Branch to Master"
-for branch in branches do
+branches.each do |branch|
   print "Patching #{branch}... "
   `git merge #{branch} -m #{branch}`
   print "DONE\n"
 end
-puts "=> Patching COMPLETE!"
+puts '=> Patching COMPLETE!'
 
 puts "\n=> Installing"
-system """
-make && sudo make clean install
-"""
-puts "=> Installation COMPLETE!"
+%x(`make && sudo make clean install`)
+puts '=> Installation COMPLETE!'
 {% endhighlight %}
 
 Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.
 
 1. Setelah selesai meracik *patch* di dalam masing-masing branch, kembali ke master branch.
-2. Jalankan `suckmerge-dwm`
+2. Jalankan [`suckmerge2`](https://github.com/bandithijo/sucklessthing/){:target="_blank"}*
 3. Apabila berhasil, restart dwm.
-4. Saat ini master branch dalam keadaan kotor, jalankan `suckclean` untuk mereset dan membersihkannya.
+4. Saat ini master branch dalam keadaan "kotor", jalankan [`suckclean`](https://github.com/bandithijo/sucklessthing/){:target="_blank"}* untuk mereset dan membersihkannya.
 5. Untuk mengedit *patch* branch dengan cara `git checkout <nama_branch>`, wajib menjalankan `suckclean` terlebih dahulu.
 
-Apabila terdapat perubahan di dalam branch *patch*, ulangi lagi dari langkah ke dua. Mudah bukan?
+**INFO**: *dapat di-download
+
+Apabila terdapat perubahan di dalam branch *patch*, ulangi lagi dari langkah pertama. Mudah bukan?
 
 **Apakah akan terdapat conflict?**
 
@@ -234,7 +258,7 @@ Jelas! Pasti akan ada kalau kita menggunakan banyak *patch*.
 
 Biasanya kalau terjadi *conflict*, saya selesaikan dengan me-*merge*-kan kedua *patch* branch yang berkonflik, lalu saya selesaikan baris-baris kode yang *conflict* dengan cara manual.
 
-Bisa dilihat, beberapa *patch* branch yang berkonflik pada script **suckmerge-dwm** di atas, saya catat branch apa dan merge dengan branch apa saja.
+Bisa dilihat, beberapa *patch* branch yang berkonflik pada script **suckmerge2** di atas, saya catat branch apa dan merge dengan branch apa saja.
 
 Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.
 
@@ -253,6 +277,17 @@ Sejauh yang saya ingat, ada satu *patch* yang saya gunakan namun bukan dari hala
 
 *Patch* scratchpad ini berbeda dengan scratchpad yang ada pada website suckless. Perilaku dari scratphad ini mirip dengan yang ada di i3WM. Dimana, window yang dijadikan scratphad akan memiliki kemampuan untuk menghilang dan muncul kembali, layaknya seorang ninja -- apasih wkwk.
 
+<br>
+**centerkeybinding by fake_larry**
+
+Patch ini memungkinkan kita untuk memindahkan floating window ke posisi tengah dari screen.
+
+Saya mendapatkan patch ini dari post Reddit yang berjudul ["dwm center floating window with multiple monitors"](https://www.reddit.com/r/suckless/comments/cphe3h/dwm_center_floating_window_with_multiple_monitors/){:target="_blank"}.
+
+Di dalam post tersebut, terdapat balasan dari user yang bernama **fake_larry**, dan memberikan jawaban berupa blok kode dari sebuah patch.
+
+Kalian dapat menyalin patch tersebut atau dapat mendownload versi yang sudah saya jadikan file [di sini](https://github.com/bandithijo/sucklessthing/blob/master/patches/dwm/dwm-centerkeybinding-20190813-4adc917.diff){:target="_blank"}.
+
 ## Personal Branch
 
 ### config branch
@@ -266,6 +301,8 @@ Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang
 <div class="blockquote-blue-title">[ i ] Informasi</div>
 <p>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat pengaturan <i>keys</i>, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke branch config pada file <b>config.def.h</b>.</p>
 </div>
+
+Berikut ini adalah ilustrasi isi dari branch **config**.
 
 File **config.mk**.
 
@@ -447,13 +484,18 @@ Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain a
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
-wlan_card='wls3'
-
-wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
-wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
-
-echo "" $wlan_do "" $wlan_up "KB/s"
+wlan_card='wlan0'
+wlan_online=$(ip a s dev $wlan_card | grep -i inet)
+if [[ $wlan_online ]]; then
+    wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
+    wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
+    echo "" $wlan_do "" $wlan_up "KB/s"
+else
+    echo " OFFLINE"
+fi
 {% endhighlight %}
+
+Saya menggunakan [**aur/ifstat**](https://aur.archlinux.org/packages/ifstat/){:target="_blank"}.
 
 <br>
 **cpu-temp.sh** - Created by: BanditHijo
@@ -572,8 +614,7 @@ Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
-sanitizer
-pkill -f "bash /home/bandithijo/bin/dwmbar"; dwmbar &
+pkill -f "dwmbar"; dwmbar &
 pkill -f "dunst"; dunst -config ~/.config/dunst/dunstrc &
 xsetroot -solid "#1E1E1E"
 feh --bg-fill -Z $WALLPAPER2
@@ -584,16 +625,6 @@ pkill -f "bash /usr/bin/clipmenud"; pkill -f "clipnotify"; /usr/bin/clipmenud &
 /usr/bin/flameshot &
 pkill -f "xcompmgr"; xcompmgr &
 pkill -f "lxpolkit"; lxpolkit &
-
-
-# I'm not use this anymore
-#killall xautolock; xautolock -time 60 -locker "~/bin/lock-dark" &
-#$HOME/.config/polybar/launch.sh
-#killall picom; picom --config ~/.config/picom/picom.conf --no-use-damage &
-#xfce4-power-manager &
-#killall notify-listener; # notify-listener.py &
-#$HOME/.config/conky/conky-launch.sh &
-#xsetroot -cursor_name left_ptr
 {% endhighlight %}
 
 ## suckpush script
@@ -604,30 +635,35 @@ Berikut ini scriptnya.
 
 **suckpush** - Created by: BanditHijo
 
+Versi terbaru dari **suckpush** dapat teman-teman temukan [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckpush){:target="_blank"}
+
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
-remote_repo = "bandithijo"
+remote_repo = 'bandithijo'
 
-puts "=> Reset the master branch"
-system """
+puts '=> Reset the master branch'
+system '''
 git checkout master
 git reset --hard origin/master
-"""
-puts "=> Reseting COMPLETE!"
+'''
+puts '=> Reseting COMPLETE!'
 
 branch_list = `git branch`
-branches = branch_list.split(" ").reject{ |n| n == "*" || n == "master" }.unshift("master")
+rejected_items = %w[* master]
+branches = branch_list.split(' ').reject { |n| rejected_items.include? n }.unshift('master')
 
 puts "\n=> Push each branch to GitHub"
-for branch in branches do
+branches.each do |branch|
   print "Pushing #{branch}... "
-  `git checkout #{branch}  > /dev/null 2>&1`
-  `git push -u #{remote_repo} #{branch} > /dev/null 2>&1`
+  %x(`
+  git checkout #{branch}  > /dev/null 2>&1
+  git push -u #{remote_repo} #{branch} > /dev/null 2>&1
+  `)
   print "DONE\n"
 end
-`git checkout master > /dev/null 2>&1`
-puts "=> All Pushing COMPLETE!"
+%x(`git checkout master > /dev/null 2>&1`)
+puts '=> All Pushing COMPLETE!'
 {% endhighlight %}
 
 **Perhatikan!** Saya menambahkan dan menamakan GitHub repo saya sebagai 'bandithijo', bisa dilihat pada variabale `remote_repo`.
@@ -691,20 +727,23 @@ Kita perlu melakukan `git checkout` ke setiap branch. Karena saya adalah orang y
 
 Saya beri nama **suckchkout**.
 
+Versi terbaru dari **suckchkout** dapat teman-teman temukan [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckchkout){:target="_blank"}
+
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
 branch_list = `git branch -a`
-branches = branch_list.split(" ").reject{ |n| n == "*" || n == "master" || n == "remotes/origin/HEAD" || n == "->" || n == "origin/master" || n == "remotes/origin/master" }.map{ |n| n.gsub("remotes/origin/", "") }
+rejected_items = %w[* master remotes/origin/HEAD remotes/origin/master origin/master ->]
+branches = branch_list.split(' ').reject { |n| rejected_items.include? n }.map { |n| n.gsub('remotes/origin/', '') }
 
-puts "\n=> Check Out each branch to Local"
-for branch in branches do
-  print "Checkout #{branch}... "
-  `git checkout #{branch}  > /dev/null 2>&1`
+puts "\n=> Checkout each branch to Local"
+branches.each do |branch|
+  print "Checkout #{branch}..."
+  %x(`git checkout #{branch} > /dev/null 2>&1`)
   print "DONE\n"
 end
-`git checkout master > /dev/null 2>&1`
-puts "=> All Check Out COMPLETE!"
+%x(`git checkout master > /dev/null 2>&1`)
+puts '=> All Checkout COMPLETE!'
 {% endhighlight %}
 
 Jangan lupa buat menjadi executeable.
@@ -743,7 +782,29 @@ Nah, kalo sudah bisa check menggunakan `git branch`.
 Apabila sudah keluar semua daftar branch, tinggal jalankan script **suckmerge2**.
 
 
+# Pesan Penulis
 
+Pasti tulisan ini akan kadaluarsa dan ketinggalan update terabru dari yang saya lakukan.
+
+Untuk mendapatkan versi update terbaru, kalian dapat langsung mengunjungi beberapa GitHub repo yang saya pergunakan.
+
+1. [**dwm**](https://github.com/bandithijo/dwm){:target="_blank"}
+
+    Repo ini adalah repo master dari dwm namun berisi branch-branch yang sudah dipatch. Gunakan **suckmerge2** untuk melakukan compile agar proses membangun dwm menjadi lebih mudah.
+
+2. [**sucklessthing**](https://github.com/bandithijo/sucklessthing/){:target="_blank"}
+
+    Repo ini berisi script-script yang saya pergunakan untuk membangun/membuild/mengcompile suckless tools seperti dwm, dmenu, slstatus, dll.
+
+    Repo ini juga berisi daftar patch yang saya pergunakan.
+
+3. [**dmenu**](https://github.com/bandithijo/dmenu){:target="_blank"}
+
+    Repo ini berisi master dmenu dengan branch config yang sudah saya modifikasi.
+
+4. [**slstatus**](https://github.com/bandithijo/slstatus){:target="_blank"}
+
+    Repo ini berisi master slstatus dengan branch config yang sudah saya modifikasi.
 
 
 
