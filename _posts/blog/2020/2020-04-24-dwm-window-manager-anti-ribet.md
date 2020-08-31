@@ -84,7 +84,7 @@ Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari
 2. Mengelola banyak *patch* sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana *best practice* dalam mengelola dan mengaplikasikan *patch.
 3. Saya tidak ingin menambahkan *patch* yang saya tidak benar-benar perlukan.
 
-Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 22 *patches*. yaitu:
+Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 24 *patches*. yaitu:
 
 1. actualfullscreen
 2. autostart
@@ -92,22 +92,24 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 4. center
 5. centerkeybinding
 6. cfacts
-7. deck
-8. dwmc
-9. focusonnetactive
-10. moveresize
-11. movestack
-12. noborder
-13. pertag
-14. resizecorners
-15. rmaster
-16. savefloats
-17. scratchpad-gaspar
-18. statusallmons
-19. sticky
-20. systray
-21. xrdb
-22. zoomswap
+7. config
+8. deck
+9. dwmc
+10. focusonnetactive
+11. fullgaps
+12. moveresize
+13. movestack
+14. noborder
+15. pertag
+16. resizecorners
+17. rmaster
+18. savefloats
+19. scratchpad-gaspar
+20. statusallmons
+21. sticky
+22. systray
+23. xrdb
+24. zoomswap
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
@@ -204,8 +206,9 @@ dwm_branches = [
   'center',
   'cfacts',
   'deck',
-  'dwmc',                 # merge w/: systray
-  'statusallmons'         # merge w/: systray
+  'dwmc',                  # merge w/: systray
+  'statusallmons',         # merge w/: systray
+  'fullgaps'               # merge w/: cfacts, rmaster
 
   # Disable
   # 'config-swallow',
@@ -682,24 +685,36 @@ HEAD is now at f09418b dwm crashes when opening 50+ clients (tile layout)
 => Reseting COMPLETE!
 
 => Push each branch to GitHub
-Pushing master... DONE
-Pushing actualfullscreen... DONE
-Pushing autostart... DONE
-Pushing center... DONE
-Pushing cfacts... DONE
-Pushing config... DONE
-Pushing deck... DONE
-Pushing focusonnetactive... DONE
-Pushing movestack... DONE
-Pushing pertag... DONE
-Pushing resizecorners... DONE
-Pushing rmaster... DONE
-Pushing savefloats... DONE
-Pushing scratchpad-gaspar... DONE
-Pushing sticky... DONE
-Pushing systray... DONE
-Pushing zoomswap... DONE
-=> All Pushing COMPLETE!
+Patching config... DONE
+Patching sticky... DONE
+Patching rmaster... DONE
+Patching canfocusrule... DONE
+Patching actualfullscreen... DONE
+Patching xrdb... DONE
+Patching noborder... DONE
+Patching autostart... DONE
+Patching movestack... DONE
+Patching moveresize... DONE
+Patching pertag... DONE
+Patching resizecorners... DONE
+Patching focusonnetactive... DONE
+Patching systray... DONE
+Patching scratchpad-gaspar... DONE
+Patching zoomswap... DONE
+Patching savefloats... DONE
+Patching centerkeybinding... DONE
+Patching center... DONE
+Patching cfacts... DONE
+Patching deck... DONE
+Patching dwmc... DONE
+Patching statusallmons... DONE
+Patching fullgaps... DONE
+=> Patching COMPLETE!
+
+=> Installing
+[sudo] password for bandithijo:
+usage: dwm [-v]
+=> Installation COMPLETE!
 ```
 
 # Instalasi
