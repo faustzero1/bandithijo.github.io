@@ -93,23 +93,21 @@ Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggu
 5. centerkeybinding
 6. cfacts
 7. config
-8. deck
-9. dwmc
-10. focusonnetactive
-11. fullgaps
-12. moveresize
-13. movestack
-14. noborder
-15. pertag
-16. resizecorners
-17. rmaster
-18. savefloats
-19. scratchpad-gaspar
-20. statusallmons
-21. sticky
-22. systray
-23. xrdb
-24. zoomswap
+8. dwmc
+9. focusonnetactive
+10. moveresize
+11. movestack
+12. noborder
+13. pertag
+14. resizecorners
+15. ru-gaps
+16. savefloats
+17. scratchpad-gaspar
+18. statusallmons
+19. sticky
+20. systray
+21. xrdb
+22. zoomswap
 
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
@@ -186,8 +184,7 @@ done
 # For dwm
 dwm_branches = [
   'config',                # merge w/: actualfullscreen, scratchpad-gaspar
-  'sticky',                # merge w/: actualfullscreen
-  'rmaster',               # merge w/: sticky, cfacts
+  'sticky',                # merge w/: actualfullscreen, center
   'canfocusrule',          # merge w/: systray
   'actualfullscreen',
   'xrdb',
@@ -205,14 +202,9 @@ dwm_branches = [
   'centerkeybinding',
   'center',
   'cfacts',
-  'deck',
   'dwmc',                  # merge w/: systray
   'statusallmons',         # merge w/: systray
-  'fullgaps'               # merge w/: cfacts, rmaster
-
-  # Disable
-  # 'config-swallow',
-  # 'swallow',              # merge w/: center, sticky, canfocusrule
+  'ru-gaps',               # merge w/: noborder, cfacts
 ]
 
 dir_name = `basename $PWD`.strip
