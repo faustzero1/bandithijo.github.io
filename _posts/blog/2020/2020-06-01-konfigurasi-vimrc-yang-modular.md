@@ -56,6 +56,9 @@ Direktori yang berisi konfigurasi dari masing-masing plugin.
 6. **syntax/**<br>
 Direktori ini saya gunakan untuk menambahkan file sintaks tanpa perlu menggunakan plugin.
 
+7. **vendor/**<br>
+Direktori ini saya gunakan untuk menyimpan file-file dari plugin yang tidak terkait langsung dengan plugin, seperti file stylesheet, dll.
+
 # Penerapan
 
 Nah, dari struktur direktori di atas, saya tinggal memecah-mecah isi dari konfigurasi-konfigurasi yang ada di dalam vimrc saya, yang kira-kira berisi 1500an baris. Hehehe =P
@@ -97,7 +100,7 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 │   │   ├── config-vim-commentary.vim
 │   │   └── config-vim-devicons.vim
 │   ├── autoscroll.vim
-│   ├── NrrwRgn.vim
+│   ├── checkbox.vim
 │   ├── ranger.vim
 │   └── taglist.vim
 ├── <b>syntax/</b>
@@ -106,6 +109,8 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 │   ├── litcoffee.vim
 │   ├── pgsql.vim
 │   └── sh.vim
+├── <b>vendor/</b>
+│   └── markdown.css
 ├── coc-settings.json
 ├── init.vim
 └── README.md
