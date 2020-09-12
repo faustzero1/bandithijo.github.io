@@ -309,6 +309,18 @@ Contohnya seperti ini.
 
 # Pesan Penulis
 
+Sebagai catatan, Jekyll menggunakan bahasa template yang bernama **Liquid**.
+
+Kira-kira seperti ini ciri-ciri tag dari Liquid.
+
+{% highlight markdown linenos %}
+{{ "{% if jekyll.environment == 'production' " }}%}
+  <meta name="google-site-verification" content="{{ "{{ site.google_verify " }}}}">
+{{ "{% endif " }}%}
+{% endhighlight %}
+
+Apabila teman-teman ingin memodifikasi lebih jauh, silahkan merujuk kepada dokumentasi bahasa Liquid atau Dokumentasi dari Jekyll untuk melihat bagaimana cara menggunakan Liquid tag.
+
 Sepertinya, segini dulu yang saya tuliskan.
 
 Mudah-mudahan dapat bermanfaat.
@@ -316,3 +328,4 @@ Mudah-mudahan dapat bermanfaat.
 Terima kasih.
 
 (^_^)
+
