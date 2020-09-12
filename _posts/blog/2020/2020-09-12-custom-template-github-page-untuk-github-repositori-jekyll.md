@@ -215,9 +215,9 @@ Direktori **assets** akan kita gunakan untuk menyimpan stylesheet dan javascript
 
 Saya memberikan nama stylesheet dengan **style.css**.
 
-Nah, sekarang styleing dari template tinggal kita atur di dalam stylesheet ini.
+Nah, sekarang mau seperti apa tampilan dari single page, tinggal kita atur di dalam stylesheet ini.
 
-Kalau ingin mengikuti style seperti yang yang saya buat, pada gambar di atas, teman-teman dapat mendownload **style.css** tersebut [di sini](https://raw.githubusercontent.com/bandithijo/hellodev_ruby_meetup/master/assets/css/style.css){:target="_blank"}.
+Kalau ingin mengikuti style seperti yang yang saya buat, pada gambar di atas, teman-teman dapat mendownload **style.css** tersebut [**di sini**](https://raw.githubusercontent.com/bandithijo/hellodev_ruby_meetup/master/assets/css/style.css){:target="_blank"}.
 
 ## 6. Inisialisasi Gitignore
 
@@ -328,4 +328,3 @@ Mudah-mudahan dapat bermanfaat.
 Terima kasih.
 
 (^_^)
-
