@@ -20,7 +20,7 @@ Kalau teman-teman berkunjung ke ["HelloDev Online Meetup: 💎 Ruby for Beginner
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PrCmDq3W/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
-Kalo teman-teman memperhatikan URL-nya.
+Kemudian, memperhatikan URL-nya.
 
 <pre class="url">
 https://bandithijo.github.io/hellodev_ruby_meetup
