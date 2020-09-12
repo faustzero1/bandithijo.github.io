@@ -24,7 +24,7 @@ Kondisi ini sangat jarang, bahkan saya baru pertama kalinya mengalami hal ini be
 
 Namun, saya perlu mencatat agar dikemudian hari mengalami hal ini lagi, saya tidak perlu jauh-jauh mencari.
 
-# Penyelsaian Masalah
+# Penyelesaian Masalah
 
 Buka Terminal dan jalankan perintah di bawah.
 
