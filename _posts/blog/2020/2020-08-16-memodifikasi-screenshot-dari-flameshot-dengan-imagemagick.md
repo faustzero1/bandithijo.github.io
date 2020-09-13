@@ -49,7 +49,7 @@ original_file     = Time.now.strftime("Screenshot_%Y-%m-%d_%H-%M-%S.png")
 target_file       = original_file.split("").insert(-5, 'X').join
 color_profile     = "/usr/share/color/icc/colord/sRGB.icc"
 border_size       = "1"
-background_color  = "white" # "none" for transparent
+background_color  = "white" # "none" for transparent; Hex color use "'#ffffff'"
 background_size   = "20"
 shadow_size       = "50x10+0+10"
 font              = "JetBrains-Mono-Regular-Nerd-Font-Complete"
@@ -57,7 +57,7 @@ font_size         = "11"
 color_fg          = "#ffffff"
 color_bg          = "#666666"
 author_position   = ["NorthEast", "+60+16"]
-author            = "ScreenShoter: @" + %x(echo $USER)
+author            = "ScreenShoter: @" + %x(echo $USER).strip
 
 %x(
 flameshot gui --raw > #{original_file}
