@@ -40,6 +40,8 @@ Sedangkan, halaman pengumuman tersebut, berada pada repositori ini:
 github.com/bandithijo/hellodev_ruby_meetup
 </pre>
 
+![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/dV81Qds3/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
+
 <br>
 Sebenarnya, GitHub Page sudah menyediakan beberapa template default apabila kita mengaktifkan memilih "Theme" pada pengaturan yang ada pada masing-masing repositori --lihat gambar di bawah.
 
@@ -175,7 +177,7 @@ Kemudian isikan file **default.html** seperti di bawah ini. Sesuaikan dengan keb
 
 {% highlight html linenos %}
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "id-ID" }}">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
