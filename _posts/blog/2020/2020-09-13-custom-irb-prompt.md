@@ -51,7 +51,7 @@ Kita dapat meng-*override* bentuk dari IRB prompt dengan menambahkan beberapa ko
 
 Kalau file tersebut belum ada, buat dan tambahkan seperti baris di bawah.
 
-## 1. Simple >> _
+## 1. Simple &gt;&gt;
 
 {% highlight config linenos %}
 IRB.conf[:PROMPT][:CUSTOM] = {
@@ -79,7 +79,7 @@ Hasilnya akan seperti ini.
 >> _
 </pre>
 
-## 2. Line Number [01]>> _
+## 2. Line Number [01]&gt;&gt;
 
 Kita juga dapat mengkostumisasi dengan menambahkan beberapa spesial string yang disediakan.
 
