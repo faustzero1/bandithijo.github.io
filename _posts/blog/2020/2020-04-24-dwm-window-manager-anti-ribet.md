@@ -419,6 +419,15 @@ static Key keys[] = {
 };
 {% endhighlight %}
 
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p markdown="1">Saat ini (2020/09/17), saya sudah tidak lagi mendefinisikan **Custom Keys** di config.def.h yang ada di branch config.</p>
+<p markdown="1">Saya memindahkan, semua *custom keys* tersebut ke **SXHKD**.</p>
+<p markdown="1">Tujuannya, agar saat ingin dimodifikasi, tidak perlu mengcompile ulang dwm.</p>
+<p markdown="1">Selain itu, juga lebih mudah untuk pengaturan fungsi toggling.</p>
+</div>
+
 File **dwm.c**
 
 {% highlight c linenos %}
