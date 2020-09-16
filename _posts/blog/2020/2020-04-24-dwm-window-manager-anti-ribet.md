@@ -176,7 +176,7 @@ for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -
 done
 {% endhighlight %}
 
-**suckmerge2** - Created by: BanditHijo
+**suckmerge2** - Created by: BanditHijo | versi terbaru [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckmerge2){:target="_blank"}
 
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
