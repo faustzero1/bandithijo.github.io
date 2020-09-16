@@ -240,11 +240,14 @@ Saya hanya menambahkan untuk pengaturan **horizontal flip** dan **rotate** video
 Edit file `input.conf` dan tambahkan di paling bawah.
 ```
 - cycle-values video-rotate "90" "180" "270" "0"
-= vf toggle hflip
+= vf toggle hflip                       # toggle for flip video horizontal
+\ vf toggle negate                      # toggle for invert video color
 ```
-Option di atas bertujuan untuk melakukan rotate ke kanan dengan menekan tombol <kbd> - </kbd> dan tombol <kbd> = </kbd> untuk membuat video menjadi horizontal flip.
+Option di atas bertujuan untuk:
 
-Saya menggunakan kedua tombol tersebut, karena belum terdapat command apapun yang dimiliki oleh keduanya.
+1. Tombol <kbd> - </kbd> untuk melakukan rotate ke kanan
+2. Tombol <kbd> = </kbd> untuk membuat video menjadi horizontal flip
+3. Tombol <kbd> \ </kbd> untuk membuat color dari video menjadi negatif (inverted/reversed)
 
 
 # Contoh Pemanfaatan MPV
