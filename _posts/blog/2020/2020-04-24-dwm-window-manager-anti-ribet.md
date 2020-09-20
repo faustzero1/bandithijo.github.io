@@ -596,13 +596,13 @@ fi
 <!-- INFORMATION -->
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p markdown="1">**2020/09/20**, saya sudah tidak lagi menggunakan autostart patch.</p>
-<p>Melainkan hanya menggunakan .xinitrc untuk menjalankan beberapa program yang saya perlukan saat startup.</p>
+<p markdown="1">**2020/09/20**, menggunakan autostart patch 20200610-cb3f58a.diff.</p>
+<p>Dan juga menggunakan .xinitrc untuk menjalankan beberapa program yang saya perlukan saat startup.</p>
 </div>
 
-Saya menggunakan *patch* autostart untuk menghandle program-program yang akan dijalankan pada autorun.
+Saya menggunakan *patch* autostart untuk menghandle program-program autorun yang dinamis. Yang saya maksudkan sebagai dinamis adalah konfigurasi program mungkin akan mengalami modifikasi sehingga memungkinkan untuk direload ulang ditengah-tengah session.
 
-Dan saya merubah *default path* yang diberikan oleh *patch* di alamat `~/.dwm/autostart.sh` menjadi `~/.local/bin/autostart.sh`.
+Kalau hanya menggunakan .xinitrc, tentunya perlu restart session (logout). Namun, dengan patch autostart, kita hanya perlu reload dwm saja.
 
 {% highlight c linenos %}
 // dwm.c
@@ -610,120 +610,78 @@ Dan saya merubah *default path* yang diberikan oleh *patch* di alamat `~/.dwm/au
 ...
 ...
 
-void
-runAutostart(void) {
-	system("cd ~/.local/bin; ./autostart_blocking.sh");
-	system("cd ~/.local/bin; ./autostart.sh &");
-}
-
+/* variables */
+static const char autostartblocksh[] = "autostart_blocking.sh";
+static const char autostartsh[] = "autostart.sh";
+static const char broken[] = "broken";
+static const char dwmdir[] = "dwm";
+static const char localshare[] = ".local/share";
+static char stext[256];
+static int screen;
 ...
 ...
 {% endhighlight %}
+
+Perhatikan baris 10 dan 11, disanalah tempat kita akan meletakkan file **autostart.sh** dan **autostart_blocking.sh**.
+
+<pre>
+$ <b>mkdir -p ~/.local/share/dwm</b>
+$ <b>touch ~/.local/share/dwm/autostart_blocking.sh</b>
+$ <b>touch ~/.local/share/dwm/autostart.sh</b>
+</pre>
 
 Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
-pkill -f "dwmbar"; dwmbar &
+pkill -f "slstatus"; slstatus &
+pkill -f "sxhkd"; sxhkd -c ~/.config/sxhkd/sxhkdrc-dwm &
 pkill -f "dunst"; dunst -config ~/.config/dunst/dunstrc &
-xsetroot -solid "#1E1E1E"
-feh --bg-fill -Z $WALLPAPER2
-xinput set-button-map "TPPS/2 IBM TrackPoint" 1 0 3
 pkill -f "unclutter"; unclutter --timeout 3 &
 pkill -f "notify-hightemp"; notify-hightemp &
-pkill -f "bash /usr/bin/clipmenud"; pkill -f "clipnotify"; /usr/bin/clipmenud &
-/usr/bin/flameshot &
+pkill -f "bash /usr/bin/clipmenud"; pkill -f "clipnotify"; clipmenud &
+pkill -f "flameshot"; flameshot &
 pkill -f "xcompmgr"; xcompmgr &
 pkill -f "lxpolkit"; lxpolkit &
 {% endhighlight %}
 
-## suckpush script
+**autostart_blocking.sh** saya kosongin.
 
-`suckpush` script adalah script untuk melakukan *push* setiap *commit* yang sudah terjadi pada tiap-tiap *patch* branch di lokal repo ke GitHub repo dengan cara memasuki (*checkout*) ke dalam tiap-tiap *patch* branch dan melakukan *push*.
+Kemudian, ini adalah isi dari **xinitrc** yang berhubungan dengan dwm.
 
-Berikut ini scriptnya.
+{% highlight bash linenos %}
+#!/bin/sh
 
-**suckpush** - Created by: BanditHijo
+## Start GNOME Keyring
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+export SSH_AUTH_SOCK
 
-Versi terbaru dari **suckpush** dapat teman-teman temukan [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckpush){:target="_blank"}
+# Autostart (STAIC)
+xsetroot -solid "#1E1E1E"
+feh --bg-fill -Z $WALLPAPER2
+xinput set-button-map "TPPS/2 IBM TrackPoint" 1 0 3
 
-{% highlight ruby linenos %}
-#!/usr/bin/env ruby
+# Autostart (DYNAMIC)
+sanitizer
+slstatus &
+sxhkd -c ~/.config/sxhkd/sxhkdrc-dwm &
+dunst -config ~/.config/dunst/dunstrc &
+unclutter --timeout 3 &
+notify-hightemp &
+clipmenud &
+flameshot &
+clipmenud &
+xcompmgr &
+lxpolkit &
 
-remote_repo = 'bandithijo'
-
-puts '=> Reset the master branch'
-system '''
-git checkout master
-git reset --hard origin/master
-'''
-puts '=> Reseting COMPLETE!'
-
-branch_list = `git branch`
-rejected_items = %w[* master]
-branches = branch_list.split(' ').reject { |n| rejected_items.include? n }.unshift('master')
-
-puts "\n=> Push each branch to GitHub"
-branches.each do |branch|
-  print "Pushing #{branch}... "
-  %x(`
-  git checkout #{branch}  > /dev/null 2>&1
-  git push -u #{remote_repo} #{branch} > /dev/null 2>&1
-  `)
-  print "DONE\n"
-end
-%x(`git checkout master > /dev/null 2>&1`)
-puts '=> All Pushing COMPLETE!'
+# For dwm
+while true; do
+   # Log stderror to a file
+   /usr/local/bin/dwm 2> ~/.dwm.log
+done
 {% endhighlight %}
 
-**Perhatikan!** Saya menambahkan dan menamakan GitHub repo saya sebagai 'bandithijo', bisa dilihat pada variabale `remote_repo`.
-
-Outputnya akan seperti ini.
-
-<pre>
-$ <b>suckpush</b>
-</pre>
-
-```
-=> Reset the master branch
-Already on 'master'
-Your branch is up to date with 'bandithijo/master'.
-HEAD is now at f09418b dwm crashes when opening 50+ clients (tile layout)
-=> Reseting COMPLETE!
-
-=> Push each branch to GitHub
-Patching config... DONE
-Patching sticky... DONE
-Patching rmaster... DONE
-Patching canfocusrule... DONE
-Patching actualfullscreen... DONE
-Patching xrdb... DONE
-Patching noborder... DONE
-Patching autostart... DONE
-Patching movestack... DONE
-Patching moveresize... DONE
-Patching pertag... DONE
-Patching resizecorners... DONE
-Patching focusonnetactive... DONE
-Patching systray... DONE
-Patching scratchpad-gaspar... DONE
-Patching zoomswap... DONE
-Patching savefloats... DONE
-Patching centerkeybinding... DONE
-Patching center... DONE
-Patching cfacts... DONE
-Patching deck... DONE
-Patching dwmc... DONE
-Patching statusallmons... DONE
-Patching fullgaps... DONE
-=> Patching COMPLETE!
-
-=> Installing
-[sudo] password for bandithijo:
-usage: dwm [-v]
-=> Installation COMPLETE!
-```
 
 # Instalasi
 
@@ -803,6 +761,64 @@ Checkout zoomswap... DONE
 Nah, kalo sudah bisa check menggunakan `git branch`.
 
 Apabila sudah keluar semua daftar branch, tinggal jalankan script **suckmerge2**.
+
+```
+=> Convert All Branch to Patch
+Already on 'master'
+Your branch is up to date with 'bandithijo/master'.
+rm -f dwm drw.o dwm.o util.o dwm-6.2.tar.gz
+HEAD is now at 61bb8b2 Fix x coordinate calculation in buttonpress.
+HEAD is now at 61bb8b2 Fix x coordinate calculation in buttonpress.
+=> Converting COMPLETE!
+
+=> Patching All Branch to Master
+Patching config... Updating 61bb8b2..b821139
+Fast-forward (no commit created; -m option ignored)
+ config.def.h | 191 ++++++++++++++++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 151 insertions(+), 40 deletions(-)
+DONE
+Patching sticky... Merge made by the 'recursive' strategy.
+ dwm.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+DONE
+...
+...
+=> Installation COMPLETE!
+
+  +----------------------------------------------------------------------+
+  | STATUSBAR:                                                           |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the status bar.                       |
+  | You should bring your own. My personal preferences are use slstatus. |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-slstatus                             |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | KEYBOARD:                                                            |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the keyboard shortcut for apps.       |
+  | You should bring your own. My personal preferences are use SXHKD.    |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-sxhkdrc-dwm                          |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | AUTOSTART:                                                           |
+  +----------------------------------------------------------------------+
+  | BanditHijo's DWM use autostart patch. But I modified the path.       |
+  | Please, provide the autostart file on:                               |
+  | ~/.local/bin/autostart.sh                                            |
+  |                                                                      |
+  | And the other one:                                                   |
+  | ~/.local/bin/autostart_blocking.sh (just empty file)                 |
+  |                                                                      |
+  | Don't forget to make all of them as executeable file, with:          |
+  | $ chmod +x ~/.local/bin/autostart*.sh                                |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-autostart                            |
+  +----------------------------------------------------------------------+
+```
+
+Perhatikan pesan yang sudah saya berikan mengenai statusbar, keyboard, dan autostart.
 
 
 # Pesan Penulis
