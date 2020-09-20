@@ -593,6 +593,13 @@ fi
 
 ## Autorun
 
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p markdown="1">**2020/09/20**, saya sudah tidak lagi menggunakan autostart patch.</p>
+<p>Melainkan hanya menggunakan .xinitrc untuk menjalankan beberapa program yang saya perlukan saat startup.</p>
+</div>
+
 Saya menggunakan *patch* autostart untuk menghandle program-program yang akan dijalankan pada autorun.
 
 Dan saya merubah *default path* yang diberikan oleh *patch* di alamat `~/.dwm/autostart.sh` menjadi `~/.local/bin/autostart.sh`.

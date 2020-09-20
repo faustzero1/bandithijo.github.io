@@ -196,3 +196,6 @@ Terima kasih.
 
 4. [archcraft-os.github.io/blog/grub.html](https://archcraft-os.github.io/blog/grub.html){:target="_blank"}
 <br>Diakses tanggal: 2020/08/30
+
+5. [krisko210.blogspot.com/2019/12/boot-archlinux-cd-iso-from-local-disk.html?m=1](http://krisko210.blogspot.com/2019/12/boot-archlinux-cd-iso-from-local-disk.html?m=1){:target="_blank"}
+<br>Diakses tanggal: 2020/09/20
