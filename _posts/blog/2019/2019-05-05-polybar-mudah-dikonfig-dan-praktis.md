@@ -1211,7 +1211,7 @@ Tambahkan saja di baris paling akhir.
 
 ```
 # polybar-tray
-super + {_,shift + }F12
+super + ~F12
     {polybar-tray off; polybar-tray on, polybar-tray off}
 ```
 
