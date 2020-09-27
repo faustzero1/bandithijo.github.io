@@ -63,9 +63,14 @@ Kemudian mulai menulis prosedur dari algoritma di atas dengan bahasa Ruby.
 Saya akan menjelaskan perbagian kecil, agar teman-teman yang teratarik dengan bahasa Ruby dapat lebih mudah memahami.
 
 1. Mendefinisikan lokasi dari keymon installation direktori.<br>
-   Setiap sistem kemungkinan akan berbeda berdasarkan distro yang digunakan dan versi Python yang digunakan.
+   Setiap sistem kemungkinan akan berbeda berdasarkan distro yang digunakan dan versi Python yang digunakan.<br>
+   Pada langkah ini, mau tidak mau saya harus meminta akses administrator dengan sudo.
 ```ruby
-keymon_dir = '/usr/lib/python3.8/site-packages/keymon/themes'
+python_lib_path = `sudo python -c "import sys; print(sys.path[4])"`
+keymon_dir = python_lib_path.strip << '/keymon/themes'
+
+puts "\nYour Key-Mon installation directory is on:
+#{keymon_dir.sub('/themes', '')}"
 ```
 
 2. Membuat daftar semua theme yang ada di dalam project.
