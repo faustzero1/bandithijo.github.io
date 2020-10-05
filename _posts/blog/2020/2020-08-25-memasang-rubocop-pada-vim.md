@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Vim']
+tags: ['Tips', 'Vim', 'Ruby']
 pin:
 hot:
 contributors: []
