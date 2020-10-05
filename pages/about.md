@@ -73,13 +73,14 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Static Site Generator | **Jekyll** |
 | Hosting               | **GitHub Page** |
 | CDN                   | **Fastly** |
-| Format Text           | **Markdown** |
+| Format Text           | **Markdown** & **Orgmode** |
 | Sistem Operasi        | **GNU/Linux** |
 | Distribusi            | **Arch Linux** |
 | Desktop Env.          | - |
 | Window Manager        | **dwm** |
 | Terminal Emulator     | **Simple Terminal (st)** |
 | Application Launcher  | **dmenu** |
+| Statusbar             | **slstatus** |
 | Text Editor           | **NeoVim** |
 | Image Editor          | **GIMP** & **Inkscape** |
 | Video Editor          | **Kdenlive** |
