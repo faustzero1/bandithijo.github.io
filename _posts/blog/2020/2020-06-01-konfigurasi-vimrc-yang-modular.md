@@ -48,9 +48,9 @@ Biasanya plugin menyertakan dokumentasi. Kita dapat pula mnyimpan secara terpisa
 Direktori ini berisi pecahan konfigurasi yang sebagian besar ada di vimrc.
 
 5. **plugin/**<br>
-Direktori ini berisi plugin. Penamaan file di dalamnya bebas. Contoh: `name_of_plugin.vim`.
+Direktori ini berisi plugin. Biasanya plugin yang ingin saya modifikasi sendiri karena kebutuhan.
 
-6. **plugin/config**<br>
+6. **plugin-config/**<br>
 Direktori yang berisi konfigurasi dari masing-masing plugin.
 
 6. **syntax/**<br>
@@ -85,20 +85,20 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 │   ├── keybinding.vim
 │   ├── plugin.vim
 │   └── settings.vim
+├── <b>plugin-config/</b>
+│   ├── config-coc-snippets.vim
+│   ├── config-coc.vim
+│   ├── config-emmet-vim.vim
+│   ├── config-fzf.vim
+│   ├── config-indentline.vim
+│   ├── config-lightline-bufferline.vim
+│   ├── config-lightline.vim
+│   ├── config-nerdtree.vim
+│   ├── config-pylint.vim
+│   ├── config-python-mode.vim
+│   ├── config-vim-commentary.vim
+│   └── config-vim-devicons.vim
 ├── <b>plugin/</b>
-│   ├── <b>config/</b>
-│   │   ├── config-coc-snippets.vim
-│   │   ├── config-coc.vim
-│   │   ├── config-emmet-vim.vim
-│   │   ├── config-fzf.vim
-│   │   ├── config-indentline.vim
-│   │   ├── config-lightline-bufferline.vim
-│   │   ├── config-lightline.vim
-│   │   ├── config-nerdtree.vim
-│   │   ├── config-pylint.vim
-│   │   ├── config-python-mode.vim
-│   │   ├── config-vim-commentary.vim
-│   │   └── config-vim-devicons.vim
 │   ├── autoscroll.vim
 │   ├── checkbox.vim
 │   ├── ranger.vim
@@ -127,11 +127,18 @@ source $HOME/.config/nvim/init.d/<b>filetype.vim</b>
 source $HOME/.config/nvim/init.d/<b>keybinding.vim</b>
 
 source $HOME/.config/nvim/init.d/<b>plugin.vim</b>
-for f in split(glob('$HOME/.config/nvim/plugin/config/*.vim'), '\n')
+for f in split(glob('$HOME/.config/nvim/plugin-config/*.vim'), '\n')
     exe 'source' f
 </pre>
 
-Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/** dan file-file configurasi plugin yang ada di dalam direktori **plugin/config**.
+Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/** dan file-file configurasi plugin yang ada di dalam direktori **plugin-config/**.
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p markdown="1">Saya **tidak** lagi menempatkan file konfigurasi plugin di dalam direktori **plugin/config/**, karena akan **menyebabkan kegagalan** apabila dilakukan pengujian dengan menggunakan script profiler `vim-plugins-profile` (untuk mengetahui berapa lama plugin di load saat startup).</p>
+<p markdown="1">Maka dari itu, saat ini, konfigurasi dari plugin saya letakkan di root direktori **plugin-config/**.</p>
+</div>
 
 Selesai!
 
