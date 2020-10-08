@@ -63,12 +63,11 @@ Kemudian mulai menulis prosedur dari algoritma di atas dengan bahasa Ruby.
 Saya akan menjelaskan perbagian kecil, agar teman-teman yang teratarik dengan bahasa Ruby dapat lebih mudah memahami.
 
 1. Mendefinisikan lokasi dari keymon installation direktori.<br>
-   Setiap sistem kemungkinan akan berbeda berdasarkan distro yang digunakan dan versi Python yang digunakan.<br>
-   Pada langkah ini, mau tidak mau saya harus meminta akses administrator dengan sudo.
+    Setiap sistem kemungkinan akan berbeda berdasarkan distro yang digunakan dan versi Python yang digunakan.<br>
+    Pada langkah ini, mau tidak mau saya harus meminta akses administrator dengan sudo.<br>
 ```ruby
 python_lib_path = `sudo python -c "import sys; print(sys.path[4])"`
 keymon_dir = python_lib_path.strip << '/keymon/themes'
-
 puts "\nYour Key-Mon installation directory is on:
 #{keymon_dir.sub('/themes', '')}"
 ```
@@ -106,10 +105,10 @@ print '=> '
 selected_theme = gets.chomp
 ```
     Output:<br>
-    ```
-    Enter theme number:
-    => _
-    ```
+```
+Enter theme number:
+=> _
+```
 
 6. Mendefinisikan nama theme berdasarkan jawaban yang diberikan user.<br>
    Dari jawaban berupa string angka ke theme name dari list_theme.
@@ -123,10 +122,9 @@ Dir.chdir(selected_theme_name)
 puts "\nYou are in #{selected_theme_name.capitalize} directory"
 ```
     Output:<br>
-
-    ```
-    You are in ... directory
-    ```
+```
+You are in ... directory
+```
 
 8. Membuat kondisi, apabila direktori terdapat style, maka masukkan ke dalam variable list_style array.<br>
    Apabila di dalam direktori kosong, maka exit program.
@@ -147,14 +145,13 @@ list_style.each_with_index do |style, index|
 end
 ```
     Output:<br>
-    ```
-    Select you modification style:
-      (1) meta_01.svg
-      (2) meta_02.svg
-      (3) meta_03.svg
-      (4) meta_04.svg
-
-    ```
+```
+Select you modification style:
+  (1) meta_01.svg
+  (2) meta_02.svg
+  (3) meta_03.svg
+  (4) meta_04.svg
+```
 
 10. Meminta inputan berupa nomor style ke user.
 ```ruby
@@ -163,10 +160,10 @@ print '=> '
 selected_style = gets.chomp
 ```
     Output:<br>
-    ```
-    Enter style number
-    => _
-    ```
+```
+Enter style number
+=> _
+```
 
 11. Mendefinisikan nama style berdasarkan jawaban yang diberikan user.<br>
     Dari jawaban berupa string angka ke nama style.
@@ -179,9 +176,9 @@ selected_style_name = list_style[selected_style.to_i - 1]
 puts "\nYou choose: #{selected_style_name}"
 ```
     Output:<br>
-    ```
-    You choose: ...
-    ```
+```
+You choose: ...
+```
 
 13. Menanyakan persetujuan kepada user, apakah ingin melakukan instalasi atau tidak.
 ```ruby
@@ -190,10 +187,10 @@ print '=> '
 agreement = gets.chomp
 ```
     Output:<rb>
-    ```
-    Are you sure want to change the style? [y/n]
-    => _
-    ```
+```
+Are you sure want to change the style? [y/n]
+=> _
+```
 
 14. Mengolah jawaban user.
 ```ruby
@@ -210,23 +207,20 @@ else
 end
 ```
     Output:<br>
-    Apabila **y**
-    ```
-    Let's party!
-
-    [sudo] password for user:
-    'meta_01.svg' -> '/usr/lib/python3.8/site-packages/keymon/themes/oblivion/meta.svg'
-
-    Installation COMPLETED!
-    ```
+    Apabila **y**<br>
+    <pre>
+Let's party!<br>
+[sudo] password for user:<br>
+'meta_01.svg' -> '/usr/lib/python3.8/site-packages/keymon/themes/oblivion/meta.svg'<br>
+Installation COMPLETED!</pre>
     Apabila **n**
-    ```
-    Ah, Maybe later
-    ```
+```
+Ah, Maybe later
+```
     Selain **y** & **n**
-    ```
-    You are not enter the correct answer
-    ```
+```
+You are not enter the correct answer
+```
 
 15. Selesai
 
