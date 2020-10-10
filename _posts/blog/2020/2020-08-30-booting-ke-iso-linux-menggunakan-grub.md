@@ -135,8 +135,8 @@ menuentry "ArchLinux ISO" {
     set pqr="/dev/disk/by-uuid/$abc"
     loopback loop $isofile
     linux  (loop)/arch/boot/x86_64/vmlinuz-linux img_dev=$pqr img_loop=$isofile driver=$dri
-    initrd (loop)/arch/boot/x86_64/initramfs-linux.img
     initrd (loop)/arch/boot/intel-ucode.img
+    initrd (loop)/arch/boot/x86_64/initramfs-linux.img
 }
 {% endhighlight %}
 
