@@ -68,7 +68,7 @@ ARCH_202008/
 ├── arch/
 │   └── boot/
 │       ├── x86_64/
-│       │   ├── <mark>archiso.img</mark>
+│       │   ├── <mark>initramfs-linux.img</mark>
 │       │   └── <mark>vmlinuz-linux</mark>
 │       ├── <mark>amd-ucode.img</mark>
 │       └── <mark>intel-ucode.img</mark>
@@ -128,15 +128,15 @@ exec tail -n +3 $0
 
 menuentry "ArchLinux ISO" {
     set root="(hd0,1)"
-    set isofile="/root/iso/archlinux-2020.08.01-x86_64.iso"
+    set isofile="/root/iso/archlinux-2020.10.01-x86_64.iso"
     set dri="free"
     search --no-floppy -f --set=root $isofile
     probe -u $root --set=abc
     set pqr="/dev/disk/by-uuid/$abc"
     loopback loop $isofile
-    linux (loop)/arch/boot/x86_64/vmlinuz-linux img_dev=$pqr img_loop=$isofile driver=$dri
+    linux  (loop)/arch/boot/x86_64/vmlinuz-linux img_dev=$pqr img_loop=$isofile driver=$dri
+    initrd (loop)/arch/boot/x86_64/initramfs-linux.img
     initrd (loop)/arch/boot/intel-ucode.img
-    initrd (loop)/arch/boot/x86_64/archiso.img
 }
 {% endhighlight %}
 
