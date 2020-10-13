@@ -29,9 +29,11 @@ Saya tidak menggunakan alasan bahwa status-status bar tersebut *bloated*, karena
 
 Kalau hal tersebut terjadi, maka saya yang repot. Karena harus meluangkan waktu lagi untuk melakukan riset dan membuat ulang module-module tersebut agar dapat digunakan dengan Polybar.
 
+Selain itu, apabila saya menggunakan dwm, saya lebih baik meracik status bar saya sendiri.
+
 # Pemecahan Masalah
 
-Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun status bar sendiri atau digunakan oleh Polybar. Module akan saya tulis dalam dua sistem operasi. Karena *backend* program yang digunakan tentu saja berbeda pada kedua sistem operasi.
+Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun status bar sendiri atau digunakan oleh Polybar
 
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
@@ -42,109 +44,64 @@ Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun statu
 
 ## CPU Temperature
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 get_temp_cpu0=$(cat /sys/class/thermal/thermal_zone0/temp)
 temp_cpu0=$(($get_temp_cpu0/1000))
 echo "" $temp_cpu0"°C"
 {% endhighlight %}
 
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-temp_cpu0=$(sysctl -n dev.cpu.0.temperature | cut -d "." -f1)
-echo "" $temp_cpu0"°C"
-{% endhighlight %}
-
 ## Memory
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
-mem_total=$(free | awk 'NR%2==0 {print $2}')
-mem_avail=$(free | awk 'NR%2==0 {print $7}')
+mem_total=$(free -m | awk 'NR%2==0 {print $2}')
+mem_avail=$(free -m | awk 'NR%2==0 {print $7}')
 mem_used=$(( $mem_total - $mem_avail))
 mem_usage=$(( $mem_used * 100 / $mem_total ))
 echo " "$mem_usage"%"
 {% endhighlight %}
 
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-mem_phys=$(sysctl -n hw.physmem)
-mem_hw=$mem_phys
-pagesize=$(sysctl -n hw.pagesize)
-mem_inactive=$(( $(sysctl -n vm.stats.vm.v_inactive_count) * $pagesize))
-mem_cache=$(( $(sysctl -n vm.stats.vm.v_cache_count) * $pagesize))
-mem_free=$(( $(sysctl -n vm.stats.vm.v_free_count) * $pagesize))
-mem_total=$mem_hw
-mem_avail=$(( $mem_inactive + $mem_cache + $mem_free ))
-mem_used=$(( $mem_total - $mem_avail ))
-mem_usage=$(( $mem_used * 100 / $mem_total ))
-echo "" $mem_usage"%"
-{% endhighlight %}
-
 ## File System
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}')
 echo ""$cap_percentage
 {% endhighlight %}
 
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-cap_percentage=$(df -h / | tail -1 | awk '{print $(NF-1)}' | cut -d "G" -f1)
-cap_avail=$(df -h / | tail -1 | awk '{print $(NF-2)}' | cut -d "G" -f1)
-cap_total=$(df -h / | tail -1 | awk '{print $(NF-4)}' | cut -d "G" -f1)
-echo $cap_avail"/"$cap_total"G ("$cap_percentage")"
-echo ""$cap_percentage
-{% endhighlight %}
-
 ## Volume
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
-mute=$(pamixer --get-mute)
-if [ $mute = "true" ]; then
-    echo " MUTE"
-elif [ $mute = "false" ]; then
-    volume=$(pamixer --get-volume-human)
-    echo "" $volume
-else
-    echo " ERROR"
+ou_mute=$(pamixer --get-mute)
+in_mute=$(pamixer --source 1 --get-mute)
+ou_vol=$(pamixer --get-volume)
+in_vol=$(pamixer --source 1 --get-volume)
+jack_stat=$($HOME/bin/has_headphone)
+
+if [ $jack_stat = "yes" ]; then
+    icon_ou_on=""
+    icon_ou_off=""
+elif [ $jack_stat = "no" ]; then
+    icon_ou_on=""
+    icon_ou_off=""
 fi
-{% endhighlight %}
+icon_in_on=""
+icon_in_off=""
 
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-mute=$(sysctl -n dev.acpi_ibm.0.mute)
-if [ $mute = "1" ]; then
-    echo " MUTE"
-elif [ $mute = "0" ]; then
-    volume=`mixer vol | awk '{print $(NF)}' | cut -d ":" -f1`
-    echo "" $volume
+if [ $ou_mute = "true" ] && [ $in_mute = "true" ]; then
+    echo $icon_ou_off "Ø" $icon_in_off "Ø"
+elif [ $ou_mute = "true" ] && [ $in_mute = "false" ]; then
+    echo $icon_ou_off "Ø" $icon_in_on $in_vol"%"
+elif [ $ou_mute = "false" ] && [ $in_mute = "true" ]; then
+    echo $icon_ou_on $ou_vol"%" $icon_in_off "Ø"
+elif [ $ou_mute = "false" ] && [ $in_mute = "false" ]; then
+    echo $icon_ou_on $ou_vol"% $icon_in_on $in_vol"%"
 else
     echo " ERROR"
 fi
@@ -152,87 +109,64 @@ fi
 
 ## Backlight
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 backlight=$(xbacklight -get | cut -d "." -f1)
 echo "" $backlight"%"
 {% endhighlight %}
 
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-backlight=$(sysctl -n hw.acpi.video.lcd0.brightness | awk '{print $(NF)}')
-echo "" $backlight"%"
-{% endhighlight %}
-
-## Network Traffic
-
-**GNU/Linux** & **FreeBSD**
+## Network Traffic (Wifi)
 
 {% highlight bash linenos %}
 #!/bin/bash
 
-wlan_card='wls3'
-wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
-wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
-echo "" $wlan_do "" $wlan_up "KB/s"
+wlan_card='wlan0'
+wlan_online=$(ip a s dev $wlan_card | grep -i inet)
+if [[ $wlan_online ]]; then
+    wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
+    wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
+    echo "" $wlan_do "" $wlan_up "KB/s"
+else
+    echo " OFFLINE"
+fi
 {% endhighlight %}
 
 ## Battery Capacity
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
-if [ $cap -ge 0 ] && [ $cap -le 20 ]; then
-    echo "" $cap"%"
-elif [ $cap -ge 21 ] && [ $cap -le 40 ]; then
-    echo "" $cap"%"
-elif [ $cap -ge 41 ] && [ $cap -le 60 ]; then
-    echo "" $cap"%"
-elif [ $cap -ge 61 ] && [ $cap -le 90 ]; then
-    echo "" $cap"%"
+if [ $cap -ge 0 ] && [ $cap -le 10 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 11 ] && [ $cap -le 20 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 21 ] && [ $cap -le 30 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 31 ] && [ $cap -le 40 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 41 ] && [ $cap -le 50 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 51 ] && [ $cap -le 60 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 61 ] && [ $cap -le 70 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 71 ] && [ $cap -le 80 ]; then
+    echo "" $cap"%"
+elif [ $cap -ge 81 ] && [ $cap -le 90 ]; then
+    echo "" $cap"%"
 elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
-    echo "" $cap"%"
+    echo "" $cap"%"
 else
-    echo "UNKNWN"
-fi
-{% endhighlight %}
-
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-cap=$(sysctl -n hw.acpi.battery.life)
-if [ $cap -ge 0 ] && [ $cap -le 20 ]; then
-    echo "" $cap
-elif [ $cap -ge 21 ] && [ $cap -le 40 ]; then
-    echo "" $cap
-elif [ $cap -ge 41 ] && [ $cap -le 60 ]; then
-    echo "" $cap
-elif [ $cap -ge 61 ] && [ $cap -le 90 ]; then
-    echo "" $cap
-elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
-    echo "" $cap
-else
-    echo "UNKNWN"
+    echo " UNKNWN"
 fi
 {% endhighlight %}
 
 ## Battery Status
 
-**GNU/Linux**
-
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 state=$(cat /sys/devices/platform/smapi/BAT0/state)
 if [ $state = "charging" ]; then
@@ -243,23 +177,6 @@ elif [ $state = "idle" ]; then
     echo " " # idle
 else
     echo " " # unknown
-fi
-{% endhighlight %}
-
-**FreeBSD**
-
-{% highlight bash linenos %}
-#!/usr/local/bin/bash
-
-state=$(sysctl -n hw.acpi.battery.state)
-if [ $state = "2" ]; then
-    echo " " # charging
-elif [ $state = "1" ]; then
-    echo ""  # discharging
-elif [ $state = "0" ]; then
-    echo " " # idle
-else
-    echo ""  # unknown
 fi
 {% endhighlight %}
 
