@@ -84,6 +84,8 @@ convert #{target_file} -gravity North -background #{background_color} \
 -splice 0x#{background_size.to_i/2} #{target_file}
 
 convert #{target_file} -profile #{color_profile} #{target_file}
+
+xclip -selection clipboard -i #{target_file} -t image/png
 )
 
 list_file = %x(ls -p | grep -v /)
@@ -338,6 +340,8 @@ convert {target_file} -gravity North -background {background_color} \
 -splice 0x{int(background_size)/2} {target_file}
 
 convert {target_file} -profile {color_profile} {target_file}
+
+xclip -selection clipboard -i {target_file} -t image/png
 """)
 
 list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
