@@ -28,7 +28,7 @@ Kadang saya perlu untuk melakukan inspeksi terhadap file ISO yang akan saya jala
 
 Pada catatan ini, saya akan menunjukkan 2 cara.
 
-## Manual dengan mount & umount command
+## 1. Manual dengan mount & umount command
 
 Cara ini adalah cara yang menjadi hal dasar sebagai pengguna sistem operasi GNU/Linux atau Unix like.
 
@@ -98,7 +98,7 @@ $ <b>sudo umount archlinux.iso</b>
 <p markdown="1">Bukan `unmount` tapi `umount`.</p>
 </div>
 
-## Otomatis dengan Ruby script
+## 2. Otomatis dengan Ruby script
 
 Kalau teman-teman perhatikan, proses mount & unmount menggunakan file manager GUI, akan memberikan path dengan nama label sebagai akhirnya.
 
@@ -225,7 +225,7 @@ Kekurangan terbesar dari Ruby wrapper script ini adalah proses dari script ini m
 
 Karena terdapat perintah `mkdir` untuk membuat direktori di alamat `/run/media/<username>/`, serta `mount` ke alamat tersebut juga memerlukan hak akses root sehingga mau tidak mau, kita harus menggunakan sudo.
 
-# Cara Elegan
+# Alternatif (Recommended)
 
 ## 1. Memanfaatkan Udisks2
 
