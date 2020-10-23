@@ -43,21 +43,21 @@ Saya beri nama `flameshot-imgck`.
 
 require 'date'
 
-screenshot_dir    = "/home/bandithijo/pic/ScreenShots"
+screenshot_dir    = '/home/bandithijo/pic/ScreenShots'
 Dir.chdir(screenshot_dir)
-original_file     = Time.now.strftime("Screenshot_%Y-%m-%d_%H-%M-%S.png")
-target_file       = original_file.split("").insert(-5, 'X').join
-color_profile     = "/usr/share/color/icc/colord/sRGB.icc"
-border_size       = "1"
-background_color  = "white" # "none" for transparent; Hex color use "'#ffffff'"
-background_size   = "20"
-shadow_size       = "50x10+0+10"
-font              = "JetBrains-Mono-Regular-Nerd-Font-Complete"
-font_size         = "11"
-color_fg          = "#ffffff"
-color_bg          = "#666666"
-author_position   = ["NorthEast", "+60+16"]
-author            = "ScreenShoter: @" + %x(echo $USER).strip
+original_file     = Time.now.strftime('Screenshot_%Y-%m-%d_%H-%M-%S.png')
+target_file       = original_file.split('').insert(-5, 'X').join
+color_profile     = '/usr/share/color/icc/colord/sRGB.icc'
+border_size       = '1'
+background_color  = 'white' # 'none' for transparent; Hex color use ''#ffffff''
+background_size   = '10'
+shadow_size       = '50x10+0+10'
+font              = 'JetBrains-Mono-Regular-Nerd-Font-Complete'
+font_size         = '11'
+color_fg          = '#ffffff'
+color_bg          = '#666666'
+author_position   = ['SouthWest', '+30+26']
+author            = 'Shooter: @' + `echo $USER`.strip
 
 %x(
 flameshot gui --raw > #{original_file}
@@ -77,20 +77,20 @@ echo -n " #{author} " | convert #{target_file} \
 -undercolor '#{color_bg}' -font #{font} \
 -annotate #{author_position[1]} @- #{target_file}
 
-convert #{target_file} -gravity South -chop 0x#{background_size.to_i/2} \
+convert #{target_file} -gravity South -chop 0x#{background_size.to_i / 2} \
 #{target_file}
 
 convert #{target_file} -gravity North -background #{background_color} \
--splice 0x#{background_size.to_i/2} #{target_file}
+-splice 0x#{background_size.to_i / 2} #{target_file}
 
 convert #{target_file} -profile #{color_profile} #{target_file}
 
 xclip -selection clipboard -i #{target_file} -t image/png
+
+notify-send "ImageMagick" "Improving success!"
 )
 
-list_file = %x(ls -p | grep -v /)
-last_file = (list_file.split(" ")).last
-%x(rm -rf #{last_file})
+exit
 {% endhighlight %}
 
 Kalau kita menjalankan script di atas, akan menghasilkan dua buah file.
@@ -99,6 +99,13 @@ Kalau kita menjalankan script di atas, akan menghasilkan dua buah file.
 Screenshot_2020-08-16_11-32-45.png    <- Original
 Screenshot_2020-08-16_11-32-45X.png   <- Modifikasi
 ```
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p markdown="1">Alamat `screenshot_dir` dengan alamat yang ada di Flameshot, **harus sama**.</p>
+<p markdown="1">Kalau tidak, maka script tidak berjalan sebagaimana mestinya.</p>
+</div>
 
 File Original tidak dimodifikasi, tujuannya sebagai backup. Karena saya menyadari bahwa pengambilan screenshot adalah hal yang sangat *crucial* dan terkadang tidak dapat diulang dua kali.
 
@@ -266,8 +273,35 @@ Ganti sesuai preferensi teman-teman.
 shadow_size       = "50x10+0+10"
 {% endhighlight %}
 
+## Color Profile
 
+Menambahkan color profile ini penting untuk Telegram. Kalau tidak menambahkan color profile, gambar kita akan terlihat "over bright" di Telegram Android meskipun tidak terlihat di Telegram Desktop.
 
+```
+convert #{target_file} -profile #{color_profile} #{target_file}
+```
+
+## Save to Clipboard!
+
+Apabila telah selesai melakukan screnshot, kita dapat menyimpang dengan menekan tombol <kbd>ENTER</kbd>.
+
+Maka, hasil screenshot kita akan disimpan ke clipboard.
+
+```
+xclip -selection clipboard -i #{target_file} -t image/png
+
+notify-send "ImageMagick" "Improving success!"
+```
+
+Tinggal kita paste di Telegram.
+
+Namun, dengan Ruby script ini, hasil screenshot tetap berada pada direktori screenshot yang sudah kita set.
+
+Jangan lupa untuk mendisable tombol save pada configurasi interface di Flameshot.
+
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7LTNWWGB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+
+Tujuannya agar kita tidak latah lalu menekan tombol save. Agar hanya ada satu pilihan untuk menyimpan, yaitu menekan tombol <kbd>ENTER</kbd>.
 
 
 
@@ -339,14 +373,10 @@ convert {target_file} -gravity South -chop 0x{int(background_size)/2} \
 convert {target_file} -gravity North -background {background_color} \
 -splice 0x{int(background_size)/2} {target_file}
 
-convert {target_file} -profile {color_profile} {target_file}
-
 xclip -selection clipboard -i {target_file} -t image/png
-""")
 
-list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
-last_file = list_file[-1]
-os.system(f"rm -rf {last_file}")
+notify-send "ImageMagick" "Improving success!"
+""")
 {% endhighlight %}
 
 
