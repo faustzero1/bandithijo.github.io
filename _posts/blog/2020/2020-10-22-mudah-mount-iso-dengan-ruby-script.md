@@ -249,7 +249,7 @@ Sekenario untuk proses mount dengan udiskctl, adalah:
 1. Setup loop block device dengan `loop-setup -p`
 2. Mounting block partition dengan `mount -p`
 
-#### 1. Setup loop block device dengan `loop-setup`
+#### 1. Setup loop block device dengan loop-setup
 <pre class="url">
 $ <b>udisksctl loop-setup -f file_image.iso</b>
 </pre>
@@ -274,7 +274,7 @@ Proses ini mirip saat kita melakukan, klik kanan pada ISO image dan memilih menu
 
 Bisa langsung diklik untuk mount.
 
-#### 2. Mounting block partition dengan `mount`
+#### 2. Mounting block partition dengan mount
 
 Atau, kalau kita tidak ingin membuka file manager, atau tidak memiliki aplikasi file manager GUI, kita juga dapat menggunakan udisksctl saja untuk melakukan proses mounting.
 
@@ -303,7 +303,7 @@ Sekenario yang sama berlaku untuk proses unount, namun kebalikan dari proses mou
 1. Unmounting block partition dengan `unmount -p`
 2. Delete loop block device dengan `loop-delete -b`
 
-#### 1. Unmounting block partition dengan `unmount`
+#### 1. Unmounting block partition dengan unmount
 
 <pre class="url">
 $ <b>udisksctl unmount -p block_devices/block_partition</b>
@@ -326,7 +326,7 @@ loop0     iso9660   681M loop ARCH_202010
 Terlihat bahwa `loop0p1` sudah tidak lagi memiliki mount point.
 
 
-#### 2. Delete loop block device dengan `loop-delete`
+#### 2. Delete loop block device dengan loop-delete
 
 Sekarang tinggal melepaskan block device `loop0`.
 
@@ -350,7 +350,7 @@ Saat ini, udiskie belum dapat digunakan untuk memounting file ISO.
 
 Link repo: [**coldfix/udiskie**](https://github.com/coldfix/udiskie){:target="_blank"}.
 
-### 3. Memanfaatkan udiskie-dmenu
+## 3. Memanfaatkan udiskie-dmenu
 
 **Udiskie-dmenu** adalah front-end dari udiskie yang menggunakan dmenu sebagai interfacenya.
 
