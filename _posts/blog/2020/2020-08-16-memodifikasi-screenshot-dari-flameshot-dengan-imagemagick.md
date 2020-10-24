@@ -84,13 +84,20 @@ convert #{target_file} -gravity North -background #{background_color} \
 -splice 0x#{background_size.to_i / 2} #{target_file}
 
 convert #{target_file} -profile #{color_profile} #{target_file}
-
-xclip -selection clipboard -i #{target_file} -t image/png
-
-notify-send "ImageMagick" "Improving success!"
 )
 
-exit
+list_file = `ls -p | grep -v /`
+last_file = list_file.split(' ').last
+if last_file.include? 'X'
+  `notify-send "ImageMagick" "Improving success!" -t 3000`
+  `xclip -selection clipboard -i #{target_file} -t image/png`
+end
+
+size = `find #{last_file} -printf %s`
+if size == '0' || size <= '20'
+  `rm -rf #{last_file}`
+  `notify-send "Flameshot" "Process Aborted!" -t 1000`
+end
 {% endhighlight %}
 
 Kalau kita menjalankan script di atas, akan menghasilkan dua buah file.
@@ -287,10 +294,13 @@ Apabila telah selesai melakukan screnshot, kita dapat menyimpang dengan menekan 
 
 Maka, hasil screenshot kita akan disimpan ke clipboard.
 
-```
-xclip -selection clipboard -i #{target_file} -t image/png
-
-notify-send "ImageMagick" "Improving success!"
+```ruby
+list_file = `ls -p | grep -v /`
+last_file = list_file.split(' ').last
+if last_file.include? 'X'
+  `notify-send "ImageMagick" "Improving success!" -t 3000`
+  `xclip -selection clipboard -i #{target_file} -t image/png`
+end
 ```
 
 Tinggal kita paste di Telegram.
@@ -302,6 +312,20 @@ Jangan lupa untuk mendisable tombol save pada configurasi interface di Flameshot
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7LTNWWGB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 
 Tujuannya agar kita tidak latah lalu menekan tombol save. Agar hanya ada satu pilihan untuk menyimpan, yaitu menekan tombol <kbd>ENTER</kbd>.
+
+## Menghandle Escape
+
+Apabila kita tidak jadi melakukan screenshot dan menekan tombol <kbd>ESC</kbd>, proses screenshot dengan script ini akan meninggalkan file kosong (sebesar 0 B - 10 B).
+
+Untuk menghandle hal tersebut, saya memilih mendeteksi size dari file tersebut dan menghapusnya.
+
+```ruby
+size = `find #{last_file} -printf %s`
+if size == '0' || size <= '20'
+  `rm -rf #{last_file}`
+  `notify-send "Flameshot" "Process Aborted!" -t 1000`
+end
+```
 
 
 
@@ -324,12 +348,15 @@ Terima kasih.
 
 ## Versi Python
 
+Saya beri nama `flameshot-imgck-python`.
+
 {% highlight python linenos %}
 #!/usr/bin/env python
 
 import os
 from datetime import datetime
 
+# Please write your screenshot dir with full path. Later, I'll improve this.
 screenshot_dir    = "/home/bandithijo/pic/ScreenShots"
 os.chdir(screenshot_dir)
 original_file     = datetime.now().strftime("Screenshot_%Y-%m-%d_%H-%M-%S.png")
@@ -338,45 +365,54 @@ target.insert(-4, 'X')
 target_file       = ''.join(target)
 color_profile     = "/usr/share/color/icc/colord/sRGB.icc"
 border_size       = "1"
-background_color  = "white" # "none" for transparent
-background_size   = "20"
+background_color  = "white" # "none" for transparent; Hex color use "'#ffffff'"
+background_size   = "10"
 shadow_size       = "50x10+0+10"
 font              = "JetBrains-Mono-Regular-Nerd-Font-Complete"
 font_size         = "11"
 color_fg          = "#ffffff"
 color_bg          = "#666666"
-author_position   = ["NorthEast", "+60+16"]
-author            = "ScreenShoter: @" + \
+author_position   = ["SouthWest", "+30+26"]
+author            = "Shooter: @" + \
                     os.popen("echo $USER").read().rstrip("\n")
 
 os.system(f"""
 flameshot gui --raw > {original_file}
 
 convert {original_file} -bordercolor '{color_bg}' -border {border_size} \
-{target_file}
+{target_file} \
 
 convert {target_file} \\( +clone -background black \
 -shadow {shadow_size} \\) +swap -background none \
--layers merge +repage {target_file}
+-layers merge +repage {target_file} \
 
 convert {target_file} -bordercolor {background_color} \
--border {background_size} {target_file}
+-border {background_size} {target_file} \
 
 echo -n " {author} " | convert {target_file} \
 -gravity {author_position[0]} -pointsize {font_size} -fill '{color_fg}' \
 -undercolor '{color_bg}' -font {font} \
--annotate {author_position[1]} @- {target_file}
+-annotate {author_position[1]} @- {target_file} \
 
 convert {target_file} -gravity South -chop 0x{int(background_size)/2} \
-{target_file}
+{target_file} \
 
 convert {target_file} -gravity North -background {background_color} \
--splice 0x{int(background_size)/2} {target_file}
+-splice 0x{int(background_size)/2} {target_file} \
 
-xclip -selection clipboard -i {target_file} -t image/png
-
-notify-send "ImageMagick" "Improving success!"
+convert {target_file} -profile {color_profile} {target_file} \
 """)
+
+list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
+last_file = list_file[-1]
+if 'X' in last_file:
+    os.system("notify-send 'ImageMagick' 'Improving success!' -t 3000")
+    os.system(f"xclip -selection clipboard -i {target_file} -t image/png")
+
+size = os.popen(f"find {last_file} -printf %s").read()
+if size == '0' or size <= '20':
+    os.system(f"rm -rf {last_file}")
+    os.system("notify-send 'Flameshot' 'Process Aborted!' -t 1000")
 {% endhighlight %}
 
 
