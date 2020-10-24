@@ -86,6 +86,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Raster Image Editor   | **GIMP** & **gthumb** |
 | Vector Image Editor   | **Inkscape** |
 | Image Preview         | **sxiv** |
+| Office                | **LibreOffice** |
 | ScreenShoter          | **scrot** & **flameshot** |
 | PDF Reader            | **zathura** & **evince** |
 | Video Editor          | **kdenlive** |
