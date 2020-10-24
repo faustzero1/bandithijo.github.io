@@ -71,26 +71,35 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | <center>Data</center> | <center>Keterangan</center> |
 | :--- | :--- |
 | Static Site Generator | **Jekyll** |
-| Hosting               | **GitHub Page** |
+| Hosting               | **GitHub Pages** |
 | CDN                   | **Fastly** |
 | Format Text           | **Markdown** & **Orgmode** |
 | Sistem Operasi        | **GNU/Linux** |
 | Distribusi            | **Arch Linux** |
 | Desktop Env.          | - |
 | Window Manager        | **dwm** |
-| Terminal Emulator     | **Simple Terminal (st)** |
+| Terminal Emulator     | **st** |
+| Shell                 | **zsh** |
 | Application Launcher  | **dmenu** |
 | Statusbar             | **slstatus** |
-| Text Editor           | **NeoVim** |
-| Image Editor          | **GIMP** & **Inkscape** |
-| Video Editor          | **Kdenlive** |
+| Text Editor           | **neovim** |
+| Raster Image Editor   | **GIMP** & **gthumb** |
+| Vector Image Editor   | **Inkscape** |
+| Image Preview         | **sxiv** |
+| ScreenShoter          | **scrot** & **flameshot** |
+| PDF Reader            | **zathura** & **evince** |
+| Video Editor          | **kdenlive** |
 | Screen Recorder       | **ffmpeg** |
-| Browser               | **Firefox** |
-| File Manager          | **Ranger** |
-| Video Player          | **MPV** |
-| Email Client          | **Neomutt** |
-| IRC Client            | **WeeChat** |
-| RSS Feed Reader       | **Newsboat** |
+| Webcam                | **ffplay** |
+| Browser               | **firefox** & **luakit** |
+| File Manager          | **ranger** |
+| Video Player          | **mpv** |
+| Email Client          | **neomutt** |
+| IRC Client            | **weechat** |
+| RSS Feed Reader       | **newsboat** |
+| Torrent Client        | **tremc** |
+| RDP Client            | **xfreerdp** |
+| VNC Client            | **x11vnc** |
 
 # Ilustrasi Workflow
 
