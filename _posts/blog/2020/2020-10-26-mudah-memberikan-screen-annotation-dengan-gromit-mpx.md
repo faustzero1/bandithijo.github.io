@@ -129,7 +129,7 @@ Untuk panduan konfigurasi, teman-teman dapat mengunjungin halaman GitHub readme 
 
 ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SxzC4NDb/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
 
-
+![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5NZRjCmP/gambar-06.gif" onerror="imgError(this);"}{:class="myImg"}
 
 
 
