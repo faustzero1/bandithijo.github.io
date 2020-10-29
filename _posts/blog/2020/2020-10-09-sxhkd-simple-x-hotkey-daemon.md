@@ -43,6 +43,16 @@ Terdapat beberapa keuntungan yang akan kita dapatkan apabila kita memanfaatkan S
 
 # Cara Penggunaan
 
+Untuk memanggil config sxhkd, saya lebih senang menggunakan option `-c`.
+
+Karena saya memiliki beberapa file config untuk masing-masing WM.
+
+```
+sxhkd -c $HOME/.config/sxhkd/sxhkdrc-dwm
+```
+
+# Contoh Penggunaan
+
 Berikut ini beberapa contoh isi dari konfigurasi SXHKD yang saya pergunakan.
 
 Saya akan ambil beberapa contoh yang simple dan berbeda dengan yang lain.
