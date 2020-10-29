@@ -89,7 +89,7 @@ Ini adalah contoh 2 kombinasi untuk menggunakan command terminal.
 ```shell
 # make sxhkd reload its configuration files
 super + Escape
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 ```
 
 Ini adalah contoh 2 kombinasi untuk memanggil script dmenu (custom) launcher.
@@ -105,7 +105,7 @@ Ini adalah contoh 3 kombinasi untuk memanggil program slock.
 ```shell
 # lock screen
 super + shift + x
-	/usr/local/bin/slock
+    /usr/local/bin/slock
 ```
 
 ## 3. Simple Parenthesis
