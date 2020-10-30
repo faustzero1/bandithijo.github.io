@@ -342,7 +342,7 @@ endif
 
 # Hasilnya
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/zGyQ87wy/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bJnLsY3b/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BQStvYvQ/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
