@@ -317,3 +317,6 @@ Terima kasih.
 
 1. [github.com/itchyny/lightline.vim](https://github.com/itchyny/lightline.vim){:target="_blank"}
 <br>Diakses tanggal: 2020/10/30
+
+2. [hagen.dev/kristoffer/dotfiles - [nvim] Lightline config](https://hagen.dev/kristoffer/dotfiles/commit/c833b54013c7a3522315da362b548595be098a6b){:target="_blank"}
+<br>Diakses tanggal: 2020/10/30
