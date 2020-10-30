@@ -9,7 +9,7 @@ deploy:
   provider: pages
   strategy: git
   token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  skip_cleanup: true
+  cleanup: false
   keep_history: true
   verbose: true
   local_dir: _site
