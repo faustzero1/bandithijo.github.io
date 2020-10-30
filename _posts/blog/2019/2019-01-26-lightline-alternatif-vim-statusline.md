@@ -18,6 +18,10 @@ contributors: []
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
+<br>
+<!-- OUTDATED POST -->
+<p class="notif-post" style="margin-bottom: -20px;">Post ini sudah tidak up to date !</p>
+
 # Latar Belakang Masalah
 
 Malam tadi, 2019/01/25, tiba-tiba saja saya merasa Vim (teks editor favorit saya) terasa lambat sekali saat proses *startup*.
