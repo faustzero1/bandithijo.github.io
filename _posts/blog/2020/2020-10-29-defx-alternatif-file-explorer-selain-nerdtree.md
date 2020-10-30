@@ -350,6 +350,9 @@ Kalau diperhatikan, kenapa status bar saya dapat berbeda ketika berada di buffer
 
 Jawabannya ada di post setelah ini.
 
+# Credit
+
+Terima kasih kepada [Elianiva](https://elianiva.github.io/post/defx-nvim/){:target="_blank"} dan [teh Tsara Fatma](https://tsarafatma.com/neovim/2020/02/08/defx-file-explorer-for-neovim){:target="_blank"}, untuk catatan di blognya.
 
 
 # Pesan Penulis
