@@ -290,7 +290,9 @@ Kemudian saya tempatkan di status aktif bagian kiri, dengan posisi di tengah. Di
 -->
 
 
+# Credit
 
+Terima kasih kepada mas [Yeri](https://yeripratama.com/blog/customizing-vim-lightline/){:target="_blank"}, untuk catatan di blognya.
 
 
 # Pesan Penulis
