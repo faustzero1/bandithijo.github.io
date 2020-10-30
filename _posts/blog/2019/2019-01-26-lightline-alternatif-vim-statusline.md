@@ -22,6 +22,8 @@ contributors: []
 <!-- OUTDATED POST -->
 <p class="notif-post" style="margin-bottom: -20px;">Post ini sudah tidak up to date !</p>
 
+Post terbaru ada di sini: [**Lightline, Alternatif Vim Statusline Bagian 2 (feat. Defx)**](/blog/lightline-alternatif-vim-statusline-part-2){:target="_blank"}.
+
 # Latar Belakang Masalah
 
 Malam tadi, 2019/01/25, tiba-tiba saja saya merasa Vim (teks editor favorit saya) terasa lambat sekali saat proses *startup*.
