@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Lightline, Alternatif Vim Statusline Bagian 2 (feat. Defx)"
+title: "Lightline, Alternatif Vim Statusline Bagian 2 (feat. Defx, Tagbar)"
 date: 2020-10-30 09:26
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -117,7 +117,7 @@ function! LightlineReadonly()
 endfunction
 
 function! LightlineFugitive()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     if exists('*fugitive#head')
       let branch = fugitive#head()
       return branch !=# '' ? ' ' . branch : ''
@@ -129,7 +129,7 @@ function! LightlineFugitive()
 endfunction
 
 function! LightlineFileformat()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) . ' ' : ''
   else
     return ''
@@ -137,7 +137,7 @@ function! LightlineFileformat()
 endfunction
 
 function! LightlineFiletype()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
   else
     return ''
@@ -145,7 +145,7 @@ function! LightlineFiletype()
 endfunction
 
 function! LightlineFileEncoding()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     return &fileencoding
   else
     return ''
@@ -153,7 +153,7 @@ function! LightlineFileEncoding()
 endfunction
 
 function! LightlineLineInfo()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     let current_line = printf('%3s', line('.'))
     let current_col  = printf('%-3s', col('.'))
     let lineinfo     = ' ' . current_line . ':' . current_col
@@ -164,7 +164,7 @@ function! LightlineLineInfo()
 endfunction
 
 function! LightlinePercent()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     return printf(' %3s', (line('.') * 100 / line('$'))) . '%'
   else
     return ''
@@ -174,7 +174,7 @@ endfunction
 function! LightlineFileName()
   let filename = expand('%')
   let modified = &modified ? '' : ''
-  if &filetype !=? 'defx'
+  if &filetype !=? 'defx' && &filetype !=? 'tagbar' && &filetype !=? 'taglist'
     if filename ==# ''
       return '[No Name]'
     endif
@@ -186,12 +186,16 @@ function! LightlineFileName()
 
     return filename . ' ' . modified
   else
-    return '[defx]'
+    return expand('%:t') ==# '__Tagbar__.1' ? '[tagbar]' :
+         \ expand('%:t') ==# '__Tag_List__' ? '[taglist]' :
+         \ &filetype ==# 'defx' ?  '[defx]' :
+         \ ''
   endif
 endfunction
 
 function! LightlineMode()
   return expand('%:t') ==# '__Tagbar__.1' ? ' TAGBAR' :
+       \ expand('%:t') ==# '__Tag_List__' ? ' TAGLIST' :
        \ &filetype ==# 'defx' ?  ' DEFX' :
        \ lightline#mode()
 endfunction
@@ -211,7 +215,7 @@ function! SmartTabsIndicator()
 endfunction
 
 function! LightlineTrailingWhitespace()
-  if &filetype !=? ('defx' || 'tagbar')
+  if &filetype !=? 'defx'
     let status = lightline#trailing_whitespace#component()
     return status == 'trailing' ? '!' : ''
   else
