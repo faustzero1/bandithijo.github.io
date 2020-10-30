@@ -24,7 +24,7 @@ Saya pun, sejak awal menggunakan Vim, sudah menggunakan NERDTree, sampai-sampai 
 
 Catatan kali ini tentang, proses migrasi saya dari NERDTree ke Defx.nvim.
 
-Menurut yang tertulis di halaman GitHub README dari Defx, plguin ini diciptakan untuk menggantikan vimfiler yang sudah deprecated.
+Menurut yang tertulis di halaman GitHub README dari Defx, plugin ini diciptakan untuk menggantikan vimfiler yang sudah deprecated.
 
 Penjelasan mengenai konsep dari Defx, dapat teman-teman baca [di sini](https://github.com/Shougo/defx.nvim/blob/master/README.md){:target="_blank"}.
 
