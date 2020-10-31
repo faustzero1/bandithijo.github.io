@@ -193,13 +193,16 @@ Travis CI akan menjalankan proses build berdasarkan konfigurasi yang kita tulis 
 
 {% highlight yml linenos %}
 language: ruby
+os: linux
+dist: xenial
 
 install:
   - bundle install
 
 deploy:
   provider: pages
-  github_token: $GITHUB_TOKEN
+  strategy: git
+  token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   skip_cleanup: true
   keep_history: true
   verbose: true
