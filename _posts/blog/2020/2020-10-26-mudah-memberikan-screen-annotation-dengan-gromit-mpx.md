@@ -125,6 +125,30 @@ Kalau sudah seperti ini, saya serahkan kepada teman-teman untuk berimajinasi dal
 
 Untuk panduan konfigurasi, teman-teman dapat mengunjungin halaman GitHub readme dari Gromit-MPX, [di sini](https://github.com/bk138/gromit-mpx#configuration){:target="_blank"}.
 
+Ini adalah contoh konfigurasi yang saya pergunakan.
+
+{% highlight conf linenos %}
+# Default gromit-mpx configuration
+# taken from  Totem's telestrator mode config
+# added default entries
+
+# Uncomment to set Hot key and/or Undo key to a custom value
+HOTKEY  = "F9";
+UNDOKEY = "F8";
+
+"white Pen"  = PEN (size=8 color="white");
+"red Pen"    = "white Pen" (color="#FF0000");
+"yellow Pen" = "white Pen" (color="#FFBB00");
+"blue Pen"   = "white Pen" (color="#0000FF");
+
+"Eraser"     = ERASER (size = 50);
+
+"default"          = "white Pen";
+"default"[SHIFT]   = "red Pen";
+"default"[CONTROL] = "yellow Pen";
+"default"[ALT]     = "Eraser";
+{% endhighlight %}
+
 # Demonstrasi
 
 ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SxzC4NDb/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
