@@ -1866,7 +1866,7 @@ img.modal-content {
 */
 /* ------------------------------------------------------------------------ */
 /* Untuk mengcover layar fullhd */
-@media (min-width: 1920px) {
+@media (width: 1920px) {
 
   .penulis-img {
     float: left;
