@@ -276,7 +276,7 @@ Pada section **GitHub Pages**, pilih branch **master** sebagai source yang akan 
 Kalau sudah dirubah, notifkasi dengan pita hijau akan muncul bertuliskan,
 
 <pre class="url">
-Your site is <b>published</b> to publish at ...
+Your site is <b>published</b> at ...
 </pre>
 
 Nah, selesai!
