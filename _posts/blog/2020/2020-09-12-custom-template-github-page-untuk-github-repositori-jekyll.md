@@ -259,6 +259,28 @@ Kalau konfigurasinya sudah benar, maka akan menampilkan isi dari halaman **READM
 
 ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfGdzTsR/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 
+# Let's Push
+
+Setelah semua sudah dikonfigurasi di lokal, saatnya kita deploy ke GitHub repositori.
+
+<pre>
+$ <b>git push -u origin master</b>
+</pre>
+
+Kemudian, pergi ke tab **⚙️ Settings**.
+
+Pada section **GitHub Pages**, pilih branch **master** sebagai source yang akan ditampilkan sebagai GitHub Pages.
+
+![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pVzGWwQw/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
+
+Kalau sudah dirubah, notifkasi dengan pita hijau akan muncul bertuliskan,
+
+<pre class="url">
+Your site is <b>published</b> to publish at ...
+</pre>
+
+Nah, selesai!
+
 
 # Tips
 
