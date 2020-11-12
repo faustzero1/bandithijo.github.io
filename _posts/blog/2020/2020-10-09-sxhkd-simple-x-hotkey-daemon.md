@@ -51,6 +51,12 @@ Karena saya memiliki beberapa file config untuk masing-masing WM.
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc-dwm
 ```
 
+Langkah selanjutnya, tinggal dipasang pada konfigurasi autostart yang teman-teman miliki.
+
+Misal, contohnya seperti yang saya pergunakan di bawah ini.
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RVts5LyC/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+
 # Contoh Penggunaan
 
 Berikut ini beberapa contoh isi dari konfigurasi SXHKD yang saya pergunakan.
