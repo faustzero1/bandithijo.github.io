@@ -9,7 +9,7 @@ comments: true
 toc: true
 category: 'blog'
 tags:
-# Android, Arch Linux, BSPWM, Database, Django, FreeBSD, I3WM, Java, Javascript,
+# Android, Arch Linux, BSPWM, Database, Django, Dwm, FreeBSD, I3WM, Java, Javascript,
 # Jekyll, jQuery, Network, Python, Rails, Ruby, Script, Security, Terminal, ThinkPad,
 # Tips, Tools, Ulasan, Vim, Wine, XFCE
 pin:
@@ -160,36 +160,6 @@ atau <mark>ini juga bisa, lebih praktis</mark>.
 | 5 | Data | Data | Data | Data | `data.service` |
 
 <p class="img-caption" style="text-align:left;">Sumber: <a href="" target="_blank">Arch Wiki</a></p>
-
-# HTML ENTITIES
-
-| Mark | Character | Construct | Result |
-| --- | --- | --- | --- |
-|  	| non-breaking space | &nbsp; | &#160; |
-| < | less than | &lt; | &#60; |
-| > | greater than | &gt; | &#62; |
-| & | ampersand | &amp; | &#38; |
-| " | double quotation mark | &quot; | &#34; |
-| ' | single quotation mark (apostrophe) | &apos; | &#39; |
-|   | backtick | | &#96; |
-| # | hastag | &num; | &#35; |
-| ¢ | cent | &cent; | &#162; |
-| £ | pound | &pound; | &#163; |
-| ¥ | yen | &yen; | &#165; |
-| € | euro | &euro; | &#8364; |
-| © | copyright | &copy; | &#169; |
-| ® | registered trademark | &reg; | &#174; |
-| ▨ | unknown box | | &#x25a8; |
-
-| Char | Number | Entity | Description |
-| ---- | ------ | ------ | ----------- |
-| © | &#169; | &copy; | Copyright Sign |
-| ® | &#174; | &reg; | Registered Sgn |
-| ™ | &#8482; | &trade; | Trademark Sign |
-| ← | &#8592; |	&larr; | Leftwards Arrow |
-| ↑ | &#8593; | &uarr; | Upwards Arrow |
-| → | &#8594; | &rarr; | Rightwards Arrow |
-| ↓ | &#8595; | &darr; 	 | Downwards Arrow |
 
 [Full arrow references](https://www.w3schools.com/charsets/ref_utf_arrows.asp){:target="_blank"}
 <br>
