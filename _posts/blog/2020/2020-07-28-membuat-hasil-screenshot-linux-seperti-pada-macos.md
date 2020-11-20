@@ -76,9 +76,9 @@ File inilah yang akan ditangkap oleh Ruby script dan dipermak.
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
-# Please write your screenshot dir with full path. Later, I'll improve this.
-screenshot_dir = "/home/bandithijo/pic/ScreenShots"
-Dir.chdir(screenshot_dir)
+# Please wite your dir with ~/ first
+screenshot_dir = '~/pic/ScreenShots'
+Dir.chdir(File.expand_path(screenshot_dir))
 ss_dir = Dir.pwd
 list_file = %w(ls -p | grep -v /)
 files = list_file.split(" ")
@@ -135,25 +135,24 @@ Maka dari itu, pada modifikasi ini, saya menambahkan ciri khas untuk memberikan 
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
-# Please write your screenshot dir with full path. Later, I'll improve this.
-screenshot_dir    = "/home/bandithijo/pic/ScreenShots"
-Dir.chdir(screenshot_dir)
+# How this script work?
+# By put the last file on directory screenshot, and process it with imagemagick
+
+# Please wite your dir with ~/ first
+screenshot_dir    = '~/pic/ScreenShots'
+Dir.chdir(File.expand_path(screenshot_dir))
 ss_dir            = Dir.pwd
 list_file         = %x(ls -p | grep -v /)
 files             = list_file.split(" ")
 original_file     = files.last
 target_file       = files.last.split("").insert(-5, 'X').join
 color_profile     = "/usr/share/color/icc/colord/sRGB.icc"
-border_size       = "1"
-background_color  = "white"
-background_size   = "20"
-shadow_size       = "50x10+0+10"
-font              = "JetBrains-Mono-Regular-Nerd-Font-Complete"
-font_size         = "11"
 color_fg          = "#ffffff"
 color_bg          = "#666666"
-author_position   = ["NorthEast", "+60+16"]
-author            = "ScreenShoter: @" + %x(echo $USER).strip
+border_size       = "0"
+background_color  = "white"
+background_size   = "10"
+shadow_size       = "50x10+0+10"
 
 %x(
 convert #{original_file} -bordercolor '#{color_bg}' -border #{border_size} \
@@ -166,21 +165,19 @@ convert #{target_file} \\( +clone -background black \
 convert #{target_file} -bordercolor #{background_color} \
 -border #{background_size} #{target_file}
 
-echo -n " #{author} " | convert #{target_file} \
--gravity #{author_position[0]} -pointsize #{font_size} -fill '#{color_fg}' \
--undercolor '#{color_bg}' -font #{font} \
--annotate #{author_position[1]} @- #{target_file}
-
 convert #{target_file} -gravity South -chop 0x#{background_size.to_i/2} \
 #{target_file}
 
 convert #{target_file} -gravity North -background #{background_color} \
--splice 0x#{border_size.to_i/2} #{target_file}
+-splice 0x#{background_size.to_i/2} #{target_file}
 
 convert #{target_file} -profile #{color_profile} #{target_file}
 )
 
-%x(optipng #{target_file}) if %x(which optipng > /dev/null 2>&1)
+if %x(which optipng > /dev/null 2>&1)
+  %x(optipng #{target_file})
+  puts "OPTIPNG DONE!"
+end
 
 puts "SS_DIR: #{ss_dir}
 SOURCE: #{original_file}
