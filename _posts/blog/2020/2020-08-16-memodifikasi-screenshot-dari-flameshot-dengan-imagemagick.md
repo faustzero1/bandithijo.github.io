@@ -43,8 +43,9 @@ Saya beri nama `flameshot-imgck`.
 
 require 'date'
 
-screenshot_dir    = '/home/bandithijo/pic/ScreenShots'
-Dir.chdir(screenshot_dir)
+# Please wite your dir with ~/ first
+screenshot_dir    = '~/pic/ScreenShots'
+Dir.chdir(File.expand_path(screenshot_dir))
 original_file     = Time.now.strftime('Screenshot_%Y-%m-%d_%H-%M-%S.png')
 target_file       = original_file.split('').insert(-5, 'X').join
 color_profile     = '/usr/share/color/icc/colord/sRGB.icc'
