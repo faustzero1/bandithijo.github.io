@@ -39,8 +39,6 @@ PREOJECT_DIR/
 
 Nah, pada file **local_env.yml** ini, yang nantinya semua dev akan menempatkan credential. Biasanya credential didapatkan dari group chat internal (biasanya ada di catatan/note dari project). Jadi tidak diikutkan bersama project yang akan di push ke Git repo.
 
-Contoh kasus di atas menunjukkan cara yang masih kurang aman. Karena credential disimpan secara *plain* di group chat internal --Sebenarnya tidak ada masalah, cuma kurang keren 😄.
-
 Biasanya, pada implementasi di code program, akan menggunakan cara seperti ini.
 
 ```yaml
