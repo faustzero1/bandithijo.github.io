@@ -96,6 +96,12 @@ Option-option lain yang lebih lengkap, dapat teman-teman lihat di man pages dari
 
 Mungkin ada option-option luar biasa yang teman-teman perlukan, namun saya belum sempat mencobanya.
 
+# Tambahan
+
+## Bagaimana cara berpindah focus?
+
+Untuk melepaskan focus dari mouse pointer yang berada di dalam FreeRDP, dapat menggunakan <kbd>Right Ctrl</kbd>.
+
 
 
 
