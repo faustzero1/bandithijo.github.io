@@ -125,3 +125,6 @@ Terima kasih.
 
 2. [github.com/FreeRDP/FreeRDP](https://github.com/FreeRDP/FreeRDP){:target="_blank"}
 <br>Diakses tanggal: 2020/11/27
+
+3. [https://github.com/FreeRDP/FreeRDP/issues/931#issuecomment-340802163](https://github.com/FreeRDP/FreeRDP/issues/931#issuecomment-340802163){:target="_blank"}
+<br>Diakses tanggal: 2020/11/27
