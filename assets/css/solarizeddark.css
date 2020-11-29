@@ -1,6 +1,6 @@
 .highlight .hll { background-color: #ffffcc }
 /* .highlight  { background: #002b36; color: #839496 } */
-.highlight .c   { color: #586e75; font-style: italic } /* Comment */
+.highlight .c   { color: #586e75; font-style: none } /* Comment */
 .highlight .err { color: #dc322f } /* Error */
 .highlight .g   { color: #BCC3C3 } /* Generic */
 .highlight .k   { color: #859900; font-weight: bold } /* Keyword */
@@ -9,12 +9,12 @@
 .highlight .o   { color: #BCC3C3 } /* Operator */
 .highlight .x   { color: #BCC3C3 } /* Other */
 .highlight .p   { color: #BCC3C3 } /* Punctuation */
-.highlight .ch  { color: #586e75; font-style: italic } /* Comment.Hashbang */
-.highlight .cm  { color: #586e75; font-style: italic } /* Comment.Multiline */
-.highlight .cp  { color: #586e75; font-style: italic } /* Comment.Preproc */
-.highlight .cpf { color: #586e75; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1  { color: #586e75; font-style: italic } /* Comment.Single */
-.highlight .cs  { color: #586e75; font-style: italic } /* Comment.Special */
+.highlight .ch  { color: #586e75; font-style: none } /* Comment.Hashbang */
+.highlight .cm  { color: #586e75; font-style: none } /* Comment.Multiline */
+.highlight .cp  { color: #586e75; font-style: none } /* Comment.Preproc */
+.highlight .cpf { color: #586e75; font-style: none } /* Comment.PreprocFile */
+.highlight .c1  { color: #586e75; font-style: none } /* Comment.Single */
+.highlight .cs  { color: #586e75; font-style: none } /* Comment.Special */
 .highlight .gd  { color: #839496 } /* Generic.Deleted */
 .highlight .ge  { color: #839496 } /* Generic.Emph */
 .highlight .gr  { color: #839496 } /* Generic.Error */
