@@ -725,13 +725,11 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body table td,
 .markdown-body table th {
-  border: 1px solid #002b36;
   padding: 6px 13px;
 }
 
 .markdown-body table tr {
   background-color: #fff;
-  border-top: 1px solid #c6cbd1;
 }
 
 .markdown-body table tr:nth-child(2n) {
