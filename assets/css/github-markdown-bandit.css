@@ -300,6 +300,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body td,
 .markdown-body th {
+  border: 1px solid #002b36;
   padding: 0;
 }
 
