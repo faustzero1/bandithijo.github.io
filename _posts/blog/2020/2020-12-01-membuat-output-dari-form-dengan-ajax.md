@@ -259,10 +259,3 @@ Mudah-mudahan dapat bermanfaat.
 Terima kasih.
 
 (^_^)
-
-
-
-# Referensi
-
-1. [](){:target="_blank"}
-<br>Diakses tanggal: 2020/12/01
