@@ -246,15 +246,13 @@ Hasilnya,
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fyMDNjBL/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
+Kalau diperhatikan pada bagian address bar, alamat tidak berubah. Karena kita tidak merender template lagi untuk menampilkan hasil, namun hanya merubah bagian yang memiliki `<div id=result></div>`.
+
 
 
 # Pesan Penulis
 
 Sepertinya, segini dulu yang dapat saya tuliskan.
-
-Sebenarnya, implementasi ini tidak spesifik untuk Bootstrap 4 saja, namun sangat general dan dapat digunakan dimana saja.
-
-Bahkan saya pun menggunakannya di blog ini yang notabennya menggunakan CSS buatan sendiri.
 
 Mudah-mudahan dapat bermanfaat.
 
