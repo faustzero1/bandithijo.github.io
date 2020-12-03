@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   devise_for :users
 
-  get 'stocks',       to: 'stocks#index'
+  get 'my_portfolio',       to: 'stocks#index'
   get 'search_stock', to: 'stocks#search'
 end
 {% endhighlight %}
