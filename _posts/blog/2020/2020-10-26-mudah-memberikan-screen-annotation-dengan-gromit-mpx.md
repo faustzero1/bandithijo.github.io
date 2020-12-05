@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Ulsasan']
+tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
