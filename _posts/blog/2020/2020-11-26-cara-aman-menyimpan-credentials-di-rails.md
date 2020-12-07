@@ -199,9 +199,9 @@ Setting RAILS_MASTER_KEY and restarting ⬢ apps_name... done, v25
 RAILS_MASTER_KEY: 8ab10......................f4864
 ```
 
-Kemudian, definisikan variable tersebut ke Heroku **Settings > Config Vars**.
+Maka, variable **RAILS_MASTER_KEY** sudah otomatis dibuatkan.
 
-Maka, aplikasi kita di Heroku sudah dapat membuka dan membaca file **credentials.yml.enc**.
+Dengan begini, aplikasi kita di Heroku sudah dapat membuka dan membaca file **credentials.yml.enc**.
 
 
 
