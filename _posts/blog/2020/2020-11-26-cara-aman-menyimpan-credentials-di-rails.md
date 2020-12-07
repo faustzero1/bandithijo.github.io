@@ -181,7 +181,7 @@ Rails.application.credentials
 
 ## Heroku Environment Variable
 
-Kita tidak perlu mendefinisikan Environment Variable pada menu **Settings > Config Vars**.
+Kita perlu mendefinisikan **RAILS_MASTER_KEY** pada menu **Settings > Config Vars**.
 
 **Syarat!** file **credentials.yml.enc** jangan dimasukkan ke dalam **.gitignore**.
 
@@ -198,6 +198,8 @@ Setting RAILS_MASTER_KEY and restarting ⬢ apps_name... done, v25
 ▸ Release command executing: this config change will not be available until the command succeeds. Use `heroku releases:output` to view the log.
 RAILS_MASTER_KEY: 8ab10......................f4864
 ```
+
+Kemudian, definisikan variable tersebut ke Heroku **Settings > Config Vars**.
 
 Maka, aplikasi kita di Heroku sudah dapat membuka dan membaca file **credentials.yml.enc**.
 
