@@ -145,7 +145,7 @@ Nanti akan keluar GPG key yang merupakan secret key (private key).
 -----------------------------------
 sec   rsa4096 2018-08-11 [SC] [expires: 2021-12-30]
       AE706A616B252A6822635041560691E942A02F91
-uid           [ultimate] Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
+uid           [ultimate] Rizqi Nur Assyaufi <bandithijo@gmail.com>
 ssb   rsa4096 2018-08-11 [E] [expires: 2021-12-30]
 
 ```
