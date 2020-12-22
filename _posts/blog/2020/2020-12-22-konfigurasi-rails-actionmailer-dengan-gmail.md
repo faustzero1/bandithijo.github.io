@@ -202,7 +202,7 @@ Selesai!
 
 Dengan begini tinggal diuji coba.
 
-Saya baru menggunakan ActionMailer untuk Email Confirmation dengan Devise gem.
+Saya akan coba dengan ActionMailer untuk Email Confirmation dengan Devise gem.
 
 {% youtube Vio7yGUJEgw %}
 
