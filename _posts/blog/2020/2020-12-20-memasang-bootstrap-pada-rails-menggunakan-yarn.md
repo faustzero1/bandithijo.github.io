@@ -138,7 +138,6 @@ Baris ke 19 adalah baris yang perlu ditambahkan.
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap
- *= require font-awesome
  *= require_tree .
  *= require_self
  */
