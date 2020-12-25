@@ -10,7 +10,8 @@ source 'https://rubygems.org'
 # Happy Jekylling!
 gem 'jekyll',                                  '~> 4.1.1'
 gem 'rake',                                    '~> 13.0', '>= 13.0.1'
-# gem 'html-proofer',                            '~> 3.15', '>= 3.15.2'
+gem 'webrick',                                 '~> 1.7'
+#gem 'html-proofer',                           '~> 3.15', '>= 3.15.2'
 
 # This is the default theme for new Jekyll sites.
 # You may change this to anything you like.
