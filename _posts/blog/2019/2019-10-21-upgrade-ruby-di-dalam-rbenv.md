@@ -75,32 +75,60 @@ $ git pull
 
 Setelah proses selesai, coba periksa vesi Ruby yang baru, dengan perintah berikut ini.
 
-```
-$ rbenv install --list | grep 2.6.
-```
-
-Pasti sudah ada versi Ruby yang paling baru.
+**Melihat versi yang latest stable release**
 
 <pre>
-2.6.0-dev
-2.6.0-preview1
-2.6.0-preview2
-2.6.0-preview3
-2.6.0-rc1
-2.6.0-rc2
-2.6.0
-2.6.1
-2.6.2
-2.6.3
-2.6.4
-<mark>2.6.5</mark>
-jruby-9.2.6.0
+$ <b>rbenv install --list</b>
+</pre>
+
+<pre>
+2.5.8
+2.6.6
+2.7.2
+jruby-9.2.14.0
+mruby-2.1.2
+rbx-5.0
+truffleruby-20.3.0
+truffleruby+graalvm-20.3.0
+
+Only latest stable releases for each Ruby implementation are shown.
+Use 'rbenv install --list-all / -L' to show all local versions.
+</pre>
+
+Maka, versi yang ditampilkan adalah versi terbaru dengan rilis stable.
+
+Kalau ingin melihat semua versi, gunakan perintah di bawah ini.
+
+<pre>
+$ <b>rbenv install --list</b>
+</pre>
+
+Maka yang tampil adalah semua versi.
+
+Untuk menspesifikkan pada versi tertentu, kita dapat menggunakan `grep`.
+
+<pre>
+$ <b>rbenv install --list-all | grep 2.7.</b>
+</pre>
+
+<pre>
+2.7.0-dev
+2.7.0-preview1
+2.7.0-preview2
+2.7.0-preview3
+2.7.0-rc1
+2.7.0-rc2
+2.7.0
+2.7.1
+2.7.2
+jruby-9.2.7.0
+rbx-2.71828182
 </pre>
 
 Kalo sudah begini, tinggal kita install saja.
 
 ```
-$ rbenv install 2.6.5
+$ rbenv install 2.7.2
 ```
 
 Nah, mudah kan.
