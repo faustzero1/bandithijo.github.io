@@ -155,3 +155,7 @@ Terima kasih.
 
 1. [Arch Wiki - Network configuration: Revert to traditional interface names](https://wiki.archlinux.org/index.php/Network_configuration#Revert_to_traditional_interface_names){:target="_blank"}
 <br>Diakses tanggal: 2020/12/26
+
+2. [Artix Wiki - Migrtaion: Configure Networking](https://wiki.artixlinux.org/Main/Migration#Configure_networking){:target="_blank"}
+<br>Diakses tanggal: 2020/12/27
+
