@@ -145,7 +145,7 @@ Edit file `/etc/mkinitcpio.conf` dan cari baris berawalan `HOOKS="base ... "`.
 HOOKS=(base systemd <mark>resume</mark> autodetect modconf block filesystems keyboard fsck)
 </pre>
 
-Saya mengganti `udev` hook dengan `systemd` hook. Jadi jangan binggung. Tambahkan saja setelah `udev` atau `systemd` -- sebelum `utodetect` hook.
+Saya mengganti `udev` hook dengan `systemd` hook. Jadi jangan binggung. Tambahkan saja setelah `udev` atau `systemd` -- sebelum `autodetect` hook.
 
 Setelah kita memodifikasi mkinitcpio, kita perlu mengenerate ulang kembali.
 
@@ -156,6 +156,13 @@ $ <b>sudo mkinitcpio -p <mark>linux</mark></b>
 `linux` sesuaikan dengan image kernel yang teman-teman pergunakan. Misalkan menggunakan kernel `linux-lts` maka gunakan `-p linux-lts`.
 
 Selesai.
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p markdown=1>Kalau yang menggunakan init sistem selain **systemd**, tidak perlu menambahkan systemd ke dalam HOOKS.</p>
+<p>Saya sudah mencobanya dengan OpenRC, dan berhasil.</p>
+</div>
 
 # Demonstrasi Hasil
 
