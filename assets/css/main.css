@@ -1733,7 +1733,7 @@ ul.chkbox li.chkbox-checked:before {
 
 /* DISQUS ----------------------------------------------------------------- */
 #disqus_thread {
-  margin-top: 30px;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
