@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '20/12/28'
+  url:
+  detail: |
+      Merubah post & sidebar style to single page style
+
 - tanggal: '20/07/12'
   url:
   detail: |
