@@ -2643,12 +2643,8 @@ img.modal-content {
 
   .penulis-img {
     float: none;
-    width:25%;
+    width: 40%;
     margin: 0 auto;
-  }
-
-  .penulis-img img {
-    width: 150%;
   }
 
   .dotfriends-page-img {
