@@ -1,5 +1,5 @@
 <div class="sidebar-body" style="background-color: #EBFFB4;">
-  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">dotFriends</h1>
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">dotFriends</h1>
   <!-- untuk random dotfriends list sebanyak 8 -->
   {% assign friends = site.data.dotfriends.dotfriends.friends | sample: 8 %}
   {% for friend in friends limit: 8 %}
