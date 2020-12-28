@@ -3,7 +3,7 @@
     <div class="toc">
     <ul>
     {% assign posts = site.posts | where_exp:"page", "page.category == 'blog'" %}
-    {% for post in posts limit: 5 %}
+    {% for post in posts limit: 8 %}
       {% if post.hot %}
         <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<span class="new">HOT</span></li>
       {% else %}
@@ -13,5 +13,5 @@
     </ul>
     </div>
     <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
-    <p style="text-align:right;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+    <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
 </div>

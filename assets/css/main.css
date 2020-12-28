@@ -349,8 +349,8 @@ article.homepage p {
 
 .post {
   padding: 21px 20px;
-  width: 66.0%;
-  float: left;
+  /* width: 66.0%; */
+  /* float: left; */
 }
 
 .post-wide {
@@ -366,6 +366,10 @@ img.post-header-img {
   margin: 0;
   padding: 0;
   clear: both;
+}
+
+.post-pre-title {
+  margin: 25px 20px 0 20px;
 }
 
 .post-title {
@@ -484,6 +488,10 @@ p.post-details-index-pin:before {
   padding: 7px;
 }
 
+.post-body-sidebar {
+  margin: 0 20px 0 20px;
+}
+
 /* GUNAKAN INI! untuk image kecil menjadi full width */
 .post-body-img {
   width: 100%;
@@ -519,8 +527,10 @@ p.post-details-index-pin:before {
 
 /* Sidebar ---------------------------------------------------------------- */
 aside.sidebar {
-  width: 27%;
-  float: right;
+  /* width: 27%; */
+  /* float: right; */
+  width: 100%;
+  float: none;
   margin-right: 20px;
 }
 
@@ -535,7 +545,7 @@ aside .sidebar-body {
   background:#EBFFB4;
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
-  width: 91%;
+  /* width: 91%; */
   margin: 25px 0 0 0;
   padding: 5px 10px;
 }
@@ -544,8 +554,8 @@ aside .sidebar-body-rss {
   background:#F3E681;
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
-  width: 91%;
-  margin: 25px 0;
+  /* width: 91%; */
+  margin: 25px 0 20px 0;
   padding: 5px 10px;
 }
 
@@ -553,7 +563,7 @@ aside .sidebar-body-hollow {
   background: transparent;
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
-  width: 91%;
+  /* width: 91%; */
   margin: 25px 0;
   padding: 5px 10px;
   border: 1px dashed #8A8A8A;
@@ -563,7 +573,7 @@ aside .sidebar-body-helper {
   background:#F3E681;
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
-  width: 91%;
+  /* width: 91%; */
   margin: 25px 0;
   padding: 5px 10px;
   display: none;
@@ -1509,8 +1519,12 @@ button.active {
 .penulis-img {
   float: left;
   margin: 0 10px 0 0;
-  width: 14%;
+  width: 20%;
   border-radius: 50%;
+}
+
+.penulis-img img {
+  width: 70%;
 }
 
 .penulis-text {
@@ -1559,13 +1573,17 @@ button.active {
   width: 100%;
 }
 
-.dotfriends-page-img img {
-  border-radius: 50%;
+.dotfriends-page-img {
   float: left;
   width: 25%;
   top: 10%;
   position: relative;
-  top: 1.5em;
+  /* top: 1.5em; */
+}
+
+.dotfriends-page-img img {
+  border-radius: 50%;
+  width: 70%;
 }
 
 .dotfriends-page-detail {
@@ -1893,7 +1911,7 @@ img.modal-content {
 
   .post {
     padding: 21px 20px;
-    width: 67.0%;
+    /* width: 67.0%; */
     float: left;
   }
 
@@ -1903,11 +1921,11 @@ img.modal-content {
     float: none;
   }
 
-  aside.sidebar {
-    width: 25%;
-    float: right;
-    margin-right: 20px;
-  }
+  /* aside.sidebar { */
+  /*   width: 25%; */
+  /*   float: right; */
+  /*   margin-right: 20px; */
+  /* } */
 }
 
 @media (max-width: 1320px) {
@@ -1918,8 +1936,8 @@ img.modal-content {
 
   .post {
     padding: 21px 20px;
-    width: 68.0%;
-    float: left;
+    /* width: 68.0%; */
+    /* float: left; */
   }
 
   .post-wide {
@@ -1928,11 +1946,11 @@ img.modal-content {
     float: none;
   }
 
-  aside.sidebar {
-    width: 25%;
-    float: right;
-    margin-right: 20px;
-  }
+  /* aside.sidebar { */
+  /*   width: 25%; */
+  /*   float: right; */
+  /*   margin-right: 20px; */
+  /* } */
 }
 
 @media (max-width: 1268px) {
@@ -1957,8 +1975,8 @@ img.modal-content {
 
   .post {
     padding: 21px 20px;
-    width: 68.0%;
-    float: left;
+    /* width: 68.0%; */
+    /* float: left; */
   }
 
   .post-wide {
@@ -1967,11 +1985,11 @@ img.modal-content {
     float: none;
   }
 
-  aside.sidebar {
-    width: 25%;
-    float: right;
-    margin-right: 20px;
-  }
+  /* aside.sidebar { */
+  /*   width: 25%; */
+  /*   float: right; */
+  /*   margin-right: 20px; */
+  /* } */
 }
 
 @media (max-width: 1150px) {
@@ -2011,13 +2029,13 @@ img.modal-content {
     margin-top: 2.9em;
   }
 
-  .post {
-    width: 66.0%;
-  }
+  /* .post { */
+  /*   width: 66.0%; */
+  /* } */
 
-  aside.sidebar {
-    width: 27%;
-  }
+  /* aside.sidebar { */
+  /*   width: 27%; */
+  /* } */
 }
 
 @media (max-width: 768px) {
@@ -2172,7 +2190,7 @@ img.modal-content {
   }
 
   h1.post-title {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   p.post-title-index {
@@ -2189,21 +2207,27 @@ img.modal-content {
     word-break: keep-all;
   }
 
-  article.post {
-    float: none;
-    text-align: justify;
-    width: 90%;
-    margin: auto;
-    padding: 0;
-  }
+  /* article.post { */
+  /*   float: none; */
+  /*   text-align: justify; */
+  /*   width: 90%; */
+  /*   margin: auto; */
+  /*   padding: 0; */
+  /* } */
 
   article .post-body {
     margin: 10px 0;
   }
 
+  article .post-body-sidebar {
+    margin: 0;
+    width: 100%;
+  }
+
   aside.sidebar {
     float: none;
     width: 100%;
+    margin-top: 20px;
   }
 
   aside.sidebar h1,

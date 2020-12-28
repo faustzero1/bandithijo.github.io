@@ -10,51 +10,72 @@ layout: baseof
         {% include newsline.html %}
       {% endif %}
 
-      {% include sidebar_head.html %}
-
-      <article class="post">
+      <article class="post-pre-title">
         <div class="post-body">
           <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
           <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
           <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span>
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          {% include sidebar_head.html %}
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
           {% include doa_awal.html %}
-          <div class="markdown-body highlight">
-            {% include enlarge-image-modal.html %}
-            <p>{{ content }}</p>
+        </div>
+        <div class="markdown-body highlight">
 
-            <!-- Penulis -->
-            {% if page.category == 'blog'
-              or page.category == 'vlog'
-              or page.category == 'arch'
-              or page.category == 'python' %}
-              <div style="text-align:center; margin:0 0 10px 0;"></div>
+          {% include enlarge-image-modal.html %}
 
-              {% include penulis.html %}
+          <p>{{ content }}</p>
 
-              {% if page.contributors.size > 0 %}
-                {% include kontributor.html %}
-              {% endif %}
+          <!-- Penulis -->
+          {% if page.category == 'blog'
+            or page.category == 'vlog'
+            or page.category == 'arch'
+            or page.category == 'python' %}
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            {% include penulis.html %}
+
+            {% if page.contributors.size > 0 %}
+              {% include kontributor.html %}
             {% endif %}
+          {% endif %}
 
-            <div style="clear:both;"></div>
+          <div style="clear:both;"></div>
 
-            {% include mail_subscriber.html %}
+          {% include mail_subscriber.html %}
 
-            <div style="clear:both;"></div>
+          <div style="clear:both;"></div>
 
-            <!-- License -->
-            {% if page.category == 'blog'
-              or page.category == 'vlog' %}
-              <div style="text-align:center; margin:0 0 10px 0;"></div>
-              {% if page.license %}
-                {% include license.html %}
-              {% endif %}
+          <!-- License -->
+          {% if page.category == 'blog'
+            or page.category == 'vlog' %}
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            {% if page.license %}
+              {% include license.html %}
             {% endif %}
+          {% endif %}
 
-          </div><!-- markdown-body -->
+        </div><!-- markdown-body -->
+      </article>
 
+      <article>
+        <div class="post-body-sidebar">
+          {% include sidebar_tail.html %}
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
           <!-- Disqus -->
           <div style="text-align:center; margin:0 0 50px 0;"></div>
           {% if jekyll.environment == 'production' and page.comments %}
@@ -63,8 +84,6 @@ layout: baseof
           <br>
         </div>
       </article>
-
-      {% include sidebar_tail.html %}
 
     </div><!-- container-edge-border -->
   </div><!-- main container -->

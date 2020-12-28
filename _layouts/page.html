@@ -10,18 +10,21 @@ layout: baseof
         {% include newsline.html %}
       {% endif %}
 
-      {% include sidebar_head.html %}
+      <article>
+        <div class="post-body-sidebar">
+          {% include sidebar_head.html %}
+        </div>
+      </article>
 
       <article class="post">
         <div class="post-body">
-          {% comment %}
-          <!-- <img class="post&#45;header&#45;img" src="/assets/img/logo/logo_title.png" style="width:30px;position:relative;top:5px;"> -->
-          {% endcomment %}
           <h1 class="post-title noselect"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+
           {% if page.permalink == '/about/'
             or page.permalink == '/bantuan/' %}
             <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
           {% endif %}
+
           <div class="post-title-spacer"></div>
           <div class="markdown-body">
             {% include enlarge-image-modal.html %}
@@ -31,9 +34,11 @@ layout: baseof
         </div>
       </article>
 
-      <br>
-
-      {% include sidebar_tail.html %}
+      <article>
+        <div class="post-body-sidebar">
+          {% include sidebar_tail.html %}
+        </div>
+      </article>
 
     </div><!-- container-edge-border -->
   </div><!-- main container -->
