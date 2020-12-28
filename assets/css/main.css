@@ -1827,7 +1827,7 @@ a.disqus_button {
 .myImg {
   cursor: zoom-in;
   transition: 0.3s;
-  width: 100%;
+  max-width: 100%;
 }
 
 .myImg:hover {opacity: 0.9;}
