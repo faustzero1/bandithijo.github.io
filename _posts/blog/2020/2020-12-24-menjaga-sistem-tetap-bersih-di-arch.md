@@ -81,7 +81,7 @@ Untuk menghapus semuanya gunakan double option c.
 $ <b>sudo pacman -Scc</b>
 </pre>
 
-Ikuti langkah2nya dengnan menekan huruf **y**.
+Ikuti langkah2nya dengan menekan huruf **y**.
 
 Kemudian periksa lagi kapasitas direktori tersebut.
 
@@ -94,6 +94,12 @@ total 0
 </pre>
 
 Nah, sudah benar-benar bersih.
+
+<!-- INFORMATION -->
+<div class="blockquote-blue">
+<div class="blockquote-blue-title">[ i ] Informasi</div>
+<p markdown=1>Selain menggunaka **pacman**, untuk teman-teman yang menggunakan AUR Helper **yay**, dapat mengganti pacman dengan yay agar package cache dari yay yang terdapat pada direktori Home, ikut dibersihkan.</p>
+</div>
 
 
 ## b. Clean Automatically
