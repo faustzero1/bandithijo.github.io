@@ -77,7 +77,7 @@ layout: baseof
       <article class="post-disqus">
         <div class="post-body">
           <!-- Disqus -->
-          {% if jekyll.environment == 'development' and page.comments %}
+          {% if jekyll.environment == 'production' and page.comments %}
             {% include disqus.html %}
           {% endif %}
           <br>
