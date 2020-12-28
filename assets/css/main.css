@@ -2221,7 +2221,7 @@ img.modal-content {
   aside.sidebar {
     float: none;
     width: 100%;
-    margin-top: 20px;
+    /* margin-top: 20px; */
   }
 
   aside.sidebar h1,
