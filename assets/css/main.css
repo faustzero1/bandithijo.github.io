@@ -1827,6 +1827,7 @@ a.disqus_button {
 .myImg {
   cursor: zoom-in;
   transition: 0.3s;
+  width: 100%;
 }
 
 .myImg:hover {opacity: 0.9;}
@@ -1895,13 +1896,6 @@ img.modal-content {
   .kontributor-img {
     margin: 2px;
     width: 4%;
-  }
-
-  .dotfriends-page-img img {
-    width: 15%;
-    top: 10%;
-    position: relative;
-    top: 1.5em;
   }
 
   .container {
@@ -2585,15 +2579,6 @@ img.modal-content {
     width: 100%;
   }
 
-  .dotfriends-page-img img {
-    border-radius: 50%;
-    float: none;
-    width: 180px;
-    position: relative;
-    top: 0;
-    padding: 15px;
-  }
-
   .dotfriends-page-detail {
     float: none;
     width: 100%;
@@ -2660,6 +2645,18 @@ img.modal-content {
     float: none;
     width:25%;
     margin: 0 auto;
+  }
+
+  .penulis-img img {
+    width: 150%;
+  }
+
+  .dotfriends-page-img {
+    float: none;
+    width: 60%;
+    margin: 0 auto;
+    /* position: relative; */
+    /* top: 1.5em; */
   }
 
   .kontributor-img {
