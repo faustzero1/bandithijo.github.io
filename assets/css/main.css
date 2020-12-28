@@ -353,6 +353,12 @@ article.homepage p {
   /* float: left; */
 }
 
+.post-disqus {
+  padding: 0 20px;
+  /* width: 66.0%; */
+  /* float: left; */
+}
+
 .post-wide {
   padding: 21px 20px;
   width: auto !important;

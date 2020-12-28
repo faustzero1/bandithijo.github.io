@@ -74,11 +74,10 @@ layout: baseof
         </div>
       </article>
 
-      <article class="post">
+      <article class="post-disqus">
         <div class="post-body">
           <!-- Disqus -->
-          <div style="text-align:center; margin:0 0 50px 0;"></div>
-          {% if jekyll.environment == 'production' and page.comments %}
+          {% if jekyll.environment == 'development' and page.comments %}
             {% include disqus.html %}
           {% endif %}
           <br>
