@@ -1,28 +1,28 @@
 friends:
 - github_username: "bandithijo"
-  nama: "Rizqi Nur Assyaufi"
+  nama:  "Rizqi Nur Assyaufi"
   photo: "https://github.com/bandithijo.png?size=200"
-  url1: "https://bandithijo.github.io"
-  url2: "https://github.com/bandithijo"
+  url1:  "https://bandithijo.github.io"
+  url2:  "https://github.com/bandithijo"
   detail: |
     <p><b>BanditHijo</b> adalah nama pena saya – meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Bukan karena hobi tapi karena saya perlu untuk menggunakannya. Hehe.</p>
 
 
 - github_username: "suciptoid"
-  nama: "Sucipto"
+  nama:  "Sucipto"
   photo: "https://github.com/suciptoid.png?size=200"
-  url1: "https://sucipto.net"
-  url2: "https://github.com/suciptoid"
+  url1:  "https://sucipto.net"
+  url2:  "https://github.com/suciptoid"
   detail: |
       <p>Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.</p>
       <p>Recently interesting with NodeJS ecosystem, so I migrate my blog from Wordpress to Hexo.</p>
 
 
 - github_username: "agungsetiawan"
-  nama: "Agung Setiawan"
+  nama:  "Agung Setiawan"
   photo: "https://github.com/agungsetiawan.png?size=200"
-  url1: "https://agung-setiawan.com"
-  url2: "https://www.idrails.com"
+  url1:  "https://agung-setiawan.com"
+  url2:  "https://www.idrails.com"
   detail: |
       <p>Saya bekerja sebagai software developer di BukaLapak.</p>
       <p>Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.</p>
@@ -30,10 +30,10 @@ friends:
 
 
 - github_username: "epsi-rns"
-  nama: "Epsi"
+  nama:  "Epsi"
   photo: "https://github.com/epsi-rns.png?size=200"
-  url1: "https://epsi-rns.github.io"
-  url2: "https://epsi-rns.gitlab.io"
+  url1:  "https://epsi-rns.github.io"
+  url2:  "https://epsi-rns.gitlab.io"
   detail: |
       <p>Hello, my name is Epsi. I’m an open source enthusiast. Although I like command line, I’m not a hacker.</p>
       <p>You can read a glance about my journey on my Blog.</p>
@@ -41,10 +41,10 @@ friends:
 
 
 - github_username: "fikriomar16"
-  nama: "Fikri Omar"
+  nama:  "Fikri Omar"
   photo: "https://github.com/fikriomar16.png?size=200"
-  url1: "https://github.com/fikriomar16"
-  url2: "https://www.deviantart.com/fikriomar16"
+  url1:  "https://github.com/fikriomar16"
+  url2:  "https://www.deviantart.com/fikriomar16"
   detail: |
       <p>Hi all…My name is Fikri, also u can call me Omar.</p>
       <p>I came from Indonesia, and i use Ubuntu as my favorite OS.</p>
@@ -53,10 +53,10 @@ friends:
 
 
 - github_username: "okitavera"
-  nama: "Nanda Okitavera"
+  nama:  "Nanda Okitavera"
   photo: "https://github.com/okitavera.png?size=200"
-  url1: "https://okitavera.me"
-  url2: "https://github.com/okitavera"
+  url1:  "https://okitavera.me"
+  url2:  "https://github.com/okitavera"
   detail: |
       <p>I am an Indonesian UX Designer and Kotlin-Android Developer.</p>
       <p>Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.</p>
@@ -65,59 +65,59 @@ friends:
 
 
 - github_username: "aflasio"
-  nama: "Aflasio"
+  nama:  "Aflasio"
   photo: "https://aflasio.art/static/3024da22847c4984306a77fcde4b9c40/f5a2d/profile.jpg"
-  url1: "https://aflasio.art"
-  url2: "https://aflasio.art/gallery"
+  url1:  "https://aflasio.art"
+  url2:  "https://aflasio.art/gallery"
   detail: |
       <p>Aflasio is just an acronym of “<b>Argia Flat Design Motion</b>” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.</p>
       <p>The only reason that i’m not change that name is because i love it and easy to find on google.</p>
 
 
 - github_username: "addy-dclxvi"
-  nama: "Addy"
+  nama:  "Addy"
   photo: "https://github.com/addy-dclxvi.png?size=200"
-  url1: "https://addy-dclxvi.github.io"
-  url2: "https://github.com/addy-dclxvi"
+  url1:  "https://addy-dclxvi.github.io"
+  url2:  "https://github.com/addy-dclxvi"
   detail: |
       <p>Hi! I’m Addy.</p>
       <p>Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.</p>
 
 
 - github_username: "raniaamina"
-  nama: "Rania Amina"
+  nama:  "Rania Amina"
   photo: "https://github.com/raniaamina.png?size=200"
-  url1: "https://raniaamina.id"
-  url2: "https://github.com/raniaamina"
+  url1:  "https://raniaamina.id"
+  url2:  "https://github.com/raniaamina"
   detail: |
       <p>Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.</p>
       <p>Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.</p>
 
 
 - github_username: ""
-  nama: "Fathurhoho"
+  nama:  "Fathurhoho"
   photo: "https://3.bp.blogspot.com/-irLdkJt9Yr4/WcJ3EJDCq6I/AAAAAAAABGA/K4fNuF64WdIEI6GKmEkI49whnuuWhekkwCPcBGAYYCw/s200/fathurhoho.png"
-  url1: "https://www.fathurhoho.id"
-  url2: "https://ngonfig.net"
+  url1:  "https://www.fathurhoho.id"
+  url2:  "https://ngonfig.net"
   detail: |
       <p>Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.</p>
       <p>Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.</p>
 
 
 - github_username: "reorr"
-  nama: "Muktazam Hasbi Ashidiqi"
+  nama:  "Muktazam Hasbi Ashidiqi"
   photo: "https://github.com/reorr.png?size=200"
-  url1: "https://muktazam.me"
-  url2: "https://github.com/reorr"
+  url1:  "https://muktazam.me"
+  url2:  "https://github.com/reorr"
   detail: |
       <p>Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.</p>
       <p>Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.</p>
 
 
 - github_username: "myugan"
-  nama: "Muhammad Yuga"
+  nama:  "Muhammad Yuga"
   photo: "https://github.com/myugan.png?size=200"
-  url1: "https://github.com/myugan"
+  url1:  "https://github.com/myugan"
   url2:
   detail: |
       <p>I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.</p>
@@ -125,29 +125,29 @@ friends:
 
 
 - github_username: "ypraw"
-  nama: "Yunindyo Prabowo"
+  nama:  "Yunindyo Prabowo"
   photo: "https://github.com/ypraw.png?size=200"
-  url1: "https://ypraw.github.io/"
-  url2: "https://github.com/ypraw"
+  url1:  "https://ypraw.github.io/"
+  url2:  "https://github.com/ypraw"
   detail: |
       <p>Noob Programmer , always getting errors everywhere when typing the codes.</p>
       <p>Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.</p>
 
 
 - github_username: "habibmustofa"
-  nama: "Habib Mustofa"
+  nama:  "Habib Mustofa"
   photo: "https://github.com/habibmustofa.png?size=200"
-  url1: "https://www.habib-mustofa.com"
-  url2: "https://github.com/habibmustofa"
+  url1:  "https://www.habib-mustofa.com"
+  url2:  "https://github.com/habibmustofa"
   detail: |
       <p>Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript.</p>
       <p>Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.</p>
 
 
 - github_username: "se7entime"
-  nama: "Se7entime"
+  nama:  "Se7entime"
   photo: "https://github.com/se7entime.png?size=200"
-  url1: "https://se7entime.wordpress.com"
+  url1:  "https://se7entime.wordpress.com"
   url2:
   detail: |
       <blockquote>“Tak perlu menjelaskan tentang dirimu pada siapapun. Karena yang menyukaimu tidak membutuhkannya. Dan yang membencimu tidak akan mempercayainya.”<br>(Ali bin Abi Thalib)</blockquote>
@@ -155,38 +155,38 @@ friends:
 
 
 - github_username: "firewalker06"
-  nama: "Didik Wicaksono"
+  nama:  "Didik Wicaksono"
   photo: "https://github.com/firewalker06.png?size=200"
-  url1: "https://didik.id"
-  url2: "https://github.com/firewalker06"
+  url1:  "https://didik.id"
+  url2:  "https://github.com/firewalker06"
   detail: |
       <p>Makanan, kodingan, dan kehidupan.</p>
       <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p>
 
 
 - github_username: "tsara27"
-  nama: "Tsara Fatma"
+  nama:  "Tsara Fatma"
   photo: "https://github.com/tsara27.png?size=200"
-  url1: "https://tsarafatma.com/"
-  url2: "https://github.com/tsara27"
+  url1:  "https://tsarafatma.com/"
+  url2:  "https://github.com/tsara27"
   detail: |
       <p>I am a mom, a wife, and also a programmer who is trying to improve and spread good things for others.</p>
       <p>I am a full stack Ruby on Rails developer with more than 4 years experience and have contributed/developed various web application and RESTful API. I have worked with many clients around the world and helped building and maintaining various products.</p>
 
 
 - github_username: "galihx11"
-  nama: "Galih Wisnuaji"
+  nama:  "Galih Wisnuaji"
   photo: "https://github.com/galihx11.png?size=200"
-  url1: "https://www.linuxisekai.site"
-  url2: "https://github.com/galihx11"
+  url1:  "https://www.linuxisekai.site"
+  url2:  "https://github.com/galihx11"
   detail: |
     <p>Saya sangat tertaik dengan linux dan programming. Saya masih fresh gradiate walaupun begitu tapi yakin bisa belajar dengan cepat karena saya sudah terbiasa belajar otodidak. Saat ini saya menggunakan linux (manjaro) sebagai sistem operasi utama saya dalam belajar programming dan membuat web (https://linuxisekai.site) sebagai tempat untuk menulis catatan dari apa yang saya pelajari.</p>
 
 
 - github_username: "elianiva"
-  nama: "Dicha Zelianivan Arkana"
+  nama:  "Dicha Zelianivan Arkana"
   photo: "https://github.com/elianiva.png?size=200"
-  url1: "https://elianiva.me"
-  url2: "https://github.com/elianiva"
+  url1:  "https://elianiva.me"
+  url2:  "https://github.com/elianiva"
   detail: |
     <p>Hello internet people! My real name is Dicha Zelianivan Arkana. I'm a self taught front end web developer and Linux enthusiast. I do some random project just for a hobby for now.</p>

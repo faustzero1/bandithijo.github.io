@@ -11,244 +11,244 @@
 - tanggal: '20/07/12'
   url:
   detail: |
-      Merubah & menambahkan author & contributor pada halaman post
+    Merubah & menambahkan author & contributor pada halaman post
 
 - tanggal: '20/07/11'
   url:
   detail: |
-      Menambahkan fitur enlarge image ketika di klik
+    Menambahkan fitur enlarge image ketika di klik
 
 - tanggal: '20/07/10'
   url:
   detail: |
-      Menghilangkan ketergantungan terhadap JQuery
+    Menghilangkan ketergantungan terhadap JQuery
 
 - tanggal: '20/05/31'
   url:
   detail: |
-      Menambahkan Highlight dengan Line Number
+    Menambahkan Highlight dengan Line Number
 
 - tanggal: '20/04/19'
   url:
   detail: |
-      Menambahkan Email Subscription form di halaman post
+    Menambahkan Email Subscription form di halaman post
 
 - tanggal: '20/04/03'
   url:
   detail: |
-      Mengganti ToC dengan allejo/jekyll-toc untuk GitHub Pages Compatibiltas ToC
+    Mengganti ToC dengan allejo/jekyll-toc untuk GitHub Pages Compatibiltas ToC
 
 - tanggal: '19/12/22'
   url:
   detail: |
-      Menampilkan post tags di bawah judul pada blog/vlog index list
+    Menampilkan post tags di bawah judul pada blog/vlog index list
 
 - tanggal: '19/12/10'
   url:
   detail: |
-      Menambahkan default image jika image request not responding
+    Menambahkan default image jika image request not responding
 
 - tanggal: '19/05/11'
   url:
   detail: |
-      Menambahkan donasi via OVO pada Footer
+    Menambahkan donasi via OVO pada Footer
 
 - tanggal: '19/05/03'
   url:
   detail: |
-      Menambahkan donasi via GoPay pada Footer
+    Menambahkan donasi via GoPay pada Footer
 
 - tanggal: '19/04/04'
   url:
   detail: |
-      Menambahkan permalink pada Headings
+    Menambahkan permalink pada Headings
 
 - tanggal: '19/03/18'
   url:
   detail: |
-      Menambahkan "Newsline" di bawah Header
+    Menambahkan "Newsline" di bawah Header
 
 - tanggal: '19/03/18'
   url:
   detail: |
-      Merubah tag "BARU" menjadi tag "HOT" pada kategori Blog
+    Merubah tag "BARU" menjadi tag "HOT" pada kategori Blog
 
 - tanggal: '19/02/25'
   url:
   detail: |
-      Merubah tampilan navigasi bar menu pada tampilan mobile
+    Merubah tampilan navigasi bar menu pada tampilan mobile
 
 - tanggal: '19/02/23'
   url:
   detail: |
-      Menambahkan fitur disable selected text kecuali pre dan code
+    Menambahkan fitur disable selected text kecuali pre dan code
 
 - tanggal: '19/02/22'
   url: '/157/'
   detail: |
-      Menambahkan kalender akademik pada halaman 157
+    Menambahkan kalender akademik pada halaman 157
 
 - tanggal: '19/02/17'
   url:
   detail: |
-      Menambahkan tag "VOICE" pada halaman Vlog
+    Menambahkan tag "VOICE" pada halaman Vlog
 
 - tanggal: '19/02/12'
   url:
   detail: |
-      Memperbaiki logika program dari tag "BARU" pada halaman blog dan vlog
+    Memperbaiki logika program dari tag "BARU" pada halaman blog dan vlog
 
 - tanggal: '19/02/10'
   url:
   detail: |
-      Menambahkan fitur sidebar on dan off pada halaman post
+    Menambahkan fitur sidebar on dan off pada halaman post
 
 - tanggal: '19/01/28'
   url:
   detail: |
-      Merubah build resource dari GitHub ke GitLab
+    Merubah build resource dari GitHub ke GitLab
 
 - tanggal: '19/01/27'
   url: '/blog/bermigrasi-dari-cloudflare-ke-netlify'
   detail: |
-      Bermigrasi dari Cloudflare ke Netlify
+    Bermigrasi dari Cloudflare ke Netlify
 
 - tanggal: '19/01/22'
   url:
   detail: |
-      Menambahkan daftar tags terkait pada halaman post
+    Menambahkan daftar tags terkait pada halaman post
 
 - tanggal: '19/01/21'
   url:
   detail: |
-      Menambahkan breadcrumbs pada halaman post
+    Menambahkan breadcrumbs pada halaman post
 
 - tanggal: '19/01/21'
   url:
   detail: |
-      Menambahkan 'lazyloading' pada semua elemen gambar di halaman post
+    Menambahkan 'lazyloading' pada semua elemen gambar di halaman post
 
 - tanggal: '19/01/19'
   url:
   detail: |
-      Menambahkan sidebar tags beserta page
+    Menambahkan sidebar tags beserta page
 
 - tanggal: '19/01/04'
   url:
   detail: |
-      Menambahkan sidebar daftar blog dan video terbaru pada halaman post
+    Menambahkan sidebar daftar blog dan video terbaru pada halaman post
 
 - tanggal: '19/01/02'
   url:
   detail: |
-      Menambahkan Jekyll-pwa plugin
+    Menambahkan Jekyll-pwa plugin
 
 - tanggal: '18/12/18'
   url:
   detail: |
-      Menambahkan notif update 5 judul blog dan vlog terbaru pada Homepage
+    Menambahkan notif update 5 judul blog dan vlog terbaru pada Homepage
 
 - tanggal: '18/12/07'
   url: '/157/'
   detail: |
-      Menambahkan notif update tugas terbaru pada page 157
+    Menambahkan notif update tugas terbaru pada page 157
 
 - tanggal: '18/12/06'
   url:
   detail: |
-      Menambahkan class active button pada menu navigation
+    Menambahkan class active button pada menu navigation
 
 - tanggal: '18/12/05'
   url:
   detail: |
-      Menambahkan profil penulis pada blog post
+    Menambahkan profil penulis pada blog post
 
 - tanggal: '18/12/04'
   url:
   detail: |
-      Menambahkan GitHub contribution pada homepage (Desktop)
+    Menambahkan GitHub contribution pada homepage (Desktop)
 
 - tanggal: '18/12/04'
   url:
   detail: |
-      Menghapus dotted outline selected untuk browser Firefox
+    Menghapus dotted outline selected untuk browser Firefox
 
 - tanggal: '18/12/04'
   url: '/log-update/'
   detail: |
-      Menambahkan page Log Update
+    Menambahkan page Log Update
 
 - tanggal: '18/12/03'
   url: '/dotfriends/'
   detail: |
-      Menambahkan page dotFriends
+    Menambahkan page dotFriends
 
 - tanggal: '18/12/02'
   url: '/vlog/'
   detail: |
-      Menambahkan menu Vlog
+    Menambahkan menu Vlog
 
 - tanggal: '18/12/01'
   url:
   detail: |
-      Menggantikan format gambar PNG dengan SVG
+    Menggantikan format gambar PNG dengan SVG
 
 - tanggal: '18/11/25'
   url:
   detail: |
-      Mengkategorikan RSS feed URL
+    Mengkategorikan RSS feed URL
 
 - tanggal: '18/11/23'
   url:
   detail: |
-      Mengganti sudut pandang orang ketiga menjadi orang pertama
+    Mengganti sudut pandang orang ketiga menjadi orang pertama
 
 - tanggal: '18/11/20'
   url: '/troubleshoot/'
   detail: |
-      Menambahkan halaman Groups
+    Menambahkan halaman Groups
 
 - tanggal: '18/10/29'
   url:
   detail: |
-      Menambahkan lisensi CC-NC-SA pada halaman post
+    Menambahkan lisensi CC-NC-SA pada halaman post
 
 - tanggal: '18/10/01'
   url:
   detail: |
-      Menambahkan parameter url {:target="_blank"} pada setiap URL
+    Menambahkan parameter url {:target="_blank"} pada setiap URL
 
 - tanggal: '18/09/25'
   url:
   detail: |
-      Memisahkan Develop Env. dengan Production Env. dengan menambahkan if statement ENV=production
+    Memisahkan Develop Env. dengan Production Env. dengan menambahkan if statement ENV=production
 
 - tanggal: '18/09/21'
   url:
   detail: |
-      Merubah dan membagi box quote menjadi 3 prioritas (Perhatian, Pertanyaan, Informasi)
+    Merubah dan membagi box quote menjadi 3 prioritas (Perhatian, Pertanyaan, Informasi)
 
 - tanggal: '18/09/21'
   url:
   detail: |
-      Mengganti H3 dengan P pada page 157
+    Mengganti H3 dengan P pada page 157
 
 - tanggal: '18/08/21'
   url:
   detail: |
-      Mengganti Table of Content JS dengan Table of Content GEM (jekyll-toc)
+    Mengganti Table of Content JS dengan Table of Content GEM (jekyll-toc)
 
 - tanggal: '18/04/05'
   url:
   detail: |
-      Mengganti warna blog dari Biru menjadi Hijau
+    Mengganti warna blog dari Biru menjadi Hijau
 
 - tanggal: '18/04/04'
   url:
   detail: |
-      Memberikan hamburger menu pada Mobile layout
+    Memberikan hamburger menu pada Mobile layout
 
 - tanggal: '18/03/18'
   url: '/blog/migrasi-blog-2-0'
   detail: |
-      Blog ini baru saja berpindah domain, dari Blogspot dan beralih menggunakan GitHub
+    Blog ini baru saja berpindah domain, dari Blogspot dan beralih menggunakan GitHub
