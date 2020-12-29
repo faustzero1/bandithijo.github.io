@@ -150,7 +150,7 @@ Selanjutnya, buat file stylesheet baru pada direktori yang sama dengan nama,
 **app/assets/stylesheets/custom.css.scss**
 
 {% highlight scss linenos %}
-@import 'bootstrap/dist/css/bootstrap';
+@import 'bootstrap/scss/bootstrap';
 {% endhighlight %}
 
 Selesai!
