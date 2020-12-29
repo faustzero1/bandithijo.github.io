@@ -28,7 +28,7 @@ module Jekyll
 
     def render(context)
       source = "<div class=\"embed-container\">"
-      source += "<iframe src=\"/assets/img/logo/logo_blank.svg\" data-echo=\"//www.youtube.com/embed/#{@url}\" onerror=\"imgError(this);\" frameborder=\"0\" allowfullscreen></iframe>"
+      source += "<iframe style=\"display:block;margin:0 auto;\" src=\"/assets/img/logo/logo_blank.svg\" data-echo=\"//www.youtube.com/embed/#{@url}\" onerror=\"imgError(this);\" frameborder=\"0\" allowfullscreen></iframe>"
       source += "</div>"
       source
     end
