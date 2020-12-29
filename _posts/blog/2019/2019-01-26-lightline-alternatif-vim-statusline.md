@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Vim', 'Tips', 'Ulasan']
 pin:
-hot:
+hot: true
 contributors: []
 ---
 

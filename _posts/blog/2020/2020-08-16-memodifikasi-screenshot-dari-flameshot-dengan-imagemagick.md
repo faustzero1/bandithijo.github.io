@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Tips', 'Ruby']
 pin:
-hot:
+hot: true
 contributors: []
 ---
 
