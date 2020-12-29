@@ -22,5 +22,6 @@ voice: true
 Vlog kali ini saya mendemonstrasikan cara manual dalam melakukan patch terhadap dwm yang saya bangun.
 Sekaligus saya juga menambahkan modifikasi layout symbol untuk master apabila lebih dari 1.
 
-💰 Berikan support kepada channel ini, di sini:<br>
+<br>
+💰 Berikan support kepada channel ini, di sini:
 [https://saweria.co/bandithijo](https://saweria.co/bandithijo){:target="_blank"}
