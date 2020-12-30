@@ -61,7 +61,7 @@ Pada proses instalasi di atas saya menambahkan `base-devel` _package_. Proses in
 
 Saya juga menambahkan kernel `linux` beserta `linux-headers` (yang biasanya diperlukan oleh paket seperti virtualbox, dll), serta `linux-firmware`. Karena pada berita ini, [(New kernel packages and mkinitcpio hooks 2019-11-10)](https://www.archlinux.org/news/new-kernel-packages-and-mkinitcpio-hooks/){:target="_blank"}, paket linux sudah dipisahkan dari group `base`. Tentunya ini merupakan keuntungan untuk yang ingin menggunakan paket kernel yang lain, seperti kernel `linux-lts`, `linux-hardened` dan `linux-zen`.
 
-Apabila proses `pacstrap` telah selesai, langkah selanjutnya ada _generate_ `fstab`.
+Apabila proses `pacstrap` telah selesai, langkah selanjutnya adalah _generate_ `fstab`.
 
 ```
 # genfstab -U /mnt > /mnt/etc/fstab
