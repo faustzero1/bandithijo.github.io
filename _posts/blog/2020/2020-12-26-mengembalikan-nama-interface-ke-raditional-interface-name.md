@@ -62,7 +62,7 @@ Angka **0** dibagian belakang dapat bertambah seiring bertambahnya jumlah interf
 
 Namun, saat ini, sudah tidak lagi menggunakan namespace seperti ini sejak systemd v197, dikarenakan beberapa alasan terkait keamanan.
 
-Mungkin yang teman-teman miliki akan seprti ini namanya, `wlp3s0`, `enp3s0`. Ya, ini adalah interface namespace yang baru.
+Mungkin yang teman-teman miliki akan seprti ini namanya, `wlp3s0`, `enp1s0`. Ya, ini adalah interface namespace yang baru.
 
 Keuntungan apabila kita menggunakan namespace yang baru.
 
@@ -71,7 +71,7 @@ Keuntungan apabila kita menggunakan namespace yang baru.
 3. Stable interface names when kernels or drivers are updated/changed
 4. Stable interface names even if you have to replace broken ethernet cards by new ones
 5. The names are automatically determined without user configuration, they just work
-6. The interface names are fully predictable, i.e. just by looking at lspci you can figure out what the interface is going to be called 
+6. The interface names are fully predictable, i.e. just by looking at lspci you can figure out what the interface is going to be called
 7. dan seterusnya, masih banyak.
 
 Teman-teman dapat membaca penjelasan lebih lengkapnya pada artikel ini, [**Predictable Network Interface Names**](https://www.freedesktop.org/wiki/Software/systemd/PredictableNetworkInterfaceNames/){:target="_blank"}.
@@ -135,7 +135,6 @@ GRUB_CMDLINE_LINUX="net.ifnames=0"
 Selesai.
 
 Tinggal reboot dan coba lakukan `$ ip a s` lagi untuk melihat nama interface, apakah sudah kembali ke traditional interface namespace atau belum.
-
 
 
 
