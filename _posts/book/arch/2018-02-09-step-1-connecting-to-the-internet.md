@@ -17,13 +17,380 @@ pin:
 
 ## 1.1 Pilih Network Adapter
 
+Untuk terhubung ke internet, terlebih dahulu kita perlu memilih mau menggunakan jalur kabel Ethernet, atau jalur Wi-Fi.
+
+Lihat daftar network interface yang ada di sistem kita dengan menggunakan,
+
+<pre>
+$ <b>ip address show</b>
+</pre>
+
+Atau, dapat kita singkat,
+
+<pre>
+$ <b>ip a s</b>
+</pre>
+
+<pre>
+1: <mark>lo</mark>: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: <mark>enp1s0</mark>: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 00:16:d3:c4:fb:d2 brd ff:ff:ff:ff:ff:ff
+3: <mark>wlp3s0</mark>: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state DOWN group default
+qlen 1000
+    link/ether 08:11:96:f6:ae:68 brd ff:ff:ff:ff:ff:ff
+</pre>
+
+Saya memiliki ethernet dengan nama interface `enp1s0` dan wireless interface dengan nama `wlp3s0`.
+
+Berarti saya punya dua pilihan untuk terhubung ke internet.
+
+Namun, pada catatan kali ini, saya baru sempat menuliskan untuk Wireless interface saja.
+
+### 1.1.1 Menggunakan Built-in Wi-Fi Adapter
+
 Meskipun instalasi Arch Linux ini berupa _command line_, namun kita tetap dapat menggunakan _wifi adapter_ untuk terhubung dengan jaringan. \(apabila _wifi adapter_ kalian terdeteksi\). Lakukan pengecekan dengan perintah di bawah.
 
-```
-# wifi-menu
-```
+<br>
+<pre>
+$ <b><del>wifi-menu</del></b>
+</pre>
 
-Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`, menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_. Pada kasus ini kita masih dapat menggunakan koneksi dari kabel LAN ataupun dengan menggunakan _USB tethering smarpthone_.
+~~Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`, menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_.~~
+
+#### iwctl shell
+
+2020 ini, Arch merubah tools untuk terhubung ke jaringan Wi-Fi yang sebelumnya menggunakan **wifi-menu**, sekarang sudah diganti dengan menggunakan **iwd** -- **iwd** adalah replacement untuk **wpa_supplicant**.
+
+Pada menu startup archiso pertama kali, teman-teman akan disuguhkan tampilan sepertin ini.
+
+<pre>
+Arch Linux 5.9.11-arch2-1 (tty1)
+
+archiso login: root (automatic lgin)
+
+To install Arch Linux follow the installation guide:
+https://wiki.archlinux.org/index.php/Installation_guide
+
+For Wi-Fi, authenticate to the wireless network using the iwctl utility.
+Ethernet and Wi-Fi connections using DHCP should work automatically.
+
+After connecting to the internet, the installation guide can be accessed
+via the convenience script Installation_guide.
+
+root@archiso ~ # _
+</pre>
+
+Teman-teman dapat melihat, terdapat informasi yang memberikan kita petunjuk untuk authenticate Wi-Fi, kita diminta untuk menggunakan `iwctl` -- **iwctl** adalah interface dari **iwd**.
+
+<pre>
+$ <b>iwctl</b>
+</pre>
+
+Kita akan dibawa masuk ke dalam iwd shell yang berpenampilan seperti di bawah ini.
+
+<pre>
+[iwd]# <b>_</b>
+</pre>
+
+Artinya kita sudah berada di dalam iwd shell.
+
+#### iwctl help
+
+Jangan panik, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah `help` untk mendapatkan petuah yang berguna.
+
+<pre>
+[iwd]# <b>help</b>
+</pre>
+
+<pre>
+                               iwctl version 1.10
+--------------------------------------------------------------------------------
+  Usage
+--------------------------------------------------------------------------------
+  iwctl [--options] [commands]
+
+                               Available options
+--------------------------------------------------------------------------------
+  Options                                           Description
+--------------------------------------------------------------------------------
+  --username                                        Provide username
+  --password                                        Provide password
+  --passphrase                                      Provide passphrase
+  --dont-ask                                        Don't ask for missing
+                                                    credentials
+  --help                                            Display help
+
+                               Available commands
+--------------------------------------------------------------------------------
+  Commands                                          Description
+--------------------------------------------------------------------------------
+
+Adapters:
+  adapter list                                      List adapters
+  adapter &lt;phy> show                                Show adapter info
+  adapter &lt;phy> set-property &lt;name> &lt;value>         Set property
+
+Ad-Hoc:
+  ad-hoc list                                       List devices in Ad-hoc mode
+  ad-hoc &lt;wlan> start &lt;"network name"> &lt;passphrase> Start or join an existing
+                                                    Ad-Hoc network called
+                                                    "network name" with a
+                                                    passphrase
+  ad-hoc &lt;wlan> start_open &lt;"network name">         Start or join an existing
+                                                    open Ad-Hoc network called
+                                                    "network name"
+  ad-hoc &lt;wlan> stop                                Leave an Ad-Hoc network
+
+Access Point:
+  ap list                                           List devices in AP mode
+  ap &lt;wlan> start &lt;"network name"> &lt;passphrase>     Start an access point
+                                                    called "network name" with
+                                                    a passphrase
+  ap &lt;wlan> stop                                    Stop a started access
+                                                    point
+
+Devices:
+  device list                                       List devices
+  device &lt;wlan> show                                Show device info
+  device &lt;wlan> set-property &lt;name> &lt;value>         Set property
+
+Known Networks:
+  known-networks list                               List known networks
+  known-networks &lt;"network name"> forget            Forget known network
+  known-networks &lt;"network name"> show              Show known network
+  known-networks &lt;"network name"> set-property &lt;name> &lt;value>Set property
+
+WiFi Simple Configuration:
+  wsc list                                          List WSC-capable devices
+  wsc &lt;wlan> push-button                            PushButton mode
+  wsc &lt;wlan> start-user-pin &lt;8 digit PIN>           PIN mode
+  wsc &lt;wlan> start-pin                              PIN mode with generated
+                                                    8 digit PIN
+  wsc &lt;wlan> cancel                                 Aborts WSC operations
+
+Station:
+  station list                                      List devices in Station mode
+  station &lt;wlan> connect &lt;"network name"> [security]Connect to network
+  station &lt;wlan> connect-hidden &lt;"network name">    Connect to hidden network
+  station &lt;wlan> disconnect                         Disconnect
+  station &lt;wlan> get-networks [rssi-dbms/rssi-bars] Get networks
+  station &lt;wlan> get-hidden-access-points [rssi-dbms]Get hidden APs
+  station &lt;wlan> scan                               Scan for networks
+  station &lt;wlan> show                               Show station info
+
+
+Miscellaneous:
+  version                                           Display version
+  quit                                              Quit program
+</pre>
+
+#### iwctl device list
+
+Kita perlu mengetahui nama interface yang tersedia di sistem kita. Dengan kata lain adalah wireless interface yang tersedia.
+
+<pre>
+[iwd]# <b>device list</b>
+</pre>
+
+<pre>
+                                    Devices
+--------------------------------------------------------------------------------
+  Name                Address             Powered   Adapter   Mode
+--------------------------------------------------------------------------------
+  wlan0               08:11:96:00:00:00   on        phy0      station
+</pre>
+
+**wlan0**, adalah name wireless interface yang tersedia di sistem saya. Kita juga dapat informasi berupa address, powered status, adapter name, dan mode.
+
+Namun, yang akan kita ingat menjadi perhatian adalah nama dari interface, yaitu **wlan0**. Karena akan banyak kita gunakan di dalam command-command selanjutnya.
+
+Teman-teman juga dapat melihat keterangan tentang wireless interface tersebut lebih detail dengan menggunakan perintah,
+
+<pre>
+[iwd]# <b>device wlan0 show</b>
+</pre>
+
+<pre>
+                                 Device: wlan0                                *
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Name                wlan0
+         *  Mode                station
+         *  Powered             on
+            Address             08:11:96:00:00:00
+            Adapter             phy0
+</pre>
+
+#### iwctl station scan
+
+Sekarang, kita masuk ke blok **Station**.
+
+Kita perlu terlebih dahulu melakukan scanning untuk mencari SSID yang tersedia.
+
+<pre>
+[iwd]# <b>station wlan0 scan</b>
+</pre>
+
+Jangan bingung, karena memang tidak akan keluar apa-apa.
+
+Namun, kalau teman-teman menjalankan option `show`, terlebih dahulu sebelum `scan`.
+
+<pre>
+[iwd]# <b>station wlan0 show</b>
+</pre>
+
+<pre>
+                                 Station: wlan0
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Scanning            no
+            State               disconnected
+</pre>
+
+Saat, menjalankan `scan`, value dari Scanning yang berisi **no** akan teganti menjadi **yes**.
+
+Lalu setelah proses scanning selesai, akan berubah kembali menjadi **no**.
+
+Untuk melihat hasil scan, kita gunakan option **get-networks**.
+
+
+#### iwctl station get-networks
+
+Setelah kita melakukan scanning, saatnya melihat hasilnya dengan menggunakan perintah,
+
+<pre>
+[iwd]# <b>station wlan0 get-networks</b>
+</pre>
+
+<pre>
+                               Available networks                             *
+--------------------------------------------------------------------------------
+    Network name                    Security  Signal
+--------------------------------------------------------------------------------
+    bandithijo                      psk       ***
+    KIKEL                           psk       ****
+    Yumi2268                        psk       *
+    SIHOMBING                       psk       *
+    MDR001                          psk       *
+    Hertop                          psk       *
+    SURYA                           psk       *
+    SALSHA                          psk       *
+
+</pre>
+
+Temukan **Network name** atau SSID yang teman-teman miliki.
+
+Kalau sudah, kita akan gunakan option **connect** untuk terhubung.
+
+#### iwctl station connect
+
+<pre>
+[iwd]# <b>station wlan0 connect bandithijo</b>
+</pre>
+
+Kemudian, kalian akan diminta untuk memasukkan passphrase.
+
+<pre>
+station wlan0 connect bandithijo
+Type the network passphrase for bandithijo psk.
+Passphrase: **************
+</pre>
+
+Masukkan password dari SSID. Password akan disensor dengan tanda bintang *.
+
+Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option **show**. 
+
+<pre>
+[iwd]# <b>station wlan0 show</b>
+</pre>
+
+<pre>
+                                 Station: wlan0
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Scanning            no
+            State               connected
+            Connected network   bandithijo
+
+</pre>
+
+Kalau **State** nya sudah bernilai **connected**, artinya kita sudah berhasil terhubung dengan network.
+
+Untuk keluar dari iwctl, bisa ketik `exit`.
+
+<pre>
+[iwd]# <b>exit</b>
+</pre>
+
+Lakukan pengujian.
+
+Lihat network interface list, apakah wireless interface yang kita gunakan sudah mendapatkan IP address atau belum.
+
+<pre>
+$ <b>ip a s</b>
+</pre>
+
+<pre>
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+3: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 00:16:d3:c4:fb:d2 brd ff:ff:ff:ff:ff:ff
+5: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 08:11:96:f6:ae:68 brd ff:ff:ff:ff:ff:ff
+    inet <mark>192.168.1.7/24</mark> brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86050sec preferred_lft 75250sec
+    inet6 fe80::9373:975b:ccab:e5d3/64 scope link
+       valid_lft forever preferred_lft forever
+</pre>
+
+Nah, dapat dilihat, saya sudah mendapatkan IP address.
+
+Sekarang coba tes koneksi internet dengan ping.
+
+<pre>
+$ <b>ping archlinux.org</b>
+</pre>
+
+<pre>
+PING archlinux.org (95.217.163.246) 56(84) bytes of data.
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=1 ttl=52 time=226 ms
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=52 time=215 ms
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=52 time=246 ms
+
+--- archlinux.org ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+rtt min/avg/max/mdev = 215.292/228.954/245.752/12.631 ms
+</pre>
+
+Mantap! Kita telah berhasil terhubung ke internet.
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+### 1.1.2 Menggunakan USB Tethering
+
+Cara lainnya, kita masih dapat menggunakan koneksi dari kabel LAN ataupun dengan menggunakan _USB tethering smarpthone_.
 
 Untuk penggunaan _USB tethering smartphone_, hubungkan _smartphone_ dengan laptop menggunakan kabel _USB_, lakukan pengecekan apakah sudah terhubung atau belum.
 
