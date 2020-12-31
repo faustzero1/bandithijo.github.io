@@ -428,6 +428,106 @@ Untuk konfigurasi dan penggunaan yang lebih advanced, teman-teman dapat membaca 
 [**wpa_supplicant: Advanced usage**](https://wiki.archlinux.org/index.php/Wpa_supplicant#Advanced_usage){:target="_blank"}.
 
 
+# Bagaimana Saya Menggunakan wpa_supplicant?
+
+Kalau saya, karena tidak banyak berpindah2 tempat, saya memilih menggunakan service untuk menjalankan **wpa_supplicant**.
+
+Saat ini saya sudah menggunakan **OpenRC**. Secara default, service akan membaca file `/etc/wpa_supplicant/wpa_supplicant.conf`.
+
+Namun, saya ingin lebih fleksible, saya buat file **wpa_supplicant.conf** ini menjadi symbolic link dari beberapa file configurasi yang tergantung dari tempat.
+
+1. Rumah
+2. Kantor
+
+Misal seperti ini
+
+<pre>
+$ tree /etc/wpa_supplicant
+.
+├── wpa_cli.sh
+├── <span style="color:red;">wpa_supplicant.conf</span> -> wpa_supplicant-home.conf
+├── <mark>wpa_supplicant-home.conf</mark>
+└── <mark>wpa_supplicant-office.conf</mark>
+</pre>
+
+Dapat dilihat, saat ini saya sedang menggunakan Wi-Fi di rumah, maka saya menghubungkan symbolic link konfigurasi `-home.conf` dengan `wpa_supplicant.conf`.
+
+Isi dari file **wpa_supplicant-home.conf** maupun **wpa_supplicant-office.conf**, kira-kira seperti ini:
+
+{% highlight conf linenos %}
+ctrl_interface=/run/wpa_supplicant
+update_config=1
+
+network={
+  ssid="bandithijo"
+  #psk="iniadalahpassword"
+  psk=de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
+}
+{% endhighlight %}
+
+Hanya berbeda di SSD dan passphrase.
+
+<br>
+Untuk berganti-ganti symbolic link, saya mengunakan cara seperti ini:
+
+**Home**
+
+<pre>
+$ <b>sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-home.conf /etc/wpa_supplicant/wpa_supplicant.conf</b>
+</pre>
+
+**Office**
+
+<pre>
+$ <b>sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-office.conf /etc/wpa_supplicant/wpa_supplicant.conf</b>
+</pre>
+
+<br>
+Setelah file konfigurasi siap, tinggal jalankan service dari **wpa_supplicant**.
+
+Misal, pada **OpenRC**.
+
+Tambahkan ke dalam service default yang akan dijalankan ketika sistem startup.
+
+\*Tidak perlu menggunakan **default** juga bisa, karena sudah default.
+
+<pre>
+$ <b>sudo rc-update add wpa_supplicant default</b>
+</pre>
+
+<pre>
+* service wpa_supplicant added to runlevel default
+</pre>
+
+Lihat, apakah sudah masuk daftar status list.
+
+<pre>
+$ <b>rc-status --all</b>
+</pre>
+
+<pre>
+Runlevel: default
+ cronie                                                                [  started  ]
+ <mark>wpa_supplicant                                                        [  stopped  ]</mark>
+ dhcpcd                                                                [  started  ]
+ alsasound                                                             [  started  ]
+ dbus                                                                  [  started  ]
+</pre>
+
+Tinggal di-start saja.
+
+<pre>
+$ <b>sudo rc-service wpa_supplicant start</b>
+</pre>
+
+<pre>
+wpa_supplicant    | * Starting WPA Supplicant Daemon ...
+wpa_supplicant    |Successfully initialized wpa_supplicant                    [ ok ]
+</pre>
+
+Mantap, sekarang seharusnya kita sudah dapat terhubung dengan jaringan.
+
+Untuk systemd, mohon maaf saya belum sempat mencoba menggunakan systemd. Kemungkin hanya perlu menjalankan service dari wpa_supplicant.service seperti biasa. Silahkan merujuk ke Arch Wiki.
 
 
 
