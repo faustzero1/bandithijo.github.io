@@ -1868,8 +1868,12 @@ img.modal-content {
 }
 
 pre b,
-code b{
+code b {
   color: #FFCC00;
+}
+
+pre.url b {
+  color: #000000 !important;
 }
 
 
