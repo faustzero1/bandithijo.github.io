@@ -101,7 +101,7 @@ Artinya kita sudah berada di dalam iwd shell.
 
 #### iwctl help
 
-Jangan panik, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah `help` untk mendapatkan petuah yang berguna.
+Jangan panik dan mundur, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah `help` untk mendapatkan petuah yang berguna.
 
 <pre>
 [iwd]# <b>help</b>
