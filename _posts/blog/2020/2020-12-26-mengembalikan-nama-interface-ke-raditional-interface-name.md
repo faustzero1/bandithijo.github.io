@@ -35,19 +35,11 @@ $ <b>ip a s</b>
 <pre>
 1: <mark>lo</mark>: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
 2: <mark>eth0</mark>: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
     link/ether 00:16:d3:c4:fb:d2 brd ff:ff:ff:ff:ff:ff
 3: <mark>wlan0</mark>: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default
 qlen 1000
-    link/ether 08:11:96:f6:ae:68 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.1.7/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
-       valid_lft 78819sec preferred_lft 68019sec
-    inet6 fe80::9373:975b:ccab:e5d3/64 scope link
-       valid_lft forever preferred_lft forever
+    link/ether 08:11:96:00:00:00 brd ff:ff:ff:ff:ff:ff
 </pre>
 
 Bagian yang saya marking kuning, adalah nama interface.
