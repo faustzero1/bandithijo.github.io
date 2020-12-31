@@ -32,17 +32,17 @@ $ <b>ip a s</b>
 </pre>
 
 <pre>
-1: <mark>lo</mark>: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host
        valid_lft forever preferred_lft forever
-2: <mark>enp1s0</mark>: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
-    link/ether 00:16:d3:c4:fb:d2 brd ff:ff:ff:ff:ff:ff
+2: enp1s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether 00:16:d3:00:00:00 brd ff:ff:ff:ff:ff:ff
 3: <mark>wlp3s0</mark>: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state DOWN group default
 qlen 1000
-    link/ether 08:11:96:f6:ae:68 brd ff:ff:ff:ff:ff:ff
+    link/ether 08:11:96:00:00:00 brd ff:ff:ff:ff:ff:ff
 </pre>
 
 Saya memiliki ethernet dengan nama interface `enp1s0` dan wireless interface dengan nama `wlp3s0`.
@@ -305,7 +305,7 @@ Passphrase: **************
 
 Masukkan password dari SSID. Password akan disensor dengan tanda bintang *.
 
-Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option **show**. 
+Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option **show**.
 
 <pre>
 [iwd]# <b>station wlan0 show</b>
@@ -335,23 +335,15 @@ Lakukan pengujian.
 Lihat network interface list, apakah wireless interface yang kita gunakan sudah mendapatkan IP address atau belum.
 
 <pre>
-$ <b>ip a s</b>
+$ <b>ip a s wlan0</b>
 </pre>
 
 <pre>
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host
-       valid_lft forever preferred_lft forever
-3: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
-    link/ether 00:16:d3:c4:fb:d2 brd ff:ff:ff:ff:ff:ff
-5: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 08:11:96:f6:ae:68 brd ff:ff:ff:ff:ff:ff
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 08:11:96:00:00:00 brd ff:ff:ff:ff:ff:ff
     inet <mark>192.168.1.7/24</mark> brd 192.168.1.255 scope global dynamic noprefixroute wlan0
        valid_lft 86050sec preferred_lft 75250sec
-    inet6 fe80::9373:975b:ccab:e5d3/64 scope link
+    inet6 fe80::9373:975b:0000:0000/64 scope link
        valid_lft forever preferred_lft forever
 </pre>
 
