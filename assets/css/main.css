@@ -1867,7 +1867,8 @@ img.modal-content {
   }
 }
 
-pre b {
+pre b,
+code b{
   color: #FFCC00;
 }
 
