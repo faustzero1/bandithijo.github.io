@@ -375,6 +375,11 @@ Terima kasih.
 
 (^_^)
 
+# Terima Kasih
+
+1. Herman Thaw
+2. Suka Isnaini
+
 
 # Referensi
 
