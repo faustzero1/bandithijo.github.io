@@ -14,7 +14,19 @@ layout: baseof
         <div class="post-body">
           <h1 class="post-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
           <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
-          <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span>
+
+          {% if jekyll.environment == 'production' %}
+            {% assign page_date = page.date | date: '%Y/%m/%d' %}
+            {% assign page_last_modified_at = page.last_modified_at | date: '%Y/%m/%d' %}
+            {% if page_date == page_last_modified_at %}
+              <span class="post-details noselect">Ditulis: {{ page_date }}</span>
+            {% else %}
+              <span class="post-details noselect">Ditulis: {{ page_date }}</span> <span class="post-details noselect">Diperbaharui: {{ page_last_modified_at }}</span>
+            {% endif %}
+          {% else %}
+              <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span>
+          {% endif %}
+
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
         </div>
