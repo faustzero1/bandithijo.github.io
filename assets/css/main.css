@@ -1530,7 +1530,7 @@ button.active {
 }
 
 .penulis-img img {
-  width: 70%;
+  width: 60%;
 }
 
 .penulis-text {
@@ -1902,11 +1902,11 @@ pre.url b {
 /* Untuk mengcover layar fullhd */
 @media (width: 1920px) {
 
-  .penulis-img {
-    float: left;
-    margin: 0 10px 0 0;
-    width: 5.5em;
-  }
+  /* .penulis-img { */
+  /*   float: left; */
+  /*   margin: 0 10px 0 0; */
+  /*   width: 5.5em; */
+  /* } */
 
   .kontributor-img {
     margin: 2px;
@@ -1914,14 +1914,15 @@ pre.url b {
   }
 
   .container {
-    max-width: 74%;
+    /* max-width: 74%; */
+    max-width: 940px;
     /* untuk membuat halaman menjadi center */
   }
 
   .post {
     padding: 21px 20px;
     /* width: 67.0%; */
-    float: left;
+    /* float: left; */
   }
 
   .post-wide {
