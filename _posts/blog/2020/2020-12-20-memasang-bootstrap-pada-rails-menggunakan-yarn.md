@@ -118,7 +118,7 @@ require("channels")
 import "bootstrap"
 {% endhighlight %}
 
-Baris ke 19 adalah baris yang perlu ditambahkan.
+Baris ke 18 adalah baris yang perlu ditambahkan.
 
 ## 3. Konfigurasi StyleSheet
 
