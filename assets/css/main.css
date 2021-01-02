@@ -84,8 +84,14 @@ td.gutter.gl, td.code {
   padding-bottom: 0 !important;
 }
 
+.markdown-body figure.highlight {
+  margin-top: 0 !important;
+}
+
 .markdown-body figure.highlight pre {
   padding: 6px !important;
+  margin-top: 0 !important;
+  border-radius: 0 0 5px 5px;
 }
 
 .youtube {
@@ -1899,7 +1905,7 @@ div.highlight-caption {
   border-radius: 5px 5px 0 0;
   overflow:auto;
   position: relative;
-  top: 15px;
+  /* top: 15px; */
 }
 
 div.highlight-caption span {
