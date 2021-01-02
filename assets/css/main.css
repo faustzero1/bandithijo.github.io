@@ -1876,6 +1876,59 @@ pre.url b {
   color: #000000 !important;
 }
 
+.markdown-body table.rouge-table td.gutter pre.lineno {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
+div.highlight-caption {
+  padding-top:4.25px;
+  padding-right:8.5px;
+  padding-bottom:6.25px;
+  padding-left:8.5px;
+  background-color:#002B36;
+  border:1px solid #ccc;
+  border:1px solid rgba(0,0,0,0.15);
+  border-bottom:none;
+  -webkit-border-radius:4px 4px 0 0;
+  -moz-border-radius:4px 4px 0 0;
+  border-radius: 5px 5px 0 0;
+  overflow:auto;
+  position: relative;
+  top: 15px;
+}
+
+div.highlight-caption span {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  background-color: #fff;
+  color: #000;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
+div.highlight-caption code {
+  border: none;
+  background-color: none;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 0.2em;
+}
 
 
 /* ------------------------------------------------------------------------ */
