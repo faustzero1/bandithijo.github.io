@@ -694,3 +694,6 @@ Terima kasih.
 
 2. [en.wikipedia.org/wiki/Systemd](https://en.wikipedia.org/wiki/Systemd){:target="_blank"}
 <br>Diakses tanggal: 2021/01/02
+
+3. [wiki.gentoo.org/wiki/Netifrc](https://wiki.gentoo.org/wiki/Netifrc){:target="_blank"}
+<br>Diakses tanggal: 2021/01/02
