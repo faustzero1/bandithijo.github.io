@@ -24,8 +24,7 @@ Tujuannya menggunakan AJAX untuk menampilkan hasil tanpa perlu mereload tempate 
 
 Cara yang umum, untuk menampilkan output seperti di atas, adalah seperti ini.
 
-<br>
-**app/controllers/stocks_controller.rb**<br>
+{% highlight_caption app/controllers/stocks_controller.rb %}
 {% highlight ruby linenos %}
 class StocksController < ApplicationController
   def index
@@ -49,8 +48,7 @@ class StocksController < ApplicationController
 end
 {% endhighlight %}
 
-<br>
-**config/routes.rb**<br>
+{% highlight_caption config/routes.rb %}
 {% highlight ruby linenos %}
 Rails.application.routes.draw do
   root 'welcome#index'
@@ -61,8 +59,7 @@ Rails.application.routes.draw do
 end
 {% endhighlight %}
 
-<br>
-**app/views/stocks/index.html.erb**<br>
+{% highlight_caption app/views/stocks/index.html.erb %}
 {% highlight eruby linenos %}
 <h3>Search Stocks</h3>
 <%= form_tag search_stock_path, method: :get do %>
@@ -140,8 +137,7 @@ Nah, pada catatan kali ini, saya akan membuat template dirender sekali saja dan 
 
 Pertama-tama, saya akan merubah output di stocks_controller pada action search menjadi format Javascript.
 
-<br>
-**app/controllers/stocks_controller.rb**<br>
+{% highlight_caption app/controllers/stocks_controller.rb %}
 {% highlight ruby linenos %}
 class StocksController < ApplicationController
   def index
@@ -174,7 +170,7 @@ end
 <br>
 Kemudian, pada bagian view, pisahkan bagian result, menjadi render partial, saya beri nama `_result.html.erb`.
 
-**app/views/stocks/_result.html.erb**<br>
+{% highlight_caption app/views/stocks/_result.html.erb %}
 {% highlight eruby linenos %}
 <% if stock %>
   <div class="alert alert-success">
@@ -197,7 +193,7 @@ Kemudian, pada bagian view, pisahkan bagian result, menjadi render partial, saya
 <br>
 Pada bagian yang kita pindahkan (kode di atas) di view **stocks/index.html.erb**, kita ganti dengan `<div id=results>`.
 
-**app/views/stocks/index.html.erb**<br>
+{% highlight_caption app/views/stocks/index.html.erb %}
 {% highlight html linenos %}
 ...
 ...
@@ -210,7 +206,7 @@ Kita akan meletakkan hasil yang diberikan oleh controller pada div denga id=resu
 
 Kita akan atur di dalam file javascript, buat file **_result.js.erb**.
 
-**app/views/stocks/_result.js.erb**<br>
+{% highlight_caption app/views/stocks/_result.js.erb %}
 {% highlight javascript linenos %}
 document.querySelector('#results').innerHTML = "<%= escape_javascript(render 'users/result.html', stock: @stock) %>"
 {% endhighlight %}
@@ -218,7 +214,7 @@ document.querySelector('#results').innerHTML = "<%= escape_javascript(render 'us
 <br>
 Terakhir, tinggal menambahkan asynchronous form pada form pencarian dengan `remote: true`.
 
-**app/views/stocks/index.html.erb**<br>
+{% highlight_caption app/views/stocks/index.html.erb %}
 {% highlight eruby linenos %}
 <h3>Search Stocks</h3>
 <%= form_tag search_stock_path, remote:true, method: :get do %>
@@ -246,7 +242,7 @@ Hasilnya,
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fyMDNjBL/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
 
-Kalau diperhatikan pada bagian address bar, alamat tidak berubah. Karena kita tidak merender template lagi untuk menampilkan hasil, namun hanya merubah bagian yang memiliki `<div id=result></div>`.
+Kalau diperhatikan pada bagian address bar, alamat tidak berubah. Karena kita tidak merender template lagi untuk menampilkan hasil, namun hanya merubah bagian yang memiliki `<div id=results></div>`.
 
 
 

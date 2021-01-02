@@ -101,8 +101,7 @@ Untuk mendefinisikan Gmail SMTP, saya memilih mendefinisikan di **config/environ
 
 Alasannya, agar konfigurasi Gmail SMTP ini dapat diakses oleh ketiga environment (Developer, Test, dan Production).
 
-**config/environment.rb**
-
+{% highlight_caption config/environment.rb %}
 {% highlight ruby linenos %}
 # Load the Rails application.
 require_relative 'application'
@@ -130,6 +129,7 @@ Selanjutnya, daftarkan dulu credential tersebut.
 $ <b>rails credentials:edit</b>
 </pre>
 
+{% highlight_caption config/credentials.yml.enc %}
 {% highlight yml linenos %}
 # aws:
 #   access_key_id: 123
@@ -161,7 +161,7 @@ $ <b>heroku config:set RAILS_MASTER_KEY=`cat config/master.key`</b>
 
 ## 1. Development
 
-**config/environments/development.rb**
+{% highlight_caption config/environments/development.rb %}
 {% highlight ruby linenos %}
 Rails.application.configure do
   #...
@@ -181,8 +181,7 @@ Jika, link konfirmasi hanya ingin di Rails server log saja, biarkan tetap `:test
 
 ## 2. Production
 
-**config/environments/production.rb**
-
+{% highlight_caption config/environments/production.rb %}
 {% highlight ruby linenos %}
 Rails.application.configure do
   #...

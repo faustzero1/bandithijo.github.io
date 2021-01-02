@@ -454,6 +454,7 @@ Dapat dilihat, saat ini saya sedang menggunakan Wi-Fi di rumah, maka saya menghu
 
 Isi dari file **wpa_supplicant-home.conf** maupun **wpa_supplicant-office.conf**, kira-kira seperti ini:
 
+{% highlight_caption /etc/wpa_supplicant/wpa_supplicant-home.conf %}
 {% highlight conf linenos %}
 ctrl_interface=/run/wpa_supplicant
 update_config=1

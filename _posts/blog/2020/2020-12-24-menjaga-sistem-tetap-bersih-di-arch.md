@@ -135,6 +135,7 @@ Misal untuk sekali dalam sebulan.
 $ <b>sudoedit /etc/systemd/system/paccache.timer</b>
 </pre>
 
+{% highlight_caption /etc/systemd/system/paccache.timer %}
 {% highlight conf linenos %}
 [Unit]
 Description=Clean-up old pacman pkg
@@ -167,6 +168,7 @@ $ <b>sudo systemctl status paccache.timer</b>
 $ <b>sudoedit /usr/share/libalpm/hooks/paccache.hook</b>
 </pre>
 
+{% highlight_caption /usr/share/libalpm/hooks/paccache.hook %}
 {% highlight dosini linenos %}
 [Trigger]
 Operation = Upgrade

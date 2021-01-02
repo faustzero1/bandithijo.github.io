@@ -137,7 +137,7 @@ Saya tidak berkeberatan menghapus package cache dan mengunduh ulang package-pack
 
 Untuk menginstall package `artix-keyring`, kita perlu untuk melemahkan tingkat keamanan yang dimiliki oleh Pacman untuk sementara, hanya selama proses mendaftarkan **master key**.
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/pacman.conf</code></div>
+{% highlight_caption /etc/pacman.conf %}
 {% highlight conf linenos %}
 #
 # /etc/pacman.conf
@@ -175,7 +175,7 @@ Untuk menginstall `artix-keyring`, kita harus mendaftarkan **master key** nya se
 
 Pulihkan kembali tingkat keamanan dari Pacman, atau kita akan benar-benar lupa.
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/pacman.conf</code></div>
+{% highlight_caption /etc/pacman.conf %}
 {% highlight conf linenos %}
 #
 # /etc/pacman.conf
@@ -405,7 +405,7 @@ Tambahkan `net.ifnames=0` ke dalam kernel parameter.
 
 Karena saya menggunakan GRUB, saya cukup menambahkan pada GRUB config saja.
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/default/grub</code></div>
+{% highlight_caption /etc/default/grub %}
 {% highlight conf linenos %}
 # GRUB boot loader configuration
 
@@ -429,7 +429,7 @@ OpenRC sendiri memiliki network manager sendiri, bernama **netifrc**.
 
 Konfigurasinya ada di,
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/config.d/net</code></div>
+{% highlight_caption /etc/config.d/net %}
 {% highlight conf linenos %}
 
 #...
@@ -542,7 +542,7 @@ Kalau teman-teman pernah menambahkan konfigurasi tertentu, bisa di copy ke file 
 
 Misal, seperti yang saya lakukan untuk hibernasi, saya menambahkan `resume` hook.
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/mkinitcpio.conf</code></div>
+{% highlight_caption /etc/mkinitcpio.conf %}
 {% highlight sh linenos %}
 #...
 #...
@@ -589,7 +589,7 @@ Kalau tidak ada `.pacnew`, bisa ambil dari file backup saja.
 <br>
 Kalau teman-teman pernah menambahkan konfigurasi tertentu, bisa di copy ke file yang baru.
 
-<div class="highlight-caption"><span>FILE</span><code>/etc/default/grub</code></div>
+{% highlight_caption /etc/default/grub %}
 {% highlight conf linenos %}
 # GRUB boot loader configuration
 

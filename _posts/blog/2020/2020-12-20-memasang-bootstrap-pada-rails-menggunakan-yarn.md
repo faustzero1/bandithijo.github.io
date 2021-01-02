@@ -38,12 +38,13 @@ Lalu jalankan,
 $ <b>yarn add bootstrap@4.5 jquery popper.js</b>
 </pre>
 
-*Karena Bootstrap sangat tergantung dengan JQuery dan Popper.js, maka kita juga perlu menyertakan dalam proses instalasi.
+\*Karena Bootstrap sangat tergantung dengan JQuery dan Popper.js, maka kita juga perlu menyertakan dalam proses instalasi.
 
 Tunggu saja prosesnya hingga selesai.
 
 Kalau sudah selesai, Coba teman-teman buka file `package.json` yang ada di root project direktori.
 
+{% highlight_caption package.json %}
 {% highlight json linenos %}
 {
   "name": "photo_app",
@@ -71,8 +72,7 @@ Perhatikan pada baris 9 - 11 adalah paket yang baru saja kita pasang menggunakan
 
 ## 1. Konfigurasi Webpack
 
-**config/webpack/environment.js**
-
+{% highlight_caption config/webpack/environment.js %}
 {% highlight javascript linenos %}
 const { environment } = require('@rails/webpacker')
 
@@ -95,8 +95,7 @@ Pada Rails 6, struktur direktori untuk Javascript bukan lagi berada di dalam `ap
 
 Kita perlu mengimport Bootstrap ke dalamnya.
 
-**app/javascript/packs/application.js**
-
+{% highlight_caption app/javascript/packs/application.js %}
 {% highlight javascript linenos %}
 // This file is automatically compiled by Webpack, along with any other files
 // present in this directory. You're encouraged to place your actual application logic in
@@ -122,8 +121,7 @@ Baris ke 18 adalah baris yang perlu ditambahkan.
 
 ## 3. Konfigurasi StyleSheet
 
-**app/assets/stylesheets/application.css**
-
+{% highlight_caption app/assets/stylesheets/application.css %}
 {% highlight css linenos %}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -147,8 +145,7 @@ Baris 13 adalah baris yang perlu ditambahkan.
 
 Selanjutnya, buat file stylesheet baru pada direktori yang sama dengan nama,
 
-**app/assets/stylesheets/custom.css.scss**
-
+{% highlight_caption app/assets/stylesheets/custom.css.scss %}
 {% highlight scss linenos %}
 @import 'bootstrap/scss/bootstrap';
 {% endhighlight %}
