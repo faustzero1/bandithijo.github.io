@@ -94,6 +94,12 @@ td.gutter.gl, td.code {
   border-radius: 0 0 5px 5px;
 }
 
+.markdown-body pre.caption {
+  padding: 6px !important;
+  margin-top: 0 !important;
+  border-radius: 0 0 5px 5px !important;
+}
+
 .youtube {
   margin-bottom: 10px !important;
 }
