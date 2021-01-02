@@ -111,8 +111,7 @@ Saya menggunakan cara alternatif ini, karena praktis. 😁
 
 Karena saya menggunakan GRUB, maka saya akan menambahkan parameter tersebut melalui konfigurasi GRUB saja, agar lebih mudah.
 
-**/etc/default/grub**
-
+<div class="highlight-caption"><span>FILE</span><code>/etc/default/grub</code></div>
 {% highlight conf linenos %}
 # GRUB boot loader configuration
 
