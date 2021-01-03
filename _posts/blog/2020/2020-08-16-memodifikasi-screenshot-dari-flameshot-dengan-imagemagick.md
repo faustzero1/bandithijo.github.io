@@ -38,6 +38,7 @@ Nantinya, yang kita panggil bukan lagi flameshot, melainkan script kita --untuk 
 
 Saya beri nama `flameshot-imgck`.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
@@ -135,6 +136,7 @@ Baris ke-11, adalah variabel untuk mendefinisikan border dari hasil screenshot.
 
 Ubah nilainya ke `0` apabila tidak ingin menggunakan border.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 border_size = "0"
 {% endhighlight %}
@@ -145,6 +147,7 @@ Baris ke-20, adalah variabel untuk mendifinisikan author dari pengambil screensh
 
 Ubah nilainya sesuai dengan preferensi teman-teman.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 author            = "ScreenShoter: @assyaufi"
 {% endhighlight %}
@@ -155,6 +158,7 @@ Baris ke 35-38, adalah proses pemberian author.
 
 Kalau ingin dihilangkan, cukup dengan memberikan tanda `#` di setiap awal baris ke-34 sampai baris ke-37.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 %x(
 flameshot gui --raw > #{original_file}
@@ -178,7 +182,8 @@ Baris ke-15, adalah variable untuk mendifinisikan font.
 
 Ganti nilainya sesuai dengan preferensi teman-teman.
 
-{% highlight rub %}
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
 font              = "Fura-Code-Regular-Nerd-Font-Complete"
 {% endhighlight %}
 
@@ -217,7 +222,8 @@ Baris ke-16, adalah variable yang mendifinisikan ukuran font.
 
 Ganti sesuai preferensi teman-teman dalan satuan ukuran **pt** (point).
 
-{% highlight rub %}
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
 font_size         = "11"
 {% endhighlight %}
 
@@ -233,18 +239,21 @@ NorthWest, North, NorthEast, West, Center, East, SouthWest, South, SouthEast
 
 Sebagai acuan untuk memposisikan object dengan singkat.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 author_position   = ["South", "..."]
 {% endhighlight %}
 
 Index ke-1 berisi, jarak +X+Y
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 author_position   = ["...", "+10+10"]
 {% endhighlight %}
 
 Hasilnya,
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 author_position   = ["South", "+10+10"]
 {% endhighlight %}
@@ -255,6 +264,7 @@ Baris ke-12, adalah variable untuk mendifinisikan border color yang digunakan un
 
 Ubah nilainya menjadi `none` untuk transparent.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 background_color  = "none"
 {% endhighlight %}
@@ -267,7 +277,8 @@ Ganti sesuai preferensi teman-teman.
 
 Sesuaikan dengan besar dari shadow yang digunakan, agar shadow tidak terpotong.
 
-{% highlight rub %}
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
 background_size   = "20"
 {% endhighlight %}
 
@@ -277,6 +288,7 @@ Baris ke-14, adalah variable untuk mendifinisikan shadow yang ada di bawah scree
 
 Ganti sesuai preferensi teman-teman.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
 shadow_size       = "50x10+0+10"
 {% endhighlight %}
@@ -295,14 +307,15 @@ Apabila telah selesai melakukan screnshot, kita dapat menyimpang dengan menekan 
 
 Maka, hasil screenshot kita akan disimpan ke clipboard.
 
-```ruby
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
 list_file = `ls -p | grep -v /`
 last_file = list_file.split(' ').last
 if last_file.include? 'X'
   `notify-send "ImageMagick" "Improving success!" -t 3000`
   `xclip -selection clipboard -i #{target_file} -t image/png`
 end
-```
+{% endhighlight %}
 
 Tinggal kita paste di Telegram.
 
@@ -320,13 +333,14 @@ Apabila kita tidak jadi melakukan screenshot dan menekan tombol <kbd>ESC</kbd>, 
 
 Untuk menghandle hal tersebut, saya memilih mendeteksi size dari file tersebut dan menghapusnya.
 
-```ruby
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
 size = `find #{last_file} -printf %s`
 if size == '0' || size <= '20'
   `rm -rf #{last_file}`
   `notify-send "Flameshot" "Process Aborted!" -t 1000`
 end
-```
+{% endhighlight %}
 
 
 
@@ -351,6 +365,7 @@ Terima kasih.
 
 Saya beri nama `flameshot-imgck-python`.
 
+{% highlight_caption $HOME/.local/bin/flameshot-imgck-pyhton %}
 {% highlight python linenos %}
 #!/usr/bin/env python
 

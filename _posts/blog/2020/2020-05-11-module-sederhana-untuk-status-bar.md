@@ -44,6 +44,7 @@ Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun statu
 
 ## CPU Temperature
 
+{% highlight_caption cpu_temp %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -54,6 +55,7 @@ echo "" $temp_cpu0"°C"
 
 ## Memory
 
+{% highlight_caption memory %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -66,6 +68,7 @@ echo " "$mem_usage"%"
 
 ## File System
 
+{% highlight_caption filesystem %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -75,6 +78,7 @@ echo ""$cap_percentage
 
 ## Volume
 
+{% highlight_caption volume %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -82,23 +86,23 @@ ou_mute=$(pamixer --get-mute)
 in_mute=$(pamixer --source 1 --get-mute)
 ou_vol=$(pamixer --get-volume)
 in_vol=$(pamixer --source 1 --get-volume)
-jack_stat=$($HOME/bin/has_headphone)
+jack_stat=$($HOME/.local/bin/has_headphone)
 
-if [ $jack_stat = "yes" ]; then
+if   [ $jack_stat = "yes" ]; then
     icon_ou_on=""
     icon_ou_off=""
-elif [ $jack_stat = "no" ]; then
+elif [ $jack_stat = "no"  ]; then
     icon_ou_on=""
     icon_ou_off=""
 fi
 icon_in_on=""
 icon_in_off=""
 
-if [ $ou_mute = "true" ] && [ $in_mute = "true" ]; then
+if   [ $ou_mute = "true"  ] && [ $in_mute = "true"  ]; then
     echo $icon_ou_off "Ø" $icon_in_off "Ø"
-elif [ $ou_mute = "true" ] && [ $in_mute = "false" ]; then
+elif [ $ou_mute = "true"  ] && [ $in_mute = "false" ]; then
     echo $icon_ou_off "Ø" $icon_in_on $in_vol"%"
-elif [ $ou_mute = "false" ] && [ $in_mute = "true" ]; then
+elif [ $ou_mute = "false" ] && [ $in_mute = "true"  ]; then
     echo $icon_ou_on $ou_vol"%" $icon_in_off "Ø"
 elif [ $ou_mute = "false" ] && [ $in_mute = "false" ]; then
     echo $icon_ou_on $ou_vol"% $icon_in_on $in_vol"%"
@@ -107,8 +111,17 @@ else
 fi
 {% endhighlight %}
 
+{% highlight_caption $HOME/.local/bin/has_headphone %}
+{% highlight bash linenos %}
+#!/bin/sh
+
+# PulseAudio
+pacmd list-sinks | grep 'Headphones' | awk '{print $10}' | tr -d ')'
+{% endhighlight %}
+
 ## Backlight
 
+{% highlight_caption backlight %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -118,43 +131,64 @@ echo "" $backlight"%"
 
 ## Network Traffic (Wifi)
 
+{% highlight_caption network_traf_wlan %}
 {% highlight bash linenos %}
 #!/bin/bash
 
 wlan_card='wlan0'
-wlan_online=$(ip a s dev $wlan_card | grep -i inet)
-if [[ $wlan_online ]]; then
+
+wlanmon_card=$(ip a s | grep $wlan_card'mon' | awk 'NR%1==0 {print $2}' | sed 's/://g')
+if [ $wlanmon_card ]; then
+    printf " MONITOR"
+fi
+
+wlan_online=$(iw $wlan_card link | grep 'Connected' | awk 'NR%1==0 {print $1}')
+wlan_offline=$(iw $wlan_card link | grep 'Not' | awk 'NR%1==0 {print $1}')
+internet=$(wget -qO- ifconfig.co)
+internet_logo=""
+if [ $internet ]; then
+    internet_logo=" "
+else
+    internet_logo=" "
+fi
+
+if [ $wlan_online ]; then
     wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
     wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
-    echo "" $wlan_do "" $wlan_up "KB/s"
+    printf "$internet_logo %5s  %5s\\n" \
+    $(numfmt --to=none $wlan_do) \
+    $(numfmt --to=none $wlan_up)
+elif [ $wlan_offline ];then
+    printf " OFFLINE"
 else
-    echo " OFFLINE"
+    printf " NOADPTR"
 fi
 {% endhighlight %}
 
 ## Battery Capacity
 
+{% highlight_caption batt_capacity %}
 {% highlight bash linenos %}
 #!/bin/sh
 
 cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
-if [ $cap -ge 0 ] && [ $cap -le 10 ]; then
+if   [ $cap -ge 0  ] && [ $cap -le 10  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 11 ] && [ $cap -le 20 ]; then
+elif [ $cap -ge 11 ] && [ $cap -le 20  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 21 ] && [ $cap -le 30 ]; then
+elif [ $cap -ge 21 ] && [ $cap -le 30  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 31 ] && [ $cap -le 40 ]; then
+elif [ $cap -ge 31 ] && [ $cap -le 40  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 41 ] && [ $cap -le 50 ]; then
+elif [ $cap -ge 41 ] && [ $cap -le 50  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 51 ] && [ $cap -le 60 ]; then
+elif [ $cap -ge 51 ] && [ $cap -le 60  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 61 ] && [ $cap -le 70 ]; then
+elif [ $cap -ge 61 ] && [ $cap -le 70  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 71 ] && [ $cap -le 80 ]; then
+elif [ $cap -ge 71 ] && [ $cap -le 80  ]; then
     echo "" $cap"%"
-elif [ $cap -ge 81 ] && [ $cap -le 90 ]; then
+elif [ $cap -ge 81 ] && [ $cap -le 90  ]; then
     echo "" $cap"%"
 elif [ $cap -ge 91 ] && [ $cap -le 100 ]; then
     echo "" $cap"%"
@@ -165,15 +199,16 @@ fi
 
 ## Battery Status
 
+{% highlight_caption batt_state %}
 {% highlight bash linenos %}
 #!/bin/sh
 
 state=$(cat /sys/devices/platform/smapi/BAT0/state)
-if [ $state = "charging" ]; then
+if   [ $state = "charging"    ]; then
     echo " " # charging
 elif [ $state = "discharging" ]; then
     echo " " # discharging
-elif [ $state = "idle" ]; then
+elif [ $state = "idle"        ]; then
     echo " " # idle
 else
     echo " " # unknown

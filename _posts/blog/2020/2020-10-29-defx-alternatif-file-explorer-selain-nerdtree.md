@@ -65,6 +65,7 @@ Teman-teman dapat melihat contoh konfigurasi pada:
 
 Namun, pada catatan kali ini, saya akan langsung memberikan konfigurasi yang saya pergunakan.
 
+{% highlight_caption $HOME/.config/nvim/init.vim %}
 {% highlight vimscript linenos %}
 if exists('g:plugs["defx.nvim"]')
   autocmd FileType     defx call s:defx_my_settings()
@@ -280,7 +281,10 @@ Kita dapat merubah-rubah sesuai preferensi pribadi masing-masing.
 
 # Konfigurasi Defx-icons
 
-```vimscript
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+{% highlight vimscript linenos %}
+" defx-icons
+
 let g:defx_icons_enable_syntax_highlight = 1
 let g:defx_icons_column_length           = 2
 let g:defx_icons_directory_icon          = ''
@@ -307,11 +311,14 @@ hi default link DefxIconsSymlinkDirectory Directory
 hi default link DefxIconsOpenedTreeIcon   Directory
 hi default link DefxIconsNestedTreeIcon   Directory
 hi default link DefxIconsClosedTreeIcon   Directory
-```
+{% endhighlight %}
 
 # Konfigurasi defx-git
 
-```vimscript
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+{% highlight vimscript linenos %}
+" defx-git
+
 if exists('g:plugs["defx-git"]')
   call defx#custom#column('git', 'column_length', 1)
 
@@ -337,7 +344,7 @@ if exists('g:plugs["defx-git"]')
   hi Defx_git_Deleted   ctermfg=214 ctermbg=NONE
   hi Defx_git_Staged    ctermfg=214 ctermbg=NONE
 endif
-```
+{% endhighlight %}
 
 
 # Hasilnya

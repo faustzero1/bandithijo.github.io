@@ -124,6 +124,7 @@ Saya memilih lokasi nomor 3, untuk menyimpan file `init.trans`.
 
 Dan ini adalah contoh dari file `init.trans` yang saya gunakan.
 
+{% highlight_caption $HOME/.config/translate-shell/init.trans %}
 {% highlight trans linenos %}
 {
  :translate-shell "0.9.6"
@@ -325,6 +326,7 @@ REPL mode ini mengikuti konfigurasi file `init.trans` yang sudah kita definisika
 
 ## Membuat Interaktif Menu Translate dengan Dmenu
 
+{% highlight_caption $HOME/.local/bin/dmenu-trans %}
 {% highlight bash linenos %}
 #!/bin/sh
 

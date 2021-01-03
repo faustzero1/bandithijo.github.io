@@ -163,9 +163,8 @@ Buka file **config.yml** dengan text editor dan tambahkan beberapa aturan yang i
 
 Contoh beberapa aturan yang saya disable.
 
+{% highlight_caption $HOME/.config/rubocop/config.yml %}
 {% highlight yml %}
-# $HOME/.config/rubocop/config.yml
-
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: false

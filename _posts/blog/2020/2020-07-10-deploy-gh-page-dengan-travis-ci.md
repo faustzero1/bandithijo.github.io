@@ -118,9 +118,8 @@ Buka `Gemfile` dan pasang gem-gem yang teman-teman perlukan.
 
 **Penting!** Untuk Travis CI, gem yang diperlukan untuk proses build adalah `rake` gem.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
-# Gemfile
-
 source 'https://rubygems.org'
 
 gem 'jekyll',                                  '~> 4.1.1'
@@ -146,8 +145,8 @@ Di file `_config.yml`, kita juga akan mendefinisikan beberapa file yang akan kit
 
 Buka file `_config.yml`.
 
+{% highlight_caption _config.yml %}
 {% highlight yaml linenos %}
-# _config.yml
 
 # ...
 # ...
@@ -191,6 +190,7 @@ Kita perlu membuat file bernama `.tavis.yml` di root project direktori kita.
 
 Travis CI akan menjalankan proses build berdasarkan konfigurasi yang kita tulis pada file ini.
 
+{% highlight_caption .travis.yml %}
 {% highlight yml linenos %}
 language: ruby
 os: linux
@@ -242,9 +242,8 @@ Agar perintah `$ bundle exec rake` dapat digunakan, kita perlu mendefinisikan ta
 
 Untuk itu, kita perlu membuat file `Rakefile` di root project direktori.
 
+{% highlight_caption Rakefile %}
 {% highlight ruby linenos %}
-# Rakefile
-
 task :default do
   puts "Running CI tasks..."
 

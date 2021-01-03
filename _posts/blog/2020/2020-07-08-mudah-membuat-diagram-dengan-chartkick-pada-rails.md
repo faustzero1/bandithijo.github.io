@@ -32,6 +32,7 @@ Dengan menggunakan ChartKick, kita hanya perlu memanggil dengan satu baris sinta
 
 Pasang gem di `Gemfile`.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -57,6 +58,7 @@ $ <b>yarn add chartkick chart.js</b>
 
 Kemudian tambahkan pada `app/javascript/packs/application.js`,
 
+{% highlight_caption app/javascript/packs/application.js %}
 {% highlight javascript linenos %}
 require("chartkick")
 require("chart.js")
@@ -66,6 +68,7 @@ require("chart.js")
 
 Cukup menambahkan pada `app/assets/javascripts/application.js`,
 
+{% highlight_caption app/assets/javascripts/application.js %}
 {% highlight javascript linenos %}
 //= require chartkick
 //= require Chart.bundle
@@ -84,6 +87,7 @@ Kita dapat langsung membuat chart dengan cara seperti ini.
 <br>
 **Line Chart (Grafik Garis)**
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= line_chart a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3 %>
 {% endhighlight %}
@@ -93,6 +97,7 @@ Kita dapat langsung membuat chart dengan cara seperti ini.
 <br>
 **Area Chart**
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= area_chart a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3 %>
 {% endhighlight %}
@@ -102,6 +107,7 @@ Kita dapat langsung membuat chart dengan cara seperti ini.
 <br>
 **Column Chart (Grafik Batang Berdiri)**
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= column_chart a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3 %>
 {% endhighlight %}
@@ -111,6 +117,7 @@ Kita dapat langsung membuat chart dengan cara seperti ini.
 <br>
 **Bar Chart (Grafik Batang Tidur)**
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= bar_chart a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3 %>
 {% endhighlight %}
@@ -120,6 +127,7 @@ Kita dapat langsung membuat chart dengan cara seperti ini.
 <br>
 **Pie Chart (Grafik Lingkaran)**
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= pie_chart a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3 %>
 {% endhighlight %}
@@ -138,6 +146,7 @@ Dapat pula ditambahkan tombol download yang nanti akan disimpan dalam bentuk fil
 
 Contohnya seperti ini.
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <%= area_chart({a: 2, b: 5, c: 3, d: 15, e: 6, f: 12, g: 3},
                 title: "Grafik Area",
@@ -168,9 +177,8 @@ Sekenarionya, saya memiliki model `Case`. Saya mau mengambil data total `:positi
 
 ## Langsung diletakkan di view template
 
+{% highlight_caption app/views/cases/index.rb %}
 {% highlight erb linenos %}
-<!-- app/views/cases/index.rb -->
-
 <%= line_chart Case.group_by_day(:fetched_at).sum(:positif_covid) %>
 {% endhighlight %}
 
@@ -179,9 +187,8 @@ Sekenarionya, saya memiliki model `Case`. Saya mau mengambil data total `:positi
 
 Definisikan instance variable di controller.
 
+{% highlight_caption app/controllers/case_controller.rb %}
 {% highlight ruby linenos %}
-# app/controllers/case_controller.rb
-
   def index
     ...
     ...
@@ -197,9 +204,8 @@ Definisikan instance variable di controller.
 
 Kemudian, tinggal dipakai di view template.
 
+{% highlight_caption app/views/cases/index.rb %}
 {% highlight erb linenos %}
-<!-- app/views/cases/index.rb -->
-
 <%= line_chart @data_positif_covid %>
 {% endhighlight %}
 

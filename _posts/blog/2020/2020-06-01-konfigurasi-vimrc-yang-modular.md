@@ -120,7 +120,8 @@ Isi yang ada di dalam file-file di dalam struktur direktori di atas bebas saja.
 
 Yang paling penting adalah proses sourcing di dalam file **init.vim**.
 
-<pre>
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+<pre class="caption">
 source $HOME/.config/nvim/init.d/<b>settings.vim</b>
 source $HOME/.config/nvim/init.d/<b>formating.vim</b>
 source $HOME/.config/nvim/init.d/<b>filetype.vim</b>

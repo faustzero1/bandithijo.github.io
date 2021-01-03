@@ -77,6 +77,7 @@ Meskipun sebelumnya sudah pernah dilakukan, saya akan coba menulis kembali dari 
 
 Buat file dengan nama `Gemfile`. dan kita akan memasang gem yang diperlukan di dalam file ini.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 
@@ -97,6 +98,7 @@ Proses bundle install di atas akan membuat sebuah file baru bernama `Gemfile.loc
 
 Selanjutnya adalah si tokoh utama.
 
+{% highlight_caption main.rb %}
 {% highlight ruby linenos %}
 require 'httparty'
 require 'nokogiri'
@@ -142,6 +144,7 @@ main
 
 ## scraper.rb
 
+{% highlight_caption scrapper.rb %}
 {% highlight ruby linenos %}
 class Scraper
 
@@ -197,6 +200,7 @@ end
 
 ## template.rb
 
+{% highlight_caption template.rb %}
 {% highlight ruby linenos %}
 class Template
 

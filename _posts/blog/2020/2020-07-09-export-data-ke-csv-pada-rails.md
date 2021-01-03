@@ -34,9 +34,8 @@ Kita akan membuat tombol untuk men-download file CSV pada view template dan akan
 
 Saya akan mengawali dengan membuat response ke controller apabila tombol pada view template di tekan.
 
+{% highlight_caption app/controllers/cases_controller.rb %}
 {% highlight ruby linenos %}
-# app/controllers/cases_controller.rb
-
 class CasesController < ApplicationController
 
   def index
@@ -63,9 +62,8 @@ Pada model, kita akan menggunakan CSV class yang sudah disediakan oleh Ruby untu
 
 Buka model dari object yang akan kita tulis ke CSV.
 
+{% highlight_caption app/models/case.rb %}
 {% highlight ruby linenos %}
-# app/models/case.rb
-
 class Case < ApplicationRecord
   ...
   ...
@@ -93,9 +91,8 @@ Baris ke-24 `col_sep: ";'`, adalah pendifinisian untuk *delimiter* atau batas ya
 
 Selanjutnya, kita buat link atau button yang akan di respon oleh controller.
 
+{% highlight_caption app/views/cases/index.html.erb %}
 {% highlight erb linenos %}
-<!-- app/views/cases/index.html.erb -->
-
 <%= link_to cases_path(format: "csv"), class: "button is-fullwidth-mobile" do %>
   <span class="icon">
     <%= image_tag 'file-download-solid.svg', width: '12' %>

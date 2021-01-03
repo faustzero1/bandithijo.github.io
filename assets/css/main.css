@@ -191,6 +191,12 @@ kbd {
   color: black !important;
 }
 
+.whiteboard {
+  background-color: white !important;
+  border: 1px solid white !important;
+  color: black !important;
+}
+
 .color-comment {
   color: #586e75;
   font-style: italic;
@@ -1912,7 +1918,7 @@ div.highlight-caption {
   overflow: auto;
 }
 
-div.highlight-caption span {
+div.highlight-caption span.label {
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;

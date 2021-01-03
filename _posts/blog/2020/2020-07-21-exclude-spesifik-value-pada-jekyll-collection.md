@@ -18,10 +18,8 @@ contributors: []
 
 Saya memiliki collection berupa daftar **dotfriends** `site.data.dotfriends` yang memiliki attribute:
 
+{% highlight_caption _data/dotfriends.yml %}
 {% highlight yaml linenos %}
-
-# _data/dotfriends.yml
-
 - nama: 'Rizqi Nur Assyaufi'
   github: 'bandithijo'
 
@@ -47,6 +45,7 @@ Daftar dotfriends
 
 Untuk menampilkan collection di atas, saya menggunakan cara seperti ini.
 
+{% highlight_caption _pages/daftar_dotfriends.html %}
 {% highlight liquid linenos %}
 {% raw %}
 <h1>Daftar dotfriends</h1>
@@ -66,6 +65,7 @@ Nah, untuk mengecualikan (*exclude*) nama saya "Rizqi Nur Assyaufi" di dalam col
 
 ## 1. contains
 
+{% highlight_caption _pages/daftar_dotfriends.html %}
 {% highlight liquid linenos %}
 {% raw %}
 <h1>Daftar dotfriends</h1>
@@ -83,6 +83,7 @@ Baris ke 4, adalah negasi dari kondisi **if** (**unless**) untuk nama yang menga
 
 ## 2. offset
 
+{% highlight_caption _pages/daftar_dotfriends.html %}
 {% highlight liquid linenos %}
 {% raw %}
 <h1>Daftar dotfriends</h1>

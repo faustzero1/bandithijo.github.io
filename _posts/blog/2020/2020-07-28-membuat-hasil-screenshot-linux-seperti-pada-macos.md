@@ -73,6 +73,7 @@ Karena setiap sehabis membuat screenshot, gambar akan berada pada paling akhir d
 
 File inilah yang akan ditangkap oleh Ruby script dan dipermak.
 
+{% highlight_caption $HOME/.local/bin/scrot-imgck %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
@@ -132,6 +133,7 @@ Maka dari itu, pada modifikasi ini, saya menambahkan ciri khas untuk memberikan 
 
 ## Versi Ruby
 
+{% highlight_caption $HOME/.local/bin/scrot-imgck %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
@@ -187,6 +189,7 @@ FRAMING SUCCESS!"
 
 ## Versi Python
 
+{% highlight_caption $HOME/.local/bin/scrot-imgck-python %}
 {% highlight ruby linenos %}
 #!/usr/bin/env python
 

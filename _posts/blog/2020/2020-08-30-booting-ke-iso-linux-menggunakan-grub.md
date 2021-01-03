@@ -119,6 +119,7 @@ Saya akan menambahkan custom boot menu di bawah nya, seperti pada baris 7-14 di 
 $ <b>sudoedit /etc/grub.d/40_custom</b>
 </pre>
 
+{% highlight_caption /etc/grub.d/40_custom %}
 {% highlight bash linenos %}
 #!/bin/sh
 exec tail -n +3 $0

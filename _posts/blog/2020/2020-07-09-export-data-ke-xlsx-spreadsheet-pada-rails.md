@@ -32,6 +32,7 @@ Nah, kita akan menggunakan versi yang dimaintain oleh komunitas bernama [**cxlsx
 
 Pasang gem yang dibutuhkan di `Gemfile`.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -56,9 +57,8 @@ Kita akan membuat tombol pada view template dan akan di-respon oleh controller.
 
 Saya akan mengawali dengan membuat response ke controller apabila tombol pada view template di tekan.
 
+{% highlight_caption app/controllers/cases_controller.rb %}
 {% highlight ruby linenos %}
-# app/controllers/cases_controller.rb
-
 class CasesController < ApplicationController
 
   def index
@@ -82,9 +82,8 @@ Apabila ingin merubah nama file, dapat merubah pada bagian `filename=...` di bar
 
 Selanjutnya, kita buat link atau button yang akan di respon oleh controller.
 
+{% highlight_caption app/views/cases/index.html.erb %}
 {% highlight erb linenos %}
-<!-- app/views/cases/index.html.erb -->
-
 <%= link_to cases_path(format: "xlsx"), class: "button is-fullwidth-mobile" do %>
   <span class="icon">
     <%= image_tag 'file-download-solid.svg', width: '12' %>
@@ -99,9 +98,8 @@ Selanjutnya, kita akan buat view template untuk file **.xlsx** yang akan di down
 
 Buat file view template `app/views/cases/index.xlsx.axlsx`.
 
+{% highlight_caption app/views/cases/index.xlsx.axlsx %}
 {% highlight ruby linenos %}
-# app/views/cases/index.xlsx.axlsx
-
 wb = xlsx_package.workbook
 
 wb.add_worksheet(name: "Cases") do |sheet|

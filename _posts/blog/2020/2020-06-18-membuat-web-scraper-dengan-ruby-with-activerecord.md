@@ -55,6 +55,7 @@ $ <b>cd ruby-web-scraper-dosen</b>
 
 Buat file dengan nama `Gemfile`. dan kita akan memasang gem yang diperlukan di dalam file ini.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 
@@ -126,6 +127,7 @@ ruby-web-scraper-dosen/
 
 Isi `Rakefile` seperti di bawah ini.
 
+{% highlight_caption Rakefile %}
 {% highlight ruby linenos %}
 require 'standalone_migrations'
 StandaloneMigrations::Tasks.load_tasks
@@ -144,6 +146,7 @@ ruby-web-scraper-dosen/
 
 Lalu isikan `config.yml` seperti di bawah.
 
+{% highlight_caption db/config.yml %}
 {% highlight yaml linenos %}
 development:
   adapter: postgresql
@@ -223,6 +226,7 @@ Migrasi yang kita buat di atas, dari namanya tentu sudah terbayang fungsinya ada
 
 Pemberian awalan `Create` atau `create_` pada awal migrasi memiliki maksud tertentu, yaitu untuk membuat tabel/schema. Dengan menambahkan awalan tersebut maka, isi dari file migrasi akan otomatis berbentuk seperti di bawah ini.
 
+{% highlight_caption db/migrate/20200618031037_create_daftar_dosens.rb %}
 {% highlight ruby linenos %}
 class CreateDaftarDosens < ActiveRecord::Migration[6.0]
   def change
@@ -236,6 +240,7 @@ Bari ke 3 & 4 adalah baris yang secara pintar dibuatkan apabila kita menambahkan
 
 Selanjutnya, kita perlu menyempurnakan file migrasi. Kita perlu menambahkan nama kolom yang kita perlukan, yaitu kolom **nama_dosen** dan **nidn_dosen**.
 
+{% highlight_caption db/migrate/20200618031037_create_daftar_dosens.rb %}
 {% highlight ruby linenos %}
 class CreateDaftarDosens < ActiveRecord::Migration[6.0]
   def change
@@ -342,6 +347,7 @@ Penamaan dari model `daftar_dosen.rb` menggunakan penamaan tunggal karena conven
 
 Buka file `app/models/daftar_dosen.rb` dan isi seperti di bawah ini.
 
+{% highlight_caption app/models/daftar_dosen.rb %}
 {% highlight ruby linenos %}
 class DaftarDosen < ActiveRecord::Base
   validates :nama_dosen, presence: true
@@ -354,6 +360,8 @@ Setelah membuat model, sekarang kita akan membuat aktor utamanya.
 
 Buka file `app/main.rb`.
 
+
+{% highlight_caption app/main.rb %}
 {% highlight ruby linenos %}
 # daftar gem yang diperlukan
 require 'httparty'

@@ -73,6 +73,7 @@ Berikut ini adalah file **settings.cfg** milik saya.
 
 Tidak banyak yang perlu diubah, hanya blok [Colors] saja yang saya modifikasi sesuai preferensi saya.
 
+{% highlight_caption $HOME/.config/tremc/settings.cfg %}
 {% highlight conf linenos %}
 [Connection]
 host                       = localhost

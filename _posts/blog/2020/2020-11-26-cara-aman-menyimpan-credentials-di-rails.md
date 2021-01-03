@@ -41,18 +41,19 @@ Nah, pada file **local_env.yml** ini, yang nantinya semua dev akan menempatkan c
 
 Biasanya, pada implementasi di code program, akan menggunakan cara seperti ini.
 
-```yaml
+
+{% highlight_caption config/local_env.yml %}
+{% highlight yaml linenos %}
 # config/local_env.yml
 
 # ...
 # ...
 SENDGRID_USERNAME: "engineering"
 SENDGRID_PASSWORD: "d3v3l0p3r"
-```
+{% endhighlight %}
 
+{% highlight_caption config/environments/development.rb %}
 {% highlight ruby linenos %}
-# config/environments/development.rb
-
 Rails.application.configure do
 # ...
 # ...
@@ -120,14 +121,15 @@ $ <b>EDITOR="code --wait" rails credentials:edit</b>
 
 Kalau berhasil, file tersebut akan terbuka sebagai **credentials.yml**
 
-```yaml
+{% highlight_caption config/credentials.yml.enc %}
+{% highlight yaml linenos %}
 # aws:
 #   access_key_id: 123
 #   secret_access_key: 345
 
 # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
 secret_key_base: 5877ac9c9c1ee0e...40e65a9c453...d2e1c70a9f12a6
-```
+{% endhighlight %}
 
 Secara default, isinya hanya seperti di atas.
 
@@ -137,7 +139,8 @@ Contohnya seperti pada bagian `#aws:`.
 
 Nah, sekarang, kita dapat menambahkan credential dari API token yang kita miliki.
 
-```yaml
+{% highlight_caption config/credentials.yml.enc %}
+{% highlight yaml linenos %}
 # aws:
 #   access_key_id: 123
 #   secret_access_key: 345
@@ -149,13 +152,12 @@ secret_key_base: 5877ac9c9c1ee0e...40e65a9c453...d2e1c70a9f12a6
 iex_sandbox:
   publishable_token: Tpk_f854a7..................1de44260
   secret_token: Tsk_0a7246...................f8a3886
-```
+{% endhighlight %}
 
 Kemudian, cara memanggilnya pada code program.
 
+{% highlight_caption app/models/stock.rb %}
 {% highlight ruby linenos %}
-# app/models/stock.rb
-
 class Stock < ApplicationRecord
   # you can find the API token here: https://iexcloud.io/console/tokens
   def self.new_lookup(ticker_symbol)

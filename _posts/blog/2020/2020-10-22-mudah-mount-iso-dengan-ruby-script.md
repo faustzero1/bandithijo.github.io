@@ -114,6 +114,7 @@ Sedangkan kalau kita mount manual, kita perlu membuat direktori dengan nama labe
 
 Maka dari itu, agar proses tersebut dapat saya tiru, tanpa perlu repot, saya buat Ruby script saja.
 
+{% highlight_caption $HOME/.local/bin/isomounter.rb %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 

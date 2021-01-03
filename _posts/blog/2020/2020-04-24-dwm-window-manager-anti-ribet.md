@@ -44,15 +44,15 @@ Seperti pepatah lama, "Berakit-rakit ke hulu, bersenang-senang kemudian."
 
 Sama halnya seperti saat menggunakan i3WM, seiring berjalannya waktu, perilaku saya dalam mengelola window pun berubah. Tidak lagi banyak memerlukan layout yang *complicated* seperti pada saat saya mengerjakan soal-soal CCNA (lihat videonya di sini, ["Bagaimana i3wm Menghandle Banyak Window"](https://www.youtube.com/watch?v=Iw2t_k1QqJ8){:target="_blank"}).
 
-Saat berpindah dari i3WM ke BSPWM, saya lebih banak menggunakan susunan tilling seperti ini.
+Saat berpindah dari i3WM ke BSPWM, saya lebih banyak menggunakan susunan tilling seperti ini.
 
-```
+<pre class="whiteboard">
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
 |     |     | |    1     | |     |  2  | |  1  |  2  |
 |  1  |  2  | +----------+ +  1  +-----+ |-----+-----+
 |     |     | |    2     | |     |  3  | |  4  |  3  |
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
-```
+</pre>
 
 Nah, karena itu, saya berpikir, kenapa tidak coba untuk bermigrasi menggunakan window manager yang lebih sederhana dalam perilaku membuat layout? Maka saya pun melakukan riset kecil-kecilan, dan pilihan jatuh pada BSPWM.
 
@@ -60,13 +60,13 @@ Awalnya saya sempat mencoba DWM lebih dahulu, namun ternyata kebutuhan saya masi
 
 Kemudian, sampai pada tahap perubahan perilaku saya dalam menyusun Window. Saya lebih banyak menggunakan tilling layout seperti ini.
 
-```
+<pre class="whiteboard">
 +-----+-----+ +-----+-----+
 |     |     | |     |  2  |
 |  1  |  2  | +  1  +-----+
 |     |     | |     |  3  |
 +-----+-----+ +-----+-----+
-```
+</pre>
 
 Karena kebutuhan yang lebih sederhana, maka saya pun merasa cukup untuk menggunakan DWM tanpa perlu melakukan banyak *patching*. Karena saya sendiri masih kesulitan apabila memasang terlalu banyak *patching*.
 
@@ -145,17 +145,19 @@ Nah, berikut ini adalah isi dari script-script tersebut.
 
 # Suckless Script
 
-**suckclean** - Created by: HexDSL
+Created by: HexDSL
 
-{% highlight bas linenos %}
+{% highlight_caption suckclean %}
+{% highlight bash linenos %}
 #!/usr/bin/env bash
 
 make clean &&
 rm -f config.h && git reset --hard origin/master
 {% endhighlight %}
 
-**suckdiff** - Created by: HexDSL
+Created by: HexDSL
 
+{% highlight_caption suckdiff %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -176,8 +178,9 @@ for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -
 done
 {% endhighlight %}
 
-**suckmerge2** - Created by: BanditHijo | versi terbaru [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckmerge2){:target="_blank"}
+Created by: BanditHijo, versi terbaru [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckmerge2){:target="_blank"}
 
+{% highlight_caption suckmerge2 %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
@@ -301,33 +304,35 @@ Berikut ini adalah ilustrasi isi dari branch **config**.
 
 File **config.mk**.
 
+{% highlight_caption config.mk %}
 {% highlight c linenos %}
-// config.mk
-...
+// ...
+// ...
 X11INC = /usr/local/include
 X11LIB = /usr/local/lib
 {% endhighlight %}
 
 File **config.def.h**.
 
+{% highlight_caption config.def.h %}
 {% highlight c linenos %}
-// config.def.h
-...
+// ...
+// ...
 static const unsigned int snap      = 5;        /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static int showsystray                   = 0;   /* 0 means no systray */
 
-...
+// ...
 static const char *fonts[]          = { "FuraCode Nerd Font:style=Medium:size=8" };
 static const char dmenufont[]       = "FuraCode Nerd Font:style=Medium:size=8";
 
-...
+// ...
     { MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = -1 } },
 
-...
-...
+// ...
+// ...
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -379,21 +384,21 @@ static const Rule rules[] = {
     { NULL,                   NULL,                 "hidden",       scratchpad_mask,            0,             1,              -1 },
 };
 
-...
-...
+// ...
+// ...
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
-    ...
-    ...
+    // ...
+    // ...
     { MODKEY|ShiftMask,             XK_b,      togglesystray,  {0} },
-    ...
-    ...
+    // ...
+    // ...
     { MODKEY,                       XK_s,      togglesticky,   {0} },
     { MODKEY,                       XK_0,      view,           {.ui = ~scratchpad_mask } },
     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~scratchpad_mask } },
-    ...
-    ...
+    // ...
+    // ...
     { MODKEY,                       XK_minus, scratchpad_show, {0} },
     { MODKEY|ShiftMask,             XK_minus, scratchpad_hide, {0} },
     { MODKEY|ControlMask,           XK_minus,scratchpad_remove,{0} },
@@ -430,14 +435,15 @@ static Key keys[] = {
 
 File **dwm.c**
 
+{% highlight_caption dwm.c %}
 {% highlight c linenos %}
 // dwm.c
 
 void
 manage(Window w, XWindowAttributes *wa)
 {
-...
-...
+// ...
+// ...
 
     wc.border_width = c->bw;
 
@@ -447,8 +453,8 @@ manage(Window w, XWindowAttributes *wa)
 
     XConfigureWindow(dpy, w, CWBorderWidth, &wc);
 
-...
-...
+// ...
+// ...
 }
 {% endhighlight %}
 
@@ -465,6 +471,7 @@ Nah, seperti ini tampilan bar yang saya pergunakan sekarang.
 
 Saya membuat file bernama `~/.local/bin/dwmstatus`. Dan tambahkan *execute permission* `$ chmod +x dwmstatus`.
 
+{% highlight_caption $HOME/.local/bin/dwmstatus %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -485,6 +492,7 @@ Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain a
 <br>
 **network-wlan-tfc.sh** - Created by: BanditHijo
 
+{% highlight_caption network-wlan-tfc.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -504,6 +512,7 @@ Saya menggunakan [**aur/ifstat**](https://aur.archlinux.org/packages/ifstat/){:t
 <br>
 **cpu-temp.sh** - Created by: BanditHijo
 
+{% highlight_caption cpu-temp.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -515,6 +524,7 @@ echo " "$temp_cpu0"°C"
 <br>
 **memory.sh** - Created by: BanditHijo
 
+{% highlight_caption memory.sh%}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -527,6 +537,7 @@ echo " "$mem_usage"%"
 <br>
 **filesystem.sh** - Created by: BanditHijo
 
+{% highlight_caption filesystem.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -537,6 +548,7 @@ echo ""$cap_percentage
 <br>
 **volume.sh** - Created by: BanditHijo
 
+{% highlight_caption volume.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -554,6 +566,7 @@ fi
 <br>
 **bat-state.sh** - Created by: BanditHijo
 
+{% highlight_caption bat-state.sh%}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -572,6 +585,7 @@ fi
 <br>
 **bat-capacity.sh** - Created by: BanditHijo
 
+{% highlight_caption bat-capacity.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -604,11 +618,11 @@ Saya menggunakan *patch* autostart untuk menghandle program-program autorun yang
 
 Kalau hanya menggunakan .xinitrc, tentunya perlu restart session (logout). Namun, dengan patch autostart, kita hanya perlu reload dwm saja.
 
+{% highlight_caption dwm.c %}
 {% highlight c linenos %}
-// dwm.c
 
-...
-...
+// ...
+// ...
 
 /* variables */
 static const char autostartblocksh[] = "autostart_blocking.sh";
@@ -618,8 +632,8 @@ static const char dwmdir[] = "dwm";
 static const char localshare[] = ".local/share";
 static char stext[256];
 static int screen;
-...
-...
+// ...
+// ...
 {% endhighlight %}
 
 Perhatikan baris 10 dan 11, disanalah tempat kita akan meletakkan file **autostart.sh** dan **autostart_blocking.sh**.
@@ -632,6 +646,7 @@ $ <b>touch ~/.local/share/dwm/autostart.sh</b>
 
 Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 
+{% highlight_caption $HOME/.local/share/dwm/autostart.sh %}
 {% highlight bash linenos %}
 #!/usr/bin/env bash
 
@@ -650,6 +665,7 @@ pkill -f "lxpolkit"; lxpolkit &
 
 Kemudian, ini adalah isi dari **xinitrc** yang berhubungan dengan dwm.
 
+{% highlight_caption $HOME/.local/share/dwm/autostart_blocking.sh %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -710,6 +726,7 @@ Saya beri nama **suckchkout**.
 
 Versi terbaru dari **suckchkout** dapat teman-teman temukan [di sini](https://github.com/bandithijo/sucklessthing/blob/master/suckchkout){:target="_blank"}
 
+{% highlight_caption suckchkout %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 

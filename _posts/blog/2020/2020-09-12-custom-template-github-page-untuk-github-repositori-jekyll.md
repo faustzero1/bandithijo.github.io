@@ -96,6 +96,7 @@ File Gemfile ini yang akan kita gunakan untuk memberikan spesifikasi gem apa saj
 
 Buka **Gemfile** dan isikan seperti di bawah ini saja.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 gem 'jekyll', '~> 4.1.1'
@@ -121,6 +122,7 @@ $ <b>touch _config.yml</b>
 
 Kemudian, isi dan modifikasi seperti di bawah ini, sesuai dengan kepentingan kalian.
 
+{% highlight_caption _config.yml %}
 {% highlight yaml linenos %}
 # PENGGUNAAN:
 # -----------------------------------------------------------------------------
@@ -175,6 +177,7 @@ $ <b>touch default.html</b>
 
 Kemudian isikan file **default.html** seperti di bawah ini. Sesuaikan dengan kebutuhan kalian.
 
+{% highlight_caption _layouts/default.html %}
 {% highlight html linenos %}
 <!DOCTYPE html>
 <html>
@@ -298,6 +301,7 @@ Kemudian, saat di klik, maka akan terbuka, seperti di bawah ini.
 
 Mudah sekali, tinggal ikuti format seperti ini.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <details markdown="1">
   <summary style="cursor:pointer;">...</summary>
@@ -308,6 +312,7 @@ Saya menggunakan `markdown="1"` agar Markdown sintaks yang ada di dalam HTML dap
 
 Contohnya seperti ini.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <details markdown="1">
   <summary style="cursor:pointer;">Topik yang akan dibicarakan meliputi: *<i>click to open</i></summary>
@@ -337,6 +342,7 @@ Sebagai catatan, Jekyll menggunakan bahasa template yang bernama **Liquid**.
 
 Kira-kira seperti ini ciri-ciri tag dari Liquid.
 
+{% highlight_caption %}
 {% highlight markdown linenos %}
 {{ "{% if jekyll.environment == 'production' " }}%}
   <meta name="google-site-verification" content="{{ "{{ site.google_verify " }}}}">

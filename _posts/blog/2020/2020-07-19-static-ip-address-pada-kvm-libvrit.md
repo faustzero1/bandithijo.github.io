@@ -139,6 +139,7 @@ Kalau ingin melihat konfigurasi dari network **default** ini, kita dapat menggun
 $ <b>sudo virsh net-edit default</b>
 </pre>
 
+{% highlight_caption %}
 {% highlight xml linenos %}
 <network>
   <name>default</name>
@@ -188,7 +189,8 @@ Untuk melihat hasilnya, kita dapat menggunakan perintah di bawah.
 $ <b>sudo virsh net-dumpxml default</b>
 </pre>
 
-```xml
+{% highlight_caption %}
+{% highlight xml linenos %}
 <network>
   <name>default</name>
   <uuid>6115b620-438d-44ad-9215-ce3ca396a890</uuid>
@@ -207,7 +209,7 @@ $ <b>sudo virsh net-dumpxml default</b>
     </dhcp>
   </ip>
 </network>
-```
+{% endhighlight %}
 
 Apabila sudah terdapat konfigurasi yang kita tambahkan tadi, artinya kita sudah berhasil.
 

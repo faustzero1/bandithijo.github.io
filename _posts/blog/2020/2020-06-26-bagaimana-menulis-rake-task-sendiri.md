@@ -91,6 +91,7 @@ Selanjutnya tinggal mengkonfigurasi Rakefile sesuai dengan preferensi project ya
 
 Buat `Rakefile` pada project root direktori. Kemudian isikan seperti di bawah.
 
+{% highlight_caption Rakefile %}
 {% highlight ruby linenos %}
 Dir.glob(File.join('lib/tasks/**/*.rake')).each { |file| load file }
 {% endhighlight %}
@@ -103,6 +104,7 @@ Untuk yang membuat Ruby project menggunakan gem **Standalone Migrations**, biasa
 
 Isi dari `Rakefile` pada konfigurasi Rake menggunakan gem Standalone Migrations, akan seperti ini.
 
+{% highlight_caption Rakefile %}
 {% highlight ruby linenos %}
 require 'standalone_migrations'
 StandaloneMigrations::Tasks.load_tasks
@@ -122,6 +124,7 @@ Morfologi dari Rake task, adalah seperti ini:
 2. **Task name** `:name`, nama dari task yang akan dipanggil pada saat menjalankan Rake.
 3. **Code block**, adalah code atau perintah yang akan dijalankan ketika task dipanggil.
 
+{% highlight_caption Rakefile %}
 {% highlight ruby linenos %}
 desc 'Description'
 task :name do
@@ -139,6 +142,7 @@ Buat dulu Rake file pada direktori `lib/tasks/`, kasih nama bebas.
 
 Misalkan saya kasih nama sesuai dengan tugas yang akan dikerjakan, yaitu `run.rake`.
 
+{% highlight_caption lib/tasks/run.rake %}
 {% highlight ruby linenos %}
 desc "Menjalankan main script"
 tasks :run do
@@ -170,6 +174,7 @@ Nah, kira-kira begini cara buatnya (blok codenya hanya ilustrasi yaa, bro).
 
 Karena ada banyak tugas yang merupakan tugas yang mirip, yaitu untuk mengintervensi database, maka saya beri nama `database.rake`.
 
+{% highlight_caption lib/tasks/database.rake %}
 {% highlight ruby linenos %}
 namespace :db do
   desc "Create database for current environment"
@@ -200,8 +205,10 @@ rake db:fixtures:load                # Loads fixtures into the current environme
 Secara sederhana *namesapce* akan mengkategorikan task yang sejenis, dalam hal ini, task yang memiliki tugas untuk berinteraksi dengan database `db` akan dimasukkan ke dalam *namespace* ini agar task list menjadi lebih rapi dan terorganisir.
 
 ### Tingkat Lebih dari Satu
+
 Nah, mungkin teman-teman yang menggunakan Ruby on Rails juga pernah melihat perintah `$ rake db:migrate:status`, pasti sudah bisa ketebak dong yaa, gimana cara membuatnya.
 
+{% highlight_caption lib/tasks/database.rake %}
 {% highlight ruby linenos %}
 namespace :db do
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
@@ -235,6 +242,7 @@ Terkadang kita membutuhkan argument yang akan diolah di dalam task.
 
 Misalkan kita punya Rake task seperti ini.
 
+{% highlight_caption %}
 {% highlight ruby linenos %}
 desc "Menjalankan operasi penjumlahan"
 task :penjumlahan do
@@ -255,6 +263,7 @@ Berikut ini adalah 4 cara dalam memasukkan argument ke dalam Rake task.
 
 Rake memiliki built-in function yang dapat menerima argument, caranya seperti ini.
 
+{% highlight_caption %}
 {% highlight ruby linenos %}
 desc "Menjalankan operasi penjumlahan"
 task :penjumlahan, [:num1, :num] do |t, args|
@@ -287,6 +296,7 @@ Kita akan menggunakan cara *environment variables* seperti yang biasa dijalankan
 
 Nah, kita dapat menggunakan metode yang sama.
 
+{% highlight_caption %}
 {% highlight ruby linenos %}
 desc "Menjalankan operasi penjumlahan"
 task :penjumlahan do
@@ -336,6 +346,7 @@ Cara memberikan argument dengan **OptionParser** ini mirip seperti yang kita lak
 
 Nah, yang akan kita buat, mirip seperti itu.
 
+{% highlight_caption %}
 {% highlight ruby linenos %}
 require 'optparse'
 

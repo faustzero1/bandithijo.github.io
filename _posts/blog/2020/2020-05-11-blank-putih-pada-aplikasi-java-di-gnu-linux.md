@@ -34,10 +34,11 @@ $ <b>_JAVA_AWT_WM_NONREPARENTING=1 ./JDownloader2</b>
 Kalau berhasil dijalankan dan semua *asset* terlihat sudah berhasil dirender, tinggal tambahkan pada `.desktop` dari launcher aplikasi tersebut.
 
 <pre>
-$ <b>vim ~/.local/share/applications/JDownloader 2 Update & Rescue-0.desktop</b>
+$ <b>vim ~/.local/share/applications/JDownloader2.desktop</b>
 </pre>
 
-<pre>
+{% highlight_caption $HOME/.local/share/applications/JDownloader2.desktop %}
+<pre class="caption">
 [Desktop Entry]
 Name=JDownloader 2
 <mark>Exec=_JAVA_AWT_WM_NONREPARENTING=1 $HOME/app/jdownloader2beta/JDownloader2</mark>

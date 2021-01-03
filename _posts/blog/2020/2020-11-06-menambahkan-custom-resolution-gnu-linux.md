@@ -185,6 +185,7 @@ Saya akan mencatat script sederhana yang saya buat untuk menghandle multi monito
 
 Workflownya, kalau monitor hanya ada 1, maka menu yang tampil adalah "dual", namun kalau kedua monitor aktif, maka menu yang tampil "single".
 
+{% highlight_caption $HOME/.local/bin/add_custom_resolution.sh %}
 {% highlight bash linenos %}
 #!/bin/sh
 

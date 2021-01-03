@@ -45,6 +45,7 @@ Contoh-contoh konfigurasi dapat teman-teman lihat pada halaman GitHub dari Light
 
 Saya akan langsung menunjukkan konfigurasi yang saya lakukan pada bagian kedua ini.
 
+{% highlight_caption $HOME/.config/nvim/init.vim %}
 {% highlight vimscript linenos %}
 " LightLine
 

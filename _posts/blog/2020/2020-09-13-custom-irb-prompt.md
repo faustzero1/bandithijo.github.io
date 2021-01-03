@@ -53,6 +53,7 @@ Kalau file tersebut belum ada, buat dan tambahkan seperti baris di bawah.
 
 ## 1. Simple &gt;&gt;
 
+{% highlight_caption $HOME/.irbrc %}
 {% highlight config linenos %}
 IRB.conf[:PROMPT][:CUSTOM] = {
   :PROMPT_I => ">> ",
@@ -93,6 +94,7 @@ Kita juga dapat mengkostumisasi dengan menambahkan beberapa spesial string yang 
 
 Misal, Untuk memberikan Line Number.
 
+{% highlight_caption $HOME/.irbrc %}
 {% highlight config linenos %}
 IRB.conf[:PROMPT][:CUSTOM] = {
   :PROMPT_I => "[%02n]>> ",
@@ -149,6 +151,7 @@ Apabila ingin meng-override IRB agar saat kita panggil, langsung menjalankan Pry
 
 Tambahkan baris berikut pada `~/.irbrc`.
 
+{% highlight_caption $HOME/.irbrc %}
 {% highlight config linenos %}
 ...
 ...
@@ -174,6 +177,7 @@ Kalau ingin sedikit kostumisasi Pry pormpt, dapat melakukannya dengan membuat fi
 
 Bisa, isikan seperti ini, misalnya:
 
+{% highlight_caption $HOME/.pryrc %}
 {% highlight config linenos %}
 Pry.config.prompt = Pry::Prompt.new(
   "custom",

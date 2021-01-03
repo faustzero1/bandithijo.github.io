@@ -2,16 +2,16 @@
 # BanditHijo - https://github.com/bandithijo
 #
 #   Input:
-#     {% highlight-caption "/etc/pacman.d/mirrorlist" %}
+#     {% highlight_caption /etc/pacman.d/mirrorlist %}
 #
 #   Output:
 #     <div class="highlight-caption">
-#       <span>FILE</span>
+#       <span class="label">FILE</span>
 #       <code>/etc/default/grub</code>
+#       <span>FILE</span>
 #     </div>
 
 module Jekyll
-
   class HighlightCaption < Liquid::Tag
     @path = nil
 
@@ -27,7 +27,7 @@ module Jekyll
 
     def render(context)
       source  = '<div class="highlight-caption">'
-      source += '<span>FILE</span>'
+      source += '<span class="label">FILE</span>'
       source += "<code>#{@path}</code>"
       source += '</div>'
       source

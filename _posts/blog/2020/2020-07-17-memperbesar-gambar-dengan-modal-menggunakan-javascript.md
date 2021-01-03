@@ -34,7 +34,7 @@ Saya akan mulai dengan contoh yang menggunakan JQuery.
 
 Saya akan tuliskan dalam satu file html.
 
-
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Kumpulan beberapa gambar -->
 <img class="myImg" src="http://bandithijo.github.io/assets/img/logo/logo_bandithijo.png"/>
@@ -42,6 +42,7 @@ Saya akan tuliskan dalam satu file html.
 <img class="myImg" src="http://bandithijo.github.io/assets/img/logo/logo_bandithijo.png"/>
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Modal yang akan digunakan bergantian oleh gambar-gambar di atas -->
 <div id="myModal" class="modal">
@@ -49,6 +50,7 @@ Saya akan tuliskan dalam satu file html.
 </div>
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
@@ -76,6 +78,7 @@ close.onclick = function() {
 
 Pada baris 9-13 di atas, adalah contoh baris kode dari JQuery.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <style>
 /* Style the Image Used to Trigger the Modal */
@@ -126,11 +129,13 @@ img.modal-content {
 
 Kalau teman-teman mengikuti tutorial yang ada di W3Schools, akan seperti ini.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Gambar -->
 <img id="myImg" src="img_snow.jpg" alt="Snow" style="width:100%;max-width:300px">
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Modal yang akan digunakan oleh gambar di atas -->
 <div id="myModal" class="modal">
@@ -140,6 +145,7 @@ Kalau teman-teman mengikuti tutorial yang ada di W3Schools, akan seperti ini.
 </div>
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <script>
 // Get the modal
@@ -165,6 +171,7 @@ span.onclick = function() {
 </script>
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -264,6 +271,7 @@ Memang benar, script di atas dapat menampilkan gambar pada Modal, namun...**tida
 
 Solusinya, kita perlu memodifikasi tag image yang menggunakan id menjadi class.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Gambar-gambar -->
 <img class="myImg" src="http://bandithijo.github.io/assets/img/logo/logo_bandithijo.png"/>
@@ -273,6 +281,7 @@ Solusinya, kita perlu memodifikasi tag image yang menggunakan id menjadi class.
 
 Menyederhanakan modal, hanya menggunakan class.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <!-- Modal yang akan digunakan oleh gambar di atas -->
 <div class="modal">
@@ -280,6 +289,7 @@ Menyederhanakan modal, hanya menggunakan class.
 </div>
 {% endhighlight %}
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <script>
 // Get the modal
@@ -305,6 +315,7 @@ Inilah yang membuat setiap gambar yang ada pada blog post kita, dapat menjalanka
 
 Saya juga memodifikasi style di bawah, agar membuat gambar berada persis di tengah dari screen.
 
+{% highlight_caption %}
 {% highlight html linenos %}
 <style>
 /* Style the Image Used to Trigger the Modal */

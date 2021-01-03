@@ -53,6 +53,7 @@ Nanti, kita akan menggunakan perintah di atas untuk melihat apakah cronjob yang 
 
 Pasang pada `Gemfile`.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 # Gemfile
 
@@ -95,6 +96,7 @@ Perintah di atas akan membuat file `config/schedule.rb`.
 
 Sekarang coba buka file tersebut. Di dalamnya sudah terdapat beberapa contoh sintaks untuk membuat jadwal.
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 # Use this file to easily define all of your cron jobs.
 #
@@ -124,6 +126,7 @@ Perhatikan baris kode 11, 12, 13. Masing-masing baris tersebut adalah contoh bag
 
 Misal,
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 every 2.hours do
   rake "db:create"   # untuk membuat database
@@ -138,6 +141,7 @@ Lantas, bagaimana cara membuat ketiga tasks tersebut berjalan secara berurutan? 
 
 Dengan menggunakan `command`, kita selayaknya menjalankan perintah di atas Terminal, dengan memisahkan masing-masing perintah dengan tanda titik koma (;).
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 project_dir = `echo $PWD`.strip
 every 2.hours do
@@ -156,6 +160,7 @@ Saya masuk ke dalam direktori project yang sudah lebih dahulu saya definisikan v
 
 Kelebihan dari Whenever gem adalah kita dapat mendifinisikan waktu seperti kita menulis bahasa Inggris.
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 every 3.hours do # 1.minute 1.day 1.week 1.month 1.year is also supported
   # task
@@ -186,6 +191,7 @@ end
 
 Kita dapat menyimpan output tasks yang dijalankan ke dalam file log.
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 set :output, 'log/rake.log'
 every 2.hours do
@@ -216,6 +222,7 @@ Tidak kalah penting adalah, kita perlu mendefinisikan environment path.
 
 ## Ruby on Rails Project
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 env :PATH, ENV['PATH']
 every 2.hours do
@@ -225,6 +232,7 @@ end
 
 ## Ruby Project
 
+{% highlight_caption config/schedule.rb %}
 {% highlight ruby linenos %}
 ENV.each { |k, v| env(k, v) }
 every 2.hours do

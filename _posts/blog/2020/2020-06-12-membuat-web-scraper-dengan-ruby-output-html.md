@@ -55,6 +55,7 @@ $ <b>cd ruby-web-scraper-dosen</b>
 
 Buat file dengan nama `Gemfile`. dan kita akan memasang gem yang diperlukan di dalam file ini.
 
+{% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
 source 'https://rubygems.org'
 
@@ -73,6 +74,7 @@ Proses bundle install di atas akan membuat sebuah file baru bernama `Gemfile.loc
 
 Sekarang kita akan membuat aktor utamanya. Beri nama `scraper.rb`.
 
+{% highlight_caption scraper.rb %}
 {% highlight ruby linenos %}
 # daftar gem yang diperlukan
 require 'httparty'

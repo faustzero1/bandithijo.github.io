@@ -70,9 +70,8 @@ $ <b>sudo swapon /swapfile</b>
 
 Agar Swapfile sudah enable otomatis saat sistem startup, kita perlu menambahkan pada `/etc/fstab`.
 
-<pre>
-# /etc/fstab
-
+{% highlight_caption /etc/fstab %}
+<pre class="caption">
 # &lt;file system&gt; &lt;dir&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;
 # /dev/sda1
 UUID=00000000-0000  /     ext4  rw,noatime   0 1
@@ -85,7 +84,8 @@ UUID=00000000-0000  /     ext4  rw,noatime   0 1
 
 Kita perlu menambahkan `resume` dan `resume_offset`. Karena saya menggunakan Grub, maka saya akan menambahkan pada file `/etc/default/grub`.
 
-<pre>
+{% highlight_caption /etc/default/grub %}
+<pre class="caption">
 # GRUB boot loader configuration
 
 GRUB_DEFAULT=saved
@@ -133,7 +133,8 @@ Kita perlu menambahkan `resume` hook pada startup hook di mkinitcpio. Hal ini ak
 
 Edit file `/etc/mkinitcpio.conf` dan cari baris berawalan `HOOKS="base ... "`.
 
-<pre>
+{% highlight_caption /etc/mkinitcpio.conf %}
+<pre class="caption">
 # HOOKS
 # This is the most important setting in this file.  The HOOKS control the
 # modules and scripts added to the image, and what happens at boot time.
@@ -160,7 +161,7 @@ Selesai.
 <!-- INFORMATION -->
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p markdown=1>Kalau yang menggunakan init sistem selain **systemd**, tidak perlu menambahkan systemd ke dalam HOOKS.</p>
+<p markdown=1>Kalau yang menggunakan init sistem selain **systemd**, tetap dapat menggunakan **udev** di dalam HOOKS.</p>
 <p>Saya sudah mencobanya dengan OpenRC, dan berhasil.</p>
 </div>
 

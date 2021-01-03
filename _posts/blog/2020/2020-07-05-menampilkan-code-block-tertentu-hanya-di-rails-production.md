@@ -26,9 +26,11 @@ Saya yakin terdapat banyak sekali cara untuk memecahkan masalah ini, namun saya 
 
 Bungkus code block yang hanya ingin ditampilkan pada level production dengan kondisi seperti di bawah ini.
 
+{% highlight_caption %}
 {% highlight erb linenos %}
 <% if Rails.env.production? %>
   # Block code yang ingin ditampilan di production
+  # Tidak akan ditampilkan di development
 <% end %>
 {% endhighlight %}
 

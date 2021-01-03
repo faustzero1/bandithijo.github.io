@@ -42,6 +42,7 @@ Menurut beberapa GitHub issue yang sudah di closed, saya mendapati beberapa solu
 
 Tambahkan pada file `~/.zshrc`.
 
+{% highlight_caption ~/.zshrc %}
 {% highlight bash linenos %}
 # ~/.zshrc
 
@@ -80,6 +81,7 @@ Namun, untuk teman-teman yang menggunakan plugin seperti saya (ZGEN), maka lokas
 
 Kemudian, buka dan commenting blok kode yang berkaitan dengan url-quote-magic.
 
+{% highlight_caption ~/.zgen/robbyrussell/oh-my-zsh-master/lib/misc.zsh %}
 {% highlight bash linenos %}
 autoload -Uz is-at-least
 

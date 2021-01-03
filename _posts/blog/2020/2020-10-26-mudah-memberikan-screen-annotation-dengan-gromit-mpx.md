@@ -98,6 +98,7 @@ $ <b>cp /usr/local/etc/gromit-mpx/gromit-mpx.cfg ~/.config</b>
 
 Kemudian buka file **gromit-mpx.cfg** tersebut.
 
+{% highlight_caption $HOME/.config/gromit-mpx.cfg %}
 {% highlight conf linenos %}
 # Default gromit-mpx configuration
 # taken from  Totem's telestrator mode config
@@ -127,6 +128,7 @@ Untuk panduan konfigurasi, teman-teman dapat mengunjungin halaman GitHub readme 
 
 Ini adalah contoh konfigurasi yang saya pergunakan.
 
+{% highlight_caption $HOME/.config/gromit-mpx.cfg %}
 {% highlight conf linenos %}
 # Default gromit-mpx configuration
 # taken from  Totem's telestrator mode config

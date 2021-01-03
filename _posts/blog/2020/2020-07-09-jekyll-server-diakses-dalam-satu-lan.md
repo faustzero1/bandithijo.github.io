@@ -56,6 +56,7 @@ $ <b>bundle exec jekyll s --host 0.0.0.0</b>
 
 Cara kedua, dengan mendefinisikan `host:` pada file `_config.yml`.
 
+{% highlight_caption _config.yml %}
 {% highlight yml linenos %}
 # _config.yml
 

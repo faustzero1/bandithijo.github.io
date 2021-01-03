@@ -46,6 +46,7 @@ Kita akan menggunakan **jekyll-redirect-from** gem.
 
 Pasang pada `Gemfile`.
 
+{% highlight_caption  Gemfile %}
 {% highlight ruby linenos %}
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -78,6 +79,7 @@ Misal, dalam kasus saya, permalinknya mau seperti ini `/covid19/`, maka nama fil
 
 Kemudian buka file page tersebut. Dan isikan hanya bagian **front matter** saja.
 
+{% highlight_caption covid19.html %}
 {% highlight yaml linenos %}
 ---
 permalink: '/covid19/'
@@ -101,6 +103,7 @@ Maka dari itu, kita dapat menyiasati dengan menghias halaman redirecting kita.
 
 Buat layout dengan nama `_layouts/redirect.html`.
 
+{% highlight_caption _layouts/redirect.html %}
 {% highlight html linenos %}
 <!DOCTYPE html>
 <html>
@@ -124,6 +127,7 @@ Perhatikan bagian `page.redirect.to`, adalah variabel yang saya pergunakan pada 
 
 Sebelum menggunakan **jekyll-redirect-from** gem, saya sempat mencoba menggunakan cara manual dengan mengisi file page untuk redirect seperti di bawah ini.
 
+{% highlight_caption covid19.html %}
 {% highlight html linenos %}
 ---
 permalink: '/covid19/'

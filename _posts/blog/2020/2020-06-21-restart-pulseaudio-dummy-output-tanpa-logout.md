@@ -26,12 +26,17 @@ Namun, saya perlu mencatat agar dikemudian hari mengalami hal ini lagi, saya tid
 
 # Penyelesaian Masalah
 
-Buka Terminal dan jalankan perintah di bawah.
+Buka Terminal dan jalankan perintah di bawah, satu-persatu.
 
 <pre>
 $ <b>pulseaudio --check</b>
 $ <b>pulseaudio --kill</b>
 $ <b>pulseaudio --start</b>
+</pre>
+
+Atau, langsung jalankan bentuk satu baris, lebih praktis.
+<pre>
+$ <b>pulseaudio --check; pulseaudio --kill; pulseaudio --start</b>
 </pre>
 
 

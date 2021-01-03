@@ -72,9 +72,8 @@ Kalau mau ditambahkan di keybind Window Manager juga bisa. Tinggal tambahkan di 
 
 Misal, seperti saya, sedang menggunakan BSPWM.
 
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
 {% highlight bash linenos %}
-# ~/.config/sxhkd/sxhkdrc
-
 # ...
 # ...
 
@@ -94,6 +93,7 @@ Hasilnya seperti ini.
 
 Terkadang saya tidak ingin setiap hasil screenshot langsung diframing. Namun, saya malas menulis command ImageMagick yang panjang. Maka sayapun membuat Ruby script untuk menghandle hal tersebut.
 
+{% highlight_caption $HOME/.local/bin/scrot-imgck %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 

@@ -226,6 +226,7 @@ You are not enter the correct answer
 
 # Full Script
 
+{% highlight_caption install.rb %}
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
