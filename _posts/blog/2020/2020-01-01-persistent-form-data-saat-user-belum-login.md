@@ -58,8 +58,9 @@ Untuk membuat data yang ada pada form menjadi *persistent*, saya akan memanfaatk
 
 Karena proses order experience ini di-*handle* oleh action `:create`, maka saya perlu memodifikasi isi dari action ini.
 
-```ruby
-# app/controllers/users/order_experiences_controller.rb
+{% highlight_caption app/controllers/users/order_experiences_controller.rb %}
+{% highlight ruby linenos %}
+# frozen_string_literal: true
 
 class Users::OrderExperiencesController < ApplicationController
   # pastikan untuk tidak memfilter action :create, karena akan dihandling oleh
@@ -80,8 +81,8 @@ class Users::OrderExperiencesController < ApplicationController
     end
   end
 
-  ...
-  ...
+  # ...
+  # ...
 
   private
 
@@ -92,7 +93,7 @@ class Users::OrderExperiencesController < ApplicationController
     )
   end
 end
-```
+{% endhighlight %}
 
 Pastikan pada callback `before_action :authenticate_user!`, buat pengecualian untuk action `:create`.
 
@@ -102,21 +103,20 @@ Selanjutnya, tinggal memodifikasi controller yang menghandle proses login/regist
 
 Kedua controller ini adalah controller yang digenerate oleh Devise.
 
-```ruby
-# app/controllers/users/sessions_controller.rb
-
+{% highlight_caption app/controllers/users/sessions_controller.rb %}
+{% highlight ruby linenos %}
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  ...
+  # ...
 
-  ...
-  ...
+  # ...
+  # ...
 
   protected
 
-  ...
-  ...
+  # ...
+  # ...
 
   # path yang akan dituju setelah sign in
   def after_sign_in_path_for(resource_or_scope)
@@ -134,23 +134,23 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 end
-```
+{% endhighlight %}
 
-```ruby
-# app/controllers/users/registrations_controller.rb
 
+{% highlight_caption app/controllers/users/registrations_controller.rb %}
+{% highlight ruby linenos %}
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  ...
+  # ...
 
-  ...
-  ...
+  # ...
+  # ...
 
   protected
 
-  ...
-  ...
+  # ...
+  # ...
 
   # path yang akan dituju setelah sign up
   def after_sign_up_path_for(resource_or_scope)
@@ -168,10 +168,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Selesai!
 

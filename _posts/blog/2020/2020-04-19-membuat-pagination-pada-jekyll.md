@@ -35,15 +35,14 @@ Dengan jumlah *posts* yang banyak, tentu saja apabila kita melakukan pengulangan
 
 Langkah pertama, pasang gem `jekyll-paginate` pada `Gemfile`.
 
-```ruby
-# Gemfile
-
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
 group :jekyll_plugins do
-  ...
-  ...
+  # ...
+  # ...
   gem "jekyll-paginate", "~> 1.1"
 end
-```
+{% endhighlight %}
 
 Install gems.
 
@@ -53,15 +52,17 @@ $ <b>bundle install</b>
 
 Kemudian, enablekan pada `_config.yml`.
 
-```yaml
-# _config.yml
+{% highlight_caption _config.yml %}
+{% highlight yaml linenos %}
+# ...
+# ...
 
 plugins:
   - ...
   - ...
   - jekyll-paginate
 
-```
+{% endhighlight %}
 
 Misalnya, pada kasus ini, saya akan memasangkan *pagination* pada halaman blog.
 
@@ -69,10 +70,9 @@ Namun, sebelumnya, kita buat terlebih dahulu logic dari *pagination*-nya. Saya a
 
 Saya akan buat file bernama `pagination.html` di direktori `_includes`.
 
+{% highlight_caption _includes/pagination.html %}
+{% highlight liquid linenos %}
 {% raw %}
-```liquid
-<!-- _includes/pagination.html -->
-
 <!-- Pagination -->
 {% if paginator.total_pages > 1 %}
 <nav aria-label="Page navigation example">
@@ -118,8 +118,8 @@ Saya akan buat file bernama `pagination.html` di direktori `_includes`.
 </nav>
 {% endif %}
 <!-- END Pagination -->
-```
 {% endraw %}
+{% endhighlight %}
 
 Class di atas, saya menggunakan Bootstrap CSS Framework agar lebih mudah.
 
@@ -131,10 +131,9 @@ Kita perlu memodifikasi *for loop* yang digunakan untuk menampilkaan daftar *pos
 
 Kalau secara normal seperti ini.
 
+{% highlight_caption pages/blog.html %}
+{% highlight liquid linenos %}
 {% raw %}
-```liquid
-<!-- pages/blog.html -->
-
 ---
 layout: page
 title: Blog
@@ -146,15 +145,16 @@ permalink: /blog/
   <li><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }} : {{ post.title }}</a></li>
 {% endfor %}
 </ul>
-```
 {% endraw %}
+{% endhighlight %}
 
-Nah, karena sekarang, kita akan menggunakan *pagination*, maka kita akan mengambil daftar *post* yang ada di *paginator* bukan di *site*.
+Nah, karena sekarang, kita akan menggunakan *pagination*.
 
+Maka, kita akan mengambil daftar *post* yang ada di **paginator.posts** bukan di **site.posts**.
+
+{% highlight_caption page/blog.html %}
+{% highlight liquid linenos %}
 {% raw %}
-```liquid
-<!-- pages/blog.html -->
-
 ---
 layout: page
 title: Blog
@@ -166,13 +166,15 @@ permalink: /blog/
   <li><a href="{{ post.url }}">{{ post.date | date: '%y/%m/%d' }} : {{ post.title }}</a></li>
 {% endfor %}
 </ul>
-```
 {% endraw %}
+{% endhighlight %}
 
 Untuk mengatur jumlah post yang ditampilkan dalam satu halaman, kita perlu mendefinisikannya pada `_config.yml`.
 
-```yaml
-# _config.yml
+{% highlight_caption _config.yml %}
+{% highlight yaml linenos %}
+# ...
+# ...
 
 plugins:
   - ...
@@ -181,19 +183,24 @@ plugins:
 
 paginate: 10
 paginate_path: /page:num/
-```
+{% endhighlight %}
 
-Bentuk *path* dari *pagination* di atas akan berupa.
+Bentuk *URL path* dari *pagination* di atas akan berupa.
 
 <pre class="url">
 http://localhost:4000/blog/page2/
 </pre>
 
-Kita dapat memodifikasi sesuai keinginan. Kalau saya, lebih *prefer* menggunakan bentuk seperti ini.
+Kita dapat memodifikasi sesuai keinginan.
 
-```yaml
+Bentuk lain, bisa seperti ini,
+
+{% highlight_caption _config.yml %}
+{% highlight yaml linenos %}
+# ...
+# ...
 paginate_path: /page/:num/
-```
+{% endhighlight %}
 
 <pre class="url">
 http://localhost:4000/blog/page/2/

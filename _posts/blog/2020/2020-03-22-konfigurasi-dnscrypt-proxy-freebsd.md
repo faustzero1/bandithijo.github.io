@@ -148,13 +148,14 @@ Baik, langsung saja saya mulai dengan menambahkan satu baris konfigurasi pada `/
 $ <b>doas vim /etc/rc.conf</b>
 </pre>
 
-```conf
-...
-...
+{% highlight_caption /etc/rc.conf %}
+{% highlight conf linenos %}
+# ...
+# ...
 
 # dnscrypt-proxy2
 dnscrypt_proxy_mac_portacl_enable="YES"
-```
+{% endhighlight %}
 
 Tujuan dari penambahan ini adalah untuk merubah default port yang akan di-listen dari *default* port 5353 (TCP/UDP) ke port 53 (TCP/UDP) dengan bantuan `mac_portacl` (*network port access control policy*).
 
@@ -166,14 +167,15 @@ $ <b>doas vim /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml</b>
 
 Periksa apakah port yang digunakan sudah menggunakan port **53**, kira-kira pada baris 37.
 
-```conf
-
+{% highlight_caption /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml %}
+{% highlight toml linenos %}
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
 ## listen_addresses = ['127.0.0.1:5353']
 
 listen_addresses = ['127.0.0.1:53']
-```
+
+{% endhighlight %}
 
 Nah, sejauh yang saya pahami pada pesan rekomendasi pasca proses instalasi, kita diminta untuk menambahkan beberapa pengaturan seperti untuk `[ipfw]`, `[pf]`, dan `[unbound]`.
 
@@ -185,11 +187,12 @@ Cek dengan perintah,
 $ <b>cat /etc/resolv.conf</b>
 </pre>
 
-```
+{% highlight_caption /etc/resolv.conf %}
+{% highlight conf linenos %}
 nameserver 118.98.44.10
 nameserver 118.98.44.100
 nameserver fe80::1%wlan0
-```
+{% endhighlight %}
 
 Untuk membuat perubahan yang permanen, saya menggunakan `/etc/dhclient.conf`.
 
@@ -197,11 +200,12 @@ Untuk membuat perubahan yang permanen, saya menggunakan `/etc/dhclient.conf`.
 $ <b>doas vim /etc/dhclient.conf</b>
 </pre>
 
-Tambahkan bari ini,
+Tambahkan baris ini,
 
-```
+{% highlight_caption /etc/dhclient.conf %}
+{% highlight conf linenos %}
 supersede domain-name-servers 127.0.0.1;
-```
+{% endhighlight %}
 
 Selanjutnya, untuk dapat menerapkan konfigurasi ini, kita perlu merestart network.
 
@@ -407,11 +411,13 @@ $ <b>vim ~/.config/bspwm/bspwmrc</b>
 
 Dan tambahkan command untuk menjalankan DNSCrypt-proxy seperti saat kita menjalankan di atas Terminal.
 
-```conf
-...
-...
+{% highlight_caption $HOME/.config/bspwm/bspwmrc %}
+{% highlight conf linenos %}
+# ...
+# ...
 sudo dnscrypt-proxy -config /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml &
-```
+{% endhighlight %}
+
 Untuk teman-teman yang menggunakan Desktop Environment atau Window Manager yang lain, silahkan menyesuaikan sendiri yaa. (^_^)
 
 <br>
@@ -425,9 +431,13 @@ Caranya, tambahkan pada `visudo`.
 $ <b>doas visudo</b>
 </pre>
 
-```conf
+{% highlight_caption visudo %}
+{% highlight conf linenos %}
+# ...
+# ...
+
 bandithijo ALL=(ALL) NOPASSWD: /usr/bin/killall,/usr/local/sbin/dnscrypt-proxy
-```
+{% endhighlight %}
 
 Nah, saya juga sekalian menambahkan untuk `killall` agar dapat dijalankan tanpa perlu memasukkan password.
 

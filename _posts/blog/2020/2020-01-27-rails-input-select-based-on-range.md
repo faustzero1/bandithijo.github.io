@@ -31,28 +31,27 @@ Mengenai penggunaan Input Select yang mengambil data berupa Range (rentang) dari
 
 Saya mempunyai sebuah tabel bernama Experience. Di dalam tabel ini terdapat field harga (*price*).
 
-```ruby
-# db/schema.rb
-
+{% highlight_caption db/schema.rb %}
+{% highlight ruby linenos %}
 create_table "experiences", force: :cascade do |t|
-  ...
-  ...
+  # ...
+  # ...
   t.string "price"
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Saya ingin membuat fitur search filter berdasarkan rentang harga tertentu.
 
 Misalkan:
 
-```
+<pre class="whiteboard">
 - RM 1   - RM 100
 - RM 101 - RM 300
 - RM 301 - RM 500
 - RM 501 - RM 1000
-```
+</pre>
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dz531bWD/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
@@ -69,13 +68,13 @@ Selain array dapat juga berupa tipe data range `x..y`.
 
 Sekarang saya akan coba pada Rails Console terlebih dahulu.
 
-```
+```irb
 irb(main):001:0> Experience.ransack(price_in: 100..300).result.pluck(:price).uniq
 ```
 
 Akan menghasilkan output seperti ini.
 
-```
+```irb
    (5.5ms)  SELECT "experiences"."price" FROM "experiences" LEFT OUTER JOIN "ratings" ON "ratings"."experience_id" = "experiences"."id" WHERE "experiences"."deleted_at" IS NULL AND "experiences"."price" IN ('100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200', '201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260', '261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280', '281', '282', '283', '284', '285', '286', '287', '288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300')
 
 => ["250", "150"]
@@ -89,24 +88,22 @@ Sekarang saya akan ke controller terlebih dahulu.
 
 Pada homepage_controller, saya akan buatkan sebuah instance variable `@search` untuk menampung object dari `params[:q]`.
 
-```ruby
-# app/controllers/homepage_controller.rb
-
+{% highlight_caption app/controllers/homepage_controller.rb %}
+{% highlight ruby linenos %}
 class HomepageController < ApplicationController
   def index
     @search = Experience.ransack(params[:q])
   end
 
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Kemudian, pada experiences_controller juga akan dibuatkan instance variable yang sama.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
   # Memanggil method convert_string_into_range, hanya pada action index
   before_action :convert_string_into_range, only: [:index]
@@ -116,8 +113,8 @@ class ExperiencesController < ApplicationController
     @experiences = @search.result(distinct: true)
   end
 
-  ...
-  ...
+  # ...
+  # ...
 
   private
 
@@ -132,7 +129,7 @@ class ExperiencesController < ApplicationController
     end
   end
 end
-```
+{% endhighlight %}
 
 Selanjutnya, pada routes.
 
@@ -140,15 +137,14 @@ Selanjutnya, pada routes.
 
 Seperti biasa, kita memberikan route untuk action index dari homepage_controller.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   root to: 'homepage#index'
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Nah, kalo sudah, tinggal buat view template.
 
@@ -158,9 +154,8 @@ Contoh blok html di bawah ini hanya sebagai dummy.
 
 Hanya blok code ERB saja yang perlu dilihat.
 
-```erb
-<!-- app/views/homepage/index.html -->
-
+{% highlight_caption app/views/homepage/index.html %}
+{% highlight eruby linenos %}
 <%= search_form_for @search, url: experiences_path do |f| %>
   <div class="position-relative">
     <div class="row column-search">
@@ -196,7 +191,7 @@ Hanya blok code ERB saja yang perlu dilihat.
     </div>
   </div>
 <% end %>
-```
+{% endhighlight %}
 
 Pada contoh di atas, saya mempassing nilai dari form search ini ke dalam instance variable `@search` dan mengarahkan hasil outputnya pada halaman experience index `experiences_path`.
 

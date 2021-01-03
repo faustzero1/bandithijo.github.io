@@ -45,13 +45,12 @@ Kira-kira seperti ini ERD-nya.
 Saya membuat dua buah model migration untuk tabel users dan contacts.
 
 **users**
-```
-$ rails g model user email first_name last_name
-```
+<pre>
+$ <b>rails g model user email first_name last_name</b>
+</pre>
 
-```ruby
-# db/migrations/20200219025008_create_users.rb
-
+{% highlight_caption db/migrations/20200219025008_create_users.rb %}
+{% highlight ruby linenos %}
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
@@ -62,17 +61,16 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     end
   end
 end
-```
+{% endhighlight %}
 
 <br>
 **contacts**
-```
-$ rails g model contact user_id:integer type first_name last_name phone_number
-```
+<pre>
+$ <b>rails g model contact user_id:integer type first_name last_name phone_number</b>
+</pre>
 
-```ruby
-# db/migrations/20200219025125_create_contacts.rb
-
+{% highlight_caption db/migrations/20200219025125_create_contacts.rb %}
+{% highlight ruby linenos %}
 class CreateContacts < ActiveRecord::Migration[5.2]
   def change
     create_table :contacts do |t|
@@ -86,7 +84,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
     add_index :contacts, [:type, :user_id]
   end
 end
-```
+{% endhighlight %}
 
 Bagian penting yang harus ditambahkan adalah,
 
@@ -96,51 +94,47 @@ add_index :contacts, [:type, :user_id]
 
 Kemudian jalankan migration tersebut.
 
-```
-$ rails db:migrate
-```
+<pre>
+$ <b>rails db:migrate</b>
+</pre>
 
 # Models
 
 Setelah migration berhasil dijalankan, saya akan membuat scope pada model contact untuk model friend dan emergency.
 
-```ruby
-# app/models/contact.rb
-
+{% highlight_caption app/models/contact.rb %}
+{% highlight ruby linenos %}
 class Contact < ApplicationRecord
   scope :friends,   -> { where(type: 'Friend') }    # Contact.friends
   scope :emergency, -> { where(type: 'Emergency') } # Contact.emergencies
 end
-```
+{% endhighlight %}
 
 Nah, kemudian tinggal buat kedua model tersebut.
 
-```ruby
-# app/models/friend.rb
-
+{% highlight_caption app/models/friend.rb %}
+{% highlight ruby linenos %}
 class Friend < Contact
   belongs_to :user
 end
-```
+{% endhighlight %}
 
-```ruby
-# app/models/emergency.rb
-
+{% highlight_caption app/models/emergency.rb %}
+{% highlight ruby linenos %}
 class Emergency < Contact
   belongs_to :user
 end
-```
+{% endhighlight %}
 
 Selanjutnya, model user yang memiliki relation `has_many` dengan kedua model tersebut.
 
-```ruby
-# app/model/user.rb
-
+{% highlight_caption app/model/user.rb %}
+{% highlight ruby linenos %}
 class User < ApplicationRecord
   has_many :friends,     class_name: 'Friend'
   has_many :emergencies, class_name: 'Emergency'
 end
-```
+{% endhighlight %}
 
 # Controllers
 
@@ -148,9 +142,8 @@ Model sudah jadi, selanjutnya mengatur controller.
 
 Saya akan mulai dari users controller yang tidak perlu ada modifikasi.
 
-```ruby
-# app/controllers/users_controller.rb
-
+{% highlight_caption app/controllers/users_controller.rb %}
+{% highlight ruby linenos %}
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -208,13 +201,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email)
   end
 end
-```
+{% endhighlight %}
 
 Nah, selanjutnya contacts controller yang akan menggunakan object user di dalamnya.
 
-```ruby
-# app/controllers/contacts_controller.rb
-
+{% highlight_caption app/controllers/contacts_controller.rb %}
+{% highlight ruby linenos %}
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:edit, :update, :destroy]
 
@@ -279,16 +271,14 @@ class ContactsController < ApplicationController
     )
   end
 end
-
-```
+{% endhighlight %}
 
 # Routes
 
 Pada routes, saya akan menggunakan namespace untuk `:users`.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   root to: 'users#index'
 
@@ -297,7 +287,7 @@ Rails.application.routes.draw do
     resources :emergencies, controller: :contacts, type: 'Emergency'
   end
 end
-```
+{% endhighlight %}
 
 Dari routes tersebut, saya akan mendapatkan route seperti ini.
 
@@ -354,9 +344,8 @@ Selanjutnya view template.
 
 Yang terpenting adalah users shows.
 
-```erb
-<!-- app/views/users/show.html.erb -->
-
+{% highlight_caption app/views/users/show.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 
@@ -397,13 +386,12 @@ Yang terpenting adalah users shows.
     <% end %>
   </tbody>
 </table>
-```
+{% endhighlight %}
 
 Partial dari `users/show/_table_body`.
 
-```erb
-<!-- app/views/users/show/_table_body.html.erb -->
-
+{% highlight_caption app/views/users/show/_table_body.html.erb %}
+{% highlight eruby linenos %}
 <tr>
   <td><%= contact.first_name %></td>
   <td><%= contact.last_name %></td>
@@ -414,18 +402,17 @@ Partial dari `users/show/_table_body`.
     <%= link_to 'Delete', [user, contact], method: :delete %>
   </td>
 </tr>
-```
+{% endhighlight %}
 
 Lalu form dari `contacts/_form`.
 
-```erb
-<!-- app/views/contacts/_form.html.erb -->
-
+{% highlight_caption app/views/contacts/_form.html.erb %}
+{% highlight eruby linenos %}
 <%= form_with(model: [user, contact], local: true) do |form| %>
   ...
   ...
 <% end %>
-```
+{% endhighlight %}
 
 Yang perlu diperhatikan adalah pada bagian kedua partial di atas.
 

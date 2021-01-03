@@ -197,9 +197,10 @@ Bisanya tawarannya antara dua, tombl <kbd>SUPER</kbd> atau  tombol <kbd>ALT</kbd
 
 Saya memilih menggunakan tombol <kbd>SUPER</kbd> untuk meminimalisir bentrokan dengan *keyboard shortcut* aplikasi GUI yang rata-rata banyak menggunakan tombol <kbd>ALT</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
 set $mod Mod4
-```
+{% endhighlight %}
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
@@ -211,21 +212,31 @@ set $mod Mod4
 
 Untuk memanggil Terminal yang kita gunakan, dalam kasus ini saya menggunakan **st** terminal dari [Suckless](https://suckless.org/){:target="_blank"} project.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Start a Terminal
 bindsym $mod+Return exec --no-startup-id st
-```
+{% endhighlight %}
 
 Dapat dilihat pada kode di atas bahwa, saya menggunakan <kbd>SUPER</kbd>+<kbd>ENTER</kbd> untuk memanggil `st` yang merupakan nama program dari **st** terminal.
+
+Teman-teman dapat mengganti **st** dengan terminal favorit kalian. Seperti **gnome-terminal**, **xfce4-terminal**, **urxvt**, **termite**, dll.
 
 ### Pemanggil Aplikasi
 
 *Application launcher*, pemanggil aplikasi. Kalau di GNOME saya biasa menggunakan tombol <kbd>SUPER</kbd> untuk memanggil *application launcher*, nah pada i3wm, kita bebas untuk menggunakan aplikasi yang berfungsi sebagai *application launcher* dan bebas pula ingin kita letakkan pada *keyboard shortcut* yang mana.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Start Rofi (a program launcher)
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -dmenu -lines 6 -width 400 -i -sort -p RUN'
-```
+{% endhighlight %}
 
 Pada contoh di atas, saya menggunakan aplikasi **Rofi** sebagai *application launcher* yang saya letakkan pada <kbd>SUPER</kbd>+<kbd>D</kbd>.
 
@@ -246,11 +257,17 @@ Jadi, menggunakan **dmenu** saja, sebenarnya juga bisa.
 
 Untuk mengatur font pada i3wm, biasaya font akan terlihat pada Title Bar yang ada pada Window Container.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Font for Window Titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Fantasque Sans Mono 10
-```
+{% endhighlight %}
+
+`10`, adalah size dari font.
 
 ### Window Container
 
@@ -260,13 +277,17 @@ Pada i3wm, Window akan saya sebut sebagai Container. Ya, sesuai dengan penamaann
 
 Untuk berpindah-pindah fokus antara satu Container ke Container yang lain, saya menggunakan:
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Change Focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-```
+{% endhighlight %}
 
 | <kbd>SUPER</kbd>+<kbd>H</kbd> | Pindah fokus ke kiri |
 | <kbd>SUPER</kbd>+<kbd>J</kbd> | Pindah fokus ke bawah |
@@ -283,25 +304,33 @@ Secara *default*, seingat saya kombinasinya tidak menggunakan <kbd>H</kbd>, <kbd
 
 Alternatifnya selain menggunakan tombol huruf, saya juga mengaturnya pada tombol *arrow*.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Alternatively, you Can Use the Arrow Keys
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
-```
+{% endhighlight %}
 
 #### Memindahkan Focus Container
 
 Memindahkan di sini dapat kita gunakan untuk memindahkan (menukar) Container pada *tiling* layout dari kanan ke kiri, *viceversa*. Dapat pula digunakan untuk menggerakan Container pada *floating* layout.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Move Focused Window
-bindsym $mod+Shift+h move left 1px
-bindsym $mod+Shift+j move down 1px
-bindsym $mod+Shift+k move up 1px
+bindsym $mod+Shift+h move left  1px
+bindsym $mod+Shift+j move down  1px
+bindsym $mod+Shift+k move up    1px
 bindsym $mod+Shift+l move right 1px
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>HJKL</kbd>.
 
@@ -309,13 +338,17 @@ Pada kode di atas, saya menggunakan kombinasi *keyboard shortcut* tersebut untuk
 
 Saya juga membuatkan alternatif untuk bergerak atau berpindah sebesar 20 px agar lebih cepat.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Alternatively, You Can Use the Arrow Keys
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-```
+bindsym $mod+Shift+Left  move left  20px
+bindsym $mod+Shift+Down  move down  20px
+bindsym $mod+Shift+Up    move up    20px
+bindsym $mod+Shift+Right move right 20px
+{% endhighlight %}
 
 #### Mengganti Orientasi Container
 
@@ -323,7 +356,7 @@ Pada i3wm, kita dapat mengganti-ganti orientasi dari Container yang sedang terbu
 
 Kira-kira seperti ini ilustrasinya,
 
-```
+<pre class="whiteboard">
 # 2 Container, dengan Vertical orientation
 +-----+-----+
 |     |     |
@@ -337,17 +370,21 @@ Kira-kira seperti ini ilustrasinya,
 +-----------+
 |     2     |
 +-----+-----+
-```
+</pre>
 
 Untuk dapat melakukan ini, saya menggunakan,
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Split in Horizontal Orientation
 bindsym $mod+b split h
 
 # Split in Vertical Orientation
 bindsym $mod+v split v
-```
+{% endhighlight %}
 
 | <kbd>SUPER</kbd>+<kbd>B</kbd> | Horizontal orientation |
 | <kbd>SUPER</kbd>+<kbd>V</kbd> | Vertical orientation |
@@ -360,29 +397,37 @@ bindsym $mod+v split v
 
 Kita dapat mengatur *default orientation* saat menggunakan *Tiling* layout, apakah ingin Vertical atau Horizontal.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Orientation for New Workspaces
 # New workspaces get a reasonable default orientation: Wide-screen monitors
 # (anything wider than high) get horizontal orientation, rotated monitors
 # (anything higher than wide) get vertical orientation.
 # Syntax: default_orientation horizontal|vertical|auto
 default_orientation horizontal
-```
+{% endhighlight %}
 
 #### Membuat Fullscreen Container
 
 Terkadang kita memerlukan untuk membuat sebuah Window menjadi *fullscreen* karena alasan tertentu. Tentu saja i3wm juga mempunyai fitur ini.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enter Fullscreen Mode for the Focused Container
 bindsym $mod+f fullscreen toggle
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>F</kbd>. Untuk membuat Container yang sedang difokuskan menjadi *fullscreen*.
 
 Perhatikan, terdapat option `toggle` yang menandakan *keyboard shortcut* ini berfungsi selayaknya *switch* yang dapat kita ON dan OFF kan.
 
-```
+<pre class="whiteboard">
 # Tiling layout yang terfokus pada Container 1
 +-----+-----+
 |     |     |
@@ -398,7 +443,7 @@ Perhatikan, terdapat option `toggle` yang menandakan *keyboard shortcut* ini ber
 +-----------+
 
 # Viceversa, pada Container 2
-```
+</pre>
 
 #### Menggati Layout Container
 
@@ -410,29 +455,29 @@ Pada pembahasa di atas, saya beberapa kali menyebutkan tentang *tiling* layout. 
 
 Tiling atau Split layout ini, sebagaimana sudah dicontohkan pada tulisan-tulisan di atas.
 
-```
+<pre class="whiteboard">
 # Tiling atau Split layout
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
 |     |     | |    1     | |     |  2  | |  1  |  2  |
 |  1  |  2  | +----------+ +  1  +-----+ |-----+-----+
 |     |     | |    2     | |     |  3  | |  4  |  3  |
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
-```
+</pre>
 
 Tabbed layout ini bayangkan seperti sedang menggunakan Browser memiliki Tab.
 
-```
+<pre class="whiteboard">
 # Tabbed layout
 +-[1]-+--2--+ +--1--+-[2]-+
 |           | |           |
 |     1     | |     2     |
 |           | |           |
 +-----------+ +-----------+
-```
+</pre>
 
 Stacking layout pada i3wm ini tidak seperti stacking pada Desktop Environment dengan Window yang melayang. Stacking layout pada i3wm tetap dengan Container yang memenuhi seluruh layar (*maximize*).
 
-```
+<pre class="whiteboard">
 # Stacking layout
 +----[1]----+ +-----1-----+
 +-----2-----+ +----[2]----+
@@ -440,7 +485,7 @@ Stacking layout pada i3wm ini tidak seperti stacking pada Desktop Environment de
 |     1     | |     2     |
 |           | |           |
 +-----------+ +-----------+
-```
+</pre>
 
 Kalau masih bingung, saya ambilkan gambar dari i3wm.org.
 
@@ -449,12 +494,16 @@ Kalau masih bingung, saya ambilkan gambar dari i3wm.org.
 
 Kita dapat mengatur *default layout* yang akan kita gunakan pada setiap Workspace.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Layout Mode for New Containers
 # This option determines in which mode new containers on workspace level will start
 # Syntax: workspace_layout default|stacking|tabbed
 workspace_layout default
-```
+{% endhighlight %}
 
 Saya menggunakan **default**, yang berarti *Tiling* atau *Split* layout.
 
@@ -466,14 +515,18 @@ Lantas, bagaimana apabila kita ingin membuat Container kita menjadi *floating*?
 
 Sangat mudah, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>SPACE</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Toggle Tiling / Floating
 bindsym $mod+Shift+space floating toggle border none
-```
+{% endhighlight %}
 
-Lagi-lagi saya beritahukan bahwa *keyboard shortcut* ini saya set menjadi `toggle`, sehinggal dapat digunakan untuk mengaktif dan disablekan *floating* pada Container.
+Lagi-lagi saya beritahukan bahwa *keyboard shortcut* ini saya set menjadi `toggle`, sehingga dapat digunakan untuk mengaktif dan disablekan *floating* pada Container.
 
-```
+<pre class="whiteboard">
 # Container 1 dan Container 2 dalam Tiling/Split layout
 +-------+-------+
 |       |       |
@@ -486,47 +539,51 @@ Lagi-lagi saya beritahukan bahwa *keyboard shortcut* ini saya set menjadi `toggl
 # Container 1 saya buat menjadi Floating
 +---------------+
 |  2            |
-|    +-----+    |
-|    | [1] |    |
-|    +-----+    |
+|   +-------+   |
+|   |  [1]  |   |
+|   +-------+   |
 |               |
 +---------------+
-```
+</pre>
 
 Untuk berpindah focus antar Cotainer floating dengan yang tidak, dapat menggunakan <kbd>SUPER</kbd>+<kbd>SPACE</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Change Focus Between Tiling / Floating Windows
 bindsym $mod+space focus mode_toggle
-```
+{% endhighlight %}
 
 Ilustrasinya seperti ini.
 
-```
+<pre class="whiteboard">
 # Fokus pada Container 1 yang sedang dalam bentuk floating
 +---------------+
 |  2            |
-|    +-----+    |
-|    | [1] |    |
-|    +-----+    |
+|   +-------+   |
+|   |  [1]  |   |
+|   +-------+   |
 |               |
 +---------------+
 
 # Fokus pada Container 2 yang sedang dalam bentuk Tiling
 +---------------+
 | [2]           |
-|    +-----+    |
-|    |  1  |    |
-|    +-----+    |
+|   +-------+   |
+|   |   1   |   |
+|   +-------+   |
 |               |
 +---------------+
-```
+</pre>
 
 #### Parent dan Child Container
 
 Saya sudah menyebutkan pada tulisan di atas, bahwa i3wm merupakan *tree based* window manager. Kita dapat mengasumsikan Container seperti sebuah ranting dan daun.
 
-```
+<pre class="whiteboard">
 # Container 1 dan 2, pada Tiling layout di Workspace 1
                          +-------------+
 +-----+-----+            | WORKSPACE 1 |
@@ -553,7 +610,7 @@ Saya sudah menyebutkan pada tulisan di atas, bahwa i3wm merupakan *tree based* w
                                 +-----+ +-----+
                                 |  2  | |  3  |
                                 +-----+ +-----+
-```
+</pre>
 
 Seperti pohon faktorial yaa?
 
@@ -569,19 +626,27 @@ Nah, yang dimaksud dengan **PARENT** di sini adalah **ranting** sedangkan **CHIL
 
 Sehingga, apabila kita ingin melakukan focus terhadap Container 2 dan 3, ibarat **ranting** yang memiliki 2 daun, daun Container 2 dan 3. Ini disebut **Focus Parent**.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Focus the Parent Container
 bindsym $mod+a focus parent
-```
+{% endhighlight %}
 
 Sebaliknya, untuk focus kepada Container 1, atau Container 2 saja, atau 3 saja, ibarat **daun** pada ujung ranting. Kita sebut dengan **Focus Child**.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Focus the Child Container
 bindsym $mod+Shift+a focus child
-```
+{% endhighlight %}
 
-Pembahasa mengenai layout ini sangat kompleks dan seru sekali. Sepertinya tidak sanggup kalau harus menuliskannya. Mungkin kapan-kapan akan saya buatkan video ulasannya saja.
+Pembahasan mengenai layout ini sangat kompleks dan seru sekali. Sepertinya, tidak sanggup kalau harus menuliskan semuanya. Mungkin kapan-kapan akan saya buatkan video ulasannya saja.
 
 #### Memanfaatkan Scratchpad
 
@@ -603,6 +668,7 @@ Contohnya:
 
 2. Sedang melakukan pemilihan warna untuk CSS code kita, lantas kita memerlukan apliaksi GColor3 untuk mengambil sampel warna.
 
+<br>
 Dari kedua kasus di atas, apakah kita langsung mengeluarkan atau memindahkan aplikasi pembantu (gKamus dan GColor3) ke tempat lain?
 
 Akan sangat repot untuk memanggilnya kembali karena kita tidak ingin berpindah Workspace karena alasan tertentu.
@@ -611,18 +677,28 @@ Solusi dari masalah di atas adalah dengan memanfaatkan **Scratchpad**.
 
 Scratchpad ini ibarat seperti buku coretan, kita dapat panggil dan sembunyikan sesuai kemauan kita.
 
+<br>
 Untuk menginisialisasi Container menjadi sebuah Scratchpad, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>-</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Make the Currently Focused Window a Scratchpad
 bindsym $mod+Shift+minus move scratchpad
-```
+{% endhighlight %}
 
 Lalu untuk memanggil dan menyembunyikannya, saya mengguakan <kbd>SUPER</kbd>+<kbd>-</kbd>.
-```
+
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Show the First Scratchpad Window
 bindsym $mod+minus scratchpad show
-```
+{% endhighlight %}
 
 #### Membuat Sticky Container
 
@@ -630,11 +706,15 @@ Secara sederhana fitur ini mirip dengan **Always on Top** pada Window yang dimil
 
 Saya biasa menggunakan fitur ini saat melakukan *screencasting* dengan menampilkan *output* dari kamera WebCam agar tetap dapat dilihat saat berpindah-pindah antar Workspace.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Sticky Floating Windows
 # Syntax: sticky enable|disable|toggle
 bindsym $mod+Shift+plus sticky toggle
-```
+{% endhighlight %}
 
 #### Membuat Default Floating Container
 
@@ -644,24 +724,33 @@ Untuk menginisialisasi agar aplikasi-aplikasi tersebut saat dijalankan sudah ber
 
 Saya akan mencontohkan beberapa bentuk variasi konfigurasi yang saya pergunakan.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Floating Mode for Specific Programs
-for_window [class="Gkamus"] floating enable border normal 1
-for_window [class="Gnome-power-statistics"] floating enable border normal 1
-for_window [class="Modem-manager-gui"] floating enable border normal 1
-for_window [class="Gnome-system-monitor"] floating enable border normal 1
-for_window [class="Nm-connection-editor"] floating enable border normal 1
-for_window [class="zoom" title="Zoom - Free Account"] floating enable border pixel 1 move right 470px,move down 0px
-for_window [class="st-256color" title="ncpamixer"] floating enable border normal 1 resize set 500 600,move right 90px,move up 80px
-for_window [class="scrcpy" title="Mi-4c"] floating enable border none move right 460px,move down 0px
-```
+for_window [class="Gkamus"]                           floating enable border normal 1
+for_window [class="Gnome-power-statistics"]           floating enable border normal 1
+for_window [class="Modem-manager-gui"]                floating enable border normal 1
+for_window [class="Gnome-system-monitor"]             floating enable border normal 1
+for_window [class="Nm-connection-editor"]             floating enable border normal 1
+for_window [class="zoom" title="Zoom - Free Account"] floating enable border pixel  1 move right 470px,move down 0px
+for_window [class="st-256color" title="ncpamixer"]    floating enable border normal 1 resize set 500 600,move right 90px,move up 80px
+for_window [class="scrcpy" title="Mi-4c"]             floating enable border none     move right 460px,move down 0px
+{% endhighlight %}
 
 Sebaliknya pula, kita dapat membuat aplikasi yang secara *default* berjalan *floating* menjadi tidak.
 
-```
+
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Disable Floating Mode for Specific Programs
-for_window [class="pavucontrol-qt"] floating disable
-```
+for_window [class="pavucontrol-qt"]                    floating disable
+{% endhighlight %}
 
 Meskipun sangat jarang saya temui aplikasi yang sejak awal sudah berada pada *floating* container, namun saya rasa perlu juga untuk memiliki konfigurasi ini apabila sewaktu-waktu diperlukan pada kasus yang lain.
 
@@ -670,10 +759,14 @@ Meskipun sangat jarang saya temui aplikasi yang sejak awal sudah berada pada *fl
 
 Di dalam sebuah Window, dapat berupa apa saja. Aplikasi, program, dialog, terminal, pokoknya apa saja yang ada di dalam Window, kita dapat mengakhirinya dengan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Q</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Kill Focused Window
 bindsym $mod+Shift+q kill
-```
+{% endhighlight %}
 
 Hal ini diperlukan mengingat i3wm tidak menyediakan tombol *close* atau menu *exit* pada *title bar*. Tentu saja hal ini malah membuat proses mengeluarkan sebuah window menjadi lebih praktis tanpa perlu menggerakkan *mouse* ke arah menu atau tombol *close* pada *title bar*.
 
@@ -683,7 +776,12 @@ Kita dapat mengganti warna dari Window Container border.
 
 Dimulai dari mendefinisikan variabel dan mengisikan warnanya.
 
-```
+
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Define Color Variables
 set $bg-color               #B58900
 set $text-color             #002B36
@@ -693,18 +791,23 @@ set $inactive-text-color    #657B83
 set $urgent-bg-color        #CB4B16
 set $urgent-text-color      #FFFFFF
 set $indicator              #FFAF00
-```
+{% endhighlight %}
 
 Setelah itu baru masukkan variabel-variabel tersebut dengan fungsinya.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# Define Color Variables
+# ...
+# ...
+
 # Window Colors
 # Opetion Name           # Border            # Background        # Text                # Indicator
 client.focused           $bg-color           $bg-color           $text-color           $indicator
 client.unfocused         $inactive-bg-color  $inactive-bg-color  $inactive-text-color  $indicator
 client.focused_inactive  $inactive-bg-color  $inactive-bg-color  $inactive-text-color  $indicator
 client.urgent            $urgent-bg-color    $urgent-bg-color    $urgent-text-color    $indicator
-```
+{% endhighlight %}
 
 Hasilnya akan seperti ini.
 
@@ -715,18 +818,26 @@ Hasilnya akan seperti ini.
 
 Kita dapat menentukan apakah aplikasi yang kita panggil, akan memiliki border seperti apa. Atau tidak memiliki border sama sekali.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Window Container Border Settings
 # syntax: new_window normal|none|pixel
 new_window none
-```
+{% endhighlight %}
 
 Dapat pula kita atur, apakah *floating* container secara *default* memiliki border atau tidak.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Syntax: new_float normal|none|pixel
 new_float normal 1
-```
+{% endhighlight %}
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
@@ -751,13 +862,17 @@ new_float normal 1
 
 Kita juga dapat memanipulasi Window Container Border secara langsung menggunakan *keyboard shortcut*.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # For Direct Border Changing with Keyboard Shortcut
 bindsym $mod+Shift+t border normal 0
-bindsym $mod+t border normal 1
-bindsym $mod+Shift+y border pixel 1
-bindsym $mod+y border none
-```
+bindsym $mod+t       border normal 1
+bindsym $mod+Shift+y border pixel  1
+bindsym $mod+y       border none
+{% endhighlight %}
 
 Hasilnya akan seperti ini,
 
@@ -781,10 +896,14 @@ Hasilnya akan seperti ini,
 
 Seperti halnya *floating* container, kita dapat juga menentukan contianer border pada aplikasi yang kita inginkan.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Specific Window Border
 for_window [class="Wine"] border normal 1
-```
+{% endhighlight %}
 
 Contohnya, seperti di atas. Kalian dapat menambahkan sendiri. Hampir sama seperti *floating* container, hanya berbeda pada parameter border di bagian buntutnya saja.
 
@@ -794,20 +913,28 @@ Atau, dapat pula sekalian ditambahkan pengaturan border pada saat menentukan *fl
 
 Kita dapat pula merubah-rubah *alignment* dari Title yang ada pada Title Bar.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Window Title Alignment
 # This option determines the window title’s text alignment.
 # Default is left
 # Syntax: title_align left|center|right
 title_align left
-```
+{% endhighlight %}
 
 Selain itu, dapat pula merubah format dari tulisan yang ada di Title bar.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # For Adding Space and [] Character on Window Title
 for_window [class="^.*"] title_format " > %title"
-```
+{% endhighlight %}
 
 #### Membuka Container Kosong
 
@@ -815,11 +942,14 @@ Untuk alasan tertentu, mungkin kita ingin membuka Container kosong. Misalkan sep
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>O</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Open the Blank Space "i3 open" or "i3-msg open"
 bindsym $mod+o open
-```
-
+{% endhighlight %}
 
 ### Workspaces
 
@@ -827,19 +957,23 @@ Secara *default* pada file konfigurasi i3wm sudah menyediakan 10 Workspaces.
 
 Kita dapat mendifinisikan Workspace dengan cara seperti ini.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Define Workspace
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
+set $workspace1  "1"
+set $workspace2  "2"
+set $workspace3  "3"
+set $workspace4  "4"
+set $workspace5  "5"
+set $workspace6  "6"
+set $workspace7  "7"
+set $workspace8  "8"
+set $workspace9  "9"
 set $workspace10 "10"
-```
+{% endhighlight %}
 
 #### Berpindah antar Workspaces
 
@@ -847,7 +981,11 @@ Setelah kita mendifinisikan Workspace, kita berikan pengaturan *keyboard shortcu
 
 Saya meletakkan *keyboard shortcut* untuk berpindah antar Workspace pada <kbd>SUPER</kbd>+<kbd>1</kbd> sampai <kbd>0</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Switch to Workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -859,7 +997,7 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
-```
+{% endhighlight %}
 
 #### Memindahkan Container ke Workspace Lain
 
@@ -867,7 +1005,11 @@ Kemudian, Apabila diperlukan, kita juga dapat memindahkan Container dari satu Wo
 
 Untuk melakukan hal ini, saya meletakkan *keyboard shortcut* pada <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>1</kbd> sampai <kbd>0</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Move Focused Container to Workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -879,7 +1021,7 @@ bindsym $mod+Shift+7 move container to workspace $workspace7
 bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
-```
+{% endhighlight %}
 
 Menurut saya ini adalah kombinasi *keyboard shortcut* paling natural untuk berpindah-pindah antar Workspace. Sangat praktis namun taktis. Taktis dalam hal seperti ini contoh kasusnya.
 
@@ -892,18 +1034,23 @@ Menurut saya ini adalah kombinasi *keyboard shortcut* paling natural untuk berpi
 7. Sembari kadang-kadang mengecek apakah terdapat kawan-kawan sesama pengguna GNU/Linux yang memerlukan bantuan di group Telegram, aplikasi Telegram biasanya saya letakkan pada **Workspace 9**.
 8. Aktifitas yang memerlukan Terminal, biasanya saya buka pada **Workspace 10**.
 
+<br>
 Kira-kira seperti di atas ini sebagian sekenario yang sering saya lakukan. Tidak selalu sama, tergantung dari aktivitas yang sedang saya kerjakan.
 
 Kita dapat membuat aplikasi yang kita ingin jalankan, secara *default* terbuka pada Workspace tertentu. Misalkan, kita selalu menggunakan browser pada Workspace 2, IRC client pada Workspace 6, email client pada Workspace 7, RSS feed reader pada Workspace 8, Telegram pada Workspace 9, dll.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Assign Startup Application to Specific Workspace
-assign [class="Firefox"] $workspace2
-assign [class="st-256color" title="irssi"] $workspace6
-assign [class="st-256color" title="neomutt"] $workspace7
+assign [class="Firefox"]                      $workspace2
+assign [class="st-256color" title="irssi"]    $workspace6
+assign [class="st-256color" title="neomutt"]  $workspace7
 assign [class="st-256color" title="newsboat"] $workspace8
-assign [class="Telegram"] $workspace9
-```
+assign [class="Telegram"]                     $workspace9
+{% endhighlight %}
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
@@ -953,10 +1100,14 @@ Kira-kira, kalau sudah dapat berpindah antar Workspace dan Container dengan muda
 
 Apabila memang diperlukan, saya juga menyediakan fitur ini, namun sangat jarang sekali saya pergunakan.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # For List All the Opened Container in Every Workspace
 bindsym $mod+Tab exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -show window -lines 10 -width 500 -display-window 'WORKSPACE'"
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>TAB</kbd>, sebagai ganti dari <kbd>ALT</kbd>+<kbd>TAB</kbd>.
 
@@ -970,19 +1121,27 @@ Setiap kita selesai mengubah atau mengurangi beberapa konfigurasi pada file `~/.
 
 Saya menggunakan *keyboard shortcut*, <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>C</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Reload the Configuration File
 bindsym $mod+Shift+c reload
-```
+{% endhighlight %}
 
 Nah, apabila terjadi keanehan atau kejanggalan pada i3 wm layout, kita dapat pula memuat ulang i3wm tanpa perlu keluar dari X *session*. Ini dapat pula kita lakukan untuk melihat hasil perubahan konfigurasi apabila menggunakan *keyboard shortcut* `reload` di atas tidak berdampak apa-apa.
 
 Saya menggunakan *keyboard shortcut*, <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>R</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Restart i3 Inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-```
+{% endhighlight %}
 
 ### Binding Mode
 
@@ -1008,16 +1167,24 @@ Saya masih tetap dapat menggunakan kombinasi *keyboard shortcut* yang serupa, de
 
 Untuk membuatnya, pertama saya perlu menginisialisasi *keyboard shortcut* untuk mengaktifkan mode Resize.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Resize Window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
-```
+{% endhighlight %}
 
 Dapat dilihat, saya menggunakan <kbd>SUPER</kbd>+<kbd>R</kbd>, untuk masuk/mengaktifkan mode ini.
 
 Setelah itu saya akan mendefinisikan fungsi dari masing-masing *keyboard shortcut*.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
 
@@ -1025,22 +1192,22 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym h resize shrink width 1 px
-  bindsym j resize grow height 1 px
+  bindsym h resize shrink width  1 px
+  bindsym j resize grow   height 1 px
   bindsym k resize shrink height 1 px
-  bindsym l resize grow width 1 px
+  bindsym l resize grow   width  1 px
 
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 1 px or 1 ppt
-  bindsym Down resize grow height 1 px or 1 ppt
-  bindsym Up resize shrink height 1 px or 1 ppt
-  bindsym Right resize grow width 1 px or 1 ppt
+  bindsym Left  resize shrink width  1 px or 1 ppt
+  bindsym Down  resize grow   height 1 px or 1 ppt
+  bindsym Up    resize shrink height 1 px or 1 ppt
+  bindsym Right resize grow   width  1 px or 1 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-```
+{% endhighlight %}
 
 Kalau kita lihat, kombinasi *keyboard shortcut* ini mirip dengan konfigurasi pada "Window Focus". Ya, benar sekali. Namun bedanya, kita perlu mengaktifkan mode Resize terlebih dahulu, untuk dapat menggunakan kombinasi *keyboard shortcut* di atas ini.
 
@@ -1064,14 +1231,18 @@ Bagi yang ingin menggunakan fitur ini. Silahkan merujuk pada dokumentasi i3-gaps
 
 Saya sendiri menggunakan i3-gaps juga.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # gaps inner|outer
 #      current|all
 #      set|plus|minus <px>
 gaps inner 0
 gaps outer 0
 smart_gaps on
-```
+{% endhighlight %}
 
 Karena saya cepat sekali bosan, jadi saya sering berganti-ganti suasana. Terkadang ingin menggunakan *gaps*, kadang juga tidak.
 
@@ -1084,11 +1255,15 @@ Secara *default*, i3 meletakkan di bagian bawah dari layar.
 
 Sejak Juli 2018, saya sudah memigrasikan penggunaan i3 bar menjadi Polybar, sehingga saya tidak lagi menggunakan i3 bar milik i3wm.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # bar {
 #   2018/07 - I had migrated to PolyBar (https://github.com/jaagr/polybar)
 # }
-```
+{% endhighlight %}
 
 **Mengapa menggunakan Polybar?**
 
@@ -1098,16 +1273,20 @@ Lebih fleksibel untuk membuat bar layout kita sendiri.
 
 Saya menggunakan aplikasi bantuan bernama `feh` untuk membuat desktop background saya memiliki wallpaper.
 
-```
-$ sudo pacman -S feh
-```
+<pre>
+$ <b>sudo pacman -S feh</b>
+</pre>
 
 Kemudian tambahkan konfigurasinya.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Background Wallpaper
 exec_always --no-startup-id feh --bg-fill -Z ~/pix/Wallpapers/Arch-Wallpaper-Solarized.png
-```
+{% endhighlight %}
 
 ### Mengeset LockScreen
 
@@ -1118,13 +1297,17 @@ Saya menggunakan aplikasi bantuan, di antaranya:
 1. `i3lock-color`
 2. `xautolock`
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # i3lock lockscreen
 # (lock is bash script from nandavera | i3lock-color)
 # Source: https://github.com/okitavera/dotfiles/blob/master/.bin/lock
 bindsym $mod+Shift+x exec --no-startup-id /usr/bin/lock-dark
 exec_always --no-startup-id xautolock -time 15 -locker "/usr/bin/lock-dark" && echo mem ? /sys/power/state
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>X</kbd> untuk mengaktifkan lock screen secara manual. Saya menggunakan aplikasi bantuan yang saya rename menjadi `lock-dark` yang awalnya bernama `lock` buatan Nanda Okitavera yang juga menggunakan backend `i3lock-color`.
 
@@ -1140,12 +1323,17 @@ Untuk membuat aplikasi berjalan secara otomatis saat sistem pertama kali di jala
 
 Cukup tambahkan pada file konfigurasi `~/.config/i3/config` baris kode seperti ini.
 
-```
-exec <nama_program>
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
+exec        <nama_program>
 exec_always <nama_program>
-exec --no-startup-id <nama_program>
+
+exec        --no-startup-id <nama_program>
 exec_always --no-startup-id <nama_program>
-```
+{% endhighlight %}
 
 Saya akan mem-*breakdown* apalikasi apa saja yang saya jalankan saat sistem startup.
 
@@ -1153,10 +1341,14 @@ Saya akan mem-*breakdown* apalikasi apa saja yang saya jalankan saat sistem star
 
 Saya menggunakan XFCE4-POWER-MANAGER.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # XFCE4-power-manager
 exec --no-startup-id xfce4-power-manager
-```
+{% endhighlight %}
 
 Saya menggunakan aplikasi ini karena mudah digunakan, secara dulunya saya adalah XFCE user.
 
@@ -1166,10 +1358,14 @@ Beberapa pemanfaatan aplikasi xfce-power-manager yang pernah saya tuliskan ada [
 
 Saya menggunakan Clipmenu.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Clipmenu
 exec --no-startup-id clipmenud
-```
+{% endhighlight %}
 
 Konfigurasi ini sudah pernah saya bahas pada postingan, [di sini]({{ site.url }}/blog/manajemen-clipboard-dengan-clipmenu){:target="_blank"}.
 
@@ -1177,44 +1373,64 @@ Konfigurasi ini sudah pernah saya bahas pada postingan, [di sini]({{ site.url }}
 
 Karena saya pengguna TrackPoint pada ThinkPad, saya kurang suka menggunakan Touchpad. Saya perlu untuk menonaktifkannya sejak sistem startup.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Disable TouchPad
 exec_always --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
-```
+{% endhighlight %}
 
 Saya juga perlu menjaga agar Touchpad tetap dapat melakukan "Tap to Click".
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Tap to Click
 exec_always --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-```
+{% endhighlight %}
 
 #### Polkit
 
 Saya menggunakan memilih menggunakan `lxpolkit` karena lebih independen dan dapat dipasang tanpa membawa dependensi lain seperti polkit yang dimiliki oleh GNOME.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Polkit-lxsession
 exec --no-startup-id /usr/bin/lxpolkit
-```
+{% endhighlight %}
 
 #### Window Compositor
 
 Saya menggunakan `compton` sebagai window compositor. Secara sederhaa window compositor adalah aplikasi yang memberikan efek-efek pada Window Manager kita. Seperti shadow, blur, fade, opacity, dll.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Compton for compositor
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
-```
+{% endhighlight %}
 
 #### Notification
 
 Sebelumnya saya menggunakan `notify-osd`, namun setelah mengenal `dunst` saya malah jatuh cinta sama kesederhanannya. Sangat simpel dan tentu saja dapat dikonfigurasi menggunakan plain text.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Dunst Notifications
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-```
+{% endhighlight %}
 
 #### Conky
 
@@ -1222,19 +1438,27 @@ Window Manager masih memerlukan Compton?
 
 Ini soal selera dan kebutuhan. Saya perlu dan butuh, jadi mengapa tidak.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Start Conky
 exec --no-startup-id conky -c ~/.config/conky/conkyrc
-```
+{% endhighlight %}
 
 #### Polybar
 
 Polybar termasuk aplikasi pengganti bar yang dapat kita gunakan. i3wm tentu saja mengijinkan usernya untuk mengganti *default* bar milik mereka dengan pihak ketiga, seperti: lemonbar, tint2, dzen, polybar, dll.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Enable Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-```
+{% endhighlight %}
 
 ### Keyboard Shortcuts
 
@@ -1244,10 +1468,14 @@ Kita juga dapat menambahkan pengaturan *keyboard shortcut* sendiri untuk memangg
 
 Saya menggunakan script `rofi-power` untuk menampilkan dialog System Session seperti Logout, Restart, dan Shut Down.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Restart, Suspend, Shutdown, Logout Dialog
 bindsym $mod+Shift+End exec --no-startup-id ~/.local/bin/rofi-power "i3-msg exit"
-```
+{% endhighlight %}
 
 Saya memanggil script ini dengan menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>END</kbd>
 
@@ -1257,10 +1485,14 @@ Script ini dapat teman-teman dapatkan pada dotfiles milik saya, [di sini](https:
 
 Sebelumnya saya sudah menuliskan cara menjalankan *backend service* dari `clipmenud` pada bagian *autostart*. Pada bagian ini saya akan menunjukkan pengaturan *keyboard shortcut* yang saya gunakan untuk memanggil Rofi yang berisi Clipboard.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 bindsym $mod+p exec --no-startup-id clipmenu
 bindsym $mod+Shift+p exec --no-startup-id rm -rf /tmp/clipmenu/*
-```
+{% endhighlight %}
 
 Dapat dilihat, saya menggunakan <kbd>SUPER</kbd>+<kbd>P</kbd> untuk memanggil Rofi yang menampilkan isi dari clipboard.
 
@@ -1276,13 +1508,17 @@ Sedangkan untuk menghapus seluruh isi clipboard, saya menggunakan <kbd>SUPER</kb
 
 Sudah merupakan keharusan untuk memiliki sebuah *keyboard shortcut* yang dapat mengatur besar dan kecilnya volume suara.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 2
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 2
-bindsym XF86AudioMute exec --no-startup-id pamixer --toggle-mute
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle
-```
+bindsym XF86AudioMute        exec --no-startup-id pamixer --toggle-mute
+bindsym XF86AudioMicMute     exec --no-startup-id pactl   set-source-mute 1 toggle
+{% endhighlight %}
 
 Dapat dilihat, kode dari *keyboard* di atas sangat aneh. Itu adalah penamaan dari function keyboard. Setiap laptop biasanya memiliki function keyboard seperti ini.
 
@@ -1294,10 +1530,14 @@ Audio mixer adalah aplikasi yang saya perlukan. Sebenarnya teman-teman juga meme
 
 Karena tidak jarang saya mendapati pertanyaan seputar audio pada group Telegram Belajar GNU/Linux Indonesia, yang mempersoalkan tentang audio.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Pavucontrol
 bindsym $mod+F3 exec --no-startup-id pavucontrol
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>F3</kbd> untuk memanggil `pavucontrol` karena tombol <kbd>F3</kbd> pada ThinkPad saya memiliki gambar Speaker. Untuk mempermudah dalam mengingat jadi saya manfaatkan.
 
@@ -1310,11 +1550,15 @@ Namun, belakangan ini sudah sangat jarang saya menggunakan `pavucontrol`, lebih 
 
 Kita juga memerlukan pengaturan pencahayaan pada layar agar tetap nyaman menggunakan laptop dalam waktu lama dan dapat menyesuaikan dengan kondisi cahaya dari lingkungan sekitar.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Screen Brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 2
+bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
-```
+{% endhighlight %}
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
@@ -1327,10 +1571,14 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 
 Arandr adalah aplikasi GUI untuk Xrandr. Sederhananya aplikasi ini saya gunakan untuk mengatur monitor apabila sedang menggunakan dual monitor.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Arandr
 bindsym $mod+F7 exec --no-startup-id arandr
-```
+{% endhighlight %}
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>F7</kbd>.
 
@@ -1348,39 +1596,50 @@ Sebelumnya, saya menggunakan aplikasi `nmtui` untuk melakukan konfigurasi jaring
 
 Untuk memanggilnya, saya menggunakan <kbd>SUPER</kbd>+<kbd>F8</kbd>.
 
-```
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Network Manager Dmenu
 bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
-```
+{% endhighlight %}
 
 Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
 
 **Instalasi**
 
-```
-mkdir -p ~/.config/networkmanager-dmenu
-$ git clone https://github.com/firecat53/networkmanager-dmenu.git ~/.config/networkmanager-dmenu
-```
+<pre>
+$ <b>mkdir -p ~/.config/networkmanager-dmenu</b>
+</pre>
+
+<pre>
+$ <b>git clone https://github.com/firecat53/networkmanager-dmenu.git ~/.config/networkmanager-dmenu</b>
+</pre>
 
 **Konfigurasi**
 
-```
-$ cd ~/.config/networkmanager-dmenu
-$ cp config.ini.example config.ini
-```
+<pre>
+$ <b>cd ~/.config/networkmanager-dmenu</b>
+</pre>
+
+<pre>
+$ <b>cp config.ini.example config.ini</b>
+</pre>
 
 Edit file `config.ini` untuk konfigurasi sesuai preferensi pribadi.
 
 Contohnya seprti saya, yang ingin menggunakan Rofi sebagai *user interface*.
 
-```
-$ vim config.ini
-```
-
 <pre>
+$ <b>vim ~/.config/rofi/config.ini</b>
+</pre>
+
+{% highlight_caption $HOME/.config/rofi/config.ini %}
+{% highlight sh linenos %}
 [dmenu]
-<mark>fn = Fantasque Sans Mono</mark>
-<mark>dmenu_command = /usr/bin/rofi -width 25</mark>
+fn = Fantasque Sans Mono
+dmenu_command = /usr/bin/rofi -width 25
 # # Note that dmenu_command can contain arguments as well like `rofi -width 30`
 # # Rofi and dmenu are set to case insensitive by default `-i`
 # l = number of lines to display, defaults to number of total network options
@@ -1392,7 +1651,7 @@ $ vim config.ini
 # b =  (just set to empty value and menu will appear at the bottom
 # m = number of monitor to display on
 # p = Custom Prompt for the networks menu
-<mark>p = NETWORKS</mark>
+p = NETWORKS
 # pinentry = Pinentry command
 # rofi_highlight = &lt;True or False&gt; # (Default: False) use rofi highlighting instead of '**'
 
@@ -1404,11 +1663,11 @@ $ vim config.ini
 # rofi_obscure = True
 
 [editor]
-<mark>terminal = st</mark>
+terminal = st
 gui_if_available = True
 # terminal = &lt;name of terminal program&gt;
 # gui_if_available = &lt;True or False&gt;
-</pre>
+{% endhighlight %}
 
 Hasilnya, akan seperti di bawah ini.
 

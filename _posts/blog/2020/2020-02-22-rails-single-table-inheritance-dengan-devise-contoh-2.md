@@ -66,15 +66,14 @@ Saya akan memulai dari pemasangan Devise
 
 Saya akan membuat tabel users dengan menggunakan generator yang dimiliki oleh Devise.
 
-```
-$ rails g devise user
-```
+<pre>
+$ <b>rails g devise user</b>
+</pre>
 
 Generator di atas juga akan sekalian membuatkan kita model user.
 
-```ruby
-# db/migrations/20200221021307_devise_create_users.rb
-
+{% highlight_caption db/migrations/20200221021307_devise_create_users.rb %}
+{% highlight ruby linenos %}
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
@@ -82,17 +81,17 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
-      ...
-      ...
+      # ...
+      # ...
 
       t.timestamps null: false
     end
 
-    ...
-    ...
+    # ...
+    # ...
   end
 end
-```
+{% endhighlight %}
 
 Nah, sebenarnya bisa saya modifikasi migration ini, dengan menambahkan field `:name` dan `:type`.
 
@@ -100,69 +99,68 @@ Namun, saya memilih untuk membuat migration untuk memanbahkan field name dan typ
 
 Tidak ada alasan, hanya untuk berlatih saja membuat migration.
 
-```
-$ rails g migration add_name_and_name_to_users
-```
+<pre>
+$ <b>rails g migration add_name_and_name_to_users</b>
+</pre>
 
 Kemudian, tambahkan manual `add_column` untuk `:name` dan `:type`.
 
-```ruby
-# db/migrations/20200221021551_add_name_type_to_users
-
+{% highlight_caption db/migrations/20200221021551_add_name_type_to_users %}
+{% highlight ruby linenos %}
 class AddNameAndTypeToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :name, :string
     add_column :users, :type, :string
   end
 end
-```
+{% endhighlight %}
 
 Setelah itu, jalankan semua migration di atas.
 
-```
-$ rails db:migrate
-```
+<pre>
+$ <b>rails db:migrate</b>
+</pre>
 
 ## Models
 
 Kemudian buat dua model untuk participant dan sponsor.
 
-```
-$ rails g model participant
-$ tails g model sponsor
-```
+<pre>
+$ <b>rails g model participant</b>
+</pre>
+
+<pre>
+$ <b>rails g model sponsor</b>
+</pre>
 
 Karena saya sudah menambahkan field `:type` pada tabel users, maka kedua model ini yang akan mendapat turunan sifat dari model user dengan mengambil dari nama class dari masing-masing model.
 
 Modifikasi kedua model ini dengan mengganti inheritance-nya dari class `ApplicationRecord` menjadi class `User`.
 
-```ruby
-# app/models/participant.rb
-
+{% highlight_caption app/models/participant.rb %}
+{% highlight ruby linenos %}
 class Participant < User
 end
-```
+{% endhighlight %}
 
-```ruby
-# app/models/sponsor.rb
-
+{% highlight_caption app/models/sponsor.rb %}
+{% highlight ruby linenos %}
 class Sponsor < User
 end
-```
+{% endhighlight %}
 
 ## Routes
 
 Kemudian, pada routes untuk `:users` juga ganti menjadi dua buah untuk masing-masing model.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   ...
   devise_for :participants
   devise_for :sponsors
 end
-```
+{% endhighlight %}
 
 ## Views & Controller
 
@@ -174,66 +172,61 @@ Oke, langsung saya mulai dari membuat Homepage.
 
 Saya akan mulai dengan mengenerate page controller dengan action index.
 
-```
-$ rails g controller Pages index
-```
+<pre>
+$ <b>rails g controller Pages index</b>
+</pre>
 
-```ruby
-# app/controllers/pages_controller.rb
-
+{% highlight_caption app/controllers/pages_controller.rb %}
+{% highlight ruby linenos %}
 class PagesController < ApplicationController
   def index; end
 end
-```
+{% endhighlight %}
 
 Kemudian, pada routes definisikan pages menjadi root.
 
 Letakkan di paling atas.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   root to: 'pages#index'
 
   devise_for :participants
   devise_for :sponsors
 end
-```
+{% endhighlight %}
 
 Selanjutnya buat dashboards controller  untuk tempat participant dan sponsor mendarat setelah sign up atau sign in.
 
-```
-$ rails g controller dashboard/dashboard index
-```
+<pre>
+$ <b>rails g controller dashboard/dashboard index</b>
+</pre>
 
-```ruby
-# app/controllers/dashboard/dashboard_controller.rb
-
+{% highlight_caption app/controllers/dashboard/dashboard_controller.rb %}
+{% highlight ruby linenos %}
 class Dashboard::DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index; end
 end
-```
+{% endhighlight %}
 
 Nah, saya akan mendifinisikan apabila user mengakses halaman `/dashboard`, maka, user akan langsung diarahkan sebagai participant terlebih dahulu.
 
-```ruby
-# app/controllers/application_controller.rb
-
+{% highlight_caption app/controllers/application_controller.rb %}
+{% highlight ruby linenos %}
 class ApplicationController < ActionController::Base
   devise_group :user, contains: [:participant, :sponsor]
 end
-```
+{% endhighlight %}
 
 Urutan di dalam array menjadi penentu, scope mana yang akan diprioritaskan apabila user mengakses halaman `/dashboard` apabaila belum melakukan sing up atau sign in.
 
 Kemudian atur routenya.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   root to: 'pages#index'
 
@@ -244,7 +237,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
   end
 end
-```
+{% endhighlight %}
 
 Selanjutnya untuk view dari Devise.
 
@@ -252,16 +245,18 @@ Nah, ada banyak cara yang dapat dilakukan. Mulai dari mengenerate view untuk mas
 
 Saya memilih untuk mengenerate kedua scope.
 
-```
-$ rails g devise:views participant
-$ rails g devise:views sponsor
-```
+<pre>
+$ <b>rails g devise:views participant</b>
+</pre>
+
+<pre>
+$ <b>rails g devise:views sponsor</b>
+</pre>
 
 Lalu mengedit bagian registrations new dan edit untuk menambahkan field `:name`.
 
-```erb
-<!-- app/views/participants/registrations/new.html.erb -->
-
+{% highlight_caption app/views/participants/registrations/new.html.erb %}
+{% highlight eruby linenos %}
 <h2>Participant Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -278,11 +273,10 @@ Lalu mengedit bagian registrations new dan edit untuk menambahkan field `:name`.
 <% end %>
 
 <%= render "devise/shared/links" %>
-```
+{% endhighlight %}
 
-```erb
-<!-- app/views/sponsors/registrations/new.html.erb -->
-
+{% highlight_caption app/views/sponsors/registrations/new.html.erb %}
+{% highlight eruby linenos %}
 <h2>Sponsors Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -299,15 +293,14 @@ Lalu mengedit bagian registrations new dan edit untuk menambahkan field `:name`.
 <% end %>
 
 <%= render "devise/shared/links" %>
-```
+{% endhighlight %}
 
 Selanjutnya, tinggal memberikan ijin (permit) kepada `:name` saat melakukan sign up.
 
 Saya akan tambahkan saja pada application controller.
 
-```ruby
-# app/controllers/application_controller.rb
-
+{% highlight_caption app/controllers/application_controller.rb %}
+{% highlight ruby linenos %}
 class ApplicationController < ActionController::Base
   devise_group :user, contains: [:participant, :sponsor]
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -331,7 +324,7 @@ class ApplicationController < ActionController::Base
     resource_or_scope.is_a?(User) ? dashboard_root_path : root_path
   end
 end
-```
+{% endhighlight %}
 
 Saya juga menambahkan redirect path apabila user sudah melakukan sign up atau sign in untuk diarahkan ke halaman dashboard.
 

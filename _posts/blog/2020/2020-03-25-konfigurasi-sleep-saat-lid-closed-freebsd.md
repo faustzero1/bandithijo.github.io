@@ -120,13 +120,14 @@ Caranya sangat mudah. Tinggal tambahkan pada file `/etc/sysctl.conf`.
 $ <b>doas vim /etc/sysctl.conf</b>
 </pre>
 
-```conf
-...
-...
+{% highlight_caption /etc/sysctl.conf %}
+{% highlight conf linenos %}
+# ...
+# ...
 
 # ACPI sleep when lid closed
 hw.acpi.lid_switch_state=S3
-```
+{% endhighlight %}
 
 # Pengujian
 

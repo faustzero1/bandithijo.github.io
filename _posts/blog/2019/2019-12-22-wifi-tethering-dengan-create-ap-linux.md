@@ -71,27 +71,28 @@ Paket-paket berikut ini perlu dipasang, agar dapat menggunakan **create_ap**.
 
 Beruntungnya saya menggunakan Arch Linux. Paket **create_ap** sudah terdapat pada official repo.
 
-```
-$ sudo pacman -S create_ap
-```
+<pre>
+$ <b>sudo pacman -S create_ap</b>
+</pre>
 
 ### Distribusi lain
 
 Untuk yang menggunakan distribusi lain, dapat membuild sendiri dari source.
 
-```
-$ git clone https://github.com/oblique/create_ap
-$ cd create_ap
-$ make install
-```
+<pre>
+$ <b>git clone https://github.com/oblique/create_ap</b>
+$ <b>cd create_ap</b>
+$ <b>make install</b>
+</pre>
 
 ## Penggunaan
 
 Sekarang, coba saya jalankan dulu **create_ap**.
 
-```
-$ create_ap
-```
+<pre>
+$ <b>create_ap</b>
+</pre>
+
 ```
 Usage: create_ap [options] <wifi-interface> [<interface-with-internet>] [<access-point-name> [<passphrase>]]
 
@@ -171,15 +172,15 @@ Sangat mudah sekali penggunaannya.
 
 Bentuk dari perintahnya akan seperti ini.
 
-```
-$ create_ap [options] <wifi-interface> [<interface-with-internet>] [<access-point-name> [<passphrase>]]
-```
+<pre>
+$ <b>create_ap [options] &lt;wifi-interface> [&lt;interface-with-internet>] [&lt;access-point-name> [&lt;passphrase>]]</b>
+</pre>
 
 ### Tanpa passphrase (open network)
 
-```
-$ create_ap wlan0 eth0 MyAccessPoint
-```
+<pre>
+$ <b>create_ap wlan0 eth0 MyAccessPoint</b>
+</pre>
 
 Berarti, kita mendapatkan internet dari interface `eth0` dan akan kita sharing menggunakan interface `wlan0` dengan nama Access Point `MyAccessPoint`.
 
@@ -187,69 +188,69 @@ Mudha dimengerti kan?
 
 ### WPA + WPA2 passphrase
 
-```
-$ create_ap wlan0 eth0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap wlan0 eth0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Access Point tanpa internet
 
-```
-$ create_ap -n wlan0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap -n wlan0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Bridged internet sharing
 
-```
-$ create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Bridged Internet sharing (pre-configured bridge interface)
 
-```
-$ create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Internet sharing sharing dari WiFi interface yang sama
 
 Ini yang paling sering saya pergunakan.
 
-```
-$ create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Menggunakan WiFi adapter driver yang berbeda
 
-```
-$ create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Tanpa passphrase (open network) menggunakan pipe
 
 Nah, ini adalah fitur yang dimention pada poin nomor 9 di atas.
 
-```
-$ echo -e "MyAccessPoint" | create_ap wlan0 eth0
-```
+<pre>
+$ <b>echo -e "MyAccessPoint" | create_ap wlan0 eth0</b>
+</pre>
 
 ### WPA + WPA2 passphrase menggunakan pipe
 
-```
-$ echo -e "MyAccessPoint\nMyPassPhrase" | create_ap wlan0 eth0
-```
+<pre>
+$ <b>echo -e "MyAccessPoint\nMyPassPhrase" | create_ap wlan0 eth0</b>
+</pre>
 
 ### Enable IEEE 802.11n
 
-```
-$ create_ap --ieee80211n --ht_capab '[HT40+]' wlan0 eth0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap --ieee80211n --ht_capab '[HT40+]' wlan0 eth0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ### Client Isolation
 
 Ini adalah contoh penggunaan fitur nomor 4 di atas.
 
-```
-$ create_ap --isolate-clients wlan0 eth0 MyAccessPoint MyPassPhrase
-```
+<pre>
+$ <b>create_ap --isolate-clients wlan0 eth0 MyAccessPoint MyPassPhrase</b>
+</pre>
 
 ## Systemd Service
 
@@ -257,15 +258,15 @@ Kita juga dapat memanfaatkan systemd service untuk membuat konfigurasi yang pers
 
 ### Menjalankan service
 
-```
-$ sudo systemctl start create_ap
-```
+<pre>
+$ <b>sudo systemctl start create_ap</b>
+</pre>
 
 ### Menjalankan service saat proses booting
 
-```
-$ sudo systemctl enable create_ap
-```
+<pre>
+$ <b>sudo systemctl enable create_ap</b>
+</pre>
 
 # Troubleshooting
 

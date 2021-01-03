@@ -37,15 +37,14 @@ Sebagai ilustrasi user dengan ID 1 berelasi dengan user dengan ID 2 pada tebal y
 
 Pertama, buat dulu Active Record Migration untuk membuat users model.
 
-```
-$ rails generate model user full_name email password invitation_token
-```
+<pre>
+$ <b>rails generate model user full_name email password invitation_token</b>
+</pre>
 
 Selanjutnya, modifikasi pada file migration tersebut, seperti di bawah ini.
 
-```ruby
-# db/migrate/20200128080714_create_users.rb
-
+{% highlight_caption db/migrate/20200128080714_create_users.rb %}
+{% highlight ruby linenos %}
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
@@ -58,7 +57,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     end
   end
 end
-```
+{% endhighlight %}
 
 Saya juga menambahkan field `:invitation_token` untuk menampung data token yang akan disematkan (dipasang) sebagai kode unik pada akhiran *referral link*.
 
@@ -67,15 +66,14 @@ Selanjutnya, buat Active Record Migration untuk membuat friendships model.
 
 Migration ini adalah migration yang menentukan relasi antar user pada tabel friendships.
 
-```
-$ rails generate model friendship
-```
+<pre>
+$ <b>rails generate model friendship</b>
+</pre>
 
 Selanjutnya, modifikasi file migration tersebut, seperti di bawah ini.
 
-```ruby
-# db/migrate/20200128121401_create_users.rb
-
+{% highlight_caption db/migrate/20200128121401_create_users.rb %}
+{% highlight ruby linenos %}
 class CreateFriendships < ActiveRecord::Migration[5.2]
   def change
     create_table :friendships do |t|
@@ -87,7 +85,7 @@ class CreateFriendships < ActiveRecord::Migration[5.2]
     end
   end
 end
-```
+{% endhighlight %}
 
 Perhatikan tipe data dari `:user` dan `:friend` yang merupakan `belongs_to`.
 
@@ -103,9 +101,9 @@ Field `:status` ini mungkin nantinya dapat dimanfaatkan untuk fitur *commission 
 
 Selanjutnya, tinggal menjalankan kedua migration tersebut.
 
-```
-$ rails db:migrate
-```
+<pre>
+$ <b>rails db:migrate</b>
+</pre>
 
 ## Model
 
@@ -115,9 +113,8 @@ Saya sempat membaca, dapat pula menggunakan `has_and_belongs_to_many` (HABTM) as
 
 Saya akan mulai dari user model.
 
-```ruby
-# app/models/user.rb
-
+{% highlight_caption app/models/user.rb %}
+{% highlight ruby linenos %}
 class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -135,7 +132,7 @@ end
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-```
+{% endhighlight %}
 
 `has_many :friendships` yang akan menampung nilai ID dari user yang menginvite. Pada tabel friendships, nilai ini akan disimpan pada field `:user_id`.
 
@@ -144,9 +141,8 @@ Sedangkan, `has_many :friends, through: :friendships` yang akan menampung nilai 
 <br>
 Selanjutnya untuk friendship model.
 
-```ruby
-# app/models/friendship.rb
-
+{% highlight_caption app/models/friendship.rb %}
+{% highlight ruby linenos %}
 class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: 'User'
@@ -172,7 +168,7 @@ end
 #
 #  fk_rails_...  (user_id => users.id)
 #
-```
+{% endhighlight %}
 
 Nah, sudah jelas sekali, kalau data yang ada di tabel friendships ini akan berasosiasi dengan tabel users.
 Namun, memiliki asosiasi antar user pada tabel user.
@@ -186,9 +182,8 @@ Selanjutnya, saya akan membuat sebuah method yang akan digunakan untuk mengenera
 
 Saya akan buat dengan menggunakan concern.
 
-```ruby
-# app/models/concerns/generate_invitation_token.rb
-
+{% highlight_caption app/models/concerns/generate_invitation_token.rb %}
+{% highlight ruby linenos %}
 module GenerateInvitationToken
   extend ActiveSupport::Concern
 
@@ -209,28 +204,27 @@ module GenerateInvitationToken
     self.invitation_token = token + (User.where("invitation_token ilike ?", "%#{token}%").count + 1).to_s
   end
 end
-```
+{% endhighlight %}
 
 module GenerateInvitationToken di atas, akan membuatkan invitation_token dari `:full_name` dan akan menambahkan nila 1 di belakangnya. Sehingga, apabila terdapat dua buah user dengan `:full_name` yang sama, maka akan dibedakan berdasarkan angka terakhir pada invitation_token (kode unik).
 
 Nah, tinggal diincludekan pada user model.
 
-```ruby
-# app/models/user.rb
-
+{% highlight_caption app/models/user.rb %}
+{% highlight ruby linenos %}
 class User < ApplicationRecord
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
   include GenerateInvitationToken
 end
-```
+{% endhighlight %}
 
 Setelah merelasikan antar model dan , selanjutnya saya akan mencoba relasi antar user pada Rails Console.
 
 Buat dua buah user baru.
 
-```
+```irb
 irb(main):001:0> budi = User.create(email: 'budibudiman@gmail.com', full_name: 'Budi Budiman', password: 'budiman')
 irb(main):002:0> nina = User.create(email: 'ninaremina@gmail.com', full_name: 'Nina Remina', password: 'ninaremina')
 ```
@@ -239,10 +233,11 @@ Sekarang saya akan menggunakan method `.friendships.create`, untuk membuat perte
 
 Budi sebagai yang mengundang, Nina sebagai yang diundang.
 
-```
+```irb
 irb(main):003:0> budi.friendships.create(friend: nina)
 ```
-```
+
+```irb
 (0.2ms)  BEGIN
 Friendship Create (9.5ms)  INSERT INTO "friendships" ("user_id", "friend_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["user_id", 21], ["friend_id", 22], ["created_at", "2020-02-10 23:06:36.308621"], ["updated_at", "2020-02-10 23:06:36.308621"]]
 (2.2ms)  COMMIT
@@ -265,13 +260,11 @@ Karena proses penambahan pertemanan ini terjadi pada saat user yang diundang mel
 <p>Karena saya membuat model user, menggunakan Devise generator.</p>
 </div>
 
-
-```ruby
-# app/controllers/users/registrations_controller.rb
-
+{% highlight_caption app/controllers/users/registrations_controller.rb %}
+{% highlight ruby linenos %}
 class Users::RegistrationsController < Devise::RegistrationsController
-  ...
-  ...
+  # ...
+  # ...
 
   def new
     if params.has_key?(:invitation_token)
@@ -293,8 +286,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  ...
-  ...
+  # ...
+  # ...
 
   protected
 
@@ -308,13 +301,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
   end
 end
-```
+{% endhighlight %}
 
 Siapkan juga controller untuk `Users::FriendshipsController`.
 
-```ruby
-# app/controllers/users/friendships_controller.rb
-
+{% highlight_caption app/controllers/users/friendships_controller.rb %}
+{% highlight ruby linenos %}
 class Users::FriendshipsController < ApplicationController
   before_action :authenticate_user!
 
@@ -323,7 +315,7 @@ class Users::FriendshipsController < ApplicationController
     @invitation_token_url = request.base_url + '/invite/' + current_user.invitation_token
   end
 end
-```
+{% endhighlight %}
 
 Karena saya menggunakan Devise, maka saya memiliki `current_user`.
 
@@ -333,16 +325,15 @@ Instance variable `@invitation_token_url` nanti akan diguanakan pada view templa
 
 Selanjutnya, saya akan menambahkan routing untuk *referral link* agar langsung diarahkan ke halaman registrasi (*).
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
   get 'referral=:invitation_token' => 'users/registrations#new'
 end
-```
+{% endhighlight %}
 
 Bentuk dari url dapat teman-teman sesuaikan sendiri.
 
@@ -360,11 +351,9 @@ Saya akan mulai dari bagian pertama.
 
 Pada view template, saya perlu untuk menampung nilai instance variable `@invitation_token` yang pada `users_controller#new` berisi `params[:user][:invitation_token]`.
 
-```erb
-<!-- app/views/users/registrations/new.html.erb -->
-
+{% highlight_caption app/views/users/registrations/new.html.erb %}
+{% highlight eruby linenos %}
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  ...
   ...
   ...
 
@@ -377,7 +366,7 @@ Pada view template, saya perlu untuk menampung nilai instance variable `@invitat
   ...
   ...
 <% end %>
-```
+{% endhighlight %}
 
 <!-- INFORMATION -->
 <div class="blockquote-blue">
@@ -396,10 +385,8 @@ Selain itu, juga akan terdapat tabel yang menunjukkan siapa-siapa saja teman yan
 
 Sebelumnya, saya sudah menyimpakan controller dengan action index untuk user friendships_controller ini di atas (pada bagian controller).
 
-```erb
-<!-- app/views/users/friendships/index.html.erb -->
-
-...
+{% highlight_caption app/views/users/friendships/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 
@@ -449,15 +436,12 @@ Sebelumnya, saya sudah menyimpakan controller dengan action index untuk user fri
     </tbody>
   </table>
 </div>
-<!-- END Friendship list -->
-
-```
+{% endhighlight %}
 
 Saya menambahkan fungsi "Copy URL" agar lebih praktis, tinggal tekan tombol dan *referral link* akan tercopy ke dalam clipboard.
 
-```erb
-<!-- app/views/users/friendships/index.html.erb -->
-
+{% highlight_caption app/views/users/friendships/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 <!-- END Friendship list -->
@@ -486,7 +470,7 @@ Saya menambahkan fungsi "Copy URL" agar lebih praktis, tinggal tekan tombol dan 
     });
   };
 </script>
-```
+{% endhighlight %}
 
 # Kekurangan(*)
 

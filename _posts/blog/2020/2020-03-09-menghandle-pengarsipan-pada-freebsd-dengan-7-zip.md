@@ -91,9 +91,9 @@ Untuk membuat ZIP archive dengan enkripsi, caranya sangat mudah.
 
 **Membuat file ZIP dari beberapa file (file1, file2, file3)**
 
-```
-$ 7z a -p arsip.zip file1.doc file2.xls file3.ppt
-```
+<pre>
+$ <b>7z a -p arsip.zip file1.doc file2.xls file3.ppt</b>
+</pre>
 
 Keterangan:
 
@@ -144,8 +144,9 @@ Ilustrasinya kira-kira seperti ini.
 Selain membuat arsip berformat ZIP dari beberapa file, dapat pula langsung membuat file pada direktori.
 <br>
 Misalkan, saya memiliki direktori bernama <b>arsip/</b>.
+
 <pre>
-$ 7z a -p arsip.zip arsip
+$ <b>7z a -p arsip.zip arsip</b>
 </pre>
 </p>
 </div>
@@ -157,9 +158,10 @@ Untuk mengkestrak ZIP archive yang terenkripsi, caranya sangat mudah sekali.
 
 Cukup menggunakan *function letter* yang sama seperti untuk mengekstrak arsip biasa, yaitu `x`.
 
-```
-$ 7z x arsip.zip
-```
+<pre>
+$ <b>7z x arsip.zip</b>
+</pre>
+
 
 Kemudian, akan diminta memasukkan password untuk proses dekripsi.
 

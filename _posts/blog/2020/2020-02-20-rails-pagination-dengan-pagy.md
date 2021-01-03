@@ -55,51 +55,48 @@ Setelah membaca-baca dan mencoba-coba sedikit, saya pun memutuskan untuk memigra
 
 Langkah-langkah migrasi yang saya lakukan adalah, saya tidak langsung menghapus Kaminari gem dari Gemfile. Namun, menambahkan Pagy gem.
 
-```ruby
-# Gemfile
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
 
-...
-...
+# ...
+# ...
 gem 'kaminari',      '~> 1.1', '>= 1.1.1'
 gem 'pagy',          '~> 3.7', '>= 3.7.2'
-...
-...
-```
+# ...
+# ...
+{% endhighlight %}
 
 Jalankan bundle install
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 Setelah selesai, tambahkan module **Pagy::Backend** dan **Pagy::Frontend**.
 
-```ruby
-# app/controllers/application_controller.rb
-
+{% highlight_caption app/controllers/application_controller.rb %}
+{% highlight ruby linenos %}
 class ApplicationController < ActionController::Base
   include Pagy::Backend
 
   ...
   ...
 end
-```
+{% endhighlight %}
 
-```ruby
-# app/helpers/application_helper.rb
-
+{% highlight_caption app/helpers/application_helper.rb %}
+{% highlight ruby linenos %}
 module ApplicationHelper
   include Pagy::Frontend
   ...
   ...
 end
-```
+{% endhighlight %}
 
 Kemudian, tambahkan pagy initializer apabila diperlukan.
 
-```ruby
-# config/initializers/pagy.rb
-
+{% highlight_caption config/initializers/pagy.rb %}
+{% highlight ruby linenos %}
 # encoding: utf-8
 # frozen_string_literal: true
 
@@ -270,7 +267,7 @@ Kemudian, tambahkan pagy initializer apabila diperlukan.
 
 # Default i18n key
 # Pagy::VARS[:i18n_key] = 'pagy.item_name'   # default
-```
+{% endhighlight %}
 
 Secara default, semua konfigurasinya dalam keadaan terdisable.
 
@@ -280,9 +277,10 @@ Misalkan seperti default items per satu halaman, secara default berjumlah 20.
 
 Atau contoh lain, untuk frontend.
 
-```ruby
-...
-...
+{% highlight_caption config/initializers/pagy.rb %}
+{% highlight ruby linenos %}
+# ...
+# ...
 
 # Frontend Extras
 
@@ -302,9 +300,9 @@ require 'pagy/extras/bootstrap'
 # See https://ddnexus.github.io/pagy/extras/materialize
 # require 'pagy/extras/materialize'
 
-...
-...
-```
+# ...
+# ...
+{% endhighlight %}
 
 Saya menggunakan bootstrap, maka saya memilih frontend extra untuk Bootstrap theme, agar tampilan pagination pada view template saya mengunakan Bootstrap theme.
 
@@ -314,31 +312,29 @@ Selanjutnya pada controller, bisa memigrasikan object query yang menggunakan Kam
 
 **Kaminary**
 
-```ruby
-# app/controllers/admin/users_controller.rb
+{% highlight_caption app/controllers/admin/users_controller.rb %}
+{% highlight ruby linenos %}
+class Admin::UsersController < AdminsController
+  def index
+    @users = User.order(id: :desc).page(params[:page])
+  end
 
- class Admin::UsersController < AdminsController
-   def index
-     @users = User.order(id: :desc).page(params[:page])
-   end
-
-   ...
+  # ...
 end
-```
+{% endhighlight %}
 
 **Pagy**
 
-```ruby
-# app/controllers/admin/users_controller.rb
+{% highlight_caption app/controllers/admin/users_controller.rb %}
+{% highlight ruby linenos %}
+class Admin::UsersController < AdminsController
+  def index
+    @pagy, @users = pagy(User.order(id: :desc), items: 25)
+  end
 
- class Admin::UsersController < AdminsController
-   def index
-     @pagy, @users = pagy(User.order(id: :desc), items: 25)
-   end
-
-   ...
+  # ...
 end
-```
+{% endhighlight %}
 
 # View
 
@@ -346,9 +342,8 @@ Kemudian pada view template, saya akan menambahkan direktori `app/views/pagy/` d
 
 Tujuannya agar mudah untuk melakukan kostumisasi.
 
-```erb
-<!-- app/views/pagy/_bootstrap_nav.html.erb -->
-
+{% highlight_caption app/views/pagy/_bootstrap_nav.html.erb %}
+{% highlight eruby linenos %}
 <%#
   This template is i18n-ready: if you don't use i18n, then you can replace the pagy_t
   calls with the actual strings ("&lsaquo; Prev", "Next &rsaquo;", "&hellip;").
@@ -373,40 +368,38 @@ Tujuannya agar mudah untuk melakukan kostumisasi.
 <% end                         -%>
 <%#                            -%>  </ul>
 <%#                            -%></nav>
-```
+{% endhighlight %}
 
 Nah, mantap, kalo sudah tinggal merubah helper method yang dimiliki kaminari pada view template.
 
 Pertama-tama, `.total_count`. Ini adalah helper method yang disediakan oleh kaminari untuk mentotal jumlah dari collection.
 
 **Kamniari**
-```erb
-<!-- app/views/admin/users/index.html.erb -->
-
+{% highlight_caption app/views/admin/users/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
   <%= @users.total_count %>
 ...
 ...
-```
+{% endhighlight %}
 
 **Pagy**
-```erb
-<!-- app/views/admin/users/index.html.erb -->
-
+{% highlight_caption app/views/admin/users/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
   <%= @pagy.count %>
 ...
 ...
-```
+{% endhighlight %}
 
 Kedua, pada bagian paginationnya akan seperti ini.
 
 **Kaminari**
 
-```erb
-
+{% highlight_caption app/views/admin/users/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
   <!-- Kaminari Pagination -->
@@ -416,12 +409,12 @@ Kedua, pada bagian paginationnya akan seperti ini.
   <!-- END Kaminari Pagination -->
 ...
 ...
-```
+{% endhighlight %}
 
 **Pagy**
 
-```erb
-
+{% highlight_caption app/views/admin/users/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
   <!-- Pagy Pagination -->
@@ -431,12 +424,12 @@ Kedua, pada bagian paginationnya akan seperti ini.
   <!-- END Pagy Pagination -->
 ...
 ...
-```
+{% endhighlight %}
 
 Atau seperti ini apabila jumlah halaman hanya satu.
 
-```erb
-
+{% highlight_caption app/views/admin/users/index.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
   <!-- Pagy Pagination -->
@@ -445,7 +438,7 @@ Atau seperti ini apabila jumlah halaman hanya satu.
   <!-- END Pagy Pagination -->
 ...
 ...
-```
+{% endhighlight %}
 
 Selanjutnya saya hanya perlu merubah semua collection pada controller dan view helper dari Kaminari ke Pagy.
 

@@ -84,31 +84,44 @@ Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari
 2. Mengelola banyak *patch* sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana *best practice* dalam mengelola dan mengaplikasikan *patch.
 3. Saya tidak ingin menambahkan *patch* yang saya tidak benar-benar perlukan.
 
-Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 24 *patches*. yaitu:
+<br>
+Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya ~~hanya~~ menggunakan 24 patches.
+
+Tulisan ini saya update 3 Januari 2021, saya sudah memasang 31 pathces.
 
 1. actualfullscreen
-2. autostart
-3. canfocusrule
+2. aspectresize
+3. autostart
 4. center
-5. centerkeybinding
-6. cfacts
-7. config
-8. dwmc
-9. focusonnetactive
-10. moveresize
-11. movestack
-12. noborder
-13. pertag
-14. resizecorners
-15. ru-gaps
-16. savefloats
-17. scratchpad-gaspar
-18. statusallmons
-19. sticky
-20. systray
-21. xrdb
-22. zoomswap
+5. cfacts
+6. cfacts-dragcfact
+7. fixborders
+8. focusmaster
+9. focusonclick
+10. focusonnetactive
+11. moveresize
+12. movestack
+13. movethrow
+14. nmaster-sym
+15. noborder
+16. pertag
+17. resetlayout
+18. resizecorners
+19. ru-bottomstack
+20. ru-centeredmaster
+21. ru-fibonacci
+22. ru-gaps
+23. savefloats
+24. scratchpad
+25. status2d
+26. statusallmons
+27. sticky
+28. warp
+29. wasfocus
+30. xrdb
+31. zoomswap
 
+<br>
 Saya meracik semua *patches* tersebut menjadi Git branches. Masing-masing *patch*, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.
 
 ## Bagaimana Cara Patching?
@@ -131,7 +144,8 @@ Biasanya manual patching dilakukan apabila patching tersebut tidak dibuat dengan
 Manula patching adalah melakukan patching dengan meng-copy-kan baris demi baris yang ada di dalam *patch* ke dalam file-file yang berkaitan di dalam direktori dwm kita.
 
 
-<br>
+
+## Bagaimana Cara Compiling?
 
 Nah! untuk mempermudah proses *compiling*, saya menggunakan bantuan beberapa script.
 
@@ -184,58 +198,194 @@ Created by: BanditHijo, versi terbaru [di sini](https://github.com/bandithijo/su
 {% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
+# Suckmerge2 was inspired by suckmerge by HexDSL. This script has functionality
+# to merge selected branches, make, & make install.
+
+# Options:
+# -d for debugging. Merge all selected branches and make only.
+# -i for installing. Merge all selected branches, make, & make install
+
+# Usage:
+# $ suckmerge2 -[i/d]
+
+# Legend:
+# n    => branch without config
+# n*   => branch with config on config branch
+# n :  => branch has merge with other branch (patch^n : n stack patches)
+# n <- => latest branch on the fleet
+
 # For dwm
 dwm_branches = [
-  'config',                # merge w/: actualfullscreen, scratchpad-gaspar
-  'sticky',                # merge w/: actualfullscreen, center
-  'canfocusrule',          # merge w/: systray
-  'actualfullscreen',
-  'xrdb',
-  'noborder',
-  'autostart',
-  'movestack',
-  'moveresize',
-  'pertag',
-  'resizecorners',
-  'focusonnetactive',
-  'systray',               # merge w/: scratchpad-gaspar, zoomswap, sticky
-  'scratchpad-gaspar',
-  'zoomswap',
-  'savefloats',
-  'centerkeybinding',
-  'center',
-  'cfacts',
-  'dwmc',                  # merge w/: systray
-  'statusallmons',         # merge w/: systray
-  'ru-gaps',               # merge w/: noborder, cfacts
+  'config',            # 1*  : nodmenu
+  'sticky',            # 19*
+  'wasfocus',          # 20  : sticky
+  'ru-gaps',           # 17* : cfacts, noborder
+  'cfacts',            # 15*
+  'cfacts-dragcfact',  # 16* : cfacts
+  'actualfullscreen',  # 13* : sticky
+  'xrdb',              # 3*
+  'pertag',            # 2
+  'noborder',          # 11
+  'movestack',         # 8*
+  'moveresize',        # 9*
+  'resizecorners',     # 6
+  'focusonnetactive',  # 7
+  'focusonclick',      # 24* : moveresize
+  'fixborders',        # 25
+  'scratchpad',        # 13*
+  'zoomswap',          # 4
+  'autostart',         # 26  : zoomswap
+  'savefloats',        # 28
+  'center',            # 29  : savefloats, wasfocus^1
+  'ru-bottomstack',    # 18*
+  'statusallmons',     # 12
+  'ru-fibonacci',      # 27*
+  'warp',              # 32
+  'nmaster-sym',       # 30  : pertag, cfacts-dragcfact^1, warp
+  'movethrow',         # 33* : moveresize
+  'status2d',          # 34  : autostart, statusallmons, focusonclick
+  'focusmaster',       # 35*
+  'resetlayout',       # 36* : noborder
+  'ru-centeredmaster', # 37*
+  'aspectresize',      # 38* <-
 ]
 
+# Define dir_name based on cwd
 dir_name = `basename $PWD`.strip
 if dir_name == 'dwm'
   branches = dwm_branches
 else
-  puts 'You are not in suckless directory!'
+  puts 'You are not in Suckless directory!'
   exit
 end
 
-puts '=> Convert All Branch to Patch'
-system '''
-suckdiff &&
-git reset --hard origin/master
-'''
-puts '=> Converting COMPLETE!'
-
-puts "\n=> Patching All Branch to Master"
-branches.each do |branch|
-  print "Patching #{branch}... "
-  `git merge #{branch} -m #{branch}`
-  print "DONE\n"
+def clean_reset
+  puts '=> Convert All Branch to Diff'
+  system 'suckclean && git reset --hard origin/master'
+  puts '=> Converting COMPLETE!'
 end
-puts '=> Patching COMPLETE!'
 
-puts "\n=> Installing"
-%x(`make && sudo make clean install`)
-puts '=> Installation COMPLETE!'
+def clean_diff_reset
+  puts '=> Convert All Branch to Diff'
+  system 'suckclean && suckdiff && git reset --hard origin/master'
+  puts '=> Converting COMPLETE!'
+end
+
+def merge_selected(branches)
+  puts "\n=> Patching All Branch to Master"
+  branches.each do |branch|
+    print "Patching #{branch}... "
+    system "git merge #{branch} -m #{branch}"
+    print "DONE\n"
+    puts
+  end
+  puts '=> Patching COMPLETE!'
+end
+
+def make_only
+  puts "\n=> Making"
+  system 'make'
+  puts '=> Making COMPLETE!'
+end
+
+def make_install
+  puts "\n=> Installing"
+  system 'make && sudo make clean install'
+  puts '=> Installation COMPLETE!'
+end
+
+def option_for_debugging(branches)
+  puts "
++-----------------------+
+| SUCKMERGE2: DEBUGGING |
++-----------------------+
+  "
+  sleep 1
+  clean_reset
+  merge_selected(branches)
+  make_only
+end
+
+def option_for_installing(branches)
+  puts "
++------------------------+
+| SUCKMERGE2: INSTALLING |
++------------------------+
+  "
+  sleep 1
+  clean_diff_reset
+  merge_selected(branches)
+  make_install
+end
+
+option = ARGV[0]
+
+if option == '-d'
+  option_for_debugging(branches)
+elsif option == '-i'
+  option_for_installing(branches)
+else
+  puts "\nERROR: You enter the wrong option!"
+  puts "
+Options:
+  -d for debugging  - Merge all selected branches and make only.
+  -i for installing - Merge all selected branches, make, & make install
+
+Usage:
+  $ suckmerge2 -[d/i]
+  "
+  puts '  Or,'
+  puts
+  puts '  Press (d) for debugging'
+  puts '  Press (i) for installing'
+  print "\n=> "
+  second_option = gets.chomp
+  if second_option == 'd'
+    option_for_debugging(branches)
+  elsif second_option == 'i'
+    option_for_installing(branches)
+  else
+    puts "\nERROR: You enter the wrong option!"
+    exit
+  end
+end
+
+if dir_name == 'dwm' && (option == '-i' || second_option == 'i')
+  puts "
+  +----------------------------------------------------------------------+
+  | STATUSBAR:                                                           |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the status bar.                       |
+  | You should bring your own. My recommendation is dwmblocks.           |
+  | But, I prefer built my own status.                                   |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-dwmbar                               |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | KEYBOARD:                                                            |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the keyboard shortcut for apps.       |
+  | You should bring your own. My personal preferences are use SXHKD.    |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-sxhkdrc-dwm                          |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | AUTOSTART:                                                           |
+  +----------------------------------------------------------------------+
+  | BanditHijo's DWM use autostart patch. But I modified the path.       |
+  | Please, provide the autostart file on:                               |
+  | ~/.local/bin/autostart.sh                                            |
+  |                                                                      |
+  | And the other one:                                                   |
+  | ~/.local/bin/autostart_blocking.sh (just empty file)                 |
+  |                                                                      |
+  | Don't forget to make all of them as executeable file, with:          |
+  | $ chmod +x ~/.local/bin/autostart*.sh                                |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-autostart                            |
+  +----------------------------------------------------------------------+
+  "
+end
 {% endhighlight %}
 
 Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.
@@ -246,10 +396,11 @@ Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.
 4. Saat ini master branch dalam keadaan "kotor", jalankan [`suckclean`](https://github.com/bandithijo/sucklessthing/){:target="_blank"}* untuk mereset dan membersihkannya.
 5. Untuk mengedit *patch* branch dengan cara `git checkout <nama_branch>`, wajib menjalankan `suckclean` terlebih dahulu.
 
-**INFO**: *dapat di-download
+\*Klik untuk download
 
 Apabila terdapat perubahan di dalam branch *patch*, ulangi lagi dari langkah pertama. Mudah bukan?
 
+<br>
 **Apakah akan terdapat conflict?**
 
 Jelas! Pasti akan ada kalau kita menggunakan banyak *patch*.
@@ -297,7 +448,7 @@ Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang
 
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat pengaturan <i>keys</i>, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke branch config pada file <b>config.def.h</b>.</p>
+<p markdown=1>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat patch yang mengarahkan ke file **config.def.h**, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke **branch config** pada file **config.def.h**.</p>
 </div>
 
 Berikut ini adalah ilustrasi isi dari branch **config**.
@@ -433,30 +584,6 @@ static Key keys[] = {
 <p markdown="1">Selain itu, juga lebih mudah untuk pengaturan fungsi toggling.</p>
 </div>
 
-File **dwm.c**
-
-{% highlight_caption dwm.c %}
-{% highlight c linenos %}
-// dwm.c
-
-void
-manage(Window w, XWindowAttributes *wa)
-{
-// ...
-// ...
-
-    wc.border_width = c->bw;
-
-    /* for centering window client open */
-    if (c->x == selmon->wx) c->x += (c->mon->ww - WIDTH(c)) / 2 - c->bw;
-    if (c->y == selmon->wy) c->y += (c->mon->wh - HEIGHT(c)) / 2 - c->bw;
-
-    XConfigureWindow(dpy, w, CWBorderWidth, &wc);
-
-// ...
-// ...
-}
-{% endhighlight %}
 
 ## Status Bar
 
@@ -494,16 +621,35 @@ Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain a
 
 {% highlight_caption network-wlan-tfc.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 wlan_card='wlan0'
-wlan_online=$(ip a s dev $wlan_card | grep -i inet)
-if [[ $wlan_online ]]; then
+
+wlanmon_card=$(ip a s | grep $wlan_card'mon' | awk 'NR%1==0 {print $2}' | sed 's/://g')
+if [ $wlanmon_card ]; then
+    printf " MONITOR"
+fi
+
+wlan_online=$(iw $wlan_card link | grep 'Connected' | awk 'NR%1==0 {print $1}')
+wlan_offline=$(iw $wlan_card link | grep 'Not' | awk 'NR%1==0 {print $1}')
+internet=$(wget -qO- ifconfig.co)
+internet_logo=""
+if [ $internet ]; then
+    internet_logo=" "
+else
+    internet_logo=" "
+fi
+
+if [ $wlan_online ]; then
     wlan_do=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $1}')
     wlan_up=$(ifstat2 -i $wlan_card 1 1 | awk 'NR%3==0 {print $2}')
-    echo "" $wlan_do "" $wlan_up "KB/s"
+    printf "$internet_logo %5s  %5s\\n" \
+    $(numfmt --to=none $wlan_do) \
+    $(numfmt --to=none $wlan_up)
+elif [ $wlan_offline ];then
+    printf " OFFLINE"
 else
-    echo " OFFLINE"
+    printf " NOADPTR"
 fi
 {% endhighlight %}
 
@@ -514,11 +660,16 @@ Saya menggunakan [**aur/ifstat**](https://aur.archlinux.org/packages/ifstat/){:t
 
 {% highlight_caption cpu-temp.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
+icon=""
 get_temp_cpu0=$(cat /sys/class/thermal/thermal_zone0/temp)
 temp_cpu0=$(($get_temp_cpu0/1000))
-echo " "$temp_cpu0"°C"
+if [ $temp_cpu0 -ge 90 ]; then
+    printf "$icon $temp_cpu0°C!"
+else
+    printf "$icon $temp_cpu0°C"
+fi
 {% endhighlight %}
 
 <br>
@@ -526,12 +677,18 @@ echo " "$temp_cpu0"°C"
 
 {% highlight_caption memory.sh%}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
-mem_total=$(free | awk 'NR%2==0 {print $2}')
-mem_used=$(free | awk 'NR%2==0 {print $3}')
+icon=""
+mem_total=$(free -m | awk 'NR%2==0 {print $2}')
+mem_avail=$(free -m | awk 'NR%2==0 {print $7}')
+mem_used=$(( $mem_total - $mem_avail ))
 mem_usage=$(( $mem_used * 100 / $mem_total ))
-echo " "$mem_usage"%"
+if [ $mem_usage -ge 80 ]; then
+    printf "$icon ${mem_usage//%}!"
+else
+    printf "$icon ${mem_usage//%}"
+fi
 {% endhighlight %}
 
 <br>
@@ -539,10 +696,11 @@ echo " "$mem_usage"%"
 
 {% highlight_caption filesystem.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
-cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}')
-echo ""$cap_percentage
+icon=""
+cap_percentage=$(df -h --output=pcent / | awk 'NR%2==0 {print $0}'  | cut -f 1 -d '%'  | xargs)
+printf "$icon $cap_percentage"
 {% endhighlight %}
 
 <br>
@@ -550,17 +708,44 @@ echo ""$cap_percentage
 
 {% highlight_caption volume.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
-mute=$(pamixer --get-mute)
-if [ $mute = "true" ]; then
-    echo " MUTE"
-elif [ $mute = "false" ]; then
-    volume=$(pamixer --get-volume-human)
-    echo " "$volume
-else
-    echo " ERROR"
+# PulseAudio
+ou_mute=$(pamixer --get-mute)
+in_mute=$(pamixer --source 1 --get-mute)
+ou_vol=$(pamixer --get-volume)
+in_vol=$(pamixer --source 1 --get-volume)
+jack_stat=$($HOME/.local/bin/has_headphone)
+
+if   [ $jack_stat = "yes" ]; then
+    icon_ou_on=""
+    icon_ou_off=""
+elif [ $jack_stat = "no"  ]; then
+    icon_ou_on=""
+    icon_ou_off=""
 fi
+icon_in_on=""
+icon_in_off=""
+
+if   ([ $ou_mute = "true"  ] || [ $ou_mute = "off" ]) && ([ $in_mute = "true"  ] || [ $in_mute = "off" ]); then
+    printf "$icon_ou_off Ø $icon_in_off Ø"
+elif ([ $ou_mute = "true"  ] || [ $ou_mute = "off" ]) && ([ $in_mute = "false" ] || [ $in_mute = "on"  ]); then
+    printf "$icon_ou_off Ø $icon_in_on $in_vol"
+elif ([ $ou_mute = "false" ] || [ $ou_mute = "on"  ]) && ([ $in_mute = "true"  ] || [ $in_mute = "off" ]); then
+    printf "$icon_ou_on $ou_vol $icon_in_off Ø"
+elif ([ $ou_mute = "false" ] || [ $ou_mute = "on"  ]) && ([ $in_mute = "false" ] || [ $in_mute = "on"  ]); then
+    printf "$icon_ou_on $ou_vol $icon_in_on $in_vol"
+else
+    printf "$icon_ou_off ERROR"
+fi
+{% endhighlight %}
+
+{% highlight_caption $HOME/.local/bin/has_headphone %}
+{% highlight bash linenos %}
+#!/bin/sh
+
+# PulseAudio
+pacmd list-sinks | grep 'Headphones' | awk '{print $10}' | tr -d ')'
 {% endhighlight %}
 
 <br>
@@ -568,7 +753,7 @@ fi
 
 {% highlight_caption bat-state.sh%}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 state=$(cat /sys/devices/platform/smapi/BAT0/state)
 if [ $state = "charging" ]; then
@@ -587,7 +772,7 @@ fi
 
 {% highlight_caption bat-capacity.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 cap=$(cat /sys/devices/platform/smapi/BAT0/remaining_percent)
 if [ $cap -ge 0 ] && [ $cap -le 20 ]; then
@@ -636,7 +821,7 @@ static int screen;
 // ...
 {% endhighlight %}
 
-Perhatikan baris 10 dan 11, disanalah tempat kita akan meletakkan file **autostart.sh** dan **autostart_blocking.sh**.
+Perhatikan baris 8 dan 9, disanalah tempat kita akan meletakkan file **autostart.sh** dan **autostart_blocking.sh**.
 
 <pre>
 $ <b>mkdir -p ~/.local/share/dwm</b>
@@ -648,7 +833,7 @@ Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 
 {% highlight_caption $HOME/.local/share/dwm/autostart.sh %}
 {% highlight bash linenos %}
-#!/usr/bin/env bash
+#!/bin/sh
 
 pkill -f "slstatus"; slstatus &
 pkill -f "sxhkd"; sxhkd -c ~/.config/sxhkd/sxhkdrc-dwm &
@@ -665,7 +850,7 @@ pkill -f "lxpolkit"; lxpolkit &
 
 Kemudian, ini adalah isi dari **xinitrc** yang berhubungan dengan dwm.
 
-{% highlight_caption $HOME/.local/share/dwm/autostart_blocking.sh %}
+{% highlight_caption $HOME/.xinitrc %}
 {% highlight bash linenos %}
 #!/bin/sh
 
@@ -806,9 +991,10 @@ DONE
   | STATUSBAR:                                                           |
   +----------------------------------------------------------------------+
   | Bandithijo's DWM doesn't bring the status bar.                       |
-  | You should bring your own. My personal preferences are use slstatus. |
+  | You should bring your own. My recommendation is dwmblocks.           |
+  | But, I prefer built my own status.                                   |
   |                                                                      |
-  | Sample: https://s.id/bandithijo-slstatus                             |
+  | Sample: https://s.id/bandithijo-dwmbar                               |
   +----------------------------------------------------------------------+
   +----------------------------------------------------------------------+
   | KEYBOARD:                                                            |

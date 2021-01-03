@@ -52,19 +52,19 @@ Saya memiliki field bernama `price` (budget) dan `duration_id`.
 
 Nah, sekarang saya akan mencoba bermain dengan Active Record.
 
-```
+```irb
 irb(main):001:0> Experience.ransack(price_in: 100..300).result.pluck(:price).uniq
 ```
-```
+```irb
    (5.5ms)  SELECT "experiences"."price" FROM "experiences" LEFT OUTER JOIN "ratings" ON "ratings"."experience_id" = "experiences"."id" WHERE "experiences"."deleted_at" IS NULL AND "experiences"."price" IN ('100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200', '201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260', '261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280', '281', '282', '283', '284', '285', '286', '287', '288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300')
 
 => ["250", "150"]
 ```
 
-```
+```irb
 irb(main):002:0> Experience.ransack(duration_id_in: 1..8).result.pluck(:duration_id).uniq
 ```
-```
+```irb
    (2.1ms)  SELECT "experiences"."duration_id" FROM "experiences" LEFT OUTER JOIN "ratings" ON "ratings"."experience_id" = "experiences"."id" WHERE "experiences"."deleted_at" IS NULL AND "experiences"."duration_id" IN (1, 2, 3, 4, 5, 6, 7, 8)
 
 => [8, 6, 4, 5, 7, 3, 2]
@@ -79,33 +79,31 @@ Tinggal dibuatkan frontend nya.
 
 Search filter ini akan tampil pada halaman Experience index.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
   def index
     @search = Experience.ransack(params[:q])
     @experiences = @search.result(distinct: true).order(:id)
   end
 
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 ## Routes
 
 Seperti biasa, saya memberikan route untuk action index.
 
-```ruby
-# config/routes.rb
-
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 Rails.application.routes.draw do
   resources :experiences, only: %w[index ... ...] do
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 ## View Template
 
@@ -113,10 +111,8 @@ Contoh blok html di bawha ini hanya sebagai dummy.
 
 Hanya blok kode ERB saja yang perlu diperhatikan.
 
-
-```erb
-<!-- app/views/experiences/index.html -->
-
+{% highlight_caption app/views/experiences/index.html %}
+{% highlight eruby linenos %}
 <%= search_form_for @search, url: experiences_path do |f| %>
   <div class="position-relative">
     <div class="row column-search">
@@ -180,14 +176,14 @@ Hanya blok kode ERB saja yang perlu diperhatikan.
     <%= f.submit "Check Availability", class: "btn btn-primary" %>
   </div>
 <% end %>
-```
+{% endhighlight %}
 
 Perhatikan pada masing-masing check box, saya memberikan nama,
 
-```erb
+```eruby
 name: 'q[price_in]'
 ```
-```erb
+```eruby
 name: 'q[duration_id_in]'
 ````
 
@@ -195,10 +191,10 @@ Agar output dari params tersebut menghasilkan string.
 
 Karena, apabila saya tidak saya memberikan nama, check box ini secara default akan memiliki nama,
 
-```erb
+```eruby
 name: 'q[price_in][]'
 ````
-```erb
+```eruby
 name: 'q[duration_id_in][]'
 ```
 
@@ -210,18 +206,17 @@ Karena nanti hasil output dari `params[:q][:price_in]` dan `params[:q][:duration
 
 Tambahkan kode di bawah ini pada **experiences_controller.rb**.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
   before_action :convert_string_into_range, only: [:index]
 
   def index
-    ...
+    # ...
   end
 
-  ...
-  ...
+  # ...
+  # ...
 
   private
 
@@ -242,7 +237,7 @@ class ExperiencesController < ApplicationController
     end
   end
 end
-```
+{% endhighlight %}
 
 ### jQuery disable multiple check
 
@@ -250,15 +245,14 @@ Secara default, view helper `collection_check_boxes` ini dapat menampung multipl
 
 Saya menggunakan bantuan jQuery untuk dapat melakukan hal tersebut di atas.
 
-```erb
-<!-- app/views/experiences/index.html -->
-
+{% highlight_caption app/views/experiences/index.html %}
+{% highlight eruby linenos %}
 ...
 ...
 
 <script>
-  ...
-  ...
+  // ...
+  // ...
 
   // For clear all checkboxes on Duration
   $('#clearAllDuration').on("click", function(){
@@ -282,10 +276,10 @@ Saya menggunakan bantuan jQuery untuk dapat melakukan hal tersebut di atas.
     $('input.custom-control-input.budget').not(this).prop('checked', false);
   });
 
-  ...
-  ...
+  // ...
+  // ...
 </script>
-```
+{% endhighlight %}
 
 Nah, dengan begini tahapan demi tahapan sudah selesai.
 

@@ -68,29 +68,27 @@ Pertama-tama generate dulu fake data untuk experiences.
 
 Saya akan mengenerate sebanyak 100 data.
 
-```ruby
-# db/seeds.rb
-
+{% highlight_caption db/seeds.rb %}
+{% highlight ruby linenos %}
 puts "Creating Fake Experiences"
 100.times do
   Experience.create(
-    ...
-    ...
-    ...
+    # ...
+    # ...
+    # ...
   )
 end
-```
+{% endhighlight %}
 
 Setelah jadi, saya akan mengupdate data2 pada experience untuk menambahkan data location dan meeting_point.
 
-```ruby
-# db/seeds.rb
-
+{% highlight_caption db/seeds.rb %}
+{% highlight ruby linenos %}
 puts "Creating Fake Experiences"
-...
-  ...
-  ...
-...
+# ...
+#   ...
+#   ...
+# ...
 
 puts "Creating Fake Experiences Location & Meeting Address"
 places = {
@@ -118,13 +116,13 @@ places = {
     meeting_point: places[places.keys.sample]
   )
 end
-```
+{% endhighlight %}
 
-Nah, tinggal jalankan `$ rails db:seed` dan field location dan meeting_point akan terisi oleh data dari variable hash places tersebut.
+Nah, tinggal jalankan <code>$ <b>rails db:seed</b></code> dan field location dan meeting_point akan terisi oleh data dari variable hash places tersebut.
 
 Seperti ini.
 
-```
+```sql
 > SELECT id, location, meeting_point FROM experiences;
 ```
 

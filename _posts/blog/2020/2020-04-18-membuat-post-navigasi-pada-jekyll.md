@@ -39,10 +39,9 @@ Saya akan membuat sebuah file bernama `page-navigation.html` di dalam direktori 
 
 Tujuannya agar lebih modular. Maksudnya, kita dapat memasang page navigation di mana saja yang kita perlukan, tinggal dipanggil menggunakan `include`.
 
+{% highlight_caption _includes/page-navigation.html %}
+{% highlight liquid linenos %}
 {% raw %}
-```liquid
-<!-- _inlcudes/page-navigation.html -->
-
 <div class="page-navigation mt-5">
   <div class="row d-flex justify-content-between">
     <div class="col-6 text-left">
@@ -57,8 +56,8 @@ Tujuannya agar lebih modular. Maksudnya, kita dapat memasang page navigation di 
     </div>
   </div>
 </div>
-```
 {% endraw %}
+{% endhighlight %}
 
 Oh yaa, untuk class dari stylesheet di atas, saya menggunakan Bootstrap CSS Framework.
 
@@ -68,9 +67,9 @@ Selanjutnya tinggal memangilnya.
 
 Karena saya akan menggunakannya pada halaman/layout post, maka akan saya pasangkan di `_layouts/post.html`.
 
+{% highlight_caption /_layouts/post.html %}
+{% highlight liquid linenos %}
 {% raw %}
-```liquid
-<!-- _layouts/post.html -->
 
 ...
 ...
@@ -78,8 +77,8 @@ Karena saya akan menggunakannya pada halaman/layout post, maka akan saya pasangk
 {% include page-navigation.html %}
 
 ...
-```
 {% endraw %}
+{% endhighlight %}
 
 
 Kelar!

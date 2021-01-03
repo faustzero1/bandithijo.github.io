@@ -59,11 +59,12 @@ Untuk mengakali ini, saya memanfaatkan fungsi *image processing* yang dapat diko
 
 Saya sudah memasang Shrine ke dalam Gemfile aplikasi saya.
 
-```ruby
-# Gemfile
-
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
 gem "shrine", "~> 3.0"
-```
+{% endhighlight %}
 
 ## Pemasangan Image Processing
 
@@ -73,43 +74,44 @@ Pada catatan kali ini saya tidak menjelaskan mengenai penggunaan libvips.
 
 **Pada Arch Linux**
 
-```
-$  sudo pacman -S imagemagick
-```
+<pre>
+$ <b>sudo pacman -S imagemagick</b>
+</pre>
+
 
 Untuk distribusi yang lain, silahkan mencari paket ImageMagick yang tersedia pada repository distro masing-masing.
 
 Selanjutnya tambahkan `image_processing` pada Gemfile.
 
-```ruby
-# Gemfile
-
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
 gem 'image_processing', '~> 1.8'
-```
+{% endhighlight %}
 
 Install gem yang baru saja kita pasang.
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 ## Konfigurasi Initializer Shrine
 
 Tambahkan plugin **derivatives** pada Shrine initializer.
 
-```ruby
-# config/initializers/shrine.rb
-
-...
-...
-...
-
+{% highlight_caption config/initializers/shrine.rb %}
+{% highlight ruby linenos %}
+# ...
+# ...
+# ...
+ 
 Shrine.plugin ...
 Shrine.plugin ...
 Shrine.plugin ...
 Shrine.plugin :derivatives
 Shrine.plugin :default_url
-```
+{% endhighlight %}
 
 Saya juga menambahkan plugin **default_url** agar image yang belum memiliki turunan, dapat menggunakan original image.
 
@@ -117,9 +119,8 @@ Saya juga menambahkan plugin **default_url** agar image yang belum memiliki turu
 
 Selanjutnya saya akan menambahkan fungsi untuk *eager processing* atau *derivatives processing* pada model image uploader.
 
-```ruby
-# app/models/image_uploader.rb
-
+{% highlight_caption app/models/image_uploader.rb %}
+{% highlight ruby linenos %}
 require "image_processing/mini_magick"
 
 class ImageUploader < Shrine
@@ -144,7 +145,7 @@ class ImageUploader < Shrine
     file&.url if derivative
   end
 end
-```
+{% endhighlight %}
 
 Saya rasa, pada blok *eager processing / derivatives processing* sudah dapat dipahami yaa.
 
@@ -156,20 +157,21 @@ Namun, saya sempat membaca kalau libvips dapat memproses lebih ringan dan lebih 
 
 Model `image_uploader.rb` ini tentunya akan dipanggil pada model-model yang memiliki field `image_data:text` atau dengan nama yang lain namun berakhiran `_data:text`, caranya dengan menambahkan include seperti di bawah ini.
 
-```ruby
-# app/models/nama_model.rb
-
+{% highlight_caption app/models/nama_model.rb %}
+{% highlight ruby linenos %}
 class NamaModel < ApplicationRecord
-  ...
-  ...
+  # ...
+  # ...
+
   # Contoh dengan field image_data
   include ImageUploader::Attachment(:image)
   # Atau, dengan nama field yang berbeda
   include ImageUploader::Attachment(:header_image)
-  ...
-  ...
+
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 ## Controller
 
@@ -177,16 +179,15 @@ Selanjutnya, pada controller yang menggunakan image uploader, saya akan menambah
 
 Misal, saya memiliki posts controller.
 
-```ruby
-# app/controllers/admin/posts_controller.rb
-
+{% highlight_caption app/controllers/admin/posts_controller.rb %}
+{% highlight ruby linenos %}
 class Admin::PostsController < AdminsController
   def index
-    ...
+    # ...
   end
 
   def show
-    ...
+    # ...
   end
 
   def new
@@ -221,11 +222,11 @@ class Admin::PostsController < AdminsController
   end
 
   def destroy
-    ...
+    # ...
   end
 
   def delete_image_attachment
-    ...
+    # ...
   end
 
   private
@@ -234,21 +235,20 @@ class Admin::PostsController < AdminsController
     params.require(:post).permit(:title, :content, :image)
   end
 end
-```
+{% endhighlight %}
 
 **Gimana kalau field `image_data` berada pada tabel yang berelasi?**
 
-```ruby
-# app/controllers/admin/experiences_controller.rb
-
+{% highlight_caption app/controllers/admin/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class Admin::ExperiencesController < AdminsController
 
   def index
-    ...
+    # ...
   end
 
   def show
-    ...
+    # ...
   end
 
   def new
@@ -287,7 +287,7 @@ class Admin::ExperiencesController < AdminsController
   end
 
   def destroy
-    ...
+    # ...
   end
 
   private
@@ -296,7 +296,7 @@ class Admin::ExperiencesController < AdminsController
     params.require(:experience).permit(..., ..., ...)
   end
 end
-```
+{% endhighlight %}
 
 ## Views
 
@@ -306,9 +306,8 @@ Sekarang cara memanggilnya pada view template.
 
 Perhatikan bagian `image_tag`.
 
-```erb
-<!-- app/views/public/posts/index.html.erb -->
-
+{% highlight_caption app/views/public/posts/index.html.erb %}
+{% highlight eruby linenos %}
 <!-- Post list -->
 <% @posts.each do |post| %>
   <div class="row">
@@ -331,7 +330,7 @@ Perhatikan bagian `image_tag`.
   </div>
 <% end %>
 <!-- END Post list -->
-```
+{% endhighlight %}
 
 Saya menggunakan bentuk `image_tag` seperti ini,
 
@@ -378,9 +377,8 @@ Saya akan buat direktori baru bernama `script` dan membuat file baru bernama `de
 
 Namanya sengaja saya buat keren. Biar sedikit memprovokasi.
 
-```ruby
-# script/derivatives_bomb.rb
-
+{% highlight_caption script/derivatives_bomb.rb %}
+{% highlight ruby linenos %}
 # WHAT IS THIS?
 # This script is for adding derivatives in existing photos purposes
 # Existing photos means, photos that had been on server before image
@@ -457,13 +455,13 @@ d8888b.  .d88b.  d8b   db d88888b db
 88  .8D `8b  d8' 88  V888 88.     db
 Y8888D'  `Y88P'  VP   V8P Y88888P YP
 """
-```
+{% endhighlight %}
 
 Cara menjalankannya sangat mudah,
 
-```
-$ rails runner script/derivatives_bomb.rb
-```
+<pre>
+$ <b>rails runner script/derivatives_bomb.rb</b>
+</pre>
 
 Tunggu prosesnya sampai selesai.
 

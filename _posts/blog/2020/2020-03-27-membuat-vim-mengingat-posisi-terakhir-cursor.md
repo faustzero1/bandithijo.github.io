@@ -48,13 +48,14 @@ Kita akan menggunakan bantuan viminfo agar dapat mengingat **marks**.
 
 Tanda `"` akan mengingat posisi cursor di dalam buffer saat kita keluar (delete buffer/keluar vim).
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 " restore cursor position when opening file
 autocmd BufReadPost *
     \ if line("'\"") > 1 && line("'\"") <= line("$") |
     \   execute "normal! g`\"" |
     \ endif
-```
+{% endhighlight %}
 
 Kira-kira begini penjelasannya,
 
