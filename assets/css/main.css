@@ -1916,6 +1916,7 @@ div.highlight-caption {
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 5px 5px 0 0;
   overflow: auto;
+  white-space: nowrap;
 }
 
 div.highlight-caption span.label {
@@ -1944,7 +1945,6 @@ div.highlight-caption code {
   color: #fff;
   font-weight: bold;
   margin-left: 0.2em;
-  white-space: nowrap;
 }
 
 
