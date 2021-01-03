@@ -43,19 +43,19 @@ Alasan kenapa memilih Ransack, karena Ransack works out-of-the-box pada Active R
 
 Seperti biasa, tambahkan pada `Gemfile`.
 
-```ruby
-# Gemfile
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
 
-...
-...
 gem 'ransack', '~> 2.3'
-```
+{% endhighlight %}
 
 Setelah itu jangan lupa untuk menjalankan,
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 Untuk menginstall Ransack pada web aplikasi kita.
 
@@ -79,20 +79,19 @@ Contoh di atas, sudah dapat kita perkirakan bahwa hasil dari object yang sudah d
 
 Nah, pada bagian controller, isinya sangat orisinil seperti yang dicontohkan pada halaman readme dari Ransack.
 
-```ruby
-# app/controllers/careers_controller.rb
-
+{% highlight_caption app/controllers/careers_controller.rb %}
+{% highlight ruby linenos %}
 class CareersController < ApplicationController
   def index
     @q = Career.ransack(params[:q])
     @careers = @q.result(distinct: true).page(params[:page]).per(10)
   end
 
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Pada model dan route, tidak perlu kita tambahkan apa-apa.
 
@@ -123,9 +122,8 @@ Untuk view template style dari tab, sesuaikan dengan style yang teman-teman guna
 
 Yang saya berikan di bawah, hanya contoh saja.
 
-```erb
-<!-- app/views/careers/index.html.erb -->
-
+{% highlight_caption app/views/careers/index.html.erb %}
+{% highlight eruby linenos %}
 <nav class="nav">
   <% if (params.has_key?(:q)) %>
     <%= link_to 'All', careers_path, class: "nav-link" %>
@@ -145,7 +143,7 @@ Yang saya berikan di bawah, hanya contoh saja.
                              class: "nav-link" %>
   <% end %>
 </nav>
-```
+{% endhighlight %}
 
 Hmmm, kurang beautiful yaa...
 
@@ -153,9 +151,8 @@ Wkwkwkwk
 
 Mungkin bisa disederhanakan lagi seperti ini.
 
-```erb
-<!-- app/views/careers/index.html.erb -->
-
+{% highlight_caption app/views/careers/index.html.erb %}
+{% highlight eruby linenos %}
 <nav class="nav">
     <%= link_to 'All', careers_path, class: "nav-link #{params.has_key?(:q) ? '' : 'active'}" %>
     <%= link_to 'Singapore', careers_path(q: {country_cont: 'Singapore'}),
@@ -165,7 +162,7 @@ Mungkin bisa disederhanakan lagi seperti ini.
     <%= link_to 'Thailand',  careers_path(q: {country_cont: 'Thailand'}),
                              class: "nav-link #{'active' if params.has_key?(:q) && params[:q][:country_cont] == 'Thailand'}" %>
 </nav>
-```
+{% endhighlight %}
 
 Dah!
 
@@ -177,9 +174,8 @@ Yuk kita lakukan, agar kode di view template kita lebih *compact*.
 
 Buat instance variable baru untuk daftar negara-negara pada controller.
 
-```ruby
-# app/controllers/careers_controller.rb
-
+{% highlight_caption app/controllers/careers_controller.rb %}
+{% highlight ruby linenos %}
 class CareersController < ApplicationController
   def index
     @q = Career.ransack(params[:q])
@@ -188,17 +184,16 @@ class CareersController < ApplicationController
     @country_list = Career.all.pluck(:country).uniq.sort
   end
 
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Sekarang kita memiliki instance variable `@country_list` yang dapat kita gunakan pada view template.
 
-```erb
-<!-- app/views/careers/index.html.erb -->
-
+{% highlight_caption app/views/careers/index.html.erb %}
+{% highlight eruby linenos %}
 <nav class="nav">
   <%= link_to 'All', careers_path, class: "nav-link #{params.has_key?(:q) ? '' : 'active'}" %>
   <% @country_list.each do |country| %>
@@ -206,7 +201,7 @@ Sekarang kita memiliki instance variable `@country_list` yang dapat kita gunakan
                          class: "nav-link #{'active' if params.has_key?(:q) && params[:q][:country_cont] == country}" %>
   <% end %>
 </nav>
-```
+{% endhighlight %}
 
 Nah, gimana? Asik kan?
 
@@ -214,9 +209,8 @@ Wkwkwk
 
 Selanjutnya, untuk menampilkan hasil dari index listnya, seperti ini.
 
-```erb
-<!-- app/views/careers/index.html.erb -->
-
+{% highlight_caption app/views/careers/index.html.erbion /etc/default/grub %}
+{% highlight eruby linenos %}
 ...
 ...
 
@@ -240,7 +234,7 @@ Selanjutnya, untuk menampilkan hasil dari index listnya, seperti ini.
   <% end %>
   <!-- END Available Position -->
 </div>
-```
+{% endhighlight %}
 
 Selesai!
 
@@ -276,14 +270,14 @@ Caranya sangat mudah, saya hanya perlu bermain pada router dan controller.
 
 Pertama-tama definiskan url form yang diinginkan pada `routes.rb`.
 
-```ruby
-# config/routes.rb
+{% highlight_caption config/routes.rb %}
+{% highlight ruby linenos %}
 
-  ...
-  ...
+  # ...
+  # ...
 
   get 'careers?country=:country', to: 'careers#index', as: 'career_country'
-```
+{% endhighlight %}
 
 Pendefinisan routing ini, akan menghasilkan sebuah path baru untuk kita, yaitu `career_country_path`.
 
@@ -295,9 +289,8 @@ Selanjutnya akan saya gunakan pada controller.
 
 Pada instance variable `@q`, ubah object params yang ditangkap  dari `:q` menjadi `:country`.
 
-```ruby
-# app/controllers/careers_controller.rb
-
+{% highlight_caption app/controllers/careers_controller.rb %}
+{% highlight ruby linenos %}
 class CareersController < ApplicationController
   def index
     @q = Career.ransack(country_cont: params[:country])
@@ -306,19 +299,18 @@ class CareersController < ApplicationController
     @country_list = Career.all.pluck(:country).uniq.sort
   end
 
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Langkah terakhir, tinggal menggunakan path yang sudah didefinisikan di atas ke view template.
 
 Serta merubah beberapa properti untuk `.active` class pada button tab yang aktif.
 
-```erb
-<!-- app/views/careers/index.html.erb -->
-
+{% highlight_caption app/views/careers/index.html.erb %}
+{% highlight eruby linenos %}
 <nav class="nav">
   <%= link_to 'All', careers_path, class: "nav-link #{params.has_key?(:country) ? '' : 'active'}" %>
   <% @country_list.each do |country| %>
@@ -326,11 +318,17 @@ Serta merubah beberapa properti untuk `.active` class pada button tab yang aktif
                          class: "nav-link #{'active' if params[:country] == country}" %>
   <% end %>
 </nav>
-```
+{% endhighlight %}
 
 Selesai.
 
 Sekarang bentuk dari url menjadi lebih bagus.
+
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title">[ ! ] Perhatian</div>
+<p>Saya tidak merekomendasikan menggunakan cara di atas untuk mempercantik URL, karena akan mempersulit apabila ingin dipadukan dengan sorting atau searching.</p>
+</div>
 
 Oke, sepertinya segini saja.
 

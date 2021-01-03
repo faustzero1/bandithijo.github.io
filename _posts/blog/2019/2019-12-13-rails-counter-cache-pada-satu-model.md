@@ -82,48 +82,48 @@ Pertama-tama seperti halnya convetion pada counter cache, saya perlu manambahkan
 
 Buat migration untuk menambahkan kolom counter cache.
 
-```
-$ rails g migration add_inviting_user_to_users
-```
+<pre>
+$ <b>rails g migration add_inviting_user_to_users</b>
+</pre>
+
 <pre>
     <span style="color:#859900;">create</span> 20191122174434_add_inviting_user_count_to_users.rb
 </pre>
 
 Setelah file migrasi jadi, saya akan menambahkan dua buah kolom.
 
-```ruby
-# db/migrate/20191122174434_add_inviting_user_count_to_users.rb
-
+{% highlight_caption db/migrate/20191122174434_add_inviting_user_count_to_users.rb %}
+{% highlight ruby linenos %}
 class AddInvitingUsersCountToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :inviting_user_id, :integer
     add_column :users, :inviting_users_count, :integer, default: 0, null: false
   end
 end
-```
+{% endhighlight %}
 
 Untuk field `inviting_users_count` adalah field yang saya siapkan untuk counter cache, yang harus mengikuti aturan penamaan kolom untuk counter cache. yaitu, penamaannya harus plural (jamak).
 
 Kemudian, jalankan migrationnya.
 
-```
-$ rails db:migrate
-```
+<pre>
+$ <b>rails db:migrate</b>
+</pre>
 
 Apabila berhasil, berikut ini adalah bentuk dari skema database setelah migrasi berhasil kita jalankan.
 
-<pre>
-<span style="color:#586e75;font-style:italic;"># db/schema.rb</span>
-
+{% highlight_caption db/schema.rb %}
+{% highlight ruby linenos %}
 create_table "users", force: :cascade do |t|
   ...
   ...
   ...
-  <mark>t.integer "inviting_user_id"</mark>
-  <mark>t.integer "inviting_users_count", default: 0, null: false</mark>
+  t.integer "inviting_user_id"
+  t.integer "inviting_users_count", default: 0, null: false
 end
+{% endhighlight %}
 
-
+<pre>
 <span style="color:#586e75;font-style:italic;"># Users table</span>
 +------------------------+-----------------------------+-----------------------------------------------------+
 | Column                 | Type                        | Modifiers                                           |
@@ -141,12 +141,11 @@ end
 
 Selanjutnya tinggal membuat asosiasi pada user model.
 
-```ruby
-# app/models/user.rb
-
+{% highlight_caption app/models/user.rb %}
+{% highlight ruby linenos %}
 class User < ApplicationRecord
-  ...
-  ...
+  # ...
+  # ...
 
   has_many   :inviting_users,
              class_name: 'User',
@@ -156,10 +155,10 @@ class User < ApplicationRecord
              counter_cache: :inviting_users_count,
              optional: true
 
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Saya rasa, sudah jelas dari kode di atas. Bagaimana relasi antar kedua field dalam satu model dapat terjadi.
 

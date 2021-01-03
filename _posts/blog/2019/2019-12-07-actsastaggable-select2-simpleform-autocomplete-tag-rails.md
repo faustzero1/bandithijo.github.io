@@ -59,15 +59,14 @@ Nah, dari ilustrasi gambar tersebut, saya rasa pasti sudah paham kan yaa.
 
 Sebagai langkah awal, kita perlu memasang semua gem yang diperlukan pada `Gemfile`.
 
-```ruby
-# Gemfile
-...
-...
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
 gem 'acts-as-taggable-on',      '~> 6.0'
 gem 'simple_form',              '~> 5.0', '>= 5.0.1'
 gem 'select2-rails',            '~> 4.0', '>= 4.0.3'
-
-```
+{% endhighlight %}
 
 Versi dari gem di atas, adalah versi dari gem saat catatan ini ditulis.
 
@@ -80,9 +79,9 @@ Versi dari gem di atas, adalah versi dari gem saat catatan ini ditulis.
 
 Setelah menambahkan gem, jangan lupa untuk menginstallnya.
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 Setelah itu kita perlu melakukan langkah-langkah *post installation* terhadap masing-masing gem.
 
@@ -90,15 +89,15 @@ Setelah itu kita perlu melakukan langkah-langkah *post installation* terhadap ma
 
 Kita perlu melakukan generate migration untuk ActsAsTaggable.
 
-```
-$ rails acts_as_taggable_on_engine:install:migrations
-```
+<pre>
+$ <b>rails acts_as_taggable_on_engine:install:migrations</b>
+</pre>
 
 Lalu, jalankan migrationnya.
 
-```
-$ rails db:migrate
-```
+<pre>
+$ <b>rails db:migrate</b>
+</pre>
 
 Dari migration tersebut, akan dibuatkan 2 buah skema baru, yaitu tabel **taggings** dan **tags**.
 
@@ -106,15 +105,15 @@ Dari migration tersebut, akan dibuatkan 2 buah skema baru, yaitu tabel **tagging
 
 Selanjutnya, untuk simple_form, jalankan juga generator yang sudah disediakan oleh simple_form.
 
-```
-$ rails generate simple_form:install
-```
+<pre>
+$ <b>rails generate simple_form:install</b>
+</pre>
 
 Karena saya menggunakan **Bootstrap**, maka saya perlu menambahkan option `--bootstrap`.
 
-```
-$ rails generate simple_form:install --bootstrap
-```
+<pre>
+$ <b>rails generate simple_form:install --bootstrap</b>
+</pre>
 
 ## Select2 Rails
 
@@ -126,32 +125,31 @@ Untuk proses *post installation*, kita hanya perlu memanggil library ini pada we
 
 Tambahkan select2_rails pada javascript assets.
 
-```javascript
-// app/assets/javascripts/application.js
+{% highlight_caption app/assets/javascripts/application.js %}
+{% highlight javascript linenos %}
+// ...
+// ...
+// ...
 
-...
-...
-...
 //= require select2
-```
+{% endhighlight %}
 
 Tambahkan select2_rails pada stylesheet assets.
 
-```sass
-// app/assets/stylesheets/application.scss
+{% highlight_caption app/assets/stylesheets/application.scss %}
+{% highlight scss linenos %}
 
-...
-...
-...
+// ...
+// ...
+// ...
 @import "select2";
 @import "select2-bootstrap";
-```
+{% endhighlight %}
 
 Kalau yang menggunakan `application.css`.
 
-```css
-/* app/assets/stylesheets/application.css */
-
+{% highlight_caption app/assets/stylesheets/application.css %}
+{% highlight css linenos %}
 /*
  ...
  ...
@@ -159,7 +157,7 @@ Kalau yang menggunakan `application.css`.
  *= require select2
  *= require select2-bootstrap
  */
-```
+{% endhighlight %}
 
 Nah, selanjutnya tinggal mengaplikasikan ke dalam project.
 
@@ -179,33 +177,32 @@ Model tag ini tidak langsung dibuat oleh ActsAsTaggable. Karena memang tidak dip
 
 Namun, kita perlu membuat model ini agar kita dapat membuat object pada controller.
 
-```ruby
-# app/models/tag.rb
-
+{% highlight_caption app/models/tag.rb %}
+{% highlight ruby linenos %}
 class Tag < ApplicationRecord
   has_many :taggings
   has_many :articles, through: :taggings
 end
-```
+{% endhighlight %}
+
 Selanjutnya, pada model article.
 
 Saya akan menambahkan relasi dan mendefinisikan object yang akan digunakan oleh ActsAsTaggable.
 
-```ruby
-# app/models/article.rb
-
+{% highlight_caption app/models/article.rb %}
+{% highlight ruby linenos %}
 class Article < ApplicationRecord
-  ...
-  ...
+  # ...
+  # ...
   has_many   :taggings
   has_many   :tags, through: :taggings
 
   acts_as_taggable_on :tags
 
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Sebenarnya, apabila object tag kita bernama tag, cukup gunakan,
 
@@ -229,16 +226,15 @@ Setelah membuat relasi dan mendefinisikan object tag, kita akan punya object tag
 
 Karena kita akan menggunakan form pada action `:new` dan `:edit`, maka saya perlu membuat instance variable dari object tag yang nantinya akan digunakan untuk menampilkan autocomplete tag suggestion yang tersedia dalam populasi object tags.
 
-```ruby
-# app/controllers/articles_controller.rb
-
+{% highlight_caption app/controllers/articles_controller.rb %}
+{% highlight ruby linenos %}
 class ArticlesController < ApplicationController
   def index
-    ...
+    # ...
   end
 
   def show
-    ...
+    # ...
   end
 
   def new
@@ -247,7 +243,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    ...
+    # ...
   end
 
   def edit
@@ -256,11 +252,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    ...
+    # ...
   end
 
   def destroy
-    ...
+    # ...
   end
 
   private
@@ -269,7 +265,7 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :author_id, , :post, tag_list: [])
   end
 end
-```
+{% endhighlight %}
 
 Jangan lupa untuk memberikan permit pada object `:tag_list` berupa `tag_list: []`.
 
@@ -289,27 +285,24 @@ Pertama, saya akan membuat form dulu dengan bantuan `simple_form`.
 
 Karena yang memerlukan from ini adalah action `:new` dan `:edit`, maka saya akan membuatnya menjadi render partial template.
 
-```erb
-<!-- app/views/articles/new.html.erb -->
-
+{% highlight_caption app/views/articles/new.html.erb %}
+{% highlight eruby linenos %}
 <%= simple_form_for(@article, url: { action: :create }, html: { id: 'form' } ) do |f| %>
   <%= render 'form', f: f, article: @article, tag_list: @tag_list %>
 <% end %>
-```
+{% endhighlight %}
 
-```erb
-<!-- app/views/articles/edit.html.erb -->
-
+{% highlight_caption app/views/articles/edit.html.erb %}
+{% highlight eruby linenos %}
 <%= simple_form_for(@article, url: { action: :update }, html: { id: 'form' } ) do |f| %>
   <%= render 'form', f: f, article: @article, tag_list: @tag_list %>
 <% end %>
-```
+{% endhighlight %}
 
 Kemudian formnya akan seperti ini.
 
-```erb
-<!-- app/views/articles/_form.html.erb -->
-
+{% highlight_caption app/views/articles/_form.html.erb %}
+{% highlight eruby linenos %}
 <div class="form-row">
   <div class="form-group">
     <label>Title</label>
@@ -339,13 +332,12 @@ Kemudian formnya akan seperti ini.
     <%= f.submit "Publish", class: "btn btn-primary" %>
   </div>
 </div>
-```
+{% endhighlight %}
 
 Kemudian pada bagian bawah dari file `_form.html.erb` ini, kita akan menambahkan javascript library dari Select2.
 
-```erb
-<!-- app/views/articles/_form.html.erb -->
-
+{% highlight_caption app/views/articles/_form.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 ...
@@ -359,7 +351,7 @@ Kemudian pada bagian bawah dari file `_form.html.erb` ini, kita akan menambahkan
     });
   });
 </script>
-```
+{% endhighlight %}
 
 Untuk mendapatkan id `#article_tag_list` dapat menggunakan fitur inspect yang ada pada Browser dan lakukan inspeksi terhadap kolom input.
 

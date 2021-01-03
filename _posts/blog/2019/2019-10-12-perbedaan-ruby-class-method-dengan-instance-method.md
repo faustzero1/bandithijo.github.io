@@ -33,7 +33,8 @@ Misalkan kita punya sebuah *Class* seperti di bawah ini.
 
 Coba tuliskan per barisnya di dalam **irb** saja biar praktis.
 
-```ruby
+{% highlight_caption jurus_sakti.rb %}
+{% highlight ruby linenos %}
 class JurusSakti
   def self.kame_hameha
     "Jurus dari Class Method"
@@ -43,7 +44,7 @@ class JurusSakti
     "Jurus dari Instance Method"
   end
 end
-```
+{% endhighlight %}
 
 Dari kode di atas, kita dapat melihat bahwa *class JurusSakti* memiliki dua buah *mehtod*.
 
@@ -98,23 +99,25 @@ Maka dari itu, *method kaio_ken* kali ini, berhasil dipanggil.
 
 Contoh dari *Class Method*.
 
-```ruby
+{% highlight_caption jurus_sakti.rb %}
+{% highlight ruby linenos %}
 class JurusSakti
   def self.kame_hameha
     "Jurus dari Instance Method"
   end
 end
-```
+{% endhighlight %}
 
 Contoh dari *Instance Method*.
 
-```ruby
+{% highlight_caption jurus_sakti.rb %}
+{% highlight ruby linenos %}
 class JurusSakti
   def kaio_ken
     "Jurus dari Instance Method"
   end
 end
-```
+{% endhighlight %}
 
 Bahan bacaan lebih lengkap, dapat merujuk pada sumber yang saya sertakan pada referensi di bawah.
 

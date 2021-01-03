@@ -207,9 +207,10 @@ Dengan begini, tahap konfigurasi Custom Domain GitHub Pages dengan Route 53 seba
 
 Lakukan pengujian `ping` terlebih dahulu, apakah domain kita sudah *up* atau belum.
 
-```
-$ ping -c 3 bandithijo.com
-```
+<pre>
+$ <b>ping -c 3 bandithijo.com</b>
+</pre>
+
 ```
 PING bandithijo.com (185.199.109.153) 56(84) bytes of data.
 64 bytes from 185.199.109.153 (185.199.109.153): icmp_seq=1 ttl=56 time=43.2 ms
@@ -224,9 +225,10 @@ rtt min/avg/max/mdev = 42.743/43.145/43.532/0.364 ms
 <br>
 Selanjutnya tahap menggali informasi DNS nameserver dengan DNS lookup utility bernama `dig`.
 
-```
-$ dig bandithijo.com
-```
+<pre>
+$ <b>dig bandithijo.com</b>
+</pre>
+
 ```
 ; <<>> DiG 9.14.2 <<>> bandithijo.com
 ;; global options: +cmd

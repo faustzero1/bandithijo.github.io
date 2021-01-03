@@ -52,15 +52,14 @@ Oke, kembali ke pokok perbincangan utama.
 
 Untuk merubah kolom/field duration dari tipe data time menjadi integer, saya melakukan migration seperti ini.
 
-```
-$ rails g migration alter_experiences_duration_to_integer
-```
+<pre>
+$ <b>rails g migration alter_experiences_duration_to_integer</b>
+</pre>
 
 Kemudian menuliskan manual, masing-masing method up dan down-nya.
 
-```ruby
-# db/migrate/20191122060352_alter_experiences_duration_to_integer.rb
-
+{% highlight_caption db/migrate/20191122060352_alter_experiences_duration_to_integer.rb %}
+{% highlight ruby linenos %}
 class AlterExperiencesDurationToInteger < ActiveRecord::Migration[5.2]
   def up
     remove_column :experiences, :duration, :time
@@ -72,23 +71,22 @@ class AlterExperiencesDurationToInteger < ActiveRecord::Migration[5.2]
     add_column :experiences, :duration, :time
   end
 end
-```
+{% endhighlight %}
 
 Perlu diketahui, saya melakukan perintah `remove_column` karena web aplikasi yang saya bangun, belum memiliki data sungguhan. Apabila sudah memiliki data sungguhan, sangat dihindari untuk melakukan penghapusan kolom/field. Lebih baik membuat kolom/field yang baru.
 
 Berikut ini adalah contoh dari skema tabel experiences yang saya miliki.
 
-```ruby
-# db/schema.rb
-
+{% highlight_caption db/schema.rb %}
+{% highlight ruby linenos %}
 create_table "experiences", force: :cascade do |t|
-  ...
-  ...
+  # ...
+  # ...
   t.integer "duration"
-  ...
-  ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 Karena saya menggunakan seed untuk membuat data-data dummy, saya perlu merubah formatnya dari format time menjadi total menit.
 
@@ -106,9 +104,8 @@ duration: [90, 180, 390, 480].sample
 
 Karena data sudah disimpan dalam bentuk integer dan dalam satuan menit, maka saya perlu bantuan helper method untuk mengkonversi bentuk dari "hanya menit" menjadi "jam dan menit".
 
-```ruby
-# app/helpers/experiences_helper.rb
-
+{% highlight_caption app/helpers/experiences_helper.rb %}
+{% highlight ruby linenos %}
 def formatted_duration(total_minute)
   hours = total_minute / 60
   minutes = total_minute % 60
@@ -118,22 +115,21 @@ def formatted_duration(total_minute)
     pluralize("#{ hours }", "hour") + " " + pluralize("#{ minutes }", "minute")
   end
 end
-```
+{% endhighlight %}
 
 Dengan begini, saya memiliki helper method bernama `formatted_duration()` yang dapat saya manfaatkan untuk mengkonversi tampilan data duration yang hanya dalam satuan menit, menjadi bentuk jam dan menit.
 
 Kira-kira seperti ini contoh penggunaannya dalam view template.
 
-```erb
-<!-- app/views/experiences/index.html.erb -->
-
+{% highlight_caption app/views/experiences/index.html.erb %}
+{% highlight eruby linenos %}
 <div class="row no-gutters">
   <div class="col-sm-6">
     <span class="icon-time1 mr-1"></span>
     <span>Duration: <%= formatted_duration(experience.duration) %></span>
   </div>
 </div>
-```
+{% endhighlight %}
 
 Nah, sekarang bagian input field.
 
@@ -141,33 +137,31 @@ Pada bagian ini, harus saya akui, cukup merepotkan. Saya menghabiskan banyak sek
 
 Pertama-tama pada view template dulu.
 
-```erb
-<!-- app/views/experiences/new.html.erb -->
-<!-- app/views/experiences/edit.html.erb -->
-
+{% highlight_caption app/views/experiences/new.html.erb,app/views/experiences/edit.html.erb %}
+{% highlight eruby linenos %}
 <div class="form-group row no-gutters form-custom mb-3">
   <label class="col-md-3 col-form-label p-sm-0 d-flex align-items-center">Duration</label>
-    <div class="col-md-9">
-      <div class="row no-gutters">
-        <% if controller_name == "experiences" && action_name == "edit" %>
-          <% hours   = experience.duration / 60 %>
-          <% minutes = experience.duration % 60 %>
-          <%= hidden_field_tag 'duration-hours', hours %>
-          <%= hidden_field_tag 'duration-minutes', minutes %>
-          <%= f.time_select :duration,
-              { start_hour: 1, end_hour: 12, minute_step: 10, time_separator: ' ',
-              prompt: { hour: "Choose hour", minute: "Choose minute"}, ignore_date: true},
-              class: "form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2" %>
-        <% else %>
-          <%= f.time_select :duration,
-              { start_hour: 1, end_hour: 12, minute_step: 10, time_separator: ' ',
-              prompt: { hour: "Choose hour", minute: "Choose minute"}, ignore_date: true},
-              class: "form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2" %>
-        <% end %>
-      </div>
+  <div class="col-md-9">
+    <div class="row no-gutters">
+      <% if controller_name == "experiences" && action_name == "edit" %>
+        <% hours   = experience.duration / 60 %>
+        <% minutes = experience.duration % 60 %>
+        <%= hidden_field_tag 'duration-hours', hours %>
+        <%= hidden_field_tag 'duration-minutes', minutes %>
+        <%= f.time_select :duration,
+            { start_hour: 1, end_hour: 12, minute_step: 10, time_separator: ' ',
+            prompt: { hour: "Choose hour", minute: "Choose minute"}, ignore_date: true},
+            class: "form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2" %>
+      <% else %>
+        <%= f.time_select :duration,
+            { start_hour: 1, end_hour: 12, minute_step: 10, time_separator: ' ',
+            prompt: { hour: "Choose hour", minute: "Choose minute"}, ignore_date: true},
+            class: "form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2" %>
+      <% end %>
+    </div>
   </div>
 </div>
-```
+{% endhighlight %}
 
 Algoritma dari kode di atas adalah:
 
@@ -176,9 +170,8 @@ Algoritma dari kode di atas adalah:
 
 Nah, berikut ini isi dari `experiences_controller.rb` yang akan menerima data dari kedua inputan pada view template di atas.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
 
   def new
@@ -225,7 +218,8 @@ class ExperiencesController < ApplicationController
     params.require(:experience).permit( ..., ...., :duration, ..., ...)
   end
 end
-```
+{% endhighlight %}
+
 Selesai!
 
 # Pesan Penulis

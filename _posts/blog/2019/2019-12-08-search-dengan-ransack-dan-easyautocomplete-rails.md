@@ -47,19 +47,20 @@ Nah, pada implementasi fitur ini, saya menggunakan bantuan JQuery plugin yang be
 
 Proses instalasi Ransack gem, sama seperti gem-gem pada umumnya. Gabungkan dengan formasi gem yang teman-teman miliki di `Gemfile`.
 
-```ruby
-...
-...
-...
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
+# ...
 
 gem 'ransack', '~> 2.3'
-```
+{% endhighlight %}
 
 Jangan lupa untuk diinstall.
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 Setelah selesai, selanjutnya saya akan memasang EasyAutocomplete JQuery plugin.
 
@@ -132,9 +133,8 @@ Saya akan mulai dari controller.
 
 Karena saya akan menampilkan hasil dari pencarian pada halaman experience index. Maka, saya akan membuat pemanggilan object pada Experiences controller.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
   def index
     # Default for Ransack
@@ -157,7 +157,8 @@ class ExperiencesController < ApplicationController
     @experience = Experience.friendly.find(params[:id])
   end
 end
-```
+{% endhighlight %}
+
 Terlihat pada action `:index`, saya membuat dua buah instance variable yang bernama `@experience_locations` dan `@experience_names` yang kemudian saya masukkan ke dalam blok `respond_to` untuk ditampilkan dalam format JSON.
 
 Populasi data dalam format JSON inilah yang nantinya akan digunakan oleh EasyAutocomplete dalam menampilkan autocomplete suggestion data.
@@ -168,20 +169,19 @@ Saya akan membuat file `topsearch.js` pada directory `app/assets/javascripts/`.
 
 Dan menambahkannya pada `app/assets/javascripts/application.js`.
 
-```javascript
-// app/assets/javascripts/application.js
+{% highlight_caption app/assets/javascripts/application.js %}
+{% highlight javascript linenos %}
+// ...
+// ...
+// ...
 
-...
-...
-...
 //= require topsearch
-```
+{% endhighlight %}
 
 Kenapa saya namakan `topsearch` karena feature ini diletakkan pada navigation bar yang posisinya ada di bagian atas, dan akan digunakan di setiap halaman pada web aplikasi.
 
-```javascript
-// app/assets/javascripts/topsearch.js
-
+{% highlight_caption app/assets/javascripts/topsearch.jsion /etc/default/grub %}
+{% highlight javascript linenos %}
 document.addEventListener("turbolinks:load", function() {
   $input = $("[data-behavior='autocomplete']")
 
@@ -212,7 +212,8 @@ document.addEventListener("turbolinks:load", function() {
   }
   $input.easyAutocomplete(options)
 });
-```
+{% endhighlight %}
+
 Sebenarnya, saya tidak benar-benar mengerti tentang Javascript. Tapi saya yakin, teman-teman lebih mengerti daripada saya.
 
 Bisa teman-teman perhatikan di atas.
@@ -241,9 +242,8 @@ Nah, karena saya menggunakan Bootstrap Navigation Bar, pasti sudah paham, kalau 
 
 Class pada contoh di bawah, hanya ilustrasi yaa.
 
-```erb
-<!-- app/views/layouts/navigation_bar.html.erb -->
-
+{% highlight_caption app/views/layouts/navigation_bar.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 
@@ -253,7 +253,7 @@ Class pada contoh di bawah, hanya ilustrasi yaa.
 
 ...
 ...
-```
+{% endhighlight %}
 
 Form pencarian di atas, akan dialamatkan ke experiences index, maka dari itu target alamatnya adalah `experiences_path`.
 
@@ -267,23 +267,22 @@ Kemudian, saya membuat file bernama `index.json.jbuilder` pada `app/view/experie
 
 Isinya seperti ini.
 
-```ruby
-# app/views/experiences/index.json.jbuilder
-
+{% highlight_caption app/views/experiences/index.json.jbuilder %}
+{% highlight ruby linenos %}
 json.experience_locations do
   json.array!(@experience_locations) do |experience|
     json.name experience.location
-    json.url public_experiences_path(q: {location_cont: experience.location})
+    json.url public_experiences_path(q: { location_cont: experience.location })
   end
 end
 
 json.experience_names do
   json.array!(@experience_names) do |experience|
     json.name experience.name
-    json.url public_experiences_path(q: {name_cont: experience.name})
+    json.url public_experiences_path(q: { name_cont: experience.name })
   end
 end
-```
+{% endhighlight %}
 
 Dapat dilihat pada blok kode di atas, bahwa saya memanggil instance variable `@experience_locations` dan `@experience_names` yang sudah saya definisikan sebelumnya pada experiences controller.
 
@@ -291,7 +290,7 @@ Dapat dilihat pada blok kode di atas, bahwa saya memanggil instance variable `@e
 
 Apabila kita coba di Browser, dengan url form seperti ini,
 
-<pre style="background:white;border:1px solid black;color:black;">
+<pre class="url">
 http://localhost:3000/experiences.json?q=<mark>location_atau_nama_experience</mark>
 </pre>
 
@@ -304,9 +303,8 @@ Nah, langkah terakhir tinggal membuat blok kode untuk menampilkan hasil pencaria
 
 Untuk detailnya dapat teman-teman olah sendiri.
 
-```erb
-<!-- app/views/experience/index.html.erb -->
-
+{% highlight_caption app/views/experience/index.html.erb %}
+{% highlight eruby linenos %}
 <% @experiences.each do |experience| %>
 
   ...
@@ -318,7 +316,7 @@ Untuk detailnya dapat teman-teman olah sendiri.
   ...
 
 <% end %>
-```
+{% endhighlight %}
 
 Selesai!
 

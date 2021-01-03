@@ -52,9 +52,8 @@ Data yang ditampilkan akan mengikuti menu select yang sedang dipilih (*selected*
 
 Pada view template, pada bagian form, seperti ini yang saya lakukan.
 
-```erb
-<!-- app/view/experiences/_form.html.erb -->
-
+{% highlight_caption app/view/experiences/_form.html.erb %}
+{% highlight eruby linenos %}
 <style>
 /* For Cancellation Policy Short Description */
 .description {
@@ -90,7 +89,7 @@ Pada view template, pada bagian form, seperti ini yang saya lakukan.
     </div>
   </div>
 </div>
-```
+{% endhighlight %}
 
 Jangan mentah-mentah mengikuti struktur kode di atas yaa, seperti Stylesheet dan Javascript.
 
@@ -106,9 +105,8 @@ Pada bagian `class="description"` berisi tag DIV yang nantinya akan dijadikan se
 
 Selanjutnya, tinggal meracik jQuery saja.
 
-```erb
-<!-- app/view/experiences/_form.html.erb -->
-
+{% highlight_caption app/view/experiences/_form.html.erb %}
+{% highlight eruby linenos %}
 ...
 ...
 ...
@@ -122,7 +120,7 @@ $(function() {
   });
 });
 </script>
-```
+{% endhighlight %}
 
 `#experience_cancellation_policy_id` adalah pola penamaan id dari menu selection `collection_select :cancellation_policy_id` yang berada pada form Experience. Sudah dapat dipastikan kalau pola penamaannya akan seperti itu.
 

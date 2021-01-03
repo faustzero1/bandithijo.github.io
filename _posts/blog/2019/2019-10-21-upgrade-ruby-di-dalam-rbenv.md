@@ -59,19 +59,25 @@ Sebenarnya Rbenv tidak harus diupgrade sih, tapi yaa siapa yang tidak senang den
 
 Saya memasang Rbenv menggunakan Git, maka proses upgrade tinggal melakukan git pull saja di dalam direktori dari Rbenv.
 
-```
-$ cd ~/.rbenv
-$ git pull
-```
+<pre>
+$ <b>cd ~/.rbenv</b>
+</pre>
+
+<pre>
+$ <b>git pull</b>
+</pre>
 
 ## Update List of Available Ruby Versions
 
 Setelah kita selesai mengupgrade Rbenv. Selanjutnya kita perlu meng-update daftar versi Ruby yang terbaru. Anggep aja ini semacam update metafile gitu deh kalo di repositori distro.
 
-```
-$ cd ~/.rbenv/plugins/ruby-build
-$ git pull
-```
+<pre>
+$ <b>cd ~/.rbenv/plugins/ruby-build</b>
+</pre>
+
+<pre>
+$ <b>git pull</b>
+</pre>
 
 Setelah proses selesai, coba periksa vesi Ruby yang baru, dengan perintah berikut ini.
 
@@ -127,10 +133,13 @@ rbx-2.71828182
 
 Kalo sudah begini, tinggal kita install saja.
 
-```
-$ rbenv install 2.7.2
-```
+<pre>
+$ <b>rbenv install 2.7.2</b>
+</pre>
 
+Tunggu prosesnya hingga selesai.
+
+<br>
 Nah, mudah kan.
 
 Mudah-mudahan bermanfaat buat teman-teman.

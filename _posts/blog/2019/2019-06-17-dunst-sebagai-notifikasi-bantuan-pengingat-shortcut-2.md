@@ -54,16 +54,14 @@ Langsung saja tanpa bertele-tele.
 
 1. Buat file script boleh pada direktori `~/.local/bin/` atau pada direktori `/usr/bin/` dengan nama sembarang saja, tapi berkorelasi.
 
-    Saya akan memberi nama `keybind-helper`.
-```
-$ sudo touch /usr/bin/keybind-helper
-$ sudo chmod +x /usr/bin/keybind-helper
-```
+   Saya akan memberi nama `keybind-helper`.
+   <pre>
+   $ <b>sudo touch /usr/bin/keybind-helper</b>
+   $ <b>sudo chmod +x /usr/bin/keybind-helper</b></pre>
 
 2. Edit file script tersebut dengan *text editor* favorit kalian.
-```
-$ sudo vim /usr/bin/keybind-helper
-```
+   <pre>
+   $ <b>sudo vim /usr/bin/keybind-helper</b></pre>
 
 3. Isikan, kira-kira seperti contoh di bawah ini.
 ```bash
@@ -72,10 +70,10 @@ pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"
 terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)
 case "$terpilih" in
         BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
-        MPV) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
-        ST) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
-        TMUX) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
-        VIM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
+        MPV)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
+        ST)    dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
+        TMUX)  dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
+        VIM)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
 esac
 ```
 
@@ -277,14 +275,19 @@ Tinggal kita pasangkan pemanggilannya pada *keyboard shortcut* pada Window Manag
 
 Contohnya seperti pada BSPWM yang saya gunakan.
 
-```
-$ vim ~/.config/sxhkd/sxhkdrc
-```
-```
+<pre>
+$ <b>vim ~/.config/sxhkd/sxhkdrc</b>
+</pre>
+
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # keybind helper
 super + F10
     /usr/bin/keybind-helper
-```
+{% endhighlight %}
 
 Untuk teman-teman yang menggunakan Window Manager atau Desktop Environment yang lain, silahkan menyesuaikan sendiri yaa.
 

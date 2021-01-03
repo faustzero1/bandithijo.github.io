@@ -78,14 +78,14 @@ Saya anggap mayoritas dari teman-teman pasti menggunakan `sudo`.
 Apabila berhasil, akan menampilkan shell akan diawali dengan bentuk seperti di bawah ini.
 
 <pre>
-[postgres]$
+[postgres]$ <b>_</b>
 </pre>
 
 Atau, apabila teman-teman sudah pernah mengkonfigurasi nama hostname pada Arch, akan menjadi seperti ini.
 
-```
-[postgres@THINKPAD-X61]$
-```
+<pre>
+[postgres@THINKPAD-X61]$ <b>_</b>
+</pre>
 
 Intinya adalah kita sudah berpindah menggunakan user `postgres`.
 
@@ -299,9 +299,7 @@ Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username L
 
 Contoh perintah SQL-nya seperti ini,
 
-```
-```
-<pre>
+<pre class="url">
 <b>ALTER DATABASE target_database OWNER TO new_onwer;</b>
 </pre>
 

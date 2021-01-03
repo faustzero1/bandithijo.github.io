@@ -56,9 +56,9 @@ Oke, berikut ini adalah sekenarionya.
 
 Kita memerlukan paket tambahan yang wajib dipasang untk melakukan proses enkripsi.
 
-```
-$ sudo pacman -S ecryptfs-utils lsof
-```
+<pre>
+$ <b>sudo pacman -S ecryptfs-utils lsof</b>
+</pre>
 
 Yak! Sudah bisa ditebak, paket yang saya gunakan untuk mengenkripsi Home direktori adalah **eCryptfs**.
 
@@ -70,9 +70,9 @@ Saya memerlukan paket `lsof` untuk mendeteksi apakah masih terdapat proses yang 
 
 Setelah kedua paket yang kita perlukan telah selesai dipasang, langkah selanjutnya adalah menambahkannya pada kernel module.
 
-```
-$ sudo modprobe ecryptfs
-```
+<pre>
+$ <b>sudo modprobe ecryptfs</b>
+</pre>
 
 Apabila tidak menampilkan *error*, artinya perintah di atas telah berhasil.
 
@@ -101,7 +101,7 @@ Oke, langsung saja kita eksekusi.
 3. Setelah berhasil login dengan akun root, lakukan pengecekan apakah user yang kamu gunakan tadi masih memiliki proses yang berjalan (*running process*).
 
     <pre>
-# ps -U <mark>bandithijo</mark></pre>
+# <b>ps -U <mark>bandithijo</mark></b></pre>
 
     Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.
 
@@ -120,7 +120,7 @@ Oke, langsung saja kita eksekusi.
 1. Perintah di bawah ini akan memigrasikan atau membuat salinan (*cloning*) dari Home direktori kalian namun dalam bentuk yang sudah terenkripsi.
 
     <pre>
-# ecryptfs-migrate-home -u <mark>bandithijo</mark></pre>
+# <b>ecryptfs-migrate-home -u <mark>bandithijo</mark></b></pre>
 
     Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.
 
@@ -146,9 +146,8 @@ Oke, langsung saja kita eksekusi.
     Proses ini akan memakan ~~sedikit~~ waktu, tergantung dari banyaknya file yang terdapat di dalam Home direktori yang dienkripsi.
 
 2. Setelah proses enkripsi selesai, kita dapat *logout* (**jangan *reboot**).
-```
-# exit
-```
+   <pre>
+   $ <b>exit</b></pre>
 
 ## Pengetesan Dekrip Home Direktori
 
@@ -163,9 +162,8 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
     ```
 
 2. Jalankan perintah di bawah untuk mendekripsi Home direktori (sekaligus me-*mounting*-nya).
-    ```
-    $ ecryptfs-mount-private
-    ```
+    <pre>
+    $ <b>ecryptfs-mount-private</b></pre>
     ```
     Enter your login passphrase: _
     ```
@@ -177,7 +175,7 @@ Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pe
 3. Sekarang coba lakukan pengetesan dengan perintas `ls`.
 
     <pre>
-$ ls -la /home/<mark>bandithijo</mark></pre>
+$ <b>ls -la /home/<mark>bandithijo</mark></b></pre>
 
     Jangan lupa mengganti <mark>bandithijo</mark> dengan nama username kalian.
 
@@ -187,7 +185,7 @@ $ ls -la /home/<mark>bandithijo</mark></pre>
     <div class="blockquote-blue-title">[ i ] Informasi</div>
     <p>Kita perlu mencatat kunci simetris 128-bit value yang kita gunakan untuk mengenkripsi/dekripsi. </p>
     <pre>
-$ ecryptfs-unwrap-passphrase</pre>
+$ <b>ecryptfs-unwrap-passphrase</b></pre>
     <pre>
 Passphrase: _</pre>
     <p>Masukkan <i>login password</i> yang juga menjadi <i>password dekripsi</i> dari Home direktori.</p>
@@ -203,7 +201,7 @@ c17510cc56hj093gj7930lkfip3vn24g</pre>
 4. Selanjutnya lakukan pengecekan keberadaan dari file-file berikut ini.
 
     <pre>
-$ ls .ecryptfs</pre>
+$ <b>ls .ecryptfs</b></pre>
 
     <pre>
 <mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
@@ -227,7 +225,7 @@ Untuk mengatasi masalah ini sangat mudah. Tinggal kita tambahkan beberapa baris 
 1. Gunakan *text editor* favorit kalian untuk mengedit file di bawah ini.
 
     <pre>
-$ sudo vim /etc/pam.d/system-auth</pre>
+$ <b>sudo vim /etc/pam.d/system-auth</b></pre>
 
     <pre>
 #%PAM-1.0<br>
@@ -267,9 +265,10 @@ Bagian yang saya *marking* kuning adalah deretan karakter random yang di-*genera
 
 Coba lakukan pemeriksaan isi dari Home direktori kita.
 
-```
-$ ls -a /home
-```
+<pre>
+$ <b>ls -a /home</b>
+</pre>
+
 ```
 bandithijo bandithijo.p7o6p7R2 .ecryptfs
 ```
@@ -282,9 +281,9 @@ Penjelasan mudahnya, direktroi ini adalah Home direktori lama kita yang sudah di
 
 Kita dapat menghapusnya dengan aman.
 
-```
-$ sudo rm -rvf bandithijo.p7o6p7R2
-```
+<pre>
+$ <b>sudo rm -rvf bandithijo.p7o6p7R2</b>
+</pre>
 
 Tunggu proses penghapusan sampai selesai.
 

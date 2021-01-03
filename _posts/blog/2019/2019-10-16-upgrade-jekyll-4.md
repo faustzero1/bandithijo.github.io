@@ -35,9 +35,10 @@ Untuk dapat menggunakan Jekyll 4.0.0, minimal saya harus memiliki Ruby versi 2.4
 
 Cara mengeceknya.
 
-```
-$ ruby -v
-```
+<pre>
+$ <b>ruby -v</b>
+</pre>
+
 ```
 ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
 ```
@@ -56,27 +57,36 @@ ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
 
 Selanjutnya tinggal upgrade Jekyll gem.
 
-```
-$ gem update jekyll
-```
+<pre>
+$ <b>gem update jekyll</b>
+</pre>
 
 ## Edit Gemfile
 
 Langkah selanjutnya, saya perlu mengedit Gemfile yang ada di dalam root project.
 
-```
-$ vim Gemfile
-```
+<pre>
+$ <b>vim Gemfile</b>
+</pre>
 
 Hal yang paling utama adalah, mengganti versi dari `jekyll` gem, menjadi versi 4.0.0.
 
-```
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+
 gem 'jekyll', '~> 4.0.0'
-```
+
+# ...
+{% endhighlight %}
 
 Selanjutnya, upgrade plugin gem.
 
-```
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
+
 group :jekyll_plugins do
   gem 'rouge',                          '~> 3.3'
   gem 'jekyll-toc',                     '~> 0.9.1'
@@ -86,7 +96,7 @@ group :jekyll_plugins do
   gem 'jekyll-pwa-plugin',              '~> 2.2'
   gem 'jekyll-last-modified-at',        '~> 1.1.0'
 end
-```
+{% endhighlight %}
 
 Perlu diperhatikan, karena saya menggunakan cukup banyak plugin pendukung, maka untuk dapat mengupgrade versi jekyll pada BanditHijo.com ini sangat bergantung pada dependensi dari plugin-plugin gem tersebut.
 
@@ -96,9 +106,9 @@ Karena masalah dependensi tersebut, menjadi salah satu yang mendasari mengapa sa
 
 Setelah itu, jalankan perintah Bundle Update.
 
-```
-$ bundle update
-```
+<pre>
+$ <b>bundle update</b>
+</pre>
 
 Dengan begini, proses update versi Jekyll yang ada di project BanditHijo.com telah selesai.
 

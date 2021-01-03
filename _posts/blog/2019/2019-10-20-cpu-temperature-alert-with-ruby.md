@@ -46,7 +46,8 @@ Langsung saja saya tuliskan script ~~sederhana~~ cupu, yang saya tulis menggunak
 
 # Script
 
-```ruby
+{% highlight_caption $HOME/.local/bin/notify-hightemp %}
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 
 # Copyright (C) 2019 Rizqi Nur Assyaufi <bandithijo@gmail.com>
@@ -64,12 +65,12 @@ Langsung saja saya tuliskan script ~~sederhana~~ cupu, yang saya tulis menggunak
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Process.setproctitle("notify-hightemp")
+Process.setproctitle('notify-hightemp')
 
 require 'open3'
 
 CPU_TEMP_THRESHOLD = 90  # <- Normaly 90-100
-NOTIF_DURATION = 1000    # <- Duration in milisecond
+NOTIF_DURATION = 3       # <- Duration in milisecond
 NOTIF_VOLUME = 5         # <- Range between 0-10
 
 def notif_volume_converter(value)
@@ -78,19 +79,17 @@ end
 
 begin
   while true
-    capture_temp = "cat /sys/class/thermal/thermal_zone0/temp"
-    temp = Open3.capture2(capture_temp)
-    temp_cpu = (temp[0].to_i / 1000)
+    capture_temp   = 'cat /sys/class/thermal/thermal_zone0/temp'
+    temp           = Open3.capture2(capture_temp)
+    temp_cpu       = (temp[0].to_i / 1000)
     temp_threshold = CPU_TEMP_THRESHOLD
     notif_duration = (NOTIF_DURATION * 1000).to_i
-    notif_volume = notif_volume_converter(NOTIF_VOLUME)
+    notif_volume   = notif_volume_converter(NOTIF_VOLUME)
 
     if temp_cpu >= temp_threshold
       system("dunstify '  CPU TEMPERATURE OVERLOAD!' --urgency=critical --timeout=#{notif_duration} -r 1")
       system("paplay $HOME/snd/Ringtones/Alert/aircraftalarm.wav --volume=#{notif_volume}")
-      if system("which thinkalert > /dev/null 2>&1") == true  # <- Need to install thinkalert
-        system("thinkalert 5")
-      end
+      system('thinkalert 5') if system('which thinkalert > /dev/null 2>&1')
     end
 
     sleep(5)
@@ -98,7 +97,7 @@ begin
 rescue Interrupt
   puts "\nExiting..."
 end
-```
+{% endhighlight %}
 
 Saya beri nama file `notify-hightemp`.
 
@@ -112,9 +111,9 @@ Teman-teman bisa mengolahnya sendiri untuk menangkap nilai dari core yang lain.
 
 Selanjutnya, berikan permission untuk execute.
 
-```
-$ chmod +x notify-hightemp
-```
+<pre>
+$ <b>chmod +x notify-hightemp</b>
+</pre>
 
 Copykan ke direktori `/usr/bin/` untuk dieksekusi semua user atau `~/.local/bin/` untuk user kita saja.
 
@@ -126,18 +125,19 @@ Bagian ini akan tergantung dari DE atau WM yang teman-teman pergunakan.
 
 Karena saya menggunakan BSPWM, kira-kira seperti ini cara saya menambahkan script yang baru saja kita buat ini kedalam sistem autorun.
 
-```
-$ vim ~/.config/bspwm/autostart
-```
+<pre>
+$ <b>vim ~/.config/bspwm/autostart</b>
+</pre>
 
-```
+{% highlight_caption ~/.config/bspwm/autostart %}
+{% highlight sh linenos %}
 #!/usr/bin/env sh
 
-...
-...
+# ...
+# ...
 
 kill -9 $(pidof notify-hightemp); notify-hightemp &
-```
+{% endhighlight %}
 
 Penambahakan `kill -9 $(pidof notify-hightemp)` bertujuan agar ketika saya merestart WM, script ini tidak dipanggil lagi. Namun, akan dikill terlebih dahulu, kemudian baru dijalankan kembali.
 
@@ -186,21 +186,20 @@ $ <b>gcc -c thinkalert thinkalert.c</b>
 
 Kalau ada warning (peringatan) mengenai penggunaan `setgroups`, bisa ganti menjadi `getgroups`
 
-```c
-// thinkalert.c
-
-...
-...
+{% highlight_caption thinkalert.c %}
+{% highlight c linenos %}
+// ...
+// ...
 
 // Programming Cookbook for C and C++.
 void dropPrivs() {
 
-        ...
-        ...
+        // ...
+        // ...
 
         // Drop ancillary group memberships.
         if (!olduid) getgroups(1, &newgid);
-```
+{% endhighlight %}
 
 Kemudian compile ulang.
 
@@ -208,7 +207,7 @@ Selanjutnya, install ke `/usr/bin/`.
 
 <pre>
 $ <b>sudo install -Dm4755 thinkalert /usr/bin/thinkalert</b>
-$ <b>rehash</b>
+$ <b>exec $SHELL</b>
 </pre>
 
 Nah, coba jalankan **thinkalert**.
@@ -231,7 +230,7 @@ Coba test dengan menjalankan **thinkalert** kedip 5 kali.
 $ <b>thinkalert 5</b>
 </pre>
 
-Kalau berhaisl, thinklight akan berkedip 5 kali. Keren!
+Kalau berhasil, thinklight akan berkedip 5 kali. Keren!
 
 
 # Akhir Kata

@@ -51,7 +51,8 @@ Coba perhatikan contoh dibawah ini.
 
 Berikut ini adalah beberapa spesifikasi list pada model Author.
 
-```ruby
+{% highlight_caption spec/models/author_spec.rb %}
+{% highlight ruby linenos %}
 RSpec.describe Author, type: :model do
   context 'Validation Presence Tests' do
     it 'Ensures full name presence'
@@ -76,7 +77,7 @@ RSpec.describe Author, type: :model do
     it 'Ensures email has uniqueness'
   end
 end
-```
+{% endhighlight %}
 
 Setiap list tersebut, nantinya akan saya *breakdown* sesuai dengan konteksnya dan judulnya.
 
@@ -90,9 +91,9 @@ Nah, sekarang saya lanjutkan untuk proses memasang RSpec pada project Rails kita
 
 Pada project baru, saya menjalankan perintah ini.
 
-```
-$ rails new blog_rspec_test -d postgresql -T
-```
+<pre>
+$ <b>rails new blog_rspec_test -d postgresql -T</b>
+</pre>
 
 Penambahan option `-T`, adalah untuk men-*disable* *built-in test* pada project yang baru kita buat.
 
@@ -102,12 +103,16 @@ Pada project yang sudah ada, langsung saja mengikuti langkah selanjutnya.
 
 Kemudian, pasang gem **rspec-rails** pada block `:development` dan `:text` di `Gemfile` project.
 
-```ruby
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
+# ...
+# ...
+
 group :development, :test do
-  ...
+  # ...
   gem 'rspec-rails', '~> 4.0.0.beta3'
 end
-```
+{% endhighlight %}
 
 Tujuan memasukkan gem ini pada group `:development` agar lebih mudah. Karen, kalau hanya pada group `:test`, kita hanya dapat mendapatkan gem ini *evinmonment test* (`RAILS_ENV=test`).
 
@@ -115,15 +120,15 @@ Saya menggunakan versi **4.0.0.beta3** karena terdapat test yang sudah deprecate
 
 Selanjutnya, seperti biasa, setiap setelah menambahkan gem baru pada `Gemfile`, kita perlu menjalankan perintah,
 
-```
-$ bundle install
-```
+<pre>
+$ <b>bundle install</b>
+</pre>
 
 Setelah proses instalasi selesai, kita juga perlu meng-*generate* *boilerplate* dari konfigurasi yang sudah disediakan oleh rspec-rails.
 
-```
-$ rails generate rspec:install
-```
+<pre>
+$ <b>rails generate rspec:install</b>
+</pre>
 
 Hasil generate tersebut, akan membuat beberapa file konfigurasi pada direktori `rspec/`.
 
@@ -160,15 +165,15 @@ Kenapa, karena kita dapat memanfaatkan validation yang terdapat di dalam model. 
 
 RSpec juga sudah menyediakan *spec file generator*. Tinggal kita pergunakan saja. Enak sekali kan.
 
-```
-$ rails generate rspec:model nama_model
-```
+<pre>
+$ <b>rails generate rspec:model nama_model</b>
+</pre>
 
 Pada, kasus ini, saya memiliki nama model `author`.
 
-```
-$ rails generate rspec:model author
-```
+<pre>
+$ <b>rails generate rspec:model author</b>
+</pre>
 
 Maka, rspec akan men-*generate* satu file spec untuk kita.
 
@@ -178,15 +183,14 @@ Maka, rspec akan men-*generate* satu file spec untuk kita.
 
 Untuk melihat daftar dari generator apa saja yang disediakan oleh RSpec, dapat menggunakan perintah,
 
-```
-$ rails generate --help | grep rspec
-```
+<pre>
+$ <b>rails generate --help | grep rspec</b>
+</pre>
 
 Sebelum saya menjabarkan spesifikasi model test untuk model author, saya akan menunjukkan isi dari model author yang di dalamnya terdapat daftar validation dari model author.
 
-```ruby
-# app/models/author.rb
-
+{% highlight_caption app/models/author.rb %}
+{% highlight ruby linenos %}
 class Author < ApplicationRecord
   has_many :articles
 
@@ -203,7 +207,7 @@ class Author < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: 8}
 end
-```
+{% endhighlight %}
 
 Nah, sekarang pasti sudah mengerti kan, kenapa untuk belajar, sangat mudah kita mulai dari model test.
 
@@ -215,9 +219,8 @@ Kita dapat melihat pada validation model author tersebut, setiap field memiliki 
 
 Saya akan mulai dari filed `full_name` terlebih dahulu.
 
-```ruby
-# spec/models/author_spec.rb
-
+{% highlight_caption spec/models/author_spec.rb %}
+{% highlight ruby linenos %}
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
@@ -232,7 +235,7 @@ RSpec.describe Author, type: :model do
     end
   end
 end
-```
+{% endhighlight %}
 
 Pada spesifikasi ini, saya hanya membuat filed `full_name` bernilai `nil`. Dengan maksud membuat field tersebut kosong. Dan test dianggap benar, apabila hasil dari spesifikasi tersebut bernilai salah ` eq(false)`.
 
@@ -272,9 +275,8 @@ Nah, dengan begitu, saya langsung dapat menuliskan spesifikasi untuk menguji sem
 
 Kira-kira seperti ini.
 
-```ruby
-# spec/models/author_spec.rb
-
+{% highlight_caption spec/models/author_spec.rb %}
+{% highlight ruby linenos %}
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
@@ -393,7 +395,7 @@ RSpec.describe Author, type: :model do
     end
   end
 end
-```
+{% endhighlight %}
 
 Nah, gimana?
 
@@ -401,9 +403,9 @@ Mudah dipahami kan?
 
 Nah, untuk menalankan test-nya gunakan perintah ini,
 
-```
-$ bundle exec rspec
-```
+<pre>
+$ <b>bundle exec rspec</b>
+</pre>
 
 Nanti akan keluar output seperti ini.
 
@@ -437,9 +439,9 @@ Selanjutnya untuk controller spec.
 
 Kita gunakan lagi *spec file generator* yang sudah disediakan oleh RSpec.
 
-```
-$ rails generate rspec:controller authors
-```
+<pre>
+$ <b>rails generate rspec:controller authors</b>
+</pre>
 
 Karena kita akan menguji controller, tentu saja kita mengikuti *naming convention* dari Rails, yang mengharuskan menggunakan penamaan plural pada controller. Berbeda dengan model yang menggunakan penamaan singular.
 
@@ -453,9 +455,8 @@ Belum banyak yang saya pahami mengenai controller spec ini, jadi langsung saja s
 
 Kira-kira seperti ini.
 
-```ruby
-# spec/controllers/authors_controller_spec.rb
-
+{% highlight_caption spec/controllers/authors_controller_spec.rb %}
+{% highlight ruby linenos %}
 require 'rails_helper'
 
 RSpec.describe AuthorsController, type: :controller do
@@ -500,7 +501,7 @@ RSpec.describe AuthorsController, type: :controller do
     end
   end
 end
-```
+{% endhighlight %}
 
 Wkwkwkwk.
 

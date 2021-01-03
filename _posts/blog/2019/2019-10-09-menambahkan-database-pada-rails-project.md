@@ -31,18 +31,19 @@ Untuk tulisan ini saya akan menggunakan PostgreSQL sebagai contoh.
 
 Tambahkan saja ke dalam file `Gemfile`.
 
-<pre>
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
-<mark>gem 'pg', '>= 0.18'</mark>
+gem 'pg', '>= 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-</pre>
+{% endhighlight %}
 
 # Tambahkan Database.yml
 
@@ -50,7 +51,8 @@ Setelah itu, kita perlu membuat file `config/database.yml`.
 
 Untuk PostgreSQL engine, memiliki isi sebagia berikut.
 
-<pre>
+{% highlight_caption config/database.yml %}
+{% highlight yaml linenos %}
 # PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
@@ -136,7 +138,7 @@ production:
   database: <mark>project_mahal_production</mark>
   username: <mark>project_mahal</mark>
   password: <%= ENV['<mark>PROJECT_MAHAL_DATABASE_PASSWORD</mark>'] %>
-</pre>
+{% endhighlight %}
 
 Perhatikan bagian yang saya <mark>marking</mark> kuning, adalah bagian yang perlu teman-teman ganti dengan nama project yang teman-teman miliki.
 
@@ -144,12 +146,13 @@ Perhatikan bagian yang saya <mark>marking</mark> kuning, adalah bagian yang perl
 
 Selanjutnya, kita perlu mengaktifkan Active Record pada `config/application.rb`.
 
-<pre>
+{% highlight_caption config/application.rb %}
+{% highlight ruby linenos %}
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
-<mark>require "active_record/railtie"</mark>
+require "active_record/railtie"    # <- aktifkan ini
 # require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
@@ -157,7 +160,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
-</pre>
+{% endhighlight %}
 
 Mantap, tinggal langkah terakhir, membuat database.
 
@@ -165,9 +168,9 @@ Mantap, tinggal langkah terakhir, membuat database.
 
 Jalankan dengan perintah `rake`.
 
-```
-$ rails db:create
-```
+<pre>
+$ <b>rails db:create</b>
+</pre>
 
 Apabila menghasilkan output seperti di bawah ini.
 

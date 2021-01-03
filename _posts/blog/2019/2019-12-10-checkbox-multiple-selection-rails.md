@@ -62,19 +62,18 @@ Kira-kira seperti ini hasilnya,
 
 Saya sudah memiliki field `:age_preference` dengan tipe data string pada skema database.
 
-```ruby
-# db/scheme.rb
-
+{% highlight_caption db/scheme.rb %}
+{% highlight ruby linenos %}
 create_table "experiences", force: :cascade do |t|
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
   t.string "age_preference"
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
 end
-```
+{% endhighlight %}
 
 ## Controller
 
@@ -82,16 +81,15 @@ Bagian controller ini tidak penting pada catatan ini.
 
 Karena pada intinya, saya hanya akan membuat sebuah instance variable yang akan digunakan form di view template.
 
-```ruby
-# app/controllers/experiences_controller.rb
-
+{% highlight_caption app/controllers/experiences_controller.rb %}
+{% highlight ruby linenos %}
 class ExperiencesController < ApplicationController
   def index
-    ...
+    # ...
   end
 
   def show
-    ...
+    # ...
   end
 
   def new
@@ -123,7 +121,7 @@ class ExperiencesController < ApplicationController
   end
 
   def destroy
-    ...
+    # ...
   end
 
   private
@@ -132,7 +130,7 @@ class ExperiencesController < ApplicationController
     params.require(:experience).permit( ..., :age_preference, ..., ...)
   end
 end
-```
+{% endhighlight %}
 
 Selanjutnya, saya akan membuat tampilan multiple checkbox pada view template.
 
@@ -142,21 +140,19 @@ Berdasarkan sekenario di atas, pada nomor 1 dan 2, artinya, saya memiliki form p
 
 Lebih mudah, dibuatkan render partial agar bisa berbagi form. Wkwkwk.
 
-```erb
-<!-- app/view/experiences/new.html.erb -->
-
+{% highlight_caption app/view/experiences/new.html.erb %}
+{% highlight eruby linenos %}
 <%= form_for(@experience, url: {action: :create}, html: {id: 'form'}) do |f| %>
   <%= render 'form', f: f, experience: @experience %>
 <% end %>
-```
+{% endhighlight %}
 
-```erb
-<!-- app/view/experiences/edit.html.erb -->
-
+{% highlight_caption app/view/experiences/edit.html.erb %}
+{% highlight eruby linenos %}
 <%= form_for(@experience, url: {action: :update}, html: {id: 'form'}) do |f| %>
   <%= render 'form', f: f, experience: @experience %>
 <% end %>
-```
+{% endhighlight %}
 
 Nah, selanjutnya tinggal membuat view template form yang akan digunakan oleh kedua view template di atas.
 
@@ -164,9 +160,8 @@ Namun, saya akan pangkas hanya pada bagian input untuk `:age_preference` saja.
 
 CSS class yang ada pada contoh di bawah, hanya *dummy*.
 
-```erb
-<!-- app/view/experiences/_form.html.erb -->
-
+{% highlight_caption app/view/experiences/_form.html.erb %}
+{% highlight eruby linenos %}
 <div class="form-group">
   <label>Age Preference</label>
   <!-- Untuk [] Adult, [] Teen, [] Children -->
@@ -183,15 +178,16 @@ CSS class yang ada pada contoh di bawah, hanya *dummy*.
     <%= label_tag "Select All", nil, class: "custom-control-label" %>
   </div>
 </div>
-```
+{% endhighlight %}
 
 Puanjang sekali yaa? Wkwkwk
 
-Apa gunanya option,
+Apa kegunaan dari option,
 
-```erb
+```ruby
 (experience.age_preference.nil? ? {} : {checked: JSON.parse(experience.age_preference.to_json).split(", ")})
 ```
+
 Option tersebut saya tambahan untuk menampilkan data yang sudah ada pada database pada saat proses `:edit`. Kalau tanpa baris itu, maka pada saat proses edit, checkbox akan kembali uncheck all.
 
 Nah, kita memerlukan bantuan Javascript, untuk membuat feature "Select All".
@@ -202,9 +198,8 @@ Pada class yang dimiliki oleh `check_box`, terdapat 2 kelas yang berbeda.
 
 Langsung kita tambahkan Javascript pada bagian paling bawah dari file `_form.html.erb` ini.
 
-```erb
-<!-- app/view/experiences/_form.html.erb -->
-
+{% highlight_caption app/view/experiences/_form.html.erb %}
+{% highlight eruby linenos %}
 <script>
   // For age preference select all feature
   $(".checkbox-checkall").change(function(){
@@ -221,7 +216,7 @@ Langsung kita tambahkan Javascript pada bagian paling bawah dari file `_form.htm
     }
   });
 </script>
-```
+{% endhighlight %}
 
 Nah, feature multiple checkbox dengan tambahan select all sudah selesai.
 
@@ -249,29 +244,27 @@ Sedangkan, yang saya inginkan seperti ini,
 
 Nah, ini adalah method yang saya tambahkan pada model, untuk merubah bentuk data hasil dari `collection_check_boxes`.
 
-```ruby
-# app/models/experience.rb
-
+{% highlight_caption app/models/experience.rb %}
+{% highlight ruby linenos %}
 class Experience < ApplicationRecord
-  ...
-  ...
-  ...
+  # ...
+  # ...
+  # ...
 
   before_save do
     self.age_preference.gsub!(/[\[\]\"]/, "")&.delete_prefix!(", ") if attribute_present?("age_preference")
   end
 end
-```
+{% endhighlight %}
 
 Dengan begini, pada saat akan menggunakan data `:age_preference` untuk digunakan pada view temlate, tidak perlu repot, karena bentuk datanya sudah bagus.
 
 Misal pada `:show`.
 
-```erb
-<!-- app/view/experiences/show.html -->
-
+{% highlight_caption app/view/experiences/show.html %}
+{% highlight eruby linenos %}
 Age Preference : <%= @experience.age_preference %>
-```
+{% endhighlight %}
 
 Mungkin bukan cara yang baik, jadi teman-teman tidak harus mengikutinya atau menggunakan cara yang lebih baik yaa.
 
