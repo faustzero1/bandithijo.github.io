@@ -1469,6 +1469,12 @@ button.active {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   padding-bottom: 10px !important;
+  display: flex !important;
+}
+
+.blockquote-red-title img {
+  width: 25px !important;
+  margin: 0 10px 0 0 !important;
 }
 
 /* blockquote blue -------------------------------------------------------- */
@@ -1501,6 +1507,12 @@ button.active {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   padding-bottom: 10px !important;
+  display: flex !important;
+}
+
+.blockquote-blue-title img {
+  width: 25px !important;
+  margin: 0 10px 0 0 !important;
 }
 
 /* blockquote yellow ------------------------------------------------------ */
@@ -1533,6 +1545,12 @@ button.active {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
   padding-bottom: 10px !important;
+  display: flex !important;
+}
+
+.blockquote-yellow-title img {
+  width: 25px !important;
+  margin: 0 10px 0 0 !important;
 }
 
 /* license ---------------------------------------------------------------- */
