@@ -32,9 +32,9 @@ Seperti halnya **wpa_supplicant**, **iwd** pun dapat digunakan secara standalone
 
 Pasang **iwd** sangat mudah di Arch Linux.
 
-<pre>
-$ <b>sudo pacman -S iwd</b>
-</pre>
+{% shell_user %}
+sudo pacman -S iwd
+{% endshell_user %}
 
 Pada iwd package ini kita juga akan mendapatkan:
 
@@ -74,9 +74,9 @@ root@archiso ~ # _
 <p markdown=1>Teman-teman dapat melihat, terdapat informasi yang memberikan kita petunjuk untuk authenticate Wi-Fi, kita diminta untuk menggunakan `iwctl` -- **iwctl** adalah interface dari **iwd**.</p>
 </div>
 
-<pre>
-$ <b>iwctl</b>
-</pre>
+{% shell_user %}
+iwctl
+{% endshell_user %}
 
 Kita akan dibawa masuk ke dalam iwd shell yang berpenampilan seperti di bawah ini.
 
@@ -321,9 +321,9 @@ Lakukan pengujian.
 
 Lihat network interface list, apakah wireless interface yang kita gunakan sudah mendapatkan IP address atau belum.
 
-<pre>
-$ <b>ip a s wlan0</b>
-</pre>
+{% shell_user %}
+ip a s wlan0
+{% endshell_user %}
 
 <pre>
 3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
@@ -338,9 +338,9 @@ Nah, dapat dilihat, saya sudah mendapatkan IP address.
 
 Sekarang coba tes koneksi internet dengan ping.
 
-<pre>
-$ <b>ping archlinux.org</b>
-</pre>
+{% shell_user %}
+ping archlinux.org
+{% endshell_user %}
 
 <pre>
 PING archlinux.org (95.217.163.246) 56(84) bytes of data.
