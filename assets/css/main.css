@@ -617,8 +617,15 @@ aside .sidebar-body-img {
 
 aside.sidebar h1 {
   font-family: 'Fira Sans Condensed', 'Ubuntu Condensed';
-  font-size: 100%;
+  font-size: 1.5em;
   border-bottom: 1px dashed #C4BBB0;
+  margin-bottom: 5px;
+  display: flex !important;
+}
+
+div.sidebar-body h1 img {
+  width: 25px !important;
+  margin: 0 10px 0 0 !important;
 }
 
 aside.sidebar ul {

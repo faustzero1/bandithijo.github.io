@@ -39,18 +39,14 @@ Berikut ini adalah catatan yang saya simpulkan dari [Artix Wiki: Migration](http
 
 # Tahapan Migrasi
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown=1>Migrasi dari Arch Linux ke Artix Linux **hanya dilakukan oleh advanced users** yang benar-benar mengetahui apa yang mereka lakukan.</p>
 <p markdown=1>Saya, sebagai penulis, **tidak bertanggung jawab** atas segala bentuk kejadian buruk yang menimpa sistem kalian.</p>
 <p markdown=1>Apabila kalian mengikuti catatan ini, berarti kalian **telah menyetujui** bahwa **segala bentuk risiko atas masalah** yang terjadi karena mengikuti catatan ini, adalah **tanggung jawab kalian sepenuhnya**.</p>
 <p markdown=1>Happy Hacking!</p>
-</div>
+{% endbox_perhatian %}
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown=1>**Semua perintah di bawah, harus dijalankan sebagai root**.</p>
 {% shell_user %}
 sudo su
@@ -59,7 +55,7 @@ sudo su
 {% shell_root %}
 _
 {% endshell_root %}
-</div>
+{% endbox_perhatian %}
 
 ## 1. Mempersiapkan pacman.conf, repositori dan mirrorlist
 

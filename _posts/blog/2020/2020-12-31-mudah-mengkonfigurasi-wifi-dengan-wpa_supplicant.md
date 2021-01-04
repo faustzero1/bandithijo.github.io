@@ -67,9 +67,9 @@ Yok, tanpa berlama-lama, langsung saja kita pasang.
 
 Pasang dulu paket **wpa_supplicant**.
 
-<pre>
-$ <b>sudo pacman -S wpa_supplicant</b>
-</pre>
+{% shell_user %}
+sudo pacman -S wpa_supplicant
+{% endshell_user %}
 
 Kalau kita memasang paket ini, kita akan mendapatkan:
 
@@ -84,9 +84,9 @@ Kita juga dapat memasang package [**wpa_supplicant_gui**](https://aur.archlinux.
 ## Kenali Wireless Interface yang Digunakan
 Pertama-tama, periksa dulu nama wireless interface yang teman-teman gunakan.
 
-<pre>
-$ <b>ip a s</b>
-</pre>
+{% shell_user %}
+ip a s
+{% endshell_user %}
 
 <pre>
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -100,12 +100,10 @@ qlen 1000
 
 Punya saya bernama `wlan0`.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Kalau teman-teman ingin menggunakan **Traditional Network Interface Name** seperti `wlan0`, kalian dapat mengunjungi catatan saya [**Mengembalikan Nama Interface Menjadi Traditional Interface Name (eth0, wlan0, etc.)**](/blog/mengembalikan-nama-interface-ke-raditional-interface-name){:target="_blank"}.</p>
 <p markdown=1>Tapi, **saya tidak merekomendasikan** yaa.</p>
-</div>
+{% endbox_info %}
 
 Selanjutnya, untuk terhubung dengan network yang ada, kita dapat menggunakan 2 cara.
 
@@ -116,9 +114,9 @@ Selanjutnya, untuk terhubung dengan network yang ada, kita dapat menggunakan 2 c
 
 Terlebih dahulu kita harus menambahkan sedikit konfigurasi agar dapat menyimpan config dari wpa_cli.
 
-<pre>
-$ <b>sudoedit /etc/wpa_supplicant/wpa_supplicant.conf</b>
-</pre>
+{% shell_user %}
+sudoedit /etc/wpa_supplicant/wpa_supplicant.conf
+{% endshell_user %}
 
 {% highlight conf linenos %}
 ctrl_interface=/run/wpa_supplicant
@@ -129,9 +127,9 @@ Kalau sudah ada, tidak perlu diubah-ubah.
 
 Nah, sebelum menjalankan wpa_supplicant service dengan systemd, kita bisa coba menjalankan tanpa membuat service.
 
-<pre>
-$ <b>sudo wpa_supplicant -B -i <i>nama_interface</i> -c /etc/wpa_supplicant/wpa_supplicant.conf</b>
-</pre>
+{% shell_user %}
+sudo wpa_supplicant -B -i <i>nama_interface</i> -c /etc/wpa_supplicant/wpa_supplicant.conf
+{% endshell_user %}
 
 `-B`, untuk *run daemon in the background*.
 
@@ -143,9 +141,9 @@ Ganti *nama_interface* dengan yang teman-teman pergunakan.
 
 Selanjutnya, kita akan gunakan **wpa_cli**.
 
-<pre>
-$ <b>sudo wpa_cli</b>
-</pre>
+{% shell_user %}
+sudo wpa_cli
+{% endshell_user %}
 
 <pre>
 wpa_cli v2.9
@@ -219,24 +217,18 @@ OK
 OK
 </pre>
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Kalau SSID nya tanpa password, kalian dapat menggantinya dengan:</p>
 
 <pre>
 > <b>set_network 0 ssid "bandithijo"</b>
 > <b>set_network 0 key_mgmt NONE</b>
 </pre>
+{% endbox_info %}
 
-</div>
-
-
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Kalau terjadi kesalahan input, tinggal jalankan perintah yang sama dengan nilai yang benar.</p>
-</div>
+{% endbox_info %}
 
 
 ### Melihat Daftar Network yang Tersimpan
@@ -342,23 +334,19 @@ Kita bisa copy dan masukkan ke dalam **/etc/wpa_supplicant/wpa_supplicant.conf**
 
 Atau dengan cara mengkombinasikan dengan perintah wpa_supplicant.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown=1>Namun, pastikan **wpa_supplicant belum berjalan** di process maupun di service.</p>
-</div>
+{% endbox_perhatian %}
 
-<pre class="url">
-$ <b>sudo wpa_supplicant -B -i <mark>interface</mark> -c <(wpa_passphrase <mark>MYSSID</mark> <mark>passphrase</mark>)</b>
-</pre>
+{% shell_user %}
+sudo wpa_supplicant -B -i <mark>interface</mark> -c <(wpa_passphrase <mark>MYSSID</mark> <mark>passphrase</mark>)
+{% endshell_user %}
 
-<pre>
-$ <b>sudo wpa_supplicant -B -i wlan0 -c <(wpa_passphrase bandithijo iniadalahpassword)</b>
-</pre>
+{% shell_user %}
+sudo wpa_supplicant -B -i wlan0 -c <(wpa_passphrase bandithijo iniadalahpassword)
+{% endshell_user %}
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown=1>Namun, karena proses substitusi, kita tidak dapat menjalankan proses ini dengan **sudo**.</p>
 
 <pre>
@@ -369,26 +357,26 @@ Failed to read or parse configuration '/dev/fd/63'
 
 <p markdown=1>Kita perlu menggunakan **root shell**</p>
 
-<pre>
-$ <b>sudo su</b>
-</pre>
+{% shell_user %}
+sudo su
+{% endshell_user %}
 
-<pre>
-# <b>wpa_supplicant -B -i wlan0 -c <(wpa_passphrase bandithijo iniadalahpassword)</b>
-</pre>
+{% shell_root %}
+wpa_supplicant -B -i wlan0 -c <(wpa_passphrase bandithijo iniadalahpassword)
+{% endshell_root %}
 
 <pre>
 Successfully initialized wpa_supplicant
 </pre>
-</div>
+{% endbox_perhatian %}
 
 Nah, mantap!
 
 Sekarang seharusnya wireless interface sudah mendapatkan IP address.
 
-<pre>
-$ <b>ip a s wlan0</b>
-</pre>
+{% shell_user %}
+ip a s wlan0
+{% endshell_user %}
 
 <pre>
 3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
@@ -403,9 +391,9 @@ Nah, dapat dilihat, saya sudah mendapatkan IP address.
 
 Sekarang coba tes koneksi internet dengan ping.
 
-<pre>
-$ <b>ping archlinux.org</b>
-</pre>
+{% shell_user %}
+ping archlinux.org
+{% endshell_user %}
 
 <pre>
 PING archlinux.org (95.217.163.246) 56(84) bytes of data.
@@ -473,15 +461,15 @@ Untuk berganti-ganti symbolic link, saya mengunakan cara seperti ini:
 
 **Home**
 
-<pre>
-$ <b>sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-home.conf /etc/wpa_supplicant/wpa_supplicant.conf</b>
-</pre>
+{% shell_user %}
+sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-home.conf /etc/wpa_supplicant/wpa_supplicant.conf
+{% endshell_user %}
 
 **Office**
 
-<pre>
-$ <b>sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-office.conf /etc/wpa_supplicant/wpa_supplicant.conf</b>
-</pre>
+{% shell_user %}
+sudo ln -sf /etc/wpa_supplicant/wpa_supplicant-office.conf /etc/wpa_supplicant/wpa_supplicant.conf
+{% endshell_user %}
 
 <br>
 Setelah file konfigurasi siap, tinggal jalankan service dari **wpa_supplicant**.
@@ -492,9 +480,9 @@ Tambahkan ke dalam service default yang akan dijalankan ketika sistem startup.
 
 \*Tidak perlu menggunakan **default** juga bisa, karena sudah default.
 
-<pre>
-$ <b>sudo rc-update add wpa_supplicant default</b>
-</pre>
+{% shell_user %}
+sudo rc-update add wpa_supplicant default
+{% endshell_user %}
 
 <pre>
 * service wpa_supplicant added to runlevel default
@@ -502,9 +490,9 @@ $ <b>sudo rc-update add wpa_supplicant default</b>
 
 Lihat, apakah sudah masuk daftar status list.
 
-<pre>
-$ <b>rc-status --all</b>
-</pre>
+{% shell_user %}
+rc-status --all
+{% endshell_user %}
 
 <pre>
 Runlevel: default
@@ -517,9 +505,9 @@ Runlevel: default
 
 Tinggal di-start saja.
 
-<pre>
-$ <b>sudo rc-service wpa_supplicant start</b>
-</pre>
+{% shell_user %}
+sudo rc-service wpa_supplicant start
+{% endshell_user %}
 
 <pre>
 wpa_supplicant    | * Starting WPA Supplicant Daemon ...

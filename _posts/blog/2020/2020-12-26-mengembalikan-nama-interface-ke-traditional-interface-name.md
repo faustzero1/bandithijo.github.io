@@ -22,15 +22,15 @@ Penamaan interface saat ini sudah menggunakan aturan penamaan yang baru.
 
 Kita dapat melihat daftar network interface yang ada di sistem dengan menggunakan perintah-perintah yang disediakan oleh [**iproute2**](https://en.wikipedia.org/wiki/iproute2){:target="_blank"}.
 
-<pre>
-$ <b>ip address show</b>
-</pre>
+{% shell_user %}
+ip address show
+{% endshell_user %}
 
 Atau dapat dipersingkat,
 
-<pre>
-$ <b>ip a s</b>
-</pre>
+{% shell_user %}
+ip a s
+{% endshell_user %}
 
 <pre>
 1: <mark>lo</mark>: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -148,4 +148,3 @@ Terima kasih.
 
 2. [Artix Wiki - Migrtaion: Configure Networking](https://wiki.artixlinux.org/Main/Migration#Configure_networking){:target="_blank"}
 <br>Diakses tanggal: 2020/12/27
-
