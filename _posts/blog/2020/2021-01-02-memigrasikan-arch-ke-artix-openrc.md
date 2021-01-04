@@ -52,13 +52,13 @@ Berikut ini adalah catatan yang saya simpulkan dari [Artix Wiki: Migration](http
 <div class="blockquote-red">
 <div class="blockquote-red-title">[ ! ] Perhatian</div>
 <p markdown=1>**Semua perintah di bawah, harus dijalankan sebagai root**.</p>
-<pre>
-$ <b>sudo su</b>
-</pre>
+{% shell_user %}
+sudo su
+{% endshell_user %}
 
-<pre>
-# <b>_</b>
-</pre>
+{% shell_root %}
+_
+{% endshell_root %}
 </div>
 
 ## 1. Mempersiapkan pacman.conf, repositori dan mirrorlist
@@ -87,35 +87,35 @@ Kira-kira seperti ini kalau saya gambarkan dalam bentuk tabel.
 
 <br>
 Rename **pacman.conf** yang lama dengan nama **pacman.confg.arch**.
-<pre>
-# <b>mv -vf /etc/pacman.conf /etc/pacman.conf.arch</b>
-</pre>
+{% shell_root %}
+mv -vf /etc/pacman.conf /etc/pacman.conf.arch
+{% endshell_root %}
 
 <br>
 Download file **pacman.conf** versi Artix Linux dari gittea.artixlinux.org.
-<pre>
-# <b>curl https://gitea.artixlinux.org/packagesP/pacman/raw/branch/master/trunk/pacman.conf -o /etc/pacman.conf</b>
-</pre>
+{% shell_root %}
+curl https://gitea.artixlinux.org/packagesP/pacman/raw/branch/master/trunk/pacman.conf -o /etc/pacman.conf
+{% endshell_root %}
 Setelah selesai, kita sudah memiliki file **/etc/pacman.conf** versi Artix Linux.
 
 <br>
 Rename **mirrorlist** yang lama dengan nama **mirrorlist-arch**.
-<pre>
-# <b>mv -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-arch</b>
-</pre>
+{% shell_root %}
+mv -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-arch
+{% endshell_root %}
 
 <br>
 Download file **mirrorlist** yang berisi mirror server dari gittea.artixlinux.org.
-<pre>
-# <b>curl https://gitea.artixlinux.org/packagesA/artix-mirrorlist/raw/branch/master/trunk/mirrorlist -o /etc/pacman.d/mirrorlist</b>
-</pre>
+{% shell_root %}
+curl https://gitea.artixlinux.org/packagesA/artix-mirrorlist/raw/branch/master/trunk/mirrorlist -o /etc/pacman.d/mirrorlist
+{% endshell_root %}
 Setelah selesai, kita sudah memiliki file **/etc/pacman.d/mirrorlist** yang berisi daftar mirror server dari Artix Linux.
 
 <br>
 Copy **mirrorlist** yang telah berisi mirror server Artix menjadi **mirrorlist.artix**.
-<pre>
-# <b>cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.artix</b>
-</pre>
+{% shell_root %}
+cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.artix
+{% endshell_root %}
 Tujuannya sebagai bakcup, apabila ditengah-tengah proses akan ada command yang menghapus mirrorlist. Kita dapat melakukan resorasi dengan cepat tanpa perlu mengunduh kembali.
 
 <br>
@@ -128,9 +128,9 @@ Kita perlu membersihkan semua cache, karena beberapa package yang dimiliki oleh 
 
 Saya tidak berkeberatan menghapus package cache dan mengunduh ulang package-package tersebut.
 
-<pre>
-# <b>pacman -Scc && pacman -Syy</b>
-</pre>
+{% shell_root %}
+pacman -Scc && pacman -Syy
+{% endshell_root %}
 
 
 ## 3. Lemahkan Tingkat Keamanan dari Pacman (Sementara)
@@ -159,17 +159,17 @@ SigLevel    = Never
 
 Untuk menginstall `artix-keyring`, kita harus mendaftarkan **master key** nya secara manual.
 
-<pre>
-# <b>pacman -S artix-keyring</b>
-</pre>
+{% shell_root %}
+pacman -S artix-keyring
+{% endshell_root %}
 
-<pre>
-# <b>pacman-key --populate artix</b>
-</pre>
+{% shell_root %}
+pacman-key --populate artix
+{% endshell_root %}
 
-<pre>
-# <b>pacman-key --lsign-key 95AEC5D0C1E294FC9F82B253573A673A53C01BC2</b>
-</pre>
+{% shell_root %}
+pacman-key --lsign-key 95AEC5D0C1E294FC9F82B253573A673A53C01BC2
+{% endshell_root %}
 
 ## 5. Pulihkan Kembali Tingkat Keamanan dari Pacman
 
@@ -196,9 +196,9 @@ SigLevel    = Required DatabaseOptional
 
 Mungkin teman-teman perlu untuk menyimpan daftar-daftar service daemon yang sedang aktif, agar setelah proses instalasi selesai, kita dapat memasangnya kembali satu-persatu.
 
-<pre>
-# <b>systemctl list-units --state=running | grep -v systemd | awk '{print $1}' | grep service > /root/daemon.list</b>
-</pre>
+{% shell_root %}
+systemctl list-units --state=running | grep -v systemd | awk '{print $1}' | grep service > /root/daemon.list
+{% endshell_root %}
 
 Saya memilih menyimpannya di `/root/daemon.list`.
 
@@ -209,22 +209,19 @@ Oke, sekarang kita telah siap untuk melakukan instalasi dari komponen-komponen A
 
 Kita akan mengunduh package `base` dan `base-devel` termasuk paket-paket pendukung untuk init yang baru.
 
-<pre>
-# <b>pacman -Sw base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles</b>
-</pre>
+{% shell_root %}
+pacman -Sw base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles
+{% endshell_root %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Perhatikan kembali paket-paket yang dipasang di atas.</p>
+{% box_info %}
+<p>Perhatikan paket-paket yang dipasang di atas.</p>
 <p>Apakah telah sesuai dengan paket yang teman-teman akan pergunakan?</p>
-<p markdown=1>Seperti,</p>
+<p>Seperti,</p>
 <div markdown=1>
 1. Kernel: `linux`, `linux-headers`, karena saya memang menggunakan vanilla kernel.
 2. Text editor: `vi`, karena saya tidak menggunakan nano.
 </div>
-</div>
-
+{% endbox_info %}
 
 `-w`, adalah option yang berarti **Download packages only**.
 
@@ -234,55 +231,47 @@ Saat tulisan ini dibuat, total package yang saya download sebesar,
 Total Download Size:  <b style="color:white;">165.86 MiB</b>
 </pre>
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Pastikan dalam proses unduh ini, paket-paket tersebut benar-benar telah selesai.</p>
 <p>Kalau ditengah proses tiba-tiba internet kita mati, maka ulangi dengan menjalankan kembali command di atas.</p>
-</div>
+{% endbox_info %}
 
 ## 8. Hapus systemd
 
 Setelah kita selesai mengunduh dan mempersiapkan init pengganti, dalam hal ini adalah OpenRC, kita siap untuk mengirim systemd dan keluarganya untuk dilupakan.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Jawab "yes" untuk semua pertanyaan yang diajukan di bawah.</p>
-</div>
+{% endbox_info %}
 
-<pre>
-# <b>pacman -Rdd --noconfirm systemd systemd-libs systemd-sysvcompat pacman-mirrorlist dbus</b>
-</pre>
+{% shell_root %}
+pacman -Rdd --noconfirm systemd systemd-libs systemd-sysvcompat pacman-mirrorlist dbus
+{% endshell_root %}
 
-<pre>
-# <b>rm -fv /etc/resolv.conf</b>
-</pre>
+{% shell_root %}
+rm -fv /etc/resolv.conf
+{% endshell_root %}
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown=1>Perintah untuk menghapus file **/etc/resolv.conf** di atas, tidak saya jalankan.</p>
 <p markdown=1>Karena saya mendapatkan DNS secara otomatis dari ISP, apabila saya jalankan perintah untuk menghapus file **/etc/resolv.conf** di atas, maka akan mematikan akses internet saya.</p>
-</div>
+{% endbox_perhatian %}
 
 Kembalikan kembali file **mirrorlist** yang terhapus diakibatkan oleh proses di atas (mengapus `pacman-mirrorlist` package).
 
-<pre>
-# <b>cp -vf /etc/pacman.d/mirrorlist.artix /etc/pacman.d/mirrorlist</b>
-</pre>
+{% shell_root %}
+cp -vf /etc/pacman.d/mirrorlist.artix /etc/pacman.d/mirrorlist
+{% endshell_root %}
 
 ## 9. Install OpenRC Init System
 
 Sekarang saatnya memasang paket `base`, `base-devel`, dan paket-paket OpenRC init yang sebelumnya kita telah download dengan option `pacman -Sw` di atas.
 
-<pre>
-# <b>pacman -S base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles networkmanager-openrc artix-branding-base</b>
-</pre>
+{% shell_root %}
+pacman -S base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles networkmanager-openrc artix-branding-base
+{% endshell_root %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Perhatikan kembali paket-paket yang dipasang di atas.</p>
 <p>Apakah telah sesuai dengan paket yang teman-teman akan pergunakan?</p>
 <p markdown=1>Seperti,</p>
@@ -292,29 +281,23 @@ Sekarang saatnya memasang paket `base`, `base-devel`, dan paket-paket OpenRC ini
 </div>
 <p markdown=1>Terdapat paket untuk comprehensive network manager, seperti `networkmanager-openrc`, saya memilihkan paket ini karena sebagian teman-teman biasanya menggunakan NetworkManager. Meskipun pada panduan Artix Wiki: Migration menggunakan `connman`.</p>
 <p>Intinya, pasang sesuai yang teman-teman perlukan.</p>
-</div>
+{% endbox_info %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Terdapat paket `artix-branding-base`, paket ini bertujuan untuk "Base branding for Artix ISOs".</p>
 <p markdown=1>Intinya, paket ini adalah sebuah script yang mengotomatisasi rebranding segala hal tentang Arch menjadi Artix.</p>
 <p markdown=1>Contohnya seperti hasil output dari Neofetch yang tidak lagi Arch Linux, melainkan Artix Linux.</p>
-</div>
+{% endbox_info %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Kalau diperhatikan, terdapat paket-paket dengan suffix `-openrc`.</p>
 <p markdown=1>Paket-paket tersebut adalah paket yang telah dilakukan modifikasi agar sesuai dengan OpenRC init.</p>
 <p markdown=1>Selain untuk OpenRC, tersedia juga untuk init lainnya dengan suffix `-runit` dan `-s6`.</p>
-</div>
+{% endbox_info %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Kalau ada paket-paket yang belum sempat kita pasang versi `-openrc` nya, kita bisa pasang nanti setelah proses migrasi selesai.</p>
-</div>
+{% endbox_info %}
 
 Tunggu prosesnya hingga selesai.
 
@@ -322,9 +305,9 @@ Tunggu prosesnya hingga selesai.
 
 Pertama-tama, pastikan locale yang kita gunakan adalah **C**.
 
-<pre>
-# <b>export LC_ALL=C</b>
-</pre>
+{% shell_root %}
+export LC_ALL=C
+{% endshell_root %}
 
 Saatnya mengganti semua paket-paket Arch dengan paket-paket Artix.
 
@@ -332,17 +315,17 @@ Kita akan jalankan masing-masing per level repositori (`system`, `world`, `galax
 
 Satu persatu secara urut.
 
-<pre>
-# <b>pacman -Sl system | grep installed | cut -d" " -f2 | pacman -S -</b>
-</pre>
+{% shell_root %}
+pacman -Sl system | grep installed | cut -d" " -f2 | pacman -S -
+{% endshell_root %}
 
-<pre>
-# <b>pacman -Sl world  | grep installed | cut -d" " -f2 | pacman -S -</b>
-</pre>
+{% shell_root %}
+pacman -Sl world  | grep installed | cut -d" " -f2 | pacman -S -
+{% endshell_root %}
 
-<pre>
-# <b>pacman -Sl galaxy | grep installed | cut -d" " -f2 | pacman -S -</b>
-</pre>
+{% shell_root %}
+pacman -Sl galaxy | grep installed | cut -d" " -f2 | pacman -S -
+{% endshell_root %}
 
 Tunggu prosesnya hingga selesai.
 
@@ -350,33 +333,27 @@ Tunggu prosesnya hingga selesai.
 
 Kita akan memasang init scripts untuk menggantikan systemd init script.
 
-<pre>
-# <b>pacman -S --needed acpid-openrc alsa-utils-openrc autofs-openrc cronie-openrc cups-openrc fuse-openrc haveged-openrc hdparm-openrc openssh-openrc samba-openrc syslog-ng-openrc</b>
-</pre>
+{% shell_root %}
+pacman -S --needed acpid-openrc alsa-utils-openrc autofs-openrc cronie-openrc cups-openrc fuse-openrc haveged-openrc hdparm-openrc openssh-openrc samba-openrc syslog-ng-openrc
+{% endshell_root %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Sesuaikan dengan init script yang teman-teman gunakan.</p>
-</div>
+{% box_info %}
+<p>Sesuaikan dengan init service script yang teman-teman gunakan.</p>
+{% endbox_info %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Kalau masih ada yang terlewatkan dan belum ingat, kira-kira init apa saja yang kita perlukan, kita dapat memasangnya nanti seiring kita gunakan.</p>
-</div>
+{% endbox_info %}
 
 ## 12. Enable Services
 
 Berdasarkan init scripts yang telah kita install pada langkah 11, kita akan mengenablekannya, agar dijalankan saat sistem startup.
 
-<pre>
-# <b>for daemon in acpid alsasound autofs cronie cupsd fuse haveged hdparm smb sshd syslog-ng; do rc-update add $daemon default; done</b>
-</pre>
+{% shell_root %}
+for daemon in acpid alsasound autofs cronie cupsd fuse haveged hdparm smb sshd syslog-ng; do rc-update add $daemon default; done
+{% endshell_root %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Sesuaikan dengan init script yang teman-teman gunakan.</p>
 <p markdown=1>Misal,</p>
 <div markdown=1>
@@ -385,13 +362,13 @@ Berdasarkan init scripts yang telah kita install pada langkah 11, kita akan meng
 3. Dan lain sebagainya
 </div>
 <p markdown=1>Saya tidak mengaktifkan service *comprehensive network manager* seperti **NetworkManager** maupun **connmand**. Melainkan hanya menggunakan **wpa_supplicant** maupun **iwd** dengan **dhcpcd**.</p>
-</div>
+{% endbox_info %}
 
 Oh yaa, khusus untuk OpenRC init, kita perlu mengaktifkan **udev** dan **sysinit**.
 
-<pre>
-# <b>rc-update add udev sysinit</b>
-</pre>
+{% shell_root %}
+rc-update add udev sysinit
+{% endshell_root %}
 
 ## 13. Konfigurasi Networking
 
@@ -430,7 +407,7 @@ OpenRC sendiri memiliki network manager sendiri, bernama **netifrc**.
 Konfigurasinya ada di,
 
 {% highlight_caption /etc/config.d/net %}
-{% highlight conf linenos %}
+{% highlight sh linenos %}
 
 #...
 #...
@@ -454,7 +431,6 @@ Konfigurasinya ada di,
 
 #...
 #...
- 
 {% endhighlight %}
 
 Secara default, **DHCP** akan digunakan kalau kita tidak mengeset `config_eth0=`.
@@ -464,21 +440,21 @@ Jadi, saya biarkan saja tidak mengeset apa-apa. Karena saya ingin menggunakan **
 <br>
 Selanjutnya, kita buat symlink file init script dengan menyesuaikan ethernet interface name yang kita punya. Punya saya `eth0`.
 
-<pre>
-# <b>ln -s /etc/init.d/net.lo /etc/init.d/net.eth0</b>
-</pre>
+{% shell_root %}
+ln -s /etc/init.d/net.lo /etc/init.d/net.eth0
+{% endshell_root %}
 
 Kemudian tambahkan servicenya ke boot, agar dijalankan saat proses booting.
 
-<pre>
-# <b>rc-update add net.eth0 boot</b>
-</pre>
+{% shell_root %}
+rc-update add net.eth0 boot
+{% endshell_root %}
 
 Lalu, pasang paket **netifrc**.
 
-<pre>
-# <b>pacman -S --needed netifrc</b>
-</pre>
+{% shell_root %}
+pacman -S --needed netifrc
+{% endshell_root %}
 
 <br>
 Untuk referensi lebih lanjut, teman-teman bisa juga membaca [**Gnome Wiki: Netifrc**](https://wiki.gentoo.org/wiki/Netifrc){:target="_blank"}.
@@ -495,25 +471,25 @@ Kedua paket ini adalah bagian dari group **system** init, jadi kemungkinan kalia
 
 Tinggal kalian enable-kan saja.
 
-<pre>
-# <b>rc-update add lvm boot</b>
-</pre>
+{% shell_root %}
+rc-update add lvm boot
+{% endshell_root %}
 
-<pre>
-# <b>rc-update add device-mapper boot</b>
-</pre>
+{% shell_root %}
+rc-update add device-mapper boot
+{% endshell_root %}
 
 ## 15. Remove More systemd Cruft
 
 Kita juga dapat menghapus beberapa script yang digunakan oleh systemd.
 
-<pre>
-# <b>for user in journal journal-gateway timesync network bus-proxy journal-remote journal-upload resolve coredump; do userdel systemd-$user; done</b>
-</pre>
+{% shell_root %}
+for user in journal journal-gateway timesync network bus-proxy journal-remote journal-upload resolve coredump; do userdel systemd-$user; done
+{% endshell_root %}
 
-<pre>
-# <b>rm -vfr /{etc,var/lib}/systemd</b>
-</pre>
+{% shell_root %}
+rm -vfr /{etc,var/lib}/systemd
+{% endshell_root %}
 
 ## 16. Update Bootloader dan Kernel initramfs
 
@@ -525,15 +501,15 @@ Maka, sebaiknya kita harus mengkonfigurasi ulang.
 
 Backup file **mkinitcpio.conf** yang lama.
 
-<pre>
-# <b>mv -vf /etc/mkinitcpio.conf /etc/mkinitcpio.conf.arch</b>
-</pre>
+{% shell_root %}
+mv -vf /etc/mkinitcpio.conf /etc/mkinitcpio.conf.arch
+{% endshell_root %}
 
 Salin file `.pacnew` yang tersedia.
 
-<pre>
-# <b>cp -vf /etc/mkinitcpio.conf.pacnew /etc/mkinitcpio.conf</b>
-</pre>
+{% shell_root %}
+cp -vf /etc/mkinitcpio.conf.pacnew /etc/mkinitcpio.conf
+{% endshell_root %}
 
 Kalau tidak ada `.pacnew`, bisa ambil dari file backup saja.
 
@@ -551,22 +527,21 @@ HOOKS=(base udev resume autodetect modconf block filesystems keyboard fsck)
 
 #...
 #...
- 
 {% endhighlight %}
 
 Selanjutnya kita recreate kernel initramfs.
 
-<pre>
-# <b>mkinitcpio -p linux</b>
-</pre>
+{% shell_root %}
+mkinitcpio -p linux
+{% endshell_root %}
 
 `linux` adalah kernel yang saya gunakan, sesuaikan dengan kernel yang teman-teman gunakan.
 
 Atau, kalau teman-teman memiliki banyak kernel, gunakan option `-P`.
 
-<pre>
-# <b>mkinitcpio -P</b>
-</pre>
+{% shell_root %}
+mkinitcpio -P
+{% endshell_root %}
 
 Agar lebih praktis untuk me-recreate semua kernel initramfs.
 
@@ -574,15 +549,15 @@ Agar lebih praktis untuk me-recreate semua kernel initramfs.
 
 Backup file **/etc/default/grub** yang lama.
 
-<pre>
-# <b>mv -vf /etc/default/grub /etc/default/grub.arch</b>
-</pre>
+{% shell_root %}
+mv -vf /etc/default/grub /etc/default/grub.arch
+{% endshell_root %}
 
 Salin file `.pacnew` yang tersedia.
 
-<pre>
-# <b>cp -vf /etc/default/grub.pacnew /etc/default/grub</b>
-</pre>
+{% shell_root %}
+cp -vf /etc/default/grub.pacnew /etc/default/grub
+{% endshell_root %}
 
 Kalau tidak ada `.pacnew`, bisa ambil dari file backup saja.
 
@@ -590,7 +565,7 @@ Kalau tidak ada `.pacnew`, bisa ambil dari file backup saja.
 Kalau teman-teman pernah menambahkan konfigurasi tertentu, bisa di copy ke file yang baru.
 
 {% highlight_caption /etc/default/grub %}
-{% highlight conf linenos %}
+{% highlight sh linenos %}
 # GRUB boot loader configuration
 
 GRUB_DEFAULT=0
@@ -606,9 +581,9 @@ Initinya, tambahkan modifikasi atau kernel parameter yang teman-teman gunakan.
 
 Kalau sudah jagan lupa diupdate.
 
-<pre>
-# <b>update-grub</b>
-</pre>
+{% shell_root %}
+update-grub
+{% endshell_root %}
 
 ## 17. Reinstall GRUB
 
@@ -616,34 +591,32 @@ Untuk **UEFI**.
 
 **Default for most setups**
 
-<pre>
-# <b>grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub</b>
-</pre>
+{% shell_root %}
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub
+{% endshell_root %}
 
 If not success, **some users reported success with this one**
 
-<pre>
-# <b>grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=grub</b>
-</pre>
+{% shell_root %}
+grub-install --target=x86_64-efi --efi-directory=esp_mount --bootloader-id=grub
+{% endshell_root %}
 
 <br>
 Untuk **BIOS**.
 
-<pre>
-# <b>grub-install <mark>/dev/sdX</mark></b>
-</pre>
+{% shell_root %}
+grub-install <mark>/dev/sdX</mark>
+{% endshell_root %}
 
 Ganti **sdX** dengan disk name yang teman-teman miliki.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Bukan partition name yaa. Kalau ada numbernya, berarti partition name.</p>
 <pre>
 sda         <- Disk name
 └─sda1      <- Partition name
 </pre>
-</div>
+{% endbox_info %}
 
 ## 18. Reboot
 
@@ -653,13 +626,16 @@ Kita dapat melakukan dengan cara memicu **SysRq** kernel.
 
 Namun, buat saya lebih mudah dengan memanggil **loginctl** tapi harus dengan user biasa.
 
-<pre>
-# <b>exit</b>
-$ <b>loginctl reboot</b>
-</pre>
+{% shell_root %}
+exit
+{% endshell_root %}
+
+{% shell_user %}
+loginctl reboot
+{% endshell_user %}
 
 <pre>
-$ <span style="color:white;">PID1: Received "reboot" from FIFO...</span>
+$ PID1: Received "reboot" from FIFO...
 Starting reboot runlevel
 
 Broadcast message from root@arch.bandithijo.x61 (null)(Sat Jan  2 15:15:15 2021):
