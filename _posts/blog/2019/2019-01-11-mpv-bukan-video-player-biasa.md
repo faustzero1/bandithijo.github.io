@@ -41,9 +41,11 @@ Kelebihan-kelebihan yang dimiliki oleh MPV:
 # Instalasi
 
 Untuk distribusi Arch Linux, langsung saja pasang dari repository.
-```
-$ sudo pacman -S mpv
-```
+
+{% shell_user %}
+sudo pacman -S mpv
+{% endshell_user %}
+
 Untuk distribusi lain, silahkan menyesuaikan.
 
 # Konfigurasi
@@ -51,9 +53,11 @@ Untuk distribusi lain, silahkan menyesuaikan.
 Secara *default*, MPV akan membaca file konfigurasi yang terdapat pada direktori `/etc/mpv` (untuk *system wide*) atau `~/.config/mpv/` (untuk *user*).
 
 Untuk membantu konfigurasi awal, kita dapat mengambil sampel konfigurasi default settings, dengan cara sebagai berikut.
-```
-$ cp -r /usr/share/doc/mpv/ ~/.config/
-```
+
+{% shell_user %}
+cp -r /usr/share/doc/mpv/ ~/.config/
+{% endshell_user %}
+
 Saat ini saya hanya menggunakan 2 file yang ada pada direktori config ini, yaitu:
 1. `input.conf` - Untuk *keyboard shortcuts*
 2. `mpv.conf` - Untuk konfigurasi mpv itu sendiri
@@ -65,7 +69,8 @@ Saya akan mulai dari file `mpv.conf` terlebih dahulu.
 Buka Terminal dan edit file `mpv.conf`.
 
 Saya menambahkan pada baris paling akhir setelah bagian/blok `profiles`, option-option di bawah.
-<pre>
+{% highlight_caption $HOME/.config/mpv/mpv.conf %}
+<pre class="caption">
 ###########
 # General #
 ###########
@@ -188,6 +193,7 @@ volume=100                                # default volume, 100 = unchanged
 Berikut ini adalah penjelasan dari beberapa option yang saya gunakan. Saya tidak dapat menjelaskan semuanya secara detail.
 
 ### Save Position on Quit
+
 ```
 save-position-on-quit=no
 ```
@@ -220,6 +226,7 @@ screenshot-template='~/pix/ScreenShot/%F (%P) %n'
 Option ini saya pergunakan untuk mengatur screenshot file type dan lokasi dimana hasil screenshot disimpan beserta format namanya.
 
 ### youtube-dl Format
+
 ```
 [ytdl-desktop]
 profile-desc=cond:is_desktop()
@@ -238,11 +245,13 @@ Untuk file konfigurasi `input.conf` saya tidak menambahkan banyak pengaturan *ke
 Saya hanya menambahkan untuk pengaturan **horizontal flip** dan **rotate** video.
 
 Edit file `input.conf` dan tambahkan di paling bawah.
-```
+{% highlight_caption $HOME/.config/mpv/input.conf %}
+<pre class="caption">
 - cycle-values video-rotate "90" "180" "270" "0"
 = vf toggle hflip                       # toggle for flip video horizontal
 \ vf toggle negate                      # toggle for invert video color
-```
+</pre>
+
 Option di atas bertujuan untuk:
 
 1. Tombol <kbd> - </kbd> untuk melakukan rotate ke kanan
@@ -256,13 +265,13 @@ Option di atas bertujuan untuk:
 Sangat praktis sekali untuk dapat menonton video YouTube di MPV.
 
 Caranya pun sangat mudah. Hanya perlu mengcopy paste url video YouTube setelah perintah mpv.
-```
-$ mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo
-```
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Mengapa Menonton YouTube Menggunakan MPV ?</div>
+{% shell_user %}
+mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo 
+{% endshell_user %}
+
+{% box_pertanyaan %}
+<p><b>Mengapa Menonton YouTube Menggunakan MPV?</b></p>
 Berikut ini adalah beberapa alasan saya:
 <ol>
 <li><b>Praktis</b> dan <b>simpel</b></li>
@@ -273,7 +282,7 @@ Berikut ini adalah beberapa alasan saya:
 <li><b>Video dapat dikontrol</b>, seperti: fast, slow, maju satu frame, maju 10 frame, dll</li>
 <li>dll.</li>
 </ol>
-</div>
+{% endbox_pertanyaan %}
 
 ## WebCam Viewer
 Selain dapat memutar video, MPV juga saya pergunakan untuk menampilkan output dari kamera WebCam.
@@ -281,15 +290,19 @@ Selain dapat memutar video, MPV juga saya pergunakan untuk menampilkan output da
 Tidak seperti aplikasi WebCam pada umumnya yang harus bergantian dalam menampilkan output dari kamera. MPV dapat melakukannya secara bersamaan. Yaa jelas, karena mpv memanggil alamat dari masing-masing WebCam.
 
 Sepertinya untuk menggunakan fitur ini, kita memerlukan paket `v4l-utils`.
-```
-$ sudo pacman -S v4l-utils
-```
+
+{% shell_user %}
+sudo pacman -S v4l-utils
+{% endshell_user %}
+
 Namun, saya belum yakin apakah fitur ini membutuhkan paket `v4l-utils` atau tidak.
 
 Sebelumnya cek dulu apakah terdapat webcam yang aktif.
-```
-$ ls -l /dev/video*
-```
+
+{% shell_user %}
+ls -l /dev/video*
+{% endshell_user %}
+
 ```
 crw-rw----+ 1 root video 81, 0 Jan 11 21:39 /dev/video0
 crw-rw----+ 1 root video 81, 1 Jan 11 21:39 /dev/video1
@@ -298,26 +311,29 @@ crw-rw----+ 1 root video 81, 1 Jan 11 21:39 /dev/video1
 Setelah itu baru kita panggil WebCam yang aktif.
 
 Dalam kasus ini hanya `/dev/video0/` saja yang saya gunakan.
-<pre>
-$ mpv <mark>av://v4l2:/dev/video0</mark>
-</pre>
+
+{% shell_user %}
+mpv <mark>av://v4l2:/dev/video0</mark>
+{% endshell_user %}
 
 Apabila ingin menambahkan propertis lain seperti hitam putih dan horizontal flip, kira-kira seperti ini contohnya.
 
 Horizontal flip.
-<pre>
-$ mpv av://v4l2:/dev/video0 <mark>--vf=hflip</mark>
-</pre>
+
+{% shell_user %}
+mpv av://v4l2:/dev/video0 <mark>--vf=hflip</mark>
+{% endshell_user %}
+
 Atau hitam putih.
-<pre>
-$ mpv av://v4l2:/dev/video0 <mark>--saturation=-100</mark>
-</pre>
+
+{% shell_user %}
+mpv av://v4l2:/dev/video0 <mark>--saturation=-100</mark>
+{% endshell_user %}
 
 Hasilnya,
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Mengapa Mengunakan MPV sebagai WebCam viewer ?</div>
+{% box_pertanyaan %}
+<p><b>Mengapa Mengunakan MPV sebagai WebCam viewer?</b></p>
 Berikut ini adalah beberapa alasan saya:
 <ol>
 <li><b>Praktis</b> dan <b>simpel</b></li>
@@ -326,7 +342,7 @@ Berikut ini adalah beberapa alasan saya:
 <li> Dapat <b>Multi Cam</b></li>
 <li>Cenderung <b>ringan</b> dan tidak membuat laptop menjadi panas</li>
 </ol>
-</div>
+{% endbox_pertanyaan %}
 
 <!-- IMAGE CAPTION -->
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
@@ -340,9 +356,21 @@ Berikut ini adalah beberapa alasan saya:
 ## Subtitle
 
 Pada konfigurasi yang saya buat, saya menghidden visibility dari subtitle.
-```
-no-sub-visibility
-```
+
+{% highlight_caption $HOME/.config/mpv/mpv.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
+
+#############
+# Subtitles #
+#############
+
+no-sub-visibility                       # namun dalam keadaan terhidden
+# ...
+# ...
+{% endhighlight %}
+
 Tujuannya, agar subtitle tidak langsung ditampilkan pada semua video.
 
 Cara menggunakannya,
@@ -354,9 +382,9 @@ Cara menggunakannya,
 
 MPV juga dapat menampilkan dual subtitle.
 
-```
-$ mpv video.mp4 --sub-file=subtitle1.srt --sub-file=subtitle2.srt --secondary-sid=2
-```
+{% shell_user %}
+mpv video.mp4 --sub-file=subtitle1.srt --sub-file=subtitle2.srt --secondary-sid=2
+{% endshell_user %}
 
 ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tTtgmqnz/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
