@@ -616,6 +616,7 @@ aside .sidebar-body-img {
 }
 
 aside.sidebar h1 {
+  color: #000;
   font-family: 'Fira Sans Condensed', 'Ubuntu Condensed';
   font-size: 1.5em;
   border-bottom: 1px dashed #C4BBB0;
