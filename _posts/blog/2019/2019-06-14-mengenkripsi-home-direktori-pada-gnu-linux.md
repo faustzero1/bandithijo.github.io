@@ -17,12 +17,11 @@ contributors: []
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Lakukan <i>backup</i> data sebelum melakukan proses di bawah.</p>
-<p>Segala bentuk kerugian, seperti kehilangan data maupun rusaknya perangkat yang kalian gunakan, bukan merupakan tanggung jawab penulis.</p>
+<p markdown=1>Segala bentuk kerugian, seperti kehilangan data maupun rusaknya perangkat yang kalian gunakan, **bukan merupakan tanggung jawab penulis**.</p>
 <p><i>Do with Your Own Risk!</i></p>
-</div>
+{% endbox_perhatian %}
 
 # Prakata
 
@@ -36,16 +35,14 @@ Karena tidak aksesible banget, jadi saya memutuskan untuk membuat post tersendir
 
 # Mengenkripsi Home Direktori
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>
 Saya sangat merekomendasikan untuk tidak menerapkan proses enkripsi ini pada Home direktori yang sudah terisi penuh dengan banyak file.</p>
 <p>Karena, proses pengenkripsian file-file yang ada didalam direktori Home akan memakan waktu yang sangat lama dan akan menambah kapasitas hardisk menjadi 2x Home (direktori Home lama + direktori Home baru).</p>
 <br>
 <p>Saya menyarankan untuk membuat user baru saja.</p>
 <p>Best practicenya memang biasa saya terapkan pada saat awal instalasi sistem operasi.</p>
-</div>
-
+{% endbox_perhatian %}
 
 Proses mengenkripsi Home direktori ini akan saya bagi dalam beberapa tahapan, agar teman-teman mudah untuk memahami dan mudah memetakan apabila nanti akan mengajukan pertanyaan atau pembahasan saat berdiskusi.
 
@@ -56,9 +53,9 @@ Oke, berikut ini adalah sekenarionya.
 
 Kita memerlukan paket tambahan yang wajib dipasang untk melakukan proses enkripsi.
 
-<pre>
-$ <b>sudo pacman -S ecryptfs-utils lsof</b>
-</pre>
+{% shell_user %}
+sudo pacman -S ecryptfs-utils lsof
+{% endshell_user %}
 
 Yak! Sudah bisa ditebak, paket yang saya gunakan untuk mengenkripsi Home direktori adalah **eCryptfs**.
 
@@ -70,9 +67,9 @@ Saya memerlukan paket `lsof` untuk mendeteksi apakah masih terdapat proses yang 
 
 Setelah kedua paket yang kita perlukan telah selesai dipasang, langkah selanjutnya adalah menambahkannya pada kernel module.
 
-<pre>
-$ <b>sudo modprobe ecryptfs</b>
-</pre>
+{% shell_user %}
+sudo modprobe ecryptfs
+{% endshell_user %}
 
 Apabila tidak menampilkan *error*, artinya perintah di atas telah berhasil.
 
@@ -133,7 +130,7 @@ Oke, langsung saja kita eksekusi.
     ```
 
     <div class="blockquote-red">
-    <div class="blockquote-red-title">[ ! ] Perhatian</div>
+    <div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg">Perhatian</div>
     <p>Masukkan <b>password</b> yang sama dengan <b>login password username</b> kalian.</p>
     </div>
 
@@ -182,7 +179,7 @@ $ <b>ls -la /home/<mark>bandithijo</mark></b></pre>
     Nama username juga berarti nama direktori dari Home user tersebut.
 
     <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
     <p>Kita perlu mencatat kunci simetris 128-bit value yang kita gunakan untuk mengenkripsi/dekripsi. </p>
     <pre>
 $ <b>ecryptfs-unwrap-passphrase</b></pre>
