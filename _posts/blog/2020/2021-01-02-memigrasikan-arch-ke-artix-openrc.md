@@ -209,7 +209,7 @@ Kita akan mengunduh package `base` dan `base-devel` termasuk paket-paket penduku
 pacman -Sw base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles
 {% endshell_root %}
 
-{% box_info %}
+{% box_perhatian %}
 <p>Perhatikan paket-paket yang dipasang di atas.</p>
 <p>Apakah telah sesuai dengan paket yang teman-teman akan pergunakan?</p>
 <p>Seperti,</p>
@@ -217,7 +217,7 @@ pacman -Sw base base-devel openrc-system grub linux linux-headers openrc elogind
 1. Kernel: `linux`, `linux-headers`, karena saya memang menggunakan vanilla kernel.
 2. Text editor: `vi`, karena saya tidak menggunakan nano.
 </div>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 `-w`, adalah option yang berarti **Download packages only**.
 
@@ -227,10 +227,10 @@ Saat tulisan ini dibuat, total package yang saya download sebesar,
 Total Download Size:  <b style="color:white;">165.86 MiB</b>
 </pre>
 
-{% box_info %}
+{% box_perhatian %}
 <p>Pastikan dalam proses unduh ini, paket-paket tersebut benar-benar telah selesai.</p>
 <p>Kalau ditengah proses tiba-tiba internet kita mati, maka ulangi dengan menjalankan kembali command di atas.</p>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 ## 8. Hapus systemd
 
@@ -267,7 +267,7 @@ Sekarang saatnya memasang paket `base`, `base-devel`, dan paket-paket OpenRC ini
 pacman -S base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles networkmanager-openrc artix-branding-base
 {% endshell_root %}
 
-{% box_info %}
+{% box_perhatian %}
 <p>Perhatikan kembali paket-paket yang dipasang di atas.</p>
 <p>Apakah telah sesuai dengan paket yang teman-teman akan pergunakan?</p>
 <p markdown=1>Seperti,</p>
@@ -277,7 +277,7 @@ pacman -S base base-devel openrc-system grub linux linux-headers openrc elogind-
 </div>
 <p markdown=1>Terdapat paket untuk comprehensive network manager, seperti `networkmanager-openrc`, saya memilihkan paket ini karena sebagian teman-teman biasanya menggunakan NetworkManager. Meskipun pada panduan Artix Wiki: Migration menggunakan `connman`.</p>
 <p>Intinya, pasang sesuai yang teman-teman perlukan.</p>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 {% box_info %}
 <p markdown=1>Terdapat paket `artix-branding-base`, paket ini bertujuan untuk "Base branding for Artix ISOs".</p>
@@ -333,9 +333,9 @@ Kita akan memasang init scripts untuk menggantikan systemd init script.
 pacman -S --needed acpid-openrc alsa-utils-openrc autofs-openrc cronie-openrc cups-openrc fuse-openrc haveged-openrc hdparm-openrc openssh-openrc samba-openrc syslog-ng-openrc
 {% endshell_root %}
 
-{% box_info %}
+{% box_perhatian %}
 <p>Sesuaikan dengan init service script yang teman-teman gunakan.</p>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 {% box_info %}
 <p markdown=1>Kalau masih ada yang terlewatkan dan belum ingat, kira-kira init apa saja yang kita perlukan, kita dapat memasangnya nanti seiring kita gunakan.</p>
@@ -349,7 +349,7 @@ Berdasarkan init scripts yang telah kita install pada langkah 11, kita akan meng
 for daemon in acpid alsasound autofs cronie cupsd fuse haveged hdparm smb sshd syslog-ng; do rc-update add $daemon default; done
 {% endshell_root %}
 
-{% box_info %}
+{% box_perhatian %}
 <p>Sesuaikan dengan init script yang teman-teman gunakan.</p>
 <p markdown=1>Misal,</p>
 <div markdown=1>
@@ -358,7 +358,7 @@ for daemon in acpid alsasound autofs cronie cupsd fuse haveged hdparm smb sshd s
 3. Dan lain sebagainya
 </div>
 <p markdown=1>Saya tidak mengaktifkan service *comprehensive network manager* seperti **NetworkManager** maupun **connmand**. Melainkan hanya menggunakan **wpa_supplicant** maupun **iwd** dengan **dhcpcd**.</p>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 Oh yaa, khusus untuk OpenRC init, kita perlu mengaktifkan **udev** dan **sysinit**.
 
