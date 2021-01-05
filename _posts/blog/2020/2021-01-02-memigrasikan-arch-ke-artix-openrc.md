@@ -606,13 +606,13 @@ grub-install <mark>/dev/sdX</mark>
 
 Ganti **sdX** dengan disk name yang teman-teman miliki.
 
-{% box_info %}
-<p>Bukan partition name yaa. Kalau ada numbernya, berarti partition name.</p>
+{% box_perhatian %}
+<p markdown=1>Bukan partition name yaa, tapi **disk name**. Kalau ada numbernya, berarti partition name.</p>
 <pre>
 sda         <- Disk name
 └─sda1      <- Partition name
 </pre>
-{% endbox_info %}
+{% endbox_perhatian %}
 
 ## 18. Reboot
 
