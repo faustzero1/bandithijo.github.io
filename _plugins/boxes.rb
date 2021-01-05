@@ -31,7 +31,7 @@ module Jekyll
 
       text  = '<!-- PERTANYAAN -->'
       text += '<div class="blockquote-yellow">'
-      text += "<div class='blockquote-yellow-title'><img src='/assets/img/logo/logo_tanya.svg'>Pertanyaan</div>"
+      text += '<div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg">Pertanyaan</div>'
       text += "<div markdown='1'>#{content}</div>"
       text += '</div>'
       text

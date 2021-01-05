@@ -38,7 +38,7 @@
    inkscape:showpageshadow="false"
    inkscape:zoom="2.81"
    inkscape:cx="100"
-   inkscape:cy="92.422005"
+   inkscape:cy="100"
    inkscape:current-layer="svg9" />
 
 <g
@@ -46,17 +46,13 @@
    style="display:none"
    transform="translate(0,176)">
 </g>
-<text
-   xml:space="preserve"
+<g
+   aria-label=""
    style="font-style:normal;font-weight:normal;font-size:203.10093689px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.07752323"
-   x="15.510011"
-   y="174.74115"
-   id="text821"><tspan
-     sodipodi:role="line"
-     id="tspan819"
-     x="15.510011"
-     y="174.74115"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrainsMonoExtraBold Nerd Font';-inkscape-font-specification:'JetBrainsMonoExtraBold Nerd Font';stroke-width:5.07752323"></tspan></text>
+   id="text821"><path
+     d="M 167.83571,15.510015 H 32.164288 q -7.108533,0 -11.982956,4.874423 -4.671321,4.671321 -4.671321,11.779854 V 184.48999 L 49.224766,150.77524 H 167.83571 q 7.10854,0 11.77986,-4.87442 4.87442,-5.07753 4.87442,-12.18606 V 32.164292 q 0,-7.108533 -4.87442,-11.779854 -4.67132,-4.874423 -11.77986,-4.874423 z M 49.224766,74.612388 H 150.77523 V 91.672867 H 49.224766 Z M 117.06048,117.06048 H 49.224766 V 100.00001 H 117.06048 Z M 150.77523,66.28525 H 49.224766 V 49.224771 H 150.77523 Z"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'JetBrainsMonoExtraBold Nerd Font';-inkscape-font-specification:'JetBrainsMonoExtraBold Nerd Font';stroke-width:5.07752323"
+     id="path814" /></g>
 
 
 
