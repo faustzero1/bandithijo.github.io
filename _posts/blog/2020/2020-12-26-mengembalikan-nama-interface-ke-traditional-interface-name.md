@@ -74,11 +74,9 @@ Karena saya hanya menggunakan laptop dan tidak memiliki banyak interface.
 
 Maka, saya putuskan untuk tidak menggunakan interface namespace yang baru. Alasan yang kurang greget. 😄
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Saya tidak merekomendasikan untuk mengikuti apa yang saya lakukan.</p>
-</div>
+{% endbox_perhatian %}
 
 Okeh, langsung saja bah, males nulis teori-teori. Temen-temen bisa cari tahu sendiri yaa.
 
@@ -99,9 +97,9 @@ Cara kedua ini juga terdapat 2 cara:
 
 Dengan melakukan masking terhadap udev rule yang memberikan aturan interface namespace yang baru.
 
-<pre>
-$ <b>ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules</b>
-</pre>
+{% shell_user %}
+ln -s /dev/null /etc/udev/rules.d/80-net-setup-link.rules
+{% endshell_user %}
 
 ## 2. Kernel Parameter
 
@@ -112,20 +110,20 @@ Saya menggunakan cara alternatif ini, karena praktis. 😁
 Karena saya menggunakan GRUB, maka saya akan menambahkan parameter tersebut melalui konfigurasi GRUB saja, agar lebih mudah.
 
 {% highlight_caption /etc/default/grub %}
-{% highlight conf linenos %}
+{% highlight sh linenos %}
 # GRUB boot loader configuration
 
-...
-...
+# ...
+# ...
 GRUB_CMDLINE_LINUX_DEFAULT="... ... ..."
 GRUB_CMDLINE_LINUX="net.ifnames=0"
-...
-...
+# ...
+# ...
 {% endhighlight %}
 
 Selesai.
 
-Tinggal reboot dan coba lakukan `$ ip a s` lagi untuk melihat nama interface, apakah sudah kembali ke traditional interface namespace atau belum.
+Tinggal reboot dan coba lakukan <code>$ <b>ip a s</b></code> lagi untuk melihat nama interface, apakah sudah kembali ke traditional interface namespace atau belum.
 
 
 

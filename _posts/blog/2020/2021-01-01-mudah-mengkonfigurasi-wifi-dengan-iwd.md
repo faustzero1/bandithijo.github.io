@@ -48,9 +48,7 @@ Cara penggunaan yang akan saya catat adalah cara yang saya pergunakan. Pasti aka
 
 ## iwctl Shell
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>2020 ini, Arch merubah tools untuk terhubung ke jaringan Wi-Fi yang sebelumnya menggunakan **wifi-menu**, sekarang sudah diganti dengan menggunakan **iwd** -- **iwd** adalah replacement untuk **wpa_supplicant**.</p>
 <p markdown=1>Pada menu startup archiso pertama kali, teman-teman akan disuguhkan tampilan sepertin ini.</p>
 
@@ -72,7 +70,7 @@ root@archiso ~ # _
 </pre>
 
 <p markdown=1>Teman-teman dapat melihat, terdapat informasi yang memberikan kita petunjuk untuk authenticate Wi-Fi, kita diminta untuk menggunakan `iwctl` -- **iwctl** adalah interface dari **iwd**.</p>
-</div>
+{% endbox_info %}
 
 {% shell_user %}
 iwctl

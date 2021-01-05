@@ -32,15 +32,15 @@ Namun, saya tidak memerlukan hal ini, karena saya dapat mengakses internet 24 ja
 
 Arch menyimpan paket hasil unduhan dari repositori pada direktori ini.
 
-<pre>
-$ <b>ls /var/cache/pacman/pkg | less</b>
-</pre>
+{% shell_user %}
+ls /var/cache/pacman/pkg | less
+{% endshell_user %}
 
 Untuk memeriksa kapasitasnya gunakan perintah,
 
-<pre>
-$ <b>du -sh /var/cache/pacman/pkg</b>
-</pre>
+{% shell_user %}
+du -sh /var/cache/pacman/pkg
+{% endshell_user %}
 
 <pre>
 4.5G    /var/cache/pacman/pkg
@@ -52,9 +52,9 @@ Kapasitas sebesar itu saya dapatkan dari proses migrasi Arch ke Artix, dimana sa
 
 ## a. Clean Manually
 
-<pre>
-$ <b>sudo pacman -Sc</b>
-</pre>
+{% shell_user %}
+sudo pacman -Sc
+{% endshell_user %}
 
 <pre>
 Packages to keep:
@@ -77,9 +77,9 @@ Nah, kalau hanya menggunakan satu buah option c, yang terhapus hanya cache packe
 
 Untuk menghapus semuanya gunakan double option c.
 
-<pre>
-$ <b>sudo pacman -Scc</b>
-</pre>
+{% shell_user %}
+sudo pacman -Scc
+{% endshell_user %}
 
 Ikuti langkah2nya dengan menekan huruf **y**.
 
@@ -95,26 +95,24 @@ total 0
 
 Nah, sudah benar-benar bersih.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Selain menggunaka **pacman**, untuk teman-teman yang menggunakan AUR Helper **yay**, dapat mengganti pacman dengan yay agar package cache dari yay yang terdapat pada direktori Home, ikut dibersihkan.</p>
-</div>
+{% endbox_info %}
 
 
 ## b. Clean Automatically
 
 Kita akan memasang script untuk membantu kita membersikan sistem secara otomatis.
 
-<pre>
-$ <b>sudo pacman -S pacman-contrib</b>
-</pre>
+{% shell_user %}
+sudo pacman -S pacman-contrib
+{% endshell_user %}
 
 Lalu jalankan scriptnya.
 
-<pre>
-$ <b>paccache -r</b>
-</pre>
+{% shell_user %}
+paccache -r
+{% endshell_user %}
 
 `-r` untuk menghapus "candidate package".
 
@@ -131,9 +129,9 @@ Kalau yang mau dihapus otomatis secara berkala (periode tertentu) bisa menggunak
 
 Misal untuk sekali dalam sebulan.
 
-<pre>
-$ <b>sudoedit /etc/systemd/system/paccache.timer</b>
-</pre>
+{% shell_user %}
+sudoedit /etc/systemd/system/paccache.timer
+{% endshell_user %}
 
 {% highlight_caption /etc/systemd/system/paccache.timer %}
 {% highlight conf linenos %}
@@ -150,23 +148,23 @@ WantedBy=multi-user.target
 
 Lalu enablekan,
 
-<pre>
-$ <b>sudo systemctl enable paccache.timer</b>
-$ <b>sudo systemctl start paccache.timer</b>
-</pre>
+{% shell_user %}
+sudo systemctl enable paccache.timer
+sudo systemctl start paccache.timer
+{% endshell_user %}
 
 Cek statusnya,
 
-<pre>
-$ <b>sudo systemctl status paccache.timer</b>
-</pre>
+{% shell_user %}
+sudo systemctl status paccache.timer
+{% endshell_user %}
 
 
 ## c. Clean After Run Pacman
 
-<pre>
-$ <b>sudoedit /usr/share/libalpm/hooks/paccache.hook</b>
-</pre>
+{% shell_user %}
+sudoedit /usr/share/libalpm/hooks/paccache.hook
+{% endshell_user %}
 
 {% highlight_caption /usr/share/libalpm/hooks/paccache.hook %}
 {% highlight dosini linenos %}
@@ -185,19 +183,17 @@ Exec = /usr/bin/paccache -r
 
 Nah, sekarang setiap kita memasang atau menghapus program, maka **paccache** akan teraktivasi untuk menghapus cache package.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Teman-teman juga dapat mengatur *trigger operation* yang diinginkan.</p>
 <p markdown=1>Lihat blok **[Trigger]**</p>
 <p>Tinggal pilih sesuai kebutuhan teman-teman, ingin menggunakan ketiganya (Upgrade, Install, Remove) atau salah satu dari ketiganya.</p>
-</div>
+{% endbox_info %}
 
 Contohnya seperti ini,
 
-<pre>
-$ <b>sudo pacman -R kermit</b>
-</pre>
+{% shell_user %}
+sudo pacman -R kermit
+{% endshell_user %}
 
 <pre>
 checking dependencies...
@@ -222,9 +218,9 @@ Total Removed Size:  0.04 MiB
 
 Besar cache yang berada di home bisa cukup gila-gilaan kalau kita tidak pernah membersihkannya.
 
-<pre>
-$ <b>du -sh ~/.cache</b>
-</pre>
+{% shell_user %}
+du -sh ~/.cache
+{% endshell_user %}
 
 <pre>
 8.0G    /home/bandithijo/.cache
@@ -236,9 +232,9 @@ Teman-teman bisa mencari tahu apa itu cache dan tujuannya digunakan cache.
 
 Saya tidak berkeberatan untuk membersihkan cache yang ada di direktori sistem saya.
 
-<pre>
-$ <b>rm -rvf ~/.cache/*</b>
-</pre>
+{% shell_user %}
+rm -rvf ~/.cache/*
+{% endshell_user %}
 
 Nah, sekarang Home cache kita sudah bersih.
 
@@ -249,15 +245,15 @@ Nah, sekarang Home cache kita sudah bersih.
 
 Kita dapat menggunakan program bernama **ncdu** untuk mendeteksi direktori mana yang paling obesitas.
 
-<pre>
-$ <b>sudo pacman -S ncdu</b>
-</pre>
+{% shell_user %}
+sudo pacman -S ncdu
+{% endshell_user %}
 
 Lalu, bisa coba jalankan di Home direktori.
 
-<pre>
-$ <b>ncdu ~</b>
-</pre>
+{% shell_user %}
+ncdu ~
+{% endshell_user %}
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26kvgVfs/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Proses listing direktori yang kegemukan</p>
