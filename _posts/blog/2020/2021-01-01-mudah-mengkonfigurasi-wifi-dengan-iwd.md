@@ -36,6 +36,12 @@ Pasang **iwd** sangat mudah di Arch Linux.
 sudo pacman -S iwd
 {% endshell_user %}
 
+Untuk Artix Linux,
+
+{% shell_user %}
+sudo pacman -S iwd iwd-openrc
+{% endshell_user %}
+
 Pada iwd package ini kita juga akan mendapatkan:
 
 1. `iwctl`, shell interface
