@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Mudah Menjalakan Service dengan OpenRC"
+title: "Mudah Manajemen Service dengan OpenRC"
 date: 2021-01-06 06:45
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -13,5 +13,7 @@ pin:
 hot:
 contributors: []
 ---
+
+# Latar Belakang
 
 *Sedang dalam proses penulisan...*
