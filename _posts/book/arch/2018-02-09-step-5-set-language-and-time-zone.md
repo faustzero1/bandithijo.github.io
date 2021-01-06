@@ -23,13 +23,14 @@ _locale_, sejauh yang saya gunakan adalah untuk mengatur _language_ \(bahasa\), 
 
 Untuk memilih _locale_, terlebih dahulu kita perlu membuka akses _locale_ yang masih ter-_disable_ pada _file_ `/etc/locale.gen`. Dalam hal ini saya akan mengaktifkan / _uncommenting_ `en_US.UTF-8`.
 
-```
-# vim /etc/locale.gen
-```
+{% shell_root %}
+vi /etc/locale.gen
+{% endshell_root %}
 
 _Scroll_ ke bawah dan cari baris yang mengandung isi `en_US.UTF-8 UTF-8`, lalu hilangkan tanda `#` yang ada di depan baris tersebut.
 
-<pre>
+{% highlight_caption /etc/locale.gen %}
+<pre class="caption">
 ...
 ...
 
@@ -46,9 +47,10 @@ Kamu dapat juga memilih bahasa **Indonesia**, dengan _scrolling_ ke bawah dan hi
 
 Kemudian _generate_ `locale` dengan perintah.
 
-```
-# locale-gen
-```
+{% shell_root %}
+locale-gen
+{% endshell_root %}
+
 ```
 Generating locales...
     en_US.UTF-8... done
@@ -57,9 +59,9 @@ Generating complete.
 
 Mengeset _locale_ yang sudah kita _generate_ ke dalam _file_ `/etc/locale.conf`.
 
-```
-# locale > /etc/locale.conf
-```
+{% shell_root %}
+locale > /etc/locale.conf
+{% endshell_root %}
 
 Konfigurasi lebih jauh mengenai `locale`, seperti _firstday in week_, _paper format_, dll., akan saya tambahkan pada kesempatan yang lain.
 
@@ -67,25 +69,25 @@ Konfigurasi lebih jauh mengenai `locale`, seperti _firstday in week_, _paper for
 
 Untuk mengatur _time zone_, gunakan `tzselect` dan ikuti alur perintahnya.
 
-Misal, **\(4\) Asia → \(15\) Indonesia → \(3\) Borneo \(east, south … \) → \(1\) Yes**.
+{% shell_root %}
+tzselect
+{% endshell_root %}
 
-```
-# tzselect
-```
+Misal, **\(4\) Asia → \(15\) Indonesia → \(3\) Borneo \(east, south … \) → \(1\) Yes**.
 
 Kemudian, kita perlu untuk membuat _symlink_ untuk mengeset `localtime`.
 
-```
-# ln -sf /usr/share/zoneinfo/Asia/Makassar /etc/localtime
-```
+{% shell_root %}
+ln -sf /usr/share/zoneinfo/Asia/Makassar /etc/localtime
+{% endshell_root %}
 
 Saya berada pada waktu lokal WITA, jadi saya pilih _localtime_ Makassar. Kamu dapat menggantinya dengan _localtime_ Jakarta untuk WIB.
 
 Selanjutnya adalah _hardware clock_. Bagaimanapun juga _hardware clock_ akan menggunakan UTC. Sehingga kita perlu megesetnya dengan cara sebagai berikut.
 
-```
-# hwclock --systohc --utc
-```
+{% shell_root %}
+hwclock --systohc --utc
+{% endshell_root %}
 
 Sampai sini, proses konfigurasi _locale_ dan _time zone_ telah selesai. Kita dapat melangkah ke _step_ selanjutnya.
 

@@ -419,17 +419,16 @@ Apabila masih belum dapat terhubung dengan Internet, maka proses instalasi akan 
 
 Karena _base package_ yang diperlukan untuk menjadikan sistem operasi seutuhnya harus kita unduh dari _server_ repositori, maka kita perlu memilih daftar _mirror server_. Tujuannya untuk mempercepat proses pengunduhan paket-paket aplikasi dari _server_ repositori.
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Mengapa tidak menggunakan <i>mirror-mirror</i> lokal Indonesia ?</div>
+{% box_pertanyaan %}
+<p><b>Mengapa tidak menggunakan <i>mirror-mirror</i> lokal Indonesia?</b></p>
 <p>Karena belum tentu apabila kita memilih server repositori di Indonesia sudah pasti akan mendapatkan kecepatan yang maksimal. Maka biarkan program yang memilihkan untuk kita.</p>
-</div>
+{% endbox_pertanyaan %}
 
 Buat _backup_ `mirrorlist` terlebih dahulu.
 
-<pre>
-# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-</pre>
+{% shell_root %}
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+{% endshell_root %}
 
 ~~Kemudian kita akan menggunakan `rankmirrors` untuk memilih alamat _mirror_ mana yang paling cepat.~~
 
@@ -439,24 +438,25 @@ Buat _backup_ `mirrorlist` terlebih dahulu.
 
 ~~Proses ini akan memakan waktu sebentar. Karena `rankmirrors` akan melakukan filter pada ratusan alamat _mirror server_ yang ada pada daftar _file_ `mirrorlist`.~~
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
-Penggunaan <code>rankmirrors</code> sudah <b>tidak direkomendasikan</b> lagi oleh Arch Wiki.<br>
-Saat ini, sudah menggunakan <code>reflector</code>.
-<br>
-<pre>
-# pacman -Syy
-# pacman -S reflector
-# reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist</pre>
-</div>
+{% box_perhatian %}
+<p>Penggunaan <code>rankmirrors</code> sudah <b>tidak direkomendasikan</b> lagi oleh Arch Wiki.</p>
+<p>Saat ini, sudah menggunakan <code>reflector</code>.</p>
+{% shell_root %}
+pacman -Syy
+pacman -S reflector
+{% endshell_root %}
+<p>*reflector sudah tersedia di ArchISO, kita tidak perlu repot memasangnya lagi.</p>
+{% shell_root %}
+reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+{% endshell_root %}
+{% endbox_perhatian %}
 
 Setelah selesai, maka daftar _server_ repositori yang tadinya ada banyak sekali, hanya akan terseleksi dan tersisa menjadi 5 _server_ paling cepat saja. Kalian dapat melihatnya dengan mengetikkan `$ cat /etc/pacman.d/mirrorlist`.
 
 Setelah itu, kita perlu memperbaharui metadata repository kita untuk dapat sinkron dengan repositori yang baru saja kita rubah.
-```
-$ pacman -Syy
-```
+{% shell_root %}
+pacman -Syy
+{% endshell_root %}
 Tunggu proses sinkorinasi metadata hingga selesai. Setelah itu kita bisa bergerak ke-*step* selanjutnya.
 
 

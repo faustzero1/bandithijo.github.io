@@ -21,22 +21,29 @@ Saya memilih menggunakan `systemd-boot` ketimbang `GRUB` karena lebih mudah buat
 
 Instalasi `systemd-boot` ke `/dev/sda1` yang telah di-_mount_ ke `/mnt/boot`.
 
-```
-# bootctl ––path=/boot install
-```
+Karena kita telah melakukan mounting terhadap partisi **ESP** `/dev/sda1` ke `/mnt/boot`, kita langsng dapat menjalankan perintah di bawah.
+
+{% shell_root %}
+bootctl install
+{% endshell_root %}
 
 ```
-Created “/boot/EFI”.
-Created “/boot/EFI/systemd”.
-Created “/boot/EFI/BOOT”.
-Created “/boot/loader”.
-Created “/boot/loader/entries”.
-Copied “/usr/lib/systemd/boot/efi/systemd-bootx64.efi” to “/boot/EFI/systemd/systemd-bootx64.efi”.
-Copied “/usr/lib/systemd/boot/efi/systemd-bootx64.efi” to “/boot/EFI/BOOT/BOOTX64.EFI”.
-Created EFI boot entry “Linux Boot Manager”.
+Created "/boot/EFI".
+Created "/boot/EFI/systemd".
+Created "/boot/EFI/BOOT".
+Created "/boot/loader".
+Created "/boot/loader/entries".
+Created "/boot/EFI/Linux".
+Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/systemd/systemd-bootx64.efi".
+Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/BOOT/BOOTX64.EFI".
+Random seed file /boot/loader/random-seed successfully written (512 bytes).
+Not installing system token, since we are running in a virtualized environment.
+Created EFI boot entry "Linux Boot Manager".
 ```
 
-Pastikan **tidak terjadi **_**error**_ seperti “_File system “/boot” is not a FAT EFI System Partition \(ESP\) file system._”. Apabila terjadi _error_ seperti ini, maka besar kemungkinan terjadi kesalahan pada saat _mounting partition_ \(Step 3.1\). Kamu bisa kembali melakukan _mounting_ ulang dengan terlebih dahulu keluar dari `chroot` =&gt; `# exit`.
+Pastikan **tidak terjadi** _**error**_ seperti “_File system “/boot” is not a FAT EFI System Partition \(ESP\) file system._”. Apabila terjadi _error_ seperti ini, maka besar kemungkinan terjadi kesalahan pada saat _mounting partition_ \(Step 3.1\). Kamu bisa kembali melakukan _mounting_ ulang dengan terlebih dahulu keluar dari `chroot` =&gt; `# exit`.
+
+Referensi: [Arch Wiki : systemd-boot](https://wiki.archlinux.org/index.php/Systemd-boot){:target="_blank"}.
 
 ## 4.2 Bootloader Configuration
 
@@ -44,90 +51,91 @@ Setelah `systemd-boot` berhasil terpasang, langkah selanjutnya adalah mengkonfig
 
 Langkah ini membutuhkan _text editor_. Saya terbiasa menggunakan `vim`.
 
-```
-# pacman -S vim
-```
+{% shell_root %}
+pacman -S vi
+{% endshell_root %}
 
 Sekarang, saatnya kita mengedit _file_ `/boot/loader/loader.conf`
 
-```
-# vim /boot/loader/loader.conf
-```
-```
+{% shell_root %}
+vi /boot/loader/loader.conf
+{% endshell_root %}
+
+{% highlight_caption /boot/loader/loader.conf %}
+<pre class="caption">
 #timeout 3
 #console-mode keep
-default 2b7aac817eaf45d9b71a8f0e5ea8b942-*
-```
+</pre>
+
 Saya akan komentar saja baris `default ...`
 
 Kemudian isikan seperti contoh yang ada di bawah.
 
-<pre>
+{% highlight_caption /boot/loader/loader.conf %}
+<pre class="caption">
 #timeout 3
 #console-mode keep
-<mark>#</mark>default 2b7aac817eaf45d9b71a8f0e5ea8b942-*
 <mark>default arch
 timeout 0</mark>
 </pre>
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Secara <i>default</i>, file <code>loader.conf</code> sudah terdapat isi di dalamnya. Kita dapat menghapus isi sebelumnya dan mengganti atau isikan persis sama seperti contoh di atas. Untuk isi dari <code>default</code> penamaan harus sama dengan file preferensi yang akan kita buat pada langkah selanjutnya (di bawah). Saya menggunakan nama yang simple, yaitu <code>arch</code> , yang nantinya akan dibuatkan file bernama <code>arch.conf</code>.</p>
 <p><code>timeout 3</code> nilai ini dapat kalian sesuaikan dengan preferensi kalian masing-masing. Saya biasanya menggunakan nilai <code>1</code> atau bahkan <code>0</code>.</p>
 <p>Karena saya tidak memerlukan untuk melihat <i>boot selection</i>.</p>
-</div>
+{% endbox_perhatian %}
 
 Apabila sudah dipastikan tidak terdapat _typo_, kalian dapat keluar dari Vim.
 
 Tahap selanjutnya terlebih dahulu siapkan _smartphone_ atau kertas dan pulpen untuk mencatat nomor UUID.
 
-```
-# blkid -s UUID -o value /dev/sda2
-```
+{% shell_root %}
+blkid -s UUID -o value /dev/sda2
+{% endshell_root %}
 
 Catat atau untuk menghindari kesalahan, foto saja nomor UUID yang tampak di layar agar lebih mudah.
 
 Kemudian kita akan membuat _file_ `arch.conf`
 
-```
-# vim /boot/loader/entries/arch.conf
-```
+{% shell_root %}
+vi /boot/loader/entries/arch.conf
+{% endshell_root %}
 
 Isikan persis sama seperti yang tertulis di bawah.
 
-<pre>
+{% highlight_caption /boot/loader/entries/arch.conf %}
+<pre class="caption">
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options cryptdevice=UUID=<mark>56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a</mark>:volume root=/dev/mapper/volume-root rw
+options cryptdevice=UUID=<mark>4e6f743a-7db3-4f42-aea9-aed532ff2136</mark>:volume root=/dev/mapper/volume-root rw
 </pre>
 
-Ganti `UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a` dengan UUID milikmu. Jangan sampai ada yang _typo_. Harus benar-benar sama persis.
+Ganti `UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a` dengan UUID milikmu.
+
+**Jangan sampai ada yang _typo_. Harus benar-benar sama persis**.
 
 Apabila terjadi  kesalahan dapat menyebabkan sistem operasi yang tersimpan pada `/dev/sda2` tidak dapat di-*load* ke dalam RAM.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>Kalau menggunakan Vim, dapat menggunakan cara yang lebih mudah ini.</p>
-<p>Buat baris baris baru di bawah <code>options</code>, <kbd>Shift</kbd>+<kbd>O</kbd>.</p>
+{% box_info %}
+<p>Kalau menggunakan Vi, dapat menggunakan cara yang lebih mudah ini.</p>
+<p>Buat baris baris baru di bawah <code>options</code> dengan cara tekan <kbd>O</kbd>, lalu <kbd>ESC</kbd>.</p>
 <p>Lalu masukkan command di bawah.</p>
 <pre>
 :r! blkid -s UUID -o value /dev/sda2
 </pre>
 <p>Nanti akan menghasilkan <i>output</i> berupa <code>UUID</code> dari <code>/dev/sda2</code>.</p>
 <p>Asik bukan.</p>
-
-</div>
+{% endbox_info %}
 
 Setelah dipastikan tidak terdapat _typo_, kita dapat menyimpannya dan keluar dari Vim.
 
 Kemudian lakukan _update_ `systemd-boot`.
 
-```
-# bootctl update
-```
+{% shell_root %}
+bootctl update
+{% endshell_root %}
+
 Outputnya adalah,
 ```
 Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/systemd/systemd-bootx64.efi"
@@ -136,13 +144,14 @@ Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/BOOT/BOOTX6
 
 Karena kita menggunakan partis LVM yang terenkripsi, untuk itu kita perlu mengedit _file_ `/etc/mkinitcpio.conf` agar kita dapat menggunakan _keyboard_ untuk memasukkan _password_ sebelum _filesystems_ di-*load* lebih dahulu.
 
-```
-# vim /etc/mkinitcpio.conf
-```
+{% shell_root %}
+vi /etc/mkinitcpio.conf
+{% endshell_root %}
 
 Cari baris yang bertuliskan `HOOKS=(base udev dst... )`. Biasanya pada baris 52.
 
-<pre>
+{% highlight_caption /etc/mkinitcpio.conf %}
+<pre class="caption">
 ...
 ...
 
@@ -153,7 +162,8 @@ HOOKS=(base udev autodetect modconf block filesystems <mark>keyboard</mark> fsck
 
 Pindahkan `keyboard` setelah `block` dan tambahkan `encrypt` dan `lvm2`, seperti contoh di bawah ini.
 
-<pre>
+{% highlight_caption /etc/mkinitcpio.conf %}
+<pre class="caption">
 ...
 ...
 
@@ -166,47 +176,48 @@ Setelah kalian memastikan tidak terdapat _typo_, kalian dapat simpan dan keluar 
 
 Berdasarkan [Arch Wiki](https://wiki.archlinux.org/index.php/LVM#Configure_mkinitcpio){:target="_blank"}, paket `lvm2` belum terpasang pada sistem yang kita masuki dengan menggunakan arch-chroot ini. Maka, kita perlu memasang paket tersebut.
 
-```
-# pacman -S lvm2
-```
+{% shell_root %}
+pacman -S lvm2
+{% endshell_root %}
 
 Langkah terakhir pada proses _bootloader configuration_ ini adalah, _update_ `initramfs` dengan cara sebagai berikut.
 
-```
-# mkinitcpio -p linux
-```
+{% shell_root %}
+mkinitcpio -p linux
+{% endshell_root %}
 
 Untuk kalian yang menggunakan _processor_ Intel. Sebaiknya kita menambahkan paket yang bernama `intel-ucode`. Kegunaannya dapat dibaca [di sini](https://wiki.archlinux.org/index.php/Microcode).
 
-```
-# pacman -S intel-ucode
-```
+{% shell_root %}
+pacman -S intel-ucode
+{% endshell_root %}
 
 Kemudian tambahkan `initrd /intel-ucode.img` pada file `/boot/loader/entries/arch.conf` seperti contoh di bawah.
 
-```
-# vim /boot/loader/entries/arch.conf
-```
+{% shell_root %}
+vi /boot/loader/entries/arch.conf
+{% endshell_root %}
 
-<pre>
+{% highlight_caption /boot/loader/entries/arch.conf %}
+<pre class="caption">
 title Arch Linux
 linux /vmlinuz-linux
 <mark>initrd /intel-ucode.img</mark>
 initrd /initramfs-linux.img
-options cryptdevice=UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a:volume root=/dev/mapper/volume-root rw
+options cryptdevice=UUID=4e6f743a-7db3-4f42-aea9-aed532ff2136:volume root=/dev/mapper/volume-root rw
 </pre>
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat simpan dan keluar dari Vim.
 
 Kemudian lakukan _update_ `systemd-boot` dan _generate_ `mkinitcpio`.
 
-```
-# bootctl update
-```
+{% shell_root %}
+bootctl update
+{% endshell_root %}
 
-```
-# mkinitcpio -p linux
-```
+{% shell_root %}
+mkinitcpio -p linux
+{% endshell_root %}
 
 Langkah di atas kita lakukan karena kita menggunakan `systemd-boot`. Untuk _bootloader_ `GRUB`, hanya tinggal melakukan _regenrate_ `grub-mkconfig` saja. Namun, saya kurang begitu memahaminya.
 
