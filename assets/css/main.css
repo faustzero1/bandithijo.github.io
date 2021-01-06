@@ -203,18 +203,23 @@ kbd {
   -moz-user-select: none !important;
 }
 
-.color-comment {
+.is-comment {
   color: #586e75;
   font-style: italic;
 }
 
-.color-success {
+.is-success {
   color: #859900;
   font-weight: bold;
 }
 
-.color-white {
+.is-white {
   color: #FFF;
+  font-weight: bold;
+}
+
+.is-danger {
+  color: #DC322F;
   font-weight: bold;
 }
 

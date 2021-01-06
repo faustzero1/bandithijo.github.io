@@ -115,8 +115,8 @@ $ <b>rails generate devise:install</b>
 
 <pre>
 Running via Spring preloader in process 349251
-     <span class="color-success">create</span>  config/initializers/devise.rb
-     <span class="color-success">create</span>  config/locales/devise.en.yml
+     <span class="is-success">create</span>  config/initializers/devise.rb
+     <span class="is-success">create</span>  config/locales/devise.en.yml
 ===============================================================================
 
 Some setup you must do manually if you haven't yet:
@@ -159,14 +159,14 @@ $ <b>rails g devise admin</b>
 
 <pre>
 Running via Spring preloader in process 368446
-      <span class="color-white">invoke</span>  active_record
-      <span class="color-success">create</span>    db/migrate/20191216044109_devise_create_admins.rb
-      <span class="color-success">create</span>    app/models/admin.rb
-      <span class="color-white">invoke</span>    test_unit
-      <span class="color-success">create</span>      test/models/admin_test.rb
-      <span class="color-success">create</span>      test/fixtures/admins.yml
-      <span class="color-success">insert</span>    app/models/admin.rb
-       <span class="color-success">route</span>  devise_for :admins
+      <span class="is-white">invoke</span>  active_record
+      <span class="is-success">create</span>    db/migrate/20191216044109_devise_create_admins.rb
+      <span class="is-success">create</span>    app/models/admin.rb
+      <span class="is-white">invoke</span>    test_unit
+      <span class="is-success">create</span>      test/models/admin_test.rb
+      <span class="is-success">create</span>      test/fixtures/admins.yml
+      <span class="is-success">insert</span>    app/models/admin.rb
+       <span class="is-success">route</span>  devise_for :admins
 </pre>
 
 Kemudian untuk model user.
@@ -177,14 +177,14 @@ $ <b>rails g devise user</b>
 
 <pre>
 Running via Spring preloader in process 368446
-      <span class="color-white">invoke</span>  active_record
-      <span class="color-success">create</span>    db/migrate/20191216044641_devise_create_users.rb
-      <span class="color-success">create</span>    app/models/user.rb
-      <span class="color-white">invoke</span>    test_unit
-      <span class="color-success">create</span>      test/models/user_test.rb
-      <span class="color-success">create</span>      test/fixtures/users.yml
-      <span class="color-success">insert</span>    app/models/user.rb
-       <span class="color-success">route</span>  devise_for :users
+      <span class="is-white">invoke</span>  active_record
+      <span class="is-success">create</span>    db/migrate/20191216044641_devise_create_users.rb
+      <span class="is-success">create</span>    app/models/user.rb
+      <span class="is-white">invoke</span>    test_unit
+      <span class="is-success">create</span>      test/models/user_test.rb
+      <span class="is-success">create</span>      test/fixtures/users.yml
+      <span class="is-success">insert</span>    app/models/user.rb
+       <span class="is-success">route</span>  devise_for :users
 </pre>
 
 Lalu jalankan migration-nya.
