@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Arch Linux']
+tags: ['Tips', 'Arch Linux', 'Artix Linux']
 pin:
 hot:
 contributors: []
