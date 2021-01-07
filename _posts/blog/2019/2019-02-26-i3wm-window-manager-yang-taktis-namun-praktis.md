@@ -202,11 +202,9 @@ Saya memilih menggunakan tombol <kbd>SUPER</kbd> untuk meminimalisir bentrokan d
 set $mod Mod4
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saya menggunakan <code>$mod</code> berupa <code>Mod4</code> yang merupakan tombol <kbd>SUPER</kbd>. Sebagaian user i3, adapula yang menggunakan <kbd>ALT</kbd>, namun sangat jarang saya temui.</p>
-</div>
+{% endbox_info %}
 
 ### Memanggil Terminal
 
@@ -247,11 +245,9 @@ Sebenarnya saya memanfaatkan **dmenu** sebagai *backend* yang berfungsi me-*list
 
 Jadi, menggunakan **dmenu** saja, sebenarnya juga bisa.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Sebelumnya, saya menggunakan paket <code>dmenu</code>, namun terasa ada <i>delay</i> yang sangat mengganggu. Kemudian, setelah mencari informasi, saya memutuskan untuk menggunakan paket <code>j4-dmenu-desktop</code> (AUR) karena terasa lebih cepat saat dikombinasikan dengan Rofi.</p>
-</div>
+{% endbox_info %}
 
 ### Konfigurasi Font
 
@@ -389,11 +385,9 @@ bindsym $mod+v split v
 | <kbd>SUPER</kbd>+<kbd>B</kbd> | Horizontal orientation |
 | <kbd>SUPER</kbd>+<kbd>V</kbd> | Vertical orientation |
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Hal ini, hanya dapat dilakukan pada <i><b>tiling</b></i> layout atau bisa juga kita sebut dengan <i><b>split</b></i> layout.</p>
-</div>
+{% endbox_info %}
 
 Kita dapat mengatur *default orientation* saat menggunakan *Tiling* layout, apakah ingin Vertical atau Horizontal.
 
@@ -616,11 +610,9 @@ Seperti pohon faktorial yaa?
 
 Tidak ada batasan sampai berapa cabang ranting dan daun yang ingin kalian buat.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Split Vertical berarti di dalam satu Container akan dibagi kedalam 2 ruang, atas dan bawah. Begitu pula untuk Split Horizontal, berarti Container akan dibagi menjadi 2 ruang, kanan dan kiri.</p>
-</div>
+{% endbox_info %}
 
 Nah, yang dimaksud dengan **PARENT** di sini adalah **ranting** sedangkan **CHILD** adalah **daun**.
 
@@ -839,9 +831,7 @@ Dapat pula kita atur, apakah *floating* container secara *default* memiliki bord
 new_float normal 1
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Terdapat 3 option yang dapat kita gunakan.</p>
 <table>
 <tr>
@@ -858,7 +848,7 @@ new_float normal 1
 </tr>
 </table>
 <p>Untuk option <code>normal</code> dan <code>pixel</code>, kita dapat menambahkan value dari ketebalan border seperti <code>0</code>, <code>1</code>, atau <code>2</code>.</p>
-</div>
+{% endbox_info %}
 
 Kita juga dapat memanipulasi Window Container Border secara langsung menggunakan *keyboard shortcut*.
 
@@ -1052,9 +1042,7 @@ assign [class="st-256color" title="newsboat"] $workspace8
 assign [class="Telegram"]                     $workspace9
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Untuk mendapatkan nilai <b>class=</b> dan nilai <b>title=</b>, saya menggunakan perintah <code>xprop</code> yang langsung saya jalankan dari Terminal. Kemudian, tinggal klik Window Container mana yang ingin diketahui nilai class dan title nya.</p>
 <p>Hasilnya, akan seperti ini kira-kira. (Contoh: Firefox)</p>
 <pre>
@@ -1089,7 +1077,7 @@ _NET_WM_NAME(UTF8_STRING) = "SoundConverter"
 <td>"SoundConverter"</td>
 </tr>
 </table>
-</div>
+{% endbox_info %}
 
 
 Memanfaatkan Workspace pada i3wm benar-benar sangat membantu mempermudah hampir setiap pekerjaan yang saya kerjakan di atas Window Manager ini.
@@ -1560,12 +1548,10 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 2
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saya mendapati informasi, bahwa beberapa distribusi sistem operasi sudah tidak dapat menggunakan perintah <code>xbacklight</code>.</p>
 <p>Apabila ini terjadi pada teman-teman, mungkin bisa mencari solusinya sendiri. Karena saya belum mengalaminya. Akan sangat sulit bagi saya melakukan perbaikan apabila saya belum mengalami pada sistem saya. Hehe.</p>
-</div>
+{% endbox_info %}
 
 #### Arandr
 
