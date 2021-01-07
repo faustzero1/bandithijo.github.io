@@ -210,16 +210,21 @@ kbd {
 
 .is-success {
   color: #859900;
-  font-weight: bold;
 }
 
 .is-white {
   color: #FFF;
-  font-weight: bold;
 }
 
 .is-danger {
   color: #DC322F;
+}
+
+.is-warning {
+  color: yellow;
+}
+
+.has-text-weight-bold {
   font-weight: bold;
 }
 
