@@ -359,6 +359,12 @@ rtt min/avg/max/mdev = 215.292/228.954/245.752/12.631 ms
 
 Mantap! Kita telah berhasil terhubung ke internet.
 
+## iwctl Station Disconnect
+
+<pre>
+[iwd]# <b>station wlan0 disconnect</b>
+</pre>
+
 
 # Konfigurasi Lanjut
 
