@@ -755,7 +755,7 @@ for_window [class="pavucontrol-qt"]                    floating disable
 Meskipun sangat jarang saya temui aplikasi yang sejak awal sudah berada pada *floating* container, namun saya rasa perlu juga untuk memiliki konfigurasi ini apabila sewaktu-waktu diperlukan pada kasus yang lain.
 
 
-#### Mengeluarkan Window Container
+#### Menutup/mengakhiri Window Container
 
 Di dalam sebuah Window, dapat berupa apa saja. Aplikasi, program, dialog, terminal, pokoknya apa saja yang ada di dalam Window, kita dapat mengakhirinya dengan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Q</kbd>.
 
@@ -768,7 +768,7 @@ Di dalam sebuah Window, dapat berupa apa saja. Aplikasi, program, dialog, termin
 bindsym $mod+Shift+q kill
 {% endhighlight %}
 
-Hal ini diperlukan mengingat i3wm tidak menyediakan tombol *close* atau menu *exit* pada *title bar*. Tentu saja hal ini malah membuat proses mengeluarkan sebuah window menjadi lebih praktis tanpa perlu menggerakkan *mouse* ke arah menu atau tombol *close* pada *title bar*.
+Hal ini diperlukan mengingat i3wm tidak menyediakan tombol *close* atau menu *exit* pada *title bar*. Tentu saja hal ini malah membuat proses menutup/mengakhiri sebuah window menjadi lebih praktis tanpa perlu menggerakkan *mouse* ke arah menu atau tombol *close* pada *title bar*.
 
 #### Mengganti Window Container Border Color
 
