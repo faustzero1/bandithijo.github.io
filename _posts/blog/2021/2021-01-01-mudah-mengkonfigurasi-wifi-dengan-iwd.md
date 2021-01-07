@@ -367,6 +367,29 @@ Untuk konfigurasi lebih lanjut, atau cara-cara lain dalam mengkonfigurasi iwd, t
 [**Arch Wiki: iwd**](https://wiki.archlinux.org/index.php/Iwd){:target="_blank"}.
 
 
+# Lokasi File Config
+
+Berbeda dengan **wpa_supplicant** yang menyimpan file configurasi pada direktori **/etc/wpa_supplicant/**, sehingga dapat diakses oleh semua user. **iwd** menyimpan file configurasi atau *stored data file* pada direktori **/var/lib/iwd/**. Sehingga hanya root yang dapat mengakses direktori ini.
+
+<pre>
+<mark>/var/lib/iwd/</mark>
+├── bandithijo.psk
+├── OF-LT2.psk
+└── hotspot
+
+1 directory, 1 file
+</pre>
+
+Isi dari file `.psk` (presharedkey) tersebut adalah credential dari SSID yang merupakan nama file.
+
+{% highlight_caption /var/lib/iwd/bandithijo.psk %}
+{% highlight sh %}
+[Security]
+PreSharedKey=de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
+Passphrase=iniadalahpassword
+{% endhighlight %}
+
+
 
 
 # Pesan Penulis
