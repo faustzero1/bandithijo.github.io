@@ -226,34 +226,11 @@ Demonya begini,
 
 ### i3lock
 
-~~Untuk membuka i3lock dengan menggunakan _fingerprint scanner_,~~
+Untuk membuka i3lock dengan menggunakan _fingerprint scanner_,
 
-<s>
 {% shell_user %}
 sudo vim /etc/pam.d/i3lock
 {% endshell_user %}
-</s>
-
-{% highlight_caption /etc/pam.d/i3lock %}
-<s>
-<pre class="caption">
-#
-# PAM configuration file for the i3lock screen locker. By default, it includes
-# the 'system-auth' configuration file (see /etc/pam.d/login)
-#
-
-#auth  include     system-auth
-
-<mark>auth   sufficient  pam_unix.so    try_first_pass likeauth nullok
-auth   sufficient  pam_fprintd.so</mark>
-</pre></s>
-
-~~*Disable isi sebelumnya dengan menambahkan tanda `#` pada awal baris, kemudian tambahkan 3 baris di bawahnya, seperti contoh di atas.~~
-
-~~Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka _fingerprint scanner_ akan aktif, kemudian _unlock_ i3lock dengan melakukan _enroll fingerprint_.~~
-
-<br>
-**Januari 08th 2021**, ini saya iseng saja mencoba dan menemukan celah untuk menggunakan fingerprint pada i3lock.
 
 {% highlight_caption /etc/pam.d/i3lock %}
 <pre class="caption">
@@ -263,10 +240,19 @@ auth   sufficient  pam_fprintd.so</mark>
 # and 'login' for Debian. Note that vanilla i3lock upstream uses 'login' instead.
 #
 
-<mark>auth    sufficient   pam_fprintd.so</mark>
-auth    include      system-auth     # For Arch/Gentoo
+#auth   include      system-auth     # For Arch/Gentoo
 #auth   include      login           # For Debian
+
+<mark>auth   sufficient   pam_unix.so    try_first_pass likeauth nullok</mark>
+<mark>auth   sufficient   pam_fprintd.so</mark>
 </pre>
+
+\*Disable isi sebelumnya dengan menambahkan tanda `#` pada awal baris, kemudian tambahkan 3 baris di bawahnya, seperti contoh di atas.
+
+Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka _fingerprint scanner_ akan aktif, kemudian _unlock_ i3lock dengan melakukan _enroll fingerprint_.
+
+
+
 
 
 
