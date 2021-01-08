@@ -1,8 +1,10 @@
 <!-- <div class="sidebar&#45;body" style="background&#45;color: #EBFFB4;"> -->
 <div class="sidebar-body" style="background-color: #EBFFB4;">
-    <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">Daftar Isi</h1>
-    <div class="toc">
-        {% comment %} {{ content | toc_only }} {% endcomment %}
-        {% include toc.html html=content %}
-    </div>
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    {% comment %} {{ content | toc_only }} {% endcomment %}
+    {% include toc.html html=content %}
+  </div>
 </div>
