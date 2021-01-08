@@ -9,7 +9,7 @@ permalink: '/tags/'
   {% assign tag_list = site.tags | sort %}
   {% for tag in tag_list %}
     <div style="clear:both;">
-      <img class="post-header-img" src="/assets/img/logo/logo_tags.svg">
+      <img class="post-header-img" src="/assets/img/logo/logo_tag.svg">
       <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;text-transform:capitalize;"id="{{ tag[0] | downcase | url_escape | strip | replace: ' ', '-' }}">&nbsp;{{ tag[0] | camelcase }}</h3>
     </div><!-- clear:both -->
     <div style="clear:both;">
