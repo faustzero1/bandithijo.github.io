@@ -17,7 +17,7 @@ namespace :jekyll do
 
   namespace :server do
     desc 'Menjalankan Jekyll pada Environment Development dengan --incremental --watch'
-    task :watch do
+    task :inc do
       sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch')
     end
   end
