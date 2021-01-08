@@ -432,6 +432,54 @@ Dynamic Runlevel: manual
 <br>
 Kalau ingin melihat service status dari semua runlevel, gunakan option `--all`.
 
+## 7. Direktori Config
+
+Untuk file-file konfigurasi dari init script, dapat dilihat pada direktori **/etc/conf.d/**
+
+Misal,
+
+Untuk configurasi dari **dnscrypt-proxy**.
+
+{% highlight_caption /etc/conf.d/dnscrypt-proxy %}
+{% highlight sh linenos %}
+#rc_use="tor"
+#DNSCRYPT_PROXY_OPTS="-config /etc/dnscrypt-proxy/dnscrypt-proxy.toml"
+#DNSCRYPT_PROXY_USER="dnscrypt"
+#DNSCRYPT_PROXY_GROUP="dnscrypt"
+DNSCRYPT_PROXY_USER="root"
+DNSCRYPT_PROXY_GROUP="root"
+{% endhighlight %}
+
+Selayaknya file config, isinya berupa variabel-variabel yang akan digunakan di init script.
+
+Kita akan lihat init script dari **dnscrypt-proxy**.
+
+{% highlight_caption /etc/init.d/dnscrypt-proxy %}
+{% highlight sh linenos %}
+#!/usr/bin/openrc-run
+# Copyright 1999-2019 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+command="/usr/bin/dnscrypt-proxy"
+command_args="${DNSCRYPT_PROXY_OPTS:--config /etc/dnscrypt-proxy/dnscrypt-proxy.toml}"
+command_user="${DNSCRYPT_PROXY_USER:-dnscrypt}:${DNSCRYPT_PROXY_GROUP:-dnscrypt}"
+pidfile="/run/${RC_SVCNAME}.pid"
+retry="SIGTERM/5/SIGTERM/5/SIGKILL/5"
+start_stop_daemon_args="--background --make-pidfile"
+
+depend() {
+	use logger net
+	provide dns
+}
+
+# start_pre() {
+# 	checkpath -q -d -m 0775 -o "${command_user}" /var/cache/"${RC_SVCNAME}"
+# 	checkpath -q -d -m 0775 -o "${command_user}" /var/log/"${RC_SVCNAME}"
+# }
+{% endhighlight %}
+
+Nah, teman-teman dapat melihat variabel-variabel pada file config tersebut digunakan pada init script.
+
 
 # Head to Head Table
 
