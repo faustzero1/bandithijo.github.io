@@ -56,9 +56,11 @@ Namun, pada catatan kali ini, saya baru sempat menuliskan untuk Wireless interfa
 Meskipun instalasi Arch Linux ini berupa _command line_, namun kita tetap dapat menggunakan _wifi adapter_ untuk terhubung dengan jaringan. \(apabila _wifi adapter_ kalian terdeteksi\). Lakukan pengecekan dengan perintah di bawah.
 
 <br>
-<pre>
-$ <b><del>wifi-menu</del></b>
-</pre>
+<s>
+{% shell_user %}
+<del>wifi-menu</del>
+{% endshell_user %}
+</s>
 
 ~~Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`, menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_.~~
 
