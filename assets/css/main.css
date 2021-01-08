@@ -639,6 +639,11 @@ div.sidebar-body h1 img {
   margin: 0 10px 0 0 !important;
 }
 
+div.sidebar-body-rss h1 img {
+  width: 25px !important;
+  margin: 0 10px 0 0 !important;
+}
+
 aside.sidebar ul {
   list-style-type: disc;
   color: #0C4B33;
