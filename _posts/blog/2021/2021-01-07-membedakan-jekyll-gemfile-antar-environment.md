@@ -100,7 +100,7 @@ Saya perlukan plugin sitemap untuk mendhandle ketentuan SEO dan saya perlukan pl
 
 # Pemecahan Masalah
 
-Kalau di Rub on Rails, pada Gemfile, kita dapat menempatkan gem pada group tertentu.
+Kalau di Ruby on Rails, pada Gemfile, kita dapat menempatkan gem pada group tertentu.
 
 {% highlight_caption Gemfile %}
 {% highlight ruby linenos %}
