@@ -219,9 +219,10 @@ password  include     system-auth
 session   include     system-auth
 </pre>
 
-Tambahkan seperti yang tertulis pada line ke-3.
+Demonya begini,
 
-`auth sufficient pam_fprintd.so`.
+![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XJbQ0c1L/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
+
 
 ### i3lock
 
@@ -251,6 +252,21 @@ auth   sufficient  pam_fprintd.so</mark>
 
 ~~Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka _fingerprint scanner_ akan aktif, kemudian _unlock_ i3lock dengan melakukan _enroll fingerprint_.~~
 
+<br>
+**Januari 08th 2021**, ini saya iseng saja mencoba dan menemukan celah untuk menggunakan fingerprint pada i3lock.
+
+{% highlight_caption /etc/pam.d/i3lock %}
+<pre class="caption">
+#
+# PAM configuration file for the i3lock-color screen locker. By default, it includes
+# the 'system-auth' configuration file (see /etc/pam.d/system-auth) for Arch and Gentoo
+# and 'login' for Debian. Note that vanilla i3lock upstream uses 'login' instead.
+#
+
+<mark>auth    sufficient   pam_fprintd.so</mark>
+auth    include      system-auth     # For Arch/Gentoo
+#auth   include      login           # For Debian
+</pre>
 
 
 
