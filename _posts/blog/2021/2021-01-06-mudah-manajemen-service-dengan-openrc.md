@@ -438,7 +438,7 @@ Untuk file-file konfigurasi dari init script, dapat dilihat pada direktori **/et
 
 Misal,
 
-Untuk configurasi dari **dnscrypt-proxy**.
+Untuk konfigurasi dari **dnscrypt-proxy**.
 
 {% highlight_caption /etc/conf.d/dnscrypt-proxy %}
 {% highlight sh linenos %}
