@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Tips', 'Arch Linux', 'Artix Linux']
 pin:
-hot:
+hot: true
 contributors: []
 ---
 
