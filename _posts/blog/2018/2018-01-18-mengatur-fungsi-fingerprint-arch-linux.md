@@ -198,7 +198,11 @@ session  include    system-auth
 
 Letakkan pada bagian atas dari aturan (*rules*) yang sudah ada sebelumnya.
 
-Tujuannya agar kita diminta untuk memasukkan *fingerprint* terlebih dahulu, apabila gagal, maka akan dilanjutkan dengan inputan sudo password.
+Tujuannya agar kita diminta untuk memasukkan password terlebih dahulu, apabila gagal, baru kita akan diminta fingerprint.
+
+Kalau tidak ingin menginputkan password, langsung saja tekan <kbd>Enter</kbd> untuk melewati inputan password dan langsung ke permintaan fingerprint.
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Gmfjqt7x/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
 
 ### Polkit
 
@@ -250,6 +254,8 @@ sudo vim /etc/pam.d/i3lock
 \*Disable isi sebelumnya dengan menambahkan tanda `#` pada awal baris, kemudian tambahkan 3 baris di bawahnya, seperti contoh di atas.
 
 Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka _fingerprint scanner_ akan aktif, kemudian _unlock_ i3lock dengan melakukan _enroll fingerprint_.
+
+![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tJD3P4nP/gambar-03.gif" onerror="imgError(this);"}{:class="myImg"}
 
 
 
