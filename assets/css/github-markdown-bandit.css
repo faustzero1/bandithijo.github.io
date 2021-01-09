@@ -216,8 +216,8 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 .markdown-body img {
   border-style: none;
   margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  /* margin-top: 20px; */
+  /* margin-bottom: 20px; */
   /* membuat image ditengah2 post */
   display: flex;
   align-items: center;
