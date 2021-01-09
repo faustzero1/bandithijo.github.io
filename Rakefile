@@ -21,4 +21,9 @@ namespace :jekyll do
       sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch')
     end
   end
+
+  desc 'Push blog to repo source'
+  task :push do
+    sh('git push -u origin source; git push -u gitlab source')
+  end
 end
