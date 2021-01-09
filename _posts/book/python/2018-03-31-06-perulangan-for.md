@@ -175,9 +175,11 @@ Mungkin akan saya tambahkan lain waktu.
 
 
 <!-- NEXT PREV BUTTON -->
+{% assign btn-next = "/python/05-perulangan-while" %}
+{% assign btn-menu = "/python/" %}
+{% assign btn-prev = "/python/" %}
 <div class="post-nav">
-<a class="btn-blue-l" href="/python/05-perulangan-while"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+<a class="btn-blue-l" href="{{ btn-next }}"><img class="btn-img" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="{{ btn-menu }}"><img class="btn-img" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="{{ btn-prev }}"><img class="btn-img" src="/assets/img/logo/logo_an.png"></a>
 </div>
-

@@ -212,8 +212,11 @@ Apabila teman-teman tertarik untuk belajar dasar-dasar bahasa pemrograman Python
 <br>Diakses tanggal: 2018/03/27
 
 <!-- NEXT PREV BUTTON -->
+{% assign btn-next = "" %}
+{% assign btn-menu = "/python/" %}
+{% assign btn-prev = "/python/01-hal-yang-harus-dipersiapkan" %}
 <div class="post-nav">
-<a class="btn-blue-l disabled" href="#"><img style="width:20px;" src="/assets/img/logo/logo_ap.png"></a>
-<a class="btn-blue-c" href="/python/"><img style="width:20px;" src="/assets/img/logo/logo_menu.svg"></a>
-<a class="btn-blue-r" href="/python/01-hal-yang-harus-dipersiapkan"><img style="width:20px;" src="/assets/img/logo/logo_an.png"></a>
+<a class="btn-blue-l disabled" href="{{ btn-next }}"><img class="btn-img" src="/assets/img/logo/logo_ap.png"></a>
+<a class="btn-blue-c" href="{{ btn-menu }}"><img class="btn-img" src="/assets/img/logo/logo_menu.svg"></a>
+<a class="btn-blue-r" href="{{ btn-prev }}"><img class="btn-img" src="/assets/img/logo/logo_an.png"></a>
 </div>

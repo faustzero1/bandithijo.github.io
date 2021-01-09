@@ -1,15 +1,17 @@
 <div class="sidebar-body" style="background: #EBFFB4;">
-    <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">Tahapan</h1>
-    <div class="toc">
-    <ul>
-    {% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/arch/:title'" %}
-    {% for post in posts %}
-    {% assign class = nil %}
-    {% if page.url contains post.url %}
-    {% assign class = 'current' %}
-    {% endif %}
-    <li style="list-style:none;margin-left:-20px;"><a href="{{ post.url }}" class="{{ class }}">{{ post.title }}</a></li>
-    {% endfor %}
-    </ul>
-    </div>
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tahapan.svg">Tahapan
+  </h1>
+  <div class="toc">
+  <ul>
+  {% assign posts = site.posts | sort | where_exp:"page", "page.permalink == '/arch/:title'" %}
+  {% for post in posts %}
+  {% assign class = nil %}
+  {% if page.url contains post.url %}
+  {% assign class = 'current' %}
+  {% endif %}
+  <li style="list-style:none;margin-left:-20px;"><a href="{{ post.url }}" class="{{ class }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+  </div>
 </div>
