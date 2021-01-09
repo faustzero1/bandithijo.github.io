@@ -18,7 +18,12 @@ contributors: []
 
 Saat memindahkan proses build blog ini dari Netlify ke GitHub Pages, saya menyadari bahwa ada beberapa plugin yang membuat proses build blog ini sangat molor. Sekitar 40-60 detik.
 
-Dengan waktu build yang selama itu, mungkin tidak akan terasa mengganggu apabila terjadi pada level production. Namun, akan sangat mengganggu bagi saya sebagai developer apabila terjadi pada level development.
+Dengan waktu build yang selama itu, mungkin tidak akan terasa mengganggu apabila terjadi pada level production.
+
+![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/zBFKZGjM/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+<p class="img-caption">Gambar 1 - Proses build di production dengan Travis-CI</p>
+
+Namun, akan sangat mengganggu bagi saya sebagai developer apabila terjadi pada level development.
 
 Waktu yang diperlukan untuk mengenerate blog menjadi static file menjadi sangat molor.
 
@@ -30,6 +35,8 @@ Regenerating: 1 file(s) changed at 2021-01-07 21:15:48
  Jekyll Feed: Generating feed for posts
               ...done in 37.638836748 seconds.
 </pre>
+
+Proses build yang molor ini juga dikarenakan prosesor saya sudah cukup tua, namun menolak untuk menyerah.
 
 # Apa Penyebabnya?
 
