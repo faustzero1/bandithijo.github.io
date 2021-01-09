@@ -59,33 +59,33 @@ Sebenarnya Rbenv tidak harus diupgrade sih, tapi yaa siapa yang tidak senang den
 
 Saya memasang Rbenv menggunakan Git, maka proses upgrade tinggal melakukan git pull saja di dalam direktori dari Rbenv.
 
-<pre>
-$ <b>cd ~/.rbenv</b>
-</pre>
+{% shell_user %}
+cd ~/.rbenv
+{% endshell_user %}
 
-<pre>
-$ <b>git pull</b>
-</pre>
+{% shell_user %}
+git pull
+{% endshell_user %}
 
 ## Update List of Available Ruby Versions
 
 Setelah kita selesai mengupgrade Rbenv. Selanjutnya kita perlu meng-update daftar versi Ruby yang terbaru. Anggep aja ini semacam update metafile gitu deh kalo di repositori distro.
 
-<pre>
-$ <b>cd ~/.rbenv/plugins/ruby-build</b>
-</pre>
+{% shell_user %}
+cd ~/.rbenv/plugins/ruby-build
+{% endshell_user %}
 
-<pre>
-$ <b>git pull</b>
-</pre>
+{% shell_user %}
+git pull
+{% endshell_user %}
 
 Setelah proses selesai, coba periksa vesi Ruby yang baru, dengan perintah berikut ini.
 
 **Melihat versi yang latest stable release**
 
-<pre>
-$ <b>rbenv install --list</b>
-</pre>
+{% shell_user %}
+rbenv install --list
+{% endshell_user %}
 
 <pre>
 2.5.8
@@ -105,17 +105,17 @@ Maka, versi yang ditampilkan adalah versi terbaru dengan rilis stable.
 
 Kalau ingin melihat semua versi, gunakan perintah di bawah ini.
 
-<pre>
-$ <b>rbenv install --list</b>
-</pre>
+{% shell_user %}
+rbenv install --list
+{% endshell_user %}
 
 Maka yang tampil adalah semua versi.
 
 Untuk menspesifikkan pada versi tertentu, kita dapat menggunakan `grep`.
 
-<pre>
-$ <b>rbenv install --list-all | grep 2.7.</b>
-</pre>
+{% shell_user %}
+rbenv install --list-all | grep 2.7.
+{% endshell_user %}
 
 <pre>
 2.7.0-dev
@@ -133,9 +133,9 @@ rbx-2.71828182
 
 Kalo sudah begini, tinggal kita install saja.
 
-<pre>
-$ <b>rbenv install 2.7.2</b>
-</pre>
+{% shell_user %}
+rbenv install 2.7.2
+{% endshell_user %}
 
 Tunggu prosesnya hingga selesai.
 

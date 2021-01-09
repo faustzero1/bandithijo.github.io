@@ -49,9 +49,9 @@ Pada catatan ini tidak akan jauh berbeda dengan Arch Wiki pada saat tulisan ini 
 
 Pasang paket PostgreSQL yang sudah terdapat pada *official repo* Arch.
 
-<pre>
-$ <b>sudo pacman -S postgresql</b>
-</pre>
+{% shell_user %}
+sudo pacman -S postgresql
+{% endshell_user %}
 
 Ikuti proses instalasi sampai selesai.
 
@@ -69,9 +69,9 @@ Anggaplah saya akan menggunakan user dengan nama yang sama dengan username Linux
 ### Berpindah User Postgres
 Sekarang, kita perlu berpindah menggunkaan aku `postgres` ini dengna cara.
 
-<pre>
-$ <b>sudo -iu postgres</b>
-</pre>
+{% shell_user %}
+sudo -iu postgres
+{% endshell_user %}
 
 Saya anggap mayoritas dari teman-teman pasti menggunakan `sudo`.
 
@@ -154,15 +154,15 @@ Pastikan kita sudah keluar dari user `postgres` seperti perintah di atas.
 
 Kemudian jalankan perintah di bawah, untuk menjalankan service dari PostgreSQL.
 
-<pre>
-$ <b>sudo systemctl start postgresql.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl start postgresql.service
+{% endshell_user %}
 
 Apabila teman-teman ingin membuat service ini berjalan otomatis saat sistem kita dinyalakan/dijalankan, gunakan perintah `enable`.
 
-<pre>
-$ <b>sudo systemctl enable postgresql.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl enable postgresql.service
+{% endshell_user %}
 
 Apabila berhasil akan menampilkan *output* seperti di bawah ini.
 ```
@@ -177,9 +177,9 @@ Tujuannya adalah agar sistem saya tidak perlu menjalankan service-service yang t
 
 Untuk melihat apakah postgresql.serive sudah berhasil dijalankan, gunakan perintah di bawah ini.
 
-<pre>
-$ <b>sudo systemctl status postgresql.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl status postgresql.service
+{% endshell_user %}
 
 Apabila, service berhasil dijalankan, akan menampilkan output seperti ini.
 
@@ -216,9 +216,9 @@ Saya akan membuat user dengan nama yang sama seperti user Linux yang saya pergun
 
 Kita memerlukan bantuan user `postgres` lagi.
 
-<pre>
-$ <b>sudo -iu postgres</b>
-</pre>
+{% shell_user %}
+sudo -iu postgres
+{% endshell_user %}
 
 Kemudian, buat user baru.
 
@@ -251,9 +251,9 @@ Proses tersebut akan membuat database baru dengan nama yang sama seperti usernam
 
 Sekarang `exit` dan coba masuk ke dalam PostgreSQL shell menggunakan perintah,
 
-<pre>
-$ <b>psql</b>
-</pre>
+{% shell_user %}
+psql
+{% endshell_user %}
 
 Kalau berhasil, akan seperti ini tampilan dari PostgreSQL shell.
 
@@ -340,9 +340,9 @@ Untuk menghapus database dan menghapus role (user), gunakan perintah ini.
 
 Masuk menggunakan user `postgres`.
 
-<pre>
-$ <b>psql -U postgres</b>
-</pre>
+{% shell_user %}
+psql -U postgres
+{% endshell_user %}
 
 Lalu jalankan perintah `DROP DATABASE` dan `DROP USER`.
 
@@ -377,15 +377,13 @@ Seperti Postgres versi 11.5 ke 12.1, ini disebut upgrade major.
 
 Proses upgrade versi major untuk Postgres versi 11 ke versi 12, akan saya bahas pada catatan yang lain.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saat tulisan ini dibuat, PostgreSQL sudah memasuki versi 12.1</p>
 <p>Bagi teman-teman yang masih ingin menggunakan versi sebelumnya (11.5), sebaiknya perlu memasukkan kedalam <code>IgnorePkg=</code> pada konfigurasi <code>/etc/pacman.conf</code>.</p>
 <pre>
 IgnorePkg = postgresql postgresql-libs
 </pre>
-</div>
+{% endbox_info %}
 
 Sekian catatan mengenai proses instalasi dan konfigurasi awal dari PostgreSQL pada Arch Linux.
 

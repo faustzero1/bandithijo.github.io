@@ -30,21 +30,25 @@ Beberapa waktu lalu `dunstify` masih terdapat di AUR, namun begitu sudah di merg
 
 <hr>
 Untuk mengecek apakah `dunstify` sudah terdapat pada paket `dunst`, kita dapat menggunakan perintah.
-```
-$ sudo pacman -Ql dunst
-```
+
+{% shell_user %}
+sudo pacman -Ql dunst
+{% endshell_user %}
+
 <!-- IMAGE CAPTION -->
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ydHNcBDP/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Kemduahan mengecek paket pada pacman</p>
 
 Karena `dunstify` sudah terdapat pada paket `dunst`, saya harus menghapus paket `dunstify` yang saya pasang melalui AUR.
-```
-$ sudo pacman -R dunsitfy
-```
+
+{% shell_user %}
+sudo pacman -R dunsitfy
+{% endshell_user %}
 Lalu melakukan instalasi kembali paket `dunst` untuk memperbaharui `dunst`, gunanya agar perintah `/bin/dunstify` dibuat kembali.
-```
-$ sudo pacman -S dunst
-```
+
+{% shell_user %}
+sudo pacman -S dunst
+{% endshell_user %}
 
 <hr>
 Saya menggunakan `dunstify` untuk keperluan menampilkan **HELP** dari daftar keyboard shortcut pada masing-masing aplikasi yang saya pergunakan.

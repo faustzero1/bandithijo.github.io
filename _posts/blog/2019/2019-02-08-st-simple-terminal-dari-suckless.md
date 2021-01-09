@@ -57,66 +57,60 @@ Proses instalasi St Terminal menurut saya sangat-sangat mudah.
 3. Klik kanan link dari [`st 0.8.1`](https://dl.suckless.org/st/st-0.8.1.tar.gz){:target="_blank"} (2018-03-20) dan pilih **Copy Link Location**.
 
 4. Buka Terminal, dan arahkan ke dalam direktori `~/.config/`.
-```
-$ cd ~/.config
-```
+   <pre>
+   $ <b>shell:user</b></pre>
 
 5. Download dengan menggunakan `wget`.
-```
-$ wget "https://dl.suckless.org/st/st-0.8.1.tar.gz"
-```
+   <pre>
+   $ <b>wget "https://dl.suckless.org/st/st-0.8.1.tar.gz"</b></pre>
 
 6. Ekstraksi paket `st-0.8.1.tar.gz` tersebut.
-```
-$ tar -xvf st-0.8.1.tar.gz
-```
+   <pre>
+   $ <b>tar -xvf st-0.8.1.tar.gz</b></pre>
 
 7. Rename direktori hasil ekstraksi.
-```
-$ mv st-0.8.1 st
-```
+   <pre>
+   $ <b>mv st-0.8.1 st</b></pre>
 
 8. Masuk ke dalam direktori `st`
-```
-$ cd st
-```
-Secara default paket `st-0.8.1` akan berisi seperti ini.
-```
-total 292
--rw-r--r--  1036 arg.h
--rw-r--r-- 20114 config.def.h
--rw-r--r--   602 config.mk
--rw-r--r--  7158 FAQ
--rw-r--r--   732 LEGACY
--rw-r--r--  1834 LICENSE
--rw-r--r--  1253 Makefile
--rw-r--r--   723 README
--rw-r--r--  3667 st.1
--rw-r--r-- 55693 st.c
--rw-r--r--  2835 st.h
--rw-r--r--  3685 st.info
--rw-r--r--   458 TODO
--rw-r--r--  1039 win.h
--rw-r--r-- 44048 x.c
-```
+   <pre>
+   $ <b>cd st</b></pre>
+
+   Secara default paket `st-0.8.1` akan berisi seperti ini.
+   ```
+   total 292
+   -rw-r--r--  1036 arg.h
+   -rw-r--r-- 20114 config.def.h
+   -rw-r--r--   602 config.mk
+   -rw-r--r--  7158 FAQ
+   -rw-r--r--   732 LEGACY
+   -rw-r--r--  1834 LICENSE
+   -rw-r--r--  1253 Makefile
+   -rw-r--r--   723 README
+   -rw-r--r--  3667 st.1
+   -rw-r--r-- 55693 st.c
+   -rw-r--r--  2835 st.h
+   -rw-r--r--  3685 st.info
+   -rw-r--r--   458 TODO
+   -rw-r--r--  1039 win.h
+   -rw-r--r-- 44048 x.c
+   ```
 
 9. Saya memilih untuk me-*rename* file `config.def.h` daripada meng-*copy* nya.
-```
-$ mv config.def.h config.h
-```
-File konfig header ini berisi konfigurasi untuk font style, font size, fungsi keyboard, colorscheme, dan lain-lain.
+   <pre>
+   $ <b>mv config.def.h config.h</b></pre>
+   File konfig header ini berisi konfigurasi untuk font style, font size, fungsi keyboard, colorscheme, dan lain-lain.
 
 10. Selanjutnya, bisa coba di compile dulu. Sekedar memastikan bisa di compile saja.
-```
-$ sudo make install
-```
-Nanti akan terbuat file binary yang bernama `st`.
+    <pre>
+    $ <b>sudo make install</b></pre>
+
+    Nanti akan terbuat file binary yang bernama `st`.
 
     Kalau ingin dibuild lagi secara **clean**.
 
-    ```
-    $ sudo make uninstall; sudo make install
-    ```
+    <pre>
+    $ <b>sudo make uninstall; sudo make install</b></pre>
 
     Hasil make ini akan berada pada `/usr/local/bin/st`.
 
@@ -166,7 +160,7 @@ Patch yang saya gunakan tidak banyak. Beberapa di antaranya.
 <br>Patch ini untuk menambahkan fitur alpha atau transparansi pada background Terminal.
 
     <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
+    <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg"> Informasi</div>
     <p><b>2019/04/24</b>, Saya sudah tidak lagi menggunakan patch Alpha. Saya lebih memilih mengatur alpha atau opacity menggunakan <i>compsitor</i> seperti <b>compton</b>.</p>
     <p>Berikut ini adalah pengaturan pada compton yang saya gunakan.</p>
     <pre>
@@ -228,15 +222,15 @@ Akan sangat melelahkan apabila kita melakukan kompilasi berulang kali hanya seke
 
 Teman-teman dapat menggunakan perintah di bawah ini,
 
-```
-$ st -f "Fira Code Retina:pixelsize=12"
-```
+{% shell_user %}
+st -f "Fira Code Retina:pixelsize=12"
+{% endshell_user %}
 
 atau seperti ini untuk penambahan style,
 
-```
-$ st -f "FuraCode Nerd Font:style=Retina:pixelsize=12"
-```
+{% shell_user %}
+st -f "FuraCode Nerd Font:style=Retina:pixelsize=12"
+{% endshell_user %}
 
 Perintah di atas akan menghasilkan Simple/Suckless Terminal yang terbuka dengan konfigurasi font yang sudah kita berikan pada argument dengan option `-f`.
 

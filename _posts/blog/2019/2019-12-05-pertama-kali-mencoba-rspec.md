@@ -91,9 +91,9 @@ Nah, sekarang saya lanjutkan untuk proses memasang RSpec pada project Rails kita
 
 Pada project baru, saya menjalankan perintah ini.
 
-<pre>
-$ <b>rails new blog_rspec_test -d postgresql -T</b>
-</pre>
+{% shell_user %}
+rails new blog_rspec_test -d postgresql -T
+{% endshell_user %}
 
 Penambahan option `-T`, adalah untuk men-*disable* *built-in test* pada project yang baru kita buat.
 
@@ -120,15 +120,15 @@ Saya menggunakan versi **4.0.0.beta3** karena terdapat test yang sudah deprecate
 
 Selanjutnya, seperti biasa, setiap setelah menambahkan gem baru pada `Gemfile`, kita perlu menjalankan perintah,
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Setelah proses instalasi selesai, kita juga perlu meng-*generate* *boilerplate* dari konfigurasi yang sudah disediakan oleh rspec-rails.
 
-<pre>
-$ <b>rails generate rspec:install</b>
-</pre>
+{% shell_user %}
+rails generate rspec:install
+{% endshell_user %}
 
 Hasil generate tersebut, akan membuat beberapa file konfigurasi pada direktori `rspec/`.
 
@@ -165,15 +165,15 @@ Kenapa, karena kita dapat memanfaatkan validation yang terdapat di dalam model. 
 
 RSpec juga sudah menyediakan *spec file generator*. Tinggal kita pergunakan saja. Enak sekali kan.
 
-<pre>
-$ <b>rails generate rspec:model nama_model</b>
-</pre>
+{% shell_user %}
+rails generate rspec:model nama_model
+{% endshell_user %}
 
 Pada, kasus ini, saya memiliki nama model `author`.
 
-<pre>
-$ <b>rails generate rspec:model author</b>
-</pre>
+{% shell_user %}
+rails generate rspec:model author
+{% endshell_user %}
 
 Maka, rspec akan men-*generate* satu file spec untuk kita.
 
@@ -183,9 +183,9 @@ Maka, rspec akan men-*generate* satu file spec untuk kita.
 
 Untuk melihat daftar dari generator apa saja yang disediakan oleh RSpec, dapat menggunakan perintah,
 
-<pre>
-$ <b>rails generate --help | grep rspec</b>
-</pre>
+{% shell_user %}
+rails generate --help | grep rspec
+{% endshell_user %}
 
 Sebelum saya menjabarkan spesifikasi model test untuk model author, saya akan menunjukkan isi dari model author yang di dalamnya terdapat daftar validation dari model author.
 
@@ -403,9 +403,9 @@ Mudah dipahami kan?
 
 Nah, untuk menalankan test-nya gunakan perintah ini,
 
-<pre>
-$ <b>bundle exec rspec</b>
-</pre>
+{% shell_user %}
+bundle exec rspec
+{% endshell_user %}
 
 Nanti akan keluar output seperti ini.
 
@@ -439,9 +439,9 @@ Selanjutnya untuk controller spec.
 
 Kita gunakan lagi *spec file generator* yang sudah disediakan oleh RSpec.
 
-<pre>
-$ <b>rails generate rspec:controller authors</b>
-</pre>
+{% shell_user %}
+rails generate rspec:controller authors
+{% endshell_user %}
 
 Karena kita akan menguji controller, tentu saja kita mengikuti *naming convention* dari Rails, yang mengharuskan menggunakan penamaan plural pada controller. Berbeda dengan model yang menggunakan penamaan singular.
 

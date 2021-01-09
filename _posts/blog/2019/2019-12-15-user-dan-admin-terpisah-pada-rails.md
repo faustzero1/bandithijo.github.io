@@ -41,33 +41,39 @@ Saya akan mencatat prosesnya dari awal project dibuat. Hehehe.
 
 Saya akan membuat project baru menggunakan Rails 5.2.4 dengan PostgreSQL sebagai database engine.
 
-<pre>
-$ <b>rails _5.2.4_ new blog_spot -d postgresql</b>
-</pre>
+{% shell_user %}
+rails _5.2.4_ new blog_spot -d postgresql
+{% endshell_user %}
 
 Kalau proses pembuatan sudah selesai, masuk ke dalam project.
 
-<pre>
-$ <b>cd blog_spot</b>
-</pre>
+{% shell_user %}
+cd blog_spot
+{% endshell_user %}
 
 Periksa spesifikasi versi Rails dan Ruby.
 
+{% shell_user %}
+ruby -v
+{% endshell_user %}
+
 <pre>
-$ <b>ruby -v</b>
 ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]
 </pre>
 
+{% shell_user %}
+rails -v
+{% endshell_user %}
+
 <pre>
-$ <b>rails -v</b>
 Rails 5.2.4
 </pre>
 
 Selanjutnya create database dengan perintah berikut ini.
 
-<pre>
-$ <b>rails db:create</b>
-</pre>
+{% shell_user %}
+rails db:create
+{% endshell_user %}
 
 ```
 Created database 'blog_spot_development'
@@ -76,9 +82,9 @@ Created database 'blog_spot_test'
 
 Lalu, jalankan Rails server untuk sekedar melihat apakah project berhasil dijalankan atau tidak.
 
-<pre>
-$ <b>rails s</b>
-</pre>
+{% shell_user %}
+rails s
+{% endshell_user %}
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QdHVbnLy/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Default Welcome Page pada Rails Project</p>
@@ -103,15 +109,15 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 Install Devise gem yang baru saja kita pasang.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Jalankan generator yang disediakan oleh Devise untuk menginisiasi file config yang disediakan oleh Devise.
 
-<pre>
-$ <b>rails generate devise:install</b>
-</pre>
+{% shell_user %}
+rails generate devise:install
+{% endshell_user %}
 
 <pre>
 Running via Spring preloader in process 349251
@@ -153,9 +159,9 @@ Selanjutnya saya membuat model user dan admin dengan memanfaatkan generator yang
 
 Saya akan membuat untuk model admin terlebih dahulu.
 
-<pre>
-$ <b>rails g devise admin</b>
-</pre>
+{% shell_user %}
+rails g devise admin
+{% endshell_user %}
 
 <pre>
 Running via Spring preloader in process 368446
@@ -171,9 +177,9 @@ Running via Spring preloader in process 368446
 
 Kemudian untuk model user.
 
-<pre>
-$ <b>rails g devise user</b>
-</pre>
+{% shell_user %}
+rails g devise user
+{% endshell_user %}
 
 <pre>
 Running via Spring preloader in process 368446
@@ -189,9 +195,9 @@ Running via Spring preloader in process 368446
 
 Lalu jalankan migration-nya.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 ```
 == 20191216044109 DeviseCreateAdmins: migrating ===============================
@@ -215,9 +221,9 @@ $ <b>rails db:migrate</b>
 
 Cek status dengan.
 
-<pre>
-$ <b>rails db:migrate:status</b>
-</pre>
+{% shell_user %}
+rails db:migrate:status
+{% endshell_user %}
 
 ```
 database: blog_spot_development

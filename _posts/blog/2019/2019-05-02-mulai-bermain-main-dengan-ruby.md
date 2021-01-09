@@ -26,12 +26,10 @@ Awal saya bertemu dengan bahasa Ruby adalah saat mengikuti "[*Online Course Ruby
 
 Saat itu saya termasuk dalam **Batch 2**, saat tulisan ini saya buat, course ini sudah memasuki **Batch 10**.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Berdasarkan email dari mas Agung Setiawan yang saya terima pada 3 May 2019, pada pukul 09:28.</p>
 <p><b>"Batch 10 ini adalah batch terakhir sebelum course-nya saya hentikan sampai waktu yang tidak ditentukan."</b></p>
-</div>
+{% endbox_info %}
 
 Bagi teman-teman yang tertarik bisa langsung menghubungi mas Agung Setiawan pada nomor Handphone yang tertera pada poster di atas.
 

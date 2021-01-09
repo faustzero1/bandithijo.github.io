@@ -48,13 +48,14 @@ Alur program yang terpikirkan oleh saya adalah seperti ini:
 
 Command atau perintah inti untuk membuat user baru beserta direktori home pada sistem operasi GNU/Linux, adalah:
 
-```
-$ sudo useradd -m -g users -G <groups1,groups2,groups3,dst> <username>
-```
+{% shell_user %}
+sudo useradd -m -g users -G <groups1,groups2,groups3,dst> <username>
+{% endshell_user %}
 
 Nah, langsung saja kita kodingin.
 
-```
+{% highlight_caption createmultipleuser.py %}
+{% highlight python linenos %}
 #!/usr/bin/env python3
 
 import os
@@ -72,7 +73,7 @@ for user in range(1, userDibuat+1):
     print('Username:', username, 'Berhasil ditambahkan !')
 
 print('>> SELESAI MAS BROH !')
-```
+{% endhighlight %}
 
 Simpan script dengan sembarang nama, jangan lupa berikan ekstensi `.py`.
 
@@ -80,9 +81,9 @@ Saya memberikan nama `createmultipleuser.py`.
 
 Lalu jalankan dengan menggunakan sudo permission karena kita akan menggunakan perintah `useradd` di dalam script.
 
-```
-$ sudo python createmultipleuser.py
-```
+{% shell_user %}
+sudo python createmultipleuser.py
+{% endshell_user %}
 
 ```
 Masukkan jumlah user yang ingin dibuat: 3
@@ -100,9 +101,9 @@ Username: seniman Berhasil ditambahkan !
 
 Untuk melakukan pengecekan apakah user-user baru sudah berhasil dibuat atau tidak.
 
-```
-$ awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
-```
+{% shell_user %}
+awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
+{% endshell_user %}
 
 <pre>
 bandithijo
@@ -113,9 +114,9 @@ seniman</mark>
 
 Cek pula, apakah direktori home dari masing-masing user yang baru, sudah berhasil dibuat.
 
-```
-$ tree -dL 1 /home
-```
+{% shell_user %}
+tree -dL 1 /home
+{% endshell_user %}
 
 <pre>
 /home
@@ -129,9 +130,9 @@ Mantap, maka proses pembuatan *multiple user* dengan Python script ini telah sel
 
 Untuk menghapusnya, dapat menggunakan.
 
-```
-$ sudo userdel -rf <username>
-```
+{% shell_user %}
+sudo userdel -rf <username>
+{% endshell_user %}
 
 # Pesan Penulis
 
@@ -149,4 +150,3 @@ Terima kasih.
 
 1. [BanditHijo.Com/Arch - Step 6: Create User, Password, and Hostname]({{ site.url }}/arch/step-6-create-user-password-and-hostname#61-user-and-password){:target="_blank"}
 <br>Diakses tanggal: 2019/03/18
-

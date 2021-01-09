@@ -57,23 +57,23 @@ Oke, sekarang proses instalasi.
     └── unifiedremote
         └── <mark>urserver-3.6.0.745.tar.gz</mark></pre>
 5. Selanjutnya ekstraksi isi dari paket `urserver-x.x.x.xxx.tar.gz` tersebut
-```
-$ tar -xvf urserver-3.6.0.745.tar.gz
-```
-Nanti akan terbuat sebuah direktori dengan nama `urserver-3.6.0.745`
-    <pre>
+   <pre>
+   $ <b>tar -xvf urserver-3.6.0.745.tar.gz</b></pre>
+
+   Nanti akan terbuat sebuah direktori dengan nama `urserver-3.6.0.745`
+   <pre>
 ~/app/
-    └── unifiedremote
-        ├── <mark>urserver-3.6.0.745</mark>
-        └── urserver-3.6.0.745.tar.gz</pre>
-Nah, Unified Remote server sudah ada di dalam direktori `urserver-3.6.0.745` tersebut dengan nama `urserver`, namun jangan dulu dijalankan, karena kita perlu melakukan beberapa konfigurasi koneksi untuk Wifi dan Bluetooth.
+   └── unifiedremote
+       ├── <mark>urserver-3.6.0.745</mark>
+       └── urserver-3.6.0.745.tar.gz</pre>
+   Nah, Unified Remote server sudah ada di dalam direktori `urserver-3.6.0.745` tersebut dengan nama `urserver`, namun jangan dulu dijalankan, karena kita perlu melakukan beberapa konfigurasi koneksi untuk Wifi dan Bluetooth.
 
-
-    <!-- PERTANYAAN -->
-    <div class="blockquote-yellow">
-    <div class="blockquote-yellow-title">Distro saya ada di dalam tipe paket yang di sediakan. Sebaiknya saya pilih yang mana ?</div>
-    <p>Kalau saya, tentu saja akan tetap memilih <b>Portable Archive</b>.</p>
-    </div>
+   <!-- PERTANYAAN -->
+   <div class="blockquote-yellow">
+   <div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg">Pertanyaan</div>
+   <p><b>Distro saya ada di dalam tipe paket yang di sediakan. Sebaiknya saya pilih yang mana?</b></p>
+   <p>Kalau saya, tentu saja akan tetap memilih <b>Portable Archive</b>.</p>
+   </div>
 
 ## Konfigurasi Koneksi
 
@@ -92,139 +92,149 @@ Bagian konektifitas menggunakan bluetooth adalah bagian yang menjadi alasan saya
 Ada beberapa hal yang perlu dipersiapkan sebelum kita dapat menggunakan konektifitas bluetooth dengan Unified Remote.
 
 1. Edit file `/etc/systemd/system/dbus-org.bluez.service`
-```
-$ sudo vim /etc/systemd/system/dbus-org.bluez.service
-```
-    <pre>
-[Unit]
-...
-...
-[Service]
-Type=dbus
-BusName=org.bluez
-ExecStart=/usr/lib/bluetooth/bluetoothd <mark>--compat</mark>
-...
-...
-[Install]
-...
-...</pre>
-Pada `ExecStart=` tambahkan `--compat` seperti contoh di atas.
-    <!-- INFORMATION -->
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
-    <p>Menambahkan <code>--compat</code> diperlukan karena kebanyakan distribusi sistem operasi GNU/Linux saat ini sudah menggunakan Bluez5 sedangkan Unified Remote Server masih memerlukan fungsi yang sudah deprecated pada Bluez4.</p>
-    <p>Tujuan penambahaan ini untuk membuat Bluetooth Daemon berjalan pada <i>compatibility mode</i>.</p>
-    </div>
-Simpan dan keluar dari text editor.
-2. Selanjutnya kita perlu me-*reload* ulang daemon dan bluetooth service
-```
-$ sudo systemctl daemon-reload
-$ sudo systemctl restart bluetooth
-```
-Proses di atas akan membuat file baru `/var/run/sdp`. Apabila langkah 1 di atas tidak di lakukan, maka kita tidak akan menemukan file `sdp` ini.
-3. Ubah kepemilikan file `/var/run/sdp` yang awalnya milik **root** menjadi milik kita
-    <pre>
-$ sudo chown <mark>bandithijo</mark>:users /var/run/sdp</pre>
-Ganti `bandithijo` dengan nama username kalian.
+   <pre>
+   $ <b>sudo vim /etc/systemd/system/dbus-org.bluez.service</b></pre>
 
-    Kemudian cek apakah file `/var/run/sdp` sudah berpindah kepemilikan.
-```
-$ ls -l /var/run/sdp
-```
-```
-srw-rw---- 1 bandithijo users 0 Jan 15 00:52 /var/run/sdp
-```
-Apabila menunjukkan *output* seperti di atas, berarti file `sdp` sudah berhasil berpindah tangan.
+   <pre>
+   [Unit]
+   ...
+   ...
+   [Service]
+   Type=dbus
+   BusName=org.bluez
+   ExecStart=/usr/lib/bluetooth/bluetoothd <mark>--compat</mark>
+   ...
+   ...
+   [Install]
+   ...
+   ...</pre>
+
+   Pada `ExecStart=` tambahkan `--compat` seperti contoh di atas.
+
+   <!-- INFORMATION -->
+   <div class="blockquote-blue">
+   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
+   <p>Menambahkan <code>--compat</code> diperlukan karena kebanyakan distribusi sistem operasi GNU/Linux saat ini sudah menggunakan Bluez5 sedangkan Unified Remote Server masih memerlukan fungsi yang sudah deprecated pada Bluez4.</p>
+   <p>Tujuan penambahaan ini untuk membuat Bluetooth Daemon berjalan pada <i>compatibility mode</i>.</p>
+   </div>
+
+   Simpan dan keluar dari text editor.
+
+2. Selanjutnya kita perlu me-*reload* ulang daemon dan bluetooth service
+
+   <pre>
+   $ <b>sudo systemctl daemon-reload</b>
+   $ <b>sudo systemctl restart bluetooth</b></pre>
+
+   Proses di atas akan membuat file baru `/var/run/sdp`. Apabila langkah 1 di atas tidak di lakukan, maka kita tidak akan menemukan file `sdp` ini.
+
+3. Ubah kepemilikan file `/var/run/sdp` yang awalnya milik **root** menjadi milik kita
+   <pre>
+   $ <b>sudo chown <mark>bandithijo</mark>:users /var/run/sdp</b></pre>
+
+   Ganti `bandithijo` dengan nama username kalian.
+
+   Kemudian cek apakah file `/var/run/sdp` sudah berpindah kepemilikan.
+
+   <pre>
+   $ <b>ls -l /var/run/sdp</b></pre>
+
+   ```
+   srw-rw---- 1 bandithijo users 0 Jan 15 00:52 /var/run/sdp
+   ```
+   Apabila menunjukkan *output* seperti di atas, berarti file `sdp` sudah berhasil berpindah tangan.
     Dengan begini, Unified Remote Server sudah dapat kita jalankan.
 
-    <!-- INFORMATION -->
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
-    <p>Ketiga langkah di atas, dapat kita sederhanakan dengan menjalankan Python script sederhana yang sudah saya buat.</p>
-    <p>Download: <a href="https://raw.githubusercontent.com/bandithijo/scriptbox/master/preconfig_urserver.py" target="_blank"><b>preconfigure_urserver.py</b></a>*</p>
-    <p style="font-size:10pt;"><i>*Download dengan menggunakan klik kanan "<b>Save Link As...</b>"</i></p>
-    <br>
-    <p>Contohnya akan seperti ini.</p>
-    <pre>
-    $ python preconfig_urserver.py '<mark>bandithijo</mark>'
-    </pre>
-    <pre>
-    [ DONE ] Adding compatibility mode to Bluez5
-    [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
-    [ DONE ] User: bandithijo has owned the SDP files
-    </pre>
-    <p>Atau kalau kalian lupa memasukkan username, akan seperti di bawah ini.</p>
-    <pre>
-    $ python preconfig_urserver.py
-    </pre>
-    <pre>
-    Masukkan username kamu: <mark>bandithijo</mark>
-    &nbsp;
-    [ DONE ] Adding compatibility mode to Bluez5
-    [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
-    [ DONE ] User: bandithijo has owned the SDP files
-    </pre>
-    <p>Ganti <code>bandithijo</code> dengan username kalian.</p>
-    <br>
-    <!-- PERHATIAN -->
-    <div class="blockquote-red">
-    <div class="blockquote-red-title">[ ! ] Perhatian</div>
-    <p>Menjalankan script di atas akan memerlukan password <b>sudo</b>.</p>
-    <p>Hal ini diperlukan untuk mengubah file <b>bluez.service</b> dan melakukan reload serta restart pada <b>bluetooth.service</b>.</p>
-    </div><!-- PERHATIAN -->
-    <!-- PERTANYAAN -->
-    <div class="blockquote-yellow">
-    <div class="blockquote-yellow-title">Kapan saatnya kita perlu menjalankan script ini kembali sebelum menjalankan urserver ?</div>
-    <p>Tergantung dua kondisi:</p>
-    <ul style="list-style-type:disk;">
-    <li>file <code>/var/run/sdp</code>, apabila ownernya kembali menjadi milik <b>root</b> (biasanya setelah restart)</li>
-    <li>Setelah paket <code>bluez</code> update, biasanya <code>--compat</code> akan menghilang</li>
-    </ul>
-    </div><!-- PERTANYAAN -->
-    </div><!-- INFORMASI -->
+   <!-- INFORMATION -->
+   <div class="blockquote-blue">
+   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
+   <p>Ketiga langkah di atas, dapat kita sederhanakan dengan menjalankan Python script sederhana yang sudah saya buat.</p>
+   <p>Download: <a href="https://raw.githubusercontent.com/bandithijo/scriptbox/master/preconfig_urserver.py" target="_blank"><b>preconfigure_urserver.py</b></a>*</p>
+   <p style="font-size:10pt;"><i>*Download dengan menggunakan klik kanan "<b>Save Link As...</b>"</i></p>
+   <p>Contohnya akan seperti ini.</p>
+   <pre>
+   $ python preconfig_urserver.py '<mark>bandithijo</mark>'
+   </pre>
+   <pre>
+   [ DONE ] Adding compatibility mode to Bluez5
+   [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+   [ DONE ] User: bandithijo has owned the SDP files
+   </pre>
+   <p>Atau kalau kalian lupa memasukkan username, akan seperti di bawah ini.</p>
+   <pre>
+   $ python preconfig_urserver.py
+   </pre>
+   <pre>
+   Masukkan username kamu: <mark>bandithijo</mark>
+   &nbsp;
+   [ DONE ] Adding compatibility mode to Bluez5
+   [ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+   [ DONE ] User: bandithijo has owned the SDP files
+   </pre>
+   <p>Ganti <code>bandithijo</code> dengan username kalian.</p>
+   <br>
+   <!-- PERHATIAN -->
+   <div class="blockquote-red">
+   <div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg">Perhatian</div>
+   <p>Menjalankan script di atas akan memerlukan password <b>sudo</b>.</p>
+   <p>Hal ini diperlukan untuk mengubah file <b>bluez.service</b> dan melakukan reload serta restart pada <b>bluetooth.service</b>.</p>
+   </div><!-- PERHATIAN -->
+   <!-- PERTANYAAN -->
+   <div class="blockquote-yellow">
+   <div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg">Pertanyaan</div>
+   <p><b>Kapan saatnya kita perlu menjalankan script ini kembali sebelum menjalankan urserver ?</b></p>
+   <p>Tergantung dua kondisi:</p>
+   <ul style="list-style-type:disk;">
+   <li>file <code>/var/run/sdp</code>, apabila ownernya kembali menjadi milik <b>root</b> (biasanya setelah restart)</li>
+   <li>Setelah paket <code>bluez</code> update, biasanya <code>--compat</code> akan menghilang</li>
+   </ul>
+   </div><!-- PERTANYAAN -->
+   </div><!-- INFORMASI -->
 
 ## Jalankan Unified Remote Server
 
 Untuk menjalankan server, sangat mudah sekali.
 
 1. Masuk ke direktori `urserver-3.6.0.745/`
-```
-$ cd urserver-3.6.0.745
-```
-2. Lalu jalankan `urserver`
-```
-$ ./urserver
-```
-    <pre>
-Unified Remote Server (3.6.0.745)
-Copyright (c) 2010-2015 Unified Intents AB.  All rights reserved.
-&nbsp;
-starting...
-loading remotes...
-skipped: Beamer.Beamer
-skipped: Beamer.BeamerFilePicker
--------------- dipotong ----------------
-starting server...
-tcp interface started
-udp interface started
-bluetooth interface started
-http interface started
-discovery interface started
-&nbsp;
-*** Access Manager ***
-<mark>http://192.168.1.4:9510/web</mark>
-ready (waiting for connection or debug command)
-enter 'help' to see a list of available commands
-enter 'exit' to terminate server
-></pre>
-Kalau server sudah berjalan seperti ini, kita biarkan saja. Karena jarang sekali kita berurusan dengan server kecuali untuk menjalankan perintah **restart**. Itupun juga bisa dilakukan di web interfacenya.
-3. Buka ip address yang diberikan dengan browser.
-    <!-- IMAGE CAPTION -->
-    ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxM1qzjK/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 1 - Status Bluetooth Interface</p>
-Apabila status **Bluetooth: Interface is Listening** berwarna hijau, artinya kita telah berhasil mengkonfigurasi server untuk menerima konektifitas dengan Bluetooth.
+   <pre>
+   $ <b>cd urserver-3.6.0.745</b></pre>
 
-    Langkah selanjutnya tinggal memasangkan Unified Remote pada Android.
+2. Lalu jalankan `urserver`
+   <pre>
+   $ <b>./urserver</b></pre>
+
+   <pre>
+   Unified Remote Server (3.6.0.745)
+   Copyright (c) 2010-2015 Unified Intents AB.  All rights reserved.
+   &nbsp;
+   starting...
+   loading remotes...
+   skipped: Beamer.Beamer
+   skipped: Beamer.BeamerFilePicker
+   -------------- dipotong ----------------
+   starting server...
+   tcp interface started
+   udp interface started
+   bluetooth interface started
+   http interface started
+   discovery interface started
+   &nbsp;
+   *** Access Manager ***
+   <mark>http://192.168.1.4:9510/web</mark>
+   ready (waiting for connection or debug command)
+   enter 'help' to see a list of available commands
+   enter 'exit' to terminate server
+   ></pre>
+
+   Kalau server sudah berjalan seperti ini, kita biarkan saja. Karena jarang sekali kita berurusan dengan server kecuali untuk menjalankan perintah **restart**. Itupun juga bisa dilakukan di web interfacenya.
+
+3. Buka ip address yang diberikan dengan browser.
+   <!-- IMAGE CAPTION -->
+   ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxM1qzjK/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+   <p class="img-caption">Gambar 1 - Status Bluetooth Interface</p>
+Apaila status **Bluetooth: Interface is Listening** berwarna hijau, artinya kita telah berhasil mengkonfigurasi server untuk menerima konektifitas dengan Bluetooth.
+
+   Langkah selanjutnya tinggal memasangkan Unified Remote pada Android.
 
 ## Instalasi Unified Remote Client
 

@@ -53,9 +53,9 @@ gem 'ransack', '~> 2.3'
 
 Setelah itu jangan lupa untuk menjalankan,
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Untuk menginstall Ransack pada web aplikasi kita.
 

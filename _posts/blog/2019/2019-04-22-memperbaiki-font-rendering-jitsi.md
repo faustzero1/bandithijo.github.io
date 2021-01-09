@@ -31,24 +31,25 @@ Mungkin beberapa distribusi seperti Ubuntu atau Fedora tidak mengalami hal semac
 
 Tambahkan pada file `~/.profile`,
 
-```
-$ vim ~/.profile
-```
+{% shell_user %}
+vim ~/.profile
+{% endshell_user %}
+
 Copy dan paste baris di bawah ini ke dalam `~/.profile`.
-```
+
+{% highlight_caption $HOME/.profile %}
+{% highlight sh linenos %}
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-```
+{% endhighlight %}
 
 Letakkan di mana saja.
 
 Selanjutnya, **logout** dan **login** kembali.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Logout diperlukan setiap kita ingin melihat dampak dari perubahan yang kita lakukan pada isi dari file <code>~/.profile</code>.</p>
 <p>Sebelum kita logout, perubahan yang kita lakukan tidak akan dijalankan.</p>
-</div>
+{% endbox_perhatian %}
 
 Selanjutnya, buka Jitsi dan lihat perbedannya.
 
@@ -61,5 +62,3 @@ Sekian, mudah-mudahan bermanfaat.
 
 1. [lists.jitsi.org/pipermail/dev/2013-November/018919.html](http://lists.jitsi.org/pipermail/dev/2013-November/018919.html){:target="_blank"}
 <br>Diakses tanggal: 2019/04/22
-
-

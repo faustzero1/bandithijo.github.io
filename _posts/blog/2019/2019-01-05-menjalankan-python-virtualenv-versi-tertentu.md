@@ -24,13 +24,17 @@ Saya kesulitan saat akan menjalankan Python versi tertentu pada Python Virtual E
 Saat tulisan ini dibuat, Arch Linux secara *default* sudah membawa Python versi 3.7. Sedangkan saya memerlukan Python versi 3.6 dalam project yang ingin saya kerjakan. Lantas saya membutuhkan Python Virtual Environment yang menggunakan Python 3.6.
 
 Apabila saya menjalankan,
-```
-$ virtualenv venv
-```
+
+{% shell_user %}
+virtualenv venv
+{% endshell_user %}
+
 Maka saat saya aktifkan dan saya lihat versi Pythonnya, masih menggunakan Python 3.7.
-```
-$ python -V
-```
+
+{% shell_user %}
+python -V
+{% endshell_user %}
+
 ```
 Python 3.7.2
 ```
@@ -40,47 +44,53 @@ Bagaimana caranya agar di dalam Python Environment yang saya buat dapat mengguna
 # Solusi
 
 1. Install Python 3.6 dari AUR
-```
-$ yay python36
-```
+   <pre>
+   $ <b>yay python36</b></pre>
+
 2. Buat virtualenv dari versi python 3.6
-    <pre>
-$ virtualenv -p python3.6 <mark>venv</mark></pre>
-`venv` adalah nama dari virtual environment.
-```
-Running virtualenv with interpreter /usr/bin/python3.6
-Using base prefix '/usr'
-New python executable in /home/bandithijo/git/test/venv/bin/python3.6
-Also creating executable in /home/bandithijo/git/test/venv/bin/python
-Installing setuptools, pip, wheel...done.
-```
-Apabila menampilkan `done` artinya proses pembuatan virtual environment telah berhasil.
+   <pre>
+   $ <b>virtualenv -p python3.6 <mark>venv</mark></b></pre>
 
-    Proses pembuatan virtual environment ini membutuh kan akses internet.
+   `venv` adalah nama dari virtual environment.
+
+   ```
+   Running virtualenv with interpreter /usr/bin/python3.6
+   Using base prefix '/usr'
+   New python executable in /home/bandithijo/git/test/venv/bin/python3.6
+   Also creating executable in /home/bandithijo/git/test/venv/bin/python
+   Installing setuptools, pip, wheel...done.
+   ```
+
+   Apabila menampilkan `done` artinya proses pembuatan virtual environment telah berhasil.
+
+   Proses pembuatan virtual environment ini membutuh kan akses internet.
 3. Aktivasi virtual environment.
-```
-$ cd venv
-```
-```
-$ source bin/activate
-```
-Nanti akan ada tanda-tanda pada Terminal kalian apabila kalian mengunakan Theme tertentu yang menampilkan bahwa kita saat ini telah berada pada virtual environment.
 
-    Seperti ini.
-    <pre>
-<mark>(venv)</mark>
-~/venv
-$_</pre>
-Lakukan pengecekan versi Python.
-```
-$ python -V
-```
-```
-Python 3.6.7
-```
-Yak, kita sudah berada pada versi Python yang saya inginkan, yaitu versi 3.6.
+   <pre>
+   $ <b>cd venv</b></pre>
 
-    Kalau sudah begini tinggal kita sikat miring.
+   <pre>
+   $ <b>source bin/activate</b></pre>
+
+   Nanti akan ada tanda-tanda pada Terminal kalian apabila kalian mengunakan Theme tertentu yang menampilkan bahwa kita saat ini telah berada pada virtual environment.
+
+   Seperti ini.
+   <pre>
+   <mark>(venv)</mark>
+   ~/venv
+   $_</pre>
+
+   Lakukan pengecekan versi Python.
+
+   <pre>
+   $ <b>python -V</b></pre>
+
+   ```
+   Python 3.6.7
+   ```
+   Yak, kita sudah berada pada versi Python yang saya inginkan, yaitu versi 3.6.
+
+   Kalau sudah begini tinggal kita sikat miring.
 
 
 # Pesan Penulis

@@ -35,16 +35,15 @@ Untuk dapat menggunakan Jekyll 4.0.0, minimal saya harus memiliki Ruby versi 2.4
 
 Cara mengeceknya.
 
-<pre>
-$ <b>ruby -v</b>
-</pre>
+{% shell_user %}
+ruby -v
+{% endshell_user %}
 
 ```
 ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
 ```
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Seharusnya saat tulisan ini dibuat, versi Ruby yang paling terbaru adalah,
 <pre>
 ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
@@ -53,21 +52,21 @@ Namun, karena satu dan lain hal, salah satunya untuk kebutuhan deploy di Netlify
 <pre>
 ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
 </pre></p>
-</div>
+{% endbox_info %}
 
 Selanjutnya tinggal upgrade Jekyll gem.
 
-<pre>
-$ <b>gem update jekyll</b>
-</pre>
+{% shell_user %}
+gem update jekyll
+{% endshell_user %}
 
 ## Edit Gemfile
 
 Langkah selanjutnya, saya perlu mengedit Gemfile yang ada di dalam root project.
 
-<pre>
-$ <b>vim Gemfile</b>
-</pre>
+{% shell_user %}
+vim Gemfile
+{% endshell_user %}
 
 Hal yang paling utama adalah, mengganti versi dari `jekyll` gem, menjadi versi 4.0.0.
 
@@ -106,9 +105,9 @@ Karena masalah dependensi tersebut, menjadi salah satu yang mendasari mengapa sa
 
 Setelah itu, jalankan perintah Bundle Update.
 
-<pre>
-$ <b>bundle update</b>
-</pre>
+{% shell_user %}
+bundle update
+{% endshell_user %}
 
 Dengan begini, proses update versi Jekyll yang ada di project BanditHijo.com telah selesai.
 

@@ -67,50 +67,56 @@ Tujuannya hanya untuk menyamakan presepsi saja, bahwa sudah tidak ada lagi repos
 ### Mengganti Nama Direktori Root
 
 1. Saya juga perlu mengganti nama direktori root yang ada di laptop.
-```
-$ mv bandithijo.github.io bandithijo.com
-```
-Tujuannya masih sama, agar tidak menimbulkan ambigu di kemudian hari.
+   <pre>
+   $ <b>mv bandithijo.github.io bandithijo.com</b></pre>
+
+   Tujuannya masih sama, agar tidak menimbulkan ambigu di kemudian hari.
 
 ### Mengganti Alamat Git Remote
 
 1. Ganti alamat GitHub **remote** yang lama dengan yang baru.
-```
-$ vim .git/config
-```
-Ganti pada section `[remote "origin"]`, `/bandithijo.github.io.git` menjadi `/bandithijo.com.git`.
-    <pre>
-...
-...
-[remote "origin"]
+
+   <pre>
+   $ <b>vim .git/config</b></pre>
+
+   Ganti pada section `[remote "origin"]`, `/bandithijo.github.io.git` menjadi `/bandithijo.com.git`.
+
+   ```sh
+   # ...
+   # ...
+
+   [remote "origin"]
     url = git@github.com:bandithijo/<mark>bandithijo.com</mark>.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
-...
-...</pre>
-Perubahan alamat remote ini adalah hal yang direkomendasikan oleh perintah `git` saat saya melakukan `git push -u origin master`.
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jS5Cdr51/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+    fetch = +refs/heads/*:refs/remotes/origin/*
+
+   # ...
+   # ...
+   ```
+
+   Perubahan alamat remote ini adalah hal yang direkomendasikan oleh perintah `git` saat saya melakukan `git push -u origin master`.
+   ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jS5Cdr51/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 
 ### Menghapus CNAME
 
 1. Hapus **CNAME** yang ada pada root direktori.
-    <pre>
-bandithijo.com
-├── _drafts/
-├── _includes/
-├── _layouts/
-├── _posts/
-├── _site/
-├── assets/
-├── pages/
-├── _config.yml
-├── 404.html
-├── <mark>CNAME</mark>  <-- Hapus aku
-├── Gemfile
-├── Gemfile.lock
-└── index.html</pre>
-```
-$ rm CNAME
-```
+   <pre>
+   bandithijo.com
+   ├── _drafts/
+   ├── _includes/
+   ├── _layouts/
+   ├── _posts/
+   ├── _site/
+   ├── assets/
+   ├── pages/
+   ├── _config.yml
+   ├── 404.html
+   ├── <mark>CNAME</mark>  <-- Hapus aku
+   ├── Gemfile
+   ├── Gemfile.lock
+   └── index.html</pre>
+
+   <pre>
+   $ <b>rm CNAME</b></pre>
 
 ## Netlify
 
@@ -131,36 +137,35 @@ Asiknya dengan Netlify, saya dapat berganti-ganti **resource**.
 ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QvVHZdt/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
 
 5. Padah tahap ini saya diminta untuk melakukan setting untuk mendeploy repository.
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
 Saya menambahkan `;rm _site/feed.xml` karena saya tidak menggunakan `feed.xml`.
 
-    Pada langkah ini, sebenarnya di laptop (*local*/*development*), saya membuild Jekyll dengan menggunakan *custom command*.
-    ```
-    $ JEKYLL_ENV=production jekyll build; rm _site/feed.xml
-    ```
+   Pada langkah ini, sebenarnya di laptop (*local*/*development*), saya membuild Jekyll dengan menggunakan *custom command*.
+   <pre>
+   $ <b>JEKYLL_ENV=production jekyll build; rm _site/feed.xml</b></pre>
 
-    Terdapat `JEKYLL_ENV=production` yang mendefiniskan bahwa build ini untuk **production environment**.
+   Terdapat `JEKYLL_ENV=production` yang mendefiniskan bahwa build ini untuk **production environment**.
 
-    Kegunaan dari *variabels* ini adalah saya membagi *environment* menjadi dua, *development* dan *production*. Yang mana terdapat beberapa elemen yang tidak akan ditampilkan pada *development environment* seperti: Disqus, Google Analytics, dan SEO support.
+   Kegunaan dari *variabels* ini adalah saya membagi *environment* menjadi dua, *development* dan *production*. Yang mana terdapat beberapa elemen yang tidak akan ditampilkan pada *development environment* seperti: Disqus, Google Analytics, dan SEO support.
 
-    Netlify menyediakan [Build Environment Variables](https://www.netlify.com/docs/build-settings/){:target="_blank"}, namun tidak support untuk Jekyll, hanya mensupport: Node, NPM, dan Yarn.
+   Netlify menyediakan [Build Environment Variables](https://www.netlify.com/docs/build-settings/){:target="_blank"}, namun tidak support untuk Jekyll, hanya mensupport: Node, NPM, dan Yarn.
 
-    Untuk mengatasi hal ini pada Netlify, saya perlu menambahkan gem bernama `jekyll-netlify`.
+   Untuk mengatasi hal ini pada Netlify, saya perlu menambahkan gem bernama `jekyll-netlify`.
 
-    Tambahkan pada jajaran plugins di `gemfile`.
-    ```
-    gem 'jekyll-netlify', '~> 0.2.0'
-    ```
-    Kemudian, tambahkan pada jajaran plugins di `_config.yaml`.
-    ```
-    plugins:
-      - jekyll-netlify
-    ```
-    Dengan begini, saya tetap dapat menggunakan dua *environment*. Saat dibuild di Netlify, akan menjadi *production environment*.
+   Tambahkan pada jajaran plugins di `gemfile`.
+   ```ruby
+   gem 'jekyll-netlify', '~> 0.2.0'
+   ```
+   Kemudian, tambahkan pada jajaran plugins di `_config.yaml`.
+   ```ruby
+   plugins:
+     - jekyll-netlify
+   ```
+   Dengan begini, saya tetap dapat menggunakan dua *environment*. Saat dibuild di Netlify, akan menjadi *production environment*.
 
-    Namun, apabila repositori GitHub/GitLab kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.
+   Namun, apabila repositori GitHub/GitLab kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.
 
-    Kalau sudah yakin, klik **Deploy site**.
+   Kalau sudah yakin, klik **Deploy site**.
 
 6. Akan keluar tampilan seperti ini.
 ![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JntfdM1b/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
@@ -234,20 +239,21 @@ Maka target dari DNS record sudah di arahkan ke alamat Default domain yang baru.
 Namun, saya lebih memilih cara lain.
 
 3. Saya memilih menambahkan file `netlify.toml` pada direktori root Jekyll saya. Yang isinya mirip seperti file `_redirects` yang disarankan oleh Netlify.
-```
-$ vim netlify.toml
-```
-    <pre>
-[[redirects]]
-  from = "https://bandithijo.netlify.com/*"
-  to = "https://bandithijo.com/:splat"
-  status = 301
-  force = true</pre>
-Saya menggunakan cara ini karena, saat menggunakan file `_redirects`, pada bagian **Settings** > **GitHub page**, dikatakan bahwa isi dari file `_redirects` tidak sesuai dengan semestinya.
+   <pre>
+   $ <b>vim netlify.toml</b></pre>
 
-    Maka dari itu saya menggunakan cara file `netlify.toml` yang sudah saya coba dan ternyata berhasil dijalankan pada kedua repository GitHub dan GitLab.
+   <pre>
+   [[redirects]]
+     from = "https://bandithijo.netlify.com/*"
+     to = "https://bandithijo.com/:splat"
+     status = 301
+     force = true</pre>
 
-    Sekarang, apabila ada pengunjung yang dengan atau tanpa sengaja mengakses alamat **bandithijo.netlify.com** akan otomatis didirect ke **bandithijo.com**.
+   Saya menggunakan cara ini karena, saat menggunakan file `_redirects`, pada bagian **Settings** > **GitHub page**, dikatakan bahwa isi dari file `_redirects` tidak sesuai dengan semestinya.
+
+   Maka dari itu saya menggunakan cara file `netlify.toml` yang sudah saya coba dan ternyata berhasil dijalankan pada kedua repository GitHub dan GitLab.
+
+   Sekarang, apabila ada pengunjung yang dengan atau tanpa sengaja mengakses alamat **bandithijo.netlify.com** akan otomatis didirect ke **bandithijo.com**.
 
 ## Dewaweb
 

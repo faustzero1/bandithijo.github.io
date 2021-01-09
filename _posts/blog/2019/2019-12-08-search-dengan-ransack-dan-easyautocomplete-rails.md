@@ -58,9 +58,9 @@ gem 'ransack', '~> 2.3'
 
 Jangan lupa untuk diinstall.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Setelah selesai, selanjutnya saya akan memasang EasyAutocomplete JQuery plugin.
 

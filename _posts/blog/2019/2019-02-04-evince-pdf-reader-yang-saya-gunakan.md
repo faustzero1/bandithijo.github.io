@@ -42,14 +42,15 @@ Pilih saja salah satu mana dari paket Evince di bawah yang sesuai untuk teman-te
 2. [aur/evince-no-gnome](https://aur.archlinux.org/packages/evince-no-gnome){:target="_blank"}
 
 **extra/evince**
-```
-$ sudo pacman -S evince
-```
+
+{% shell_user %}
+sudo pacman -S evince
+{% endshell_user %}
 
 **aur/evince-no-gnome**
-```
-$ yay -S evince-no-gnome
-```
+{% shell_user %}
+yay -S evince-no-gnome
+{% endshell_user %}
 
 # Fitur-fitur
 

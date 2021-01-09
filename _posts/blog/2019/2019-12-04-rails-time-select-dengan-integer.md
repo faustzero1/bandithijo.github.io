@@ -52,9 +52,9 @@ Oke, kembali ke pokok perbincangan utama.
 
 Untuk merubah kolom/field duration dari tipe data time menjadi integer, saya melakukan migration seperti ini.
 
-<pre>
-$ <b>rails g migration alter_experiences_duration_to_integer</b>
-</pre>
+{% shell_user %}
+rails g migration alter_experiences_duration_to_integer
+{% endshell_user %}
 
 Kemudian menuliskan manual, masing-masing method up dan down-nya.
 

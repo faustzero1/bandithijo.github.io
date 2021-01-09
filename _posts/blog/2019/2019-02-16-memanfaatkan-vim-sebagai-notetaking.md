@@ -51,104 +51,101 @@ Seperti itu saja. Sederhana bukan?
 
 1. Buat direktori untuk menyimpan hasil *notetaking*. Terserah teman-teman.
 
-    Saya memilih untuk meletakkan di dalam direktori `~/doc/notetaking/`.
+   Saya memilih untuk meletakkan di dalam direktori `~/doc/notetaking/`.
 
-    ```
-    $ mkdir -p ~/doc/notetaking
-    ```
+   <pre>
+   $ <b>mkdir -p ~/doc/notetaking</b></pre>
 
-    **doc** -- adalah Kependekan dari **Documents**. [Lihat bagaimana cara saya merubah penamaan direktori ini]({{ site.url }}/blog/merubah-nama-direktori-pada-home){:target="_blank"}.
+   **doc** -- adalah Kependekan dari **Documents**. [Lihat bagaimana cara saya merubah penamaan direktori ini]({{ site.url }}/blog/merubah-nama-direktori-pada-home){:target="_blank"}.
 
 2. Selanjutnya, saya akan membuat file `README.md`, hanya untuk gaya-gaya saja, sebagai penanda bahwa ini adalah direktori yang saya pergunakan untuk *notetaking* dan mungkin di lain waktu akan saya tambahkan beberapa *rules* yang akan saya pergunakan dalam melakukan *notetaking* versi saya sendiri.
 
-    ```
-    $ cd ~/doc/notetaking
-    $ touch README.md
-    ```
+   <pre>
+   $ <b>cd ~/doc/notetaking</b>
+   $ <b>touch README.md</b></pre>
 
-    Isikan terserah kalian, saya akan mengisikan seperti ini.
+   Isikan terserah kalian, saya akan mengisikan seperti ini.
 
-    <pre>
-    &#96;&#96;&#96;
-     ████     ██            ██
-    ░██░██   ░██           ░██
-    ░██░░██  ░██  ██████  ██████  █████
-    ░██ ░░██ ░██ ██░░░░██░░░██░  ██░░░██
-    ░██  ░░██░██░██   ░██  ░██  ░███████
-    ░██   ░░████░██   ░██  ░██  ░██░░░░
-    ░██    ░░███░░██████   ░░██ ░░██████
-    ░░      ░░░  ░░░░░░     ░░   ░░░░░░
+   <pre>
+   &#96;&#96;&#96;
+    ████     ██            ██
+   ░██░██   ░██           ░██
+   ░██░░██  ░██  ██████  ██████  █████
+   ░██ ░░██ ░██ ██░░░░██░░░██░  ██░░░██
+   ░██  ░░██░██░██   ░██  ░██  ░███████
+   ░██   ░░████░██   ░██  ░██  ░██░░░░
+   ░██    ░░███░░██████   ░░██ ░░██████
+   ░░      ░░░  ░░░░░░     ░░   ░░░░░░
 
-     ██████████           ██     ██
-    ░░░░░██░░░           ░██    ░░            █████
-        ░██      ██████  ░██  ██ ██ ███████  ██░░░██
-        ░██     ░░░░░░██ ░██ ██ ░██░░██░░░██░██  ░██
-        ░██      ███████ ░████  ░██ ░██  ░██░░██████
-        ░██     ██░░░░██ ░██░██ ░██ ░██  ░██ ░░░░░██
-        ░██    ░░████████░██░░██░██ ███  ░██  █████
-        ░░      ░░░░░░░░ ░░  ░░ ░░ ░░░   ░░  ░░░░░
-    &#96;&#96;&#96;
+    ██████████           ██     ██
+   ░░░░░██░░░           ░██    ░░            █████
+       ░██      ██████  ░██  ██ ██ ███████  ██░░░██
+       ░██     ░░░░░░██ ░██ ██ ░██░░██░░░██░██  ░██
+       ░██      ███████ ░████  ░██ ░██  ░██░░██████
+       ░██     ██░░░░██ ░██░██ ░██ ░██  ░██ ░░░░░██
+       ░██    ░░████████░██░░██░██ ███  ░██  █████
+       ░░      ░░░░░░░░ ░░  ░░ ░░ ░░░   ░░  ░░░░░
+   &#96;&#96;&#96;
 
-    &#35; NOTETAKING
+   &#35; NOTETAKING
 
-    Adalah kumpulan dari notetaking yang saya kumpulkan dalam format markdown.
-    Berada dalam satu direkotri bernama `notetaking`.
+   Adalah kumpulan dari notetaking yang saya kumpulkan dalam format markdown.
+   Berada dalam satu direkotri bernama `notetaking`.
 
-    Dipanggil menggunkaan shell script.
+   Dipanggil menggunkaan shell script.
 
-    &#96;&#96;&#96;
-    $ touch ~/.local/bin/notetaking
-    $ chmod +x ~/local/bin/notetaking
-    $ vim ~/.local/bin/notetaking
-    &#96;&#96;&#96;
+   &#96;&#96;&#96;
+   $ touch ~/.local/bin/notetaking
+   $ chmod +x ~/local/bin/notetaking
+   $ vim ~/.local/bin/notetaking
+   &#96;&#96;&#96;
 
-    &#96;&#96;&#96;
-    #!/bin/env sh
+   &#96;&#96;&#96;
+   #!/bin/env sh
 
-    cd $HOME/doc/notetaking
-    vim .
-    &#96;&#96;&#96;</pre>
+   cd $HOME/doc/notetaking
+   vim .
+   &#96;&#96;&#96;</pre>
 
 3. Selanjutnya, saya akan membuat Shell script agar dapat saya panggil menggunakan Terminal atau *application launcher* seperti Rofi.
 
-    Saya beri nama Shell script ini dengan `notetaking`.
+   Saya beri nama Shell script ini dengan `notetaking`.
 
-    ```
-    $ cd ~/.local/bin
-    $ touch notetaking
-    $ chmod +x notetaking
-    $ vim notetaking
-    ```
+   <pre>
+   $ <b>cd ~/.local/bin</b>
+   $ <b>touch notetaking</b>
+   $ <b>chmod +x notetaking</b>
+   $ <b>vim notetaking</b></pre>
 
-    Saya isikan dengan perintah dasar saja.
+   Saya isikan dengan perintah dasar saja.
 
-    ```
-    #!/bin/env sh
+   ```sh
+   #!/bin/env sh
 
-    # Diperlukan untuk masuk ke dalam direktori
-    cd $HOME/doc/notetaking
+   # Diperlukan untuk masuk ke dalam direktori
+   cd $HOME/doc/notetaking
 
-    # Diperlukan untuk membuka Vim pada current dir.
-    # dan langsung membuka NERDtree
-    vim .
-    ```
+   # Diperlukan untuk membuka Vim pada current dir.
+   # dan langsung membuka NERDtree
+   vim .
+   ```
 
 4. Agar dapat mengaktifkan **NERDTree** pada Vim yang terbuka pada *current directory*, saya perlu menambahkan perintah di bawah pada `~/.vimrc`.
 
-    ```
-    $ vim ~/.vimrc
-    ```
-    Tambahkan saja pada bagian/section NERDTree apabila teman-teman memilikinya.
-    ```
-    ...
-    ...
+   <pre>
+   $ <b>vim ~/.vimrc</b></pre>
+   Tambahkan saja pada bagian/section NERDTree apabila teman-teman memilikinya.
+   ```viml
+   " ...
+   " ...
 
-    " Open NERDTree when open a directory
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
-    ...
-    ...
-    ```
+   " Open NERDTree when open a directory
+   autocmd StdinReadPre * let s:std_in=1
+   autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+
+   " ...
+   " ...
+   ```
 
     **Sebelum,**
 
@@ -164,23 +161,22 @@ Seperti itu saja. Sederhana bukan?
 
 5. Terakhir, tinggal membuat lauchernya saja, agar dapat dipanggil menggunakan *application launcher* seperti Rofi.
 
-    ```
-    $ cd ~/.local/share/applications
-    $ touch notetaking.desktop
-    $ vim notetaking.desktop
-    ```
+   <pre>
+   $ <b>cd ~/.local/share/applications</b>
+   $ <b>touch notetaking.desktop</b>
+   $ <b>vim notetaking.desktop</b></pre> 
 
-    Lalu, saya isikan seperti di bawah.
+   Lalu, saya isikan seperti di bawah.
 
-    <pre>
-    [Desktop Entry]
-    Name=Notetaking
-    Comment=Script for Calling Vim to open Note-Taking Directory
-    <mark>Exec=st -e '/home/bandithijo/.local/bin/notetaking'</mark>
-    Icon=tomboy
-    Categories=Documents;</pre>
+   <pre>
+   [Desktop Entry]
+   Name=Notetaking
+   Comment=Script for Calling Vim to open Note-Taking Directory
+   <mark>Exec=st -e '/home/bandithijo/.local/bin/notetaking'</mark>
+   Icon=tomboy
+   Categories=Documents;</pre>
 
-    Pada bagian yang saya *marking*, saya menggunakan **St** terminal. Teman-teman dapat mengganti dengan Terminal emulator yang kalian pergunakan.
+   Pada bagian yang saya *marking*, saya menggunakan **St** terminal. Teman-teman dapat mengganti dengan Terminal emulator yang kalian pergunakan.
 
 # Hasilnya
 

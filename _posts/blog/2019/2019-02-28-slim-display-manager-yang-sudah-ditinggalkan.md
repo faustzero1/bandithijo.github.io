@@ -78,20 +78,18 @@ Untuk teman-teman yang menggunakan distribusi selain Arch atau turunan Arch, sil
 
 # Instalasi
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p><b>Saya tidak merekomendasikan untuk menggunakan SLiM Display Manager</b>.</p>
 <p>Apabila terjadi sesuatu yang merugikan teman-teman di kemudian hari, bukan merupakan tanggung jawab saya sebagai penulis.</p>
 <p>Tanggung jawab sepenuhnya ada di tangan teman-teman.</p>
 <p>Kalau setuju, yuk kita kemon!</p>
-</div>
+{% endbox_perhatian %}
 
 Untuk distribusi Arch Linux, sangat saya sarankan memasang paket SLiM menggunakan *package manager*, dikarenakan alasan di atas. Agar paket yang kita gunakan, adalah paket yang sudah jelas ter-*maintained* dengan baik.
 
-<pre>
-$ <b>sudo pacman -S slim</b>
-</pre>
+{% shell_user %}
+sudo pacman -S slim
+{% endshell_user %}
 
 Untuk distribusi yang lain, silahkan menyesuaikan.
 
@@ -103,15 +101,15 @@ Setelah memasang paket SLiM, kita perlu menjalankan `slim.service`.
 
 Dikarenakan kita harus memilih salah satu Display Manager yang digunakan, karena sebelumnya saya menggunakan LightDM Display Manager, saya akan men-*disable* service dari LightDM terlebih dahulu.
 
-<pre>
-$ <b>sudo systemctl disable lightdm.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl disable lightdm.service
+{% endshell_user %}
 
 Selanjutnya, baru meng-*enable*-kan service dari SLiM.
 
-<pre>
-$ <b>sudo systemctl enable slim.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl enable slim.service
+{% endshell_user %}
 
 ## Sessions
 
@@ -149,23 +147,24 @@ Saya mulai dari cara pertama.
 
 Edit file `/etc/slim.conf` dengan *text editor* favorit kalian.
 
-<pre>
-$ <b>sudo vim /etc/slim.conf</b>
-</pre>
+{% shell_user %}
+sudo vim /etc/slim.conf
+{% endshell_user %}
 
-<pre>
-...
-...
+{% highlight_caption /etc/slim.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 # Set directory that contains the xsessions.
 # slim reads xsesion from this directory, and be able to select.
-<mark>sessiondir            /usr/share/xsessions/</mark>
+sessiondir            /usr/share/xsessions/
 
-...
-...
-</pre>
+# ...
+# ...
+{% endhighlight %}
 
-Perhatikan baris yang saya *marking*, pastikan sudah *enable* (tidak ada tanda # dibagian paling depan).
+Perhatikan baris ke-6, pastikan sudah *enable* (tidak ada tanda # dibagian paling depan).
 
 Bagian inilah yang akan mengaktifkan pilihan session pada saat login.
 
@@ -173,12 +172,13 @@ Bagian inilah yang akan mengaktifkan pilihan session pada saat login.
 
 **Penting!** untuk menambahkan baris di bawah ini pada file `~/.xinitrc`.
 
-```
-...
-...
+{% highlight_caption $HOME/.xinitrc %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 exec $1
-```
+{% endhighlight %}
 
 Tujuannya agar inputan yang dipilih menggunakan <kbd>F1</kbd> akan dieksekusi.
 
@@ -192,61 +192,65 @@ Untuk Cara kedua ini, dapat pula kita sebut sebagai *automatic session*, karena 
 
 Edit file `/etc/slim.conf` dengan *text editor* favorit teman-teman.
 
-<pre>
-$ <b>sudo vim /etc/slim.conf</b>
-</pre>
+{% shell_user %}
+sudo vim /etc/slim.conf
+{% endshell_user %}
 
-<pre>
-...
-...
+{% highlight_caption /etc/slim.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 # Set directory that contains the xsessions.
 # slim reads xsesion from this directory, and be able to select.
-<mark>#sessiondir            /usr/share/xsessions/</mark>
+#sessiondir            /usr/share/xsessions/
 
-...
-...
-</pre>
+# ...
+# ...
+{% endhighlight %}
 
-**Perhatikan!** bagian yang saya *marking*. Tambahkan tanda pagar `#`, untuk mendisable konfigurasi pada baris ini.
+**Perhatikan!** pada baris ke-6. Tambahkan tanda pagar `#`, untuk mendisable konfigurasi pada baris ini.
 
 Selanjutnya, definisikan *default session* yang akan kita pergunakan.
 
 Edit file `~/.xinitrc` dengan *text editor* favorit kalian.
 
-<pre>
-$ <b>vim ~/.xinitrc</b>
-</pre>
+{% shell_user %}
+vim ~/.xinitrc
+{% endshell_user %}
 
 Ada dua cara yang saya tawarkan.
 
 #### Cara Sederhana
 
-<pre>
-...
-...
-<mark>exec i3</mark>
+{% highlight_caption $HOME/.xinitrc %}
+{% highlight sh linenos %}
+# ...
+# ...
+exec i3
 #exec dwm
 #exec qtile
-...
-...
-</pre>
+# ...
+# ...
+{% endhighlight %}
 
 Karena saya menggunakan i3wm sebagai *default session* saya, maka saya meng-*enable*-kan dengan menghapus tanda pagar `#`, seperti contoh di atas.
 
 #### Cara Keren
 
-(Perbaikan dari: **Harry Kurn**)
+{% box_perhatian %}
+<p markdown=1>(Perbaikan dari: **Harry Kurn**)</p>
+<p markdown=1>Cara keren ini sudah **tidak direkomendasikan** lagi.</p>
+{% endbox_perhatian %}
 
-Cara keren ini sudah **tidak direkomendasikan** lagi.
-
-<strike>
-<pre>
-...
-...
+<s>
+{% highlight_caption $HOME/.xinitrc %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 # Untuk SLiM Session
-<mark>DEFAULTSESSION=i3
+DEFAULTSESSION=i3
 case "$1" in
     i3) exec i3 ;;
     sway) exec sway ;;
@@ -254,14 +258,14 @@ case "$1" in
     qtile) exec qtile ;;
     bspwm) exec bspwm ;;
     *) exec $DEFAULTSESSION ;;
-esac</mark>
+esac
 
-...
-...
-</pre>
+# ...
+# ...
+{% endhighlight %}
 
 Untuk mengganti <i>default session</i> yang ingin digunakan, ubah nilai dari <i>variabel</i> <code>DEFAULTSESSION=</code>.
-</strike>
+</s>
 
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxs6sHRq/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
 
@@ -279,14 +283,14 @@ SLiM juga dapat mengakses *system sessions* seperti: reboot, shutdown, suspend, 
 
 Untuk mengaktifkan dan menonaktifkan fitur ini, teman-teman dapat melihat pada file `/etc/slim.conf`.
 
-<pre>
-
+{% highlight_caption /etc/slim.conf %}
+{% highlight sh linenos %}
 # Commands for halt, login, etc.
 halt_cmd            /sbin/shutdown -h now
 reboot_cmd          /sbin/shutdown -r now
 console_cmd         /usr/bin/xterm -C -fg white -bg black +sb -T "Console login" -e /bin/sh -c "/bin/cat /etc/issue; exec /bin/login"
 #suspend_cmd        /usr/sbin/suspend
-</pre>
+{% endhighlight %}
 
 **suspend**, secara default dalam keadaan tidak aktif.
 
@@ -306,12 +310,9 @@ darky_solarized_dark_yellow
 └── slim.theme
 ```
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-
+{% box_info %}
 <p>Saya menggunakan theme <b>darky_solarized_dark_yellow</b> yang merupakan hasil modifikasi dari <b>darky_pink</b> milik <a href="https://github.com/adi1090x/slim_themes" target="_blank">GitHub/adi1090x/slim_themes</a></p>
-</div>
+{% endbox_info %}
 
 
 
@@ -330,21 +331,21 @@ Secara garis besar proses instalasi dibagi dalam 2 tahap.
 
 ### Copy Direktori Themes
 
-```
-$ sudo cp -rvf <dir_themes> /usr/share/slim/themes
-```
+{% shell_user %}
+sudo cp -rvf &lt;dir_themes> /usr/share/slim/themes
+{% endshell_user %}
 
 Sebagai contoh, saya memiliki themes bernama `darky_solarized_dark_yellow`.
 
-```
-$ sudo cp -rvf darky_solarized_dark_yellow /usr/share/slim/themes
-```
+{% shell_user %}
+sudo cp -rvf darky_solarized_dark_yellow /usr/share/slim/themes
+{% endshell_user %}
 
 Kemudian lakukan pengecekan pada direktori `/usr/share/slim/themes/` apakah sudah berhasil dicopy.
 
-```
-$ ll /usr/share/slim/themes
-```
+{% shell_user %}
+ll /usr/share/slim/themes
+{% endshell_user %}
 
 <pre>
 <mark>drwxr-xr-x root root darky_solarized_dark_yellow</mark>
@@ -357,112 +358,22 @@ Nah, kalau sudah ada, berarti sudah terinstall.
 
 Apabila langkah copy direktori themes sudah dilakukan, selanjutnya tinggal mengganti nilai dari variabel `current_theme` pada file `/etc/slim.conf` yang tadinya bernilai `default` menjadi `<nama_theme>`.
 
-```
-$ sudo vim /etc/slim.conf
-```
+{% shell_user %}
+sudo vim /etc/slim.conf
+{% endshell_user %}
 
-<pre>
-...
-...
+{% highlight_caption /etc/slim.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 # current theme, use comma separated list to specify a set to
 # randomly choose from
-<mark>current_theme        darky_solarized_dark_yellow</mark>
+current_theme        darky_solarized_dark_yellow
 
-...
-...
-</pre>
-
-
-## Cara Mudah Instalasi Themes
-
-Untuk mempermudah kedua tahap di atas, saya membuatkan shell script agar praktis.
-
-```
-$ cd <dir_themes>
-$ touch install.sh
-$ chmod +x install.sh
-$ vim install.sh
-```
-```
-#!/bin/env sh
-
-: '
-  ██████                           ██ ██   ██   ██      ██ ██    ██
- ░█░░░░██                         ░██░░   ░██  ░██     ░██░░    ░░
- ░█   ░██   ██████   ███████      ░██ ██ ██████░██     ░██ ██    ██  ██████
- ░██████   ░░░░░░██ ░░██░░░██  ██████░██░░░██░ ░██████████░██   ░██ ██░░░░██
- ░█░░░░ ██  ███████  ░██  ░██ ██░░░██░██  ░██  ░██░░░░░░██░██   ░██░██   ░██
- ░█    ░██ ██░░░░██  ░██  ░██░██  ░██░██  ░██  ░██     ░██░██ ██░██░██   ░██
- ░███████ ░░████████ ███  ░██░░██████░██  ░░██ ░██     ░██░██░░███ ░░██████
- ░░░░░░░   ░░░░░░░░ ░░░   ░░  ░░░░░░ ░░    ░░  ░░      ░░ ░░  ░░░   ░░░░░░
-'
-
-# Copyright (C) 2019 BanditHijo
-#
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version.
-#
-# This program is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
-# more details.
-#
-# You should have received a copy of the GNU General Public License along with
-# this program. If not, see http://www.gnu.org/licenses/.
-
-# Author  : Rizqi Nur Assyaufi
-# Website : https://bandithijo.com
-# Email   : bandithijo@gmail.com
-# Created : 2019/02
-
-# README
-# File install.sh ini adalah shell script sederhana untuk meng-install/update
-# theme yang akan kita gunakan.
-
-# CARA INSTALASI
-# File install.sh ini harus berada di dalam direktori theme.
-# Kemudian, tinggal menjalankan dengan perintah:
-#
-# $ ./install.sh
-#
-# Dibutuhkan password root.
-
-namaDir=`basename $PWD`
-
-# mendefinisikan nama tema
-namaTema=$namaDir
-
-# membuat direktori tema pada dir. slim/themes/
-sudo mkdir -p /usr/share/slim/themes/$namaTema
-echo -e '\n[ DONE ] Direktori tema:' $namaTema 'berhasil dibuat!'
-
-# mengcopy seluruh isi file ke dalam dir. slim/themes/
-sudo cp * /usr/share/slim/themes/$namaTema
-echo '[ DONE ] File-file tema berhasil dicopy ke dir. slim/themes'
-
-# menginstall tema
-sudo sed -i "s/^current_theme.*$/current_theme        $namaTema/g" /etc/slim.conf
-echo '[ DONE ] Berhasil memasang tema:' $namaTema 'pada slim.conf'
-```
-
-**Perhatian!**, letakkan file shell script ini di dalam direktori themes.
-
-Setelah itu, tinggal menjalankannya.
-
-```
-$ ./install.sh
-```
-
-```
-[sudo] password for bandithijo: ******
-
-[ DONE ] Direktori tema: darky_solarized_dark_yellow berhasil dibuat!
-[ DONE ] File-file tema berhasil dicopy ke dir. slim/themes
-[ DONE ] Berhasil memasang tema: darky_solarized_dark_yellow pada slim.conf
-```
+# ...
+# ...
+{% endhighlight %}
 
 
 # Pesan Penulis
@@ -486,6 +397,9 @@ Terima kasih.
 Terima kasih, Bro **Harry Kurn**.
 
 ![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/xdSvWxK2/gambar-11.png" onerror="imgError(this);"}{:class="myImg"}
+
+
+
 
 # Referensi
 

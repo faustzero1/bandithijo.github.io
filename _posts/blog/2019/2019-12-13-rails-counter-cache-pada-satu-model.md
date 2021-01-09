@@ -82,9 +82,9 @@ Pertama-tama seperti halnya convetion pada counter cache, saya perlu manambahkan
 
 Buat migration untuk menambahkan kolom counter cache.
 
-<pre>
-$ <b>rails g migration add_inviting_user_to_users</b>
-</pre>
+{% shell_user %}
+rails g migration add_inviting_user_to_users
+{% endshell_user %}
 
 <pre>
     <span style="color:#859900;">create</span> 20191122174434_add_inviting_user_count_to_users.rb
@@ -106,9 +106,9 @@ Untuk field `inviting_users_count` adalah field yang saya siapkan untuk counter 
 
 Kemudian, jalankan migrationnya.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 Apabila berhasil, berikut ini adalah bentuk dari skema database setelah migrasi berhasil kita jalankan.
 

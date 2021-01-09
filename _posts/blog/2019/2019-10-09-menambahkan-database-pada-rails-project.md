@@ -168,9 +168,9 @@ Mantap, tinggal langkah terakhir, membuat database.
 
 Jalankan dengan perintah `rake`.
 
-<pre>
-$ <b>rails db:create</b>
-</pre>
+{% shell_user %}
+rails db:create
+{% endshell_user %}
 
 Apabila menghasilkan output seperti di bawah ini.
 

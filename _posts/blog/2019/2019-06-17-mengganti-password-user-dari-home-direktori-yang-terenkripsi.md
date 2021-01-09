@@ -93,9 +93,9 @@ Ini penting mengingat cara kerja dekripsi dari Home direktori menggunakan eCrypt
 
 Caranya tentu saja sudah sangat familiar.
 
-<pre>
-# <b>passwd <mark>bandithijo</mark></b>
-</pre>
+{% shell_user %}
+passwd <mark>bandithijo</mark>
+{% endshell_user %}
 
 Jangan lupa mengganti <mark>bandithijo</mark> dengan username kalian.
 

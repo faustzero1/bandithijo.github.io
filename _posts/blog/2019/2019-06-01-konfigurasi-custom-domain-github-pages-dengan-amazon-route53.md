@@ -207,9 +207,9 @@ Dengan begini, tahap konfigurasi Custom Domain GitHub Pages dengan Route 53 seba
 
 Lakukan pengujian `ping` terlebih dahulu, apakah domain kita sudah *up* atau belum.
 
-<pre>
-$ <b>ping -c 3 bandithijo.com</b>
-</pre>
+{% shell_user %}
+ping -c 3 bandithijo.com
+{% endshell_user %}
 
 ```
 PING bandithijo.com (185.199.109.153) 56(84) bytes of data.
@@ -225,9 +225,9 @@ rtt min/avg/max/mdev = 42.743/43.145/43.532/0.364 ms
 <br>
 Selanjutnya tahap menggali informasi DNS nameserver dengan DNS lookup utility bernama `dig`.
 
-<pre>
-$ <b>dig bandithijo.com</b>
-</pre>
+{% shell_user %}
+dig bandithijo.com
+{% endshell_user %}
 
 ```
 ; <<>> DiG 9.14.2 <<>> bandithijo.com
@@ -269,11 +269,10 @@ Perhatikan hasilnya.
 
 Apabila telah sesuai dengan yang kita inputkan pada Amazon Console Route 53, berarti konfigurasi kita telah berhasil.
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Perlu diperhatikan bahwa proses perubahan Nameservers di atas sampai menjadi Nameservers yang baru, <mark><b>memerlukan waktu yang tidak sebentar</b></mark>.</p>
 <p>Jadi jangan khawatir apabila setelah teman-teman selesai mengkonfigurasi, tidak langsung dapat dilihat hasilnya.</p>
-</div>
+{% endbox_info %}
 
 <br>
 # Pesan Penulis

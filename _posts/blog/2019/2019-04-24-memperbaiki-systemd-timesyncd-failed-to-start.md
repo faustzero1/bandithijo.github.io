@@ -41,9 +41,9 @@ Kira-kira seperti ini wujudnya.
 
 Remove symlink directory yang berada di `/var/lib/systemd/timesync`.
 
-```
-$ sudo rm /var/lib/systemd/timesync
-```
+{% shell_user %}
+sudo rm /var/lib/systemd/timesync
+{% endshell_user %}
 
 Jangan khawatir untuk menghapus *symbolic link* dari direktori `timesync/` ini karena setelah *restart* akan secara otomatis di-*recovery* kembali oleh sistem.
 

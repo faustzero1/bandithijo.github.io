@@ -80,10 +80,12 @@ Berikut ini adalah gambar perbandingan tampilan antara **Vim-Airline** versus **
 # Instalasi
 
 Saya menggunakan plugin manager [**vim-plug**](https://github.com/junegunn/vim-plug){:target="_blank"}.
-```
+
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-```
+{% endhighlight %}
 
 # Konfigurasi
 
@@ -99,7 +101,8 @@ Pada konfigurasi `lightline` ini saya hanya menambahkan:
 
 Tambahkan konfigurasi di bawah pada `~/.vimrc`.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 let g:lightline = {
 \   'colorscheme': 'solarized',
 \   'active': {
@@ -133,21 +136,20 @@ let g:lightline.component_expand = {
 let g:lightline.component_type = {
 \   'buffers': 'tabsel'
 \}
-```
+{% endhighlight %}
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Beberapa karakter <b>Powerline</b> mungkin mengalami gagal rendering pada Browser. Namun apabila dicopy-paste ke Terminal, tetap dapat ditampilkan dengan benar.</p>
 <p>Apabila tidak berhasil, coba copy-paste secara manual output dari command di bawah ke dalam <code>.vimrc</code> di atas.</p>
 <pre>
 $ echo -e "\ue0a1 \ue0b0 \ue0b1 \ue0b2 \ue0b3"
 </pre>
-</div>
+{% endbox_perhatian %}
 
 Untuk melihat colorscheme dapat menggunakan `:h g:lightline.colorscheme`.
 
 Berikut ini adalah daftar colorscheme yang tersedia:
+
 ```
 Currently, wombat, solarized, powerline, jellybeans, Tomorrow,
 Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties,
@@ -162,14 +164,19 @@ Buat apa kita perlu `Lightline-Bufferline` ?
 Apabila kita hanya menggunakan `Lightline` saja, maka buffer yang terdapat di pojok kiri atas hanya akan ditampilkan satu buah. Karena ini, kita memerlukan `Lightline-Bufferline` untuk menampilkan buffer yang terbuka.
 
 Untuk mengaktifkan bufferline (tabline), tambahkan di bawahnya.
-```viml
+
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
-```
+{% endhighlight %}
+
 Kemudian tambahkan konfigurasi untuk `lightline-bufferline`, namun ini hanya optional saja, karena secara *default* tampilan dari `lightline-bufferline` sudah bagus.
 
 Value yang saya gunakan hampir rata-rata adalah value *default* kecuali `unnamed` saya ganti menjadi `[NO NAME]`, defaultnya adalah `*`.
-```viml
+
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 let g:lightline#bufferline#unnamed = "[NO NAME]"
 let g:lightline#bufferline#filename_modifier= ":."
 let g:lightline#bufferline#more_buffers = "..."
@@ -179,7 +186,7 @@ let g:lightline#bufferline#shorten_path = 1
 let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#unicode_symbols = 1
-```
+{% endhighlight %}
 
 # Modifikasi
 
@@ -191,16 +198,17 @@ Modifikasi terhadap `solarized` colorscheme.
 
 Saya akan menduplikasi (Copy) dan mengganti namanya, agar tetap mempertahankan theme solarized default dari Lightline.
 
-```
-$ cd .vim/plugged/lightline.vim/autoload/lightline/colorscheme/
-$ cp solarized.vim lightline_solarized.vim
-```
+{% shell_user %}
+cd .vim/plugged/lightline.vim/autoload/lightline/colorscheme/
+cp solarized.vim lightline_solarized.vim
+{% endshell_user %}
 
 Saya akan memodifikasi beberapa bagian.
 
-```
-$ vim lightline_solarized.vim
-```
+{% shell_user %}
+vim lightline_solarized.vim
+{% endshell_user %}
+
 <pre>
 " =============================================================================
 " Filename: autoload/lightline/colorscheme/<mark>lightline_solarized.vim</mark>
@@ -208,8 +216,8 @@ $ vim lightline_solarized.vim
 " License: MIT License
 " Last Change: 2017/11/25 11:13:46.
 " =============================================================================
-...
-...
+" ...
+" ...
 
 " The following condition only applies for the console and is the same
 " condition vim-colors-solarized uses to determine which set of colors

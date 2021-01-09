@@ -35,114 +35,121 @@ Penjelasan mengenai **Apa itu Zgen?** dapat dibaca sendiri pada halaman GitHub d
 
 1. Backup `.zshrc`.
 
-    ```
-    $ cp ~/.zshrc ~/.zshrc.old
-    ```
-    Atau bisa gunakan nama apa saja. `.bak`, `.backup`, dll.
+   <pre>
+   $ <b>cp ~/.zshrc ~/.zshrc.old</b></pre>
+
+   Atau bisa gunakan nama apa saja. `.bak`, `.backup`, dll.
 
 2. Cloning repository Zgen.
 
-    ```
-    $ git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
-    ```
-    Hasil *cloning* di atas akan berada pada direktori `~/.zgen/`.
+   <pre>
+   $ <b>git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"</b></pre>
+
+   Hasil *cloning* di atas akan berada pada direktori `~/.zgen/`.
 
 3. Tambahkan bari di bawah ini pada file `~/.zshrc`.
 
-    ```bash
-    # load zgen
-    source "${HOME}/.zgen/zgen.zsh"
-    ...
-    ...
-    ```
-    Letakkan saja pada posisi paling atas dari `.zshrc`.
+   ```sh
+   # load zgen
+   source "${HOME}/.zgen/zgen.zsh"
+   
+   # ...
+   # ...
+   ```
+   Letakkan saja pada posisi paling atas dari `.zshrc`.
 
-    Saran saya, hapus saja semua konfigurasi `oh-my-zsh` yang ada di dalam file `.zshrc`.
+   Saran saya, hapus saja semua konfigurasi `oh-my-zsh` yang ada di dalam file `.zshrc`.
 
-    Selesai. Proses pemasangan dan konfigurasi Zgen hanya seperti ini saja.
+   Selesai. Proses pemasangan dan konfigurasi Zgen hanya seperti ini saja.
 
-    Sangat mudah bukan?
+   Sangat mudah bukan?
 
-    Selanjutnya, pemasangan `oh-my-zsh` sebagai plugin.
+   Selanjutnya, pemasangan `oh-my-zsh` sebagai plugin.
 
 ## Instalasi OH-MY-ZSH
 
 1. Tambahkan di bagian bawah atau setelah baris kode `# load zgen` di atas.
 
-    ```bash
-    # if the init scipt doesn't exist
-    if ! zgen saved; then
-        echo "Creating a zgen save"
+   ```sh
+   # if the init scipt doesn't exist
+   if ! zgen saved; then
+       echo "Creating a zgen save"
 
-        zgen oh-my-zsh
+       zgen oh-my-zsh
 
-        # plugins OH-MY-ZSH
-        zgen oh-my-zsh plugins/git
-        zgen oh-my-zsh plugins/sudo
-        zgen oh-my-zsh plugins/gem
-        zgen oh-my-zsh plugins/python
-        zgen oh-my-zsh plugins/systemd
-        zgen oh-my-zsh plugins/tmux
-        zgen oh-my-zsh plugins/archlinux
-        zgen oh-my-zsh plugins/command-not-found
+       # plugins OH-MY-ZSH
+       zgen oh-my-zsh plugins/git
+       zgen oh-my-zsh plugins/sudo
+       zgen oh-my-zsh plugins/gem
+       zgen oh-my-zsh plugins/python
+       zgen oh-my-zsh plugins/systemd
+       zgen oh-my-zsh plugins/tmux
+       zgen oh-my-zsh plugins/archlinux
+       zgen oh-my-zsh plugins/command-not-found
 
-        # theme
-        zgen oh-my-zsh themes/avit
+       # theme
+       zgen oh-my-zsh themes/avit
 
-        # save all to init script
-        zgen save
-    fi
-    ```
-    Selesai. Hanya seperti ini saja cara pemasangannya.
+       # save all to init script
+       zgen save
+   fi
+   ```
+   Selesai. Hanya seperti ini saja cara pemasangannya.
 
 2. Kemudian untuk penambahakn plugin lain seperti [**zsh-usrs/zsh-completions**](https://github.com/zsh-users/zsh-completions){:target="_blank"}, tingal menambahkan saja di bagian dalam dari `if ... fi`.
 
-    ```bash
-        ...
-        ...
-        # completions
-        zgen load zsh-users/zsh-completions src
-        ...
-        ...
-    ```
+   ```sh
+       # ...
+       # ...
+
+       # completions
+       zgen load zsh-users/zsh-completions src
+
+       # ...
+       # ...
+   ```
 
 3. Satu contoh plugin lagi, misalnya plugin untuk theme, seperti [**subnixr/minimal**](https://github.com/subnixr/minimal){:target="_blank"}.
 
-    ```bash
-        ...
-        ...
-        # minimal themes
-        zgen load subnixr/minimal
-        ...
-        ...
-    ```
-    Kemudian, tambahkan konfigurasi untuk **minimal** theme ini di bagian luar dari blok plugin.
+   ```sh
+       # ...
+       # ...
 
-    ```bash
-    MNML_OK_COLOR=7
-    MNML_ERR_COLOR=1
-    MNML_USER_CHAR='$'
-    MNML_INSERT_CHAR=''
-    MNML_NORMAL_CHAR=''
+       # minimal themes
+       zgen load subnixr/minimal
 
-    # Components on the left prompt
-    MNML_PROMPT=(mnml_ssh mnml_status mnml_keymap)
+       # ...
+       # ...
+   ```
 
-    # Components on the right prompt
-    MNML_RPROMPT=('mnml_cwd 2 0' mnml_git)
+   Kemudian, tambahkan konfigurasi untuk **minimal** theme ini di bagian luar dari blok plugin.
 
-    # Components shown on info line
-    MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
+   ```sh
+   MNML_OK_COLOR=7
+   MNML_ERR_COLOR=1
+   MNML_USER_CHAR='$'
+   MNML_INSERT_CHAR=''
+   MNML_NORMAL_CHAR=''
 
-    # An additional array is used to configure magic enter's behavior:
-    MNML_MAGICENTER=(mnml_me_dirs mnml_me_ls mnml_me_git)
-    ```
+   # Components on the left prompt
+   MNML_PROMPT=(mnml_ssh mnml_status mnml_keymap)
+
+   # Components on the right prompt
+   MNML_RPROMPT=('mnml_cwd 2 0' mnml_git)
+
+   # Components shown on info line
+   MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
+
+   # An additional array is used to configure magic enter's behavior:
+   MNML_MAGICENTER=(mnml_me_dirs mnml_me_ls mnml_me_git)
+   ```
 
 # Hasilnya
 
 Secara keseluruhan, isi dari kesemua komponan di atas yang ada di dalam file `~/.zshrc` saya akan seperti ini.
 
-```bash
+{% highlight_caption $HOME/.zshrc %}
+{% highlight sh linenos %}
 # -----------------------------------------------------------------ZGEN CONFIG
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
@@ -198,35 +205,39 @@ MNML_INFOLN=(mnml_err mnml_jobs mnml_uhp mnml_files)
 # An additional array is used to configure magic enter's behavior:
 MNML_MAGICENTER=(mnml_me_dirs mnml_me_ls mnml_me_git)
 # -----------------------------------------------------------------END MINIMAL
-```
+{% endhighlight %}
 
 Untuk melihat isi dari `~/.zshrc` lebih lengkap, silahkan melihat pada repositori dotfiles milik saya, [**di sini**](https://github.com/bandithijo/dotfiles/blob/master/.zshrc){:target="_blank"}.
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Mengapa saya menggunakan dua buah theme ?</div>
+{% box_pertanyaan %}
+<p><b>Mengapa saya menggunakan dua buah teheme?</b></p>
 <p>Saya menggunakan <b>oh-my-zsh</b> theme yang bernama <b>avit</b> sebagai <i>fallback</i> apabila <b>minimal</b> theme yang saya gunakan mengalami kendala.</p>
 <p>Ini juga hanya asumsi saya saja. Untuk mengantisipasi. Pada kenyataannya juga belum teruji. Karena selama ini, belum pernah menemui kendala dengan <b>minimal</b> theme.</p>
-</div>
+{% endbox_pertanyaan %}
 
 
 # Reset Konfigurasi
 
 Setelah menambahkan atau menghapus plugin, jangan lupa untuk melakukan perintah *reset*.
-```
-$ zgen reset
-```
+
+{% shell_user %}
+zgen reset
+{% endshell_user %}
+
 ```
 -- zgen: Deleting `/home/bandithijo/.zgen/init.zsh` ...
 ```
+
 Lalu exit dan buka kembali Terminal emulator kita.
 
 Maka akan keluar *output* seperti di bawah.
+
 ```
 Creating a zgen save
 -- zgen: Creating `/home/bandithijo/.zgen/init.zsh` ...
 -- zgen: Initializing completions ...
 ```
+
 Selesai.
 
 # Troubleshoting
@@ -265,7 +276,8 @@ Karena, saya belum memasukkan variabel-variabel milik OH-MY-ZSH pada file `~/.zs
 
 Apabila ingin ditambahkan variabel-variabel milik OH-MY-ZSH secara komplit, kira-kira seperti ini.
 
-<pre>
+{% highlight_caption $HOME/.zshrc %}
+{% highlight sh linenos %}
 # -------------------------------------------------------------------OH-MY-ZSH
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -280,7 +292,7 @@ Apabila ingin ditambahkan variabel-variabel milik OH-MY-ZSH secara komplit, kira
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
-<mark>DISABLE_AUTO_TITLE="true"</mark>
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
 # DISABLE_CORRECTION="true"
@@ -293,7 +305,7 @@ Apabila ingin ditambahkan variabel-variabel milik OH-MY-ZSH secara komplit, kira
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 # ---------------------------------------------------------------END OH-MY-ZSH
-</pre>
+{% endhighlight %}
 
 Dengan begini permasalahan "Perintah Terulang pada Output" tidak terjadi lagi.
 

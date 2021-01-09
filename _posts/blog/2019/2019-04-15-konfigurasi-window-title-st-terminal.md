@@ -94,5 +94,3 @@ Terima kasih.
 
 1. [www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5](http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5){:target="_blank"}
 <br>Diakses tanggal: 2019/04/15
-
-

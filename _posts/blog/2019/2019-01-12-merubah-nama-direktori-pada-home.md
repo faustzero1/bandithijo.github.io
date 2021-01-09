@@ -57,10 +57,13 @@ Lantas bagaimana caranya untuk membuat *custom name* pada direktori-direktori in
 Mudah sekali.
 
 Tinggal buka Terminal, dan edit file `~/.config/user-dirs.dirs`.
-```
-$ vim ~/.config/user-dirs.dirs
-```
-<pre>
+
+{% shell_user %}
+vim ~/.config/user-dirs.dirs
+{% endshell_user %}
+
+{% highlight_caption $HOME/.config/user-dirs.dirs %}
+{% highlight sh linenos %}
 # This file is written by xdg-user-dirs-update
 # If you want to change or add directories, just edit the line you're
 # interested in. All local changes will be retained on the next run
@@ -76,13 +79,15 @@ XDG_DOCUMENTS_DIR="$HOME/<mark>Documents</mark>"
 XDG_MUSIC_DIR="$HOME/<mark>Music</mark>"
 XDG_PICTURES_DIR="$HOME/<mark>Pictures</mark>"
 XDG_VIDEOS_DIR="$HOME/<mark>Videos</mark>"
-</pre>
+{% endhighlight %}
+
 Nah, tinggal ubah nama direktori sesuai dengan yang teman-teman inginkan.
 
 Setelah itu jalankan perintah.
-```
-$ xdg-user-dirs-update
-```
+
+{% shell_user %}
+xdg-user-dirs-update
+{% endshell_user %}
 
 Kemudian jangan lupa untuk merubah <mark><b>Destination</b></mark> direktori dari semua aplikasi secara manual satu persatu. Kalau tidak, akan berantakan semuanya. Hahaha.
 

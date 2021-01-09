@@ -71,27 +71,27 @@ Paket-paket berikut ini perlu dipasang, agar dapat menggunakan **create_ap**.
 
 Beruntungnya saya menggunakan Arch Linux. Paket **create_ap** sudah terdapat pada official repo.
 
-<pre>
-$ <b>sudo pacman -S create_ap</b>
-</pre>
+{% shell_user %}
+sudo pacman -S create_ap
+{% endshell_user %}
 
 ### Distribusi lain
 
 Untuk yang menggunakan distribusi lain, dapat membuild sendiri dari source.
 
-<pre>
-$ <b>git clone https://github.com/oblique/create_ap</b>
-$ <b>cd create_ap</b>
-$ <b>make install</b>
-</pre>
+{% shell_user %}
+git clone https://github.com/oblique/create_ap
+cd create_ap
+make install
+{% endshell_user %}
 
 ## Penggunaan
 
 Sekarang, coba saya jalankan dulu **create_ap**.
 
-<pre>
-$ <b>create_ap</b>
-</pre>
+{% shell_user %}
+create_ap
+{% endshell_user %}
 
 ```
 Usage: create_ap [options] <wifi-interface> [<interface-with-internet>] [<access-point-name> [<passphrase>]]
@@ -172,15 +172,15 @@ Sangat mudah sekali penggunaannya.
 
 Bentuk dari perintahnya akan seperti ini.
 
-<pre>
-$ <b>create_ap [options] &lt;wifi-interface> [&lt;interface-with-internet>] [&lt;access-point-name> [&lt;passphrase>]]</b>
-</pre>
+{% shell_user %}
+create_ap [options] &lt;wifi-interface> [&lt;interface-with-internet>] [&lt;access-point-name> [&lt;passphrase>]]
+{% endshell_user %}
 
 ### Tanpa passphrase (open network)
 
-<pre>
-$ <b>create_ap wlan0 eth0 MyAccessPoint</b>
-</pre>
+{% shell_user %}
+create_ap wlan0 eth0 MyAccessPoint
+{% endshell_user %}
 
 Berarti, kita mendapatkan internet dari interface `eth0` dan akan kita sharing menggunakan interface `wlan0` dengan nama Access Point `MyAccessPoint`.
 
@@ -188,69 +188,69 @@ Mudha dimengerti kan?
 
 ### WPA + WPA2 passphrase
 
-<pre>
-$ <b>create_ap wlan0 eth0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap wlan0 eth0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Access Point tanpa internet
 
-<pre>
-$ <b>create_ap -n wlan0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap -n wlan0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Bridged internet sharing
 
-<pre>
-$ <b>create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap -m bridge wlan0 eth0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Bridged Internet sharing (pre-configured bridge interface)
 
-<pre>
-$ <b>create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap -m bridge wlan0 br0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Internet sharing sharing dari WiFi interface yang sama
 
 Ini yang paling sering saya pergunakan.
 
-<pre>
-$ <b>create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap wlan0 wlan0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Menggunakan WiFi adapter driver yang berbeda
 
-<pre>
-$ <b>create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap --driver rtl871xdrv wlan0 eth0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Tanpa passphrase (open network) menggunakan pipe
 
 Nah, ini adalah fitur yang dimention pada poin nomor 9 di atas.
 
-<pre>
-$ <b>echo -e "MyAccessPoint" | create_ap wlan0 eth0</b>
-</pre>
+{% shell_user %}
+echo -e "MyAccessPoint" | create_ap wlan0 eth0
+{% endshell_user %}
 
 ### WPA + WPA2 passphrase menggunakan pipe
 
-<pre>
-$ <b>echo -e "MyAccessPoint\nMyPassPhrase" | create_ap wlan0 eth0</b>
-</pre>
+{% shell_user %}
+echo -e "MyAccessPoint\nMyPassPhrase" | create_ap wlan0 eth0
+{% endshell_user %}
 
 ### Enable IEEE 802.11n
 
-<pre>
-$ <b>create_ap --ieee80211n --ht_capab '[HT40+]' wlan0 eth0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap --ieee80211n --ht_capab '[HT40+]' wlan0 eth0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ### Client Isolation
 
 Ini adalah contoh penggunaan fitur nomor 4 di atas.
 
-<pre>
-$ <b>create_ap --isolate-clients wlan0 eth0 MyAccessPoint MyPassPhrase</b>
-</pre>
+{% shell_user %}
+create_ap --isolate-clients wlan0 eth0 MyAccessPoint MyPassPhrase
+{% endshell_user %}
 
 ## Systemd Service
 
@@ -258,15 +258,15 @@ Kita juga dapat memanfaatkan systemd service untuk membuat konfigurasi yang pers
 
 ### Menjalankan service
 
-<pre>
-$ <b>sudo systemctl start create_ap</b>
-</pre>
+{% shell_user %}
+sudo systemctl start create_ap
+{% endshell_user %}
 
 ### Menjalankan service saat proses booting
 
-<pre>
-$ <b>sudo systemctl enable create_ap</b>
-</pre>
+{% shell_user %}
+sudo systemctl enable create_ap
+{% endshell_user %}
 
 # Troubleshooting
 
@@ -274,9 +274,9 @@ $ <b>sudo systemctl enable create_ap</b>
 
 Apabila saat menjalankan `create_ap` muncul pesan seperti di atas, maka cukup hapus file `.lock` yang tersimpan pada direktori `/tmp`.
 
-<pre>
-$ <b>rm /tmp/create_ap.all.lock</b>
-</pre>
+{% shell_user %}
+rm /tmp/create_ap.all.lock
+{% endshell_user %}
 
 # Pesan Penulis
 

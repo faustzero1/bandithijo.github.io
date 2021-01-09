@@ -40,26 +40,33 @@ Hanya dapat membaca/menjalankan EFI excutable seperti: Linux Kernel EFISTUB, UEF
 Saat proses instalasi Arch Linux, saya hanya menggunakan satu buah kernel, yaitu kernel vanilla.
 
 Saya akan menunjukkan isi dari konfigurasi file `/boot/loader/loader.conf` yang saya meiliki.
-```
-$ cat /boot/loader/loader.conf
-```
-<pre>
+
+{% shell_user %}
+cat /boot/loader/loader.conf
+{% endshell_user %}
+
+{% highlight_caption /boot/loader/loader.conf %}
+<pre class="caption">
 timeout 0
 editor 0
 default <mark>arch</mark>
 </pre>
+
 Terlihat pada tanda yang saya *marking*, bahwa file loader ini akan memanggil file konfigurasi lain yang bernama `arch` yang merupakan kependekan dari `arch.conf`.
 
 File ini berada pada `/boot/loader/entries/arch.conf`.
 
 Saya akan menunjukkan isi dari konfigurasi file `arch.conf` yang saya gunakan.
-```
+
+{% highlight_caption /boot/loader/entries/arch.conf %}
+{% highlight lang %}
 title    Arch Linux
 linux    /vmlinuz-linux
 initrd	 /intel-ucode.img
 initrd   /initramfs-linux.img
 options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disable
-```
+{% endhighlight %}
+
 Di sini, saya hanya menggunakan satu buah kernel untuk dipanggil. Dapat dilihat pada bagian `initrd /initramfs-linux.img`.
 
 Lantas bisa tidak apabila kita memasang dua kernel, misalkan kernel `linux-lts` dan menampilkan pilihannya pada **systemd-boot**?
@@ -75,23 +82,29 @@ Hanya tinggal membuat file konfigurasi satu lagi pada direktori `/boot//loader/e
 Saya asumsikan teman-teman sudah memasang linux kernel satu lagi. Misal dalam kasus saya `linux-lts`.
 
 Kita tinggal mengambil contekan dasarnya dari file `arch.conf`
-```
-$ cd /boot/loader/entries
-$ sudo cp arch.conf arch-lts.conf
-```
+
+{% shell_user %}
+cd /boot/loader/entries
+sudo cp arch.conf arch-lts.conf
+{% endshell_user %}
+
 Nanti, akan terbuat file baru dengan nama `arch-lts.conf`.
 
 Selanjutnya kita perlu memodifikasi nama dari beberapa value yang ada di dalam file konfigurasi ini.
-```
-$ sudo vim /boot/loader/entries/arch-lts.conf
-```
-<pre>
+
+{% shell_user %}
+sudo vim 
+{% endshell_user %}
+
+{% highlight_caption /boot/loader/entries/arch-lts.conf %}
+<pre class="caption">
 <mark>title    Arch Linux LTS</mark>
 <mark>linux    /vmlinuz-linux-lts</mark>
 initrd	 /intel-ucode.img
 <mark>initrd   /initramfs-linux-lts.img</mark>
 options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disable
 </pre>
+
 Pada bagian yang saya *marking*, adalah bagian-bagian yang saya rubah dengan nama kernel yang saya gunakan. Dalam hal ini `linux-lts`.
 
 <pre>
@@ -107,13 +120,12 @@ Apabila kita ingin menggunakan kernel `zen`, tinggal diganti atau ditambahkan la
 
 Sangat *easy busy* bukan?
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Apakah Maksud dari RW, IRQPOLL, dll yang Berada pada Akhir Baris Options?</div>
+{% box_pertanyaan %}
+<p><b>Apakah Maksud dari RW, IRQPOLL, dll yang Berada pada Akhir Baris Options?</b></p>
 <p>Maksud dari nilai-nilai tersebut adalah, <b>Kernel Parameters</b>.</p>
 <p>Sangat mudah sekali untuk menambahkan kernel parameter pada systemd-boot.</p>
 <p>Hanya seperti itu saja, dengan menambahkan nilai-nilai parameter yang ingin kita gunakan pada akhir dari baris <code>options</code>.</p>
-</div>
+{% endbox_pertanyaan %}
 
 # Cara Menggunakannya
 

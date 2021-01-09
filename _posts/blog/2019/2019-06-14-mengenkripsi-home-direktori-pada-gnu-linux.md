@@ -262,9 +262,9 @@ Bagian yang saya *marking* kuning adalah deretan karakter random yang di-*genera
 
 Coba lakukan pemeriksaan isi dari Home direktori kita.
 
-<pre>
-$ <b>ls -a /home</b>
-</pre>
+{% shell_user %}
+ls -a /home
+{% endshell_user %}
 
 ```
 bandithijo bandithijo.p7o6p7R2 .ecryptfs
@@ -278,9 +278,9 @@ Penjelasan mudahnya, direktroi ini adalah Home direktori lama kita yang sudah di
 
 Kita dapat menghapusnya dengan aman.
 
-<pre>
-$ <b>sudo rm -rvf bandithijo.p7o6p7R2</b>
-</pre>
+{% shell_user %}
+sudo rm -rvf bandithijo.p7o6p7R2
+{% endshell_user %}
 
 Tunggu proses penghapusan sampai selesai.
 

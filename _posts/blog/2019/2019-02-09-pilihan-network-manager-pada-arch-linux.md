@@ -44,27 +44,34 @@ Saya juga merekomendasikan untuk teman-teman yang baru menggunakan Arch Linux at
 # Instalasi
 
 Proses pemasangan paket `networkmanager` juga sangat mudah.
-```
-$ sudo pacman -S networkmanager
-```
+
+{% shell_user %}
+sudo pacman -S networkmanager
+{% endshell_user %}
+
 Secara *default* paket ini sudah membawa daemon untuk services, aplikasi CLI yaitu `nmcli` dan aplikasi TUI `nmtui`.
 
 Atau dapat pula menambahkan paket untuk GUI.
-```
-$ sudo pacman -S nm-connection-editor
-```
+
+{% shell_user %}
+sudo pacman -S nm-connection-editor
+{% endshell_user %}
+
 Namun, apabila paket ini sudah terdapat dalam proses pemasangan paket `networkmanager`, tidak perlu lagi kita instal kembali.
 
 Untuk yang ingin menggunakan trayicon dapat menambahkan paket `network-manager-applet`.
-```
-$ sudo pacman -S Network-manager-applet
-```
+
+{% shell_user %}
+sudo pacman -S Network-manager-applet
+{% endshell_user %}
 
 Setelah memasang paket `networkmanager` jangan lupa untuk mengaktifkan daemon services dari Network Manager.
-```
-$ sudo systemctl enable NetworkManager.service
-$ sudo systemctl start NetworkManager.service
-```
+
+{% shell_user %}
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+{% endshell_user %}
+
 Perhatikan huruf besar dan kecilnya!
 
 # Konfigurasi
@@ -127,10 +134,14 @@ Sebelumnya, saya menggunakan aplikasi `nmtui` untuk melakukan konfigurasi jaring
 
 Untuk memanggilnya, saya menggunakan <kbd>SUPER</kbd>+<kbd>F8</kbd>.
 
-```
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh linenos %}
+# ...
+# ...
+
 # Network Manager Dmenu
 bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
-```
+{% endhighlight %}
 
 Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
 

@@ -64,8 +64,8 @@ Meski begitu saat ini saya tidak benar-benar menggunakan aplikasi Microsoft Offi
 
 Saya hanya menggunakan Microsoft Word untuk melihat template dokumen-dokumen dari tugas akhir yang disediakan oleh kampus dalam format `.doc` dan `.docx` kemudian secara manual saya buat ulang untuk format `.odt` (LibreOffice Word Document).
 
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Kenapa tidak menggunakan Microsoft Word saja? Kan sudah berhasil dipasang?</div>
+{% box_pertanyaan %}
+<p><b>Kenapa tidak menggunakan Microsoft Word saja? Kan sudah berhasil dipasang?</b></p>
 <ol>
 <li>Saya tidak takut untuk menjadi berbeda.</li>
 <li>Saya tidak takut untuk menggunakan LibreOffice.</li>
@@ -73,7 +73,7 @@ Saya hanya menggunakan Microsoft Word untuk melihat template dokumen-dokumen dar
 </ol>
 <p>Poin ketiga adalah yang menjadi alasan terbesar saya. Mengapa saya bersikeras untuk menggunakan LibreOffice dalam mengerjakan tugas akhir.</p>
 <p>Mengenai file berekstensi <code>.fodt</code> akan saya ulas pada tulisan yang lain.</p>
-</div>
+{% endbox_pertanyaan %}
 
 # Permasalahan
 
@@ -168,15 +168,13 @@ Nah, sekarang kita akan sediakan direktori *Recent* untuk mengatasi permasalahan
 
     Contohnya seperti punya saya.
 
-    ```
-    $ cd ~/.wine/drive_c/users/bandithijo
-    ```
+    <pre>
+    $ <b>cd ~/.wine/drive_c/users/bandithijo</b></pre>
 
 2. Kemudian , lihat isi di dalam direktori ini. Apakah sudah terdapat direktori yang bernama `Recent` atau tidak.
 
-    ```
-    $ ls -la
-    ```
+    <pre>
+    $ <b>ls -la</b></pre>
 
     ```
     drwxr-xr-x  AppData
@@ -205,9 +203,8 @@ Nah, sekarang kita akan sediakan direktori *Recent* untuk mengatasi permasalahan
 
 3. Ketik perintah di bawah untuk membuat direktori `Recent`.
 
-    ```
-    $ mkdir Recent
-    ```
+    <pre>
+    $ <b>mkdir Recent</b></pre>
 
     Lalu, periksa kembali keberadaan direktori ini, apakah sudah berhasil dibuat atau tidak.
 
@@ -246,9 +243,9 @@ Lalu, periksa direktori Home, Documents, dan direktori tempat file dokumen berad
 
 Apabila tidak, sekarang coba periksa pada direktori **Recent** yang baru saja kita buat.
 
-```
-$ ls -l ~/.wine/drive_c/users/bandithijo/Recent
-```
+{% shell_user %}
+ls -l ~/.wine/drive_c/users/bandithijo/Recent
+{% endshell_user %}
 
 Hasilnya,
 

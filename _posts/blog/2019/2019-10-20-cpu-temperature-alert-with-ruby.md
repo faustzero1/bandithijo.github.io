@@ -125,9 +125,9 @@ Bagian ini akan tergantung dari DE atau WM yang teman-teman pergunakan.
 
 Karena saya menggunakan BSPWM, kira-kira seperti ini cara saya menambahkan script yang baru saja kita buat ini kedalam sistem autorun.
 
-<pre>
-$ <b>vim ~/.config/bspwm/autostart</b>
-</pre>
+{% shell_user %}
+vim ~/.config/bspwm/autostart
+{% endshell_user %}
 
 {% highlight_caption ~/.config/bspwm/autostart %}
 {% highlight sh linenos %}
@@ -163,10 +163,10 @@ Untuk pengguna ThinkPad jadul seperti saya (ThinkPad X61), saya menambahkan `thi
 
 Untuk pengguna distro selain Arch, mungkin tidak ada `thinkalert` di repository. Tinggal pasang saja dari GitHub repo dari thinkalert.
 
-<pre>
-$ <b>git clone https://github.com/floriandejonckheere/thinkalert.git</b>
-$ <b>cd thinkalert</b>
-</pre>
+{% shell_user %}
+git clone https://github.com/floriandejonckheere/thinkalert.git
+cd thinkalert
+{% endshell_user %}
 
 Isinya cuma dua file.
 
@@ -180,9 +180,9 @@ README.md  thinkalert  thinkalert.c
 
 Nah, `thinkalert.c` ini yang akan kita compile menjadi file binary.
 
-<pre>
-$ <b>gcc -c thinkalert thinkalert.c</b>
-</pre>
+{% shell_user %}
+gcc -c thinkalert thinkalert.c
+{% endshell_user %}
 
 Kalau ada warning (peringatan) mengenai penggunaan `setgroups`, bisa ganti menjadi `getgroups`
 
@@ -205,16 +205,16 @@ Kemudian compile ulang.
 
 Selanjutnya, install ke `/usr/bin/`.
 
-<pre>
-$ <b>sudo install -Dm4755 thinkalert /usr/bin/thinkalert</b>
-$ <b>exec $SHELL</b>
-</pre>
+{% shell_user %}
+sudo install -Dm4755 thinkalert /usr/bin/thinkalert
+exec $SHELL
+{% endshell_user %}
 
 Nah, coba jalankan **thinkalert**.
 
-<pre>
-$ <b>thinkalert</b>
-</pre>
+{% shell_user %}
+thinkalert
+{% endshell_user %}
 
 ```
 thinkalert <on|off|toggle>
@@ -226,9 +226,9 @@ Kalau keluar output seperti di atas, artinya **thinkalert** telah berhasil dipas
 
 Coba test dengan menjalankan **thinkalert** kedip 5 kali.
 
-<pre>
-$ <b>thinkalert 5</b>
-</pre>
+{% shell_user %}
+thinkalert 5
+{% endshell_user %}
 
 Kalau berhasil, thinklight akan berkedip 5 kali. Keren!
 

@@ -17,13 +17,11 @@ contributors: []
 <!-- BANNER OF THE POST -->
 <!-- <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="#" onerror="imgError(this);" alt="banner"> -->
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Proses <i>firmware update</i> merupakan hal yang beresiko tinggi.</p>
 <p>Kesalahan dalam melakukan proses ini, (mungkin) dapat mengakibatkan laptop menjadi <i>bricked</i>.</p>
 <p><i>Do with your own risk!</i></p>
-</div>
+{% endbox_perhatian %}
 
 # Prakata
 
@@ -58,12 +56,9 @@ Untuk proses pembuatan *bootable flash drive* yang sudah berisi *firmware update
 
 Ikuti langkah-langkah yang diberikan sampai pada "**Step 4: Bakar Image ke dalam Flash Drive**" selesai. Kemudian kembali lagi ke sini, yaa.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>File BIOS <i>firmware</i> yang digunakan tidak harus selalu yang terbaru. Menggunakan versi yang sama dengan yang kita gunakan saat ini pun juga akan berhasil.</p>
-</div>
-
+{% endbox_info %}
 
 Saya akan langsung lompat pada tahap memodifikasi *bootable flash drive*.
 
@@ -117,11 +112,9 @@ Setelah mendapatkan informasi yang valid, saya pun menyiapkan gambar yang saya i
 
 File gambar ini saya buat berukuran lebar 440px dan tinggi 440px, tidak transparan, *background* saya buat hitam, dan berukuran 22KB.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Rekomendasi dari iBSD, sebaiknya kita merubah mode dari file gambar yang sebelumnya <b>RGB</b> menjadi <b>Indexed</b>.</p>
-</div>
+{% endbox_info %}
 
 Caranya sangat mudah. Dengan menggunakan GIMP, buka menu **Image → Mode → Indexed...**.
 <!-- IMAGE CAPTION -->
@@ -136,12 +129,11 @@ LOGO.GIF
 ```
 Dengan begini, file gambar kita telah siap.
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Mengapa menggunakan format GIF ?</div>
+{% box_pertanyaan %}
+<p><b>Mengapa menggunakan format GIF?</b></p>
 <p>Saya merujuk pada contoh yang diberikan oleh iBSD. Karena beliau berkata sudah mencoba dengan format JPG namun tidak berhasil.</p>
 <p>Untuk itu, saya tidak berani mengambil resiko bermain-main dengan <i>firmware update</i> karena laptop ini masih saya gunakan untuk bekerja.</p>
-</div>
+{% endbox_pertanyaan %}
 
 
 ### Memasukkan File Gambar ke Bootable Flash Drive

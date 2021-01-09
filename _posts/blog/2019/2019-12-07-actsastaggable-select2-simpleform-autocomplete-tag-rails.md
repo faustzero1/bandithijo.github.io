@@ -79,9 +79,9 @@ Versi dari gem di atas, adalah versi dari gem saat catatan ini ditulis.
 
 Setelah menambahkan gem, jangan lupa untuk menginstallnya.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Setelah itu kita perlu melakukan langkah-langkah *post installation* terhadap masing-masing gem.
 
@@ -89,15 +89,15 @@ Setelah itu kita perlu melakukan langkah-langkah *post installation* terhadap ma
 
 Kita perlu melakukan generate migration untuk ActsAsTaggable.
 
-<pre>
-$ <b>rails acts_as_taggable_on_engine:install:migrations</b>
-</pre>
+{% shell_user %}
+rails acts_as_taggable_on_engine:install:migrations
+{% endshell_user %}
 
 Lalu, jalankan migrationnya.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 Dari migration tersebut, akan dibuatkan 2 buah skema baru, yaitu tabel **taggings** dan **tags**.
 
@@ -105,15 +105,15 @@ Dari migration tersebut, akan dibuatkan 2 buah skema baru, yaitu tabel **tagging
 
 Selanjutnya, untuk simple_form, jalankan juga generator yang sudah disediakan oleh simple_form.
 
-<pre>
-$ <b>rails generate simple_form:install</b>
-</pre>
+{% shell_user %}
+rails generate simple_form:install
+{% endshell_user %}
 
 Karena saya menggunakan **Bootstrap**, maka saya perlu menambahkan option `--bootstrap`.
 
-<pre>
-$ <b>rails generate simple_form:install --bootstrap</b>
-</pre>
+{% shell_user %}
+rails generate simple_form:install --bootstrap
+{% endshell_user %}
 
 ## Select2 Rails
 

@@ -127,8 +127,9 @@ Seperti yang sedikit sudah saya singgung pada *section* di atas.
 
 Perhatikan lagi bagian ini,
 
-<pre>
-tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark></pre>
+{% shell_user %}
+tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark>
+{% endshell_user %}
 
 Pada bagian yang saya *marking* adalah bagian dimana saya meletakkan *plain text* berisi *keyboard shortcut*.
 
@@ -275,9 +276,9 @@ Tinggal kita pasangkan pemanggilannya pada *keyboard shortcut* pada Window Manag
 
 Contohnya seperti pada BSPWM yang saya gunakan.
 
-<pre>
-$ <b>vim ~/.config/sxhkd/sxhkdrc</b>
-</pre>
+{% shell_user %}
+vim ~/.config/sxhkd/sxhkdrc
+{% endshell_user %}
 
 {% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
 {% highlight sh linenos %}

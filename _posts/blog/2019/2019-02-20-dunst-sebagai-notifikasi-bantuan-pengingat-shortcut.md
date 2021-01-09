@@ -17,12 +17,11 @@ contributors: []
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Sudah ada versi yang lebih baru dari topik ini.</p>
 <p>Silahkan mengunjungi alamat di bawah.</p>
 <p>"<a href="{{ site.url }}/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
-</div>
+{% endbox_info %}
 
 # Prakata
 
@@ -76,16 +75,15 @@ Pada tahap ke-1 ini, saya menyebut ini sebagai **file browser** karena secara gl
 
     Saya memilih untuk meletakannya pada direktori `~/.config/rofi/`.
 
-    ```
-    $ cd ~/.config/rofi
-    $ touch help-script-browser.sh
-    $ chmod +x help-script-browser.sh
-    $ vim help-script-browser.sh
-    ```
+    <pre>
+    $ <b>cd ~/.config/rofi</b>
+    $ <b>touch help-script-browser.sh</b>
+    $ <b>chmod +x help-script-browser.sh</b>
+    $ <b>vim help-script-browser.sh</b></pre>
 
     Isikan di dalamnya seperti ini.
 
-    ```
+    ```sh
     #!/bin/env sh
 
     # direktori target tempat script dunstify berada
@@ -112,19 +110,17 @@ Pada tahap ke-1 ini, saya menyebut ini sebagai **file browser** karena secara gl
 
 2. Apabila teman-teman menggunakan **i3wm** dan **Rofi**, tinggal kita buatkan konfigurasi `bindkey` nya saja. Pada konfigurasi i3wm.
 
-    ```
-    $ vim ~/.config/i3/config
-    ```
+    <pre>
+    $ <b>vim ~/.config/i3/config</b></pre>
 
     Tambahkan seperti ini, kira-kira.
 
-    ```
-    ...
-    ...
+    ```sh
+    # ...
+    # ...
+
     # Keybind Bantuan
     bindsym $mod+F10 exec --no-startup-id rofi -modi "KEYBINDS:~/.config/rofi/help-script-browser.sh" -show KEYBINDS -lines 6 -width 300
-    ...
-    ...
     ```
 
     Dapat dilihat bahwa saya meletakkannya pada <kbd>SUPER</kbd>+<kbd>F10</kbd>.
@@ -150,24 +146,22 @@ Misalnya,
 
 1. Buat direktori khusus untuk menyimpan Shell *script* ini. Saya akan memilih membuat direktori baru dengan nama `~/.config/rofi-help/`.
 
-    ```
-    $ mkdir -p ~/.config/rofi-help
-    ```
+    <pre>
+    $ <b>mkdir -p ~/.config/rofi-help</b></pre>
 
 2. Buat file Shell *script* dari *keyboard shortcut* yang akan kita gunakan.
 
     Misalkan i3wm. Namun, jangan berikan ekstensi `.sh` agar tampilannya lebih rapi.
 
-    ```
-    $ cd ~/.config/rofi-help
-    $ touch "I3WM Window Manager"
-    $ chmod +x "I3WM Window Manager"
-    $ vim "I3 Window Manager"
-    ```
+    <pre>
+    $ <b>cd ~/.config/rofi-help</b>
+    $ <b>touch "I3WM Window Manager"</b>
+    $ <b>chmod +x "I3WM Window Manager"</b>
+    $ <b>vim "I3 Window Manager"</b></pre>
 
     Kemudian isikan seperti ini.
 
-    ```
+    ```sh
     #!/bin/env sh
     dunstify "i3WM KEYBINDS:" "`tail -n 50 $HOME/.config/rofi-help/keybinds-i3`"
     ```
@@ -187,9 +181,8 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
 
     Dalam konteks ini, kita sedang membuat untuk daftar *keyboard shortcut* dari i3wm.
 
-    ```
-    $ touch keybinds-i3
-    ```
+    <pre>
+    $ <b>touch keybinds-i3</b></pre>
 
     **Perhatian!** Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan `keybinds-`.
 
