@@ -244,6 +244,12 @@ Setelah kita selesai mengunduh dan mempersiapkan init pengganti, dalam hal ini a
 pacman -Rdd --noconfirm systemd systemd-libs systemd-sysvcompat pacman-mirrorlist dbus
 {% endshell_root %}
 
+{% box_perhatian %}
+<p markdown=1>Proses di atas, akan ikut menghapus file **/etc/pacman.d/mirrorlist**, karena kita perlu menghapus package **pacman-mirrorlist**.</p>
+<p markdown=1>Tapi jangan khawatir, karena kita telah memiliki backup dari file **mirrorlist** yaitu **mirrorlist.artix**.</p>
+<p markdown=1>Akan kita kembalikan pada tahap selanjutnya.</p>
+{% endbox_perhatian %}
+
 {% shell_root %}
 rm -fv /etc/resolv.conf
 {% endshell_root %}
@@ -262,6 +268,14 @@ cp -vf /etc/pacman.d/mirrorlist.artix /etc/pacman.d/mirrorlist
 ## 9. Install OpenRC Init System
 
 Sekarang saatnya memasang paket `base`, `base-devel`, dan paket-paket OpenRC init yang sebelumnya kita telah download dengan option `pacman -Sw` di atas.
+
+Tapi sebelum itu, karea proses sebelumnya kita telah menghapus paket **pacman-mirrorlist**, kita akan mengembalikan file **mirrorlist** dari file backup yang telah kita buat pada tahap 1.
+
+{% shell_root %}
+cp /etc/pacman.d/mirrorlist.artix /etc/pacman.d/mirrorlist
+{% endshell_root %}
+
+Nah, mirrorlist telah pulih, selanjutnya jalankan perintah di bawah untuk memasang paket-paket dasar yang dperlukan.
 
 {% shell_root %}
 pacman -S base base-devel openrc-system grub linux linux-headers openrc elogind-openrc netifrc grub mkinitcpio archlinux-mirrorlist net-tools rsync vi lsb-release esysusers etmpfiles networkmanager-openrc artix-branding-base
