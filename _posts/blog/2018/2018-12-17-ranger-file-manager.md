@@ -76,41 +76,42 @@ Tentukan pilihanmu, Bro.
 
 *I hate to say,"I told you so."*
 
-
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Ranger bukan merupakan <i>Terminal based file manager</i> yang paling cepat dan terbaik. Sebagian orang menyebutnya sangat <i>bloated</i> (buncit) maksudnya, banyak fitur-fitur yang sebenarnya tidak kita perlukan. Karena kebutuhan setiap orang berbeda-beda.</p>
 <p>Sebagaian orang juga mengatakan Ranger lambat karena ditulis dengan bahasa pemrograman Python.</p>
 <p>Namun bagi saya, itu pendapat mereka, dan ini pilihan saya. Pasti ada alasan dan tujuan yang baik, mengapa Ranger sudah membawa banyak fitur secara <i>default</i>.</p>
-</div>
+{% endbox_info %}
 
 # Instalasi
 
 Proses instalasi Ranger, saya rasa sudah pasti sangat mudah. Hanya tinggal menggunakan paket manajer dari distribusi sistem operasi teman-teman.
-```
-$ sudo pacman -S ranger
-```
+
+{% shell_user %}
+sudo pacman -S ranger
+{% endshell_user %}
 
 Instalasi juga paket-paket tambahan yang diperlukan untuk membuat Ranger lebih "wow".
 
-```
-$ sudo pacman -S highlight odt2txt pdftotext mediainfo
-```
+{% shell_user %}
+sudo pacman -S highlight odt2txt pdftotext mediainfo
+{% endshell_user %}
 
 Lalu untuk image preview.
 
-```
-$ sudo pacman -S w3m
-```
+{% shell_user %}
+sudo pacman -S w3m
+{% endshell_user %}
 
 ## Membuat App Launcher
 
 Seperti biasa kita perlu membuat `.desktop` agar mudah dipaggil dengan *application launcher* seperti dmenu dan rofi sehingga tidak perlu membuka Terminal terlebih dahulu.
-```
-$ vim ~/.local/share/applications/ranger.desktop
-```
-<pre>
+
+{% shell_user %}
+vim ~/.local/share/applications/ranger.desktop
+{% endshell_user %}
+
+{% highlight_caption $HOME/.local/share/applications/ranger.desktop %}
+<pre class="caption">
 [Desktop Entry]
 Type=Application
 Name=ranger
@@ -121,6 +122,7 @@ Terminal=false
 Categories=ConsoleOnly;System;FileTools;FileManager
 MimeType=inode/directory;
 </pre>
+
 Pada bagian `Exec=`, sesuaikan dengan Terminal emulator yang teman-teman pergunakan
 
 # Konfigurasi
@@ -130,10 +132,12 @@ Apabila kita langsung menjalankan Ranger saat ini, maka Ranger akan menggunakan 
 Saat kita menjalankan ranger pertama kali, Ranger akan secara otomatis membuatkan direktori config untuk kita yang terdapat pada `~/.config/ranger/`. Namun, belum terdapat file apapun di dalamnya.
 
 Untuk mengcopy *default configuration files*, kita perlu menjalankan perintah di bawah.
-```
-$ cd ~/.config/ranger
-$ ranger --copy-config=all
-```
+
+{% shell_user %}
+cd ~/.config/ranger
+ranger --copy-config=all
+{% endshell_user %}
+
 ```
 creating: /home/bandithijo/.config/ranger/rifle.conf
 creating: /home/bandithijo/.config/ranger/commands.py
@@ -147,10 +151,13 @@ creating: /home/bandithijo/.config/ranger/scope.sh
 > To stop ranger from loading both the default and your custom rc.conf,
   please set the environment variable RANGER_LOAD_DEFAULT_RC to FALSE.
 ```
+
 Sekarang coba lihat isi dari direktori `~/.config/ranger/` saat ini.
-```
-$ ls -al
-```
+
+{% shell_user %}
+ls -al
+{% endshell_user %}
+
 ```
 drwxr-xr-x .
 drwxr-xr-x ..
@@ -165,18 +172,22 @@ Langkah selanjutnya, kita akan mengkonfigurasi file `rc.conf`.
 ## rc.conf - Konfigurasi Options
 
 Oke, sekarang kita sudah memiliki file configurasi dasar. Selanjutnya coba periksa terlebih dahulu bagaimana bentuk dari isi file `rc.conf`.
-```
-$ vim rc.conf
-```
+
+{% shell_user %}
+vim rc.conf
+{% endshell_user %}
+
 Dapat teman-teman lihat, isi dari file `rc.conf`. Sangat mudah dipahami bukan?
 
 Kita langsung dapat memahami arti dari baris perintah karena terdapat komentar yang ditulis dengan jelas.
 
 Seperti besar perbandingan lebar dari kolom den berapa banyak kolom.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # How many columns are there, and what are their relative widths?
 set column_ratios 1,3,4
-```
+{% endhighlight %}
 
 Tidak banyak yang harus saya rubah. Tapi saya akan bahas, apa saja yang saya modifikasi.
 
@@ -185,66 +196,73 @@ Tentunya teman-teman tidak harus mengikuti konfigurasi saya. Silahkan bereksplor
 ### Konfirmasi Saat Delete
 
 Terdapat *key bindings* untuk melakukan *recursive delete* seperti `rm`. Tentunya kita perlu hati-hati terhadap hal ini. Kita menghindari apabila suatu waktu kita mengalami *human error*. Untuk itu perlu sekali membuat langkah antisipasi. Salah satunya dengan mmberikan konfirmasi saat akan melakukan *recursive delete/remove*.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Ask for a confirmation when running the "delete" command?
 # Valid values are "always", "never", "multiple" (default)
 # With "multiple", ranger will ask only if you delete multiple files at once.
 set confirm_on_delete always
-```
+{% endhighlight %}
+
 Secara *default* bernilai `multiple`, hanya menampilkan konfirmasi saat menghapus banyak file/direktori. Namun, saya lebih *prefer* untuk menggunakan value `always`. Agar setiap file/direktori yang akan saya *recursive delete* selalu ditampilkan konfirmasi untuk saya tinjau kembali. Dengan begini dapat meminimalisir dampak dari *human error*. Hehehe.
 
 
 ### Aktifkan Preview Script
 
 Saya merekeomendasikan untuk mengaktifkan variabel ini `preview_script`.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Use non-default path for file preview script?
 # ranger ships with scope.sh, a script that calls external programs (see
 # README.md for dependencies) to preview images, archives, etc.
 set preview_script ~/.config/ranger/scope.sh
-```
+{% endhighlight %}
+
 Hilangkan tanda pagar pada `set preview_script ...`.
 
 Kegunaanya untuk memberikan kemapuan preview pada Ranger untuk menjadi lebih super. Hahaha.
 
 Sekarang buka dan edit file `~/.config/ranger/scope.sh`.
-```
-$ vim ~/.config/ranger/scope.sh
-```
+
+{% shell_user %}
+vim ~/.config/ranger/scope.sh
+{% endshell_user %}
+
 Nah, sekarang tinggal teman-teman cari dan pilih ekstensi dari file apa yang akan diaktifkan.
 
 Sebagai gambaran saya mengaktifkan fitur untuk menampilkan file dengan ekstensi `SVG` dan `PDF`. Secara *default* masih dalam keadaan ter-*comment*. Kita perlu meng-*enable*-kannya.
 
 Lihat saja contoh di bawah untuk mengetahui bagian mana saja yang perlu di-*uncomment*.
-<pre>
-...
-...
+
+{% highlight_caption $HOME/.config/ranger/scope.sh %}
+{% highlight sh linenos %}
+# ...
+# ...
 
 # SVG
-<mark>image/svg+xml)
+image/svg+xml)
     convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
-    exit 1;;</mark>
+    exit 1;;
 
-...
-...
-</pre>
-<pre>
-...
-...
+# ...
+# ...
 
 # PDF
-<mark>application/pdf)
+application/pdf)
     pdftoppm -f 1 -l 1 \
                 -scale-to-x 1920 \
                 -scale-to-y -1 \
                 -singlefile \
                 -jpeg -tiffcompression jpeg \
                 -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
-                && exit 6 || exit 1;;</mark>
+                && exit 6 || exit 1;;
 
-...
-...
-</pre>
+# ...
+# ...
+{% endhighlight %}
+
 Dengan mengaktifkan kedua *section* di atas, yaitu `SVG` dan `PDF`, Ranger akan memiliki kemampuan untuk menampilkan *preview* dalam bentuk gambar dari file `.png` dan `.pdf`. Sehinggal kita tidak perlu untuk membukanya terlebih dahulu. Sangat *convenient* sekali bukan?
 
 Sengaja saya tidak mengaktifkan `VIDEO`. Tidak ada alasan apa-apa, hanya masalah selera saja.
@@ -253,11 +271,15 @@ Sengaja saya tidak mengaktifkan `VIDEO`. Tidak ada alasan apa-apa, hanya masalah
 ### Menampilkan Gambar
 
 Untuk menampilkan gambar, Ranger memerlukan paket bernama `w3m`. Silahkan dipasang terlebih dahulu apabila belum.
-```
-$ sudo pacman -S w3m
-```
+
+{% shell_user %}
+sudo pacman -S w3m
+{% endshell_user %}
+
 Selanjutnya, tinggal meng-*enable*-kan konfignya.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Use one of the supported image preview protocols
 set preview_images true
 
@@ -268,28 +290,29 @@ set preview_images_method w3m
 # Delay in seconds before displaying an image with the w3m method.
 # Increase it in case of experiencing display corruption.
 set w3m_delay 0.01
-
-```
+{% endhighlight %}
 
 ### Memilih Colorscheme
 
 Secara *default*, Ranger sudah menyertakan *colorscheme* bawaan, yaitu: default, jungle, snow, solarized. Saat ini kita masih menggunakan *colorscheme* default. Coba ganti dengan *colorscheme* lain yang disediakan.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Which colorscheme to use?  These colorschemes are available by default:
 # default, jungle, snow, solarized
 set colorscheme solarized
-```
+{% endhighlight %}
+
 Teman-teman juga dapat memodifikasi atau membuat sendiri *colorscheme* sesuai yang teman-teman inginkan.
 
 Caranya, dengan mendownload *coloscheme* dasar dari repositori GitHub.
-```
-$ mkdir -p ~/.config/ranger/colorschemes
-$ cd ~/.config/ranger/colorschemes
-$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/default.py
-$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/jungle.py
-$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/snow.py
-$ wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/solarized.py
-```
+
+{% shell_user %}
+mkdir -p ~/.config/ranger/colorschemes
+cd ~/.config/ranger/colorschemes
+wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/{default,jungle,snow,solarized}.py
+{% endshell_user %}
+
 Sekarang tinggal bereksplorasi dengan warna.
 
 Jangan lupa untuk megeset *colorscheme* yang teman-teman modif pada file `rc.conf`.
@@ -302,34 +325,42 @@ Mengenai memodifikasi warna dalam *colorscheme*, sepertinya tidak ingin saya tul
 ### Mengaktifkan Border
 
 Kalian juga dapat mengaktifkan border, karena secara *default*, variable ini dalan keadaan `none`.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Draw borders around columns? (separators, outline, both, or none)
 # Separators are vertical lines between columns.
 # Outline draws a box around all the columns.
 # Both combines the two.
 set draw_borders none
-```
+{% endhighlight %}
+
 Saya sendiri termasuk yang tidak begitu senang menggunakan border.
 
 
 ### Mengaktifkan Line Number
 
 Untuk dapat memudahkan kita dalam bernavigasi antar baris, berlompat-lompat antar baris seperti pada Vim, Ranger memberikan kita fitur untuk menampilkan *line numbers*. Terdapat tiga pilihan: *false*, *absolute*, dan *relative*.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Disable displaying line numbers in main column.
 # Possible values: false, absolute, relative.
 set line_numbers relative
-```
+{% endhighlight %}
+
 Saya lebih senang menggunakan `relative` karena lebih memudahkan untuk navigasi.
 
 ### Scroll Wrapping
 
 Untuk memudahkan navigasi juga, saya lebih senang mengaktifkan fitur *scroll wrapping*, agar ketika saya sudah melakukan *scrolling* sampai bawah, saya dapat dengan mudah menuju ke atas.
-```
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
 # Enable scroll wrapping - moving down while on the last item will wrap around to
 # the top and vice versa.
 set wrap_scroll true
-```
+{% endhighlight %}
 
 ## rc.conf - Konfigurasi Key Bindings
 
@@ -338,7 +369,9 @@ Tidak banyak modifikasi *key bindings* yang saya modifikasi. Karena saya berusah
 Saya hanya merubah dua buah *keyborad shortcut*.
 
 Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default* apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell pada direktori yang aktif. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.
-<pre>
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+<pre class="caption">
 ...
 ...
 map w taskview_open
@@ -351,7 +384,9 @@ map :  console
 </pre>
 
 Modifikasi *keyboard* yang lain adalah saya merubah fungsi tombol <kbd>DELETE</kbd>.
-<pre>
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+<pre class="caption">
 # In case you work on a keyboard with dvorak layout
 ...
 ...
@@ -363,12 +398,15 @@ map $lt;INSERT&gt;   console touch%space
 ...
 ...
 </pre>
+
 Saya menggunakan aplikasi `trash-cli`, agar file/direktori yang saya hapus dengan tombol <kbd>DELETE</kbd> tidak langsung lenyap, tetapi masuk ke Trash. Sayangnya saya belum dapat membuatnya menampilkan konfirmasi terlebih dahulu.
 
 Untuk memasang aplikasi `trash-cli` cukup psaang dengan paket manager masing-masing.
-```
-$ sudo pacman -S trash-cli
-```
+
+{% shell_user %}
+sudo pacman -S trash-cli
+{% endshell_user %}
+
 Untuk penggunaan `trash-cli`, seperti: *restore*, *empty-trash*, dll. dapat dieksplorasi sendiri yaa.
 
 ## rifle.conf - Konfigurasi File Executor/Opener
@@ -379,15 +417,17 @@ Saya akan berikan satu saja contoh, saya yakin teman-teman langsung akan mengert
 
 Misal, terdapat file `.pdf`, nah, teman-teman ingin membuka file ini secara *default* dengan apa? atau dapat juga kita buatkan pilihan seperti *open with* pada *file manager* GUI.
 
-```
+{% highlight_caption $HOME/.config/ranger/rifle.conf %}
+{% highlight sh linenos %}
 #-------------------------------------------
 # Documents
 #-------------------------------------------
 ext pdf, has evince,    X, flag f = evince -- "$@"
 ext pdf, has calibre,   X, flag f = calibre -- "$@"
-...
-...
-```
+# ...
+# ...
+{% endhighlight %}
+
 Dari konfigurasi di atas, sederhananya, saya membuat file `.pdf` akan terbuka dengan `evince` secara *default* apabila saya menekan tombol <kbd>L</kbd> atau <kbd>ENTER</kbd>.
 
 Nah, apabila saya ingin membukanya dengan `calibre`, kita dapat menekan tombol <kbd>R</kbd>. Ranger akan menampilkan pilihan yang mirip sseperti menu *Open with...*.
