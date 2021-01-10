@@ -28,6 +28,8 @@ Sampai beberapa hari lalu, saya membalas pertanyaan di group openSUSE Indonesia,
 Hal yang saya alami tidak akan terjadi apabila saya menggunakan *clipboard manager*. Tahun ini sebenarnya sudah pernah juga mencoba *clipboard manager*, karena melihat video dari [Kai Hendry tentang bagaimana dia menghandle clipboard pada sistemnya](https://youtu.be/2rs1l4YZxRo){:target="_blank"}. Ia mengunakan [**cdown/clipmenu**](https://github.com/cdown/clipmenu){:target="_blank"}. Lantas saat saya coba pasang, Hahaha, selama pemakaian *resource memory* saya terus naik. Karena kurangnya ilmu saat itu dan motivasi yang sekedar ikut-ikutan, lantas niat menggunakan *clipboard manager* pupus di pinggr jalan.
 
 Clipmenu adalah *clipboard manager* yang menggunakan dmenu atau Rofi sebagai antar muka.
+
+<br>
 <!-- IMAGE CAPTION -->
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
@@ -47,9 +49,11 @@ Konfigurasi akan saya tulis pada bagian <a href="#konfigurasi">Konfigurasi</a>.
 ## Clipmenu from Arch Repo
 
 Cara pasangnya sangat mudah.
-```
-$ sudo pacman -S clipmenu xsel
-```
+
+{% shell_user %}
+sudo pacman -S clipmenu xsel
+{% endshell_user %}
+
 Clipmenu memerlukan paket `xsel` untuk menhandle *clipboard*.
 
 ## Clipmenu from GitHub
@@ -57,38 +61,39 @@ Clipmenu memerlukan paket `xsel` untuk menhandle *clipboard*.
 Pertama-tama beri bintang pada repository [cdown/clipmenu](https://github.com/cdown/clipmenu){:target="_blank"}. Sebagai bentuk apresiasi kita terhadap waktu dan pikiran developer.
 
 1. Kloning dari GitHub repo dan letakkan pada direkotri tempat kalian mengumpulkan repository dari GitHub. Saya mempunyai direktori `~/app/` tempat saya mengumpulkan resource aplikasi.
-    ```
-    $ cd app
-    $ git clone https://github.com/cdown/clipmenu.git
-    ```
+   <pre>
+   $ <b>cd app</b>
+   $ <b>git clone https://github.com/cdown/clipmenu.git</b></pre>
 
 2. Masuk ke dalam direktori `clipmenu` dan buat symbolic link ke direktori `/usr/bin/`.
-    ```
-    $ cd clipmenu
-    $ sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel
-    $ sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu
-    $ sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud
-    ```
-    Sesuaikan sumber dari link (`$HOME/app/`) dengan path tempat kalian menyimpan kloning repo.
+
+   <pre>
+   $ <b>cd clipmenu</b>
+   $ <b>sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel</b>
+   $ <b>sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu</b>
+   $ <b>sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud</b></pre>
+
+   Sesuaikan sumber dari link (`$HOME/app/`) dengan path tempat kalian menyimpan kloning repo.
 
 3. Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.
 
-    **File Binary**
-    ```
-    $ ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'
-    ```
-    ```
-    lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipdel -> /home/bandithijo/app/clipmenu/clipdel
-    lrwxrwxrwx 1 root root  38 Dec 16 15:18 clipmenu -> /home/bandithijo/app/clipmenu/clipmenu
-    lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -> /home/bandithijo/app/clipmenu/clipmenud
-    ```
-    <!-- INFORMATION -->
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
-    <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
-    <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
-    <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
-    </div>
+   **File Binary**
+   <pre>
+   $ <b>ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'</b></pre>
+
+   ```
+   lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipdel -> /home/bandithijo/app/clipmenu/clipdel
+   lrwxrwxrwx 1 root root  38 Dec 16 15:18 clipmenu -> /home/bandithijo/app/clipmenu/clipmenu
+   lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -> /home/bandithijo/app/clipmenu/clipmenud
+   ```
+
+   <!-- INFORMATION -->
+   <div class="blockquote-blue">
+   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
+   <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
+   <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
+   <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
+   </div>
 
 # Konfigurasi
 
@@ -103,19 +108,23 @@ Ada dua cara untuk menggukana mengaktifkan `clipmenud` (clipmenu daemon). Dengan
 **i3wm**
 
 Tambahkan baris berikut pada file config i3wm.
-```
-$ vim .config/i3/config
-```
-```
+
+{% shell_user %}
+vim .config/i3/config
+{% endshell_user %}
+
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight sh linenos %}
 # clipmenu daemon
 exec --no-startup-id clipmenud
-```
+{% endhighlight %}
 
+<br>
 **dwm**
 
-Tambahkan baris berikut pada script autorun/autostart
+Tambahkan baris berikut pada script autorun/autostart, atau pada **.xinitrc**.
 
-```
+```sh
 pkill -f "bash /usr/bin/clipmenud"; pkill -f "clipnotify"; /usr/bin/clipmenud &
 ```
 
@@ -127,23 +136,26 @@ Kemudian, baru saya memanggil `clipmenud` dan membuatnya berjalan di background 
 
 
 ## Systemd Service
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+
+{% box_perhatian %}
 <p>Saya tidak berhasil menjalankan <code>clipmenud.service</code>. Sehingga saya tidak menggunakan cara ini.</p>
-</div>
+{% endbox_perhatian %}
+
 Aktifkan/enable service, agar saat sistem booting, clipmenud akan sekalian di jalankan.
-```
-$ sudo systemctl enable clipmenud.service
-$ sudo systemctl start clipmenud.service
-```
+
+{% shell_user %}
+sudo systemctl enable clipmenud.service
+sudo systemctl start clipmenud.service
+{% endshell_user %}
 
 ## Definisikan Default Path
 
 Sebelum mengkonfigurasi, selalu biasakan untuk melihat help atau manual dari clipmenu terlebih dahulu.
-```
-$ clipmenu -h
-```
+
+{% shell_user %}
+clipmenu -h
+{% endshell_user %}
+
 ```
 clipmenu is a simple clipboard manager using dmenu and xsel. Launch this
 when you want to select a clip.
@@ -156,6 +168,7 @@ Environment variables:
 - $CM_HISTLENGTH: specify the number of lines to show in dmenu/rofi (default: 8)
 - $CM_LAUNCHER: specify a dmenu-compatible launcher (default: dmenu)
 ```
+
 Nah, kita perlu menambahkan **environment variable**.
 
 Secara default, clipmenu menggunakan dmenu sebagai antar muka. Namun bagi yang menggunakan rofi dapat menambahkan `rofi` pada `CM_LAUNCHER`.
@@ -164,34 +177,41 @@ Jangan lupa juga untuk mendefinisikan path dari `CM_DIR`. Saya memilih untuk mem
 
 Untuk teman-teman yang menggunakan Display Manager seperti LightDM dan GDM, silahkan tambahkan baris di bawah ini pada file `~/.profile`. Untuk yang menggunakan startx dapat menambahkannya pada `~/.xinitrc`.
 
-```
-$ vim ~/.profile
-```
-```
+{% shell_user %}
+vim ~/.profile
+{% endshell_user %}
+
+{% highlight_caption $HOME/.profile %}
+{% highlight sh linenos %}
 # Clipmenu Environment Variables
 export CM_LAUNCHER=rofi-clipmenu
 export CM_DIR=/tmp
-```
-**Perhatian!** Pada `CM_LAUNCHER=` di atas, saya membuat *custom* bash script yang bernama `rofi-clipmenu` untuk memanggil perintah rofi yang sudah saya modif agar menampilkan tulisan "CLIPBOARD" dengan baris dan lebar tertentu.
+{% endhighlight %}
+
+**Perhatian!** Pada `CM_LAUNCHER=` di atas, saya membuat *custom* bash script yang bernama `rofi-clipmenu` untuk memanggil perintah rofi yang sudah saya modif agar menampilkan prompt "CLIPBOARD" dengan baris dan lebar tertentu.
 
 Maka kita akan membuatnya. Kalian bisa membuatnya di lokal `~/.local/bin/` (kalau punya), atau langsung saja di `/usr/bin/`.
-```
-$ sudo vim /usr/bin/rofi-clipmenu
-```
-```
-#!/usr/bin/env bash
+
+{% shell_user %}
+sudo vim ~/.local/bin/rofi-clipmenu
+{% endshell_user %}
+
+{% highlight_caption $HOME/.local/bin/rofi-clipmenu %}
+{% highlight sh linenos %}
+#!/bin/sh
 
 rofi -dmenu -p 'CLIPBOARD' -lines 8 -width 500
-```
+{% endhighlight %}
+
 Sesuaikan dengan preferensi yang kalian inginkan.
 
 Jangan lupa buat menjadi excutable.
-```
-$ sudo chmod +x /usr/bin/rofi-clipmenu
-```
+
+{% shell_user %}
+chmod +x ~/.local/bin/rofi-clipmenu
+{% endshell_user %}
 
 Kalau teman-teman yang menggunakan dmenu, tinggal menggantinya menjadi dmenu.
-
 
 ## Keyboard Shortcuts
 
@@ -199,18 +219,21 @@ Selanjutnya tinggal mendefiniskan keyboard shortcut.
 
 Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada konfigurasi masing-masing.
 
-```
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+<pre class="caption">
 bindsym $mod+p exec --no-startup-id clipmenu
 bindsym $mod+Shift+p exec --no-startup-id clipdel -r '.'
-```
+</pre>
+
 Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -r '.'`.
 
 **dwm**
 
-```
+{% highlight_caption config.h %}
+<pre class="caption">
 { MODKEY,             XK_p,   spawn,   SHCMD("/usr/bin/clipmenu") },
 { MODKEY|ShiftMask,   XK_p,   spawn,   SHCMD("clipdel -d '.'") },
-```
+</pre>
 
 Sesuaikan keyboard shortcut sesuai preferensi kalian.
 
