@@ -366,14 +366,31 @@ Mantap! Kita telah berhasil terhubung ke internet.
 </pre>
 
 
-# Konfigurasi Lanjut
-
-Untuk konfigurasi lebih lanjut, atau cara-cara lain dalam mengkonfigurasi iwd, teman-teman dapat melihat pada Arch Wiki.
-
-[**Arch Wiki: iwd**](https://wiki.archlinux.org/index.php/Iwd){:target="_blank"}.
-
-
 # Lokasi File Config
+
+## General (Main) File Config
+
+Berlokasi di **/etc/iwd/main.conf**.
+
+Kalau tidak ada teman-teman bisa buat sendiri --saya juga buat sendiri.
+
+Apabila kita mendefinisikan option di dalam file config ini, terntu akan berdampak general.
+
+Misal,
+
+### Enable Built-in DHCP
+
+Saya ingin semua file konfigurasi network SSID yang tersimpan, menggunakan *buil-it* DHCP client bawaan dari iwd.
+
+Saya tidak perlu, mengeset satu-persatu di setiap file config network yang tersimpan di `/var/lib/iwd/<nama_network>.psk`. Tapi cukup pada file main.conf saja.
+
+{% highlight_caption /etc/iwd/main.conf %}
+{% highlight sh linenos %}
+[General]
+EnableNetworkConfiguration=true
+{% endhighlight %}
+
+## File Config Network Spesifik
 
 Berbeda dengan **wpa_supplicant** yang menyimpan file configurasi pada direktori **/etc/wpa_supplicant/**, sehingga dapat diakses oleh semua user. **iwd** menyimpan file configurasi atau *stored data file* pada direktori **/var/lib/iwd/**. Sehingga hanya root yang dapat mengakses direktori ini.
 
@@ -395,6 +412,30 @@ PreSharedKey=de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
 Passphrase=iniadalahpassword
 {% endhighlight %}
 
+## Konfigurasi Auto Connect ke Network Tertentu
+
+Tambahkan saja option `AutoConnect=true` pada group `[Settings]`, di dalam file config dari network yang kita inginkan.
+
+Misal,
+
+{% highlight_caption /var/lib/iwd/bandithijo.psk %}
+{% highlight sh linenos %}
+[Security]
+PreSharedKey=de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
+Passphrase=iniadalahpassword
+
+[Settings]
+AutoConnect=true
+{% endhighlight %}
+
+Atau, kalau ingin lebih general, tambahkan pada file **/etc/iwd/main.conf**.
+
+
+# Konfigurasi Lanjut
+
+Untuk konfigurasi lebih lanjut, atau cara-cara lain dalam mengkonfigurasi iwd, teman-teman dapat melihat pada Arch Wiki.
+
+[**Arch Wiki: iwd**](https://wiki.archlinux.org/index.php/Iwd){:target="_blank"}.
 
 
 
