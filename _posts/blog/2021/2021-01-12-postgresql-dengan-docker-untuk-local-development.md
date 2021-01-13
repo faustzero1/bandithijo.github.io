@@ -243,6 +243,29 @@ Cukup *convenient* bukan?
 
 Tapi, jangan digunakan pada level production yaa.
 
+# Troubleshooting
+
+## 1. Connection on Unix Domain Socket
+
+Kalau teman-teman mendapatkan error seperti ini,
+
+<pre>
+could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+</pre>
+
+Kita bisa atas dengan cara yang sedikit kotor.
+
+Yaitu dengan membuatkan simbolik link.
+
+{% shell_user %}
+sudo ln -sf /var/run/postgresql/.s.PGSQL.5432 /tmp
+{% endshell_user %}
+
+
+
+
 # Tambahan
 
 ## 1. Mengcopy/Backup Postgres data Direktori dari Container ke Host
