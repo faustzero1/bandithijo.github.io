@@ -274,6 +274,38 @@ Mungkin kita ingin melakukan backup data yang ada di dalam postgres container.
 
 Postgres container yang kita buat, menyimpan data pada direktori **/var/lib/postgresql/data/**.
 
+Kita bisa melakukan pengecekan dengan menggunakan perintah,
+
+{% shell_user %}
+sudo -iu postgres psql
+{% endshell_user %}
+
+Kalau berhasil, nanti akan dibawa masuk ke dalam psql shell.
+
+<pre>
+psql (13.1)
+Type "help" for help.
+
+postgres=# _
+</pre>
+
+Jalankan perintah di bawah ini untuk melihat lokasi dari direktori data.
+
+<pre>
+postgres=# <b>SHOW data_directory;</b>
+</pre>
+
+<pre>
+      data_directory
+--------------------------
+ /var/lib/postgresql/data
+(1 row)
+</pre>
+
+Nah, lokasi dari direktori data sudah ketemu.
+
+Tentunya lokasi ini bukan lokasi yang ada pada Host sistem kita, melainkan lokasi yang ada pada postgres coontainer.
+
 {% box_info %}
 <p markdown=1>Lokasi ini sedikit berbeda dengan postgres yang kita pasang pada Arch Linux, yang berlokasi di **/var/lib/postgres/data/**.</p>
 {% endbox_info %}
@@ -349,3 +381,6 @@ Terima kasih.
 
 2. [wiki.archlinux.org/index.php/PostgreSQL](https://wiki.archlinux.org/index.php/PostgreSQL){:target="_blank"}
 <br>Diakses tanggal: 2021/01/12
+
+3. [digitalocean.com/community/tutorials/how-to-move-a-postgresql-data-directory-to-a-new-location-on-ubuntu-16-04](https://www.digitalocean.com/community/tutorials/how-to-move-a-postgresql-data-directory-to-a-new-location-on-ubuntu-16-04){:target="_blank"}
+<br>Diakses tanggal: 2021/01/13
