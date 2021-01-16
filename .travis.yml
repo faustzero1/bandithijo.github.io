@@ -1,6 +1,6 @@
 language: ruby
 os: linux
-dist: xenial
+dist: focal
 
 install:
   - bundle install
