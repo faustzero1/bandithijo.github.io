@@ -44,69 +44,84 @@ Syarat minimal yang diperlukan adalah tentu saja distribusi sistem operasi Arch 
 ## Dynamips
 
 Pasang dependensi untuk **Dynamips**.
-```
-$ sudo pacman -S libelf libcap cmake
-```
+
+{% shell_user %}
+sudo pacman -S libelf libcap cmake
+{% endshell_user %}
 
 Kemudian pasang **Dynamips** versi terbaru. Pada tulisan ini dibuat versi paling baru adalah **0.2.18**. Kamu dapat melakukan pengecekan versi paling baru [di sini](https://github.com/GNS3/dynamips/releases){:target="_blank"}.
-```
-$ cd /tmp
-$ curl -L https://github.com/GNS3/dynamips/archive/v0.2.18.tar.gz | tar -xz
-$ cd dynamips*
-$ mkdir build && cd $_
-$ cmake ..
-$ sudo make install
-$ sudo setcap cap_net_admin,cap_net_raw=ep $(which dynamips)
-```
+
+{% shell_user %}
+cd /tmp
+curl -L https://github.com/GNS3/dynamips/archive/v0.2.18.tar.gz | tar -xz
+cd dynamips*
+mkdir build && cd $_
+cmake ..
+sudo make install
+sudo setcap cap_net_admin,cap_net_raw=ep $(which dynamips)
+{% endshell_user %}
+
 Kamu dapat mengganti versi dari **Dynamips** ke versi paling baru atau ke versi yang spesifik kamu inginkan. Pada contoh *command* di atas, saya menggunakan versi 0.2.18.
 
 Kemudian, setelah berhasil dipasang, kita perlu melakukan verifikasi untuk memastikan apakah proses instalasi berjalan semestinya. Cek versi dari Dynampis yang terpasang.
-```
-$ cd $HOME
-$ dynamips 2> /dev/null | grep version
-```
+
+{% shell_user %}
+cd $HOME
+dynamips 2> /dev/null | grep version
+{% endshell_user %}
+
 ```
 Cisco Router Simulation Platform (version 0.2.18-amd64/Linux stable)
 ```
+
 Cek *capabilities* Dynampis.
-```
-$ getcap $(which dynamips)
-```
+
+{% shell_user %}
+getcap $(which dynamips)
+{% endshell_user %}
+
 ```
 /usr/local/bin/dynamips = cap_net_admin,cap_net_raw+ep
 ```
+
 Apabila tampil *output* seperti di atas, artinya proses instalasi **Dynamips** telah berhasil.
 
 ## VPCS
 
 Saya akan menggunakan `subversion` *checkout* dari branch utama Virtual PC Simulator (VPCS).
-```
-$ sudo pacman -S subversion
-$ cd /tmp
-$ svn checkout svn://svn.code.sf.net/p/vpcs/code/trunk vpcs-code
-$ cd vpcs-code/src
-$ rgetopt='int getopt(int argc, char *const *argv, const char *optstr);'
-$ sed -i "s/^int getopt.*/$rgetopt/" getopt.h
-$ unset -v rgetopt
-$ sed -i 's/i386/x86_64/' Makefile.linux
-$ sed -i 's/-s -static//' Makefile.linux
-$ make -f Makefile.linux
-$ strip --strip-unneeded vpcs
-$ sudo mv vpcs /usr/local/bin
-```
+
+{% shell_user %}
+sudo pacman -S subversion
+cd /tmp
+svn checkout svn://svn.code.sf.net/p/vpcs/code/trunk vpcs-code
+cd vpcs-code/src
+rgetopt='int getopt(int argc, char *const *argv, const char *optstr);'
+sed -i "s/^int getopt.*/$rgetopt/" getopt.h
+unset -v rgetopt
+sed -i 's/i386/x86_64/' Makefile.linux
+sed -i 's/-s -static//' Makefile.linux
+make -f Makefile.linux
+strip --strip-unneeded vpcs
+sudo mv vpcs /usr/local/bin
+{% endshell_user %}
 
 Kemudian, lakukan verifikasi proses instalasi yang sudah kita lakukan tadi. Kita akan melakukan pengecekan lokasi.
-```
+
+{% shell_user %}
 $ cd $HOME
 $ type vpcs
-```
+{% endshell_user %}
+
 ```
 vpcs is /usr/local/bin/vpcs
 ```
+
 Dan versi dari VPCS.
-```
-$ vpcs -v | grep version
-```
+
+{% shell_user %}
+vpcs -v | grep version
+{% endshell_user %}
+
 ```
 Welcome to Virtual PC Simulator, version 0.8c
 ```
@@ -115,39 +130,47 @@ Apabila tampil *output* seperti di atas, artinya proses instalasi VPCS telah ber
 ## IOUYAP
 
 Pasang paket `iniparser` yang menjadi dependensi bagi IOUYAP.
-```
-$ sudo pacman -S iniparser
-```
+
+{% shell_user %}
+sudo pacman -S iniparser
+{% endshell_user %}
 
 Saya akan memasang versi terbaru dari IOUYAP. Pada dokumentasi ini dibuat, versi paling baru adalah **0.97**. Kamu dapat melakukan pengecekan [di sini](https://github.com/GNS3/iouyap/releases){:target="_blank"}.
-```
-$ cd /tmp
-$ curl -L https://github.com/GNS3/iouyap/archive/v0.97.tar.gz | tar -xz
-$ cd iouyap*
-$ bison -ydv netmap_parse.y
-$ flex netmap_scan.l
-$ gcc -Wall -g *.c -o iouyap -liniparser -lpthread
-$ strip --strip-unneeded iouyap
-$ sudo mv iouyap /usr/local/bin
-```
+
+{% shell_user %}
+cd /tmp
+curl -L https://github.com/GNS3/iouyap/archive/v0.97.tar.gz | tar -xz
+cd iouyap*
+bison -ydv netmap_parse.y
+flex netmap_scan.l
+gcc -Wall -g *.c -o iouyap -liniparser -lpthread
+strip --strip-unneeded iouyap
+sudo mv iouyap /usr/local/bin
+{% endshell_user %}
 
 Kemudian kita perlu mengeset *capabilities* dari IOUYAP.
-```
-$ cd $HOME
-$ sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)
-```
+
+{% shell_user %}
+cd $HOME
+sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)
+{% endshell_user %}
 
 Lakukan pengecekan versi.
-```
-$ iouyap -V
-```
+
+{% shell_user %}
+iouyap -V
+{% endshell_user %}
+
 ```
 iouyap version 0.97.0
 ```
+
 Dan *capabilities* dari IOYUAP.
-```
-$ getcap $(which iouyap)
-```
+
+{% shell_user %}
+getcap $(which iouyap)
+{% endshell_user %}
+
 ```
 /usr/local/bin/iouyap = cap_net_admin,cap_net_raw+ep
 ```
@@ -158,26 +181,31 @@ Apabila tampil *output* seperti di atas, maka kita telah sukses memasang IOYUAP.
 Saya akan memasang versi terbaru dari uBridge. Pada dokumentasi ini dibuat, versi paling baru adalah **0.9.14**. Kamu dapat melakukan pengecekan [di sini](https://github.com/GNS3/ubridge/releases){:target="_blank"}.
 
 Pilih uBridge yang sama dengan versi GNS3 dan Dynampis yang ingin kamu pasang.
-```
-$ cd /tmp
-$ curl -L https://github.com/GNS3/ubridge/archive/v0.9.13.tar.gz | tar -xz
-$ cd ubridge*
-$ make
-$ sudo make install
-```
+
+{% shell_user %}
+cd /tmp
+curl -L https://github.com/GNS3/ubridge/archive/v0.9.13.tar.gz | tar -xz
+cd ubridge*
+make
+sudo make install
+{% endshell_user %}
 
 Lakukan verifikasi versi.
-```
-$ cd $HOME
-$ ubridge -v
-```
+
+{% shell_user %}
+cd $HOME
+ubridge -v
+{% endshell_user %}
+
 ```
 ubridge version 0.9.13
 ```
 Dan *capabilities* dari uBridge yang baru kita pasang.
-```
-$ getcap $(which ubridge)
-```
+
+{% shell_user %}
+getcap $(which ubridge)
+{% endshell_user %}
+
 ```
 /usr/local/bin/ubridge = cap_net_admin,cap_net_raw+ep
 ```
@@ -186,86 +214,103 @@ Apabila tampil *output* seperti di atas, maka kita telah sukses memasang uBridge
 ## Docker
 
 Paket `docker` sudah terdapat pada *Official Repository* Arch Linux.
-```
-$ sudo pacman -S docker
-```
+
+{% shell_user %}
+sudo pacman -S docker
+{% endshell_user %}
 
 Setelah itu kita perlu mengaktifkan *service* dari **Docker**. Apabila kalian ingin membuat service Docker dijalankan setiap kali sistem dijalankan, maka gunakan parameter `enable`, namun apabila hanya ingin dijalankan saat dibutuhkan saja, gunakan parameter `start`, maka setiap kali kita membutuhkan service Docker, kita perlu menjalankan servicenya terlebih dahulu.
-```
-$ sudo systemctl enable docker.service
-$ sudo systemctl start docker.service
-```
+
+{% shell_user %}
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+{% endshell_user %}
 
 Tambahkan user kita kedalam `docker` group.
-```
-$ sudo gpasswd -a $(id -un) docker
-```
+
+{% shell_user %}
+sudo gpasswd -a $(id -un) docker
+{% endshell_user %}
 
 **LOGOUT** and **LOGIN** kembali untuk mendapatkan efek dari penambahan user kita ke dalam `docker` group.
 
 Verifikasi apakah user kita sudah termasuk di dalam `docker` group.
-```
-$ id -Gn
-```
+
+{% shell_user %}
+id -Gn
+{% endshell_user %}
+
 ```
 users wheel network storage input power docker
 ```
 Perhatikan *output* yang ditampilkan, terdapat tambahan `docker` pada akhir dari baris.
 
 Untuk menampilkan *system-wide information* dari Docker.
-```
-$ docker info
-```
+
+{% shell_user %}
+docker info
+{% endshell_user %}
 
 ## VirtualBox
 
 Untuk proses instalasi VirtualBox, saya akan merujuk pada dokumentasi yang terdapat pada Arch Wiki [di sini](https://wiki.archlinux.org/index.php/VirtualBox){:target="_blank"}.
 
 Instalasi *core packages*.
-```
-$ sudo pacman -S virtualbox
-```
+
+{% shell_user %}
+sudo pacman -S virtualbox
+{% endshell_user %}
 
 Kita membutuhkan paket yang bertugas menyediakan *host modules* karena sistem kita bertindak sebagai *host*.
 
 Untuk yang menggunakan `linux` vanilla kernel, dapat menggunakan,
-```
-$ sudo pacman virtualbox-host-modules-arch
-```
+
+{% shell_user %}
+sudo pacman virtualbox-host-modules-arch
+{% endshell_user %}
 
 Sedangkan untuk yang menggunakan [kernel yang lain](https://wiki.archlinux.org/index.php/Kernels){:target="_blank"}, dapat menggunakan,
-```
-$ sudo pacman -S virtualbox-host-dkms
-```
+
+{% shell_user %}
+sudo pacman -S virtualbox-host-dkms
+{% endshell_user %}
+
 Untuk *custom kernel* terdapat tambahan konfigurasi yang dapat langsung dilihat pada Arch Wiki.
 
 Selanjutnya, kita perlu melakukan *load* semua VirtualBox modules agar dapat dijalankan secara otomatis saat proses *booting* berlangsung.
-```
-$ systemd-modules-load.service
-```
+
+{% shell_user %}
+systemd-modules-load.service
+{% endshell_user %}
+
 Setelah itu, kita perlu melakukan *reboot* system untuk dapat menjalankan semua module tersebut.
 
 Nah, untuk menjalankan secara manual kita dapat menjalankan satu persatu module tersebut, seperti tahapan yang akan dijelaskan di bawah.
 
 Selain kernel module, VirtualBox juga menggunakan mandatory module yang bernama `vboxdrv` yang perlu di jalankan sebelum *virtual machine* di jalankan.
-```
-$ sudo modprobe vboxdrv
-```
+
+{% shell_user %}
+sudo modprobe vboxdrv
+{% endshell_user %}
+
 Selain module `vboxdrv`, module-module berikut ini bersifat opsional tetapi direkomendasikan jika kamu tidak ingin mengalami kendala saat melakukan konfigurasi tingkat lanjut. Module-module tersebut adalah, `vboxnetadp`, `vboxnetflt`, `vboxpci`.
 
 `vboxnetadp` dan `vboxnetflt`, keduanya dibutuhkan saat kamu ingin menggunakan fitur **Network** berupa **Bridge** atau **Host-Only**. Sedangkan `vboxpci` diperlukan saat *virtual machine* harus menggunakan perangkan PCI pada mesin kamu.
 
 Selanjutnya, hanya opsional saja, yaitu pengaturan port USB. Untuk dapat menghubungkan USB pada sistem kita (sebagai Host) dengan sistem virtual (sebagai Client) kita perlu menambahkan user kita kedalam `vboxusers` group.
-```
-$ sudo gpasswd -a $(id -un) vboxusers
-```
+
+{% shell_user %}
+sudo gpasswd -a $(id -un) vboxusers
+{% endshell_user %}
 
 **LOGOUT** and **LOGIN** kembali untuk mendapatkan efek dari penambahan user kita ke dalam `vboxusers` group.
 
 Verifikasi apakah user kita sudah termasuk di dalam `vboxusers` group.
-```
-$ id -Gn
-```
+
+{% shell_user %}
+id -Gn
+{% endshell_user %}
+
 ```
 users wheel network storage input power docker vboxusers
 ```
@@ -274,62 +319,70 @@ Perhatikan *output* yang ditampilkan, terdapat tambahan `vboxusers`.
 ## GNS3
 
 Pasang dependensi untuk GNS3.
-```
-$ sudo pacman -S qt5-svg qt5-websockets python-pip python-pyqt5 python-sip
-```
+
+{% shell_user %}
+sudo pacman -S qt5-svg qt5-websockets python-pip python-pyqt5 python-sip
+{% endshell_user %}
 
 Kita memerlukan Git untuk memasang paket-paket paling baru dari GNS3 yang terdapat pada GitHub dari GNS3.
 
 Pasang **Git** dan *create*/*set Git working directory*.
-```
-$ sudo pacman -S git
-$ mkdir -p $HOME/GNS3-Dev && cd $_
-```
+
+{% shell_user %}
+sudo pacman -S git
+mkdir -p $HOME/GNS3-Dev && cd $_
+{% endshell_user %}
 
 Pasang **GNS3 Server** dari GitHub.
-```
-$ git clone https://github.com/GNS3/gns3-server.git
-$ cd gns3-server
-$ git tag --list 'v2.1.*'
-$ git checkout v2.1.4
-$ sudo pip3 install -r requirements.txt
-$ sudo python3 setup.py install
-```
+
+{% shell_user %}
+git clone https://github.com/GNS3/gns3-server.git
+cd gns3-server
+git tag --list 'v2.1.*'
+git checkout v2.1.4
+sudo pip3 install -r requirements.txt
+sudo python3 setup.py install
+{% endshell_user %}
 
 Pasang **GNS3 GUI** dari GitHub.
-```
-$ cd $HOME/GNS3-Dev
-$ git clone https://github.com/GNS3/gns3-gui.git
-$ cd gns3-gui
-$ git tag --list 'v2.1.*'
-$ git checkout v2.1.4
-$ sudo pip3 install -r requirements.txt
-$ sudo python3 setup.py install
-```
+
+{% shell_user %}
+cd $HOME/GNS3-Dev
+git clone https://github.com/GNS3/gns3-gui.git
+cd gns3-gui
+git tag --list 'v2.1.*'
+git checkout v2.1.4
+sudo pip3 install -r requirements.txt
+sudo python3 setup.py install
+{% endshell_user %}
 
 Verifikasi apakah paket GNS3 sudah berhasil dipasang.
-```
-$ pip3 list | grep gns3
-```
+
+{% shell_user %}
+pip3 list | grep gns3
+{% endshell_user %}
+
 ```
 gns3-gui (2.1.4)
 gns3-server (2.1.4)
 ```
 
 Selanjutnya, kita perlu membuat *desktop dhosrtcut* agar GNS3 lebih mudah di aksis via *Desktop Environment*.
-```
-$ sudo tee -a /usr/share/applications/gns3.desktop > /dev/null << EOL
-> [Desktop Entry]
-> Type=Application
-> Encoding=UTF-8
-> Name=GNS3
-> Comment=Graphical Network Simulator 3
-> Exec=/usr/bin/gns3
-> Icon=gns3
-> Terminal=false
-> Categories=Application;Network;Qt;
-> EOL
-```
+
+<pre>
+$ <b>sudo tee -a /usr/share/applications/gns3.desktop > /dev/null << EOL
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=GNS3
+Comment=Graphical Network Simulator 3
+Exec=/usr/bin/gns3
+Icon=gns3
+Terminal=false
+Categories=Application;Network;Qt;
+EOL</b>
+</pre>
+
 *Script* di atas bertujuan untuk membuat file `gns3.desktop`. Ini merupakan file *launcher* untuk memanggil aplikasi melalui *desktop environment*.
 
 # Upgrade GNS3 to Latest Version
@@ -337,35 +390,40 @@ $ sudo tee -a /usr/share/applications/gns3.desktop > /dev/null << EOL
 Karena kita menggunakan GNS3 dari GitHub, maka kita perlu melakukan *upgrade* secara manual. Jangan khawatir, karena proses *upgrade* ini tidak begitu rumit. Tinggal mengikuti *command* yang sudah ditulis di sini.
 
 Langkah awal terntu saja kita perlu *uninstall* versi GNS3 saat ini.
-```
-$ pip3 list | grep gns3
-$ sudo pip3 uninstall -yv gns3-gui
-$ sudo pip3 uninstall -yv gns3-server
-$ pip3 list | grep gns3
-```
+
+{% shell_user %}
+pip3 list | grep gns3
+sudo pip3 uninstall -yv gns3-gui
+sudo pip3 uninstall -yv gns3-server
+pip3 list | grep gns3
+{% endshell_user %}
 
 Selanjutnya, pasang **GNS3 Server** yang paling baru. Keuntungannya kita menggunakan Git adalah kita cukup melakukan *git pull* untuk membuat repository Git yang sudah pernah kita *clone* memperbaharui paket-paket yang berada pada repositori asli yang ada di GitHub.
-```
-$ cd $HOME/GNS3-Dev/gns3-server
-$ git pull
-$ git tag --list 'v2.1.*'
-$ git checkout v2.1.5
-$ sudo python3 setup.py install
-```
+
+{% shell_user %}
+cd $HOME/GNS3-Dev/gns3-server
+git pull
+git tag --list 'v2.1.*'
+git checkout v2.1.5
+sudo python3 setup.py install
+{% endshell_user %}
 
 Pasang **GNS3 GUI**
-```
-$ cd $HOME/GNS3-Dev/gns3-gui
-$ git pull
-$ git tag --list 'v2.1.*'
-$ git checkout v2.1.5
-$ sudo python3 setup.py install
-```
+
+{% shell_user %}
+cd $HOME/GNS3-Dev/gns3-gui
+git pull
+git tag --list 'v2.1.*'
+git checkout v2.1.5
+sudo python3 setup.py install
+{% endshell_user %}
 
 Verifikasi proses *upgrade* GNS3.
-```
-$ pip3 list | grep gns3
-```
+
+{% shell_user %}
+pip3 list | grep gns3
+{% endshell_user %}
+
 ```
 gns3-gui (2.1.5)
 gns3-server (2.1.5)
