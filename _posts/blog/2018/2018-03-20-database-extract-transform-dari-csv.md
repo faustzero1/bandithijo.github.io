@@ -283,7 +283,8 @@ Selanjutnya kita akan melakukan transformasi dari tabel **data** berurut sesuai 
 
 #### 4.3.1 Tabel Pasar
 Kita akan mentransformasi _fields_ **namapasar** dari tabel **data**, dengan _queries_ seperti di bawah ini.
-```
+
+```sql
 SELECT @nomor:=@nomor+1 as id, namapasar
 FROM data,(SELECT @nomor:=0)r
 GROUP BY namapasar;
@@ -347,29 +348,34 @@ Apabila gagal, maka kita perlu meninjau kembali data yang kita dapat dari hasil 
 
 #### 4.3.2 Tabel Komoditas
 Kita akan mentransformasi _fields_ **komoditas** dari tabel **data**, dengan _queries_ seperti di bawah ini.
-```
+
+```sql
 SELECT @nomor:=@nomor+1 as id, komoditas
 FROM data,(SELECT @nomor:=0)r
 GROUP BY komoditas;
 ```
+
 Kemudian **Excute** dengan menekan tombol bergambar petir.
 
 Proses **Export** dan **Import** sama seperti tabel **pasar**, hanya saja proses _import_ dilakukan di tabel **komoditas**.
 
 #### 4.3.3 Tabel Satuan
 Kita akan mentransformasi _fields_ **satuan** dari tabel **data**, dengan _queries_ seperti di bawah ini.
-```
+
+```sql
 SELECT @nomor:=@nomor+1 as id, satuan
 FROM data,(SELECT @nomor:=0)r
 GROUP BY satuan;
 ```
+
 Kemudian **Excute** dengan menekan tombol bergambar petir.
 
 Proses **Export** dan **Import** sama seperti tabel **pasar**, hanya saja proses _import_ dilakukan di tabel **satuan**.
 
 #### 4.3.4 Tabel Detil Komoditas
 Kita akan mentransformasi _fields_ **detilkomoditas** dari tabel **data** yang berelasi dengan tabel **komoditas**, dan **satuan** dengan _queries_ seperti di bawah ini.
-```
+
+```sql
 SELECT
 @nomor:=@nomor+1 as id,
 data.detilkomoditas,
@@ -386,13 +392,15 @@ data.komoditas=komoditas.nama_komoditas
 AND
 data.satuan=satuan.nama_satuan;
 ```
+
 Kemudian **Excute** dengan menekan tombol bergambar petir.
 
 Proses **Export** dan **Import** sama seperti tabel **pasar**, hanya saja proses _import_ dilakukan di tabel **detil_komoditas**.
 
 #### 4.3.5 Tabel Transaksi
 Kita akan mentransformasi _fields_ **tanggal**, **harga**, **jumlahterjual** dari tabel **data** yang berelasi dengan tabel **detil_komoditas** dan tabel **pasar** dengan _queries_ seperti di bawah ini.
-```
+
+```sql
 SELECT
 detil_komoditas.id_detil_komoditas,
 pasar.id_pasar,
@@ -410,6 +418,7 @@ data.detilkomoditas=detil_komoditas.nama_detil_komoditas
 AND
 data.namapasar=pasar.nama_pasar;
 ```
+
 Kemudian **Excute** dengan menekan tombol bergambar petir.
 
 Proses **Export** dan **Import** sama seperti tabel **pasar**, hanya saja proses _import_ dilakukan di tabel **transaksi**.

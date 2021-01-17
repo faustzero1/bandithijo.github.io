@@ -70,17 +70,20 @@ Dari manual yang ditulis, pwgen dirancang untuk menghasilkan _password_ yang mud
 
 ### Instalasi
 Untuk distribusi Arch Linux
-```
-$ sudo pacman -S pwgen
-```
+
+{% shell_user %}
+sudo pacman -S pwgen
+{% endshell_user %}
 
 Untuk distribusi sistem operasi yang lain, dapat menyesuaikan dan mencari paket yang bernama `pwgen`.
 
 ### Melihat Help
 Kita perlu mengetahui opsi apa saja yang disediakan oleh pwgen sebelum kita dapat mengenerate _password_. _Help_ dari pwgen ini sangat sederhana dan mudah dipahami.
-```
-$ pwgen -h
-```
+
+{% shell_user %}
+pwgen -h
+{% endshell_user %}
+
 ```
 Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
 
@@ -121,9 +124,11 @@ Seperti yang kalian lihat, pwgen menyediakan banyak sekali opsi untuk kita dapat
 `-y` : untuk menambahkan setidaknya satu simbol spesial di dalam _password_.
 
 Hasilnya akan seperti ini.
-```
-$ pwgen -sy 15
-```
+
+{% shell_user %}
+pwgen -sy 15
+{% endshell_user %}
+
 ```
 I##3DKHZCA\[S:w (3::;s2P1!ABm7' !WS2LL)Jp[/].ob !1Z%K/E=Rt?1-TC /_,p}73!k|h&pDS
 BmP:Xq#5P[(]BdW "%V1HoH?iR8V#PW wQTJXe6?Xe9$3H- *9{DLU3e-'!~shx I>@{`,[h]R)?h2\
@@ -148,6 +153,31 @@ ip0|bE+&\S`-XvA fv8eRE>@.BVd/v) 09TFUyqyFnHqZH/ Y>`u*O^2WfHd"[7 XPus5[&mEb0y3Oz
 ```
 
 Kemudian, saya akan pilih satu dari 100 _random password_ yang sudah berhasil di _generate_. Setelah itu saya akan simpan pada alat yang saya khususkan untuk menyimpan _password_. Untuk pembahasan alat apa yang saya gunakan untuk menyimpan _password_ ([_Password Manager_](https://wiki.archlinux.org/index.php/List_of_applications/Security#Password_managers){:target="_blank"}) akan saya bahas pada dokumentasi yang lain.
+
+# Tips
+
+Kalau teman-teman ingin hasil generate password langsung otomatis ditangkap oleh clipboard, dapat menggunakan cara ini.
+
+{% shell_user %}
+pwgen -sy 15 -1 | tr -d '\n' | xclip -sel clip
+{% endshell_user %}
+
+Atau buatkan saja shell script nya.
+
+{% shell_user %}
+touch $HOME/.local/bin/pwgenskin
+chmod +x $HOME/.local/bin/pwgenskin
+{% endshell_user %}
+
+Isinya seperti ini,
+
+{% highlight_caption $HOME/.local/bin/pwgenskin %}
+{% highlight sh linenos %}
+#!/bin/sh
+pwgen -sy 32 -1 | tr -d '\n' | xclip -sel clip
+{% endhighlight %}
+
+Modifikasi sesuai keinginan kalian.
 
 # Referensi
 1. [support.google.com/accounts/answer/32040?hl=en](https://support.google.com/accounts/answer/32040?hl=en){:target="_blank"}

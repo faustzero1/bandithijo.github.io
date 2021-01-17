@@ -36,18 +36,22 @@ Kalian dapat melihat bahwa saya juga memasang _theme_ `adwaita-qt4` dan `adwaita
 Sedangkan paket `qt5ct` adalah paket wajib yang akan kita gunakan untuk mengatur _environtment_ GUI untuk semua aplikasi yang menggunakan Qt5. Untuk aplikasi yang menggunakan Qt4, terdapat aplikasi bernama `qtconfig-qt4`, namun sepertinya palikasi ini sudah jadi satu _bundle_ apabila memasang _engine_ Qt4. Saya kurang begitu paham.
 
 Pasang paket-paket yang dibutuhkan. Paket wajib,
-```
-$ sudo pacman -S qt5ct
-```
+
+{% shell_user %}
+sudo pacman -S qt5ct
+{% endshell_user %}
 
 Paket tambahan,
-```
-$ pacaur -S adwaita-qt4 adwaita-qt5
-```
+
+{% shell_user %}
+pacaur -S adwaita-qt4 adwaita-qt5
+{% endshell_user %}
+
 Atau
-```
-$ yaourt adwaita-qt4; yaourt adwaita-qt5
-```
+
+{% shell_user %}
+yaourt adwaita-qt4; yaourt adwaita-qt5
+{% endshell_user %}
 
 # Penerapan
 Kita dapat melakukan dua macam konfigurasi. Penerapan konfigurasi secara global atau penerapan hanya pada aplikasi tertentu.
@@ -106,36 +110,37 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
 1. **Edit isi .dekstop**
 
-    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
-    ```
-    $ vim .local/share/applications/org.gnome.Nautilus.desktop
-    ```
+   Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
+   <pre>
+   $ <b>vim .local/share/applications/org.gnome.Nautilus.desktop</b></pre>
 
 2. **Modifikasi nilai dari parameter Exec=**
 
-    Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
+   Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
 
-    >Untuk aplikasi yang menggunakan GTK+3 tambahkan,
-    >
-    ><code>Exec=<mark>env GTK_THEME=namatema</mark> ...</code>
+   >Untuk aplikasi yang menggunakan GTK+3 tambahkan,
+   >
+   ><code>Exec=<mark>env GTK_THEME=namatema</mark> ...</code>
 
-    Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.
-    ```
-    $ vim .local/share/applications/org.gnome.Nautilus.desktop
-    ```
-    <pre>
-    #!/usr/bin/env xdg-open
-    [Desktop Entry]
-    Name=Nautilus
-    ...
-    ...
-    Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
-    ...
-    ...</pre>
+   Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.
 
-    Adwaita juga memiliki _dark theme_, kita dapat menggunakannya dengan cara seperti ini.
-    <pre>
-    Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U</pre>
+   <pre>
+   $ <b>vim .local/share/applications/org.gnome.Nautilus.desktop</b></pre>
+
+   {% highlight_caption $HOME/.local/share/applications/org.gnome.Nautilus.desktop %}
+   <pre class="caption">
+   #!/usr/bin/env xdg-open
+   [Desktop Entry]
+   Name=Nautilus
+   ...
+   ...
+   Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
+   ...
+   ...</pre>
+
+   Adwaita juga memiliki _dark theme_, kita dapat menggunakannya dengan cara seperti ini.
+   <pre>
+   Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U</pre>
 
 ### GTK+2
 
@@ -145,31 +150,32 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
 1. **Edit isi .dekstop**
 
-    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
-    ```
-    $ vim .local/share/applications/inkscape.desktop
-    ```
+   Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
+
+   <pre>
+   $ <b>vim .local/share/applications/inkscape.desktop</b></pre>
 
 2. **Modifikasi nilai dari parameter Exec=**
 
-    Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
+   Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
 
-    >Untuk aplikasi yang menggunakan GTK+2 tambahkan,
-    >
-    ><code>Exec=<mark>env GTK2_RC_FILES=/tema_yang_mempunyai/gtkrc</mark> ...</code>
+   >Untuk aplikasi yang menggunakan GTK+2 tambahkan,
+   >
+   ><code>Exec=<mark>env GTK2_RC_FILES=/tema_yang_mempunyai/gtkrc</mark> ...</code>
 
-    Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.
-    ```
-    $ vim .local/share/applications/inkscape.desktop
-    ```
-    <pre>
-    [Desktop Entry]
-    Name=Inkscape
-    ...
-    ...
-    Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F
-    ...
-    ...</pre>
+   Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.
+   <pre>
+   $ <b>vim .local/share/applications/inkscape.desktop</b></pre>
+
+   {% highlight_caption $HOME/.local/share/applications/inkscape.desktop %}
+   <pre class="caption">
+   [Desktop Entry]
+   Name=Inkscape
+   ...
+   ...
+   Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F
+   ...
+   ...</pre>
 
 ### Qt5
 
@@ -179,36 +185,39 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
 1. **Edit isi .dekstop**
 
-    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
-    ```
-    $ vim .local/share/applications/vokoscreen.desktop
-    ```
+   Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
+
+   <pre>
+   $ <b>vim .local/share/applications/vokoscreen.desktop</b></pre>
 
 2. **Modifikasi nilai dari parameter Exec=**
 
-    Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
+   Cari baris yang berawalan `Exec=`, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan _engine_ yang digunakan oleh aplikasi tersebut.
 
-    >Untuk aplikasi yang menggunakan Qt5 tambahkan,
-    >
-    ><code>Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> ...</code>
+   >Untuk aplikasi yang menggunakan Qt5 tambahkan,
+   >
+   ><code>Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> ...</code>
 
-    Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.
-    ```
-    $ vim .local/share/applications/vokoscreen.desktop
-    ```
-    <pre>
-    [Desktop Entry]
-    Name=vokoscreen
-    ...
-    ...
-    Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen
-    ...
-    ...</pre>
+   Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.
 
-    ><p class="title-quote">[ ! ] Perhatian</p>
-    >Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket `adwaita-qt4` dan `adwaita-qt5`, saya ikut sertakan untuk dipasang.
-    >
-    >Untuk penggunaan tema lain, mungkin bisa menggunakan `breeze` atau tema Qt yang lain, saya kurang begitu paham untuk tema-tema yang digunakan pada Qt.
+   <pre>
+   $ <b>vim .local/share/applications/vokoscreen.desktop</b></pre>
+
+   {% highlight_caption $HOME/.local/share/applications/vokoscreen.desktop %}
+   <pre class="caption">
+   [Desktop Entry]
+   Name=vokoscreen
+   ...
+   ...
+   Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen
+   ...
+   ...</pre>
+
+   ><p class="title-quote">[ ! ] Perhatian</p>
+   >Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket `adwaita-qt4` dan `adwaita-qt5`, saya ikut sertakan untuk dipasang.
+   >
+   >Untuk penggunaan tema lain, mungkin bisa menggunakan `breeze` atau tema Qt yang lain, saya kurang begitu paham untuk tema-tema yang digunakan pada Qt.
+
 
 <br>
 Nah, mudah bukan ?

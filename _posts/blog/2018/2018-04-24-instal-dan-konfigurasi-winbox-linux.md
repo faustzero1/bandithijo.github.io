@@ -43,9 +43,10 @@ Proses instalasi Wine dapat merujuk pada distribusi sistem operasi GNU/Linux mas
 ## Instalasi Wine
 
 Untuk distribusi Arch Linux.
-```
-$ sudo pacman -S wine wine_gecko wine-mono
-```
+
+{% shell_user %}
+sudo pacman -S wine wine_gecko wine-mono
+{% endshell_user %}
 
 `wine_gecko` dan `wine-mono` diperlukan untuk aplikasi yang membutuhkan Internet Explorer dan .NET. Sebenarnya paket ini tidak benar-benar harus dipasang karena Wine secara pintar akan mengunduh paket-paket yang relevan sesuai dengan kebutuhan. Namun apabila kamu memasangnya lebih dulu akan lebih menguntungkan apabila nantinya kamu tidak mendapatkan akses internet saat proses instalasi aplikasi Microsoft Windows di atas Wine.
 
@@ -84,13 +85,14 @@ Selanjutnya tinggal membuat *launcher* atau *shortcut* untuk memanggil WinBox da
 
 Buat file `winbox.desktop` pada direktori `~/.local/share/applications/`
 
-```
-$ touch ~/.local/share/applications/winbox.desktop
-```
+{% shell_user %}
+touch ~/.local/share/applications/winbox.desktop
+{% endshell_user %}
 
 Kemudian, buka dengan text editor favorit kalian, dan isikan seperti contoh di bawah.
 
-```
+{% highlight_caption $HOME/.local/share/applications/winbox.desktop %}
+{% highlight sh linenos %}
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Linbox
@@ -99,26 +101,24 @@ Type=Application
 StartupNotify=true
 Icon=winbox
 Comment=Mikrotik RouterOS GUI Configurator (wine)
-```
+{% endhighlight %}
 
 Perhatikan pada bagian `Exec=`. Kalian perlu mengganti lokasi dari `winbox.exe` sesuai dengan direktori dimana kalian menyimpan file `winbox.exe`.
 
 Dengan demikian proses instalasi dan konfigurasi WinBox pada GNU/Linux saya rasa cukup seperti ini saja.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Apabila kita akan melakukan konfigurasi Router MikroTik yang sudah di <b>Reset Configuration</b>, biasanya akan <b>sangat lama sekali</b> untuk mendapatkan MAC Address.</p>
 <br>
 <p><b>Solusi 1</b>:</p>
 <p>Sementara hanya melakukan scan Mac Address berulang-ulang sampai WinBox mendapatkan MAC Address. Hahahaha sedih =(</p>
 <br>
 <p><b>Solusi 2</b>:</p>
-<p>Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(</p>
+<p markdown=1>Meminjam laptop teman yang memiliki sistem operasi Windows dan melakukan konfigurasi kecil, atau meload file konfigurasi kita. Setelah file konfigurasi berhasil di *load* baru kita cabut dan kita pindahkan ke laptop kita. Hahaha sedih =(</p>
 <br>
 <p><b>Solusi 3</b>:</p>
 <p><img src="{{ site.lazyload.logo_blank }}" data-echo="https://i.postimg.cc/zf8KN0zy/komentar-01.png" onerror="imgError(this);"></p>
-</div>
+{% endbox_perhatian %}
 
 # Video Sample
 

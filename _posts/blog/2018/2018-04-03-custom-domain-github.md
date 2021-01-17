@@ -57,9 +57,10 @@ Maksud dari _Whois Privacy Protection_ ini adalah untuk mengkamuflasekan data-da
 
 Saya akan mencontohkan melakukan pengecekan `whois` kepada kaskus.co.id.
 
-```bash
-$ whois kaskus.co.id
-```
+{% shell_user %}
+whois kaskus.co.id
+{% endshell_user %}
+
 ```
 Domain ID:PANDI-DO253792
 Domain Name:KASKUS.CO.ID
@@ -84,9 +85,10 @@ Registrant Email:domain@kaskusnetworks.com
 
 Kemudian saya akan melakukan pengecekan informasi domain dengan menggunakan `whois` kepada domain yang saya beli di dewaweb.com dengan menggunakan tambahana layanan _Whois Privacy Protection_.
 
-```bash
-$ whois bandithijo.com
-```
+{% shell_user %}
+whois bandithijo.com
+{% endshell_user %}
+
 ```
 Domain Name: BANDITHIJO.COM
 Registry Domain ID: 2247257697_DOMAIN_COM-VRSN
@@ -151,19 +153,19 @@ Misalkan, kita ingin menampilkan domain berupa nama dan ekstensi domain, seperti
 
 Isikan sebagaimana kalian ingin menampilkan nama blog kalian pada _address bar_.
 
-```
-bandithijo.com
-```
+<pre class="url">
+https://bandithijo.com
+</pre>
 
 *Perhatikan! Isi dari CNAME ini hanya 1 baris.
 
 Langkah selanjutnya commit file CNAME yang baru saja kita buat ke dalam repositori GitHub kita.
 
-```
+{% shell_user %}
 git add -A
 git commit -m “Added CNAME file.”
 git push origin master
-```
+{% endshell_user %}
 
 Kemudian, buka repositori GitHub tempat dimana kamu menyimpan repositori dari .github.io. Lakukan pengecekan apakah file CNAME yang kita buat sudah berada pada repositori GitHub kita.
 

@@ -31,55 +31,55 @@ Meskipun proses instalasi Cisco Packet Tracer 7.1.1 ini tidak biasa, namun terny
 
 1. **Download Snapshot from AUR**
 
-    Kita perlu mendownload “_snapshot_”, _snapshot_ ini berisi bahan-bahan untuk proses instalasi, di dalamnya sudah termasuk PKGBUILD, semacam resep untuk meracik bahan-bahan yang tersedia. Hehe
+   Kita perlu mendownload "_snapshot_", _snapshot_ ini berisi bahan-bahan untuk proses instalasi, di dalamnya sudah termasuk PKGBUILD, semacam resep untuk meracik bahan-bahan yang tersedia. Hehe
 
-    _Download snapshot_ dari Cisco Packet Tracer 7.1.1 yang tersedia di AUR pada tautan ini >> [Download Snapshot](https://aur.archlinux.org/cgit/aur.git/snapshot/packettracer.tar.gz){:target="_blank"}.
+   _Download snapshot_ dari Cisco Packet Tracer 7.1.1 yang tersedia di AUR pada tautan ini >> [Download Snapshot](https://aur.archlinux.org/cgit/aur.git/snapshot/packettracer.tar.gz){:target="_blank"}.
 
-    Nanti akan terdownload satu buah file bernama `packettracer.tar.gz`.
+   Nanti akan terdownload satu buah file bernama `packettracer.tar.gz`.
 
 2. **Extract Snapshot**
 
-    Kita perlu mengekstrak isi dari _snapshot_. Buka Terminal dan pergi ke direktori tempat dimana _snapshot_ dari Cisco Packet Tracer 7.1.1 yang sudah kita download tadi tersimpan. Kemudian lakukan _command_ di bawah untuk mengekstrak isi dari _snapshot_.
-    ```
-    $ tar -zxf packettracer.tar.gz
-    ```
+   Kita perlu mengekstrak isi dari _snapshot_. Buka Terminal dan pergi ke direktori tempat dimana _snapshot_ dari Cisco Packet Tracer 7.1.1 yang sudah kita download tadi tersimpan. Kemudian lakukan _command_ di bawah untuk mengekstrak isi dari _snapshot_.
 
-    Setelah proses ekstraksi berhasil, maka akan terbuat satu buah direktori bernama `packettracer` dengan PKGBUILD beserta file-file lain di dalamnya.
+   <pre>
+   $ <b>tar -zxf packettracer.tar.gz</b></pre>
+
+   Setelah proses ekstraksi berhasil, maka akan terbuat satu buah direktori bernama `packettracer` dengan PKGBUILD beserta file-file lain di dalamnya.
 
 3. **Download Latest Cisco Packet Tracer from NetAcad**
 
-    Meskipun kita sudah memiliki bahan-bahan dan resep (PKGBUILD) untuk melakukan instalasi, namun satu bahan yang menjadi bahan utama dalam proses instalasi ini masih belum kita tersedia di dalam direktori packettracer. Untuk itu kita perlu mendownload Packet Tracer versi terbaru (7.1.1) dan memasukkannya ke dalam direktori packettracer ini.
+   Meskipun kita sudah memiliki bahan-bahan dan resep (PKGBUILD) untuk melakukan instalasi, namun satu bahan yang menjadi bahan utama dalam proses instalasi ini masih belum kita tersedia di dalam direktori packettracer. Untuk itu kita perlu mendownload Packet Tracer versi terbaru (7.1.1) dan memasukkannya ke dalam direktori packettracer ini.
 
-    <div class="blockquote-red">
-    <div class="blockquote-red-title">[ ! ] Perhatian</div>
-    <p>Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad.</p>
-    <p>Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a></p>
-    </div>
+   <div class="blockquote-red">
+   <div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg">Perhatian</div>
+   <p>Saya tidak dapat menyediakan link untuk mendownload Cisco Packet Tracer versi terbaru. Karena netacad hanya diperuntukkan bagi yang memiliki akses ke dalam NetAcad.</p>
+   <p>Silahkan melakukan download dengan account NetAcad masing-masing yaa. <a href="http://netacad.com/">NetAcad.com</a></p>
+   </div>
 
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
-    <!-- <h2 style="color: #444d56;border&#45;bottom: 1px dashed #BE7000;margin&#45;top:0;margin&#45;bottom:10px;padding&#45;bottom:10px;">[ i ] Informasi</h2> -->
-    <p>Kabar gembira!</p>
-    <p>Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html" target="_blank"><b>Cara Mendaftar Akun Netacad</b></a></p>
-    </div>
+   <div class="blockquote-blue">
+   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
+   <!-- <h2 style="color: #444d56;border&#45;bottom: 1px dashed #BE7000;margin&#45;top:0;margin&#45;bottom:10px;padding&#45;bottom:10px;">[ i ] Informasi</h2> -->
+   <p>Kabar gembira!</p>
+   <p>Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href="https://ngonfig.net/akun-netacad.html" target="_blank"><b>Cara Mendaftar Akun Netacad</b></a></p>
+   </div>
 
-    Setelah Cisco Packet Tracer 7.1.1 selesai didownload, jangan lupa masukkan ke dalam direktori packettracer (direktori hasil ekstrak _snapshot_ packettracer.tar.gz)
+   Setelah Cisco Packet Tracer 7.1.1 selesai didownload, jangan lupa masukkan ke dalam direktori packettracer (direktori hasil ekstrak _snapshot_ packettracer.tar.gz)
 
 4. **Create the Package**
 
-    Bahan-bahan yang diperlukan sudah lengkap, sekarang saatnya meracik bahan-bahan dengan resep menjadi satu buah paket siap instal. Caranya dengan mengetikkan _command_ di bawah.
-    ```
-    $ makepkg
-    ```
+   Bahan-bahan yang diperlukan sudah lengkap, sekarang saatnya meracik bahan-bahan dengan resep menjadi satu buah paket siap instal. Caranya dengan mengetikkan _command_ di bawah.
 
-    Perintah di atas, akan meracik bahan-bahan dengan resep yang kita miliki dan menghasilkan satu buah file bernama `packettracer.pkg.tar.xz`.
+   <pre>
+   $ <b>makepkg</b></pre>
+
+   Perintah di atas, akan meracik bahan-bahan dengan resep yang kita miliki dan menghasilkan satu buah file bernama `packettracer.pkg.tar.xz`.
 
 5. **Install the Package**
 
-    Sekarang kita sudah memiliki sebuah paket yang siap kita pasang ke dalam sistem Arch Linux. Untuk melakukan proses instalasi terdapat dua cara, dengan `makepkg -i` atau dengan menggunakan `sudo pacman -U`, namun saya lebih familiar terhadap _command_ yang kedua.
-    ```
-    $ sudo pacman -U packettracer.pkg.tar.xz
-    ```
+   Sekarang kita sudah memiliki sebuah paket yang siap kita pasang ke dalam sistem Arch Linux. Untuk melakukan proses instalasi terdapat dua cara, dengan `makepkg -i` atau dengan menggunakan `sudo pacman -U`, namun saya lebih familiar terhadap _command_ yang kedua.
+
+   <pre>
+   $ <b>sudo pacman -U packettracer.pkg.tar.xz</b></pre>
 
 <br>
 Ikuti proses instalasi hingga sampai akhir. Maka proses instalasi Cisco Packet Tracer 7.1.1 dengan menggunakan PKGBUILD dari AUR telah selesai.

@@ -31,9 +31,9 @@ Selanjutnya, buka Terminal dan masuk ke dalam direktori yang sudah kita buat dan
 
 Langkah selajutnya tinggal menjalankan perintah `convert`,
 
-```
-$ convert * namafile.pdf
-```
+{% shell_user %}
+convert * namafile.pdf
+{% endshell_user %}
 
 Ganti namafile dengan nama file yang kamu inginkan
 

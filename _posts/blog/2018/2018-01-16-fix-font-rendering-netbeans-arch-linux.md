@@ -26,40 +26,50 @@ Bagaimana cara saya memperbaiki ini ?
 Kita perlu mengetahui terlebih dahulu direktori tempat file `netbeans.conf` disimpan. Atau secara umum, direktori Netbeans tersimpan pada sistem. Dalam kasus saya, Arch Linux, menempatkan direktori Netbeans pada `/usr/share/netbeans`. Penempatan direktori ini dapat berbeda-beda tergantung distribusi GNU/Linux maupun proses instalasi local user atau wide system.
 
 Kemudian, kita akan mengedit file `netbeans.conf`,
-```
-$ sudo nano /usr/share/netbeans/etc/netbeans.conf
-```
-```
-...
-...
-netbeans_default_options="-J-client ...
-...
-```
-*Cari baris dengan isi seperti di atas.
+
+{% shell_user %}
+sudo nano /usr/share/netbeans/etc/netbeans.conf
+{% endshell_user %}
+
+{% highlight_caption /usr/share/netbeans/etc/netbeans.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
+netbeans_default_options="-J-client ..."
+# ...
+{% endhighlight %}
+
+\*Cari baris dengan isi seperti di atas.
 
 Pada akhir dari baris tersebut, kita akan menambahkan 2 _properties_ lain,
+
 ```
 -J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on
 ```
-*Tambahkan baris di atas, masih di dalam tanda petik dari `netbeans_default_options=`.
+
+\*Tambahkan baris di atas, masih di dalam tanda petik dari `netbeans_default_options=`.
 
 Maka akan berbentuk seperti ini,
 
 **Sebelum**,
-```
-...
-...
+
+{% highlight_caption /usr/share/netbeans/etc/netbeans.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
 netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true"
-...
-```
+# ...
+{% endhighlight %}
 
 **Sesudah**,
-<pre>
-...
-...
-netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true <mark>-J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on</mark>"
-...
-</pre>
+
+{% highlight_caption /usr/share/netbeans/etc/netbeans.conf %}
+{% highlight sh linenos %}
+# ...
+# ...
+netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true -J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on"
+# ...
+{% endhighlight %}
 
 Sekarang, coba buka kembali, atau _restart_ Netbeans.
 Apakah _font rendering_ sudah lebih bagus dan _smooth_ ?
