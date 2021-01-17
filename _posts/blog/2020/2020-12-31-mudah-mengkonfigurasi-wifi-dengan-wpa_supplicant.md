@@ -110,6 +110,42 @@ Selanjutnya, untuk terhubung dengan network yang ada, kita dapat menggunakan 2 c
 1. Menggunakan `wpa_cli`
 2. Menggunakan `wpa_passphrase`
 
+## Menjalankan Service
+
+Sebelum dapat menggunakan **wpa_supplicant**, kita perlu untuk menjalankan wpa_supplicant daemon terlebih dahulu.
+
+Umumnya, menggunakan systemd service.
+
+**systemd**
+
+{% shell_user %}
+sudo systemctl start wpa_supplicant.service
+{% endshell_user %}
+
+**OpenRC**
+
+{% shell_user %}
+sudo rc-service wpa_supplicant start
+{% endshell_user %}
+
+Atau, kita juga dapat menjalankan daemon secara langsung.
+
+{% shell_user %}
+sudo wpa_supplicant -B -i <i>nama_interface</i> -c /etc/wpa_supplicant/wpa_supplicant.conf
+{% endshell_user %}
+
+`-B`, untuk *run daemon in the background*.
+
+`-i`, untuk mendefinisikan nama interface.
+
+`-c`, untuk mendefinisikan lokasi dari wpa_supplicant.conf.
+
+Ganti *nama_interface* dengan yang teman-teman pergunakan.
+
+Cara di atas, biasanya saya lakukan untuk debugging, apabila saya memiliki file konfigurasi selain file konfigurasi default.
+
+
+
 ## 1. Menggunakan wpa_cli
 
 Terlebih dahulu kita harus menambahkan sedikit konfigurasi agar dapat menyimpan config dari wpa_cli.
@@ -124,20 +160,6 @@ update_config=1
 {% endhighlight %}
 
 Kalau sudah ada, tidak perlu diubah-ubah.
-
-Nah, sebelum menjalankan wpa_supplicant service dengan systemd, kita bisa coba menjalankan tanpa membuat service.
-
-{% shell_user %}
-sudo wpa_supplicant -B -i <i>nama_interface</i> -c /etc/wpa_supplicant/wpa_supplicant.conf
-{% endshell_user %}
-
-`-B`, untuk *run daemon in the background*.
-
-`-i`, untuk mendefinisikan nama interface.
-
-`-c`, untuk mendefinisikan lokasi dari wpa_supplicant.conf.
-
-Ganti *nama_interface* dengan yang teman-teman pergunakan.
 
 Selanjutnya, kita akan gunakan **wpa_cli**.
 
@@ -409,6 +431,7 @@ rtt min/avg/max/mdev = 215.292/228.954/245.752/12.631 ms
 Mantap! Kita telah berhasil terhubung ke internet.
 
 
+
 # Penggunaan yang Lebih Advanced
 
 Untuk konfigurasi dan penggunaan yang lebih advanced, teman-teman dapat membaca sendiri di Arch Wiki.
@@ -478,7 +501,7 @@ Misal, pada **OpenRC**.
 
 Tambahkan ke dalam service default yang akan dijalankan ketika sistem startup.
 
-\*Tidak perlu menggunakan **default** juga bisa, karena sudah default.
+\*Tidak perlu menggunakan **default** juga bisa.
 
 {% shell_user %}
 sudo rc-update add wpa_supplicant default
