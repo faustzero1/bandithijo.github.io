@@ -340,6 +340,10 @@ ip a s wlan0
 
 Nah, dapat dilihat, saya sudah mendapatkan IP address.
 
+{% box_info %}
+<p markdown=1>Saya menggunakan **dhcpcd** service.</p>
+{% endbox_info %}
+
 Sekarang coba tes koneksi internet dengan ping.
 
 {% shell_user %}

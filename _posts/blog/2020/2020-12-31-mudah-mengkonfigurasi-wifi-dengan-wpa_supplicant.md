@@ -357,7 +357,7 @@ Kita bisa copy dan masukkan ke dalam **/etc/wpa_supplicant/wpa_supplicant.conf**
 Atau dengan cara mengkombinasikan dengan perintah wpa_supplicant.
 
 {% box_perhatian %}
-<p markdown=1>Namun, pastikan **wpa_supplicant belum berjalan** di process maupun di service.</p>
+<p markdown=1>Pastikan **wpa_supplicant belum berjalan** di process maupun di service.</p>
 {% endbox_perhatian %}
 
 {% shell_user %}
@@ -411,6 +411,10 @@ ip a s wlan0
 
 Nah, dapat dilihat, saya sudah mendapatkan IP address.
 
+{% box_info %}
+<p markdown=1>Saya menggunakan **dhcpcd** service.</p>
+{% endbox_info %}
+
 Sekarang coba tes koneksi internet dengan ping.
 
 {% shell_user %}
@@ -439,7 +443,9 @@ Untuk konfigurasi dan penggunaan yang lebih advanced, teman-teman dapat membaca 
 [**wpa_supplicant: Advanced usage**](https://wiki.archlinux.org/index.php/Wpa_supplicant#Advanced_usage){:target="_blank"}.
 
 
-# Bagaimana Saya Menggunakan wpa_supplicant?
+# Tambahan
+
+## Bagaimana Saya Menggunakan wpa_supplicant?
 
 Kalau saya, karena tidak banyak berpindah2 tempat, saya memilih menggunakan service untuk menjalankan **wpa_supplicant**.
 
