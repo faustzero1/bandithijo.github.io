@@ -1941,6 +1941,15 @@ pre.url b {
   color: #000000 !important;
 }
 
+pre span.cmd {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
 .markdown-body table.rouge-table td.gutter pre.lineno {
   user-select: none;
   -webkit-user-select: none;
