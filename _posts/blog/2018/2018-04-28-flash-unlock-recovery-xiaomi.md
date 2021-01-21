@@ -38,27 +38,32 @@ Apabila telah dipasang, maka kita akan dapat memanggil perintah `adb` dan `fastb
 
 Lakukan pengecekan versi `adb`.
 
-```
-$ adb --version
-```
+{% shell_user %}
+adb --version
+{% endshell_user %}
+
 ```
 Android Debug Bridge version 1.0.39
 Version 0.0.1-4500957
 ```
+
 Lakukan pengecekan versi `fastboot`.
-```
-$ fastboot - version
-```
+
+{% shell_user %}
+fastboot - version
+{% endshell_user %}
+
 ```
 fastboot version 0.0.1-4500957
 ```
+
 Apabila sudah seperti di atas, maka `adb` dan `fastboot` siap kita ajak bertempur. Meskipun pada dokumentasi ini kita akan lebih banyak menggunakan `fastboot`.
 
-<div class="blockquote-yellow">
-<h2 class="blockquote-yellow-title">Apakah kegunaan kedua program tersebut ?</h2>
-    <b>adb</b> (<i>Android Device Bridge</i>), hanya dapat digunakan apabila <i>smartphone</i> dalam kondisi berada di <i>desktop</i>. Artinya sistem Android sudah <i>up and runnning</i>.
-    <b>fastboot</b>, hanya dapat kita gunakan pada mode <b>Fastboot</b>, penjelasan lebih lanjut ada di bawah.
-</div>
+{% box_pertanyaan %}
+<p><b>Apakah kegunaan kedua program tersebut?</b></p>
+<b>adb</b> (<i>Android Device Bridge</i>), hanya dapat digunakan apabila <i>smartphone</i> dalam kondisi berada di <i>desktop</i>. Artinya sistem Android sudah <i>up and runnning</i>.
+<b>fastboot</b>, hanya dapat kita gunakan pada mode <b>Fastboot</b>, penjelasan lebih lanjut ada di bawah.
+{% endbox_pertanyaan %}
 
 # Ngoprek
 
@@ -130,66 +135,80 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 **Flashing ROM**
 
 1. Ekstrak file *fastboot* ROM **.tgz** yang kita miliki.
-    ```
-    $ tar -xvf libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz
-    ```
-    Nanti akan terbuat sebuah direktori baru yang memiliki nama yang sama seperti *fasboot* ROM.
+
+   {% shell_user %}
+tar -xvf libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz
+{% endshell_user %}
+
+   Nanti akan terbuat sebuah direktori baru yang memiliki nama yang sama seperti *fasboot* ROM.
 
 2. Masuk ke dalam direktori tersebut.
-    ```
-    $ cd libra_images_6.1.7_20151221.0000.11_5.1_cn
-    ```
-    Di dalam direktori ini berisi file-file seperti yang sudah saya jelaskan di atas.
-    Kamu dapat mengeceknya dengan perintah.
-    ```
-    $ ls -al
-    ```
-    ```
-    total 72
-    drwxr-xr-x 3 bandithijo users 4096 Dec 18  2016 .
-    drwxr-xr-x 4 bandithijo users 4096 Apr 29 07:49 ..
-    -rwxr-xr-x 1 bandithijo users 1362 Jan  7  2016 flash_all.bat
-    -rwxr-xr-x 1 bandithijo users 1310 Jan  7  2016 flash_all_except_data_storage.bat
-    -rwxr-xr-x 1 bandithijo users 1436 Jan  7  2016 flash_all_except_data_storage.sh
-    -rwxr-xr-x 1 bandithijo users 1496 Jan  7  2016 flash_all.sh
-    drwxr-xr-x 2 bandithijo users 4096 Dec 18  2016 images
-    -rwxr-xr-x 1 bandithijo users   66 Jan  7  2016 misc.txt
-    ```
+
+   {% shell_user %}
+cd libra_images_6.1.7_20151221.0000.11_5.1_cn
+{% endshell_user %}
+
+   Di dalam direktori ini berisi file-file seperti yang sudah saya jelaskan di atas.
+   Kamu dapat mengeceknya dengan perintah.
+
+   {% shell_user %}
+ls -al
+{% endshell_user %}
+
+   ```
+   total 72
+   drwxr-xr-x 3 bandithijo users 4096 Dec 18  2016 .
+   drwxr-xr-x 4 bandithijo users 4096 Apr 29 07:49 ..
+   -rwxr-xr-x 1 bandithijo users 1362 Jan  7  2016 flash_all.bat
+   -rwxr-xr-x 1 bandithijo users 1310 Jan  7  2016 flash_all_except_data_storage.bat
+   -rwxr-xr-x 1 bandithijo users 1436 Jan  7  2016 flash_all_except_data_storage.sh
+   -rwxr-xr-x 1 bandithijo users 1496 Jan  7  2016 flash_all.sh
+   drwxr-xr-x 2 bandithijo users 4096 Dec 18  2016 images
+   -rwxr-xr-x 1 bandithijo users   66 Jan  7  2016 misc.txt
+   ```
 
 3. Buat *smartphone* kamu dalam mode **Fastboot** dengan menekan kombinasi tombol. Tekan dan tahan <kbd>Volume Down</kbd> + <kbd>Power</kbd> secara berurutan.
 
-    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 2 - Mode Fastboot</p>
-    Setelah *smartphone* kita sudah dalam mode *fastboot*, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.
+   ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
+   <p class="img-caption">Gambar 2 - Mode Fastboot</p>
+
+   Setelah *smartphone* kita sudah dalam mode *fastboot*, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.
 
 4. Deteksi apakah *smartphone* dengan komputer / laptop sudah terhubung atau tidak.
-    ```
-    $ sudo fastboot devices
-    ```
-    ```
-    dd46fe2b	fastboot
-    ```
-    Apabila berhasil akan memberikan *output* seperti di atas. Apabila gagal tidak akan memberikan *output* apapun.
+
+   {% shell_user %}
+sudo fastboot devices
+{% endshell_user %}
+
+   ```
+   dd46fe2b	fastboot
+   ```
+
+   Apabila berhasil akan memberikan *output* seperti di atas. Apabila gagal tidak akan memberikan *output* apapun.
 
 5. Saat ini di Terminal, pastikan kamu masih berada pada direktori hasil ekstrak dari file *fastboot* ROM (pada step 2 di atas).
-    Terdapat 2 file BASH *script* yang memiliki kegunaan berbeda.
+   Terdapat 2 file BASH *script* yang memiliki kegunaan berbeda.
 
-    * `flash_all_except_data_storage.sh` : untuk menghapus system namun tidak menghapus data dan storage
-    * `flash_all.sh` : untuk menghapus semua system, data, dan storage
+   * `flash_all_except_data_storage.sh` : untuk menghapus system namun tidak menghapus data dan storage
+   * `flash_all.sh` : untuk menghapus semua system, data, dan storage
 
-    Pilih sesuai kebutuhan kalian. Kalo saya lebih memilih `flash_all.sh`. Kita akan membuat file **.sh** yang kita pilih, agar menjadi *excutable*.
-    ```
-    $ chmod +x flash_all.sh
-    ```
-    Sebenarnya file BASH *script* tersebut sudah mendapatkan *excutable permission* `-rwxr-xr-x`, namun saya hanya mengantisipasi apabila ada dari teman-teman yang belum memahami perbedaan file *excutable* dan *non excutable*.
+   Pilih sesuai kebutuhan kalian. Kalo saya lebih memilih `flash_all.sh`. Kita akan membuat file **.sh** yang kita pilih, agar menjadi *excutable*.
+
+   {% shell_user %}
+chmod +x flash_all.sh
+{% endshell_user %}
+
+   Sebenarnya file BASH *script* tersebut sudah mendapatkan *excutable permission* `-rwxr-xr-x`, namun saya hanya mengantisipasi apabila ada dari teman-teman yang belum memahami perbedaan file *excutable* dan *non excutable*.
 
 6. Eksekusi file *script* tersebut.
-    ```
-    $ sudo sh flash_all.sh
-    ```
-    Tunggu prosesnya hingga selesai.
 
-    Setelah selesai, *smartphone* XiaoMi kalian akan *reboot* dan masuk ke ROM yang baru saja kita pasang. Mudah bukan ?
+   {% shell_user %}
+sudo sh flash_all.sh
+{% endshell_user %}
+
+   Tunggu prosesnya hingga selesai.
+
+   Setelah selesai, *smartphone* XiaoMi kalian akan *reboot* dan masuk ke ROM yang baru saja kita pasang. Mudah bukan ?
 
 <br>
 **Video Demonstrasi Proses Flashing ROM**
@@ -205,41 +224,52 @@ Prosesnya simple saja, ndak rumit.
 
 1. Masuk kembali ke dalam mode **Fastboot**.
 2. Hubungkan *smartphone* dengan komputer / laptop. Dan periksa apakah sudah terhubung atau belum.
-    ```
-    $ sudo fastboot devices
-    ```
-    ```
-    dd46fe2b	fastboot
-    ```
+
+   {% shell_user %}
+sudo fastboot devices
+{% endshell_user %}
+
+   ```
+   dd46fe2b	fastboot
+   ```
+
 3. Periksa status **Bootloader**, apakah **Device unlocked : false** atau **true**.
-    ```
-    $ sudo fastboot oem device-info
-    ```
-    <pre>
-    ...
-    (bootloader) 	Device tampered: false
-    (bootloader) 	<mark>Device unlocked: false</mark>
-    (bootloader) 	Charger screen enabled: false
-    (bootloader) 	Display panel:
-    OKAY [  0.060s]
-    finished. total time: 0.060s</pre>
-    Apabila **Device unlocked: false**, lakukan perintah di bawah untuk membuatnya menjadi **true**.
-    ```
-    $ sudo fastboot oem unlock
-    ```
-    Periksa kembali, apakah sudah menjadi **true**.
-    ```
-    $ sudo fastboot oem device-info
-    ```
-    <pre>
-    ...
-    (bootloader) 	Device tampered: false
-    (bootloader) 	<mark>Device unlocked: true</mark>
-    (bootloader) 	Charger screen enabled: false
-    (bootloader) 	Display panel:
-    OKAY [  0.060s]
-    finished. total time: 0.060s</pre>
-    Apabila **Device unlocked:** sudah menjadi **true**, maka kita dapat memasangkan **Custom Recovery**.
+
+   {% shell_user %}
+sudo fastboot oem device-info
+{% endshell_user %}
+
+   <pre>
+   ...
+   (bootloader) 	Device tampered: false
+   (bootloader) 	<mark>Device unlocked: false</mark>
+   (bootloader) 	Charger screen enabled: false
+   (bootloader) 	Display panel:
+   OKAY [  0.060s]
+   finished. total time: 0.060s</pre>
+
+   Apabila **Device unlocked: false**, lakukan perintah di bawah untuk membuatnya menjadi **true**.
+
+   {% shell_user %}
+sudo fastboot oem unlock
+{% endshell_user %}
+
+   Periksa kembali, apakah sudah menjadi **true**.
+
+   {% shell_user %}
+sudo fastboot oem device-info
+{% endshell_user %}
+
+   <pre>
+   ...
+   (bootloader) 	Device tampered: false
+   (bootloader) 	<mark>Device unlocked: true</mark>
+   (bootloader) 	Charger screen enabled: false
+   (bootloader) 	Display panel:
+   OKAY [  0.060s]
+   finished. total time: 0.060s</pre>
+
+   Apabila **Device unlocked:** sudah menjadi **true**, maka kita dapat memasangkan **Custom Recovery**.
 
 <br>
 ## Install Custom Recovery
@@ -258,41 +288,48 @@ Proses instalasinya sangat mudah.
 
 1. Buka Terminal. Masuk ke dalam direktori tempat kamu menyimpan file *image* TWRP.
 2. Jalankan perintah di bawah.
-    ```
-    $ sudo fastboot flash recovery twrp-3.1.0-0-libra.img
-    ```
-    Sesuaikan dengan *image* TWRP yang kalian pilih.
 
-    Apabila berhasil, akan menampilkan *output* seperti ini.
-    ```
-    target reported max download size of 536870912 bytes
-    sending 'recovery' (50584 KB)...
-    OKAY [  1.675s]
-    writing 'recovery'...
-    OKAY [  0.897s]
-    finished. total time: 2.573s
-    ```
+   {% shell_user %}
+sudo fastboot flash recovery twrp-3.1.0-0-libra.img
+{% endshell_user %}
+
+   Sesuaikan dengan *image* TWRP yang kalian pilih.
+
+   Apabila berhasil, akan menampilkan *output* seperti ini.
+
+   ```
+   target reported max download size of 536870912 bytes
+   sending 'recovery' (50584 KB)...
+   OKAY [  1.675s]
+   writing 'recovery'...
+   OKAY [  0.897s]
+   finished. total time: 2.573s
+   ```
+
 3. Kemudian, setelah berhasil, kita langsung masuk saja ke dalam mode **Recovery** menggunakan perintah di bawah.
-    ```
-    $ sudo fastboot boot twrp-3.1.0-0-libra.img
-    ```
-    ```
-    downloading 'boot.img'...
-    OKAY [  1.709s]
-    booting...
-    OKAY [  0.517s]
-    finished. total time: 2.225s
-    ```
-    Tunggu beberapa detik, sampai *smartphone* kita akan *reboot* dan masuk ke dalam mode **Recovery**.
 
-    ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
+   {% shell_user %}
+sudo fastboot boot twrp-3.1.0-0-libra.img
+{% endshell_user %}
 
-    Cara lain untuk masuk ke dalam mode **Recovery** dengan menggunakan kombinasi tombol.
+   ```
+   downloading 'boot.img'...
+   OKAY [  1.709s]
+   booting...
+   OKAY [  0.517s]
+   finished. total time: 2.225s
+   ```
 
-    Terlebih dahulu matikan *smartphone* kalian, kemudian tekan dan tahan tombol <kbd>Volume Up</kbd> + <kbd>Power</kbd> secara berurutan.
+   Tunggu beberapa detik, sampai *smartphone* kita akan *reboot* dan masuk ke dalam mode **Recovery**.
 
-    Dengan begini, maka penggunaan Terminal cukup sampai di sini saja. Tapi jangan di cabut dulu kabel datanya, karena kita masih harus memasukkan bahan-bahan untuk proses instalasi *custom* ROM ke dalam *internal memory* dari *smartphone*.
+   ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
+   <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
+
+   Cara lain untuk masuk ke dalam mode **Recovery** dengan menggunakan kombinasi tombol.
+
+   Terlebih dahulu matikan *smartphone* kalian, kemudian tekan dan tahan tombol <kbd>Volume Up</kbd> + <kbd>Power</kbd> secara berurutan.
+
+   Dengan begini, maka penggunaan Terminal cukup sampai di sini saja. Tapi jangan di cabut dulu kabel datanya, karena kita masih harus memasukkan bahan-bahan untuk proses instalasi *custom* ROM ke dalam *internal memory* dari *smartphone*.
 
 <br>
 ## Copy Bahan-bahan ke dalam Internal Memory

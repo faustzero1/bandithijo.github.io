@@ -30,7 +30,7 @@ vi /etc/locale.gen
 _Scroll_ ke bawah dan cari baris yang mengandung isi `en_US.UTF-8 UTF-8`, lalu hilangkan tanda `#` yang ada di depan baris tersebut.
 
 {% highlight_caption /etc/locale.gen %}
-<pre class="caption">
+{% pre_caption %}
 ...
 ...
 
@@ -41,7 +41,7 @@ _Scroll_ ke bawah dan cari baris yang mengandung isi `en_US.UTF-8 UTF-8`, lalu h
 #en_ZA.UTF-8 UTF-8
 ...
 ...
-</pre>
+{% endpre_caption %}
 
 Kamu dapat juga memilih bahasa **Indonesia**, dengan _scrolling_ ke bawah dan hilangkan tanda `#` pada `id_ID.UTF-8 UTF-8`. Namun, saya pribadi lebih _prefer_ hanya menggunakan **English** saja.
 

@@ -47,18 +47,23 @@ Saya sudah menuliskan cara-cara yang saya kumpulkan agar Irssi dapat saya pergun
 ## Instalasi
 
 Pasang paket Irssi pada distro masing-masing.
-```
-$ sudo pacman -S irssi
-```
+
+{% shell_user %}
+sudo pacman -S irssi
+{% endshell_user %}
+
 Untuk *scripts*, kita akan bahas beberapa *scripts* yang saya pergunakan pada pembahasan di bawah.
 
 ## Membuat App Launcher
 
 Karena Irssi adalah program untuk dijalankan di atas Terminal, biasanya belum disertakan app launchernya. Kita perlu membuatnya sendiri.
-```
-$ vim ~/.local/share/applications/irssi.desktop
-```
-<pre>
+
+{% shell_user %}
+vim ~/.local/share/applications/irssi.desktop
+{% endshell_user %}
+
+{% highlight_caption $HOME/.local/share/applications/irssi.desktop %}
+{% highlight lang linenos %}
 [Desktop Entry]
 Name=irssi
 Comment=Chat with other people online
@@ -70,7 +75,8 @@ Type=Application
 Encoding=UTF-8
 Categories=Network;IRCClient;
 NoDisplay=false
-</pre>
+{% endhighlight %}
+
 Pada bagian `Exec=` bagian `termite` dapat disesuaikan dengan Terminal Emulator yang teman-teman pergunakan. Perhatikan juga option `-e`. Beberpa Terminal memiliki option yang berbeda. Coba jalankan terlebih dahulu pada Terminal.
 
 Sekarang coba jalankan. Kalian akan bertemu dengan tampilan awal dari Irssi.
@@ -84,11 +90,9 @@ Sekarang coba jalankan. Kalian akan bertemu dengan tampilan awal dari Irssi.
 
 Seperti kebanyakan aplikasi berbasil ncurses, kalau mau enak digunakan kita perlu melakukan konfigurasi terlebih dahulu sesuai pereserensi kita. Secara *default* Irssi akan membuat konfig directori di *home* kita `~/.irssi/`. Di dalam direktori ini terdapat file config.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Selama proses memasukkan perintah-perintah konfigurasi ke dalam Irssi di bawah. Sebaiknya jangan dulu membuka file <code>~/.irssi/config</code>. Karena perintah-perintah di bawah akan kita simpan ke dalam file <code>config</code> dengan perintah <code>/save</code>.</p>
-</div>
+{% endbox_perhatian %}
 
 ### Registrasi Username
 
@@ -99,16 +103,21 @@ Kita tidak harus memiliki username untuk dapat menggunakan IRC pada jaringan fre
 Caranya sangat mudah. Cukup ketikkan perintah di bawah pada bagian cosole dari Irssi (*bagian paling bawah, hanya pada bagian ini kita dapat menginputkan ketikan keyboard*) `[(status)]_`.
 
 Kita harus terhubung dengan server chat.freenode.net.
+
 ```
 /connect chat.freenode.net
 ```
+
 Selanjutnya registerkan username kamu.
+
 ```
 /msg NickServ REGISTER passwordkamu emailkamu@example.com
 ```
+
 Nanti akan terbuat window baru pada window nomor 2, coba periksa dengan berpindah ke window 2 menggunakan <kbd>ALT</kbd> + <kbd>2</kbd>.
 
 Perhatikan output-output yang diberikan. Apabila menampilkan seperti di bawah, maka proses registrasi terlah berhasil.
+
 <pre>
 00.00 bandithijo REGISTER mukaijo bandithijo@bandithijo.com
 00.00 NickServ NickServ@services. An email containing nickname activation instructions has been sent to bandithijo@bandithijo.com.
@@ -121,6 +130,7 @@ Perhatikan output-output yang diberikan. Apabila menampilkan seperti di bawah, m
 </pre>
 
 Periksa kotak masuk email kita, akan terdapat email verifikasi dari Freenode (noreply.support@freenode.net)
+
 <pre>
 bandithijo,
 
@@ -131,14 +141,19 @@ command on IRC:
 
 Thank you for registering your account on the freenode IRC network!
 </pre>
+
 Jalankan perintah yang diberikan di Irssi.
+
 ```
 /msg NickServ VERIFY REGISTER bandithijo xfvqrfxpjxrj
 ```
+
 Selanjutnya, identifikasi username kamu.
+
 ```
 /msg NickServ IDENTIFY usernamekamu passwordkamu
 ```
+
 ```
 00.00 bandithijo IDENTIFY bandithijo mukaijo
 00.00 NickServ NickServ@services. You are already logged in as bandithijo.
@@ -159,10 +174,13 @@ Masukkan perintah di bawah, untuk membuat koneksi secara otomatis menggunakan TL
 ```
 /server add -auto -tls -tls_verify -network freenode -port 6697 chat.freenode.net
 ```
+
 Simpan konfigurasi dengan.
+
 ```
 /save
 ```
+
 Keluar dengan `/quit`, lalu masuk kembali `/connect chat.freenode.net`.
 
 Apabila berhasil, akan terdapat huruf kapital "**Z**" mode. Akan ada output baris baru yang kira-kira berisi `Mode change [+Zi] for user bandithijo`.
@@ -174,40 +192,51 @@ Kita dapat menggunakan autentikasi menggunakan **SSL** *certificates* sebagai al
 Untuk membuat sertifikat tanpa password, ikuti beberapa baris perintah di bawah pada Terminal.
 
 Kode *Country Name* isikan saja `ID`, apabila diminta untuk memasukkan detail seperti *State* atau *Common Name*, kalian dapat isi sesukanya.
-```
-$ openssl req -newkey rsa:2048 -x509 -keyout irssi.key -out irssi.crt -nodes
-$ cat irssi.crt irssi.key > ~/.irssi/irssi.pem
-$ chmod 600 ~/.irssi/irssi.pem
-$ rm irssi.crt irssi.key
-```
+
+{% shell_user %}
+openssl req -newkey rsa:2048 -x509 -keyout irssi.key -out irssi.crt -nodes
+cat irssi.crt irssi.key > ~/.irssi/irssi.pem
+chmod 600 ~/.irssi/irssi.pem
+rm irssi.crt irssi.key
+{% endshell_user %}
+
 Selanjutnya, menampilkan fingerprint dari `irssi.pem`.
-```
-$ openssl x509 -sha1 -fingerprint -noout -in ~/.irssi/irssi.pem | sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
-```
+
+{% shell_user %}
+openssl x509 -sha1 -fingerprint -noout -in ~/.irssi/irssi.pem | sed -e 's/^.*=//;s/://g;y/ABCDEF/abcdef/'
+{% endshell_user %}
+
 ```
 386b6c1eb8efb3a3617d1ffe7e6c0489e71a63be
 ```
 Copy fingerprint di atas.
 
 Selanjutnya, buka Irssi dan kita akan *disconnect* lalu memasukkan SSL sertifikasi pada konfigurasi untuk terhubung ke server Freenode.
+
 ```
 /disconnect Freenode
 /server add -ssl_cert ~/.irssi/irssi.pem -network freenode chat.freenode.net 6697
 ```
+
 Sekarang, coba *connect* kembali (bukan `/reconnect`) ke Freenode, kemudian identify dan register fingerprint kita.
+
 ```
 /connect Freenode
 /msg NickServ identify passwordkamu
 /msg NickServ cert add fingerprintpemkamu
 ```
+
 Apabila berhasil, akan terdapat output pada window ke 2 [Freenode/NickServ].
+
 ```
 00:00 NickServ NickServ@services. Added fingerprint 386b6c1eb8efb3a3617d1ffe7e6c0489e71a63be to your
                                   fingerprint list.
 ```
+
 Selanjutnya jangan lupa di `/save`.
 
 Apabila teman-teman mengecek isi dari `~/.irssi/config`. Akan terdapat baris seperti di bawah.
+
 <pre>
 ...
   {
@@ -225,14 +254,12 @@ Apabila teman-teman mengecek isi dari `~/.irssi/config`. Akan terdapat baris sep
 
 Maka proses dari konfigurasi utama telah selesai.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Apabila suatu hari, saat kalian login Irssi dan mengalami
 <pre>Irssi: warning The client certificate is expired</pre>
 Cukup mengulangi langkah pembuatan sertifikat klien di atas.</p>
 <p><b>2019/01/29</b>, Saya baru mengalami masalah ini, dan berhasil mengatasinya dengan mengulangi langkah pembuatan sertifikat klien di atas.</p>
-</div>
+{% endbox_info %}
 
 
 ## Konfigurasi Tambahan
@@ -244,9 +271,11 @@ Untuk tema (*Theme*), teman-teman dapat melihat koleksi dari tema yang disediaka
 Cara instalasinya sangat mudah, langsung saja download dan letakkan pada direktori `~/.irssi/`.
 
 Selanjutnya untuk mengaktifkannya, dengan perintah.
+
 ```
 /set theme namatema
 ```
+
 Perlu diperhatikan, terkadang tampilan yang ada pada *screenshot* tidak sesuai dengan hasil yang kita harapakan, hal tersebut dikarenakan banyak faktor yang tidak disertakan dalam bagian dari tema, seperti: *base color* dan *background color* dari Terminal, *font face*, *script* tambahan, dll.
 
 Saya menggunakan tema hasil modifikasi dari [`solarized.theme`](https://github.com/huyz/irssi-colors-solarized){:target="_blank"} dari **Huy Z**.
@@ -277,10 +306,13 @@ Untuk membuat autojoin pada channel favorit kita caranya sangat mudah.
 ```
 
 Nah, saat kita menjalankan Irssi, maka akan terbuat window 1 untuk #freenode dan window 2 untuk #archlinux. Apabila kalian ingin merubah urutannya, dapat membuat perubahan pada file `config`.
+
 ```
 $ vim ~/.irssi/config
 ```
+
 Cari bagian seperti di bawah.
+
 <pre>
 channels = (
   { name = "#lobby"; chatnet = "EsperNet"; autojoin = "No"; },
@@ -295,6 +327,7 @@ channels = (
   <mark>{ name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; }</mark>
 );
 </pre>
+
 Perhatikan, terdapat #freenode pada urutan kedua dan #archlinux pada urutan terakhir yang memiliki nilai `autojoin= "yes"`. Teman-teman dapat merubah urutan-urutanya, sesuaikan dengan preferensi masing-masing.
 
 Jangan lupa disimpan, `/save`.
@@ -312,94 +345,115 @@ Di awal-awal saya menggunakan Irssi, saya belum menambahakn notifikasi. Sampai p
 Kita akan menggunakan [`irssi-libnotify`](https://github.com/stickster/irssi-libnotify){:targer="_blank"} untuk notifikasi dan membuatnya autorun saat Irssi dijalankan, langkah-langkahnya sebagai berikut.
 
 1. Instal paket dependensi yang dibutuhkan, yaitu:
-    * libnotify
-    * perl-html-parser
-    * pygobject
+   * libnotify
+   * perl-html-parser
+   * pygobject
 
-    Sesuaikan dengan distribusi sistem operasi masing-masing. (pada Arch linux, pygobject bernama paket `pygobject-devel` untuk Python 3 dan `pygobject2-devel` untuk Pyhton 2).
-    ```
-    $ sudo pacman -S libnotify perl-html-parser pygobject-devel pygobject2-devel
-    ```
+   Sesuaikan dengan distribusi sistem operasi masing-masing. (pada Arch linux, pygobject bernama paket `pygobject-devel` untuk Python 3 dan `pygobject2-devel` untuk Pyhton 2).
+
+   {% shell_user %}
+sudo pacman -S libnotify perl-html-parser pygobject-devel pygobject2-devel
+{% endshell_user %}
+
 2. Konfigurasi untuk file *script* `notify.pl`.
-    ```
-    $ mkdir -p ~/.irssi/scripts/autorun
-    $ cd ~/.irssi/scripts
-    $ wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/notify.pl
-    $ cd autorun
-    $ ln -s ../notify.pl
-    ```
+
+   {% shell_user %}
+mkdir -p ~/.irssi/scripts/autorun
+cd ~/.irssi/scripts
+wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/notify.pl
+cd autorun
+ln -s ../notify.pl
+{% endshell_user %}
+
 3. Lakukan sedikit modifikasi pada *path* yang mengarah ke `~/bin/irssi-notifier.sh`.
-    ```
-    $ vim notify.pl
-    ```
-    Cari pada sekitar baris 41 bagian `sub notify_linux {` dan sekitar baris 73 bagian `sub notify {` terdapat baris yang berisi *path* dari file `irssi-notifier.sh` yang tidak sesuai dengan konfigurasi yang akan kita sesuaikan.
-    <pre>
-    sub notify_linux {
-        ...
-        ...
-            <mark>" ~/bin/irssi-notifier.sh" .</mark>
-            ...
-        ...
-    }
-    ...
-    ...
 
-    sub notify {
-        ...
-        ...
-            <mark>" ~/bin/irssi-notifier.sh" .</mark>
-            ...
-        ...
-    }
-    </pre>
-    Ganti menjadi.
-    <pre>
-    sub notify_linux {
-        ...
-        ...
-            <mark>" /usr/bin/irssi-notifier.sh" .</mark>
-            ...
-        ...
-    }
-    ...
-    ...
+   {% shell_user %}
+vim notify.pl
+{% endshell_user %}
 
-    sub notify {
-        ...
-        ...
-            <mark>" /usr/bin/irssi-notifier.sh" .</mark>
-            ...
-        ...
-    }
-    </pre>
-    Simpan.
+   Cari pada sekitar baris 41 bagian `sub notify_linux {` dan sekitar baris 73 bagian `sub notify {` terdapat baris yang berisi *path* dari file `irssi-notifier.sh` yang tidak sesuai dengan konfigurasi yang akan kita sesuaikan.
+
+   <pre>
+   sub notify_linux {
+       ...
+       ...
+           <mark>" ~/bin/irssi-notifier.sh" .</mark>
+           ...
+       ...
+   }
+   ...
+   ...
+
+   sub notify {
+       ...
+       ...
+           <mark>" ~/bin/irssi-notifier.sh" .</mark>
+           ...
+       ...
+   }
+   </pre>
+
+   Ganti menjadi.
+
+   <pre>
+   sub notify_linux {
+       ...
+       ...
+           <mark>" /usr/bin/irssi-notifier.sh" .</mark>
+           ...
+       ...
+   }
+   ...
+   ...
+
+   sub notify {
+       ...
+       ...
+           <mark>" /usr/bin/irssi-notifier.sh" .</mark>
+           ...
+       ...
+   }
+   </pre>
+
+   Simpan.
+
 4. Download file `notify-listener.py` dan `irssi-notifies.sh`.
-    ```
-    $ cd /usr/bin
-    $ sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/notify-listener.py
-    $ sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/irssi-notifier.sh
-    ```
+
+   {% shell_user %}
+cd /usr/bin
+sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/notify-listener.py
+sudo wget https://raw.githubusercontent.com/stickster/irssi-libnotify/master/irssi-notifier.sh
+{% endshell_user %}
+
 5. Modifikasi pada file `notify-listener.py`, untuk membuat penyesuaian karena Python yang digunakan masih versi 2. Sedangkan Arch sudah menggunakan Python versi 3 secara *default*.
-    ```
-    $ sudo vim /usr/bin/notify-listener.py
-    ```
-    Ganti *shebang*.
-    ```
-    #!/usr/bin/python
-    ```
-    Menjadi Python versi 2.
-    ```
-    #!/usr/bin/python2
-    ```
+
+   {% shell_user %}
+sudo vim /usr/bin/notify-listener.py
+{% endshell_user %}
+
+   Ganti *shebang*.
+
+   ```
+   #!/usr/bin/python
+   ```
+
+   Menjadi Python versi 2.
+
+   ```
+   #!/usr/bin/python2
+   ```
+
 6. Kita perlu menjalankan `notify-listener.py` saat sistem startup (memasuki desktop).
 
-    Untuk i3wm sangat mudah, cukup menambahkan perintah di bawah pada file config i3wm.
-    ```
-    exec_always --no-startup-id notify-listener.py
-    ```
-    Untuk desktop manager yang lain. Bisa mengkonfigurasi pada bagian **autorun**. Biasanya sih terdapat pada direktori `~/.config/autostart/` atau `~/.config/autostart-scripts/`. Saya kurang paham. Bisa teman-teman cari sendiri yaa. Mohon maaf karena sudah lama tidak menggunkan desktop environment.
+   Untuk i3wm sangat mudah, cukup menambahkan perintah di bawah pada file config i3wm.
+   ```
+   exec_always --no-startup-id notify-listener.py
+   ```
+   Untuk desktop manager yang lain. Bisa mengkonfigurasi pada bagian **autorun**. Biasanya sih terdapat pada direktori `~/.config/autostart/` atau `~/.config/autostart-scripts/`. Saya kurang paham. Bisa teman-teman cari sendiri yaa. Mohon maaf karena sudah lama tidak menggunkan desktop environment.
 
+<br>
 Tahap notifikasi visual telah Selesai. Coba jalankan Irssi dan lakukan pengujian. Bisa coba ngobrol di channel, atau chat dengan saya.
+
 ```
 /msg bandithijo permisi mas bandit. testing NOTIFIKASI VISUAL.
 ```
@@ -409,35 +463,46 @@ Tahap notifikasi visual telah Selesai. Coba jalankan Irssi dan lakukan pengujian
 Selanjutnya kita juga memerlukan notifikais dalam bentuk suara. Biar tidak sepi aja.
 
 1. Script ini tidak memerlukan dependensi tambahan.
-    ```
-    $ cd ~/.irssi/scripts
-    $ wget https://scripts.irssi.org/scripts/beep_beep.pl
-    $ wget https://github.com/bandithijo/dotfiles/raw/master/.irssi/scripts/gnome_beep.opus
-    $ cd autorun
-    $ ln -s ../beep_beep.pl
-    ```
+
+   {% shell_user %}
+cd ~/.irssi/scripts
+wget https://scripts.irssi.org/scripts/beep_beep.pl
+wget https://github.com/bandithijo/dotfiles/raw/master/.irssi/scripts/gnome_beep.opus
+cd autorun
+ln -s ../beep_beep.pl
+{% endshell_user %}
+
 2. Modifikasi sedikit pada bagian perintah `play`, sekitar baris 51.
-    ```
-    $ vim beep_beep.pl
-    ```
-    <pre>
-    Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play ~/.irssi/scripts/beep_beep.wav</mark> > /dev/null &");
-    </pre>
-    Ganti menjadi.
-    <pre>
-    Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play -q ~/.irssi/scripts/gnome_beep.opus</mark> > /dev/null &");
-    </pre>
+
+   {% shell_user %}
+vim beep_beep.pl
+{% endshell_user %}
+
+   <pre>
+   Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play ~/.irssi/scripts/beep_beep.wav</mark> > /dev/null &");
+   </pre>
+
+   Ganti menjadi.
+
+   <pre>
+   Irssi::settings_add_str("lookandfeel", "beep_cmd", "<mark>play -q ~/.irssi/scripts/gnome_beep.opus</mark> > /dev/null &");
+   </pre>
+
 3. Selanjutnya tinggal memasukkan nilai dari `beep_msg_level` pada Irssi.
 
-    Jalankan Irssi.
-    ```
-    /set beep_msg_level MSGS DCC DCCMSGS HILIGHT NOTICES
-    ```
+   Jalankan Irssi.
 
+   ```
+   /set beep_msg_level MSGS DCC DCCMSGS HILIGHT NOTICES
+   ```
+
+<br>
 Tahap notifikasi suara telah Selesai. Coba jalankan Irssi dan lakukan pengujian. Bisa coba ngobrol di channel, atau chat dengan saya.
+
 ```
 /msg bandithijo permisi mas bandit. testing NOTIFIKASI SUARA.
 ```
+
 <br>
 Konfigurasi tambahan segini dulu aja yaa. Untuk kegunaan *script* yang lain dapat dicoba sendiri.
 
@@ -448,6 +513,7 @@ Repositori untuk *scripts* Irssi dapat dilihat [di sini](https://scripts.irssi.o
 ## Error Closing Link
 
 Selama menggunakan Irssi, saya mengalami hal ini beberapa kali.
+
 ```
 ERROR Closing Link: 36.80.031.08 (SASL access only)
 ```

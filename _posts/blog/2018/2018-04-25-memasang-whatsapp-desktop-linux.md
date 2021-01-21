@@ -165,7 +165,7 @@ touch ~/.local/share/applications/whatsapp-desktop.desktop
 Buka file `whatsapp-desktop.desktop` yang baru saja kita buat menggunakan *text editor* favorit kalian dan copy paste kode di bawah.
 
 {% highlight_caption $HOME/.local/share/applications/whatsapp-desktop.desktop %}
-<pre class="caption">
+{% pre_caption %}
 #!/usr/bin/env xdg-open
 [Desktop Entry]
 Name=Whatsapp-Desktop
@@ -179,7 +179,7 @@ StartupWMClass=whatsapp
 Keywords=WhatsApp;Whats;
 Categories=Network;InstantMessaging;
 X-GNOME-UsesNotifications=true
-</pre>
+{% endpre_caption %}
 
 Perhatikan pada bagian `Exec=`, berisi lokasi dimana file `WhatsApp` tersimpan. Pada kasus saya, saya menyimpan direktori *cloning* dari Whatsapp-Desktop berada pada lokasi `/home/bandithijo/app/whatsapp`, kamu harus menyesuaikan lokasi ini dengan lokasi dimana kamu menyimpan hasil *clone* Whatsapp-Desktop dari GitHub.
 

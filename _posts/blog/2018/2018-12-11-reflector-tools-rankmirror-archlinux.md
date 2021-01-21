@@ -22,10 +22,13 @@ contributors: []
 Jika sebelum *posting* ini saya tulis, saya hanya mengetahui *tools* bernama `rankmirrors` untuk memfilter mirrors tercepat. Dan sepertinya *scripts* ini sudah *deprecated* dari *official repository* Arch Linux.
 
 Selama ini saya hanya menggunakan *mirror* dari Indonesia.
-```
+
+{% highlight_caption /etc/pacman.d/mirrorlist %}
+{% pre_caption %}
 Server = http://mirror.poliwangi.ac.id/archlinux/$repo/os/$arch
 Server = http://suro.ubaya.ac.id/archlinux/$repo/os/$arch
-```
+{% endpre_caption %}
+
 Namun, beberapa hari belakangan ini, terasa ada yang aneh dengan mirror-mirror ini. Tidak terdapat *update*. Ahahaha. Terdengar konyol.
 
 Singkat cerita, bertemulah saya dengan tools [`reflector`](https://www.archlinux.org/packages/community/any/reflector/){:target="_blank"}.
@@ -38,26 +41,29 @@ Berikut ini adalah catatan-catatan yang tentu saja saya kutip dari Arch Wiki.
 
 # Penerapan
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Perintah-perintah di bawah ini akan menimpa file <code>/etc/pacman.d/mirrorlist</code>. Sangat dianjurkan untuk membuat <i>backup</i> terlebih dahulu.</p>
-<p><pre>$ sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup</pre></p>
-</div>
+{% shell_user %}
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+{% endshell_user %}
+{% endbox_perhatian %}
 
 ## Instalasi
 
 Install paket `reflector`.
-```
-$ sudo pacman -S reflector
-```
+
+{% shell_user %}
+sudo pacman -S reflector
+{% endshell_user %}
 
 ## Contoh Penggunaan
 
 Untuk melihat bagaimana cara menggunakan `reflector` selalu biasakan untuk membaca `--help` dari sebuah *tools*.
-```
-$ reflector --help
-```
+
+{% shell_user %}
+reflector --help
+{% endshell_user %}
+
 ```
 usage: Reflector.py [-h] [--connection-timeout n] [--list-countries]
                     [--cache-timeout n] [--save <filepath>]
@@ -73,26 +79,27 @@ Detail lebih lengkap dapat dilihat sendiri yaa.
 
 Contoh di bawah ini akan menampilkan output yang dikerjakan *script* (`--verbose`) dan menyortir lima mirror yang paling ter-*update* (`--latest 5`) yang diurutkan berdasarkan hasil kecepatan *download* (`--sort rate`) kemudian hasilnya akan langsung menimpa  (`--save`) isi dari file `/etc/pacman.d/mirrorlist`.
 
-```
-$ sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-```
+{% shell_user %}
+sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+{% endshell_user %}
+
 <br>
 **Contoh 2**
 
 Contoh di bawah ini akan menyeleksi 100 mirror yang berprotokol HTTP & HTTPS yang sudah tersinkronisasi dan diurutkan berdasarkan kecepatan *download*.
 
-```
-$ sudo reflector --latest 100 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-```
+{% shell_user %}
+sudo reflector --latest 100 --protocol http --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+{% endshell_user %}
 
 <br>
 **Contoh 3**
 
 Contoh di bawah ini akan menyeleksi mirror berdasarkan protokol HTTPS yang terupadate 12 jam terakhir, berlokasi di Indonesia, serta diurutkan berdasarkan kecepatan *download*.
 
-```
-$ sudo reflector --country Indonesia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
-```
+{% shell_user %}
+sudo reflector --country Indonesia --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+{% endshell_user %}
 
 <br>
 Nah, gimana? mantep yaa?
@@ -108,10 +115,12 @@ Automatisasi ini tergantung kalian ingin menggunakan yang mana.
 
 Contoh ini akan menjalankan `reflector.service` setelah network service up and online.
 
-```
-$ sudo vim /etc/systemd/system/reflector.service
-```
-<pre>
+{% shell_user %}
+sudo vim /etc/systemd/system/reflector.service
+{% endshell_user %}
+
+{% highlight_caption /etc/systemd/system/reflector.service %}
+{% pre_caption %}
 [Unit]
 Description=Pacman mirrorlist update
 Wants=network-online.target
@@ -123,15 +132,15 @@ ExecStart=<mark>/usr/bin/reflector --protocol https --latest 30 --number 20 --so
 
 [Install]
 RequiredBy=multi-user.target
-</pre>
+{% endpre_caption %}
 
 Parameter dari `ExecStart=` dapat teman-teman rubah sesuai preferensi masing-masing.
 
 Kemudian, apabila ingin di jalankan sekali waktu, tinggal panggil dan jalankan saja servicenya.
 
-```
-$ sudo systemctl start reflector.service
-```
+{% shell_user %}
+sudo systemctl start reflector.service
+{% endshell_user %}
 
 Service ini hanya berjalan sekali dan langsung berhenti (*inactive*). Sehingga kita hanya perlu memanggil/menjalankannya apabila kita membutuhkan servie ini saja.
 
@@ -142,10 +151,12 @@ Saya tidak menyarankan untuk meng-*enable*-kan service ini setiap komputer di-*r
 
 Untuk mengupdate mirrorlist daily, kira-kira seperti ini.
 
-```
-$ sudo vim /etc/cron.daily/mirrorlist
-```
-```
+{% shell_user %}
+sudo vim /etc/cron.daily/mirrorlist
+{% endshell_user %}
+
+{% highlight_caption /etc/cron.daily/mirrorlist %}
+{% pre_caption %}
 #!/bin/bash
 
 # Get the country thing
@@ -153,7 +164,7 @@ $ sudo vim /etc/cron.daily/mirrorlist
 
 # Work through the alternatives
 /usr/bin/reflector -p http -p https --latest 20 --sort rate >> /etc/pacman.d/mirrorlist
-```
+{% endpre_caption %}
 
 # Pesan Penulis
 

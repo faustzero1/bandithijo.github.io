@@ -33,14 +33,16 @@ Atas dasar ini, saya akan merubah konfigurasi agar NeoVim dapat dibuka pada *ter
 
 Kita perlu memindahkan file launcher `vim.desktop` atau `nvim.desktop` -- tergantung kalian menggunakan Vim atau NeoVim. Lokasinya berada pada `/usr/share/applications/`, kita pindahkan ke dalam direktori lokal kita, yaitu `~/.local/share/applications/`.
 
-```
-$ cp /usr/share/applications/nvim.desktop /home/bandithijo/.local/share/applications/nvim.desktop
-```
+{% shell_user %}
+cp /usr/share/applications/nvim.desktop /home/bandithijo/.local/share/applications/nvim.desktop
+{% endshell_user %}
+
 Ubah nama direktori user `bandithijo` menjadi nama direktori user kalian.
 
 Lalu edit isi dari `vim.desktop` atau `nvim.desktop` yang berada pada direktori lokal seperti contoh di bawah.
 
-<pre>
+{% highlight_caption $HOME/.local/share/applications/vim.desktop %}
+{% pre_caption %}
 [Desktop Entry]
 Name=Neovim
 Comment=Edit text files
@@ -54,7 +56,8 @@ Icon=nvim
 Categories=Utility;TextEditor;
 StartupNotify=false
 MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
-</pre>
+{% endpre_caption %}
+
 Perhatikan pada bagian `Exec=`. Saya men-disable yang lama dengan menjadikannya komentar -- memberi tanda `#` pada bagian awal dari baris. Kemudian membuat `Exec=` baru pada baris di bawahnya yang berisi `xfce4-terminal -x nvim %F`.
 
 Jangan lupa untuk mengeset atribute `Terminal=false` apabila nilainya masih `true`. Karena akan menyebabkan terbukanya dua buah terminal.

@@ -72,9 +72,11 @@ Nah, file `winbox.exe` ini bukan merupakan file paket instalasi, namun merupakan
 Lakukan pengetesan untuk menguji apakah WinBox dapat berjalan di atas Wine.
 
 Buka **Terminal** dan pergi ke direktori tempat dimana file `winbox.exe` kalian simpan. Kemudian jalankan *command* di bawah.
-```
-$ wine winbox.exe
-```
+
+{% shell_user %}
+wine winbox.exe
+{% endshell_user %}
+
 Apabila berhasil, akan menampilkan jendela WinBox seperti di bawah.
 
 ![gambar3](https://s20.postimg.cc/5ms4r57jx/gambar_03.png)

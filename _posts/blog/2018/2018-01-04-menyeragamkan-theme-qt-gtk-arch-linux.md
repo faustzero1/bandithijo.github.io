@@ -83,23 +83,24 @@ Langkah-langkah awalnya sebagai berikut.
 
 1. **Cek lokasi .desktop**
 
-    _Launcher_ dari aplikasi biasanya tersimpan pada dua lokasi yang berbeda. Global dan lokal.
+   _Launcher_ dari aplikasi biasanya tersimpan pada dua lokasi yang berbeda. Global dan lokal.
 
-    * Global tersimpan pada `/usr/share/applications/`
-    * Lokal tersimpan pada `.local/share/applications/`
+   * Global tersimpan pada `/usr/share/applications/`
+   * Lokal tersimpan pada `.local/share/applications/`
 
-    Yang akan kita modifikasi adalah `.desktop` yang ada pada lokal, jadi kita lakukan pengecekan pada direktori `.local/share/applications/` apakah terdapat file bernama `org.gnome.Nautilus.desktop`.
+   Yang akan kita modifikasi adalah `.desktop` yang ada pada lokal, jadi kita lakukan pengecekan pada direktori `.local/share/applications/` apakah terdapat file bernama `org.gnome.Nautilus.desktop`.
 
-    Apabila tidak ditemukan, kita lanjut melakukan pencarian ke lokasi global di `/usr/share/applications/`.
+   Apabila tidak ditemukan, kita lanjut melakukan pencarian ke lokasi global di `/usr/share/applications/`.
 
 2. **Copy ke direktori lokal**
 
-    Setelah ketemu, _copy_ file `org.gnome.Nautilus.desktop` ke direktori lokal yaitu di `.local/share/applications/`.
+   Setelah ketemu, _copy_ file `org.gnome.Nautilus.desktop` ke direktori lokal yaitu di `.local/share/applications/`.
 
-    ><p class="title-quote">Mengapa harus dicopy ke direktori lokal ?</p>
-    >Agar apabila sewaktu-waktu apabila kita memerlukan kembali, kita dapat mengeditnya kembali tanpa memerlukan _sudo permission_. Dengan mecopy ke dalam direktori lokal, maka tidak akan merusak pengaturan `.desktop` asli yang tersimpan pada direktori global.
-    >
-    >Saya lebih merekomendasikan cara ini.
+   {% box_pertanyaan %}
+    <p><b>Mengapa harus dicopy ke direktori local?</b></p>
+    <p>Agar apabila sewaktu-waktu apabila kita memerlukan kembali, kita dapat mengeditnya kembali tanpa memerlukan _sudo permission_. Dengan mecopy ke dalam direktori lokal, maka tidak akan merusak pengaturan `.desktop` asli yang tersimpan pada direktori global.</p>
+    <p>Saya lebih merekomendasikan cara ini.</p>
+   {% endbox_pertanyaan %}
 
 
 ### GTK+3
@@ -111,8 +112,10 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 1. **Edit isi .dekstop**
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
-   <pre>
-   $ <b>vim .local/share/applications/org.gnome.Nautilus.desktop</b></pre>
+
+   {% shell_user %}
+vim .local/share/applications/org.gnome.Nautilus.desktop
+{% endshell_user %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -124,23 +127,27 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.
 
-   <pre>
-   $ <b>vim .local/share/applications/org.gnome.Nautilus.desktop</b></pre>
+   {% shell_user %}
+vim .local/share/applications/org.gnome.Nautilus.desktop
+{% endshell_user %}
 
    {% highlight_caption $HOME/.local/share/applications/org.gnome.Nautilus.desktop %}
-   <pre class="caption">
-   #!/usr/bin/env xdg-open
-   [Desktop Entry]
-   Name=Nautilus
-   ...
-   ...
-   Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
-   ...
-   ...</pre>
+   {% pre_caption %}
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Nautilus
+...
+...
+Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
+...
+...
+{% endpre_caption %}
 
    Adwaita juga memiliki _dark theme_, kita dapat menggunakannya dengan cara seperti ini.
-   <pre>
-   Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U</pre>
+
+   {% shell_user %}
+Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U
+{% endshell_user %}
 
 ### GTK+2
 
@@ -152,8 +159,9 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
 
-   <pre>
-   $ <b>vim .local/share/applications/inkscape.desktop</b></pre>
+   {% shell_user %}
+vim .local/share/applications/inkscape.desktop
+{% endshell_user %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -164,18 +172,22 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
    ><code>Exec=<mark>env GTK2_RC_FILES=/tema_yang_mempunyai/gtkrc</mark> ...</code>
 
    Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.
-   <pre>
-   $ <b>vim .local/share/applications/inkscape.desktop</b></pre>
+
+   {% shell_user %}
+vim .local/share/applications/inkscape.desktop
+{% endshell_user %}
 
    {% highlight_caption $HOME/.local/share/applications/inkscape.desktop %}
-   <pre class="caption">
-   [Desktop Entry]
-   Name=Inkscape
-   ...
-   ...
-   Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F
-   ...
-   ...</pre>
+   {% pre_caption %}
+[Desktop Entry]
+Name=Inkscape
+...
+...
+Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F
+...
+...
+{% endpre_caption %}
+
 
 ### Qt5
 
@@ -187,8 +199,9 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
 
-   <pre>
-   $ <b>vim .local/share/applications/vokoscreen.desktop</b></pre>
+   {% shell_user %}
+vim .local/share/applications/vokoscreen.desktop
+{% endshell_user %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -200,23 +213,25 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.
 
-   <pre>
-   $ <b>vim .local/share/applications/vokoscreen.desktop</b></pre>
+   {% shell_user %}
+vim .local/share/applications/vokoscreen.desktop
+{% endshell_user %}
 
    {% highlight_caption $HOME/.local/share/applications/vokoscreen.desktop %}
-   <pre class="caption">
-   [Desktop Entry]
-   Name=vokoscreen
-   ...
-   ...
-   Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen
-   ...
-   ...</pre>
+   {% pre_caption %}
+[Desktop Entry]
+Name=vokoscreen
+...
+...
+Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen
+...
+...
+{% endpre_caption %}
 
-   ><p class="title-quote">[ ! ] Perhatian</p>
-   >Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket `adwaita-qt4` dan `adwaita-qt5`, saya ikut sertakan untuk dipasang.
-   >
-   >Untuk penggunaan tema lain, mungkin bisa menggunakan `breeze` atau tema Qt yang lain, saya kurang begitu paham untuk tema-tema yang digunakan pada Qt.
+   {% box_perhatian %}
+   <p markdown=1>Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket `adwaita-qt4` dan `adwaita-qt5`, saya ikut sertakan untuk dipasang.</p>
+   <p markdown=1>Untuk penggunaan tema lain, mungkin bisa menggunakan `breeze` atau tema Qt yang lain, saya kurang begitu paham untuk tema-tema yang digunakan pada Qt.</p>
+   {% endbox_perhatian %}
 
 
 <br>

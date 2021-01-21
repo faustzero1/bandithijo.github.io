@@ -58,35 +58,43 @@ Kita membutuhkan aplikasi RSS feed reader untuk mengumpulkan semua daftar RSS da
 Aplikasi yang saya rekomendasikan adalah [`newsboat`](https://www.archlinux.org/packages/community/x86_64/newsboat/){:target="_blank"}. Newsboat adalah aplikasi yang berjalan di atas Terminal.
 
 1. Pasang aplikasi `newsboat`.
-```
-$ sudo pacman -S newsboat
-```
-Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.
+
+   {% shell_user %}
+sudo pacman -S newsboat
+{% endshell_user %}
+
+   Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.
 
 2. Karena aplikasi ini berjalan di atas Terminal dan belum tersedia *application launcher*-nya, maka kita perlu membuatnya sendiri.
-```
-$ vim .local/share/applications/newsboat.desktop
-```
-    <pre>
-    [Desktop Entry]
-    Name=newsboat
-    Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
-    <mark>Exec=urxvt -e newsboat</mark>
-    Icon=liferea
-    Terminal=false
-    Type=Application
-    StartupNotify=true
-    Categories=Network;News;
-    Keywords=news;feed;aggregator;blog;podcast;</pre>
-Pada bagian `Exec=`, Terminal emulator `urxvt` mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya. Perhatikan `-e` tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan `-x`.
+
+   {% shell_user %}
+vim .local/share/applications/newsboat.desktop
+{% endshell_user %}
+
+   {% highlight_caption $HOME/.local/share/applications/newsboat.desktop %}
+   {% pre_caption %}
+[Desktop Entry]
+Name=newsboat
+Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.
+<mark>Exec=urxvt -e newsboat</mark>
+Icon=liferea
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;News;
+Keywords=news;feed;aggregator;blog;podcast;
+{% endpre_caption %}
+
+   Pada bagian `Exec=`, Terminal emulator `urxvt` mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: `gnome-terminal`, `xfce4-terminal`, `termite`, `konsole`, dan lain sebagainya. Perhatikan `-e` tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan `-x`.
+
 
 # Konfigurasi
 
 Sebelum kita jalankan, sebaiknya kita konfigurasi terlebih dahulu. Karena newsboat tidak dapat menjalankan apa-apa tanpa ada alamat RSS feed di dalamnya. Kalian dapat meletakkan file konfigurasi pada direktori `~/.newsboat/`, namun saya lebih menyukai meletakkan file konfigurasi pada direktori `~/.config/newsboat/`.
 
-```
-$ mkdir -p ~/.config/newsboat
-```
+{% shell_user %}
+mkdir -p ~/.config/newsboat
+{% endshell_user %}
 
 Setelah itu di dalam direktori `~/.config/newsboat/` ini, kita perlu membuat 2 buah file, yaitu `config` dan `urls`.
 
@@ -96,10 +104,12 @@ File `config` diperlukan untuk pengaturan dari newsboat, seperti: *keyboard shor
 
 Kita akan membuat file konfigurasi. Pada tahap ini teman-teman dapat mencontoh konfigurasi yang saya miliki.
 
-```
-$ vim ~/.config/newsboat/config
-```
-```
+{% shell_user %}
+vim ~/.config/newsboat/config
+{% endshell_user %}
+
+{% highlight_caption $HOME/.config/newsboat/config %}
+{% pre_caption %}
 auto-reload yes
 datetime-format "%Y/%m/%d, %R"
 
@@ -168,8 +178,8 @@ color listfocus_unread   black     yellow bold
 color info               yellow    black
 color article            default   default
 # ----------------------------------------------------------------------------
+{% endpre_caption %}
 
-```
 Selesai.
 
 Langkah konfigurasi file `config` hanya seperti ini saja.
@@ -181,10 +191,12 @@ Silahkan disesuaikan dengan preferensi masing-masing.
 
 Selanjutnya, kita akan membuat file `urls` yang digunakan untuk mendaftar link dari RSS feed favorit kita.
 
-```
-$ vim ~/.config/newsboat/urls
-```
-```
+{% shell_user %}
+vim ~/.config/newsboat/urls
+{% endshell_user %}
+
+{% highlight_caption $HOME/.config/newsboat/urls %}
+{% pre_caption %}
 --------------------------------------------------------------------DOTFRIENDS
 https://bandithijo.com/feed/blog.xml "~BanditHijo Blog" "dotfriends"
 https://bandithijo.com/feed/vlog.xml "~BanditHijo Vlog" "dotfriends"
@@ -194,13 +206,14 @@ https://www.archlinux.org/feeds/news/ "Tech News"
 https://kabarlinux.id/feed/ "Tech News"
 https://fedoramagazine.org/feed/ "Tech News"
 http://planet.gnome.org/atom.xml "Tech News"
+{% endpre_caption %}
 
-```
 Selesai.
 
 Langkah konfigurasi file `urls` hanya seperti ini saja.
 
 Untuk format penulisan file `urls` ini, seperti di bawah.
+
 ```
 https://rss-feed-url "~custom feed name" "tag"
 https://rss-feed-url "~custom feed name"
@@ -209,11 +222,9 @@ https://rss-feed-url "tag"
 
 Silahkan diisi sesuai dengan daftar RSS feed masing-masing.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Untuk mengedit URL di dalam Newsboat (pada saat Newsboat sedang terbuka), gunakan <kbd>Shift</kbd>+<kbd>E</kbd>.</p>
-</div>
+{% endbox_info %}
 
 # Bagaimana Mendapatkan RSS Feed URL?
 
@@ -228,12 +239,10 @@ Teman-teman bisa mencari dan menelusuri *layout* dari blog/website yang teman-te
 Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah blog/website. Tinggal cari saja untuk *browser* masing-masing.
 
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Bertepatan dengan artikel ini saya tulis, Firefox baru-baru saja mengeluarkan update versi <b>64.0</b>. Dan sangat disayangkan pada update versi ini, Firefox memutuskan untuk <a href="https://support.mozilla.org/en-US/kb/feed-reader-replacements-firefox" target="_blank">menghentikan dukungan terhadap fitur <b>web feeds</b> dan <b>Live Bookmarks</b></a>.</p>
 <p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah blog/website.</p>
-</div>
+{% endbox_info %}
 
 Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabila menggunakan Google Chrome. Maka tidak ada jalan lain selain menambahkan add-ons pada Firefox.
 

@@ -44,9 +44,11 @@ Setelah saya lakukan pengecekan, ternyata Macromedia Flash 8, ada yang memberika
 Langkah awal adalah, instalasi **Wine**.
 
 Untuk Arch Linux.
-```
-$ sudo pacman -S wine wine_gecko wine-mono winetricks
-```
+
+{% shell_user %}
+sudo pacman -S wine wine_gecko wine-mono winetricks
+{% endshell_user %}
+
 Untuk distribusi sistem operasi GNU/Linux yang lain, silahkan merujuk pada dokumentasi atau wiki yang tersebar di Internet untuk proses instalasi dari Wine.
 
 Selanjutnya, kamu harus memiliki instalasi Macromedia Flash 8 beserta serial numbernya. Karena alasan tertentu, saya tidak dapat menuliskan pada dokumentasi ini bagaimana cara mendapatkannya. Silahkan teman-teman cari tahu sendiri yaa. Hehehe.

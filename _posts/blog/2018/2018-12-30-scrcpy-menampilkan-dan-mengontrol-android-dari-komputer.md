@@ -79,8 +79,9 @@ Kita tidak perlu menambahkan aplikasi pada *smartphone* Android kita.
 1. Hubungkan *smartphone* Android dengan laptop/komputer menggunakan kabel data.
 2. Buka Terminal dan pastikan *smartphone* sudah terhubung dengan laptop/komputer.
 
-   <pre>
-   $ <b>lsusb</b></pre>
+   {% shell_user %}
+lsusb
+{% endshell_user %}
 
    <pre>
    Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -92,8 +93,9 @@ Kita tidak perlu menambahkan aplikasi pada *smartphone* Android kita.
 
 3. Buka Terminal dan jalankan perintah sederhana seperti di bawah.
 
-   <pre>
-   $ <b>scrcpy</b></pre>
+   {% shell_user %}
+scrcpy
+{% endshell_user %}
 
    ```
    * daemon not running; starting now at tcp:5037
@@ -119,8 +121,10 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
    Dapat dilihat pada gambar di atas, area yang saya kotak merah adalah IP address yang dimiliki oleh *smartphone*.
 
    Untuk memeriksa apakah *smartphone* dan laptop kita berada pada *network* yang sama, periksa juga IP address dari laptop.
-   <pre>
-   $ <b>ip a s</b></pre>
+
+   {% shell_user %}
+ip a s
+{% endshell_user %}
 
    <pre>
    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -149,15 +153,17 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
 
 2. Buka Terminal dan jalankan perintah di bawah untuk mengaktifkan `adb` over TCP/IP pada *smartphone* kita.
 
-   <pre>
-   $ <b>adb tcpip 5555</b></pre>
+   {% shell_user %}
+adb tcpip 5555
+{% endshell_user %}
 
 3. Lepaskan kabel data.
 
 4. Sekarang, coba hubungkan laptop dengan *smartphone* Android kita dengan perintah di bawah.
 
-   <pre>
-   $ <b>adb connect <mark>192.168.1.2</mark>:5555</b></pre>
+   {% shell_user %}
+adb connect <mark>192.168.1.2</mark>:5555
+{% endshell_user %}
 
    Ganti IP address dengan yang IP address dari *smartphone* yang kalian miliki.
 
@@ -169,24 +175,21 @@ Untuk menghubungkan *smartphone* Android dengan laptop/komputer menggukanan kone
 
 5. Jalankan Scrcpy seperti biasa.
 
-   <pre>
-   $ <b>scrcpy</b></pre>
+   {% shell_user %}
+scrcpy
+{% endshell_user %}
 
-   <!-- PERHATIAN -->
-   <div class="blockquote-red">
-   <div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg">Perhatian</div>
-   <p>Sangat diperlukan untuk <b>melepaskan kabel data</b> terlebih dahulu sebelum menjalankan perintah <code>scrcpy</code>.</p>
-   <p>Apabila tidak dilepas, akan muncul pesan <i>error</i> seperti di bawah.</p>
-   <pre>
+   {% box_perhatian %}
+    <p>Sangat diperlukan untuk <b>melepaskan kabel data</b> terlebih dahulu sebelum menjalankan perintah <code>scrcpy</code>.</p>
+    <p>Apabila tidak dilepas, akan muncul pesan <i>error</i> seperti di bawah.</p>
+    <pre>
    adb: error: failed to get feature set: more than one device/emulator
    ERROR: "adb push" returned with value 1</pre>
-   </div>
+   {% endbox_perhatian %}
 
-   <!-- INFORMATION -->
-   <div class="blockquote-blue">
-   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
-   <p>Untuk <i>option</i> dan <i>properties</i> lebih tambahan seperti menurunkan <i>bit-rate</i> dan <i>definition</i>, dapat dilihat pada file <a href="https://github.com/Genymobile/scrcpy" target="_blank"><b>README.md</b></a> pada <i>resource</i> GitHub dari Scrcpy.</p>
-   </div>
+   {% box_info %}
+    <p>Untuk <i>option</i> dan <i>properties</i> lebih tambahan seperti menurunkan <i>bit-rate</i> dan <i>definition</i>, dapat dilihat pada file <a href="https://github.com/Genymobile/scrcpy" target="_blank"><b>README.md</b></a> pada <i>resource</i> GitHub dari Scrcpy.</p>
+   {% endbox_info %}
 
 # Keyboard Shortcuts
 

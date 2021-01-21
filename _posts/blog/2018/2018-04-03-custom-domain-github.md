@@ -354,11 +354,10 @@ Demikian, pengalaman saya melakukan konfigurasi terhadap _custom domain_ untuk G
 Terima kasih saya ucapkan kepada kang [Sucipto](https://sucipto.net/){:target="_blank"} yang telah meluangkan waktunya untuk dapat membantu saya dalam menjawab pertanyaan-pertanyaan seputar konfigurasi ini.
 
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Pertanggal 28 Januari 2019, saya sudah bermigrasi dari layanan CloudFlare ke Netlify.</p>
 <p>Ceritanya, dapat teman-teman baca di sini, "<a href="{{ site.url }}/blog/bermigrasi-dari-cloudflare-ke-netlify" target="_blank">BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify</a>".</p>
-</div>
+{% endbox_info %}
 
 
 # Referensi

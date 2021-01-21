@@ -44,45 +44,56 @@ rekomendasi karena saya belum menguji coba secara langsung di lapangan apakah tu
 ## Update Sistem Fedora 21
 Update sistem Fedora 21 dengan menggunakan Terminal dan ketik
 
-```
-$ sudo dnf update
-$ sudo dnf distro-sync
-```
+{% shell_user %}
+sudo dnf update
+sudo dnf distro-sync
+{% endshell_user %}
 
 Disarankan sebelum meng-upgrade OS ke Fedora 22, anda telah menggunakan versi kernel terbaru.
 Kemudian setelah proses update selesai, silahkan restart komputer anda dan kembali ke desktop.
 
 ## Install fedup
 Buka Terminal dan ketik
-```
-$ sudo dnf install fedup
-```
+
+{% shell_user %}
+sudo dnf install fedup
+{% endshell_user %}
 Tunggu proses instalasi fedup hingga selesai.
 
 ## Hapus Repositori yang Bukan Resmi
 Disarankan oleh wiki Fedora untuk menghapus repositori yang bukan resmi terlebih dahulu sebelum meng-upgrade. Namun pengalaman pribadi saya, repositori seperti rpmfusion tidak begitu menggangu. Dari sekian banyak repositori unofficial yang saya gunakan, repositori yang mengalami masalah saat proses upgrade berlangsung hanya fedy. Untuk itu saya perlu menghapus fedy.repo terlebih dahulu dari daftar repositori saya.
 
 Untuk menghapus fedy.repo. Buka Terminal dan ketik
-```
-$ sudo rm /etc/yum.repos.d/fedy.repo
-```
+
+{% shell_user %}
+sudo rm /etc/yum.repos.d/fedy.repo
+{% endshell_user %}
 
 Untuk membackup sementara fedy.repo. Buka Terminal dan ketik
-```
-$ sudo mv /etc/yum.repos.d/fedy.repo /etc/yum.repos.d/fedy.repo.bak
-```
+
+{% shell_user %}
+sudo mv /etc/yum.repos.d/fedy.repo /etc/yum.repos.d/fedy.repo.bak
+{% endshell_user %}
 
 ## Upgrade Sistem ke Fedora 22
 1. Pastikan koneksi internet anda aman dan lancar untuk meng-upgrade sistem operasi Fedora 22 untuk beberapa waktu kedepan. Karena proses upgrade ini memakan waktu lumayan lama untuk men-download dan meng-upgrade paket-paket yang telah ada dalam sistem Fedora 21 anda dari mirror Fedora.
+
 2. Buka Terminal dan ketik
-```
-$ sudo fedup --network 22
-```
-tunggu proses download paket hingga selesai. Paket yang di-download bisa ribuan jumlahnya, milik saya hampir 2500 paket yang perlu saya download.
+
+   {% shell_user %}
+sudo fedup --network 22
+{% endshell_user %}
+
+   Tunggu proses download paket hingga selesai. Paket yang di-download bisa ribuan jumlahnya, milik saya hampir 2500 paket yang perlu saya download.
+
 3. Apabila proses download paket telah selesai maka lanjutkan dengan restart atau reboot sistem anda.
-```
-$ reboot
-```
-pada tahap ini sistem anda akan restart / rebootdan akan terdapat progress bar proses instalasi paket-paket yang tadi sudah di-downloadsebelumnya. Ini akan memakan waktu cukup lama. Tunggu saja hingga proses selesai.
+
+   {% shell_user %}
+reboot
+{% endshell_user %}
+
+   Pada tahap ini sistem anda akan restart / rebootdan akan terdapat progress bar proses instalasi paket-paket yang tadi sudah di-downloadsebelumnya. Ini akan memakan waktu cukup lama. Tunggu saja hingga proses selesai.
+
 4. Setelah proses instalasi selesai, maka anda akan disuguhkan halaman login yang sudah berubah menjadi versi Fedora 22. Silahkan login ke account anda.
+
 5. Selesai. Maka proses upgrade sistem operasi Fedora 22 pun telah berhasil.

@@ -35,11 +35,14 @@ Saya akan memberikan tips, bagaimana agar susunan icon aplikasi pada Launchpad b
 
 # Step by Step
 1. Buka Terminal, dan salin kode dibawah, salin perbaris dan tekan <kbd>Return</kbd>
-```
-$ defaults write com.apple.dock ResetLaunchPad -bool true
-$ killall Dock
-```
+
+   {% shell_user %}
+defaults write com.apple.dock ResetLaunchPad -bool true
+killall Dock
+{% endshell_user %}
+
 2. Dock akan ter-Refresh dan saat anda menekan <kbd>F4</kbd> atau melakukan gesture pada trackpad, Launchpad masih akan "Loading applications..."
+
 3. Tunggu hingga Launchpad selesai merefresh aplikasi.
 
 # Kesimpulan

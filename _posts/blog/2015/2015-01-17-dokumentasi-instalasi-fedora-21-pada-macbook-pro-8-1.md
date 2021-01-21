@@ -49,23 +49,33 @@ _akan dijelaskan lebih lanjut_
 # Airport Card / Wifi Adapter
 Airport card / Wifi adapter tidak langsung dapat berfungsi. Kita membutuhkan driver broadcom-wl dari internet. Untuk itu, jangan terlebih dahulu sebaiknya anda men-download terlebih dulu sebelum melakukan peng-install-an Fedora 21.
 1. Buka Browser anda dan copy paste link di bawah ini
-```
+
+   {% pre_url %}
 https://www.lwfinger.com/b43-firmware/broadcom-wl-5.100.138.tar.bz2
-```
-Simpan dan letakkan pada flashdisk anda.
+{% endpre_url %}
+
+   Simpan dan letakkan pada flashdisk anda.
+
 2. Setelah anda menyelesaikan proses instalasi Fedora 21. Masukkan flashdisk yang di dalamnya sudah terdapat driver broadcom-wl yang sudah di-download sebelumnya.
+
 3. Kemudian copy ke direktori home. Setelah itu, buka Terminal dan ikuti perintah di bawah ini
+
+   {% shell_user %}
+ls
+{% endshell_user %}
+
+   Pastikan driver sudah ada pada direktori home ini. (atau bisa folder lain apabila anda mengerti)
+
 ```
-$ ls
 ```
-Pastikan driver sudah ada pada direktori home ini. (atau bisa folder lain apabila anda mengerti)
-```
-$ tar xjf broadcom-wl-5.100.138.tar.bz2
-$ sudo export FIRMWARE_INSTALL_DIR="/lib/firmware"
-$ sudo b43-fwcutter -w "$FIRMWARE_INSTALL_DIR" broadcom-wl-5.100.138/linux/wl_apsta.o
+   {% shell_user %}
+tar xjf broadcom-wl-5.100.138.tar.bz2
+sudo export FIRMWARE_INSTALL_DIR="/lib/firmware"
+sudo b43-fwcutter -w "$FIRMWARE_INSTALL_DIR" broadcom-wl-5.100.138/linux/wl_apsta.o
 reboot
-```
-Lakukan sesuai dengan urutan.
+{% endshell_user %}
+
+   \*Lakukan sesuai dengan urutan.
 
 # Touchpad
 Pada dasarnya touchpad pada Macbook Pro 8.1 sudah didukung cukup baik pada sistem operasi Fedora 21. Namun kita tetap perlu melakukan penyesuaian agar penggunaan touchpad mendekati seperti pada OS X.
@@ -74,9 +84,11 @@ Salah satu kelebihan menggunakan sistem operasi Linux, kita dapat merubah settin
 Program atau driver yang mendukung untuk berjalannya touchpad ini adalah "synaptics".
 
 Anda dapat melihat setting-an sebelum dimodifikasi dengan cara, buka Terminal dan ketik
-```
-$ synclient -l
-```
+
+{% shell_user %}
+synclient -l
+{% endshell_user %}
+
 Maka akan keluar semua keterangan dan nilai-nilai untuk pengaturan synaptics touchpad kita.
 Nah apabila anda masih merasa kurang nyaman dengan pengaturan touchpad secara default, anda bisa mengikuti settingan synaptics saya.
 
@@ -94,10 +106,13 @@ Berikut ini adalah keterangan dari setting-an synaptics saya :
 Nah, sekarang kita akan melakukan setting-an touchpad.
 
 Buka Terminal anda, kita akan membuat file `synaptics.conf` pada direktori `/etc/X11/xorg.conf.d`.
-```
-$ sudo gedit /etc/X11/xorg.conf.d/synaptics.conf
-```
+
+{% shell_user %}
+sudo gedit /etc/X11/xorg.conf.d/synaptics.conf
+{% endshell_user %}
+
 Setelah Gedit terbuka, copy dan paste kode di bawah ini.
+
 ```
 Section
 "InputClass"
@@ -123,18 +138,23 @@ Option "VertTwoFingerScroll" "1"
 Option "HorizTwoFingerScroll" "1"
 EndSection
 ```
+
 Save dan quit Gedit.
 
 Setelah ini, kita perlu men-disable setting-an pada gnome-settings-daemon. Ini dapat dilkakukan dengan dconf-editor.
 
 Apabila belum menginstal dconf-editor, dapat diinstal terlebih dahulu dengan cara
-```
-$ sudo dnf install dconf-editor
-```
+
+{% shell_user %}
+sudo dnf install dconf-editor
+{% endshell_user %}
+
 Lalu jalankan dcof-editor dengan cara mengetik
-```
-$ dconf-editor
-```
+
+{% shell_user %}
+dconf-editor
+{% endshell_user %}
+
 Setelah terbuka, kita akan men-disable nilai dari mouse pada gnome-settings-daemon.
 
 Buka `org/gnome/settings-daemon/plugins/mouse`.
@@ -149,9 +169,11 @@ Sekarang, coba reboot dan rasakan perbedaan touchpad anda. Apakah sudah lebih me
 
 # Update Semua Sistem
 Hal yang tidak kalah penting dari sistem operasi adalah update terbaru. Setelah berhasil mengaktifkan Airport Card, sebaiknya sebelum melakukan hal-hal lain, kita melakukan update terlebih dahulu.
-```
-$ sudo dnf update
-```
+
+{% shell_user %}
+sudo dnf update
+{% endshell_user %}
+
 Proses ini akan memakan waktu yang lumayan lama. Pastikan koneksi internet anda stabil. Silahkan bersantai minum kopi dan makan pisang goreng dahulu, dan biarkan dnf menyelesaikan tugasnya.
 
 # Mengatur Read / Write pada Partisi HFS+ Macintosh HD
@@ -159,48 +181,71 @@ Secara default, partisi ber-format Hfs+ sudah dapat di-mount dengan baik namun k
 
 Untuk bisa membaca dan menulis (Read & Write) partisi Hfs+ Macintosh HD, kita perlu melakukan modifikasi terlebih dahulu.
 1. Logout dari user kita, kemudian login menggunakan root. Caranya pada halaman login pilih Not in List, nanti akan keluar textbox username. Masukkan "root" (tanpa tanda kutip) dan masukkan password root anda.
+
 2. Selanjutnya,kita membutuhkan nama username & nama home direktori kita. Caranya dengan membuka Terminal dan ketik
-```
-# cd /home
-# ls
-```
-Direktori yang tampil setelah perintah "ls", adalah direktori home untuk username anda. Nama direktori ini yang akan dijadikan patokan sebagai nama username anda.
+
+   {% shell_root %}
+cd /home
+ls
+{% endshell_root %}
+
+   Direktori yang tampil setelah perintah "ls", adalah direktori home untuk username anda. Nama direktori ini yang akan dijadikan patokan sebagai nama username anda.
+
 3. Sekarang, kita akan merubah userid, dan merubah hak permission pada direktori home username anda. Buka Terminal dan ketik perintah di bawah dengan mengganti kode yang saya warnai merah.
-```
-# usermod --uid 501 usernameanda
-# chown -R 501:usernameanda /home/direktorihomeusernameanda
-```
+
+   {% shell_root %}
+usermod --uid 501 usernameanda
+chown -R 501:usernameanda /home/direktorihomeusernameanda
+{% endshell_root %}
+
 4. Saat ini hak permission direktori dan userid pada user anda sudah berubah.
+
 5. Langkah selanjutnya, meng-edit hak permission untuk login. Karena pada pembacaan uid yang diizinkan untuk login adalah uid min 1000 - 60.000. Sedangkan kita telah mengganti uid kita dengan nilai 501 (sama dengan uid pada OS X). Maka kita harus merubah akses minimal uid untuk login dengan cara
-```
-# gedit /etc/login.defs
-```
-Gedit adalah aplikasi texteditor yang secara default sudah terinstal pada Fedora 21 anda.
+
+   {% shell_root %}
+gedit /etc/login.defs
+{% endshell_root %}
+
+   Gedit adalah aplikasi texteditor yang secara default sudah terinstal pada Fedora 21 anda.
 6. Setelah Gedit terbuka, kita akan meng-edit isi dari file login.defs
+
 7. Cari dengan <kbd>CTRL</kbd>+<kbd>F</kbd> kata "UID_MIN" (tanpa tanda petik), lalu ganti nilai "1000" dengan "501"<br>Tujuan dari perubahan nilai ini agar saat login screen uid kita dapat login kedalam direktori home kita.
+
 8. Langkah selanjutnya, silahkan logout dari root melalui menu yang ada di pojok kanan atas. Lalu login dengan username anda seperti biasa.
+
 9. Kemudian, kita akan merubah "mount option" dari partisi Macintosh HD. Dengan cara, buka aplikasi bernama Disk.
+
 10. Kemudian cari partisi Macintosh HD dan klik gambar "gear" kemudian pilih edit Mount Options...
+
 11. Lalu geser switch Automatic Mount Option menjadi Off
+
 12. Kemudian ikuti gambar di bawah, an isikan kode di bawah
-```
-rw,force,x-gvfs-show,noauto
-```
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png" onerror="imgError(this);"}{:class="myImg"}
-Kemudian klik tombol OK. Sekarang anda bisa mencoba dengan meng-klik Macintosh HD pada file manager Nautilus pada aplikasi Files, kemudian anda akan diminta memasukkan password username anda.
+
+    ```
+    rw,force,x-gvfs-show,noauto
+    ```
+
+    ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-0nRxbXutOo8/ViMiGYA2fFI/AAAAAAAAByM/NXhd-mF_DGE/s400/Mount%2BOptions_003.png" onerror="imgError(this);"}{:class="myImg"}
+
+    Kemudian klik tombol OK. Sekarang anda bisa mencoba dengan meng-klik Macintosh HD pada file manager Nautilus pada aplikasi Files, kemudian anda akan diminta memasukkan password username anda.
+
 13. Kemudian check apakah anda dapat membuat folder baru, me-rename, men-delete, dan meng-copy pada direktori `/User/namauseranda/Desktop/`.
 
-Apabila dikemudian hari read/write mengalami masalah tidak dapat menulis kembali. Jangan khawatir saya juga pernah mengalaminya. Partisi Macintosh HD tidak dapat menulis kembali dikarenakan (biasanya) battery habis total, atau force shutdown (shutdown paksa).
+    Apabila dikemudian hari read/write mengalami masalah tidak dapat menulis kembali. Jangan khawatir saya juga pernah mengalaminya. Partisi Macintosh HD tidak dapat menulis kembali dikarenakan (biasanya) battery habis total, atau force shutdown (shutdown paksa).
 
-Yang perlu anda lakukan adalah membuka Terminal dan ketik perintah di bawah
-```
-$ sudo fsck.hfsplus -p /dev/sda2
-```
-Kemudian tunggu prosesnya hingga selesai. Ini akan memakan waktu lumayan lama.
-fsck adalah aplikasi dimana aplikasi ini akan melakukan beberapa proses-proses yang diperlukan (saya kurang paham seperti apa, pokoknya menurut saya canggih deh, hehe).
-Apabila dengan option [-p] di atas tidak berhasil, bisa dganti dengan [-f].
+    Yang perlu anda lakukan adalah membuka Terminal dan ketik perintah di bawah
 
->Sebaiknya melakukan unmount terlebih dahulu partisi Macintosh HD anda sebelum melakukan perintah fsck.
+    {% shell_root %}
+sudo fsck.hfsplus -p /dev/sda2
+{% endshell_root %}
+
+    Kemudian tunggu prosesnya hingga selesai. Ini akan memakan waktu lumayan lama.
+    fsck adalah aplikasi dimana aplikasi ini akan melakukan beberapa proses-proses yang diperlukan (saya kurang paham seperti apa, pokoknya menurut saya canggih deh, hehe).
+    Apabila dengan option [-p] di atas tidak berhasil, bisa dganti dengan [-f].
+
+    {% box_perhatian %}
+     <p>Sebaiknya melakukan unmount terlebih dahulu partisi Macintosh HD anda sebelum melakukan perintah fsck.</p>
+    {% endbox_perhatian %}
 
 # Menambahkan Repositori Pihak Ketiga
 Tidak semua repositori resmi memenuhi paket yang kita inginkan. Untuk itu kita perlu menambahkan repositori pihak ketiga. Salah satu yang paling banyak digunakan adalah
@@ -208,48 +253,57 @@ Tidak semua repositori resmi memenuhi paket yang kita inginkan. Untuk itu kita p
 **RPMfusion**
 
 Buka Terminal anda dan copy paste perintah di bawah.
-```
-$ su -c 'yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
-```
+
+{% shell_user %}
+su -c 'yum localinstall --nogpgcheck http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+{% endshell_user %}
 
 # Install YUM Plugin
 Ada beberapa yum plugin yang efisien jika digunakan, namun plugin ini tidak terpasang secara default. Yum Fastest Mirror, plugin ini akan memilih server mirror paling cepat saat melakukan instalasi atau update paket.
 
 Buka Terminal anda dan copy paste perintah di bawah.
-```
-$ su -c 'yum install yum-plugin-fastestmirror'
-```
+
+{% shell_user %}
+su -c 'yum install yum-plugin-fastestmirror'
+{% endshell_user %}
 
 # Instal Browser Plugin
 Browser Firefox memerlukan beberapa plugin untuk kebutuhan anda ber-internet.
+
 **Repo Flash 64 Bit**
-```
-$ su -c 'yum install http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm'
-```
+
+{% shell_user %}
+su -c 'yum install http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm'
+{% endshell_user %}
 
 **Flash Player**
-```
-$ su -c 'yum install flash-plugin'
-```
+
+{% shell_user %}
+su -c 'yum install flash-plugin'
+{% endshell_user %}
 
 # Install Media Codec
 Fedora tidak langsung dapat memutar musik berformat .mp3, .wav atau memutar video berformat .mp4, .flv, .mkv, dll, untuk itu kita perlu menginstal plugin / codec untuk multimedia agar dapat diputar pada player-player multimedia di Fedora kita.
 
 Buka Terminal dan copy paste perintah di bawah.
-```
-$ su -c 'yum install gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer-plugin-crystalhd gstreamer1-vaapi gstreamer1-plugins-bad-free gstreamer1-plugins-good'
-```
+
+{% shell_user %}
+su -c 'yum install gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer-plugin-crystalhd gstreamer1-vaapi gstreamer1-plugins-bad-free gstreamer1-plugins-good'
+{% endshell_user %}
 
 # Instal Paket-paket Tambahan
 Dalam hal ini, setiap pengguna memiliki kebutuhan yang berbeda-beda. Ada beberapa hal yang mungkin terlewatkan untuk pengguna yang masih awam. Seperti, bagaimana cara membuka file ber-ekstensi .rar.
 
 Caranya, buka Terminal dan copy paste perintah di bawah ini.
-```
-$ su -c 'yum install p7zip audacity unrar gimp inkscape gnome-tweak-tool vlc'
-```
-><p class="title-quote">Apakah? ada aplikasi pengganti Adobe Photoshop dan Corel Draw atau Adobe Illustrator?</p>
->Jawabannya ada. GIMP (GNU Image Manipulation Program) sebagai pengganti Adobe Photoshop dan Inkscape (Sebagai penganti Corel Draw atau Adobe Illustrator). p7zip (Sebagai pengganti WinRar, dan file-file kompresi berformat yang lain).
 
+{% shell_user %}
+su -c 'yum install p7zip audacity unrar gimp inkscape gnome-tweak-tool vlc'
+{% endshell_user %}
+
+{% box_pertanyaan %}
+<p><b>Apakah ada aplikasi pengganti Adobe Pohotoshop dan Corel Draw atau Adobe Illustrator?</b></p>
+<p>Jawabannya ada. GIMP (GNU Image Manipulation Program) sebagai pengganti Adobe Photoshop dan Inkscape (Sebagai penganti Corel Draw atau Adobe Illustrator). p7zip (Sebagai pengganti WinRar, dan file-file kompresi berformat yang lain).</p>
+{% endbox_pertanyaan %}
 
 # Instal Fedy
 Fedy, saya kurang begitu bisa mendefinisikan Fedy. Menurut taksiran saya, Fedy ini seperti "one stop app installer". Jadi, dengan menginstal Fedy kita dengan mudah menginstall aplikasi hanya dengan menekan tombol Install. Hanya saja proses instalasinya tidak dapat kita lihat. Jadi, harus sabar menunggu sampai selesai dan tombolnya berubah menjadi Remove.
@@ -257,9 +311,11 @@ Fedy, saya kurang begitu bisa mendefinisikan Fedy. Menurut taksiran saya, Fedy i
 Aplikasi-aplikasi seperti Fedy, seperti easyLife, tapi saya lebih suka mengunakan Fedy, karena lebih mudah diinstal dan digunakan.
 
 Cara instalasinya, buka Terminal dan copy paste perintah di bawah.
-```
-$ su -c "curl https://satya164.github.io/fedy/fedy-installer -o fedy-installer && chmod +x fedy-installer && ./fedy-installer"
-```
+
+{% shell_user %}
+su -c "curl https://satya164.github.io/fedy/fedy-installer -o fedy-installer && chmod +x fedy-installer && ./fedy-installer"
+{% endshell_user %}
+
 Saya merekomendasikan untuk menginstal aplikasi dan paket-paket yang anda inginkan di Fedy satu-persatu.
 
 # Referensi

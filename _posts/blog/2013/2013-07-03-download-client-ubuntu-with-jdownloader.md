@@ -34,11 +34,12 @@ Untuk pengguna Ubuntu Linux, pada artikel ini saya menyediakan tutorial bagaiman
 1. Buka Terminal anda.
 
 2. Lalu copy (CTRL+C) & paste (CTRL+SHIFT+V) saja kode di bawah ini ke Terminal anda.
-```
-$ sudo add-apt-repository ppa:jd-team/jdownloader
-$ sudo apt-get update
-$ sudo apt-get install jdownloader-installer
-```
+
+   {% shell_user %}
+sudo add-apt-repository ppa:jd-team/jdownloader
+sudo apt-get update
+sudo apt-get install jdownloader-installer
+{% endshell_user %}
 
 3. Satu persatu copy & pastenya, ditunggu sampai prosesnya selesai yaa
 

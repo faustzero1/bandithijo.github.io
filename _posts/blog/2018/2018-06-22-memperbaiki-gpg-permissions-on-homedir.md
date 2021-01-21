@@ -26,6 +26,7 @@ Sejak diperkenalkan pada tahun 1997, GnuPG adalah aplikasi bebas merdeka yang ar
 # Permasalahan
 
 Masalah yang ingin saya angkat pada dokumentasi ini adalah adanya *warning* yang muncul setiap kali saya menjalankan perintah `gpg` di Terminal.
+
 ```
 gpg: WARNING: unsafe permissions on homedir
 ```
@@ -39,17 +40,21 @@ Dari *warning* yang diberikan, sudah sangat jelas bahwa yang menjadi perhatian a
 Berdasarkan jawaban yang dituliskan oleh Alex Stragies pada [superuser.com<sup>2</sup>]({{ site.url }}/blog/memperbaiki-gpg-permissions-on-homedir#referensi){:target="_blank"} yang juga merujuk pada [wikipedia.com - file system permission<sup>3</sup>]({{ site.url }}/blog/memperbaiki-gpg-permissions-on-homedir#referensi){:target="_blank"} diperkuat oleh jawaban dari Neil Williams pada [lists.gnupg.com<sup>4</sup>]({{ site.url }}/blog/memperbaiki-gpg-permissions-on-homedir#referensi){:target="_blank"}, untuk memperbaiki permasalahan *unsafe permissions* sebagai berikut.
 
 1. Pastikan bahwa *permissions* dari direktori dan file-file yang terdapat pada `~/.gnupg/` adalah milik kita sendiri.
-```
-$ chown -R $(whoami) ~/.gnupg/
-```
+
+   {% shell_user %}
+chown -R $(whoami) ~/.gnupg/
+{% endshell_user %}
 
 2. Selanjutnya, perbaiki hak akses dari direktori `~/.gnupg/` beserta file-file yang terdapat di dalamnya.
-```
-$ chmod 600 ~/.gnupg/*
-$ chmod 700 ~/.gnupg
-```
-Penjelasan untuk *command* di atas, *permission* `700` pada direktori `~/.gnupg/`, dimaksudkan hanya pemilik dari direktori yang dapat mengakses direktori tersebut. Sedangkan untuk *permission* `600` pada semua file (ditandai dengan tanda `*`) yang terdapat di dalam direktori tersebut, dimaksudkan hanya pemilik direktori tersebut yang dapat membaca dan menulis.
 
+   {% shell_user %}
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+{% endshell_user %}
+
+   Penjelasan untuk *command* di atas, *permission* `700` pada direktori `~/.gnupg/`, dimaksudkan hanya pemilik dari direktori yang dapat mengakses direktori tersebut. Sedangkan untuk *permission* `600` pada semua file (ditandai dengan tanda `*`) yang terdapat di dalam direktori tersebut, dimaksudkan hanya pemilik direktori tersebut yang dapat membaca dan menulis.
+
+<br>
 Setelah melakukan kedua langkah di atas, sangat saya rekomendasikan untuk **reboot** sistem kalian. Karena saya mengalami sendiri keanehan seperti **tidak dapat menemukan *secret key***. Apabila terjadi *error* seperti ini, saya sangat merekomendasikan untuk *restart* sistem terlebih dahulu.
 
 Saya rasa cukup seperti ini saja.

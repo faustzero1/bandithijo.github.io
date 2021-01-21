@@ -28,26 +28,37 @@ Berikut ini adalah beberapa perintah-perintah SSH yang saya gunakan. Belum dapat
 
 ## SSH Tunneling dengan Keybase Login & Spesifik Port
 
-```
-// Format Perintah
-$ ssh -i .ssh/{private-key} {user}@{server-address} -p {port}
+{% pre_url %}
+ssh -i .ssh/{private-key} {user}@{server-address} -p {port}
+{% endpre_url %}
 
-// Penerapan
-$ ssh -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200
-$ ssh -i .ssh/id_rsa bandithijo@10.1.41.200.1 -p 2200
-```
+{% shell_user %}
+ssh -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200
+{% endshell_user %}
+
+Atau,
+
+{% shell_user %}
+ssh -i .ssh/id_rsa bandithijo@10.1.41.200.1 -p 2200
+{% endshell_user %}
 
 ## SSH Tunneling dengan Keybase Login, Spesifik Port & Dynamic Port Forwarding
 Nah, kalo ini saya gunakan untuk *Dynamic Port Forwarding*, kegunannya untuk mengakses server agar dapat kita akses dari *web browser* kita.
 
-```
-// Format Perintah
-$ ssh -D {proxy-port} -i .ssh/{private-key} {user}@{server-address} -p {port}
+{% pre_url %}
+ssh -D {proxy-port} -i .ssh/{private-key} {user}@{server-address} -p {port}
+{% endpre_url %}
 
-// Penerapan
-$ ssh -D 8080 -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200 -q
-$ ssh -D 8888 -i .ssh/id_rsa bandithijo@10.1.41.200 -p 2200 -q
-```
+{% shell_user %}
+ssh -D 8080 -i .ssh/id_rsa bandithijo@dev.bandithijo.com -p 2200 -q
+{% endshell_user %}
+
+Atau,
+
+{% shell_user %}
+ssh -D 8888 -i .ssh/id_rsa bandithijo@10.1.41.200 -p 2200 -q
+{% endshell_user %}
+
 *port* 8080 dapat diganti dengan nilai berapapun, asalkan *port* tersebut tidak digunakan oleh service yang lain.
 
 Setelah itu, untuk mengaksesnya dari *web browser*, saya menggunakan perintah di bawah.
@@ -66,21 +77,31 @@ Setelah itu, untuk mengaksesnya dari *web browser*, saya menggunakan perintah di
 **Chromium / Google Chrome**
 
 Pada *browser* Chromium atau Google Chrome, cukup menjalankan perintah di bawah ini pada Terminal.
-```
-// Google Chrome
-$ google-chrome-stable --proxy-server="socks5://localhost:8080"
 
-// Chromium
-$ chromium --proxy-server="socks5://localhost:8080"
-```
+**Google Chrome**
+
+{% shell_user %}
+google-chrome-stable --proxy-server="socks5://localhost:8080"
+{% endshell_user %}
+
+**Chromium**
+
+{% shell_user %}
+chromium --proxy-server="socks5://localhost:8080"
+{% endshell_user %}
 
 ## SSH Tunneling dengan Username yang Terdaftar pada Server
 
-```
-$ ssh -l banditbiru dev.bandithijo.com
+{% shell_user %}
+ssh -l banditbiru dev.bandithijo.com
+{% endshell_user %}
 
-$ ssh -l banditbiru 10.1.41.200
-```
+Atau,
+
+{% shell_user %}
+ssh -l banditbiru 10.1.41.200
+{% endshell_user %}
+
 Perintah di atas akan membawa kita langsung memasuki user **banditbiru** di server. Tentu saja perintah ini dapat dilakukan setelah kita memasukkan **public key** kita ke dalam file `/home/banditbiru/.ssh/authorized_keys` di server pada user **banditbiru**.
 
 ## Generate Private & Public Key SSH
@@ -90,68 +111,87 @@ Saya menggunakan beberapa bentuk format perintah `ssh-keygen` untuk mengenerate 
 ### Generate Key untuk User Biasa
 
 Yang sederhana,
-```
-$ ssh-keygen
-```
+
+{% shell_user %}
+ssh-keygen
+{% endshell_user %}
+
 Atau agak kompleks,
-```
-$ ssh-keygen -t rsa -b 4096
-```
+
+{% shell_user %}
+ssh-keygen -t rsa -b 4096
+{% endshell_user %}
+
 Yang lebih kompleks,
-```
-$ ssh-keygen -t rsa -b 4096 -C "bandithijo@rumah"
-```
+
+{% shell_user %}
+ssh-keygen -t rsa -b 4096 -C "bandithijo@rumah"
+{% endshell_user %}
 
 Hasil dari perintah di atas adalah dua buah file dengan nama yang sama, namun yang tidak memiliki ekstensi disebut sebagai **Private Key** dan yang memiliki ekstensi **.pub** disebut sebagai **Public Key**.
 
+{% shell_user %}
+ls -l $HOME/.ssh/
+{% endshell_user %}
+
 <pre>
-$ ls -l $HOME/.ssh/
 /home/bandithijo/.ssh/
 ├── authorized_keys
 ├── <mark>id_rsa</mark>
 ├── <mark>id_rsa.pub</mark>
 └── known_hosts
 </pre>
+
 Sebagai catatan, apabila kita melakukan perintah `ssh-keygen` pada user biasa, maka otomatis file *private* dan *public key* akan diletakkan pada direktori `.ssh/` milik user biasa tersebut. Seperti contoh di atas, terletak pada direktori `.ssh` milik user **bandithijo**.
 
 ### Generate Key untuk Root dari User Biasa
 
 Kita dapat mengenerate key untuk user root melalui user biasa, dengan cara menambahkan `sudo` pada awal perintah `ssh-keygen`.
-```
-$ sudo ssh-keygen
-```
+
+{% shell_user %}
+sudo ssh-keygen
+{% endshell_user %}
+
 Apabila seperti di atas, maka file *private* dan *public key* akan terdapat pada direktori `.ssh/` milik root, yaitu `/root/.ssh/`.
+
+{% shell_user %}
+sudo ls -l /root/.ssh/
+{% endshell_user %}
+
 <pre>
-$ sudo ls -l /root/.ssh/
 /root/.ssh/
 ├── authorized_keys
 ├── <mark>id_rsa</mark>
 ├── <mark>id_rsa.pub</mark>
 └── known_hosts
 </pre>
+
 Tentu saja, apabila *private* dan *public key* yang kita generate berada pada direktori `/root/`, maka untuk mengakses SSH Gateway kita juga harus mengawalinya dengan menambahkan perintah `sudo` di awal baris perintah.
 
-```
-$ sudo ssh -l bandithijo dev.bandithijo.com
+{% shell_user %}
+sudo ssh -l bandithijo dev.bandithijo.com
+{% endshell_user %}
 
-$ sudo ssh -l bandithijo 10.1.41.200
-```
+Atau,
 
-<!-- QUESTION -->
-<div class="blockquote-yellow">
-<h2 class="blockquote-yellow-title">Apakah private dan public key dapat kita rename ?</h2>
+{% shell_user %}
+sudo ssh -l bandithijo 10.1.41.200
+{% endshell_user %}
+
+{% box_pertanyaan %}
+<p><b>Apakah private dan public key dapat kita rename?</b></p>
 Tentu saja kita dapat mengganti nama dari file <i>private</i> dan <i>public key</i> tersebut, namun sangat direkomendasikan untuk memberikan nama yang sama diantara keduanya. Agar tetap berpasangan.. So sweet kan gaes ^_^, mereka aja berpasangan, kamu kapan ?
-</div>
+{% endbox_pertanyaan %}
 
 ## Menampilkan Public Key
 
-```
-// Format Perintah
-$ cat $HOME/.ssh/{nama_public_key}.pub
+{% pre_url %}
+cat $HOME/.ssh/{nama_public_key}.pub
+{% endpre_url %}
 
-// Penerapan
-$ cat $HOME/.ssh/id_rsa.pub
-```
+{% shell_user %}
+cat $HOME/.ssh/id_rsa.pub
+{% endshell_user %}
 
 Oke, saya rasa untuk saat ini, cukup seperti ini saja. Saya tidak berhenti menulis, mungkin lain kali kamu datang lagi, tulisan di halaman ini sudah bertambah dengan perintah-perintah SSH yang lain.
 

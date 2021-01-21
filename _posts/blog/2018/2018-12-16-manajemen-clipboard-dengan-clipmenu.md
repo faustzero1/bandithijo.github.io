@@ -38,6 +38,7 @@ Clipmenu adalah *clipboard manager* yang menggunakan dmenu atau Rofi sebagai ant
 # Instalasi
 
 Untuk memasang **clipmenu** pada sistem, terdapat dua cara yang saya ketahui.
+
 1. [`community/clipmenu`](https://www.archlinux.org/packages/community/any/clipmenu/){:target="_blank"} (Arch Linux)
 
 2. [`cdown/clipmenu`](https://github.com/cdown/clipmenu){:target="_blank"} (GitHub)
@@ -61,25 +62,30 @@ Clipmenu memerlukan paket `xsel` untuk menhandle *clipboard*.
 Pertama-tama beri bintang pada repository [cdown/clipmenu](https://github.com/cdown/clipmenu){:target="_blank"}. Sebagai bentuk apresiasi kita terhadap waktu dan pikiran developer.
 
 1. Kloning dari GitHub repo dan letakkan pada direkotri tempat kalian mengumpulkan repository dari GitHub. Saya mempunyai direktori `~/app/` tempat saya mengumpulkan resource aplikasi.
-   <pre>
-   $ <b>cd app</b>
-   $ <b>git clone https://github.com/cdown/clipmenu.git</b></pre>
+
+   {% shell_user %}
+cd app
+git clone https://github.com/cdown/clipmenu.git
+{% endshell_user %}
 
 2. Masuk ke dalam direktori `clipmenu` dan buat symbolic link ke direktori `/usr/bin/`.
 
-   <pre>
-   $ <b>cd clipmenu</b>
-   $ <b>sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel</b>
-   $ <b>sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu</b>
-   $ <b>sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud</b></pre>
+   {% shell_user %}
+cd clipmenu
+sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel
+sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu
+sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud
+{% endshell_user %}
 
    Sesuaikan sumber dari link (`$HOME/app/`) dengan path tempat kalian menyimpan kloning repo.
 
 3. Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.
 
    **File Binary**
-   <pre>
-   $ <b>ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'</b></pre>
+
+   {% shell_user %}
+ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'
+{% endshell_user %}
 
    ```
    lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipdel -> /home/bandithijo/app/clipmenu/clipdel
@@ -87,13 +93,11 @@ Pertama-tama beri bintang pada repository [cdown/clipmenu](https://github.com/cd
    lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -> /home/bandithijo/app/clipmenu/clipmenud
    ```
 
-   <!-- INFORMATION -->
-   <div class="blockquote-blue">
-   <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
-   <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
-   <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
-   <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
-   </div>
+   {% box_info %}
+    <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
+    <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
+    <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
+   {% endbox_info %}
 
 # Konfigurasi
 
@@ -220,20 +224,20 @@ Selanjutnya tinggal mendefiniskan keyboard shortcut.
 Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada konfigurasi masing-masing.
 
 {% highlight_caption $HOME/.config/ranger/rc.conf %}
-<pre class="caption">
+{% pre_caption %}
 bindsym $mod+p exec --no-startup-id clipmenu
 bindsym $mod+Shift+p exec --no-startup-id clipdel -r '.'
-</pre>
+{% endpre_caption %}
 
 Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -r '.'`.
 
 **dwm**
 
 {% highlight_caption config.h %}
-<pre class="caption">
+{% pre_caption %}
 { MODKEY,             XK_p,   spawn,   SHCMD("/usr/bin/clipmenu") },
 { MODKEY|ShiftMask,   XK_p,   spawn,   SHCMD("clipdel -d '.'") },
-</pre>
+{% endpre_caption %}
 
 Sesuaikan keyboard shortcut sesuai preferensi kalian.
 

@@ -29,9 +29,9 @@ Saat mengambil *screenshot* menggunakan *shortcut* dengan kombinasi tombol pada 
 
 Kita membutuhkan aplikasi bantuan untuk merubah konfigurasi, yang bernama [**dconf-editor**](https://www.archlinux.org/packages/extra/x86_64/dconf-editor/){:target="_blank"}.
 
-```
-$ sudo pacman -S dconf-editor
-```
+{% shell_user %}
+sudo pacman -S dconf-editor
+{% endshell_user %}
 
 Setelah, dconf-editor berhasil dipasang. Buka dconf-editor.
 

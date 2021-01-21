@@ -38,9 +38,10 @@ Terkadang kita ingin mengujicoba apakah aplikasi yang kita maksud dapat berjalan
 Caranya sangat mudah, kita dapat menggunakan aplikasi GUI bantuan untuk meng-uninstall aplikasi-aplikasi yang kita pasang di Wine.
 
 Buka Terminal dan ketikkan,
-```
-$ wine uninstaller
-```
+
+{% shell_user %}
+wine uninstaller
+{% endshell_user %}
 
 Berikut saya sertakan ilustrasinya.
 

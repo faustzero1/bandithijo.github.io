@@ -72,14 +72,14 @@ vi /etc/sudoers
 _Scrolling_ ke bawah dan cari `# %sudo ALL = (ALL) ALL`. Lalu hapus tanda pagar `#` untuk meng-_enable_-kan user yang termasuk dalam _group_ `sudo` dapat mengeksekusi semua _command_ \(perintah\) pada Terminal. Hasilnya seperti contoh di bawah.
 
 {% highlight_caption /etc/sudoers %}
-<pre class="caption">
+{% pre_caption %}
 ...
 ...
 ## Uncomment to allow members of group sudo to execute any command
 <mark>   %sudo    ALL=(ALL) ALL</mark>
 ...
 ...
-</pre>
+{% endpre_caption %}
 
 Simpan dan keluar.
 

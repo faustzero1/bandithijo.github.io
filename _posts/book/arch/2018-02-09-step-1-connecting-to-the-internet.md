@@ -21,15 +21,15 @@ Untuk terhubung ke internet, terlebih dahulu kita perlu memilih mau menggunakan 
 
 Lihat daftar network interface yang ada di sistem kita dengan menggunakan,
 
-<pre>
-$ <b>ip address show</b>
-</pre>
+{% shell_root %}
+ip address show
+{% endshell_root %}
 
 Atau, dapat kita singkat,
 
-<pre>
-$ <b>ip a s</b>
-</pre>
+{% shell_root %}
+ip a s
+{% endshell_root %}
 
 <pre>
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -57,9 +57,9 @@ Meskipun instalasi Arch Linux ini berupa _command line_, namun kita tetap dapat 
 
 <br>
 <s>
-{% shell_user %}
+{% shell_root %}
 <del>wifi-menu</del>
-{% endshell_user %}
+{% endshell_root %}
 </s>
 
 ~~Apabila keluar menu interaktif berupa daftar SSID yang tersedia, maka pilih SSID milik kalian dan masukkan _password_ dari SSID. Apabila hanya keluar pesan berupa `--help`, menandakan _wifi adapter_ kalian belum terdeteksi oleh _kernel driver_ Arch _Installer_.~~
@@ -89,14 +89,14 @@ root@archiso ~ # _
 
 Teman-teman dapat melihat, terdapat informasi yang memberikan kita petunjuk untuk authenticate Wi-Fi, kita diminta untuk menggunakan `iwctl` -- **iwctl** adalah interface dari **iwd**.
 
-<pre>
-$ <b>iwctl</b>
-</pre>
+{% shell_root %}
+iwctl
+{% endshell_root %}
 
 Kita akan dibawa masuk ke dalam iwd shell yang berpenampilan seperti di bawah ini.
 
 <pre>
-[iwd]# <b>_</b>
+<span class="cmd">[iwd]# </span><b>_</b>
 </pre>
 
 Artinya kita sudah berada di dalam iwd shell.
@@ -106,7 +106,7 @@ Artinya kita sudah berada di dalam iwd shell.
 Jangan panik dan mundur, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah `help` untk mendapatkan petuah yang berguna.
 
 <pre>
-[iwd]# <b>help</b>
+<span class="cmd">[iwd]# </span><b>help</b>
 </pre>
 
 <pre>
@@ -196,7 +196,7 @@ Miscellaneous:
 Kita perlu mengetahui nama interface yang tersedia di sistem kita. Dengan kata lain adalah wireless interface yang tersedia.
 
 <pre>
-[iwd]# <b>device list</b>
+<span class="cmd">[iwd]# </span><b>device list</b>
 </pre>
 
 <pre>
@@ -214,7 +214,7 @@ Namun, yang akan kita ingat menjadi perhatian adalah nama dari interface, yaitu 
 Teman-teman juga dapat melihat keterangan tentang wireless interface tersebut lebih detail dengan menggunakan perintah,
 
 <pre>
-[iwd]# <b>device wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>device wlan0 show</b>
 </pre>
 
 <pre>
@@ -236,7 +236,7 @@ Sekarang, kita masuk ke blok **Station**.
 Kita perlu terlebih dahulu melakukan scanning untuk mencari SSID yang tersedia.
 
 <pre>
-[iwd]# <b>station wlan0 scan</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 scan</b>
 </pre>
 
 Jangan bingung, karena memang tidak akan keluar apa-apa.
@@ -244,7 +244,7 @@ Jangan bingung, karena memang tidak akan keluar apa-apa.
 Namun, kalau teman-teman menjalankan option `show`, terlebih dahulu sebelum `scan`.
 
 <pre>
-[iwd]# <b>station wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
 </pre>
 
 <pre>
@@ -268,7 +268,7 @@ Untuk melihat hasil scan, kita gunakan option **get-networks**.
 Setelah kita melakukan scanning, saatnya melihat hasilnya dengan menggunakan perintah,
 
 <pre>
-[iwd]# <b>station wlan0 get-networks</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 get-networks</b>
 </pre>
 
 <pre>
@@ -294,7 +294,7 @@ Kalau sudah, kita akan gunakan option **connect** untuk terhubung.
 #### iwctl station connect
 
 <pre>
-[iwd]# <b>station wlan0 connect bandithijo</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 connect bandithijo</b>
 </pre>
 
 Kemudian, kalian akan diminta untuk memasukkan passphrase.
@@ -310,7 +310,7 @@ Masukkan password dari SSID. Password akan disensor dengan tanda bintang *.
 Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option **show**.
 
 <pre>
-[iwd]# <b>station wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
 </pre>
 
 <pre>
@@ -329,16 +329,16 @@ Kalau **State** nya sudah bernilai **connected**, artinya kita sudah berhasil te
 Untuk keluar dari iwctl, bisa ketik `exit`.
 
 <pre>
-[iwd]# <b>exit</b>
+<span class="cmd">[iwd]# </span><b>exit</b>
 </pre>
 
 Lakukan pengujian.
 
 Lihat network interface list, apakah wireless interface yang kita gunakan sudah mendapatkan IP address atau belum.
 
-<pre>
-$ <b>ip a s wlan0</b>
-</pre>
+{% shell_root %}
+ip a s wlan0
+{% endshell_root %}
 
 <pre>
 3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
@@ -353,9 +353,9 @@ Nah, dapat dilihat, saya sudah mendapatkan IP address.
 
 Sekarang coba tes koneksi internet dengan ping.
 
-<pre>
-$ <b>ping archlinux.org</b>
-</pre>
+{% shell_root %}
+ping -c 3 archlinux.org
+{% endshell_root %}
 
 <pre>
 PING archlinux.org (95.217.163.246) 56(84) bytes of data.
@@ -388,15 +388,15 @@ Cara lainnya, kita masih dapat menggunakan koneksi dari kabel LAN ataupun dengan
 
 Untuk penggunaan _USB tethering smartphone_, hubungkan _smartphone_ dengan laptop menggunakan kabel _USB_, lakukan pengecekan apakah sudah terhubung atau belum.
 
-```
-# lsusb
-```
+{% shell_root %}
+lsusb
+{% endshell_root %}
 
 Apabila sudah terlihat nama dari *device smartphone* kita, lakukan perintah di bawah untuk mengaktifkan DHCP *daemon service*.
 
-```
-# dhcpcd
-```
+{% shell_root %}
+dhcpcd
+{% endshell_root %}
 
 Setelah itu akan muncul pemberitahuan seperti di bawah.
 
@@ -408,9 +408,9 @@ forked to background, child pid 342
 
 Lakukan pengetesan apakah kita telah terhubung ke Internet,
 
-```
-# ping google.com
-```
+{% shell_root %}
+ping -c 3 google.com
+{% endshell_root %}
 
 Dalam langkah ini, kalian mungkin perlu menunggu beberapa saat hingga `ping` dapat berhasil, mungkin sekitar 1 - 2 menit.
 Apabila telah berhasil, kalian dapat bergerak ke _step_ selanjutnya.

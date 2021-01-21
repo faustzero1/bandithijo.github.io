@@ -111,7 +111,7 @@ vim ~/.local/share/applications/ranger.desktop
 {% endshell_user %}
 
 {% highlight_caption $HOME/.local/share/applications/ranger.desktop %}
-<pre class="caption">
+{% pre_caption %}
 [Desktop Entry]
 Type=Application
 Name=ranger
@@ -121,7 +121,7 @@ Terminal=false
 <mark>Exec=st -e ranger</mark>
 Categories=ConsoleOnly;System;FileTools;FileManager
 MimeType=inode/directory;
-</pre>
+{% endpre_caption %}
 
 Pada bagian `Exec=`, sesuaikan dengan Terminal emulator yang teman-teman pergunakan
 
@@ -371,7 +371,7 @@ Saya hanya merubah dua buah *keyborad shortcut*.
 Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara *default* apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell pada direktori yang aktif. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.
 
 {% highlight_caption $HOME/.config/ranger/rc.conf %}
-<pre class="caption">
+{% pre_caption %}
 ...
 ...
 map w taskview_open
@@ -381,12 +381,12 @@ map w taskview_open
 map :  console
 ..
 ..
-</pre>
+{% endpre_caption %}
 
 Modifikasi *keyboard* yang lain adalah saya merubah fungsi tombol <kbd>DELETE</kbd>.
 
 {% highlight_caption $HOME/.config/ranger/rc.conf %}
-<pre class="caption">
+{% pre_caption %}
 # In case you work on a keyboard with dvorak layout
 ...
 ...
@@ -397,7 +397,7 @@ map &lt;CR&gt;       move right=1
 map $lt;INSERT&gt;   console touch%space
 ...
 ...
-</pre>
+{% endpre_caption %}
 
 Saya menggunakan aplikasi `trash-cli`, agar file/direktori yang saya hapus dengan tombol <kbd>DELETE</kbd> tidak langsung lenyap, tetapi masuk ke Trash. Sayangnya saya belum dapat membuatnya menampilkan konfirmasi terlebih dahulu.
 

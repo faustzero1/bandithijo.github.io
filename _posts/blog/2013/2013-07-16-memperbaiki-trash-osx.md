@@ -47,22 +47,24 @@ Menurut ilmu sotoy ane, dilihat dari gejalanya tiap kali delete file, diminta ma
 1. Langkah selanjutnya, buka Terminal anda, Applications > Utilities > Terminal
 
 2. Lalu ketikkan (copy aja biar gak ribet) command di bawah ini.
-```
-$ sudo chmod 755 ~/.Trash
-```
+
+   {% shell_user %}
+sudo chmod 755 ~/.Trash
+{% endshell_user %}
 
 3. Tekan enter dan masukkan password user anda. Kalo user-nya gak ada password, bisa langsung enter saja (sepertinya. Soalnya user saya selalu berpassword, jadi belum pernah coba klo user nya gak di password).
 
-    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-8pQyn-S6yLA/UeU0ihAQgNI/AAAAAAAABOA/oWavVRiUMsg/w664-h480-no/Screen+Shot+2013-07-16+at+6.54.09+PM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://4.bp.blogspot.com/-8pQyn-S6yLA/UeU0ihAQgNI/AAAAAAAABOA/oWavVRiUMsg/w664-h480-no/Screen+Shot+2013-07-16+at+6.54.09+PM.png" onerror="imgError(this);"}{:class="myImg"}
 
 4. Lalu check lagi apakah permission pada .Trash folder sudah menjadi milik kita atau belum, dengan membuka kembali aplikasi Cloak, klo Cloak masih terbuka, close dulu lalu open lagi agar ter-refresh tampilan file folder yang sudah kita rubah tadi.
 
 5. Kalau sudah tidak ada icon attribute dilarang berwarna merah, berarti langkah "chmod" berhasil.
 
 6. Selanjutnya, kita akan meng-HAPUS folder .Trash ini. Buka kembali Terminal anda, dan ketikkan command di bawah, atau copy paste saja biar gak ribet.
-```
-$ sudo rm -rv ~/.Trash
-```
+
+   {% shell_user %}
+sudo rm -rv ~/.Trash
+{% endshell_user %}
 
 7. Tekan <kbd>Return</kbd>, masukkan password apabila diminta.
 
@@ -73,10 +75,11 @@ $ sudo rm -rv ~/.Trash
 10. Saat restart dan bunyi jrenggggg !!! tekan tahan (tekan berulang2 klo gak yakin) tombol Option, setelah masuk pilihan booting hardisk, pilih recovery mode (Ini berlaku untuk Mesin Mac yang tidak dapat DVD installer dari pabrik. Klo yang dapet DVD installer harus masukin DVD 1 OS X installer dulu sebelum restart, lalu lakukan step di atas dan pilih OS X installernya.
 
 11. Setelah berhasil masuk ke recovery mode, carilah Disk Utility.
-><p class="title-quote">[ ! ] Perhatian</p>
->Mac dengan installer DVD, disk utilitynya ada di toolbar di atas. Tool > Disk Utility
->
->Mac tanpa DVD installer, disk utility ada pada windows yang terpampang di awal Recovery Mode
+
+    {% box_perhatian %}
+     <p>Mac dengan installer DVD, disk utilitynya ada di toolbar di atas. Tool > Disk Utility</p>
+     <p>Mac tanpa DVD installer, disk utility ada pada windows yang terpampang di awal Recovery Mode</p>
+    {% endbox_perhatian %}
 
 12. Selanjutnya lakukan "Verify & Repair Disk". Dimulai dari Hardisk anda terlebih dahulu. Setelah selesai, dilanjutnya pada partisi nya. Ilustrasi seperti screenshot yang saya berikan.
 
@@ -88,5 +91,6 @@ $ sudo rm -rv ~/.Trash
 
 Apakah berhasil ? Karena cara ini berhasil saya lakukan pada OS X Mountain Lion teman saya. Akhirnya file2 yang di delete bisa kita lihat pada Trash icon di dock kembali. Hehehehe
 
-><p class="title-quote">[ ! ] Perhatian</p>
->Apabila anda melakukan Verify & Repair Disk pada Normal Mode, tombol Repair tidak akan bisa di tekan. Jadi harus pada keadaan Recovery Mode.
+{% box_perhatian %}
+<p>Apabila anda melakukan Verify & Repair Disk pada Normal Mode, tombol Repair tidak akan bisa di tekan. Jadi harus pada keadaan Recovery Mode.</p>
+{% endbox_perhatian %}

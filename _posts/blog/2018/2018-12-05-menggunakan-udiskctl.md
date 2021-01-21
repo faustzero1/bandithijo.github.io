@@ -65,68 +65,80 @@ Use "udisksctl COMMAND --help" to get help on each command.
 Untuk me-*mounting* _flash drive_ atau _external hard drive_, hal yang perlu kita lakukan cukup dengan :
 
 1. Cek nama/alamat block dari _drive_ yang akan kita _mounting_ dengan `lsblk`
-```
-$ lsblk
-```
-    <pre>
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-    sda      8:0    0 447.1G  0 disk
-    ├─sda1   8:1    0   511M  0 part /boot
-    ├─sda2   8:2    0 444.6G  0 part /
-    └─sda3   8:3    0     2G  0 part [SWAP]
-    <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
-Periksa nama/lamat block `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
+
+   {% shell_user %}
+lsblk
+{% endshell_user %}
+
+   <pre>
+   NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   sda      8:0    0 447.1G  0 disk
+   ├─sda1   8:1    0   511M  0 part /boot
+   ├─sda2   8:2    0 444.6G  0 part /
+   └─sda3   8:3    0     2G  0 part [SWAP]
+   <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
+
+   Periksa nama/lamat block `/dev/sdX` serta size, pastikan benar-benar _drive_ yang anda inginkan
 
 2. Selanjutnya tinggal kita _mount_ menggunakan `udisksctl`
-```
-$ udiskctl mount -b /dev/sdX
-```
-```
-Mounted /dev/sdX at /run/media/username/AAAA-0000.
-```
-Kemudian cek lagi dengan `lsblk` apakah sudah berhasil di-*mounting*
-```
-$ lsblk
-```
-    <pre>
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-    sda      8:0    0 447.1G  0 disk
-    ├─sda1   8:1    0   511M  0 part /boot
-    ├─sda2   8:2    0 444.6G  0 part /
-    └─sda3   8:3    0     2G  0 part [SWAP]
-    <mark>sdX      8:16   1   7.2G  0 disk /run/media/username/AAAA-0000</mark></pre>
-Apabila mengeluarkan tampilan seperti di atas, artinya _mounting_ berhasil.
+
+   {% shell_user %}
+udiskctl mount -b /dev/sdX
+{% endshell_user %}
+
+   ```
+   Mounted /dev/sdX at /run/media/username/AAAA-0000.
+   ```
+
+   Kemudian cek lagi dengan `lsblk` apakah sudah berhasil di-*mounting*
+
+   {% shell_user %}
+lsblk
+{% endshell_user %}
+
+   <pre>
+   NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   sda      8:0    0 447.1G  0 disk
+   ├─sda1   8:1    0   511M  0 part /boot
+   ├─sda2   8:2    0 444.6G  0 part /
+   └─sda3   8:3    0     2G  0 part [SWAP]
+   <mark>sdX      8:16   1   7.2G  0 disk /run/media/username/AAAA-0000</mark></pre>
+
+   Apabila mengeluarkan tampilan seperti di atas, artinya _mounting_ berhasil.
 
 ## Unmounting
 
 Setelah kita selesai berurusan dengan _drive_, sebelum mencabutnya sangat direkomendasikan untuk menjalankan proses _unmounting_. Caranya sangat mudah.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Pastikan <i>file manager</i> tidak sedang membuka direktori yang ada di dalam <i>external drive</i> yang akan kita <i>unmount</i> karena proses <i>unmounting</i> akan gagal dikarenakan partisi yang akan kita <i>unmount</i> dianggap sibuk.</p>
-</div>
+{% endbox_perhatian %}
 
 1. Jalankan `udisksctl` untuk proses _unmounting_
-```
-$ udiskctl unmount -b /dev/sdX
-```
-```
-Unmounted /dev/sdX
-```
+
+   {% shell_user %}
+udiskctl unmount -b /dev/sdX
+{% endshell_user %}
+
+   ```
+   Unmounted /dev/sdX
+   ```
 
 2. Selanjutnya lakukan pengecekan dengan `lsblk` untuk memastikan
-```
-$ lsblk
-```
-    <pre>
-    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-    sda      8:0    0 447.1G  0 disk
-    ├─sda1   8:1    0   511M  0 part /boot
-    ├─sda2   8:2    0 444.6G  0 part /
-    └─sda3   8:3    0     2G  0 part [SWAP]
-    <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
-Apabila mengeluarkan tampilan seperti di atas, artinya _unmounting_ berhasil.
+
+   {% shell_user %}
+lsblk
+{% endshell_user %}
+
+   <pre>
+   NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   sda      8:0    0 447.1G  0 disk
+   ├─sda1   8:1    0   511M  0 part /boot
+   ├─sda2   8:2    0 444.6G  0 part /
+   └─sda3   8:3    0     2G  0 part [SWAP]
+   <mark>sdX      8:16   1   7.2G  0 disk</mark></pre>
+
+   Apabila mengeluarkan tampilan seperti di atas, artinya _unmounting_ berhasil.
 
 ## Power Off
 
@@ -137,19 +149,22 @@ Jawabannya,"saya juga kurang yakin."
 Agar lebih yakin sebaiknya kita mematikan _external drive_ tersebut, kemudian baru kita lepas. Caranya ada pada tahap di bawah.
 
 1. Jalankan kembali perintah `udisksctl`
-```
-$ udiskctl power-off -b /dev/sdX
-```
+
+   {% shell_user %}
+udiskctl power-off -b /dev/sdX
+{% endshell_user %}
 
 2. Cek lagi apakah _external drive_ sudah berhasil di _power-off_
-```
-NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
-sda      8:0    0 447.1G  0 disk
-├─sda1   8:1    0   511M  0 part /boot
-├─sda2   8:2    0 444.6G  0 part /
-└─sda3   8:3    0     2G  0 part [SWAP]
-```
-Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berhasil.
+
+   ```
+   NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+   sda      8:0    0 447.1G  0 disk
+   ├─sda1   8:1    0   511M  0 part /boot
+   ├─sda2   8:2    0 444.6G  0 part /
+   └─sda3   8:3    0     2G  0 part [SWAP]
+   ```
+
+   Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berhasil.
 
 # Video Ilustrasi
 
@@ -158,6 +173,9 @@ Apabila mengeluarkan tampilan seperti di atas, artinya  proses _power-off_ berha
 # Akhir Kata
 
 Untuk penjelasan lebih lengkap dan literatur tambahan silahkan membaca dari referensi yang saya sertakan di bawah. Karena sebaik-baiknya dokumentasi adalah dokumentasi yang ditulis sendiri oleh developer yang membuat aplikasi.
+
+**udisksctl** juga dapat digunakan untuk melakukan mounting untuk file ISO image. Saya sudah pernah mencatatnya di sini,
+[**Mudah Mount & Unmount File ISO Image dengan Ruby Script (feat. udisksctl)**](/blog/mudah-mount-iso-dengan-ruby-script#alternatif-recommended){:target="_blank"}
 
 
 # Referensi

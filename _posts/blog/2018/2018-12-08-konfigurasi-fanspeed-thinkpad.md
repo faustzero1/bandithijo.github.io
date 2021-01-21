@@ -37,9 +37,10 @@ Berikut ini adalah ilustrasinya.
 
 **Jika Power Adapter Terpasang**
 
-```
-$ sensors
-```
+{% shell_user %}
+sensors
+{% endshell_user %}
+
 ```
 thinkpad-isa-0000
 Adapter: ISA adapter
@@ -47,9 +48,11 @@ fan1:        3076 RPM
 ```
 
 **Jika Power Adapter Dilepas**
-```
-$ sensors
-```
+
+{% shell_user %}
+sensors
+{% endshell_user %}
+
 ```
 thinkpad-isa-0000
 Adapter: ISA adapter
@@ -67,74 +70,93 @@ Kemudian, saya melakukan pencarian kata spesifik "thinkpad", ternyata ketemu. Te
 Berikut langkah-langkahnya.
 
 1. Instalasi paket bernama [`thinkfan`](https://aur.archlinux.org/packages/thinkfan/){:target="_blank"} dari (AUR)
-```
-$  yay thinkfan
-```
-2. Kemudian periksa file yang sudah terpasang dengan cara
-```
-$ sudo pacman -Ql thinkfan
-```
-```
-thinkfan /usr/
-thinkfan /usr/bin/
-thinkfan /usr/bin/thinkfan
-thinkfan /usr/lib/
-thinkfan /usr/lib/modprobe.d/
-thinkfan /usr/lib/modprobe.d/thinkpad_acpi.conf
-thinkfan /usr/lib/systemd/
-thinkfan /usr/lib/systemd/system/
-thinkfan /usr/lib/systemd/system/thinkfan.service
-thinkfan /usr/share/
-thinkfan /usr/share/doc/
-thinkfan /usr/share/doc/thinkfan/
-thinkfan /usr/share/doc/thinkfan/NEWS
-thinkfan /usr/share/doc/thinkfan/README
-thinkfan /usr/share/doc/thinkfan/examples/
-thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.complex
-thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.simple
-thinkfan /usr/share/man/
-thinkfan /usr/share/man/man1/
-thinkfan /usr/share/man/man1/thinkfan.1.gz
-```
-Perhatikan terdapat file bernama `/usr/lib/modprobe.d/thinkpad_acpi.conf`.
-Apabila kita lihat isi di dalamnya akan terdapat baris seperti ini.
-```
-options thinkpad_acpi fan_control=1
-```
-3. Selanjutnya, me-*load* kernel module.
-```
-$ sudo modprobe thinkpad_acpi
-```
-```
-$ sudo cat /proc/acpi/ibm/fan
-```
-```
-status:		enabled
-speed:		3068
-level:		auto
-```
-4. Selanjutnya, tinggal mengaktifkan _service_ saat _startup_.
-```
-sudo vim /etc/default/thinkfan
-```
-Isikan dengan.
-```
-START=yes
-```
-5. Kemudian, _copy_ konfigurasi default `/usr/share/doc/thinkfan/examples/thinkfan.conf.simple` ke `/etc/thinkfan.conf`.
-```
-$ sudo cp /usr/share/doc/thinkfan/examples/thinkfan.conf.simple /etc/thinkfan.conf
-```
-**Perhatian!** Langkah di atas perlu dilakukan. Apabila tidak, maka _service_ dari `thinkfan.service` akan kebingungan mencari file konfigurasi default yang diperlukan setelah _system reboot_.
-6. Langkah terakhir, tinggal meng-*enable*-kan *service*-nya.
-```
-$ sudo systemctl enable thinkfan
-```
-```
-Created symlink /etc/systemd/system/multi-user.target.wants/thinkfan.service → /usr/lib/systemd/system/thinkfan.service.
-```
-Selesai.
 
+   {% shell_user %}
+yay thinkfan
+{% endshell_user %}
+
+2. Kemudian periksa file yang sudah terpasang dengan cara
+
+   {% shell_user %}
+sudo pacman -Ql thinkfan
+{% endshell_user %}
+
+   ```
+   thinkfan /usr/
+   thinkfan /usr/bin/
+   thinkfan /usr/bin/thinkfan
+   thinkfan /usr/lib/
+   thinkfan /usr/lib/modprobe.d/
+   thinkfan /usr/lib/modprobe.d/thinkpad_acpi.conf
+   thinkfan /usr/lib/systemd/
+   thinkfan /usr/lib/systemd/system/
+   thinkfan /usr/lib/systemd/system/thinkfan.service
+   thinkfan /usr/share/
+   thinkfan /usr/share/doc/
+   thinkfan /usr/share/doc/thinkfan/
+   thinkfan /usr/share/doc/thinkfan/NEWS
+   thinkfan /usr/share/doc/thinkfan/README
+   thinkfan /usr/share/doc/thinkfan/examples/
+   thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.complex
+   thinkfan /usr/share/doc/thinkfan/examples/thinkfan.conf.simple
+   thinkfan /usr/share/man/
+   thinkfan /usr/share/man/man1/
+   thinkfan /usr/share/man/man1/thinkfan.1.gz
+   ```
+
+   Perhatikan terdapat file bernama `/usr/lib/modprobe.d/thinkpad_acpi.conf`.
+   Apabila kita lihat isi di dalamnya akan terdapat baris seperti ini.
+
+   ```
+   options thinkpad_acpi fan_control=1
+   ```
+
+3. Selanjutnya, me-*load* kernel module.
+
+   {% shell_user %}
+sudo modprobe thinkpad_acpi
+sudo cat /proc/acpi/ibm/fan
+{% endshell_user %}
+
+   ```
+   status:		enabled
+   speed:		3068
+   level:		auto
+   ```
+
+4. Selanjutnya, tinggal mengaktifkan _service_ saat _startup_.
+
+   {% shell_user %}
+sudo vim /etc/default/thinkfan
+{% endshell_user %}
+
+   Isikan dengan.
+
+   ```
+   START=yes
+   ```
+
+5. Kemudian, _copy_ konfigurasi default `/usr/share/doc/thinkfan/examples/thinkfan.conf.simple` ke `/etc/thinkfan.conf`.
+
+   {% shell_user %}
+sudo cp /usr/share/doc/thinkfan/examples/thinkfan.conf.simple /etc/thinkfan.conf
+{% endshell_user %}
+
+   **Perhatian!** Langkah di atas perlu dilakukan. Apabila tidak, maka _service_ dari `thinkfan.service` akan kebingungan mencari file konfigurasi default yang diperlukan setelah _system reboot_.
+
+6. Langkah terakhir, tinggal meng-*enable*-kan *service*-nya.
+
+   {% shell_user %}
+sudo systemctl enable thinkfan
+{% endshell_user %}
+
+   ```
+   Created symlink /etc/systemd/system/multi-user.target.wants/thinkfan.service → /usr/lib/systemd/system/thinkfan.service.
+   ```
+
+   Selesai.
+
+<br>
 Nah, sekarang coba lepas _power adapter_ dan lakukan pengecekan dengan menjalankan perintah `$ sensors`.
 
 Apakah sudah berhasil terdeteksi?

@@ -51,9 +51,10 @@ Keterangan Gambar 1.0 :
 # Memasang / Meng-Install YumEx-DNF
 YumEx-DNF pada distribusi sistem operasi Fedora 25 Workstation sudah terpasang secara _default_. Apabila belum terpasang / ter-instal maka langkah instalasinya sangatlah mudah karena YumEx-DNF ini sudah terdapat pada repositori resmi Fedora.
 Buka Terminal, kemudian ketik atau _copy paste_ kode perintah di bawah ini.
-```
-$ sudo dnf install yumex-dnf
-```
+
+{% shell_user %}
+sudo dnf install yumex-dnf
+{% endshell_user %}
 
 # Cara Menggunakan
 Cari aplikasi yang anda ingin pasang dengan menekan icon **Search** (2) Kemudian ketik nama aplikasi yang ingin dipasang. Kemudia _checklist_ / centang nama aplikasi yang dimaksud (6). Setelah itu, klik tombol icon **Apply** (3). Akan muncul window konfirmasi, pilih “OK”, maka proses pemasangan aplikasi tinggal menunggu proses pemasangan.

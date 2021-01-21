@@ -121,30 +121,33 @@ Sebagai ilustrasi, saya selalu mengumpulkan aplikasi yang berupa *source code* p
 
 Kemudian jalankan perintah di bawah.
 
-```
-$ git clone https://github.com/vkohaupt/vokoscreen
-```
+{% shell_user %}
+git clone https://github.com/vkohaupt/vokoscreen
+{% endshell_user %}
 
 Setelah proses *cloning* selesai, masuk ke dalam direktori yang sudah kita *cloning* dari GitHub tersebut.
 
-```
-$ cd vokoscreen
-```
+{% shell_user %}
+cd vokoscreen
+{% endshell_user %}
+
 Di dalam direktori ini (`vokoscreen`) terdapat file bernama `INSTALL` yang berisi daftar paket-paket yang diperlukan oleh Vokoscreen (lihat bagian **Requires:**) dan yang dibutuhkan untuk mem-*build* Vokoscreen (lihat bagian **BuildRequires:**).
 
 Lakukan pengecekan apakah semua paket-paket yang diperlukan sudah terpenuhi?
 
 Apabila sudah, tinggal jalanakan perintah selanjutnya.
-```
-$ make
-```
+
+{% shell_user %}
+make
+{% endshell_user %}
 
 Perintah ini akan meng-*compile* *source code* Vokoscreen dan apabila proses kompilasi berhasil, akan menghasilkan file binary yang kita perlukan dengan nama `vokoscreen`.
 
 Untuk menjalankannya, ikuti perintah di bawah.
-```
-$ ./vokoscreen
-```
+
+{% shell_user %}
+./vokoscreen
+{% endshell_user %}
 
 # Membuat App Launcher
 
@@ -154,16 +157,17 @@ Karena aplikasi ini kita kompilasi sendiri dari *source code*, terkadang belum t
 
 Pertama-tama kita akan membuat *symbolic link* untuk file binary `vokoscreen` yang sudah kita kompilasi sebelumnya yang akan kita letakkan pada `/usr/bin/` agar Vokoscreen dapat kita panggil via Terminal.
 
-```
-$ sudo ln -sf /home/bandithijo/app/vokoscreen/vokoscreen /usr/bin/vokoscreen
-```
+{% shell_user %}
+sudo ln -sf /home/bandithijo/app/vokoscreen/vokoscreen /usr/bin/vokoscreen
+{% endshell_user %}
+
 **Catatan:** gunakan alamat lengkap dari file `vokoscreen` yang kita kompilasi.
 
 Apabila berhasil, sekarang coba buka Terminal dan panggil Vokoscreen.
 
-```
-$ vokoscreen
-```
+{% shell_user %}
+vokoscreen
+{% endshell_user %}
 
 Apabila Vokoscreen berhasil terbuka, berarti kita dapat lanjut mengkonfigurasi *application launcher*.
 
@@ -171,10 +175,10 @@ Apabila Vokoscreen berhasil terbuka, berarti kita dapat lanjut mengkonfigurasi *
 
 Beruntungnya di dalam direktori `../vokoscreen/applications/` sudah terdapat file `vokoscreen.desktop`. Ini adalah file *launcher* untuk memanggil aplikasi. Tinggal kita pindahkan ke tempat yang benar.
 
-```
-$ cd applications/
-$ cp vokoscreen.desktop $HOME/.local/share/applications/vokoscreen.desktop
-```
+{% shell_user %}
+cd applications/
+cp vokoscreen.desktop $HOME/.local/share/applications/vokoscreen.desktop
+{% endshell_user %}
 
 Apabila berhasil, sekarang coba panggil Vokoscreen menggunakan *application launcher* / *menu laucher* pada Desktop Environment yang kalian pergunakan.
 

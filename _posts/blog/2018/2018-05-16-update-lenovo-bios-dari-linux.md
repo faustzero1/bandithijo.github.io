@@ -80,12 +80,11 @@ Nah, dengan adanya informasi di atas, mudah-mudahan dapat memberikan gambaran ke
 *terima kasih untuk kang [Sucipto](https://sucipto.net/){:target="_blank"}.
 
 # Disclaimer
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+
+{% box_perhatian %}
 <p>Perlu saya garis bawahi, bahwa saya sebagai penulis tidak bertangung jawab atas segala bentuk resiko kerusakan, kehilangan data, <i>hard brick</i> dan lain sebagainya, yang diakibatkan karena proses mengikuti tulisan dokumentasi ini.</p>
 <p><b><i>Do with your own risk, Dude</i></b></p>
-</div>
+{% endbox_perhatian %}
 
 
 # Langkah-langkah
@@ -114,10 +113,10 @@ Gambar 3 di atas, saya melakukan **Copy link address**, pada BIOS Update (Bootab
 
 Setelah mendapatkan link tersebut, buka Terminal dan kita akan mendownload menggunakan `wget`.
 
-```
-$ cd /tmp/
-$ wget https://download.lenovo.com/pccbbs/mobiles/r02uj64d.iso
-```
+{% shell_user %}
+cd /tmp/
+wget https://download.lenovo.com/pccbbs/mobiles/r02uj64d.iso
+{% endshell_user %}
 
 Perhatikan baik-baik, akhir dari link yang kita *copy* tersebut harusnya berakhiran dengan **.iso**.
 
@@ -146,49 +145,52 @@ Kita membutuhkan program bernama `geteltorito` yang akan berguna untuk mengekstr
 Untuk distribusi linux Debian/Ubuntu/Fedora/RedHat/OpenSUSE program ini bernama `genisoimage`.
 
 **Debian/Ubuntu**
-```
-$ sudo apt-get install genisoimage
-```
+{% shell_user %}
+sudo apt-get install genisoimage
+{% endshell_user %}
 
 **Fedora**
-```
-$ sudo dnf install genisoimage
-```
+{% shell_user %}
+sudo dnf install genisoimage
+{% endshell_user %}
 
 **RedHat/Centos**
-```
-$ sudo yum install genisoimage
-```
+{% shell_user %}
+sudo yum install genisoimage
+{% endshell_user %}
 
 **SUSE/OpenSUSE**
-```
-$ sudo zypper install genisoimage
-```
+{% shell_user %}
+sudo zypper install genisoimage
+{% endshell_user %}
 
 **Arch Linux (AUR)**
-```
-$ pikaur -S geteltorito
-```
+{% shell_user %}
+yay -S geteltorito
+{% endshell_user %}
 
 Cara lain, dapat langsung menggunakan Perl script di bawah ini.
-```
-$ wget https://userpages.uni-koblenz.de/~krienke/ftp/noarch/geteltorito/geteltorito/geteltorito
-$ chmod +x geteltorito
-```
+
+{% shell_user %}
+wget https://userpages.uni-koblenz.de/~krienke/ftp/noarch/geteltorito/geteltorito/geteltorito
+chmod +x geteltorito
+{% endshell_user %}
 
 ## Step 3: Ekstrak Image dari File ISO
 
 `geteltorito` adalah **El Torito boot image extractor**. Kita akan menggunakan program ini untuk mengeluarkan file image dari file ISO.
 
 Formulanya,
-```
-$ geteltorito -o {nama-output-image.img} {Bootable-CD.iso}
-```
+{% pre_url %}
+geteltorito -o {nama-output-image.img} {Bootable-CD.iso}
+{% endpre_url %}
 
 Contoh punya saya,
-```
-$ geteltorito -o x260.img r02uj64d.iso
-```
+
+{% shell_user %}
+geteltorito -o x260.img r02uj64d.iso
+{% endshell_user %}
+
 Berikan *output name* .img sesuka kalian.
 
 <br>
@@ -197,9 +199,11 @@ Berikan *output name* .img sesuka kalian.
 ## Step 4: Bakar Image ke dalam Flash Drive
 
 Kalian dapat mengidentifikasi alamat dari Flash Drive dengan menggunakan perintah.
-```
-$ lsblk
-```
+
+{% shell_user %}
+lsblk
+{% endshell_user %}
+
 <pre>
 NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 sda      8:0    0 447.1G  0 disk
@@ -212,9 +216,11 @@ sda      8:0    0 447.1G  0 disk
 Dari kolom **Size** saya dapat mengetahui bahwa *flash drive* saya adalah `/dev/sdb`.
 
 Kemudian, kita akan membakar file `x260.img` yang sudah kita ekstrak dari ISO ke dalam *flash drive* menggunakan perintah `dd`.
-```
-$ sudo dd if=x260.img of=/dev/sdb bs=64K
-```
+
+{% shell_user %}
+sudo dd if=x260.img of=/dev/sdb bs=64K
+{% endshell_user %}
+
 Kalian sesuaikan dengan nama image dan alamat blok dari *flash drive* yang kalian miliki.
 
 ![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/tnlc52jgd/gambar_06.gif" onerror="imgError(this);"}{:class="myImg"}
@@ -229,12 +235,10 @@ Berikut ini adalah video proses update BIOS Lenovo. Mohon maaf apabila video ini
 
 # Pesan Penulis
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saat ini proses BIOS <i>firmware</i> sudah menjadi lebih mudah pada sistem operasi GNU/Linux, karena sudah tedapat aplikasi yang bernama <b>fwupd</b> dengan <i>command</i> pada Terminal, <code>fwupdmgr</code>.</p>
 <p>Penjelasan lebih lanjut tentang cara penggunaan fwupd dapat dilihat pada dokumentasi Arch Wiki, <a href="https://wiki.archlinux.org/index.php/Fwupd" target="_blank">di sini</a>.</p>
-</div>
+{% endbox_info %}
 
 
 # Referensi

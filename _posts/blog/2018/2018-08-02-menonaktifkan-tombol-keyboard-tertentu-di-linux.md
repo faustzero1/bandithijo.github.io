@@ -27,85 +27,116 @@ Lagkah-langkah yang saya lakukan di bawah ini saya lakukan pada distribusi siste
 # Menonaktifkan Tombol pada Console
 
 1. Deteksi **keycode** dari tombol keyboard yang kita tekan menggunakan perintah di bawah.
-```
-$ sudo showkey
-```
-Kemudian tekan tombol yang ingin dinonaktifkan fungsinya (dalam contoh ini adalah <kbd>PrtSc</kbd>), nanti akan keluar output seperti di bawah.
-```
-keycode 99 press
-keycode 99 release
-```
-Berarti keycode dari tombol <kbd>PrtSc</kbd> adalah `99`.
-Langkah selanjutnya, kita akan mengedit file `.map` dan memasukkan keycode `99` dalam daftar. `showkey` akan keluar secara otomatis apabila dalam waktu 10 detik kita tidak menekan tombol apapun pada keyboard.
+
+   {% shell_user %}
+sudo showkey
+{% endshell_user %}
+
+   Kemudian tekan tombol yang ingin dinonaktifkan fungsinya (dalam contoh ini adalah <kbd>PrtSc</kbd>), nanti akan keluar output seperti di bawah.
+
+   ```
+   keycode 99 press
+   keycode 99 release
+   ```
+
+   Berarti keycode dari tombol <kbd>PrtSc</kbd> adalah `99`.
+
+   Langkah selanjutnya, kita akan mengedit file `.map` dan memasukkan keycode `99` dalam daftar. `showkey` akan keluar secara otomatis apabila dalam waktu 10 detik kita tidak menekan tombol apapun pada keyboard.
 
 2. Masuk ke dalam direktori `/usr/share/kbd/keymaps/i386/qwerty`
-```
-$ cd /usr/share/kbd/keymaps/i386/qwerty
-```
+
+   {% shell_user %}
+cd /usr/share/kbd/keymaps/i386/qwerty
+{% endshell_user %}
+
 3. Kita copy-kan *default keymap* menjadi nama file yang lain. Keymaps saya adalah US.
-```
-$ sudo cp us.map.gz personal.map.gz
-```
+
+   {% shell_user %}
+sudo cp us.map.gz personal.map.gz
+{% endshell_user %}
+
 4. Ekstrak file `personal.map.gz` menggunakan perintah `gunzip`.
-```
-$ gunzip personal.map.gz
-```
+
+   {% shell_user %}
+gunzip personal.map.gz
+{% endshell_user %}
+
 5. Edit file `personal.map` menggunakan *text editor* favorit kalian.
-```
-$ sudo vim personal.map
-```
-lalu tambahkan di baris paling bawah.
-```
+
+   {% shell_user %}
+sudo vim personal.map
+{% endshell_user %}
+
+   Lalu tambahkan di baris paling bawah.
+
+   {% highlight_caption /usr/share/kbd/keymaps/i386/qwerty/personal.map %}
+   {% pre_caption %}
 ...
 ...
+
 keycode 99 = nul
-```
-Ingat, `99` disini adalah *keycode* dari tombol <kbd>PrtSc</kbd> yang kita dapatkan pada langkah nomor 1 di atas. Apabila ingin menonaktifkan tombol lain, silahkan diganti dengan keycode dari tombol yang ingin dinonaktifkan.
+{% endpre_caption %}
+
+   Ingat, `99` disini adalah *keycode* dari tombol <kbd>PrtSc</kbd> yang kita dapatkan pada langkah nomor 1 di atas. Apabila ingin menonaktifkan tombol lain, silahkan diganti dengan keycode dari tombol yang ingin dinonaktifkan.
+
 6. Kompres kembali file `personal.map` menggunakan perintah `gzip`.
-```
-$ gzip personal.map
-```
-kemudian untuk mengaktifkan file map yang kita buat ini, jalankan.
-```
-$ sudo loadkeys personal
-```
-Lakukang pengujian dengan mnenjalankan `showkey` kembali.
+
+   {% shell_user %}
+gzip personal.map
+{% endshell_user %}
+
+   Kemudian untuk mengaktifkan file map yang kita buat ini, jalankan.
+
+   {% shell_user %}
+sudo loadkeys personal
+{% endshell_user %}
+
+   Lakukang pengujian dengan mnenjalankan `showkey` kembali.
+
 7. Namun pengaturan `loadkeys` ini tidak permanen, kita dapat membuat menjadi permanen dengan mengedit isi dari file `/etc/vconsole.conf` (buat file `vconsole.conf` apabila belum tersedia).
-```
-$ sudo vim /etc/vconsole.conf
-```
-```
-KEYMAP=us
-```
-diganti dengan
-```
-KEYMAP=personal
-```
+
+   {% shell_user %}
+sudo vim /etc/vconsole.conf
+{% endshell_user %}
+
+   ```
+   KEYMAP=us
+   ```
+
+   Diganti dengan
+
+   ```
+   KEYMAP=personal
+   ```
 8. Lakukan pengujian dengan me-*Reboot* sistem kamu.
 
 # Menonaktifkan Tombol pada X
+
 Langkah-langkah di atas hanya berlaku pada **console**, apabila kita ingin menonaktifkan tombol <kbd>PrtSc</kbd> juga pada **X**, salah satu cara yang dapat dilakukan adalah meng-*comment* *keycode* nya dari dalam file `evdev`.
 
 1. Buka file `/usr/share/X11/xkb/keycodes/evdev` dengan menggunakan *text editor* favorit kalian.
-```
-$ sudo vim /usr/share/X11/xkb/keycodes/evdev
-```
+
+   {% shell_user %}
+sudo vim /usr/share/X11/xkb/keycodes/evdev
+{% endshell_user %}
+
 2. Cari *key code* untuk tombol <kbd>PrtSc</kbd>.
-{% raw %}
-    ```
-    ...
-    <PRSC> = 107;
-    ...
-    ```
-{% endraw %}
+
+   {% highlight_caption /usr/share/X11/xkb/keycodes/evdev %}
+   {% pre_caption %}
+ ...
+ &lt;PRSC> = 107;
+ ...
+{% endpre_caption %}
+
 3. Kemudian, *disable* dengan memberikan tanda komentar (`//`).
-{% raw %}
-    ```
-    ...
-    // <PRSC> = 107;
-    ...
-    ```
-{% endraw %}
+
+   {% highlight_caption /usr/share/X11/xkb/keycodes/evdev %}
+   {% pre_caption %}
+ ...
+ // &lt;PRSC> = 107;
+ ...
+{% endpre_caption %}
 
 <br>
 Dengan begini maka tombol <kbd>PrtSc</kbd> benar-benar dinonaktifkan baik di console, terminal, dan X window.

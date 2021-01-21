@@ -33,9 +33,11 @@ Sederhana saja jawabannya. Kita pasti selalu mencari cara untuk melakukan hal-ha
 # Solusi
 
 Coba jalankan perintah `xfconf-query` di Terminal.
-```
-$ xfconf-query
-```
+
+{% shell_user %}
+xfconf-query
+{% endshell_user %}
+
 <pre>
 Channels:
   xfce4-session
@@ -64,9 +66,11 @@ Channels:
 Kalo saya tidak salah menebak, `xfconf` ini diambil dari kata *xf configuration*. Dan kita dapat melihat *channels* yang terdiri dari aplikasi-aplikasi bawaan XFCE yang dapat kita konfigurasi menggunakan *xfconf*. Dalam hal ini, kita akan menggunakan *channel* `xfce4-power-manager`.
 
 Lalu, coba jalankan `xfconf-query` dengan menambah *option* `-h`.
-```
-$ xfconf-query -h
-```
+
+{% shell_user %}
+xfconf-query -h
+{% endshell_user %}
+
 ```
 Usage:
   xfconf-query [OPTION…] - Xfconf commandline utility
@@ -89,13 +93,17 @@ Application Options:
   -T, --toggle          Invert an existing boolean property
   -m, --monitor         Monitor a channel for property changes
 ```
+
 *Output* di atas menampilkan *options* yang dapat kita gunakan untuk mengkonfigurasi *channel*.
 
 Sekarang, coba lihat file `.xml` yang digunakan untuk mengkonfigurasi *xfconf* pada *channel* `xfce4-power-manager`.
-```
-$ vim ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
-```
-<pre>
+
+{% shell_user %}
+vim ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+{% endshell_user %}
+
+{% highlight_caption $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml %}
+{% pre_caption %}
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 
 &lt;channel name="xfce4-power-manager" version="1.0"&gt;
@@ -124,20 +132,24 @@ $ vim ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
     &lt;property name="show-panel-label" type="int" value="1"/&gt;
   &lt;/property&gt;
 &lt;/channel&gt;
-</pre>
+{% endpre_caption %}
 
 Kita dapat lihat di atas, terdapat *property name* **presentation-mode** dengan *type boolean* bernilai *false*. Artinya, saat ini *presentation-mode* dalam keadaan tidak aktif.
 
 Nah, kita dapat merubah nilai yang ada di dalam isi file `.xml` ini dengan menggunakan `xfconf-query`.
 
 Buka Terminal dan jalankan perintah di bawah, untuk membuat *presentation-mode* bernilai *true*.
-```
-$ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true
-```
+
+{% shell_user %}
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true
+{% endshell_user %}
+
 Untuk merubah kembali menjadi bernilai *false* tinggal ganti nilai `-s true` menjadi `-s false`.
-```
-$ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false
-```
+
+{% shell_user %}
+xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false
+{% endshell_user %}
+
 Kalo kita tela'ah perintah di atas, kita menggunakan beberapa *options* diantaranya:
 1. `-c` untuk *channel*
 2. `-p` untuk *property*, dan
@@ -150,21 +162,18 @@ Cara praktisnya dengan menggunakan **alias**.
 Buka file `~/.bashrc` atau `~/.zshrc`. Tergantung tipe **shell** apa yang kalian gunakan. `$ which $SHELL`
 
 Karena saya menggunakan **zsh shell**, maka saya akan menambahkan alias pada perintah di atas pada file `.zshrc` yang ada di direktori `$HOME`.
-```
-$ vim ~/.zshrc
-```
-```
-...
-...
 
+{% shell_user %}
+vim ~/.zshrc
+{% endshell_user %}
+
+{% highlight_caption $HOME/.zshrc %}
+{% pre_caption %}
 # Presentation Mode XFCE4-POWER-MANAGER
 alias presentationmode-on="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true"
 alias presentationmode-off="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false"
+{% endpre_caption %}
 
-...
-...
-
-```
 Dapat dilihat pada baris *alias* di atas, saya menggunakan nama `presentationmode-on` untuk mengaktifkan dan `presentationmode-off` untuk menonaktifkan *presentation-mode*.
 
 Untuk mencobanya, kalian bisa membuka Terminal baru, atau merefresh Terminal yang saat ini sedang terbuka. `$ exec $SHELL`
@@ -172,22 +181,22 @@ Untuk mencobanya, kalian bisa membuka Terminal baru, atau merefresh Terminal yan
 ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/wze9g4mr1/gambar_02.gif" onerror="imgError(this);"}{:class="myImg"}
 
 Kalian juga dapat menambahkan *output* berupa `echo` agar menampilkan tulisan seperti yang saya lakukan pada contoh di atas.
-```
 
+{% highlight_caption $HOME/.zshrc %}
+{% pre_caption %}
 # Presentation Mode XFCE4-POWER-MANAGER
 alias presentationmode-on="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true; echo 'Presentation Mode ON'"
 alias presentationmode-off="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false; echo 'Presentation Mode OFF'"
-
-```
+{% endpre_caption %}
 
 Bisa juga ditambahkan notification.
-```
 
+{% highlight_caption $HOME/.zshrc %}
+{% pre_caption %}
 # Presentation Mode XFCE4-POWER-MANAGER
 alias presentationmode-on="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s true; echo 'Presentation Mode ON'; notify-send '[ON] Presentation Mode'"
 alias presentationmode-off="xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -s false; echo 'Presentation Mode OFF'; notify-send '[OFF] Presentation Mode'"
-
-```
+{% endpre_caption %}
 
 Saya rasa cukup seperti ini saja.
 

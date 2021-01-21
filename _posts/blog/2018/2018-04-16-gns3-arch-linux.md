@@ -108,8 +108,8 @@ sudo mv vpcs /usr/local/bin
 Kemudian, lakukan verifikasi proses instalasi yang sudah kita lakukan tadi. Kita akan melakukan pengecekan lokasi.
 
 {% shell_user %}
-$ cd $HOME
-$ type vpcs
+cd $HOME
+type vpcs
 {% endshell_user %}
 
 ```
@@ -370,7 +370,7 @@ gns3-server (2.1.4)
 Selanjutnya, kita perlu membuat *desktop dhosrtcut* agar GNS3 lebih mudah di aksis via *Desktop Environment*.
 
 <pre>
-$ <b>sudo tee -a /usr/share/applications/gns3.desktop > /dev/null << EOL
+<span class="cmd">$</span> <b>sudo tee -a /usr/share/applications/gns3.desktop > /dev/null << EOL
 [Desktop Entry]
 Type=Application
 Encoding=UTF-8

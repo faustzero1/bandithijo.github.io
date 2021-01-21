@@ -49,30 +49,36 @@ Seperti yang teman-teman ketahui, kita membutuhkan akses ke Internet agar dapat 
 
 ## Lakukan Update Keseluruhan Sistem Operasi
 Setelah anda memastikan bahwa masalah konektifitas ke internet tidak terdapat kendala, langkah selanjutnya adalah melakukan _update_ keseluruhan sistem operasi. Karena sistem operasi yang telah kita _install_ menggunakan `.iso` _image_ tentu telah mengalami update sejak `.iso` itu dipasang di situs resminya. Oleh karenanya kita perlu untuk melakukan _update_ keseluruhan aplikasi pada sistem operasi menjadi versi terakhir. Dengan cara _copy paste_ kode perintah di bawah ke Terminal.
-```
-$ sudo dnf update
-```
+
+{% shell_user %}
+sudo dnf update
+{% endshell_user %}
+
 Saya menyarankan untuk `reboot` sistem setelah proses `update` ini selesai.
 
 ## Menambahkan Repository RPM Fussion
 Kita membutuhkan tambahan repository dari pihak ketiga dengan tujuan memperkaya daftar aplikasi yang dapat kita gunakan pada sistem operasi kita.
-```
-$ su -c 'dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
-```
+
+{% shell_user %}
+su -c 'dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm'
+{% endshell_user %}
+
 Sumber : [rpmfusion.org/Configuration](https://rpmfusion.org/Configuration){:target="_blank"}
 
 Jangan lupa, _update_ sistem kembali setelah menambahkan RPM Fusion repositori.
-```
-$ sudo dnf update
-```
+
+{% shell_user %}
+sudo dnf update
+{% endshell_user %}
 
 ## Instalasi Media Codec
 Fedora tidak langsung dapat memutar musik berformat `.mp3`, `.wav` atau memutar video berformat `.mp4`, `.flv`, `.mkv`, dll, untuk itu kita perlu menginstal _plugin_ / _codec_ untuk multimedia agar dapat diputar pada multimedia _player_ di Fedora kita.
 
 Buka Terminal dan _copy paste_ kode perintah di bawah.
-```
-$ su -c 'dnf install gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer-plugin-crystalhd gstreamer1-vaapi gstreamer1-plugins-bad-free gstreamer1-plugins-good'
-```
+
+{% shell_user %}
+su -c 'dnf install gstreamer1-plugins-ugly gstreamer1-plugins-bad-freeworld gstreamer1-libav gstreamer-plugin-crystalhd gstreamer1-vaapi gstreamer1-plugins-bad-free gstreamer1-plugins-good'
+{% endshell_user %}
 
 ## Menambahkan Program Applikasi yang Saya Biasa Gunakan
 Berikut ini adalah daftar program aplikasi yang biasa saya gunakan untuk mendukung pekerjaan dan aktifitas berkomputasi saya sehari-hari.
@@ -105,18 +111,22 @@ Berikut ini adalah daftar program aplikasi yang biasa saya gunakan untuk menduku
 | Unar | Multi-format extractor |
 
 Untuk memasangnya buka Terminal dan _copy paste_ kode perintah di bawah ini.
-```
-$ sudo dnf install gimp inkscape thunderbird blender brasero gcolor2 geany gthumb hexchat kdenlive alacarte soundconverter audacity simplescreenrecorder transmission-gtk corebird vlc wine winetricks yumex-dnf zeal gnome-tweak-tool unar
-```
+
+{% shell_user %}
+sudo dnf install gimp inkscape thunderbird blender brasero gcolor2 geany gthumb hexchat kdenlive alacarte soundconverter audacity simplescreenrecorder transmission-gtk corebird vlc wine winetricks yumex-dnf zeal gnome-tweak-tool unar
+{% endshell_user %}
+
 Catatan: silahkan hapus aplikasi yang sekiranya tidak begitu anda perlukan.
 
 ## Menambahkan Fedora Tweak, FEDY
 Fedy adalah aplikasi GUI yang memberikan kemudahan untuk menginstal _multimedia codec_ dan _software_ tambahan yang tidak disertakan oleh repositori resmi Fedora. Seperti dukungan format .mp3, Adobe Flash, Oracle Java, and masih banyak lagi, cukup dengan hanya satu kali klik saja.
 
 Untuk menginstal Fedy, buka Terminal dan _copy paste_ kode perintah di bawah ini.
-```
-$ sudo sh -c 'curl https://www.folkswithhats.org/installer | bash'
-```
+
+{% shell_user %}
+sudo sh -c 'curl https://www.folkswithhats.org/installer | bash'
+{% endshell_user %}
+
 Source : [folkswithhats.org/](https://folkswithhats.org/){:target="_blank"}
 
 Setelah Fedy berhasil diinstal, saatnya kita menginstal aplikasi-aplikasi yang sudah dikemas oleh Fedy, seperti :
@@ -150,9 +160,10 @@ Karena saya menggunakan laptop / notebook, sehingga perlu rasanya untuk menambah
 Apa itu TLP ?
 
 _TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail. TLP comes with a default configuration already optimized for battery life. Also an optional install of the smartmontools package enables hard disk SMART data in tlp-stat_ (`smartctl`).
-```
-$ sudo dnf install tlp
-```
+
+{% shell_user %}
+sudo dnf install tlp
+{% endshell_user %}
 
 # Kesimpulan
 Kesan setelah melakukan instalasi Fedora 25 Workstation pada mesin Lenovo ThinkPad x260 menurut saya sangat-sangat mudah dan tidak ribet. Kompatibilitas hardware yang sudah terpenuhi semua, tidak perlu repot-repot setting seperti yang saya lakukan pada MacBook Pro 8.1 late 2011 saya sebelumnya.

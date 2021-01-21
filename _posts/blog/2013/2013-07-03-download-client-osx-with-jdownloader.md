@@ -41,11 +41,11 @@ Bagi pengguna Ubuntu & Windows, tutorial pada artikel ini bisa digunakan untuk m
 
 5. Maka pada JDownloader, akan terdapat proses decrypt yang dapat dilihat pada progress bar di bagian bawah window JDownloader (bagian yang di kotak merah).
 
-    ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-8GjrfW_D_7E/UdMYhKSgqnI/AAAAAAAABAc/PK07SOvT12Y/s320/Screen+Shot+2013-07-03+at+1.09.19+AM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-8GjrfW_D_7E/UdMYhKSgqnI/AAAAAAAABAc/PK07SOvT12Y/s320/Screen+Shot+2013-07-03+at+1.09.19+AM.png" onerror="imgError(this);"}{:class="myImg"}
 
 6. Ini memerlukan proses agak lama. Setelah selesai, makan akan secara otomatis berpidah ke tab "LinkGrabber" dan keluarlah file-file yang available untuk kita donwload. Seperti gambar di bawah.
 
-    ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-nQKf7O2eafc/UdMZcBDF8fI/AAAAAAAABAo/GWIVNCrG-ww/s320/Screen+Shot+2013-07-03+at+1.17.00+AM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-nQKf7O2eafc/UdMZcBDF8fI/AAAAAAAABAo/GWIVNCrG-ww/s320/Screen+Shot+2013-07-03+at+1.17.00+AM.png" onerror="imgError(this);"}{:class="myImg"}
 
 7. Perhatikan gambar di atas. Sama seperti IDM bukan ? Apabila website tersebut menyediakan banyak format dan ukuran file maka akan ditampilakan juga di JDownloader.
 
@@ -72,13 +72,13 @@ Bagi pengguna Ubuntu & Windows, tutorial pada artikel ini bisa digunakan untuk m
 
 4. Pilih tombol pojok kanan bawah "Clear List" untuk menghapus semua.
 
-    ![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-IDN9DQ3ylNo/UdMhYcEZfqI/AAAAAAAABBY/6DGTZBT7JPE/s320/Screen+Shot+2013-07-03+at+1.45.50+AM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://3.bp.blogspot.com/-IDN9DQ3ylNo/UdMhYcEZfqI/AAAAAAAABBY/6DGTZBT7JPE/s320/Screen+Shot+2013-07-03+at+1.45.50+AM.png" onerror="imgError(this);"}{:class="myImg"}
 
 5. Atau jika ingin menghapus yang kita pilih saja caranya
 
 6. Klik kanan file link yang mau dihapus (bisa di pilihin juga pake command pada  atau ctrl pada windows) lalu pilih Remove > Remove seperti pada gambar
 
-    ![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-Guq_Fd42OAk/UdMhleo5FiI/AAAAAAAABBg/dAV94eAikRE/s320/Screen+Shot+2013-07-03+at+1.48.58+AM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-Guq_Fd42OAk/UdMhleo5FiI/AAAAAAAABBg/dAV94eAikRE/s320/Screen+Shot+2013-07-03+at+1.48.58+AM.png" onerror="imgError(this);"}{:class="myImg"}
 
 7. Jadi dengan kata lain kita bisa men-nahan dahulu untuk mendownload dan mengumpulkan file-file link lalu mendownload setelah semua file yang kita inginkan terkumpul.
 
@@ -87,7 +87,7 @@ Bagi pengguna Ubuntu & Windows, tutorial pada artikel ini bisa digunakan untuk m
 
 2. Yang paling menyebalkan terjadi Error No Connection kalau internet kita "LEMODDD" seperti punya saya.
 
-    ![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-nvLri5xZWBE/UdMiz2aNyII/AAAAAAAABBw/QUAa2J2FF2s/s320/Screen+Shot+2013-07-03+at+1.40.58+AM.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://2.bp.blogspot.com/-nvLri5xZWBE/UdMiz2aNyII/AAAAAAAABBw/QUAa2J2FF2s/s320/Screen+Shot+2013-07-03+at+1.40.58+AM.png" onerror="imgError(this);"}{:class="myImg"}
 
 3. Kalau terjadi hal ini apa yang kita lakukan ?
 

@@ -28,9 +28,11 @@ Sepintas membaca judul dari tulisan ini memang rada-rada janggal. Disaat semua p
 ## Identifikasi Driver
 
 Pertama, kalian perlu mengetahui *webcam driver* menggunakan perintah di bawah ini.
-```
-$ sudo lsmod | grep uvcvideo
-```
+
+{% shell_user %}
+sudo lsmod | grep uvcvideo
+{% endshell_user %}
+
 ```
 uvcvideo            114644  0
 videobuf2_vmalloc    16348  1 uvcvideo
@@ -40,6 +42,7 @@ videodev            208869  3 uvcvideo,videobuf2_common,videobuf2_v4l2
 media                45065  2 uvcvideo,videodev
 usbcore             286702  5 uvcvideo,usbhid,xhci_pci,btusb,xhci_hcd
 ```
+
 Dari hasil di atas dapat diketahui bahwa **uvcvideo** adalah *webcam driver* yang saya gunakan.
 
 ## Menonaktifkan Driver
@@ -49,15 +52,20 @@ Selanjutnya, tinggal menonaktifkan driver **uvcvideo** dengan memasukkannya dala
 Caranya, buka Terminal dan *edit* file `/etc/modprobe.d/blacklist.conf`
 
 (apabila tidak ada, buat saja filenya).
-```
-$ sudo vim /etc/modprobe.d/blacklist.conf
-```
+
+{% shell_user %}
+sudo vim /etc/modprobe.d/blacklist.conf
+{% endshell_user %}
+
 Gunakan *text editor* favoritmu, seperti nano, gedit, mousepad, dll.
 
 Lalu, tambahkan baris berikut ini.
-```
+
+{% highlight_caption /etc/modprobe.d/blacklist.conf %}
+{% pre_caption %}
 blacklist uvcvideo
-```
+{% endpre_caption %}
+
 Simpan dan keluar.
 
 <mark>Untuk melihat hasilnya, kita perlu melakukan <b><i>reboot</i></b></mark>.
@@ -78,33 +86,39 @@ Saya sendiri belum tahu, apakah cara ini efektif dan benar dapat menangkal penyu
 
 
 <br>
-><p class="title-quote">[ ! ] Tips dari Penulis</p>
->Tips ini hanya diperuntukkan apabila file `/etc/modprobe.d/blacklist.conf` yang kamu miliki kosong.
->
->Kita akan membuat `alias` di Terminal, untuk memudahkan dalam mengaktifkan dan menonaktifkan *webcam* apabila sewaktu-waktu kita perlukan.
->
->Selanjutnya, buka `.bashrc` atau `.zshrc` (tergantung kalian menggunakan tipe shell yang mana).
->
->```
->$ vim .zshrc
->```
->dan tambahkan baris alias berikut ini. (terserah pada baris ke berapa saja)
->
->```
-># Enable & Disable WebCam
->alias webcam-disable="echo 'blacklist uvcvideo' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Disable] WebCam'"
->alias webcam-enable="echo '' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Enable] WebCam'"
->```
->
->Lalu refresh Terminal dengan menggunakna perintah.
->```
->$ exec $SHELL
->```
->Dan coba panggil `alias` yang sudah kita buat tadi.
->
->![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif" onerror="imgError(this);"}{:class="myImg"}
->
->Mudah bukan ? ^_^
+
+{% box_info %}
+Tips ini hanya diperuntukkan apabila file `/etc/modprobe.d/blacklist.conf` yang kamu miliki kosong.
+
+Kita akan membuat `alias` di Terminal, untuk memudahkan dalam mengaktifkan dan menonaktifkan *webcam* apabila sewaktu-waktu kita perlukan.
+
+Selanjutnya, buka `.bashrc` atau `.zshrc` (tergantung kalian menggunakan tipe shell yang mana).
+
+{% shell_user %}
+vim .zshrc
+{% endshell_user %}
+
+Dan tambahkan baris alias berikut ini. (terserah pada baris ke berapa saja)
+
+{% highlight_caption $HOME/.zshrc %}
+{% pre_caption %}
+# Enable & Disable WebCam
+alias webcam-disable="echo 'blacklist uvcvideo' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Disable] WebCam'"
+alias webcam-enable="echo '' | sudo tee /etc/modprobe.d/blacklist.conf; echo '[Enable] WebCam'"
+{% endpre_caption %}
+
+Lalu refresh Terminal dengan menggunakna perintah.
+
+{% shell_user %}
+exec $SHELL
+{% endshell_user %}
+
+Dan coba panggil `alias` yang sudah kita buat tadi.
+
+![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ty871znbh/gambar_03.gif" onerror="imgError(this);"}{:class="myImg"}
+
+Mudah bukan ? ^_^
+{% endbox_info %}
 
 # Referensi
 

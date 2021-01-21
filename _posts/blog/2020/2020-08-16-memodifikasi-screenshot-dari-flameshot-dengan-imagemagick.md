@@ -104,17 +104,15 @@ end
 
 Kalau kita menjalankan script di atas, akan menghasilkan dua buah file.
 
-```
+<pre>
 Screenshot_2020-08-16_11-32-45.png    <- Original
 Screenshot_2020-08-16_11-32-45X.png   <- Modifikasi
-```
+</pre>
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown="1">Alamat `screenshot_dir` dengan alamat yang ada di Flameshot, **harus sama**.</p>
 <p markdown="1">Kalau tidak, maka script tidak berjalan sebagaimana mestinya.</p>
-</div>
+{% endbox_perhatian %}
 
 File Original tidak dimodifikasi, tujuannya sebagai backup. Karena saya menyadari bahwa pengambilan screenshot adalah hal yang sangat *crucial* dan terkadang tidak dapat diulang dua kali.
 
@@ -138,7 +136,7 @@ Ubah nilainya ke `0` apabila tidak ingin menggunakan border.
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-border_size = "0"
+border_size = '0'
 {% endhighlight %}
 
 ## Mengganti Author (ScreenShoter)
@@ -149,7 +147,7 @@ Ubah nilainya sesuai dengan preferensi teman-teman.
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-author            = "ScreenShoter: @assyaufi"
+author = 'Shooter: @' + `echo $USER`.strip
 {% endhighlight %}
 
 ## Disable Author
@@ -184,12 +182,10 @@ Ganti nilainya sesuai dengan preferensi teman-teman.
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-font              = "Fura-Code-Regular-Nerd-Font-Complete"
+font = 'JetBrains-Mono-Regular-Nerd-Font-Complete'
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Cara untuk mendapatkan nama font, gunakan perintah di bawah.</p>
 <pre>
 $ <b>convert -list font</b>
@@ -212,9 +208,8 @@ Font: Fura-Code-Regular-Nerd-Font-Complete-Mono
 ...
 </pre>
 <p>Tinggal pilih font yang sesuai dengan preferensi teman-teman.</p>
-
 <p>Ambil value yang ada di dalam <code>Font:</code></p>
-</div>
+{% endbox_info %}
 
 ## Mengganti Author Font Size
 
@@ -224,7 +219,7 @@ Ganti sesuai preferensi teman-teman dalan satuan ukuran **pt** (point).
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-font_size         = "11"
+font_size = '11'
 {% endhighlight %}
 
 ## Mengganti Author Position
@@ -241,21 +236,21 @@ Sebagai acuan untuk memposisikan object dengan singkat.
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-author_position   = ["South", "..."]
+author_position = ['South', '...']
 {% endhighlight %}
 
 Index ke-1 berisi, jarak +X+Y
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-author_position   = ["...", "+10+10"]
+author_position = ['...', '+10+10']
 {% endhighlight %}
 
 Hasilnya,
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-author_position   = ["South", "+10+10"]
+author_position = ['South', '+10+10']
 {% endhighlight %}
 
 ## Background Transparent
@@ -268,6 +263,14 @@ Ubah nilainya menjadi `none` untuk transparent.
 {% highlight ruby %}
 background_color  = "none"
 {% endhighlight %}
+
+Kalau ingin menggunakan warna,
+
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
+background_color  = "'#002b36'"
+{% endhighlight %}
+
 
 ## Background Padding
 
@@ -290,20 +293,37 @@ Ganti sesuai preferensi teman-teman.
 
 {% highlight_caption $HOME/.local/bin/flameshot-imgck %}
 {% highlight ruby %}
-shadow_size       = "50x10+0+10"
+shadow_size = '50x10+0+10'
 {% endhighlight %}
 
 ## Color Profile
 
 Menambahkan color profile ini penting untuk Telegram. Kalau tidak menambahkan color profile, gambar kita akan terlihat "over bright" di Telegram Android meskipun tidak terlihat di Telegram Desktop.
 
-```
+{% highlight_caption $HOME/.local/bin/flameshot-imgck %}
+{% highlight ruby %}
+# ...
+# ...
+color_profile = '/usr/share/color/icc/colord/sRGB.icc'
+# ...
+# ...
+
+%x(
+flameshot gui --raw > #{original_file}
+
+...
+...
+
 convert #{target_file} -profile #{color_profile} #{target_file}
-```
+
+...
+...
+)
+{% endhighlight %}
 
 ## Save to Clipboard!
 
-Apabila telah selesai melakukan screnshot, kita dapat menyimpang dengan menekan tombol <kbd>ENTER</kbd>.
+Apabila telah selesai melakukan screnshot, kita dapat menyimpan dengan menekan tombol <kbd>ENTER</kbd>.
 
 Maka, hasil screenshot kita akan disimpan ke clipboard.
 
@@ -362,6 +382,10 @@ Terima kasih.
 # BONUS
 
 ## Versi Python
+
+{% box_perhatian %}
+<p>Versi Python sudah tidak saya maintain lagi.</p>
+{% endbox_perhatian %}
 
 Saya beri nama `flameshot-imgck-python`.
 

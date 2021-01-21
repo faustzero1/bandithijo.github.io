@@ -104,12 +104,12 @@ vi /boot/loader/entries/arch.conf
 Isikan persis sama seperti yang tertulis di bawah.
 
 {% highlight_caption /boot/loader/entries/arch.conf %}
-<pre class="caption">
+{% pre_caption %}
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options cryptdevice=UUID=<mark>4e6f743a-7db3-4f42-aea9-aed532ff2136</mark>:volume root=/dev/mapper/volume-root rw
-</pre>
+{% endpre_caption %}
 
 Ganti `UUID=56fdc3fa-8a1c-4d4e-a13f-4af99bf6ae6a` dengan UUID milikmu.
 
@@ -137,6 +137,7 @@ bootctl update
 {% endshell_root %}
 
 Outputnya adalah,
+
 ```
 Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/systemd/systemd-bootx64.efi"
 Copied "/usr/lib/systemd/boot/efi/systemd-bootx64.efi" to "/boot/EFI/BOOT/BOOTX64.EFI"
@@ -151,26 +152,26 @@ vi /etc/mkinitcpio.conf
 Cari baris yang bertuliskan `HOOKS=(base udev dst... )`. Biasanya pada baris 52.
 
 {% highlight_caption /etc/mkinitcpio.conf %}
-<pre class="caption">
+{% pre_caption %}
 ...
 ...
 
 HOOKS=(base udev autodetect modconf block filesystems <mark>keyboard</mark> fsck)
 ...
 ...
-</pre>
+{% endpre_caption %}
 
 Pindahkan `keyboard` setelah `block` dan tambahkan `encrypt` dan `lvm2`, seperti contoh di bawah ini.
 
 {% highlight_caption /etc/mkinitcpio.conf %}
-<pre class="caption">
+{% pre_caption %}
 ...
 ...
 
 HOOKS=(base udev autodetect modconf block <mark>keyboard encrypt lvm2</mark> filesystems fsck)
 ...
 ...
-</pre>
+{% endpre_caption %}
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat simpan dan keluar dari Vim.
 
@@ -199,13 +200,13 @@ vi /boot/loader/entries/arch.conf
 {% endshell_root %}
 
 {% highlight_caption /boot/loader/entries/arch.conf %}
-<pre class="caption">
+{% pre_caption %}
 title Arch Linux
 linux /vmlinuz-linux
 <mark>initrd /intel-ucode.img</mark>
 initrd /initramfs-linux.img
 options cryptdevice=UUID=4e6f743a-7db3-4f42-aea9-aed532ff2136:volume root=/dev/mapper/volume-root rw
-</pre>
+{% endpre_caption %}
 
 Setelah kalian memastikan tidak terdapat _typo_, kalian dapat simpan dan keluar dari Vim.
 

@@ -22,23 +22,22 @@ Karena tidak memiliki PC dan keseharian saya menggunakan laptop dalam menyelesai
 
 Karena kerterbatasan waktu, yang akan saya bahas terlebih dahulu dalam post ini adalah "**mengecek kondisi laptop battery**".
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 Sebagai informasi, laptop yang saya gunakan menggunakan dua buah <i>battery</i>, BAT0 (internal) dan BAT1 (eksternal).
 <br>
 <br>
 Untuk teman-teman yang hanya memiliki satu buah <i>battery</i>, biasanya memiliki kode device BAT0.
-</div>
+{% endbox_info %}
 
 # Perintah-perintah
 
 ## upower
 Perintah **Upower** pada Terminal hampir sudah terdapat pada sebagian besar distribusi sistem operasi GNU/Linux.
 
-```
-$ upower -i /org/freedesktop/UPower/devices/battery_BAT0
-```
+{% shell_user %}
+upower -i /org/freedesktop/UPower/devices/battery_BAT0
+{% endshell_user %}
+
 ```
 native-path:           BAT0
 vendor:                SONY
@@ -64,16 +63,20 @@ battery
   technology:          lithium-polymer
   icon-name:          'battery-full-symbolic'
 ```
+
 Apabila perintah di atas tidak bekerja karena alasan tertentu, kalian dapat melakukan perintah di bawah.
-```
-$ upower -i `upower -e | grep 'BAT'`
-```
+
+{% shell_user %}
+upower -i `upower -e | grep 'BAT'`
+{% endshell_user %}
+
 Maka, akan menampilkan hasil yang sama.
 
 Untuk penjelasan lebih lengkap dapat melihat pada manual dari `upower`.
-```
-$ man upower
-```
+
+{% shell_user %}
+man upower
+{% endshell_user %}
 
 ## acpi
 
@@ -81,16 +84,18 @@ Perintah selanjutnya adalah `acpi`. Perintah ini, selain digunakan untuk melihat
 
 Untuk dapat menggunakan perintah ini, mungkin kalian perlu menginstal paket bernama `acpi` terlebih dahulu.
 
-```
-$ sudo pacman -S acpi
-```
-(sesuaikan dengan distribusi GNU/Linux kalian)
+{% shell_user %}
+sudo pacman -S acpi
+{% endshell_user %}
+
+\*sesuaikan dengan distribusi GNU/Linux kalian
 
 Setelah `acpi` berhasil dipasang, coba jalankan perintah di bawah, untuk melihat informasi setiap devices yang diberikan oleh ACPI.
 
-```
-$ acpi -V
-```
+{% shell_user %}
+acpi -V
+{% endshell_user %}
+
 ```
 Battery 0: Unknown, 86%
 Battery 0: design capacity 1896 mAh, last full capacity 1878 mAh = 99%
@@ -108,52 +113,63 @@ Cooling 5: iwlwifi no state information available
 Cooling 6: intel_powerclamp no state information available
 Cooling 7: Processor 0 of 10
 Cooling 8: x86_pkg_temp no state information available
-
 ```
+
 Dapat terlihat hasil informasi yang diberikan oleh ACPI seperti yang ditampilkan di atas.
 
 Untuk melihat hanya status dari *battery* saja, gunakan hanya perintah `acpi`.
-```
-$ acpi
-```
+
+{% shell_user %}
+acpi
+{% endshell_user %}
+
 ```
 Battery 0: Unknown, 86%
 Battery 1: Discharging, 74%, 02:24:03 remaining
 ```
 
 Untuk mendapatkan temperatur dari *battery*.
-```
-$ acpi -t
-```
+
+{% shell_user %}
+acpi -t
+{% endshell_user %}
+
 ```
 Thermal 0: ok, 44.0 degrees C
 ```
 
 Untuk mengetahui apakah *ac power* terkoneksi atau tidak.
-```
-$ acpi -a
-```
+
+{% shell_user %}
+acpi -a
+{% endshell_user %}
+
 Jika terhubung dengan *ac power*.
+
 ```
 Adapter 0: on-line
 ```
+
 Namun, saat ini laptop saya sedang tidak terhubung dengan *ac power*.
+
 ```
 Adapter 0: off-line
 ```
 
 Kira-kira seperti ini cara pemanfaatan menggunakan perintah `acpi`. Untuk detail yang lebih lengkap, dapat dibaca sendiri di manual.
-```
-$ man acpi
-```
+
+{% shell_user %}
+man acpi
+{% endshell_user %}
 
 ## tlp-stat
 
 Apabila teman-teman ada yang menggunakan `tlp` sebagai manajemen power pada laptopnya, dapat menggunakan `tlp-stat` untuk melihat sistem informasi dari laptop yang kita gunakan.
 
-```
-$ sudo tlp-stat -h
-```
+{% shell_user %}
+sudo tlp-stat -h
+{% endshell_user %}
+
 ```
 Usage: tlp-stat [ -b | --battery   | -c | --config    |
                   -d | --disk      | -e | --pcie      |
@@ -167,9 +183,10 @@ Usage: tlp-stat [ -b | --battery   | -c | --config    |
 
 Saya biasa menggunakn `tlp-stat` untuk mengecek *battery*.
 
-```
-$ sudo tlp-stat -b
-```
+{% shell_user %}
+sudo tlp-stat -b
+{% endshell_user %}
+
 ```
 --- TLP 1.1 --------------------------------------------
 
