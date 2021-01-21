@@ -490,7 +490,7 @@ p.post-details-index {
   top: -38px;
   float: right;
   margin: 0;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 p.post-details-index a {
@@ -508,7 +508,7 @@ p.post-details-index-pin {
   top: -38px;
   float: right;
   margin: 0;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 p.post-details-index-pin a {
