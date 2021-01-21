@@ -188,7 +188,7 @@ Di dalam shell ini, kita dapat memanfaatkan auto completion untuk perintah-perin
 Seperti biasa, untuk melihat ketersediaan command yang ada, kita dapat menggunakan.
 
 <pre>
-> <b>help</b>
+<span class="cmd">> </span><b>help</b>
 </pre>
 
 ### Scanning
@@ -196,7 +196,7 @@ Seperti biasa, untuk melihat ketersediaan command yang ada, kita dapat menggunak
 Untuk melakukan pencarian nama network yang ada di sekitar kita.
 
 <pre>
-> <b>scan</b>
+<span class="cmd">> </span><b>scan</b>
 OK
 <3>CTRL-EVENT-SCAN-STARTED
 <3>CTRL-EVENT-SCAN-RESULTS
@@ -208,7 +208,7 @@ OK
 Untuk melihat hasil yang telah di-scan.
 
 <pre>
-> <b>scan_results</b>
+<span class="cmd">> </span><b>scan_results</b>
 bssid / frequency / signal level / flags / ssid
 00:67:62:78:91:40       2462    -49     [WPA-PSK-CCMP][WPA2-PSK-CCMP][ESS]                      KIKEL
 60:18:88:00:00:00       2432    -61     [WPA-PSK-CCMP][WPA2-PSK-CCMP][WPS][ESS]                 bandithijo
@@ -224,7 +224,7 @@ Saya ingin mendaftarkan network baru degan SSID bernama **bandithijo**.
 Namun, kita perlu mengambil nomor index --ibarat nomor antrian.
 
 <pre>
-> <b>add_network</b>
+<span class="cmd">> </span><b>add_network</b>
 0
 </pre>
 
@@ -233,9 +233,9 @@ Nah, berarti saya akan menggunakan index ke-**0** untuk mendaftarkan network ini
 Selanjutnya, kita akan mengeset credential untuk network tersebut.
 
 <pre>
-> <b>set_network 0 ssid "bandithijo"</b>
+<span class="cmd">> </span><b>set_network 0 ssid "bandithijo"</b>
 OK
-> <b>set_network 0 psk "passwordinirahasiasekali"</b>
+<span class="cmd">> </span><b>set_network 0 psk "passwordinirahasiasekali"</b>
 OK
 </pre>
 
@@ -243,8 +243,8 @@ OK
 <p>Kalau SSID nya tanpa password, kalian dapat menggantinya dengan:</p>
 
 <pre>
-> <b>set_network 0 ssid "bandithijo"</b>
-> <b>set_network 0 key_mgmt NONE</b>
+<span class="cmd">> </span><b>set_network 0 ssid "bandithijo"</b>
+<span class="cmd">> </span><b>set_network 0 key_mgmt NONE</b>
 </pre>
 {% endbox_info %}
 
@@ -258,7 +258,7 @@ OK
 Untuk melihat daftar network yang pernah didaftarkan, gunakan perintah:
 
 <pre>
-> <b>list_networks</b>
+<span class="cmd">> </span><b>list_networks</b>
 network id / ssid / bssid / flags
 0       bandithijo      any     [TEMP-DISABLED]
 </pre>
@@ -271,14 +271,14 @@ Dapat dilihat, pada network index ke-0, saya telah berhasil menyimpan konfiguras
 Untuk terkoneksi dengan network tersebut, kita gunakan perintah:
 
 <pre>
-> <b>select_network 0</b>
+<span class="cmd">> </span><b>select_network 0</b>
 OK
 </pre>
 
 atau
 
 <pre>
-> <b>enable_network 0</b>
+<span class="cmd">> </span><b>enable_network 0</b>
 OK
 </pre>
 
@@ -308,7 +308,7 @@ Kalau sudah, laukan test koneksi dengan `ping`.
 Sebelum keluar, jangan lupa untuk menyimpan hasil konfigurasi.
 
 <pre>
-> <b>save_config</b>
+<span class="cmd">> </span><b>save_config</b>
 OK
 </pre>
 
@@ -318,7 +318,7 @@ OK
 Untuk keluar, kita dapat menggunakan perintah.
 
 <pre>
-> <b>quit</b>
+<span class="cmd">> </span><b>quit</b>
 </pre>
 
 
@@ -327,7 +327,7 @@ Untuk keluar, kita dapat menggunakan perintah.
 Untuk disconnect dari jaringan, masuk lagi ke **wpa_cli**, dan jalankan printah:
 
 <pre>
-> <b>disconnect</b>
+<span class="cmd">> </span><b>disconnect</b>
 OK
 <3>CTRL-EVENT-DISCONNECTED bssid=60:18:88:00:00:00 reason=3 locally_generated=1
 <3>CTRL-EVENT-REGDOM-CHANGE init=CORE type=WORLD
@@ -340,9 +340,9 @@ Metode ini dapat kita gunakan untuk terkoneksi secara cepat ke SSID apabila kita
 
 Sebenarnya `wpa_passphrase` ini digunakan untuk mengenerate konfigurasi minimal yang dapat kita gunakan ke konfigurasi wpa_supplicant.
 
-<pre>
-$ <b>wpa_passphrase bandithijo iniadalahpassword</b>
-</pre>
+{% shell_user %}
+wpa_passphrase bandithijo iniadalahpassword
+{% endshell_user %}
 
 <pre>
 network={

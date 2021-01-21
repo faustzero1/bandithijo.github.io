@@ -64,7 +64,7 @@ Kita akan dibawa ke dalam bluetoothctl shell, ditandai dengan prompt seperti ini
 Gunakan perintah **help** untuk melihat perintah apa saja yang tersedia.
 
 <pre>
-[bluetooth]# <b>help</b>
+<span class="cmd">[bluetooth]# </span><b>help</b>
 </pre>
 
 <pre>
@@ -113,7 +113,7 @@ export                                            Print environment variables
 Untuk melihat daftar bluetooth controller yang tersedia:
 
 <pre>
-[bluetooth]# <b>list</b>
+<span class="cmd">[bluetooth]# </span><b>list</b>
 </pre>
 
 Hasilnya, kira-kira seperti ini.
@@ -127,7 +127,7 @@ Saya hanya memiliki satu buat bluetooth controller yang terpasang secara built-i
 Apabila terdapat lebih dari satu bluetooth controller, kalian harus memilih salah satu yang akan digunakan untuk menghubungkan dengan perangkat lain.
 
 <pre>
-[bluetooth]# <b>select 00:1C:26:D8:E0:18</b>
+<span class="cmd">[bluetooth]# </span><b>select 00:1C:26:D8:E0:18</b>
 </pre>
 
 ## Melihat Detail dari Controller
@@ -135,7 +135,7 @@ Apabila terdapat lebih dari satu bluetooth controller, kalian harus memilih sala
 Untuk melihat detail dari controller yang dipilih, gunakan perintah:
 
 <pre>
-[bluetooth]# <b>show 00:1C:26:D8:E0:18</b>
+<span class="cmd">[bluetooth]# </span><b>show 00:1C:26:D8:E0:18</b>
 </pre>
 
 <pre>
@@ -168,7 +168,7 @@ Controller 00:1C:26:D8:E0:18 (public)
 Kalau, status **Powered: no**, bisa kita nyalakan dulu.
 
 <pre>
-[bluetooth]# <b>power on</b>
+<span class="cmd">[bluetooth]# </span><b>power on</b>
 </pre>
 
 Perintah di atas akan menyalakan controller yang kita set sebagai default dengan perintah **select**.
@@ -178,7 +178,7 @@ Perintah di atas akan menyalakan controller yang kita set sebagai default dengan
 Untuk melakukan scanning terhadap perangkat bluetooth yang lain,
 
 <pre>
-[bluetooth]# <b>scan on</b>
+<span class="cmd">[bluetooth]# </span><b>scan on</b>
 </pre>
 
 <pre>
@@ -204,7 +204,7 @@ Dapat dilihat, bahwa ada perangkat bluetooth bernama **MBH20** yang terdeteksi o
 Kalau sudah terdeteksi, tinggal kita pairing saja.
 
 <pre>
-[bluetooth]# <b>pair 44:D4:E0:EF:94:DD</b>
+<span class="cmd">[bluetooth]# </span><b>pair 44:D4:E0:EF:94:DD</b>
 </pre>
 
 <pre>
@@ -231,7 +231,7 @@ Status **Paired: yes**, namun **Connected: no**.
 Kalau sudah dipairing, sekarang kita bisa hubungkan.
 
 <pre>
-[bluetooth]# <b>connect 44:D4:E0:EF:94:DD</b>
+<span class="cmd">[bluetooth]# </span><b>connect 44:D4:E0:EF:94:DD</b>
 </pre>
 
 <pre>
@@ -254,7 +254,7 @@ Kita bisa lihat keterangan tentang device ini.
 
 
 <pre>
-[MBH20]# <b>info</b>
+<span class="cmd">[MBH20]# </span><b>info</b>
 </pre>
 
 <pre>
@@ -279,7 +279,7 @@ Device 44:D4:E0:EF:94:DD (public)
 Kalau ingin ditrust, tinggal jalankan perintah trust saja.
 
 <pre>
-[bluetooth]# <b>trust 44:D4:E0:EF:94:DD</b>
+<span class="cmd">[bluetooth]# </span><b>trust 44:D4:E0:EF:94:DD</b>
 </pre>
 
 <pre>
@@ -293,7 +293,7 @@ Changing 44:D4:E0:EF:94:DD trust succeeded
 Untuk memutuskan hubungan dengan device yang terhubung,
 
 <pre>
-[bluetooth]# <b>disconnect 44:D4:E0:EF:94:DD</b>
+<span class="cmd">[bluetooth]# </span><b>disconnect 44:D4:E0:EF:94:DD</b>
 </pre>
 
 <pre>
@@ -315,7 +315,7 @@ Prompt akan kembali ke semula
 Untuk melihat daftar device yang sudah kita pair.
 
 <pre>
-[bluetooth]# <b>paired-devices</b>
+<span class="cmd">[bluetooth]# </span><b>paired-devices</b>
 </pre>
 
 <pre>
@@ -330,7 +330,7 @@ Kebetulan saya hanya memiliki satu device saja.
 Untuk menghapus device yang sudah pernah kita pair,
 
 <pre>
-[bluetooth]# <b>remove 44:D4:E0:EF:94:DD</b>
+<span class="cmd">[bluetooth]# </span><b>remove 44:D4:E0:EF:94:DD</b>
 </pre>
 
 <pre>

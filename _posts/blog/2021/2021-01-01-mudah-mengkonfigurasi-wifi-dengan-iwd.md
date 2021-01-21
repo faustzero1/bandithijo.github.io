@@ -85,7 +85,7 @@ iwctl
 Kita akan dibawa masuk ke dalam iwd shell yang berpenampilan seperti di bawah ini.
 
 <pre>
-[iwd]# <b>_</b>
+<span class="cmd">[iwd]# </span><b>_</b>
 </pre>
 
 Artinya kita sudah berada di dalam iwd shell.
@@ -95,7 +95,7 @@ Artinya kita sudah berada di dalam iwd shell.
 Jangan panik dan mundur, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah `help` untk mendapatkan petuah yang berguna.
 
 <pre>
-[iwd]# <b>help</b>
+<span class="cmd">[iwd]# </span><b>help</b>
 </pre>
 
 <pre>
@@ -185,7 +185,7 @@ Miscellaneous:
 Kita perlu mengetahui nama interface yang tersedia di sistem kita. Dengan kata lain adalah wireless interface yang tersedia.
 
 <pre>
-[iwd]# <b>device list</b>
+<span class="cmd">[iwd]# </span><b>device list</b>
 </pre>
 
 <pre>
@@ -203,7 +203,7 @@ Namun, yang akan kita ingat menjadi perhatian adalah nama dari interface, yaitu 
 Teman-teman juga dapat melihat keterangan tentang wireless interface tersebut lebih detail dengan menggunakan perintah,
 
 <pre>
-[iwd]# <b>device wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>device wlan0 show</b>
 </pre>
 
 <pre>
@@ -225,7 +225,7 @@ Sekarang, kita masuk ke blok **Station**.
 Kita perlu terlebih dahulu melakukan scanning untuk mencari SSID yang tersedia.
 
 <pre>
-[iwd]# <b>station wlan0 scan</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 scan</b>
 </pre>
 
 Jangan bingung, karena memang tidak akan keluar apa-apa.
@@ -233,7 +233,7 @@ Jangan bingung, karena memang tidak akan keluar apa-apa.
 Namun, kalau teman-teman menjalankan option `show`, terlebih dahulu sebelum `scan`.
 
 <pre>
-[iwd]# <b>station wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
 </pre>
 
 <pre>
@@ -257,7 +257,7 @@ Untuk melihat hasil scan, kita gunakan option **get-networks**.
 Setelah kita melakukan scanning, saatnya melihat hasilnya dengan menggunakan perintah,
 
 <pre>
-[iwd]# <b>station wlan0 get-networks</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 get-networks</b>
 </pre>
 
 <pre>
@@ -283,7 +283,7 @@ Kalau sudah, kita akan gunakan option **connect** untuk terhubung.
 ## iwctl Station Connect
 
 <pre>
-[iwd]# <b>station wlan0 connect bandithijo</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 connect bandithijo</b>
 </pre>
 
 Kemudian, kalian akan diminta untuk memasukkan passphrase.
@@ -299,7 +299,7 @@ Masukkan password dari SSID. Password akan disensor dengan tanda bintang *.
 Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option **show**.
 
 <pre>
-[iwd]# <b>station wlan0 show</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
 </pre>
 
 <pre>
@@ -318,7 +318,7 @@ Kalau **State** nya sudah bernilai **connected**, artinya kita sudah berhasil te
 Untuk keluar dari iwctl, bisa ketik `exit`.
 
 <pre>
-[iwd]# <b>exit</b>
+<span class="cmd">[iwd]# </span><b>exit</b>
 </pre>
 
 Lakukan pengujian.
@@ -366,7 +366,7 @@ Mantap! Kita telah berhasil terhubung ke internet.
 ## iwctl Station Disconnect
 
 <pre>
-[iwd]# <b>station wlan0 disconnect</b>
+<span class="cmd">[iwd]# </span><b>station wlan0 disconnect</b>
 </pre>
 
 
