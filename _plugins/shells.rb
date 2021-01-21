@@ -3,7 +3,9 @@ module Jekyll
     def render(context)
       commands = super.split("\n")
       text  = '<pre>'
-      text += commands[1..].map { |i| "# <b>#{i}</b>\n" }.join.to_s
+      text += commands[1..].map do |i|
+        "<span class='cmd'># </span><b>#{i}</b><br>"
+      end.join.to_s
       text += '</pre>'
       text
     end
@@ -13,7 +15,9 @@ module Jekyll
     def render(context)
       commands = super.split("\n")
       text  = '<pre>'
-      text += commands[1..].map { |i| "$ <b>#{i}</b>\n" }.join.to_s
+      text += commands[1..].map do |i|
+        "<span class='cmd'>$ </span><b>#{i}</b><br>"
+      end.join.to_s
       text += '</pre>'
       text
     end
