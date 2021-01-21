@@ -95,7 +95,7 @@ td.gutter.gl, td.code {
 }
 
 .markdown-body pre.caption {
-  padding: 6px !important;
+  padding: 10px !important;
   margin-top: 0 !important;
   border-radius: 0 0 5px 5px !important;
 }
