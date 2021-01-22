@@ -72,16 +72,15 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | :--- | :--- |
 | Static Site Generator | **Jekyll** |
 | Hosting               | **GitHub Pages** |
-| CDN                   | **Fastly** |
 | Format Text           | **Markdown** & **Orgmode** |
 | Sistem Operasi        | **GNU/Linux** |
-| Distribusi            | **Arch Linux** |
+| Distribusi            | **Artix Linux** (Arch Linux with no-systemd) |
 | Desktop Env.          | - |
 | Window Manager        | **dwm** |
 | Terminal Emulator     | **st** |
 | Shell                 | **zsh** |
 | Application Launcher  | **dmenu** |
-| Statusbar             | **slstatus** |
+| Statusbar             | **dwmbar** (handmade) |
 | Text Editor           | **neovim** |
 | Raster Image Editor   | **GIMP** & **gthumb** |
 | Vector Image Editor   | **Inkscape** |
@@ -89,10 +88,10 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Office                | **LibreOffice** |
 | ScreenShoter          | **scrot** & **flameshot** |
 | PDF Reader            | **zathura** & **evince** |
-| Video Editor          | **kdenlive** |
+| Video Editor          | **kdenlive** & **olive** |
 | Screen Recorder       | **ffmpeg** |
 | Webcam                | **ffplay** |
-| Browser               | **firefox** & **luakit** |
+| Browser               | **firefox** & **qutebrowser** |
 | File Manager          | **ranger** |
 | Video Player          | **mpv** |
 | Email Client          | **neomutt** |
