@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '21/01/22'
+  url:
+  detail: |
+      Menambahkan collapsible title for resume pada Blog index
+
 - tanggal: '20/12/28'
   url:
   detail: |
