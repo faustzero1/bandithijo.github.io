@@ -94,13 +94,11 @@ Quaerat adipisci blanditiis sit quos, soluta iste.<p>
 Pada contoh di atas, saya menggunakan module **Liquid::Block** untuk membungkus konten yang ingin saya tampilkan.
 
 {% pre_whiteboard %}
-{% raw %}
-{% nama_tag %}
+{% raw %}{% nama_tag %}
 # konten
 # yang ingin ditampilkan
 # bisa dalam bentuk multiline
-{% endnama_tag %}
-{% endraw %}
+{% endnama_tag %}{% endraw %}
 {% endpre_whiteboard %}
 
 Fitur ini, disebut dengan Liquid Tags. Fitur ini disediakan oleh Jekyll karena Jekyll menggunakan Liquid sebagai bahasa template.
