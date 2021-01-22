@@ -26,6 +26,36 @@ permalink: '/blog/'
   {% endif %}<!-- pin == true -->
   {% endcomment %}
 
+<style>
+.collapsible-title {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.collapsible-title:before {
+  content: '\002B';
+  color: black;
+  float: left;
+  margin-right: 13px;
+}
+
+.active:before {
+  content: "\2212";
+}
+
+.content-title {
+  padding: 0 13px;
+  display: none;
+  overflow: hidden;
+  font-size: 12px;
+  width: 92%;
+  margin-top: -6px;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed #B8B8B8;
+}
+</style>
+
   <div style="clear:both;margin-top:-10px;"></div><!-- matikan jika ada pinned post -->
 
   <!-- REGULAR POSTS -->
@@ -49,7 +79,12 @@ permalink: '/blog/'
           </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+          <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
+          <div class="content-title">
+            <a href="{{ post.url }}">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </a>
+          </div>
           <div class="post-title-tags">
             {% assign tag_list = post.tags | sort %}
             {% for tag in tag_list %}
@@ -72,3 +107,20 @@ permalink: '/blog/'
   </div><!-- clear:both -->
 
 </div><!-- post-body -->
+
+<script>
+var coll = document.getElementsByClassName("collapsible-title");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
