@@ -54,6 +54,13 @@ permalink: '/blog/'
   margin-bottom: 6px;
   border-bottom: 1px dashed #B8B8B8;
 }
+
+@media (max-width: 768px) {
+  .content-title {
+    width: 100%;
+    padding-bottom: 22px;
+  }
+}
 </style>
 
   <div style="clear:both;margin-top:-10px;"></div><!-- matikan jika ada pinned post -->
@@ -69,14 +76,25 @@ permalink: '/blog/'
     {% for post in year.items %}
       {% if post.category == 'blog' and post.pin == nil %}
         {% if post.hot %}
-          <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
-          <div class="post-title-tags">
-            {% assign tag_list = post.tags | sort %}
-            {% for tag in tag_list %}
-              <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
-            {% endfor %}
-            <span class="new">HOT</span>
-          </div>
+          {% if post.resume == nil %}
+            <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+            <div class="post-title-tags">
+              {% assign tag_list = post.tags | sort %}
+              {% for tag in tag_list %}
+                <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+              {% endfor %}
+              <span class="new">HOT</span>
+            </div>
+          {% else %}
+            <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
+            <div class="post-title-tags">
+              {% assign tag_list = post.tags | sort %}
+              {% for tag in tag_list %}
+                <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+              {% endfor %}
+              <span class="new">HOT</span>
+            </div>
+          {% endif %}
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
           {% if post.resume == nil %}

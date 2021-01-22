@@ -2347,14 +2347,6 @@ div.highlight-caption code {
     word-break: keep-all;
   }
 
-  /* article.post { */
-  /*   float: none; */
-  /*   text-align: justify; */
-  /*   width: 90%; */
-  /*   margin: auto; */
-  /*   padding: 0; */
-  /* } */
-
   article .post-body {
     margin: 10px 0;
   }
