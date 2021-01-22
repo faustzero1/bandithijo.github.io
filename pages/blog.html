@@ -87,6 +87,11 @@ permalink: '/blog/'
             </div>
           {% else %}
             <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
+            <div class="content-title">
+              <a href="{{ post.url }}">
+                <p>{{ post.resume }}</p>
+              </a>
+            </div>
             <div class="post-title-tags">
               {% assign tag_list = post.tags | sort %}
               {% for tag in tag_list %}

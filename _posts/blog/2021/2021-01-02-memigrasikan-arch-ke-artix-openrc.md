@@ -12,7 +12,7 @@ tags: ['Tips', 'Arch Linux', 'Artix Linux']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Saya sudah hampir menyerah dengan ThinkPad X61, si laptop tua produksi tahun 2007 silam yang menggunakan Arch Linux dengan systemd yang terkadang temperature CPU sudah sering mencapai rata-rata 70-80°C. Hingga akhirnya saya memigrasikan ke Artix Linux dengan OpenRC. Ternyata sangat signifikan perbedaan temperaturenya. Lebih adem!"
 ---
 
 # Latar Belakang
