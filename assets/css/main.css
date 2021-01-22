@@ -77,11 +77,15 @@ td.gutter.gl, td.code {
 .markdown-body table.rouge-table td.gutter pre.lineno {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .markdown-body table.rouge-table td.code pre {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .markdown-body figure.highlight {
