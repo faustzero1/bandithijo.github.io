@@ -89,13 +89,13 @@ td.gutter.gl, td.code {
 }
 
 .markdown-body figure.highlight pre {
-  padding: 6px !important;
+  padding: 8px !important;
   margin-top: 0 !important;
   border-radius: 0 0 5px 5px;
 }
 
 .markdown-body pre.caption {
-  padding: 10px !important;
+  padding: 8px !important;
   margin-top: 0 !important;
   border-radius: 0 0 5px 5px !important;
 }
