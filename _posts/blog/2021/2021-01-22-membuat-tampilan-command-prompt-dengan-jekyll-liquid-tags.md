@@ -136,7 +136,7 @@ Dapat dilihat, kalau saya memiliki beberapa custom plugin yang saya buat untuk m
 
 ### Command Prompt
 
-Saya akan contohkan untuk **shells.rb**, yang saya gunakan untuk menyimpang beberapa prompt shell untuk user dan root.
+Saya akan contohkan untuk **shells.rb**, yang saya gunakan untuk menyimpan beberapa prompt shell untuk user dan root.
 
 Kalau teman-teman lihat tampilan prompt seperti di bawah ini:
 
