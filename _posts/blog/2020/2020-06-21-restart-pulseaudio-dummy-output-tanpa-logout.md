@@ -12,6 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Pendahuluan

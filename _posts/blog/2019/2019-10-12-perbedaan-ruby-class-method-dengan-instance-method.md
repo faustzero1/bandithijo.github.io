@@ -12,6 +12,7 @@ tags: ['Tips', 'Ruby', 'Rails']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

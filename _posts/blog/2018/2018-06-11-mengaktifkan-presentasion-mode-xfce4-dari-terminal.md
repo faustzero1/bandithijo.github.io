@@ -12,6 +12,7 @@ tags: ['XFCE', 'Tips', 'Terminal']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

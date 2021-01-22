@@ -12,6 +12,7 @@ tags:
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,6 +12,7 @@ tags: ['Ruby', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

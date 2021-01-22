@@ -12,6 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Sekenario Masalah

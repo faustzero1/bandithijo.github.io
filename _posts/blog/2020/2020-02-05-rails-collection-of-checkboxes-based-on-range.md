@@ -12,6 +12,7 @@ tags: ['Tips', 'Rails', 'jQuery']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

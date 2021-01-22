@@ -12,6 +12,7 @@ tags: ['Tips', 'Java']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,6 +12,7 @@ tags: ['ThinkPad', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 {% include nouptodate.html %}

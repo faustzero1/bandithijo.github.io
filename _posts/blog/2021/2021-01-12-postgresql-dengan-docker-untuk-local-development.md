@@ -12,6 +12,7 @@ tags: ['Tips', 'Docker']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 {% box_perhatian %}

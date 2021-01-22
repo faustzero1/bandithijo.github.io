@@ -12,6 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

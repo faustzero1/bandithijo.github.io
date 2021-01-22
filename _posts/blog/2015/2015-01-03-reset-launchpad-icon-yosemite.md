@@ -12,6 +12,7 @@ tags: ['OSX', 'Tips']
 pin:
 hot:
 contributors: []
+excerpt:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>

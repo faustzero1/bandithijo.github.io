@@ -12,6 +12,7 @@ tags: ['Tips', 'ThinkPad']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

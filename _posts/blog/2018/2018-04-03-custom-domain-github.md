@@ -12,6 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" onerror="imgError(this);" alt="banner">

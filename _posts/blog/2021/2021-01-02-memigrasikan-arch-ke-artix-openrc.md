@@ -12,6 +12,7 @@ tags: ['Tips', 'Arch Linux', 'Artix Linux']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 # Latar Belakang

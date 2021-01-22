@@ -12,6 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-t8rFinLgSyM/WmCaNEg1ffI/AAAAAAAAG5Y/MteYia1GKyg3j6SGVMOAxT7slgPeX84YwCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

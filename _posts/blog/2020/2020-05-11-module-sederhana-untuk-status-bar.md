@@ -12,6 +12,7 @@ tags: ['Tips', 'Script']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

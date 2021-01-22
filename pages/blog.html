@@ -79,19 +79,30 @@ permalink: '/blog/'
           </div>
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
         {% else %}
-          <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
-          <div class="content-title">
-            <a href="{{ post.url }}">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </a>
-          </div>
-          <div class="post-title-tags">
-            {% assign tag_list = post.tags | sort %}
-            {% for tag in tag_list %}
-              <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
-            {% endfor %}
-          </div>
-          <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+          {% if post.resume == nil %}
+            <p class="post-title-index"><a href="{{ post.url }}">+&nbsp;{{ post.title }}</a></p>
+            <div class="post-title-tags">
+              {% assign tag_list = post.tags | sort %}
+              {% for tag in tag_list %}
+                <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+              {% endfor %}
+            </div>
+            <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+          {% else %}
+            <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
+            <div class="content-title">
+              <a href="{{ post.url }}">
+                <p>{{ post.resume }}</p>
+              </a>
+            </div>
+            <div class="post-title-tags">
+              {% assign tag_list = post.tags | sort %}
+              {% for tag in tag_list %}
+                <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
+              {% endfor %}
+            </div>
+            <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+          {% endif %}
         {% endif %}
       {% endif %}
     {% endfor %}
