@@ -12,6 +12,7 @@ tags: ['Tips', 'Vim']
 pin:
 hot:
 contributors: []
+excerpt:
 ---
 
 <!-- BANNER OF THE POST -->
@@ -74,13 +75,11 @@ Kalau teman-teman menggunakan **NeoVim**, kalian dapat melihat informasi yang di
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/v8N3y65g/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Data disimpan pada ShaDa file di NeoVim (kiri), Data disimpan pada .viminfo pada Vim (kanan)</p>
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Apa itu ShaDa File?</div>
+{% box_pertanyaan %}
+<p><b>Apa itu ShaDa File?</b></p>
 <p><i>If you exit Vim and later start it again, you would normally lose a lot of information</i>.</p>
 <p><i>The ShaDa file can be used to remember that information, which enables you to continue where you left off.  Its name is the abbreviation of <b>SHAred DAta</b> because it is used for sharing data between Neovim sessions</i>.</p>
-</div>
-
+{% endbox_pertanyaan %}
 
 
 

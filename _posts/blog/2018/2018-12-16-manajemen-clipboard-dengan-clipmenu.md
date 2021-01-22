@@ -12,6 +12,7 @@ tags: ['Tips', 'Terminal', 'Tools', 'I3WM', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

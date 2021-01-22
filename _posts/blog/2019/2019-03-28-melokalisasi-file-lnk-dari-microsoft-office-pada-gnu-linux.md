@@ -12,6 +12,7 @@ tags: ['Tips', 'Wine', 'Arch Linux']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

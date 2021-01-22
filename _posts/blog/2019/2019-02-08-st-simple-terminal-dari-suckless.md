@@ -12,6 +12,7 @@ tags: ['Tips', 'Tools', 'Terminal']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,6 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 # Sekenario Masalah

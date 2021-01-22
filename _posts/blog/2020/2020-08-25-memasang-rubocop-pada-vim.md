@@ -12,6 +12,7 @@ tags: ['Tips', 'Vim', 'Ruby']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Latar Belakang Masalah

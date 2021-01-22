@@ -12,6 +12,7 @@ tags: ['Arch Linux', 'Tools', 'Network']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

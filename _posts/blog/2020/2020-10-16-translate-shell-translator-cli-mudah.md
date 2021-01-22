@@ -12,6 +12,7 @@ tags: ['Ulasan', 'Tips']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Latar Belakang

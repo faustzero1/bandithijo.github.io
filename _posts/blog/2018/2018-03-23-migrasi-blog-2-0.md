@@ -12,6 +12,7 @@ tags: ['Jekyll', 'Ulasan']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 # Latar Belakang

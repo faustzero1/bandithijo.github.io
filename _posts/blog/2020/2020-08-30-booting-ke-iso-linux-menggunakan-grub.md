@@ -12,6 +12,7 @@ tags: ['Tips', 'Arch Linux']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Latar Belakang Masalah

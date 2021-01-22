@@ -12,6 +12,7 @@ tags: ['Tips', 'I3WM']
 pin:
 hot: true
 contributors: []
+resume:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,6 +12,7 @@ tags: ['Ruby']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- INFORMATION -->

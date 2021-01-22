@@ -12,6 +12,7 @@ tags: ['Tips', 'Network']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Sekenario Masalah

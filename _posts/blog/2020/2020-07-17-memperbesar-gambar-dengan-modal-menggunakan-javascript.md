@@ -12,6 +12,7 @@ tags: ['Tips', 'Javascript']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Sekenario Masalah

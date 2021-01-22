@@ -12,6 +12,7 @@ tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <p class="notif-post">Post ini sudah tidak up to date !</p>

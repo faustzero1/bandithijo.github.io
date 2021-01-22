@@ -12,6 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Sekenario Masalah

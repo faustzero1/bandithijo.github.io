@@ -12,6 +12,7 @@ tags: ['Tips', 'Ulasan', 'Vim']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 # Latar Belakang

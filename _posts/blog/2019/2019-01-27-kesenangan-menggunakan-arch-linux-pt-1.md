@@ -12,6 +12,7 @@ tags: ['Arch Linux', 'Ulasan']
 pin:
 hot:
 contributors: []
+resume:
 ---
 
 <!-- banner of the post -->
