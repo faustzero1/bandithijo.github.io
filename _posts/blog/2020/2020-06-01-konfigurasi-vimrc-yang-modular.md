@@ -122,34 +122,31 @@ Isi yang ada di dalam file-file di dalam struktur direktori di atas bebas saja.
 Yang paling penting adalah proses sourcing di dalam file **init.vim**.
 
 {% highlight_caption $HOME/.config/nvim/init.vim %}
-<pre class="caption">
-source $HOME/.config/nvim/init.d/<b>settings.vim</b>
-source $HOME/.config/nvim/init.d/<b>formating.vim</b>
-source $HOME/.config/nvim/init.d/<b>filetype.vim</b>
-source $HOME/.config/nvim/init.d/<b>keybinding.vim</b>
+{% pre_caption %}
+source $HOME/.config/nvim/init.d/&lt;b>settings.vim</b>
+source $HOME/.config/nvim/init.d/&lt;b>formating.vim</b>
+source $HOME/.config/nvim/init.d/&lt;b>filetype.vim</b>
+source $HOME/.config/nvim/init.d/&lt;b>keybinding.vim</b>
 
-source $HOME/.config/nvim/init.d/<b>plugin.vim</b>
+source $HOME/.config/nvim/init.d/&lt;b>plugin.vim</b>
 for f in split(glob('$HOME/.config/nvim/plugin-config/*.vim'), '\n')
     exe 'source' f
-</pre>
+{% endpre_caption %}
 
 Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/** dan file-file configurasi plugin yang ada di dalam direktori **plugin-config/**.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown="1">Saya **tidak** lagi menempatkan file konfigurasi plugin di dalam direktori **plugin/config/**, karena akan **menyebabkan kegagalan** apabila dilakukan pengujian dengan menggunakan script profiler `vim-plugins-profile` (untuk mengetahui berapa lama plugin di load saat startup).</p>
 <p markdown="1">Maka dari itu, saat ini, konfigurasi dari plugin saya letakkan di root direktori **plugin-config/**.</p>
-</div>
+{% endbox_perhatian %}
 
 Selesai!
 
 Untuk contoh lebih detail dan lebih lengkap, mungkin dapat melihat langsung pada konfigurasi yang saya simpan di GitHub, [di sini](https://github.com/bandithijo/nvimrc){:target="_blank"}
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saya tidak lagi menggunakan file <code>~/.vimrc</code>. Karena konfigurasi modular di atas, tidak memerlukan vimrc.</p>
-</div>
+{% endbox_info %}
 
 # Pesan Penulis
 

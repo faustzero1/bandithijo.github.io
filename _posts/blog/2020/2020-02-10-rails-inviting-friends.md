@@ -38,9 +38,9 @@ Sebagai ilustrasi user dengan ID 1 berelasi dengan user dengan ID 2 pada tebal y
 
 Pertama, buat dulu Active Record Migration untuk membuat users model.
 
-<pre>
-$ <b>rails generate model user full_name email password invitation_token</b>
-</pre>
+{% shell_user %}
+rails generate model user full_name email password invitation_token
+{% endshell_user %}
 
 Selanjutnya, modifikasi pada file migration tersebut, seperti di bawah ini.
 
@@ -67,9 +67,9 @@ Selanjutnya, buat Active Record Migration untuk membuat friendships model.
 
 Migration ini adalah migration yang menentukan relasi antar user pada tabel friendships.
 
-<pre>
-$ <b>rails generate model friendship</b>
-</pre>
+{% shell_user %}
+rails generate model friendship
+{% endshell_user %}
 
 Selanjutnya, modifikasi file migration tersebut, seperti di bawah ini.
 
@@ -102,9 +102,9 @@ Field `:status` ini mungkin nantinya dapat dimanfaatkan untuk fitur *commission 
 
 Selanjutnya, tinggal menjalankan kedua migration tersebut.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 ## Model
 
@@ -369,11 +369,9 @@ Pada view template, saya perlu untuk menampung nilai instance variable `@invitat
 <% end %>
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Path yang saya gunakan di atas juga merupakan path milik Devise.</p>
-</div>
+{% endbox_info %}
 
 <br>
 **User Profile Menu**

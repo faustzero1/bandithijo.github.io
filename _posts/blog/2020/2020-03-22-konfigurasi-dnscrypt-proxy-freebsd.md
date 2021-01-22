@@ -1,4 +1,4 @@
-resume
+---
 layout: 'post'
 title: "Konfigurasi DNSCrypt-proxy di FreeBSD"
 date: 2020-03-22 20:29
@@ -65,9 +65,9 @@ WWW: https://github.com/jedisct1/dnscrypt-proxy
 
 Saya akan menggunakan pkg.
 
-<pre>
-$ <b>doas pkg install dnscrypt-proxy2</b>
-</pre>
+{% shell_user %}
+doas pkg install dnscrypt-proxy2
+{% endshell_user %}
 
 # Konfigurasi
 

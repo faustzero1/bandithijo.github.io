@@ -47,12 +47,12 @@ Saya ingin membuat fitur search filter berdasarkan rentang harga tertentu.
 
 Misalkan:
 
-<pre class="whiteboard">
+{% pre_whiteboard %}
 - RM 1   - RM 100
 - RM 101 - RM 300
 - RM 301 - RM 500
 - RM 501 - RM 1000
-</pre>
+{% endpre_whiteboard %}
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Dz531bWD/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 

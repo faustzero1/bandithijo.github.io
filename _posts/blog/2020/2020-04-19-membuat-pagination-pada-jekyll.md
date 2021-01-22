@@ -47,9 +47,9 @@ end
 
 Install gems.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Kemudian, enablekan pada `_config.yml`.
 
@@ -188,9 +188,9 @@ paginate_path: /page:num/
 
 Bentuk *URL path* dari *pagination* di atas akan berupa.
 
-<pre class="url">
+{% pre_url %}
 http://localhost:4000/blog/page2/
-</pre>
+{% endpre_url %}
 
 Kita dapat memodifikasi sesuai keinginan.
 
@@ -203,16 +203,15 @@ Bentuk lain, bisa seperti ini,
 paginate_path: /page/:num/
 {% endhighlight %}
 
-<pre class="url">
+{% pre_url %}
 http://localhost:4000/blog/page/2/
-</pre>
+{% endpre_url %}
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>
 Untuk membuat <i>pagination</i> kita harus memiliki <code>index.html</code> bukan <code>index.md</code>. Karena <i>pagination</i> hanya dapat bekerja pada file bertipe <code>.html</code>.
 </p>
-</div>
+{% endbox_perhatian %}
 
 Kelar!
 

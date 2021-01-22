@@ -28,15 +28,15 @@ Misalkan, dalam kasus saya, saya ingin menjalankan binary dari aplikasi Jdownloa
 
 Coba jalankan program yang akan dijalankan di atas terminal dengan menambahkan env variable seperti ini.
 
-<pre>
-$ <b>_JAVA_AWT_WM_NONREPARENTING=1 ./JDownloader2</b>
-</pre>
+{% shell_user %}
+_JAVA_AWT_WM_NONREPARENTING=1 ./JDownloader2
+{% endshell_user %}
 
 Kalau berhasil dijalankan dan semua *asset* terlihat sudah berhasil dirender, tinggal tambahkan pada `.desktop` dari launcher aplikasi tersebut.
 
-<pre>
-$ <b>vim ~/.local/share/applications/JDownloader2.desktop</b>
-</pre>
+{% shell_user %}
+vim ~/.local/share/applications/JDownloader2.desktop
+{% endshell_user %}
 
 {% highlight_caption $HOME/.local/share/applications/JDownloader2.desktop %}
 <pre class="caption">

@@ -15,12 +15,10 @@ contributors: []
 resume:
 ---
 
-<!-- INFORMATION -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Disclaimer</div>
+{% box_perhatian %}
 <p>Data yang penulis gunakan adalah data yang bersifat <b><i>free public data</i></b>. Sehingga, siapa saja dapat mengakses dan melihat tanpa perlu melalui layer authentikasi.</p>
 <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
-</div>
+{% endbox_perhatian %}
 
 # Prerequisite
 
@@ -44,15 +42,15 @@ Saya akan beri nama `ruby-web-scraper-dosen`.
 
 Biasakan untuk memberi nama proyek tidak menggunakan karakter **spasi**.
 
-<pre>
-$ <b>mkdir ruby-web-scraper-dosen</b>
-</pre>
+{% shell_user %}
+mkdir ruby-web-scraper-dosen
+{% endshell_user %}
 
 Kemudian masuk ke dalam direktori proyek.
 
-<pre>
-$ <b>cd ruby-web-scraper-dosen</b>
-</pre>
+{% shell_user %}
+cd ruby-web-scraper-dosen
+{% endshell_user %}
 
 Buat file dengan nama `Gemfile`. dan kita akan memasang gem yang diperlukan di dalam file ini.
 
@@ -68,17 +66,17 @@ gem 'pg',           '~> 1.2', '>= 1.2.3'
 
 Setelah memasang gem pada Gemfile, kita perlu melakukan instalasi gem-gem tersebut.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Proses bundle install di atas akan membuat sebuah file baru bernama `Gemfile.lock` yang berisi daftar dependensi dari gem yang kita butuhkan --daftar requirements--.
 
 Pastikan kalau service dari PostgreSQL sudah berjalan.
 
-<pre>
-$ <b>sudo systemctl status postgresql.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl status postgresql.service
+{% endshell_user %}
 
 ```
 ● postgresql.service - PostgreSQL database server
@@ -102,9 +100,9 @@ Selanjutnya, kita harus membuat database. Teman-tema dapat mengguakan **PostBird
 
 Jalankan **pgcli**,
 
-<pre>
-$ <b>pgcli</b>
-</pre>
+{% shell_user %}
+pgcli
+{% endshell_user %}
 
 ```
 Server: PostgreSQL 12.3
@@ -116,7 +114,7 @@ bandithijo>
 Dan buat database dengan nama `web_scraper`.
 
 <pre>
-bandithijo> <b>CREATE DATABASE web_scraper;</b>
+<span class="cmd">bandithijo> </span><b>CREATE DATABASE web_scraper;</b>
 </pre>
 
 ```
@@ -188,9 +186,9 @@ scraper
 
 Kemudian, jalankan dengan perintah,
 
-<pre>
-$ <b>ruby scraper.rb</b>
-</pre>
+{% shell_user %}
+ruby scraper.rb
+{% endshell_user %}
 
 Apabila berhasil, akan keluar output di terminal seperti ini.
 
@@ -212,7 +210,7 @@ Sekarang coba cek ke database.
 Masuk terlebih dahulu ke databse `web_scraper`.
 
 <pre>
-bandithijo> <b>\c web_scraper;</b>
+<span class="cmd">bandithijo> </span><b>\c web_scraper;</b>
 </pre>
 
 ```
@@ -224,7 +222,7 @@ web_scraper>
 Setelah kita berada di dalam database `web_scraper` kita dapat melihat hasil dari data-data yang sudah diinputkan dengan cara.
 
 <pre>
-web_scraper> <b>SELECT * FROM daftar_dosens</b>
+<span class="cmd">web_scraper> </span><b>SELECT * FROM daftar_dosens</b>
 </pre>
 
 ```

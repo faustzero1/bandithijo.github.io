@@ -141,9 +141,9 @@ Selanjutnya adalah proses kalibrasi dengan tlp.
 
 Saya menjalankan perintah:
 
-<pre>
-$ <b>sudo tlp recalibrate</b>
-</pre>
+{% shell_user %}
+sudo tlp recalibrate
+{% endshell_user %}
 
 ```
 Currently discharging battery BAT0:
@@ -166,9 +166,9 @@ Berikut ini adalah grafik hasil kalibrasi battery rebuild.
 
 Untuk meliahat informasi dari battery, saya juga menggunakan perintah:
 
-<pre>
-$ <b>sudo tlp-stat -b</b>
-</pre>
+{% shell_user %}
+sudo tlp-stat -b
+{% endshell_user %}
 
 ```
 --- TLP 1.3.1 --------------------------------------------
@@ -217,9 +217,9 @@ Saya kurang paham, ini perilaku dari Cell atau module controller dari battery in
 
 Pada Gambar 9, ini adalah grafik discharging yang saya laukan setelah rekalibrasi yang kedua. Saya tidak menyangka, tidak drop pada 40% namun pada 19%. Oh yaa, discharging ini juga dilakukan sambil menjalankan perintah:
 
-<pre>
-$ <b>sudo powertop --calibrate</b>
-</pre>
+{% shell_user %}
+sudo powertop --calibrate
+{% endshell_user %}
 
 Saya juga sedikit terkejut karena setelah dikalibrasi dengan powertop, dapat menambah efisiensi penggunaan power menjadi 30 menit lebih lama, yang awalnya hanya bertahan 30 menitan, sekarang dapat mencapai 1 jam. Padahal saya melakukan pengetesan sambil menonton YouTube.
 

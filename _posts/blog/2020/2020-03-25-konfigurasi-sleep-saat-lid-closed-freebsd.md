@@ -24,9 +24,9 @@ Karena FreeBSd masih menggunakan "Traditional BSD-style init"<super>1</super>, h
 
 Misalnya seperti ini, untuk melihat semua semua list atribut.
 
-<pre>
-$ <b>sysctl -a</b>
-</pre>
+{% shell_user %}
+sysctl -a
+{% endshell_user %}
 
 ```
 kern.ostype: FreeBSD
@@ -50,9 +50,9 @@ Pada awal-awal menggunakan FreeBSD, saya menggunakan XFCE. Pada saat itu, ketika
 
 Kemudian saya lakukan pengecekan terlebih dahulu pada atribute **hw.acpi**
 
-<pre>
-$ <b>sysctl hw.acpi</b>
-</pre>
+{% shell_user %}
+sysctl hw.acpi
+{% endshell_user %}
 
 <pre>
 ...
@@ -89,9 +89,9 @@ Untuk merubah nilai dari atribut tersebut sangat mudah sekali.
 
 Cukup jalanka perintah seperti ini.
 
-<pre>
-$ <b>doas sysctl hw.acpi.lid_switch_state=S3</b>
-</pre>
+{% shell_user %}
+doas sysctl hw.acpi.lid_switch_state=S3
+{% endshell_user %}
 
 Akan ada output seperti di bawah, apabila berhasil.
 
@@ -103,9 +103,9 @@ Yang menunjukkan nilai dari atribut `lid_switch_state` sudah berubah dari NONE m
 
 Sekarang coba periksa kembali nilainya. Kali ini dengan lebih spesifik saja agar tidak terlalu banyak output yang ditampilkan.
 
-<pre>
-$ <b>sysctl hw.acpi | grep lid_switch_state</b>
-</pre>
+{% shell_user %}
+sysctl hw.acpi | grep lid_switch_state
+{% endshell_user %}
 
 <pre>
 hw.acpi.lid_switch_state: <b>S3</b>
@@ -117,9 +117,9 @@ Nah, kita perlu untuk membuat konfigurasi ini menjadi permanen.
 
 Caranya sangat mudah. Tinggal tambahkan pada file `/etc/sysctl.conf`.
 
-<pre>
-$ <b>doas vim /etc/sysctl.conf</b>
-</pre>
+{% shell_user %}
+doas vim /etc/sysctl.conf
+{% endshell_user %}
 
 {% highlight_caption /etc/sysctl.conf %}
 {% highlight conf linenos %}

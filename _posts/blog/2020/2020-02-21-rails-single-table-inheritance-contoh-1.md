@@ -46,9 +46,10 @@ Kira-kira seperti ini ERD-nya.
 Saya membuat dua buah model migration untuk tabel users dan contacts.
 
 **users**
-<pre>
-$ <b>rails g model user email first_name last_name</b>
-</pre>
+
+{% shell_user %}
+rails g model user email first_name last_name
+{% endshell_user %}
 
 {% highlight_caption db/migrations/20200219025008_create_users.rb %}
 {% highlight ruby linenos %}
@@ -66,9 +67,9 @@ end
 
 <br>
 **contacts**
-<pre>
-$ <b>rails g model contact user_id:integer type first_name last_name phone_number</b>
-</pre>
+{% shell_user %}
+rails g model contact user_id:integer type first_name last_name phone_number
+{% endshell_user %}
 
 {% highlight_caption db/migrations/20200219025125_create_contacts.rb %}
 {% highlight ruby linenos %}
@@ -95,9 +96,9 @@ add_index :contacts, [:type, :user_id]
 
 Kemudian jalankan migration tersebut.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 # Models
 

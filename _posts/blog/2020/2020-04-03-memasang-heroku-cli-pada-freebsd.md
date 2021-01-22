@@ -39,29 +39,33 @@ Saya akan mulai dari nomor satu.
 
 Pertama install **yarn**.
 
-<pre>
-$ <b>doas pkg install yarn</b>
-</pre>
+{% shell_user %}
+doas pkg install yarn
+{% endshell_user %}
 
 Lalu cloning repository GitHub heroku/cli.
-<pre>
-$ <b>git clone https://github.com/heroku/cli.git heroku-cli</b>
-</pre>
+
+{% shell_user %}
+git clone https://github.com/heroku/cli.git heroku-cli
+{% endshell_user %}
 
 Masuk ke dalam direktori hasil cloning.
-<pre>
-$ <b>cd heroku-cli</b>
-</pre>
+
+{% shell_user %}
+cd heroku-cli
+{% endshell_user %}
 
 Install dengan menggunakan perintah yarn, proses ini akan mengenerate `bin/run` sebagai heroku cli.
-<pre>
-$ <b>yarn install</b>
-</pre>
+
+{% shell_user %}
+yarn install
+{% endshell_user %}
 
 Kemudian, buat symbolic link agar dapat diakses dari mana saja.
-<pre>
-$ <b>doas ln -sf $(pwd)/bin/run /usr/local/bin/heroku</b>
-</pre>
+
+{% shell_user %}
+doas ln -sf $(pwd)/bin/run /usr/local/bin/heroku
+{% endshell_user %}
 
 **Kekurangan** dari cara instalasi ini adalah waktu dari proses eksekusi yang lama.
 
@@ -73,17 +77,17 @@ Pastikan teman-teman sudah memasang `node` dan `npm`.
 
 Kemudian untuk memasang heroku CLI sangat mudah.
 
-<pre>
-$ <b>npm install -g heroku</b>
-</pre>
+{% shell_user %}
+npm install -g heroku
+{% endshell_user %}
 
 **Saya lebih merekomendasikan untuk menggunakan cara kedua**, karena waktu proses eksekusi yang lebih cepat daripada menggunakan cara yang pertama.
 
 Sekarang coba lakukan pengecekan versi.
 
-<pre>
-$ <b>heroku --version</b>
-</pre>
+{% shell_user %}
+heroku --version
+{% endshell_user %}
 
 ```
 heroku/7.39.2 freebsd-x64 node-v13.10.1

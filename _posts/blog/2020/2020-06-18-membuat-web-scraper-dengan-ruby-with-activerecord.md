@@ -15,12 +15,10 @@ contributors: []
 resume:
 ---
 
-<!-- INFORMATION -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Disclaimer</div>
+{% box_perhatian %}
 <p>Data yang penulis gunakan adalah data yang bersifat <b><i>free public data</i></b>. Sehingga, siapa saja dapat mengakses dan melihat tanpa perlu melalui layer authentikasi.</p>
 <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
-</div>
+{% endbox_perhatian %}
 
 # Prerequisite
 
@@ -44,15 +42,15 @@ Saya akan beri nama `ruby-web-scraper-dosen`.
 
 Biasakan untuk memberi nama proyek tidak menggunakan karakter **spasi**.
 
-<pre>
-$ <b>mkdir ruby-web-scraper-dosen</b>
-</pre>
+{% shell_user %}
+mkdir ruby-web-scraper-dosen
+{% endshell_user %}
 
 Kemudian masuk ke dalam direktori proyek.
 
-<pre>
-$ <b>cd ruby-web-scraper-dosen</b>
-</pre>
+{% shell_user %}
+cd ruby-web-scraper-dosen
+{% endshell_user %}
 
 Buat file dengan nama `Gemfile`. dan kita akan memasang gem yang diperlukan di dalam file ini.
 
@@ -70,17 +68,17 @@ gem 'pg',                    '~> 1.2', '>= 1.2.3'
 
 Setelah memasang gem pada Gemfile, kita perlu melakukan instalasi gem-gem tersebut.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Proses bundle install di atas akan membuat sebuah file baru bernama `Gemfile.lock` yang berisi daftar dependensi dari gem yang kita butuhkan --daftar requirements--.
 
 Pastikan kalau service dari PostgreSQL sudah berjalan.
 
-<pre>
-$ <b>sudo systemctl status postgresql.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl status postgresql.service
+{% endshell_user %}
 
 ```
 ● postgresql.service - PostgreSQL database server
@@ -104,9 +102,9 @@ Selanjutnya, untuk melihat database dan table, teman-tema dapat mengguakan **Pos
 
 Jalankan **pgcli**,
 
-<pre>
-$ <b>pgcli</b>
-</pre>
+{% shell_user %}
+pgcli
+{% endshell_user %}
 
 ```
 Server: PostgreSQL 12.3
@@ -162,9 +160,9 @@ development:
 
 Kalau sudah, sekarang kita akan membuat database dengan cara, buka Terminal dan jalankan perintah,
 
-<pre>
-$ <b>rake db:create</b>
-</pre>
+{% shell_user %}
+rake db:create
+{% endshell_user %}
 
 ```
 Created database 'web_scraper_development'
@@ -172,9 +170,7 @@ Created database 'web_scraper_development'
 
 Perintah di atas akan menjalankan **rake** untuk membuat database dengan nama `web_scraper_development` seperti yang sudah kita definisikan pada file `config.yml`.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Untuk menghapus database, gunakan perintah:</p>
 <pre>
 $ <b>rake db:drop</b>
@@ -182,7 +178,7 @@ $ <b>rake db:drop</b>
 <pre>
 Dropped database 'web_scraper_development'
 </pre>
-</div>
+{% endbox_info %}
 
 Setelah database dibuat, kita perlu membuat tabel untuk menyimpan data-data yang sudah kita parsing dari wbesite target.
 
@@ -193,15 +189,15 @@ Buat migration dengan cara seperti di bawah, dan berikan nama, seperti:
 1. `CreateDaftarDosens` (CamelCase), atau
 2. `create_daftar_dosens` (snake_case)
 
-<pre>
-$ <b>rake db:new_migration name=CreateDaftarDosens</b>
-</pre>
+{% shell_user %}
+rake db:new_migration name=CreateDaftarDosens
+{% endshell_user %}
 
 **atau**,
 
-<pre>
-$ <b>rake db:new_migration name=create_daftar_dosens</b>
-</pre>
+{% shell_user %}
+rake db:new_migration name=create_daftar_dosens
+{% endshell_user %}
 
 Perintah migrasi di atas akan membuat sebuah file migrasi.
 
@@ -255,9 +251,9 @@ end
 
 Setelah kita memodifikasi file migrasi `..._create_daftar_dosens.rb`, selanjutnya adalah menjalankan migrasi tersebut.
 
-<pre>
-$ <b>rake db:migrate</b>
-</pre>
+{% shell_user %}
+rake db:migrate
+{% endshell_user %}
 
 ```
 == 20200618031037 CreateDaftarDosens: migrating ===============================
@@ -269,9 +265,9 @@ Kalau migrasi berhasil, outputnya akan seperti di atas.
 
 Untuk mengecek status migrasi, gunakan perintah di bawah.
 
-<pre>
-$ <b>rake db:migrate:status</b>
-</pre>
+{% shell_user %}
+rake db:migrate:status
+{% endshell_user %}
 
 ```
 database: web_scraper_development
@@ -287,7 +283,7 @@ Terlihat, bahwa status migrasi dari "Create daftar dosens" sudah **up**. Artinya
 Untuk mengeceknya, buka **pgcli** dan jalankan perintah di bawah.
 
 <pre>
-web_scraper> <b>\dt</b>
+<span class="cmd">web_scraper> </span><b>\dt</b>
 </pre>
 
 <pre>
@@ -305,7 +301,7 @@ Time: 0.014s
 Untuk melihat detail dari tabel, gunakan perintah di bawah.
 
 <pre>
-web_scraper> <b>\d daftar_dosens;</b>
+<span class="cmd">web_scraper> </span><b>\d daftar_dosens;</b>
 </pre>
 
 <pre>
@@ -439,9 +435,9 @@ scraper
 
 Setelah itu, jalankan dengan perintah,
 
-<pre>
-$ <b>ruby app/main.rb</b>
-</pre>
+{% shell_user %}
+ruby app/main.rb
+{% endshell_user %}
 
 Apabila berhasil, akan keluar output di Terminal seperti ini.
 
@@ -475,7 +471,7 @@ Sekarang coba cek ke database.
 Masuk terlebih dahulu ke databse `web_scraper`.
 
 <pre>
-bandithijo> <b>\c web_scraper;</b>
+<span class="cmd">bandithijo> </span><b>\c web_scraper;</b>
 </pre>
 
 ```
@@ -487,7 +483,7 @@ web_scraper>
 Setelah kita berada di dalam database `web_scraper` kita dapat melihat hasil dari data-data yang sudah diinputkan dengan cara.
 
 <pre>
-web_scraper> <b>SELECT * FROM daftar_dosens</b>
+<span class="cmd">web_scraper> </span><b>SELECT * FROM daftar_dosens</b>
 </pre>
 
 ```

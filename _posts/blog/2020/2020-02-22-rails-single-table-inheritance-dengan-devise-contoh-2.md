@@ -67,9 +67,9 @@ Saya akan memulai dari pemasangan Devise
 
 Saya akan membuat tabel users dengan menggunakan generator yang dimiliki oleh Devise.
 
-<pre>
-$ <b>rails g devise user</b>
-</pre>
+{% shell_user %}
+rails g devise user
+{% endshell_user %}
 
 Generator di atas juga akan sekalian membuatkan kita model user.
 
@@ -100,9 +100,9 @@ Namun, saya memilih untuk membuat migration untuk memanbahkan field name dan typ
 
 Tidak ada alasan, hanya untuk berlatih saja membuat migration.
 
-<pre>
-$ <b>rails g migration add_name_and_name_to_users</b>
-</pre>
+{% shell_user %}
+rails g migration add_name_and_name_to_users
+{% endshell_user %}
 
 Kemudian, tambahkan manual `add_column` untuk `:name` dan `:type`.
 
@@ -118,21 +118,21 @@ end
 
 Setelah itu, jalankan semua migration di atas.
 
-<pre>
-$ <b>rails db:migrate</b>
-</pre>
+{% shell_user %}
+rails db:migrate
+{% endshell_user %}
 
 ## Models
 
 Kemudian buat dua model untuk participant dan sponsor.
 
-<pre>
-$ <b>rails g model participant</b>
-</pre>
+{% shell_user %}
+rails g model participant
+{% endshell_user %}
 
-<pre>
-$ <b>rails g model sponsor</b>
-</pre>
+{% shell_user %}
+rails g model sponsor
+{% endshell_user %}
 
 Karena saya sudah menambahkan field `:type` pada tabel users, maka kedua model ini yang akan mendapat turunan sifat dari model user dengan mengambil dari nama class dari masing-masing model.
 
@@ -173,9 +173,9 @@ Oke, langsung saya mulai dari membuat Homepage.
 
 Saya akan mulai dengan mengenerate page controller dengan action index.
 
-<pre>
-$ <b>rails g controller Pages index</b>
-</pre>
+{% shell_user %}
+rails g controller Pages index
+{% endshell_user %}
 
 {% highlight_caption app/controllers/pages_controller.rb %}
 {% highlight ruby linenos %}
@@ -200,9 +200,9 @@ end
 
 Selanjutnya buat dashboards controller  untuk tempat participant dan sponsor mendarat setelah sign up atau sign in.
 
-<pre>
-$ <b>rails g controller dashboard/dashboard index</b>
-</pre>
+{% shell_user %}
+rails g controller dashboard/dashboard index
+{% endshell_user %}
 
 {% highlight_caption app/controllers/dashboard/dashboard_controller.rb %}
 {% highlight ruby linenos %}
@@ -246,13 +246,13 @@ Nah, ada banyak cara yang dapat dilakukan. Mulai dari mengenerate view untuk mas
 
 Saya memilih untuk mengenerate kedua scope.
 
-<pre>
-$ <b>rails g devise:views participant</b>
-</pre>
+{% shell_user %}
+rails g devise:views participant
+{% endshell_user %}
 
-<pre>
-$ <b>rails g devise:views sponsor</b>
-</pre>
+{% shell_user %}
+rails g devise:views sponsor
+{% endshell_user %}
 
 Lalu mengedit bagian registrations new dan edit untuk menambahkan field `:name`.
 

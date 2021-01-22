@@ -33,11 +33,10 @@ Untuk mencapai tahap "gak ribet" ini, kita perlu ribet-ribet dulu di awal, mas B
 
 Seperti pepatah lama, "Berakit-rakit ke hulu, bersenang-senang kemudian."
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Menurut pendapat saya,</p>
 <p>"Gak pake ribet" di sini juga saya maksudkan kepada perilaku dari tilling layout yang menganut prinsip "Master & Slave" tadi. Karena apabila dibandingkan berdasarkan kemampuan untuk mengelola window, i3WM dan BSPWM "jauh" lebih mumpuni.</p>
-</div>
+{% endbox_info %}
 
 # Alasan Migrasi ke DWM
 
@@ -47,13 +46,13 @@ Sama halnya seperti saat menggunakan i3WM, seiring berjalannya waktu, perilaku s
 
 Saat berpindah dari i3WM ke BSPWM, saya lebih banyak menggunakan susunan tilling seperti ini.
 
-<pre class="whiteboard">
+{% pre_whiteboard %}
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
 |     |     | |    1     | |     |  2  | |  1  |  2  |
 |  1  |  2  | +----------+ +  1  +-----+ |-----+-----+
 |     |     | |    2     | |     |  3  | |  4  |  3  |
 +-----+-----+ +----------+ +-----+-----+ +-----+-----+
-</pre>
+{% endpre_whiteboard %}
 
 Nah, karena itu, saya berpikir, kenapa tidak coba untuk bermigrasi menggunakan window manager yang lebih sederhana dalam perilaku membuat layout? Maka saya pun melakukan riset kecil-kecilan, dan pilihan jatuh pada BSPWM.
 
@@ -61,13 +60,13 @@ Awalnya saya sempat mencoba DWM lebih dahulu, namun ternyata kebutuhan saya masi
 
 Kemudian, sampai pada tahap perubahan perilaku saya dalam menyusun Window. Saya lebih banyak menggunakan tilling layout seperti ini.
 
-<pre class="whiteboard">
+{% pre_whiteboard %}
 +-----+-----+ +-----+-----+
 |     |     | |     |  2  |
 |  1  |  2  | +  1  +-----+
 |     |     | |     |  3  |
 +-----+-----+ +-----+-----+
-</pre>
+{% endpre_whiteboard %}
 
 Karena kebutuhan yang lebih sederhana, maka saya pun merasa cukup untuk menggunakan DWM tanpa perlu melakukan banyak *patching*. Karena saya sendiri masih kesulitan apabila memasang terlalu banyak *patching*.
 
@@ -132,9 +131,9 @@ Namun, karena saya menggunakan git, maka, saya akan memanfaatkan cara *patching*
 
 **Menggunakan Git Apply**
 
-<pre>
-$ <b>git apply path/to/patch.diff</b>
-</pre>
+{% shell_user %}
+git apply path/to/patch.diff
+{% endshell_user %}
 
 Nah, kalau cara pertama tidak berhasil, lakukan cara manual.
 
@@ -447,10 +446,9 @@ Jadi, saya menambahkan 1 branch yang bukan termasuk dwm *patch*, yaitu:
 
 Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang sebagian besar berada pada file **config.def.h** atau **dwm.c**.
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat patch yang mengarahkan ke file **config.def.h**, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke **branch config** pada file **config.def.h**.</p>
-</div>
+{% endbox_info %}
 
 Berikut ini adalah ilustrasi isi dari branch **config**.
 
@@ -576,14 +574,12 @@ static Key keys[] = {
 };
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown="1">Saat ini (2020/09/17), saya sudah tidak lagi mendefinisikan **Custom Keys** di config.def.h yang ada di branch config.</p>
 <p markdown="1">Saya memindahkan, semua *custom keys* tersebut ke **SXHKD**.</p>
 <p markdown="1">Tujuannya, agar saat ingin dimodifikasi, tidak perlu mengcompile ulang dwm.</p>
 <p markdown="1">Selain itu, juga lebih mudah untuk pengaturan fungsi toggling.</p>
-</div>
+{% endbox_info %}
 
 
 ## Status Bar
@@ -612,10 +608,9 @@ done
 
 Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain atau saya sebut saja sebagai module. Saya akan jabarkan di sini masing-masing module tersebut.
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Kode-kode di bawah ini, karena keterbatasan dari Blog, sehingga tidak dapat menampilkan simbol-simbol seperti yang ada pada screenshot Gambar 2.</p>
-</div>
+{% endbox_perhatian %}
 
 <br>
 **network-wlan-tfc.sh** - Created by: BanditHijo
@@ -793,12 +788,10 @@ fi
 
 ## Autorun
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown="1">**2020/09/20**, menggunakan autostart patch 20200610-cb3f58a.diff.</p>
 <p>Dan juga menggunakan .xinitrc untuk menjalankan beberapa program yang saya perlukan saat startup.</p>
-</div>
+{% endbox_info %}
 
 Saya menggunakan *patch* autostart untuk menghandle program-program autorun yang dinamis. Yang saya maksudkan sebagai dinamis adalah konfigurasi program mungkin akan mengalami modifikasi sehingga memungkinkan untuk direload ulang ditengah-tengah session.
 
@@ -824,11 +817,11 @@ static int screen;
 
 Perhatikan baris 8 dan 9, disanalah tempat kita akan meletakkan file **autostart.sh** dan **autostart_blocking.sh**.
 
-<pre>
-$ <b>mkdir -p ~/.local/share/dwm</b>
-$ <b>touch ~/.local/share/dwm/autostart_blocking.sh</b>
-$ <b>touch ~/.local/share/dwm/autostart.sh</b>
-</pre>
+{% shell_user %}
+mkdir -p ~/.local/share/dwm
+touch ~/.local/share/dwm/autostart_blocking.sh
+touch ~/.local/share/dwm/autostart.sh
+{% endshell_user %}
 
 Dan ini adalah isi dari file `autostart.sh` yang saya pergunakan.
 
@@ -893,16 +886,16 @@ Bisa teman-teman lihat [di sini](https://github.com/bandithijo/dwm){:target="_bl
 
 Cara pasangnya sangat mudah.
 
-<pre>
-$ <b>git clone https://github.com/bandithijo/dwm.git $HOME/.config/dwm</b>
-$ <b>cd $HOME/.config/dwm</b>
-</pre>
+{% shell_user %}
+git clone https://github.com/bandithijo/dwm.git $HOME/.config/dwm
+cd $HOME/.config/dwm
+{% endshell_user %}
 
 Kalau kita menjalankan,
 
-<pre>
-$ <b>git branch</b>
-</pre>
+{% shell_user %}
+git branch
+{% endshell_user %}
 
 Maka yang ada hanya branch Master.
 
@@ -932,9 +925,9 @@ puts '=> All Checkout COMPLETE!'
 
 Jangan lupa buat menjadi executeable.
 
-<pre>
-$ <b>chmod +x suckchkout</b>
-</pre>
+{% shell_user %}
+chmod +x suckchkout
+{% endshell_user %}
 
 Lalu jalankan.
 

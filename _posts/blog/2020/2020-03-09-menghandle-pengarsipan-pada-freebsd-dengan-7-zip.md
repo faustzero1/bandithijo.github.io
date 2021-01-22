@@ -92,9 +92,9 @@ Untuk membuat ZIP archive dengan enkripsi, caranya sangat mudah.
 
 **Membuat file ZIP dari beberapa file (file1, file2, file3)**
 
-<pre>
-$ <b>7z a -p arsip.zip file1.doc file2.xls file3.ppt</b>
-</pre>
+{% shell_user %}
+7z a -p arsip.zip file1.doc file2.xls file3.ppt
+{% endshell_user %}
 
 Keterangan:
 
@@ -141,8 +141,9 @@ Ilustrasinya kira-kira seperti ini.
 
 <div class="blockquote-blue">
 <div class="blockquote-blue-title">[ i ] Informasi</div>
-<p>
-Selain membuat arsip berformat ZIP dari beberapa file, dapat pula langsung membuat file pada direktori.
+</div>
+{% box_info %}
+<p>Selain membuat arsip berformat ZIP dari beberapa file, dapat pula langsung membuat file pada direktori.
 <br>
 Misalkan, saya memiliki direktori bernama <b>arsip/</b>.
 
@@ -150,8 +151,7 @@ Misalkan, saya memiliki direktori bernama <b>arsip/</b>.
 $ <b>7z a -p arsip.zip arsip</b>
 </pre>
 </p>
-</div>
-
+{% endbox_info %}
 
 ## Mengekstrak Arsip Berformat ZIP yang Terenkripsi
 
@@ -159,9 +159,9 @@ Untuk mengkestrak ZIP archive yang terenkripsi, caranya sangat mudah sekali.
 
 Cukup menggunakan *function letter* yang sama seperti untuk mengekstrak arsip biasa, yaitu `x`.
 
-<pre>
-$ <b>7z x arsip.zip</b>
-</pre>
+{% shell_user %}
+7z x arsip.zip
+{% endshell_user %}
 
 
 Kemudian, akan diminta memasukkan password untuk proses dekripsi.

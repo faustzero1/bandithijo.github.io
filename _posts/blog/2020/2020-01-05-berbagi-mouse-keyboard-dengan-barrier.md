@@ -65,9 +65,9 @@ Untuk GNU/Linux, Barrier sudah terdapat pada repositori distro masing-masing.
 
 Karena saya menggunakan Arch, maka saya menggunakan AUR helper.
 
-<pre>
-$ <b>yay barrier</b>
-</pre>
+{% shell_user %}
+yay barrier
+{% endshell_user %}
 
 Terdapat dua tipe, Barrier GUI dan Barrier Headless
 

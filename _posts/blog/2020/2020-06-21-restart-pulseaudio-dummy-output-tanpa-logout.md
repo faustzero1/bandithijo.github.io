@@ -29,16 +29,17 @@ Namun, saya perlu mencatat agar dikemudian hari mengalami hal ini lagi, saya tid
 
 Buka Terminal dan jalankan perintah di bawah, satu-persatu.
 
-<pre>
-$ <b>pulseaudio --check</b>
-$ <b>pulseaudio --kill</b>
-$ <b>pulseaudio --start</b>
-</pre>
+{% shell_user %}
+pulseaudio --check
+pulseaudio --kill
+pulseaudio --start
+{% endshell_user %}
 
 Atau, langsung jalankan bentuk satu baris, lebih praktis.
-<pre>
-$ <b>pulseaudio --check; pulseaudio --kill; pulseaudio --start</b>
-</pre>
+
+{% shell_user %}
+pulseaudio --check; pulseaudio --kill; pulseaudio --start
+{% endshell_user %}
 
 
 

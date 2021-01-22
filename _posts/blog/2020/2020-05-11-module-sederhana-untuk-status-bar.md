@@ -36,10 +36,9 @@ Selain itu, apabila saya menggunakan dwm, saya lebih baik meracik status bar say
 
 Saya sudah membuatkan beberapa module yang dapat digunakan untuk membangun status bar sendiri atau digunakan oleh Polybar
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Saya tidak banyak pengalaman dalam menulis Bash Script. Apabila ada logika yang kurang baik, boleh sekali loh dikasih saran dan dibenerin. Saya sangat terbuka dan senang sekali. Terima kasih (^_^)</p>
-</div>
+{% endbox_perhatian %}
 
 # Module
 

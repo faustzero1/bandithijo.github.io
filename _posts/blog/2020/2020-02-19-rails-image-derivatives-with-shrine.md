@@ -75,9 +75,9 @@ Pada catatan kali ini saya tidak menjelaskan mengenai penggunaan libvips.
 
 **Pada Arch Linux**
 
-<pre>
-$ <b>sudo pacman -S imagemagick</b>
-</pre>
+{% shell_user %}
+sudo pacman -S imagemagick
+{% endshell_user %}
 
 
 Untuk distribusi yang lain, silahkan mencari paket ImageMagick yang tersedia pada repository distro masing-masing.
@@ -93,9 +93,9 @@ gem 'image_processing', '~> 1.8'
 
 Install gem yang baru saja kita pasang.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 ## Konfigurasi Initializer Shrine
 
@@ -460,9 +460,9 @@ Y8888D'  `Y88P'  VP   V8P Y88888P YP
 
 Cara menjalankannya sangat mudah,
 
-<pre>
-$ <b>rails runner script/derivatives_bomb.rb</b>
-</pre>
+{% shell_user %}
+rails runner script/derivatives_bomb.rb
+{% endshell_user %}
 
 Tunggu prosesnya sampai selesai.
 
