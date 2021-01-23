@@ -31,9 +31,9 @@ Rake benar-benar *tool* yang sangat *powerful* untuk melakukan proses automatisa
 
 Pertama, pastikan teman-teman sudah memasang **Bundler** gem yaa.
 
-<pre>
-$ <b>bundler -v</b>
-</pre>
+{% shell_user %}
+bundler -v
+{% endshell_user %}
 
 ```
 Bundler version 2.1.4
@@ -41,21 +41,21 @@ Bundler version 2.1.4
 
 Biasanya kalo Ruby project pasti sudah memiliki `Gemfile`, tinggal kita tambahkan Rake gem saja.
 
-```ruby
-# Gemfile
-
+{% highlight_caption Gemfile %}
+{% highlight ruby linenos %}
 source 'https://rubygems.org'
 
-...
-...
 gem 'rake'
-```
+{% endhighlight %}
 
 Lalu jalankan instalasi gem baru dengan bantuan Bundler.
 
 <pre>
-$ <b>bundle install</b>
+$ <b></b>
 </pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 # Konfgurasi
 
@@ -252,7 +252,7 @@ end
 {% endhighlight %}
 
 <pre>
-$ <b>rake penjumlahan</b>
+<span class="cmd">$ </span><b>rake penjumlahan</b>
 # => 3
 </pre>
 
@@ -273,13 +273,11 @@ end
 {% endhighlight %}
 
 <pre>
-$ <b>rake penjumlahan[1,2]</b>
+<span class="cmd">$ </span><b>rake penjumlahan[1,2]</b>
 # => 3
 </pre>
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Namun, cara ini memiliki kelemahan apabila kita menggunakan ZSH Shell. Biasanya kita akan mendapatkan error berupa,</p>
 <pre>zsh: no matches found ...</pre>
 <p>Untuk mengatasi hal ini, kita perlu <b>menambahkan escape charater</b> pada perintahnya. Menjadi seperti ini:</p>
@@ -289,7 +287,7 @@ $ <b>rake penjumlahan\[1,2\]</b>
 </pre>
 <p>Terlihat tidak cantik yaa.</p>
 <p>Selain itu, kita <b>tidak boleh menggunakan spasi setelah tanda koma "," diantara argument</b>, hal ini akan menyebabkan error yang lain.</p>
-</div>
+{% endbox_info %}
 
 ### 2. Environment Variables
 
@@ -308,7 +306,7 @@ end
 Cara menjalankannya akan seperti ini:
 
 <pre>
-$ <b>rake penjumlahan NUM1=1 NUM2=2</b>
+<span class="cmd">$ </span><b>rake penjumlahan NUM1=1 NUM2=2</b>
 # => 3
 </pre>
 
@@ -318,9 +316,9 @@ Cara ini dapat dilakukan, namun agak sia-sia kalau menjalankan task dengan melak
 
 ARGV adalah *command line argument*. Untuk teman-teman yang pernah membuat Ruby script dan ingin mengambil inputan dari user bersamaan dengan menjalankan command, pasti pernah menggunakannya.
 
-<pre>
-$ <b>ruby script.rb <mark>nama</mark></b>
-</pre>
+{% shell_user %}
+ruby script.rb <mark>nama</mark>
+{% endshell_user %}
 
 Nah, `nama` itu adalah *command line argument* yang akan digunakan di dalam `script.rb` tersebut. Inilah yang disebut Ruby ARGV.
 
@@ -337,7 +335,7 @@ end
 Cara menjalankannya akan seperti ini:
 
 <pre>
-$ <b>rake penjumlahan 1 2</b>
+<span class="cmd">$ </span><b>rake penjumlahan 1 2</b>
 # => 3
 </pre>
 
@@ -368,29 +366,29 @@ end
 
 Cara menjalankannya seperti ini:
 
-<pre>
-$ <b>rake penjumlahan -- -o 1 -t 2</b>
-</pre>
+{% shell_user %}
+rake penjumlahan -- -o 1 -t 2
+{% endshell_user %}
 
 atau,
 
-<pre>
-$ <b>rake penjumlahan -- --one 1 --two 2</b>
-</pre>
+{% shell_user %}
+rake penjumlahan -- --one 1 --two 2
+{% endshell_user %}
 
 # Melihat Daftar Rake Task
 
 Untuk melihat daftar task apa saja, sekaligus task yang sudah kita buat, jalankan perintah berikut.
 
-<pre>
-$ <b>rake --tasks</b>
-</pre>
+{% shell_user %}
+rake --tasks
+{% endshell_user %}
 
 atau,
 
-<pre>
-$ <b>rake -T</b>
-</pre>
+{% shell_user %}
+rake -T
+{% endshell_user %}
 
 # Pesan Penulis
 

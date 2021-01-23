@@ -23,15 +23,15 @@ Sebenarnya, sebelum memutuskan untuk menggunakan **translate-shell**, saya lebih
 
 Namun, saya sering mengdapati kendala berupa,
 
-<pre class="url"><b>[WARNING] Connection timed out. Retrying IPv4 connection.</b></pre>
+{% pre_url %}
+<b>[WARNING] Connection timed out. Retrying IPv4 connection.</b>
+{% endpre_url %}
 
 Saya belum mengerti, apa yang sebenarnya menyebabkan warning ini muncul. Asumsi saya saat ini adalah koneksi internet IndiHome saya.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown="1">Ternyata, setelah saya coba kulik, masalah tersebut di atas berhubungan dengan variable **user-agent**. Mungkin value dari user-agent yang saya pergunakan sudah tidak lagi valid. Sehingga saya putuskan untuk menghapus, dan masalah "connection timed out" sudah hilang.</p>
-</div>
+{% endbox_info %}
 
 Masalah tersebut yang akhirnya mengantarkan saya untuk memutuskan menggunakan crow-translate.
 
@@ -57,9 +57,9 @@ Berikut ini adalah fitur-fitur unggulan yang dibawa oleh crow-translate:
 
 Untuk teman-teman yang menggunakan distribusi sistem operasi Arch Linux, paket **crow-translate** dapat ditemukan di AUR (Arch User Repository).
 
-<pre>
-$ <b>yay -S crow-translate</b>
-</pre>
+{% shell_user %}
+yay -S crow-translate
+{% endshell_user %}
 
 Untuk yang menggunakan selain Arch Linux, dapat menyesuaikan sendiri yaa.
 

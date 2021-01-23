@@ -40,9 +40,9 @@ Caranya sangat mudah.
 
 Cukup tambahkan option `-b` atau `--binding=` diikuti dengan *broadcast ip address*.
 
-<pre>
-$ <b>bundle exec rails s -b 0.0.0.0</b>
-</pre>
+{% shell_user %}
+bundle exec rails s -b 0.0.0.0
+{% endshell_user %}
 
 Nah dengan begini, kita dapat mengakses dari semua perangkat dalam satu jaringan yang sama dengan sistem localhost kita.
 

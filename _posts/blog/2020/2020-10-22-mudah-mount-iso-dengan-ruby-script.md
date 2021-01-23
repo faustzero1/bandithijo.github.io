@@ -37,15 +37,15 @@ Kita perlu mengetahui bagaimana cara menggunakan command `mount` & `umount`.
 
 **Mount ISO image**
 
-<pre class="url">
-$ <b>sudo mount -l -o loop /source/path/iso /target/path</b>
-</pre>
+{% shell_user %}
+sudo mount -l -o loop /source/path/iso /target/path
+{% endshell_user %}
 
 Misal,
 
-<pre>
-$ <b>sudo mount -l -o loop archlinux.iso /run/media/bandithijo</b>
-</pre>
+{% shell_user %}
+sudo mount -l -o loop archlinux.iso /run/media/bandithijo
+{% endshell_user %}
 
 <pre>
 $ lsblk
@@ -76,28 +76,26 @@ Keterangan perintah:
 <br>
 **Unmount ISO image**
 
-<pre class="url">
-$ <b>sudo umount /target/path</b>
-</pre>
+{% shell_user %}
+sudo umount /target/path
+{% endshell_user %}
 
 Misal,
 
-<pre>
-$ <b>sudo umount /run/media/bandithijo</b>
-</pre>
+{% shell_user %}
+sudo umount /run/media/bandithijo
+{% endshell_user %}
 
 Atau, bisa juga menggunakan ISO image yang dimount sebelumnya.
 
-<pre>
-$ <b>sudo umount archlinux.iso</b>
-</pre>
+{% shell_user %}
+sudo umount archlinux.iso
+{% endshell_user %}
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p markdown="1">Perlu diperhatikan, perintah yang digunakan untuk melakukan proses *unmount*.</p>
 <p markdown="1">Bukan `unmount` tapi `umount`.</p>
-</div>
+{% endbox_perhatian %}
 
 ## 2. Otomatis dengan Ruby script
 
@@ -105,9 +103,9 @@ Kalau teman-teman perhatikan, proses mount & unmount menggunakan file manager GU
 
 Misal, file archlinux.iso sebelumnya, maka nama pathnya akan menjadi seperti ini.
 
-<pre class="url">
+{% pre_url %}
 /run/media/bandithijo/ARCH_202010/
-</pre>
+{% endpre_url %}
 
 Cantik bukan.
 
@@ -237,12 +235,12 @@ Selain untuk Disk/Drive, Udisks juga dapat kita gunakan untuk melakukan mount & 
 
 Sebelumnya, kita samakan persepsi dulu yaa.
 
-<pre class="url">
+{% pre_whiteboard %}
 NAME
-loop0        <== disebut, <b>block_device</b>
-├─loop0p1    <== disebut, <b>block_partition</b>
-└─loop0p2    <== disebut, <b>block_partition</b>
-</pre>
+loop0        &lt;== disebut, <strong>block_device</strong>
+├─loop0p1    &lt;== disebut, <strong>block_partition</strong>
+└─loop0p2    &lt;== disebut, <strong>block_partition</strong>
+{% endpre_whiteboard %}
 
 ### Mount file ISO
 
@@ -252,13 +250,14 @@ Sekenario untuk proses mount dengan udiskctl, adalah:
 2. Mounting block partition dengan `mount -p`
 
 #### 1. Setup loop block device dengan loop-setup
-<pre class="url">
-$ <b>udisksctl loop-setup -f file_image.iso</b>
-</pre>
 
-<pre>
-$ <b>udisksctl loop-setup -f archlinux.iso</b>
-</pre>
+{% pre_url %}
+<span class="cmd">$ </span><b>udisksctl loop-setup -f file_image.iso</b>
+{% endpre_url %}
+
+{% shell_user %}
+udisksctl loop-setup -f archlinux.iso
+{% endshell_user %}
 
 <pre>
 $ lsblk
@@ -280,13 +279,13 @@ Bisa langsung diklik untuk mount.
 
 Atau, kalau kita tidak ingin membuka file manager, atau tidak memiliki aplikasi file manager GUI, kita juga dapat menggunakan udisksctl saja untuk melakukan proses mounting.
 
-<pre class="url">
-$ <b>udisksctl mount -p block_devices/block_partition</b>
-</pre>
+{% pre_url %}
+<span class="cmd">$ </span><b>udisksctl mount -p block_devices/block_partition</b>
+{% endpre_url %}
 
-<pre>
-$ <b>udisksctl mount -p block_devices/loop0p1</b>
-</pre>
+{% shell_user %}
+udisksctl mount -p block_devices/loop0p1
+{% endshell_user %}
 
 <pre>
 $ lsblk
@@ -307,13 +306,13 @@ Sekenario yang sama berlaku untuk proses unount, namun kebalikan dari proses mou
 
 #### 1. Unmounting block partition dengan unmount
 
-<pre class="url">
-$ <b>udisksctl unmount -p block_devices/block_partition</b>
-</pre>
+{% pre_url %}
+<span class="cmd">$ </span><b>udisksctl unmount -p block_devices/block_partition</b>
+{% endpre_url %}
 
-<pre>
-$ <b>udisksctl unmount -p block_devices/loop0p1</b>
-</pre>
+{% shell_user %}
+udisksctl unmount -p block_devices/loop0p1
+{% endshell_user %}
 
 Pilih block partition yang memiliki mount point.
 
@@ -334,13 +333,13 @@ Sekarang tinggal melepaskan block device `loop0`.
 
 Dengan cara.
 
-<pre class="url">
-$ <b>udisksctl loop-delete -b block_devices/block_device</b>
-</pre>
+{% pre_url %}
+<span class="cmd">$ </span><b>udisksctl loop-delete -b block_devices/block_device</b>
+{% endpre_url %}
 
-<pre>
-$ <b>udisksctl loop-delete -b block_devices/loop0</b>
-</pre>
+{% shell_user %}
+udisksctl loop-delete -b block_devices/loop0
+{% endshell_user %}
 
 ## 2. Memanfaatkan Udiskie
 

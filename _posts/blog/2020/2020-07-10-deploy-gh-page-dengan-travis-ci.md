@@ -18,13 +18,11 @@ resume:
 <!-- BANNER OF THE POST -->
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://i.postimg.cc/9MKp2vsR/banner-2020-07-10-deploy-gh-page-dengan-travis-ci.png" onerror="imgError(this);" alt="banner">
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Saya yakin, terdapat banyak sekali cara untuk mencapai kota Roma (kiasan), namun tidak mungkin hanya dalam sekali waktu, kita dapat secara bersamaan menjalani semuanya. Pasti kita akan mulai dengan mencoba satu-persatu. Dan cara yang saya lakukan ini adalah hanya salah satu jalan untuk menuju kota Roma.</p>
 <p>Bisa jadi ini jalan yang panjang dan berliku, bisa jadi ini jalan tercepat dan tanpa rintangan.</p>
 <p>Ini adalah jalan yang saya pilih untuk memulai. Silahkan teman-teman untuk menentukan pilihan.</p>
-</div>
+{% endbox_perhatian %}
 
 # Sekenario Masalah
 
@@ -101,12 +99,12 @@ Untuk membuat branch **source**, jalankan perintah di bawah.
 
 <pre>
 (master)
-$ <b>git checkout -b source</b>
+<span class="cmd">$ </span><b>git checkout -b source</b>
 </pre>
 
 <pre>
 (source)
-$ <b>_</b>
+<span class="cmd">$ </span><b>_</b>
 </pre>
 
 ## Konfigurasi Branch: Source
@@ -312,14 +310,12 @@ Isikan environment variable seperti contoh di atas.
 
 **Display value in build log**: `OFF`
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Jangan meng-<b>ON</b>-kan "<b>Display value in build log</b>", karena akan ditampilkan pada verbose proses build.</p>
 <p>Apabila kita set <b>OFF</b>, maka akan ditampilkan seperti ini</p>
 <pre>$ export GITHUB_TOKEN=[secure]</pre>
 <p>Tentunya hal ini lebih <i>secure</i>.</p>
-</div>
+{% endbox_perhatian %}
 
 Setelah itu, tekan tombol <kbd>Add</kbd>.
 
@@ -336,9 +332,9 @@ Mantap! Konfigurasi pada Travis CI sudah selesai.
 <br>
 Sekarang, kalau teman-teman membuat commit baru dan melakukan push ke branch **source**,
 
-<pre>
-$ <b>git push -u origin source</b>
-</pre>
+{% shell_user %}
+git push -u origin source
+{% endshell_user %}
 
 Kita akan melihat Travis CI akan menjalankan proses build.
 

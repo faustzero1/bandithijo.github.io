@@ -47,9 +47,9 @@ Kita akan menggunakan Image Sequence Operator yang bernama `-composite`.
 
 Bentuk commandnya seperti ini
 
-<pre class="url">
-$ <b>convert frame.png target.png -geometry WxH^ -composite hasil.png</b>
-</pre>
+{% pre_url %}
+convert frame.png target.png -geometry WxH^ -composite hasil.png
+{% endpre_url %}
 
 **frame.png** adalah gambar yang akan dijadikan frame.
 
@@ -63,9 +63,9 @@ Dalam hal ini, saya menggunakan **scrot**.
 
 Maka seperti inilah yang saya gunakan.
 
-<pre>
-$ <b>scrot "Screenshot_%Y-%m-%d_%H-%M-%S.png" -e "convert ~/pic/ScreenShots/obs-frame.png *.png -geometry 1024x768^ -composite *.png; mv *.png ~/pic/ScreenShots/"</b>
-</pre>
+{% shell_user %}
+scrot "Screenshot_%Y-%m-%d_%H-%M-%S.png" -e "convert ~/pic/ScreenShots/obs-frame.png *.png -geometry 1024x768^ -composite *.png; mv *.png ~/pic/ScreenShots/"
+{% endshell_user %}
 
 Dibagian akhir dari proses tersebut, saya memindahkan hasil screenshot ke direktori `~/pic/ScreenShots/` menggunakan command `mv`. Teman-teman dapat menyesuaikan dengan direktori screenshot yang teman-teman miliki.
 

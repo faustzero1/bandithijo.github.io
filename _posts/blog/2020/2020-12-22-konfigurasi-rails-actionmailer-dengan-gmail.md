@@ -87,12 +87,10 @@ Caranya, teman-teman dapat mengikuti langkah-langkahnya di bawah ini.
 
 ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gk1Njpp5/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Cara di atas dilakukan dengan mengaktifkan 2-Step Verification, agar kita dapat mengontrol app apa yang akan kita berikan akses dan yang tidak.</p>
 <p>Namun, kalau teman-teman tidak ingin menggunakan 2-Step Verification, tidak perlu melakukan langkah di atas.</p>
-</div>
+{% endbox_info %}
 
 # Konfigurasi Rails ActionMailer
 
@@ -126,9 +124,9 @@ Dapat dilihat, pada `user_name` & `password`, saya menyimpan credential dengan c
 
 Selanjutnya, daftarkan dulu credential tersebut.
 
-<pre>
-$ <b>rails credentials:edit</b>
-</pre>
+{% shell_user %}
+rails credentials:edit
+{% endshell_user %}
 
 {% highlight_caption config/credentials.yml.enc %}
 {% highlight yml linenos %}
@@ -154,9 +152,9 @@ Selanjutnya, jangan lupa definisikan **RAILS_MASTER_KEY** yang berisi **config/m
 
 Misal, untuk Heroku.
 
-<pre>
-$ <b>heroku config:set RAILS_MASTER_KEY=`cat config/master.key`</b>
-</pre>
+{% shell_user %}
+heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+{% endshell_user %}
 
 # Konfigurasi Environment
 

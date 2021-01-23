@@ -34,7 +34,7 @@ Saya memiliki collection berupa daftar **dotfriends** `site.data.dotfriends` yan
 # ...
 {% endhighlight %}
 
-<pre class="url">
+{% pre_whiteboard %}
 Daftar dotfriends
 
 - Rizqi Nur Assyaufi (bandithijo)
@@ -42,7 +42,7 @@ Daftar dotfriends
 - Agung Setiawan (agungsetiawan)
 - ...
 - ...
-</pre>
+{% endpre_whiteboard %}
 
 Untuk menampilkan collection di atas, saya menggunakan cara seperti ini.
 
@@ -101,14 +101,14 @@ Baris ke 3, `offset: 1`, saya meletakkan nama saya pada index pertama di dalam c
 <br>
 Hasilnya akan seperti ini,
 
-<pre class="url">
+{% pre_whiteboard %}
 Daftar dotfriends
 
 - Sucipto (suciptoid)
 - Agung Setiawan (agungsetiawan)
 - ...
 - ...
-</pre>
+{% endpre_whiteboard %}
 
 
 

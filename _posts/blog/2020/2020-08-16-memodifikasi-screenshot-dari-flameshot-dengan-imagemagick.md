@@ -25,9 +25,9 @@ Pada artikel tersebut, script dijalankan setelah gambar hasil screenshot jadi.
 
 Kalau membuat sequence command seperti ini,
 
-<pre>
-$ <b>flameshot gui; imagemagick-script</b>
-</pre>
+{% shell_user %}
+flameshot gui; imagemagick-script
+{% endshell_user %}
 
 Permasalahannya adalah, apabila kita tidak jadi melakukan screenshot dengan flameshot, maka script `imagemagick-script` akan tetap dijalankan, dan akan memodifikasi gambar terakhir pada direktori screenshot.
 
@@ -188,13 +188,13 @@ font = 'JetBrains-Mono-Regular-Nerd-Font-Complete'
 
 {% box_info %}
 <p>Cara untuk mendapatkan nama font, gunakan perintah di bawah.</p>
-<pre>
-$ <b>convert -list font</b>
-</pre>
+{% shell_user %}
+convert -list font
+{% endshell_user %}
 <p>Untuk mendapatkan hasil yang lebih spesifik, gunakan grep dengan mengambil awal kata dari nama font.</p>
-<pre>
-$ <b>convert -list font | grep -i 'fura'</b>
-</pre>
+{% shell_user %}
+convert -list font | grep -i 'fura'
+{% endshell_user %}
 Hasilnya akan seperti ini.
 <pre>
 ...

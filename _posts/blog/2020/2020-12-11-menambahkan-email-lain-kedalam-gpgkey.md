@@ -55,9 +55,9 @@ Alias, dalam hal ini adalah alamat-alamat email kita yang lain.
 
 Saya akan berikan ilustrasi agar lebih mudah dipahami.
 
-<pre>
-$ <b>gpg --list-public-keys</b>
-</pre>
+{% shell_user %}
+gpg --list-public-keys
+{% endshell_user %}
 
 ```
 pub   rsa4096 2014-10-22 [SC] [expires: 2021-10-29]
@@ -135,9 +135,9 @@ Private key ini lah yang kita gunakan untuk membuka paket --apa saja yang dienkr
 
 Untuk mengecek daftar GPG private key, atau ada juga yang menyebut dengan istilah **secret key**, kita gunakan perintah,
 
-<pre>
-$ <b>gpg --list-secret-keys</b>
-</pre>
+{% shell_user %}
+gpg --list-secret-keys
+{% endshell_user %}
 
 Nanti akan keluar GPG key yang merupakan secret key (private key).
 
@@ -171,15 +171,15 @@ AE706A616B252A6822635041560691E942A02F91
 
 Untuk menambahkan email lain, kita gunakan option, `--edit-key` diikuti dengan keyID.
 
-<pre class="url">
-$ <b>gpg --edit-key &lt;key_id&gt;</b>
-</pre>
+{% pre_url %}
+gpg --edit-key &lt;key_id&gt;
+{% endpre_url %}
 
 Misal,
 
-<pre>
-$ <b>gpg --edit-key AE706A616B252A6822635041560691E942A02F91</b>
-</pre>
+{% shell_user %}
+gpg --edit-key AE706A616B252A6822635041560691E942A02F91
+{% endshell_user %}
 
 Nanti, kita akan dibawa masuk ke GPG shell. Ditandai dengan tampilnya GPG shell prompt seperti di bawah.
 
@@ -209,7 +209,7 @@ gpg> _
 Kemudian, masukkan perintah `adduid`.
 
 <pre>
-gpg> <b>adduid</b>
+<span class="cmd">gpg> </span><b>adduid</b>
 </pre>
 
 Ikuti pertanyaan-pertanyaan yang diajukan,
@@ -221,7 +221,7 @@ Comment:
 You selected this USER-ID:
 "Rizqi Nur Assyaufi <rizqilassyaufi@gmail.com>"
 
-Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? <span style="font-weight:bold;color:#FFCC00;">o</span>
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? <span class="is-warning">o</span>
 </pre>
 
 Kalau berhasil nanti email yang baru ditambahkan, akan masuk ke dalam list.
@@ -241,15 +241,15 @@ gpg> _
 Lalu, masukkan `save` untuk save dan quit.
 
 <pre>
-gpg> <b>save</b>
+<span class="cmd">gpg> </span><b>save</b>
 </pre>
 
 <br>
 Kemudian, lakukan verifikasi, untuk melihat apakah sudah berhasil atau belum.
 
-<pre>
-$ <b>gpg --list-secret-keys</b>
-</pre>
+{% shell_user %}
+gpg --list-secret-keys
+{% endshell_user %}
 
 <pre>
 /home/bandithijo/.gnupg/pubring.kbx
@@ -270,15 +270,15 @@ Mantap!
 Untuk meminta bantuan pada GPG shell, gunaka perintah,
 
 <pre>
-gpg> <b>help</b>
+<span class="cmd">gpg> </span><b>help</b>
 </pre>
 
 ## Menghapus uid
 
 Bagaimana cara menghapus email (uid) yang sudah tidak kita gunakan lagi?
 
-```
-gpg> list
+<pre>
+<span class="cmd">gpg> </span><b>list</b>
 
 sec  rsa4096/560691E942A02F91
      created: 2018-08-11  expires: never       usage: SC
@@ -287,14 +287,14 @@ ssb  rsa4096/9C7F5CB3FEB49D47
      created: 2018-08-11  expires: never       usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)  Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
-```
+</pre>
 
 Misal, saya ingin menghapus uid ke-2, dengam alamat email rizqiassyaufi@gmail.com.
 
 Gunakan perintah `uid <id>` untuk memilih uid yang dimakdudkan.
 
 <pre>
-gpg> <b>uid 2</b>
+<span class="cmd">gpg> </span><b>uid 2</b>
 </pre>
 
 Nanti, akan ada tanda bintang `*` pada uid yang telah terpilih.
@@ -314,7 +314,7 @@ Perhatikan, pada uid 2, terdapat tanda `*`, artinya uid 2 telah kita tandai.
 Kemudian, gunakan perintah `deluid` untuk menghapus uid terpilih.
 
 <pre>
-gpg> <b>deluid</b>
+<span class="cmd">gpg> </span><b>deluid</b>
 Really remove this user ID? (y/N) <span style="font-weight:bold;color:#FFCC00;">y</span>
 </pre>
 
@@ -328,8 +328,8 @@ Hal ini dapat dengan mudah kita lakukan menggunakan perintah `primary`.
 
 Misal,
 
-```
-gpg> list
+<pre>
+<span class="cmd">gpg> </span><b>list</b>
 
 sec  rsa4096/560691E942A02F91
      created: 2018-08-11  expires: never       usage: SC
@@ -338,14 +338,14 @@ ssb  rsa4096/9C7F5CB3FEB49D47
      created: 2018-08-11  expires: never       usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)  Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
-```
+</pre>
 
 Terlihat, uid 1 adalah primary dari tanda `.` yang ada disebelah uid (1).
 
 Untuk mengubah uid 2 menjadi primary, sebelumnya, marking dulu uid yang ingin dijadikan primary.
 
 <pre>
-$ <b>uid 2</b>
+<span class="cmd">gpg> </span><b>uid 2</b>
 </pre>
 
 ```
@@ -363,7 +363,7 @@ Nanti, uid 2 akan memiliki marking `*`.
 Selanjutnya, jalankan perintah,
 
 <pre>
-gpg> <b>primary</b>
+<span class="cmd">gpg> </span><b>primary</b>
 </pre>
 
 ```
@@ -381,10 +381,14 @@ Nanti, tanda `.` pada uid 1 menghilang. Artinya primary sudah berpindah.
 Lalu jalankan `save` untuk save dan quit.
 
 <pre>
-$ <b>save</b>
+<span class="cmd">gpg> </span><b>save</b>
 </pre>
 
 Lakukan verifikasi,
+
+{% shell_user %}
+gpg --list-secret-keys
+{% endshell_user %}
 
 ```
 sec  rsa4096/560691E942A02F91

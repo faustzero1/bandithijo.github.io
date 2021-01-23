@@ -37,7 +37,8 @@ Penjelasan mengenai konsep dari Defx, dapat teman-teman baca [di sini](https://g
 
 Saya menggunakan **vim-plug** sebagai plugin manager.
 
-```vimscript
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+{% highlight viml %}
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -45,14 +46,15 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-```
+{% endhighlight %}
 
 Saya juga menambahkan 2 plugin tambahan untuk icon dan git status.
 
-```vimscript
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+{% highlight viml %}
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
-```
+{% endhighlight %}
 
 # Konfigurasi Defx
 
@@ -61,7 +63,7 @@ Jangan kaget, kalau di halaman GitHub README tidak tersedia contoh-contoh konfig
 Teman-teman dapat melihat contoh konfigurasi pada:
 
 <pre>
-<b>:help defx-examples</b>
+<span class="cmd">:</span><b>help defx-examples</b>
 </pre>
 
 Namun, pada catatan kali ini, saya akan langsung memberikan konfigurasi yang saya pergunakan.

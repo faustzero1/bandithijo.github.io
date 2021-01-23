@@ -121,15 +121,15 @@ end
 
 Setelah form diinputkan, dan hasil ditampilkan, akan mendapatkan URL seperti ini.
 
-<pre class="url">
-localhost:3000/search_stock?stock=AMZN&button=
-</pre>
+{% pre_url %}
+http://localhost:3000/search_stock?stock=AMZN&button=
+{% endpre_url %}
 
 Apabila kita menginputkan nilai yang lain, maka template akan ikut dirender untuk menampilkan hasil pencarian yang baru.
 
-<pre class="url">
-localhost:3000/search_stock?stock=GOOG&button=
-</pre>
+{% pre_url %}
+http://localhost:3000/search_stock?stock=GOOG&button=
+{% endpre_url %}
 
 Nah, pada catatan kali ini, saya akan membuat template dirender sekali saja dan hanya pada bagian yang menampilkan hasil pencarian yang dirender berkali-kali.
 

@@ -29,33 +29,35 @@ Sangat merepotkan. 😅
 
 1. Copy file `vim.desktop` atau `nvim.desktop`
 
-    yang berlokasi di `/usr/local/share/applications/`
+   yang berlokasi di `/usr/local/share/applications/`
 
-    ke dalam `~/.local/share/applications/`.
+   ke dalam `~/.local/share/applications/`.
 
-    Tujuannya agar kita memiliki konfigurasi khusus untuk akun kita saja.
+   Tujuannya agar kita memiliki konfigurasi khusus untuk akun kita saja.
 
 2. Kemudian edit file tersebut, kira-kira berisi seperti di bawah ini.
 
-    <pre>
-    [Desktop Entry]
-    Name=Neovim
-    Comment=Edit text files
-    TryExec=nvim
-    <mark>Exec=st -e "nvim" %f</mark>
-    <mark>Terminal=false</mark>
-    Type=Application
-    Keywords=Text;editor;
-    Icon=nvim
-    Categories=Utility;TextEditor;
-    StartupNotify=false
-    MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;</pre>
+   {% highlight_caption $HOME/.local/share/applications/vim.desktop %}
+   {% pre_caption %}
+[Desktop Entry]
+Name=Neovim
+Comment=Edit text files
+TryExec=nvim
+<mark>Exec=st -e "nvim" %f</mark>
+<mark>Terminal=false</mark>
+Type=Application
+Keywords=Text;editor;
+Icon=nvim
+Categories=Utility;TextEditor;
+StartupNotify=false
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+{% endpre_caption %}
 
-    Perhatikan bagian yang saya marking, itu adalah bagian penentu agar kita dapat mengedit file text dengan menggunakan Vim/Neovim pada Nautilus atau Thunar.
+   Perhatikan bagian yang saya marking, itu adalah bagian penentu agar kita dapat mengedit file text dengan menggunakan Vim/Neovim pada Nautilus atau Thunar.
 
-    `Exec=st -e "nvim" %f`, Saya menggunakan Simple Terminal, teman-teman dapat mengganti dengan Terminal emulator favorit teman-teman. Tentu saja Terminal yang memiliki flag executable. Silahkan lihat dengan flag `-h` apakah Terminal emulator yang digunakan memiliki fitur ini.
+   `Exec=st -e "nvim" %f`, Saya menggunakan Simple Terminal, teman-teman dapat mengganti dengan Terminal emulator favorit teman-teman. Tentu saja Terminal yang memiliki flag executable. Silahkan lihat dengan flag `-h` apakah Terminal emulator yang digunakan memiliki fitur ini.
 
-    `Terminal=false`, ini juga bagian terpenting. Pastikan bernilai **false**. Karena kita sudah menjalankan instance Terminal pada bagian `Exec=` di atas. Perlakuan ini hanya pada Window Manager, mungkin akan berbeda dengan Desktop Environment.
+   `Terminal=false`, ini juga bagian terpenting. Pastikan bernilai **false**. Karena kita sudah menjalankan instance Terminal pada bagian `Exec=` di atas. Perlakuan ini hanya pada Window Manager, mungkin akan berbeda dengan Desktop Environment.
 
 # Hasilnya
 

@@ -85,13 +85,13 @@ Hasilnya akan seperti ini.
 
 Kita juga dapat mengkostumisasi dengan menambahkan beberapa spesial string yang disediakan.
 
-<pre class="url">
+{% pre_url %}
 %N    # command name which is running
 %m    # to_s of main object (self)
 %l    # type of string(", ', /, ]), `]' is inner %w[...]
 %NNi  # indent level. NN is digits and means as same as printf("%NNd").
 %NNn  # line number.
-</pre>
+{% endpre_url %}
 
 Misal, Untuk memberikan Line Number.
 
@@ -144,9 +144,9 @@ Pry sudah lebih dahulu menggunakan sintax highlighting dan juga memiliki beberap
 
 Instalasinya juga sangat mudah.
 
-<pre>
-$ <b>gem install pry</b>
-</pre>
+{% shell_user %}
+gem install pry
+{% endshell_user %}
 
 Apabila ingin meng-override IRB agar saat kita panggil, langsung menjalankan Pry.
 
@@ -154,8 +154,8 @@ Tambahkan baris berikut pada `~/.irbrc`.
 
 {% highlight_caption $HOME/.irbrc %}
 {% highlight config linenos %}
-...
-...
+# ...
+# ...
 
 # Force IRB to use Pry
 begin
@@ -170,7 +170,7 @@ end
 Sekarang, saat kita jalankan IRB di Terminal.
 
 <pre>
-$ <b>irb</b>
+<span class="cmd">$ </span><b>irb</b>
 [1] pry(main)> _
 </pre>
 

@@ -83,9 +83,9 @@ Kita dapat sekedar "nyicipin" dahulu tanpa perlu melakukan instalasi.
 
 Buka Terminal, (khusus **bash** & **zsh**)
 
-<pre>
-$ <b>gawk -f <(curl -Ls git.io/translate) -- -shell</b>
-</pre>
+{% shell_user %}
+gawk -f <(curl -Ls git.io/translate) -- -shell
+{% endshell_user %}
 
 Apabila berhasil outputnya akan seperti ini.
 
@@ -101,9 +101,9 @@ Untuk proses instalasi, teman-teman dapat menggunakan package manager dari distr
 
 Misal, seperti saya yang menggunakan Arch Linux.
 
-<pre>
-$ <b>sudo pacman -S translate-shell</b>
-</pre>
+{% shell_user %}
+sudo pacman -S translate-shell
+{% endshell_user %}
 
 Untuk distirbusi yang lain, dapat dilihat [di sini](https://github.com/soimort/translate-shell/wiki/Distros){:target="_blank"}.
 
@@ -155,85 +155,89 @@ Saya hanya akan menunjukkan beberapa contoh saja, karena pada halaman GitHub rea
 
 Target bahasa yang digunakan adalah bahasa yang kita definisikan pada `locale` sistem kita.
 
-<pre>
-$ <b>trans impersonate</b>
-</pre>
+{% shell_user %}
+trans impersonate
+{% endshell_user %}
 
 **Dari bahasa apapun, ke bahasa yang kita definisikan**
 
-<pre>
-$ <b>trans :id impersonate</b>
-</pre>
+{% shell_user %}
+trans :id impersonate
+{% endshell_user %}
 
 **Dari bahasa apapun, ke 2 bahasa yang kita definisikan**
 
-<pre>
-$ <b>trans :id+ja impersonate</b>
-</pre>
+{% shell_user %}
+trans :id+ja impersonate
+{% endshell_user %}
 
 Selain mendefinisikan bahasa target setelah tanda `:`, kita juga dapat menggunakan option `-t`.
 
-<pre>
-$ <b>trans -t id impersonate</b>
-</pre>
+{% shell_user %}
+trans -t id impersonate
+{% endshell_user %}
 
-<pre>
-$ <b>trans -t id+ja impersonate</b>
-</pre>
+{% shell_user %}
+trans -t id+ja impersonate
+{% endshell_user %}
 
 Keuntungan menggunakan option `-t`, kita dapat menuliskan bahasa target dengan nama bahasanya.
 
 <pre>
-$ <b>trans -t japanese impersonate</b>
-$ <b>trans -t 日本語 impersonate</b>
 </pre>
+{% shell_user %}
+trans -t japanese impersonate
+trans -t 日本語 impersonate
+{% endshell_user %}
 
 ### Mendefinisikan bahasa sumber
 
 Sekarang sebaliknya, untuk mendefinisikan bahasa sumber.
 
-<pre>
-$ <b>trans id: menirukan</b>
-</pre>
+{% shell_user %}
+trans id: menirukan
+{% endshell_user %}
 
 Karena kita tidak mendefinisikan bahasa target (hanya bahasa sumber), maka kata 'meniru' akan diterjemahkan ke bahasa yang didefinisikan di `locale`.
 
 Untuk option bahasa sumber, kita gunakan `-s`.
 
-<pre>
-$ <b>trans -s id menirukan</b>
-</pre>
+{% shell_user %}
+trans -s id menirukan
+{% endshell_user %}
 
 ### Menerjemahkan banyak kata atau sebuah frase
 
 Kalau kalian menulis seperti ini.
 
-<pre>
-$ <b>trans :id impersonate character</b>
-</pre>
+{% shell_user %}
+trans :id impersonate character
+{% endshell_user %}
 
 Maka, akan diterjemakan masing-masing kata.
 
 Apabila, ingin diterjemahkan sebagai satu frase, harus diapit dengan tanda petik satu `'...'` atau dua `"..."`.
 
 <pre>
-$ <b>trans :id 'impersonate character'</b>
-$ <b>trans :id "impersonate character"</b>
 </pre>
+{% shell_user %}
+trans :id 'impersonate character'
+trans :id "impersonate character"
+{% endshell_user %}
 
 ### Menerjemahkan sebuah kalimat
 
 Kurang lebih formnya sama dengan frase, yaitu menggunakan tanda petik satu `'...'` atau dua `"..."`.
 
-<pre>
-$ <b>trans :id 'Impersonator is someone who imitates the behavior or actions of another.'</b>
-$ <b>trans :id "Impersonator is someone who imitates the behavior or actions of another."</b>
-</pre>
+{% shell_user %}
+trans :id 'Impersonator is someone who imitates the behavior or actions of another.'
+trans :id "Impersonator is someone who imitates the behavior or actions of another."
+{% endshell_user %}
 
 Dapat pula untuk multiline (banyak baris).
 
 <pre>
-$ <b>trans :zh "Creeps in this petty pace from day to day,
+<span class="cmd">$ </span><b>trans :zh "Creeps in this petty pace from day to day,
 > To the last syllable of recorded time;
 > And all our yesterdays have lighted fools
 > The way to dusty death."</b>
@@ -241,33 +245,33 @@ $ <b>trans :zh "Creeps in this petty pace from day to day,
 
 Untuk menghindari karakter tertentu seperti tanda `!` diintrepertasikan oleh shell sebagai "special characters", gunakan petik satu.
 
-<pre>
-$ <b>trans :id 'Out, out, brief candle!'</b>
-</pre>
+{% shell_user %}
+trans :id 'Out, out, brief candle!'
+{% endshell_user %}
 
 Atau, kalau ingin teteap menggunakan petik dua, dapat menggunakan backslash tepat sebelum spesial karakter tersebut `\` (*escaping character*).
 
-<pre>
-$ <b>trans :id "Out, out, brief candle\!"</b>
-</pre>
+{% shell_user %}
+trans :id "Out, out, brief candle\!"
+{% endshell_user %}
 
 Apabila terdapat kata yang menggunakan tanda petik satu, seperti `jum'at`, maka kalimat sebaiknya diapit oleh tanda petik dua `"..."`.
 
-<pre>
-$ <b>trans :id "Life's but a walking shadow, a poor player."</b>
-</pre>
+{% shell_user %}
+trans :id "Life's but a walking shadow, a poor player."
+{% endshell_user %}
 
 Alternatif lain, selain menggunakan tanda petik, kita dapat menggunakan option `-j` (`-join-sentence`).
 
-<pre>
-$ <b>trans :id -j Impersonator is someone who imitates the behavior of another.</b>
-</pre>
+{% shell_user %}
+trans :id -j Impersonator is someone who imitates the behavior of another.
+{% endshell_user %}
 
 Atau, apabila terdapat kata yang mengandung tanda petik sati, gunakan backslash tepat sebelum tanda petik.
 
-<pre>
-$ <b>trans :id -j  Life\'s but a walking shadow, a poor player.</b>
-</pre>
+{% shell_user %}
+trans :id -j  Life\'s but a walking shadow, a poor player.
+{% endshell_user %}
 
 ## Brief Mode
 
@@ -277,9 +281,9 @@ Apabila kita lebih suka untuk melihat terjemahan yang paling relevan saja, terda
 
 Untuk dapat menggunakannya, tambahkan option `-b` (`-brief`).
 
-<pre>
-$ <b>trans -b :ja 'Hello, World'</b>
-</pre>
+{% shell_user %}
+trans -b :ja 'Hello, World'
+{% endshell_user %}
 
 Hasilnya
 
@@ -289,9 +293,9 @@ Hasilnya
 
 Contoh di atas, secara default akan ditampilkan dalam tulisah jepang. Untuk hasil yang menampilkan "phonetic notation" (notasi penyebutan), kita dapat menambahkan tanda `@` tepat sebelum bahasa target.
 
-<pre>
-$ <b>trans -b :@ja 'Hello, World'</b>
-</pre>
+{% shell_user %}
+trans -b :@ja 'Hello, World'
+{% endshell_user %}
 
 Hasilnya,
 
@@ -309,9 +313,9 @@ Salah satu fitur yang saya suka adalah REPL (Interactive Translate Shell).
 
 Kita dapat masuk ke dalam REPL shell dengan menggunakan options `-I`, `-interactive`, atau `-shell`.
 
-<pre>
-$ <b>trans -shell</b>
-</pre>
+{% shell_user %}
+trans -shell
+{% endshell_user %}
 
 Hasilnya,
 

@@ -55,9 +55,9 @@ Namun, semakin kesini, saya memilih untuk menggunakan RDP client yang lebih mini
 
 Kalau teman-teman menggunakan Arch Linux.
 
-<pre>
-$ <b>sudo pacman -S freerdp</b>
-</pre>
+{% shell_user %}
+sudo pacman -S freerdp
+{% endshell_user %}
 
 # Cara Menggunakan
 
@@ -65,17 +65,17 @@ Binary dari FreeRDP diberi nama `xfreerdp`.
 
 Panduan penggunaan dari FreeRDP, dapat dengan mudah dibaca pada,
 
-<pre>
-$ <b>man xfreerdp</b>
-</pre>
+{% shell_user %}
+man xfreerdp
+{% endshell_user %}
 
 Terdapat banyak sekali **options** yang dapat digunakan.
 
 Yang saya gunakan seperti ini.
 
-<pre>
-$ <b>xfreerdp /u:rizqiassyaufi /v:192.168.1.4 /w:1600 /h:880 /sound /video +clipboard</b>
-</pre>
+{% shell_user %}
+xfreerdp /u:bandithijo /v:192.168.4 /sound /video +auto-reconnect +clipboard +home-drive +drives /f
+{% endshell_user %}
 
 Option yang saya gunakan di atas,
 
@@ -89,7 +89,13 @@ Option yang saya gunakan di atas,
 
 `/sound` & `/video`, untuk mengaktifkan fitur sound dan audio. Tapi tidak begitu nyaman.
 
+`+auto-reconnect`, otomatis reconnect.
+
 `+clipboard`, mengaktifkan fitur clipboard.
+
+`+home-drive`, sharing Host home directory ke guest.
+
+`/f`, full screen.
 
 Saya tidak memasukkan password, karena `/p:` password akan diminta saat kita terhubung dengan Windows.
 

@@ -15,12 +15,10 @@ contributors: []
 resume:
 ---
 
-<!-- INFORMATION -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Disclaimer</div>
+{% box_perhatian %}
 <p>Data yang penulis gunakan adalah data yang bersifat <b><i>free public data</i></b>. Sehingga, siapa saja dapat mengakses dan melihat tanpa perlu melalui layer authentikasi.</p>
 <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
-</div>
+{% endbox_perhatian %}
 
 # Sekenario Masalah
 
@@ -89,9 +87,9 @@ gem 'byebug',       '~> 11.1', '>= 11.1.3'
 
 Setelah memasang gem pada Gemfile, kita perlu melakukan instalasi gem-gem tersebut.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Proses bundle install di atas akan membuat sebuah file baru bernama `Gemfile.lock` yang berisi daftar dependensi dari gem yang kita butuhkan --daftar requirements--.
 

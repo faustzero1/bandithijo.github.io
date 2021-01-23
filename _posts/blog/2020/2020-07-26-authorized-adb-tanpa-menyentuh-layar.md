@@ -27,9 +27,9 @@ Saya ingin kembali dapat menggunakan untuk keperluan yang lain, misalkan sekedar
 
 Namun, apabila saya akses menggunakan adb. Saya ditolak, karena saya harus memberikan persetujuan, yang mana persetujuan ini harus diberikan dengan mengoperasikan layar *smartphone*.
 
-<pre>
-$ <b>adb devices</b>
-</pre>
+{% shell_user %}
+adb devices
+{% endshell_user %}
 
 ```
 List of devices attached
@@ -44,12 +44,13 @@ Agar proses mendaapatkan akses ke dalam *smartphone*, ada beberapa persyaratan y
 
 1. Syarat utama adalah **smartphone sudah harus terpasang TWRP** --artinya sudah UBL (*Unlock Bootloader*).
 
-    Untuk recovery mode tools yang lain, saya belum pernah mencobanya.
+   Untuk recovery mode tools yang lain, saya belum pernah mencobanya.
 
 2. Sudah terpasang Android Tools, seperti `adb`.
 
-    <pre>
-    $ <b>sudo pacman -S android-tools</b></pre>
+   {% shell_user %}
+sudo pacman -S android-tools
+{% endshell_user %}
 
 ## Inject adbkey.pub
 
@@ -59,60 +60,63 @@ Agar proses mendaapatkan akses ke dalam *smartphone*, ada beberapa persyaratan y
 
 3. Buka Terminal dan jalankan
 
-    <pre>
-    $ <b>adb devices</b>
-    </pre>
+   {% shell_user %}
+adb devices
+{% endshell_user %}
 
-    ```
-    List of devices attached
-    dd46fe2b        recovery
-    ```
+   ```
+   List of devices attached
+   dd46fe2b        recovery
+   ```
 
-    Nah, device kita sudah terdeteksi dan sedang berada di Recovery Mode (Fasboot).
+   Nah, device kita sudah terdeteksi dan sedang berada di Recovery Mode (Fasboot).
 
-    Selanjutnya, kita perlu memeriksa RSA public key yang kita punya.
+   Selanjutnya, kita perlu memeriksa RSA public key yang kita punya.
 
-    <pre>
-    $ <b>cd ~/.android</b></pre>
+   {% shell_user %}
+cd ~/.android
+{% endshell_user %}
 
-    <pre>
-    $ <b>ls</b></pre>
+   {% shell_user %}
+ls
+{% endshell_user %}
 
-    <pre>
-    adbkey  <mark>adbkey.pub</mark></pre>
+   <pre>
+   adbkey  <mark>adbkey.pub</mark></pre>
 
-    <!-- INFORMATION -->
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title">[ i ] Informasi</div>
+   {% box_info %}
     <p>Kalau di windows, lokasinya berada di:</p>
     <pre>C:\Users\&lt;username&gt;\.android\</pre>
-    </div>
+   {% endbox_info %}
 
-    File **adbkey.pub** adalah file RSA public key yang kita akan *push* ke dalam *smartphone*.
+   File **adbkey.pub** adalah file RSA public key yang kita akan *push* ke dalam *smartphone*.
 
-    Tujuannya agar kita langsung mendapatkan akses masuk ke dalam *smartphone* saat sudah di Normal Mode.
+   Tujuannya agar kita langsung mendapatkan akses masuk ke dalam *smartphone* saat sudah di Normal Mode.
 
-    **adbkey.pub** ini, ibarat kita menggembok *smartphone* kita dengan gembok yang kita siapkan, yang nantinya kita akan buka gembok tersebut, karena kita sudah punya kuncinya, **adbkey** (private key).
+   **adbkey.pub** ini, ibarat kita menggembok *smartphone* kita dengan gembok yang kita siapkan, yang nantinya kita akan buka gembok tersebut, karena kita sudah punya kuncinya, **adbkey** (private key).
 
 4. Lakukan perintah di bawah untuk meng-inject / meng-upload file adbkey.pub tersebut ke dalam *smartphone* kita.
 
-    <pre>
-    $ <b>adb push adbkey.pub /data/misc/adb/adb_keys</b></pre>
+   {% shell_user %}
+adb push adbkey.pub /data/misc/adb/adb_keys
+{% endshell_user %}
 
 5. Reboot dan biarkan *smartphone* masuk ke Normal Mode.
 
-    <pre>
-    $ <b>adb shell reboot</b></pre>
+   {% shell_user %}
+adb shell reboot
+{% endshell_user %}
 
 6. Setelah berada di Normal Mode, coba jalankan
 
-    <pre>
-    $ <b>adb devices</b></pre>
+   {% shell_user %}
+adb devices
+{% endshell_user %}
 
-    ```
-    List of devices attached
-    dd46fe2b        device
-    ```
+   ```
+   List of devices attached
+   dd46fe2b        device
+   ```
 
 <br>
 Nah, setelah mendapatkan hak akses, kita bisa ngapain aja deh.

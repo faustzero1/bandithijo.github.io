@@ -100,13 +100,11 @@ PREOJECT_DIR/
 
 Untuk membuka enkripsi tersebut, gunakan perintah di bawah ini di Terminal.
 
-<pre>
-$ <b>rails credentials:edit</b>
-</pre>
+{% shell_user %}
+rails credentials:edit
+{% endshell_user %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Namun, sebelum menjalankanya, teman-teman perlu mengecek terlebih dahulu, apa hasil dari,</p>
 <pre>
 $ <b>echo $EDITOR</b>
@@ -118,7 +116,7 @@ $ <b>echo $EDITOR</b>
 <pre>
 $ <b>EDITOR="code --wait" rails credentials:edit</b>
 </pre>
-</div>
+{% endbox_info %}
 
 Kalau berhasil, file tersebut akan terbuka sebagai **credentials.yml**
 
@@ -190,9 +188,9 @@ Kita perlu mendefinisikan **RAILS_MASTER_KEY** pada menu **Settings > Config Var
 
 Cukup jalankan perintah di bawah ini untuk mengeset `RAILS_MASTER_KEY` pada Heroku.
 
-<pre>
-$ <b>heroku config:set RAILS_MASTER_KEY=`cat config/master.key`</b>
-</pre>
+{% shell_user %}
+heroku config:set RAILS_MASTER_KEY=`cat config/master.key`
+{% endshell_user %}
 
 Kalau berhasil, akan memberikan output seperti ini.
 

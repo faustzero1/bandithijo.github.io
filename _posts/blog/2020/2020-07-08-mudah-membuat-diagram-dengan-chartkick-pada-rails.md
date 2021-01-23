@@ -45,17 +45,17 @@ gem 'chartkick',                          '~> 3.3', '>= 3.3.1'
 
 Kemudian install.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 # Konfigurasi
 
 **Rails 6 / Webpacker**
 
-<pre>
-$ <b>yarn add chartkick chart.js</b>
-</pre>
+{% shell_user %}
+yarn add chartkick chart.js
+{% endshell_user %}
 
 Kemudian tambahkan pada `app/javascript/packs/application.js`,
 
@@ -197,11 +197,9 @@ Definisikan instance variable di controller.
   end
 {% endhighlight %}
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Saya menggunakan method <code>.group_by_day()</code> yang disediakan oleh <b><a href="https://github.com/ankane/groupdate" target="_blank">groupdate</a></b> gem.</p>
-</div>
+{% endbox_info %}
 
 Kemudian, tinggal dipakai di view template.
 

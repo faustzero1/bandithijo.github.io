@@ -19,9 +19,9 @@ resume:
 
 Saya memiliki sebuah URL yang cukup panjang dan tidak begitu mudah untuk diingat maupun ditulis.
 
-<pre class="url">
+{% pre_url %}
 https://covid19-indo-harian.herokuapp.com
-</pre>
+{% endpre_url %}
 
 Dampaknya adalah membuat orang kesulitan untuk berkunjung kembali.
 
@@ -29,9 +29,9 @@ Maka, saya pun mencari solusi untuk membuat URL tersebut menjadi lebih *catchy*.
 
 Seperti ini,
 
-<pre class="url">
+{% pre_url %}
 https://bandithijo.github.io/covid19
-</pre>
+{% endpre_url %}
 
 Cukup *catchy* kan? Gak juga yaa? Hehehe
 
@@ -51,26 +51,27 @@ Pasang pada `Gemfile`.
 {% highlight ruby linenos %}
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  ...
-  ...
+  # ...
+  # ...
   gem 'jekyll-redirect-from',                  '~> 0.16.0'
 end
 {% endhighlight %}
 
 Kemudian install dulu,
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Selanjutnya, definisikan pada `_config.yml`
 
-```
+{% highlight_caption _config.yml %}
+{% highlight sh linenos %}
 plugins:
-  ...
-  ...
+  # ...
+  # ...
   - jekyll-redirect-from
-```
+{% endhighlight %}
 
 Setelah semua konfigurasi gem di atas selesai, kita akan membuat sebuah page yang akan digunakan sebagai halaman *redirect*.
 

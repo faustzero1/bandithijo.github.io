@@ -33,9 +33,9 @@ Ada beberapa metode dalam membuat swap space, seperti **swap partition**, **swap
 
 Saya menggunakan Swapfile pada filesystem **ext4**. Untuk teman-teman yang menggunakan filesystem yang lain seperti **BTRFS** atau yang lainnya, saya sarankan untuk melakukan eksplorasi lebih jauh.
 
-<pre>
-$ <b>sudo dd if=/dev/zero of=/swapfile bs=1M count=<mark>2048</mark> status=progress</b>
-</pre>
+{% shell_user %}
+sudo dd if=/dev/zero of=/swapfile bs=1M count=<mark>2048</mark> status=progress
+{% endshell_user %}
 
 Saya mendefinisikan Swapfile sebesar **2048M** atau 2G. Kapasitas RAM saya sebesar 4G.
 
@@ -47,46 +47,46 @@ Perintah di atas akan membuat Swapfile `/swapfile` pada root direktori.
 
 Swap space dapat menjadi lubang keamanan yang besar pada sistem kita, karena itu kita perlu menutup segala macam akses selain root.
 
-<pre>
-$ <b>sudo chmod 600 /swapfile</b>
-</pre>
+{% shell_user %}
+sudo chmod 600 /swapfile
+{% endshell_user %}
 
 ### Format Swapfile
 
 Sebelum dapat digunakan, kita perlu memformat `/swapfile` menjadi berformat swap.
 
-<pre>
-$ <b>sudo mkswap /swapfile</b>
-</pre>
+{% shell_user %}
+sudo mkswap /swapfile
+{% endshell_user %}
 
 ### Mengaktifkan Swapfile
 
 Setelah semua langkah di atas sudah dilakukan, Swapfile tidak langsung aktif. Selaaknya swap partition, kita perlu mengaktifkannya terlebih dahulu.
 
-<pre>
-$ <b>sudo swapon /swapfile</b>
-</pre>
+{% shell_user %}
+sudo swapon /swapfile
+{% endshell_user %}
 
 ## Tambahkan Swapfile pada /etc/fstab
 
 Agar Swapfile sudah enable otomatis saat sistem startup, kita perlu menambahkan pada `/etc/fstab`.
 
 {% highlight_caption /etc/fstab %}
-<pre class="caption">
+{% pre_caption %}
 # &lt;file system&gt; &lt;dir&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;pass&gt;
 # /dev/sda1
 UUID=00000000-0000  /     ext4  rw,noatime   0 1
 
 # Swapfile
 <mark>/swapfile           none  swap  defaults     0 0</mark>
-</pre>
+{% endpre_caption %}
 
 ## Edit Kernel Module
 
 Kita perlu menambahkan `resume` dan `resume_offset`. Karena saya menggunakan Grub, maka saya akan menambahkan pada file `/etc/default/grub`.
 
 {% highlight_caption /etc/default/grub %}
-<pre class="caption">
+{% pre_caption %}
 # GRUB boot loader configuration
 
 GRUB_DEFAULT=saved
@@ -94,7 +94,7 @@ GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 <mark>resume=/dev/sda1 resume_offset=7049216</mark>"
 GRUB_CMDLINE_LINUX=""
-</pre>
+{% endpre_caption %}
 
 Perhatikan bagian yang saya marking.
 
@@ -102,9 +102,9 @@ Perhatikan bagian yang saya marking.
 
 `resume_offset=7049216` didapatkan dengan cara menjalankan perintah di bawah.
 
-<pre>
-$ <b>sudo filefrag -v /swapfile</b>
-</pre>
+{% shell_user %}
+sudo filefrag -v /swapfile
+{% endshell_user %}
 
 <pre>
 Filesystem type is: ef53
@@ -124,9 +124,9 @@ Ambil value pertama dari `physical_offset`.
 
 Karena kita baru saja mengedit dan menambahkan module, kita perlu mengupdate Grub.
 
-<pre>
-$ <b>sudo grub-mkconfig -o /boot/grub/grub.cfg</b>
-</pre>
+{% shell_user %}
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+{% endshell_user %}
 
 ## Edit mkinitcpio
 
@@ -135,7 +135,7 @@ Kita perlu menambahkan `resume` hook pada startup hook di mkinitcpio. Hal ini ak
 Edit file `/etc/mkinitcpio.conf` dan cari baris berawalan `HOOKS="base ... "`.
 
 {% highlight_caption /etc/mkinitcpio.conf %}
-<pre class="caption">
+{% pre_caption %}
 # HOOKS
 # This is the most important setting in this file.  The HOOKS control the
 # modules and scripts added to the image, and what happens at boot time.
@@ -145,26 +145,24 @@ Edit file `/etc/mkinitcpio.conf` dan cari baris berawalan `HOOKS="base ... "`.
 ...
 ...
 HOOKS=(base systemd <mark>resume</mark> autodetect modconf block filesystems keyboard fsck)
-</pre>
+{% endpre_caption %}
 
 Saya mengganti `udev` hook dengan `systemd` hook. Jadi jangan binggung. Tambahkan saja setelah `udev` atau `systemd` -- sebelum `autodetect` hook.
 
 Setelah kita memodifikasi mkinitcpio, kita perlu mengenerate ulang kembali.
 
-<pre>
-$ <b>sudo mkinitcpio -p <mark>linux</mark></b>
-</pre>
+{% shell_user %}
+sudo mkinitcpio -p <mark>linux</mark>
+{% endshell_user %}
 
 `linux` sesuaikan dengan image kernel yang teman-teman pergunakan. Misalkan menggunakan kernel `linux-lts` maka gunakan `-p linux-lts`.
 
 Selesai.
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p markdown=1>Kalau yang menggunakan init sistem selain **systemd**, tetap dapat menggunakan **udev** di dalam HOOKS.</p>
 <p>Saya sudah mencobanya dengan OpenRC, dan berhasil.</p>
-</div>
+{% endbox_info %}
 
 # Demonstrasi Hasil
 

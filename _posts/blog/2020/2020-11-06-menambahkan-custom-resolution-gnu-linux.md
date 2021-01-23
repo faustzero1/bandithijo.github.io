@@ -43,9 +43,9 @@ Kita tinggal menggunakan tools yang bernama **cvt** dan **xrandr**
 
 > **Cvt**  is  a  utility  for  calculating  VESA **Coordinated Video Timing** modes. Given the desired horizontal and vertical resolutions, a modeline  adhering to  the  CVT  standard  is  printed.  This modeline can be included in Xorg xorg.conf(5)
 
-<pre class="url">
-$ <b>cvt h-resolution v-resolution refresh-rate</b>
-</pre>
+{% shell_user %}
+cvt h-resolution v-resolution refresh-rate
+{% endshell_user %}
 
 ## Menambahkan Custom Resolution
 
@@ -53,9 +53,9 @@ Maka, dalam kasus saya, untuk menambahkan resolusi **1600x900**,
 
 ### 1. Calculating VESA Coordinated dengan CVT
 
-<pre>
-$ <b>cvt 1600 900 60</b>
-</pre>
+{% shell_user %}
+cvt 1600 900 60
+{% endshell_user %}
 
 <pre>
 # 1600x900 59.95 Hz (CVT 1.44M9) hsync: 55.99 kHz; pclk: 118.25 MHz
@@ -68,9 +68,9 @@ Copy bagian yang saya markup kuning.
 
 Selanjutnya kita akan menambahkan mode baru dengan **xrandr** menggunakan option `--newmode`.
 
-<pre>
-$ <b>xrandr --newmode <mark>"1600x900"</mark> 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync</b>
-</pre>
+{% shell_user %}
+xrandr --newmode <mark>"1600x900"</mark> 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+{% endshell_user %}
 
 Paste hasil dari perintah **cvt** yang sebelumnya sudah di copy.
 
@@ -79,7 +79,7 @@ Paste hasil dari perintah **cvt** yang sebelumnya sudah di copy.
 Kalau berhasil, apabila kita menjalankan **xrandr**, akan ada resolusi baru pada monitor **VIRTUAL1**.
 
 <pre>
-$ <b>xrandr</b>
+<span class="cmd">$ </span><b>xrandr</b>
 
 ...
 ...
@@ -93,14 +93,14 @@ VIRTUAL1 disconnected (normal left inverted right x axis y axis)
 
 Kita perlu menambahkan custom resolution **1600x900** yang berada di monitor **VIRTUAL1** ke **VGA1** menggunakan **xrandr** dengan option `--addmode`.
 
-<pre>
-$ <b>xrandr --addmode VGA1 1600x900</b>
-</pre>
+{% shell_user %}
+xrandr --addmode VGA1 1600x900
+{% endshell_user %}
 
 Kalau berhasil, custom resolution 1600x900 yang berada di VIRTUAL1 akan berpindah ke VGA1.
 
 <pre>
-$ <b>xrandr</b>
+<span class="cmd">$ </span><b>xrandr</b>
 
 ...
 ...
@@ -133,14 +133,14 @@ Setelah itu jalankan 2 proses di bawah ini.
 
 Kita perlu menghapus custom resolution 1600x900 dari **VGA1** menggunkan **xrandr** dengan option `--delmode`.
 
-<pre>
-$ <b>xrandr --delmode VGA1 1600x900</b>
-</pre>
+{% shell_user %}
+xrandr --delmode VGA1 1600x900
+{% endshell_user %}
 
 Kalau berhasil, custom resolution akan kembali ke monitor **VIRTUAL1**.
 
 <pre>
-$ <b>xrandr</b>
+<span class="cmd">$ </span><b>xrandr</b>
 
 ...
 ...
@@ -159,16 +159,16 @@ VIRTUAL1 disconnected (normal left inverted right x axis y axis)
 
 Setelah custom resolution kembali ke VIRTUAL1, tinggal kita hapus dengan `--rmmode`.
 
-<pre>
-$ <b>xrandr --rmmode 1600x900</b>
-</pre>
+{% shell_user %}
+xrandr --rmmode 1600x900
+{% endshell_user %}
 
 Selesai!
 
 Sekarang xrandr sudah bersih dari custom resolution yang kita tambahkan.
 
 <pre>
-$ <b>xrandr</b>
+<span class="cmd">$ </span><b>xrandr</b>
 
 ...
 ...

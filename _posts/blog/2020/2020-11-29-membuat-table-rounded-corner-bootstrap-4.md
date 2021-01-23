@@ -57,25 +57,25 @@ Kita akan mengoverride class table bawaan Bootstrap.
 
 Tabel harus memiliki struktur seperti di bawah ini.
 
-```
-<table>
+{% pre_whiteboard %}
+&lt;table>
 
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  &lt;thead>
+    &lt;tr>
+      &lt;th></th>
+      &lt;th></th>
+    &lt;/tr>
+  &lt;/thead>
 
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
+  &lt;tbody>
+    &lt;tr>
+      &lt;td></td>
+      &lt;td></td>
+    &lt;/tr>
+  &lt;/tbody>
 
-</table>
-```
+&lt;/table>
+{% endpre_whiteboard %}
 
 Oke, langsung ke penerapan.
 

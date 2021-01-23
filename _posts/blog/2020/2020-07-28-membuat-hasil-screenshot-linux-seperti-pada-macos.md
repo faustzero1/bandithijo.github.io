@@ -40,7 +40,7 @@ Pastinya tools yang diperlukan adalah **ImageMagick**.
 Kira-kira begini command formula nya.
 
 <pre>
-$ <b>convert gambar.png \( +clone -background black -shadow 50x10+0+10 \) \
+<span class="cmd">$ </span><b>convert gambar.png \( +clone -background black -shadow 50x10+0+10 \) \
 +swap -background none -layers merge +repage gambar.png; \
 convert gambar.png -bordercolor none -border 30 gambar.png</b>
 </pre>

@@ -25,9 +25,9 @@ Nah, karena saya menggunakan GNU/Linux, saya sudah cukup familiar dengan Cron. K
 
 Pertama-tama, periksa dulu Cron service udah aktif atau belum.
 
-<pre>
-$ <b>sudo systemctl status cronie.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl status cronie.service
+{% endshell_user %}
 
 <pre>
 ● cronie.service - Periodic Command Scheduler
@@ -44,9 +44,9 @@ Pastikan statusnya sudah aktif.
 
 Kemudian periksa apakah ada cronjob yang sudah aktif.
 
-<pre>
-$ <b>crontab -l</b>
-</pre>
+{% shell_user %}
+crontab -l
+{% endshell_user %}
 
 Nanti, kita akan menggunakan perintah di atas untuk melihat apakah cronjob yang kita inisiasi dengan whenever sudah berhasil didaftarkan atau tidak.
 
@@ -61,8 +61,8 @@ Pasang pada `Gemfile`.
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-...
-...
+# ...
+# ...
 
 gem 'whenever', '~> 1.0', require: false
 
@@ -70,17 +70,17 @@ gem 'whenever', '~> 1.0', require: false
 
 Kemudian install dengan menjalankan perintah,
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 # Inisialisasi Config File
 
 Setelah memasang Whenever gem, kita perlu menjalankan perintah untuk mengenerate file konfigurasi yang bernama `config/schedule.rb`.
 
-<pre>
-$ <b>wheneverize .</b>
-</pre>
+{% shell_user %}
+wheneverize .
+{% endshell_user %}
 
 <pre>
 project_dir/
@@ -247,21 +247,21 @@ Apabila kita sudah selesai menulis schedule. Langkah selanjutnya adalah mendafta
 
 **Penting:** secara *default*, environment akan bernilai `production`. Apabila kita ingin melakukan ujicoba pada sistem lokal, kita dapat menjalankan dengan perintah.
 
-<pre>
-$ <b>whenever --update-crontab --set environment=development</b>
-</pre>
+{% shell_user %}
+whenever --update-crontab --set environment=development
+{% endshell_user %}
 
 Apabila kita berada di production server, maka cukup menjalankan perintah.
 
-<pre>
-$ <b>whenever --update-crontab</b>
-</pre>
+{% shell_user %}
+whenever --update-crontab
+{% endshell_user %}
 
 Setelah itu periksa, apakah jadwal yang kita daftarkan sudah berada pada daftar Cronjob atau tidak.
 
-<pre>
-$ <b>crontab -l</b>
-</pre>
+{% shell_user %}
+crontab -l
+{% endshell_user %}
 
 Tampilannya akan seperti ini untuk Ruby on Rails.
 

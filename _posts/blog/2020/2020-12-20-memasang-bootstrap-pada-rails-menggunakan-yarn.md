@@ -35,9 +35,9 @@ Untuk memsang Bootstrap 4 dengan yarn, pastikan kita sudah berada di root direkt
 
 Lalu jalankan,
 
-<pre>
-$ <b>yarn add bootstrap@4.5 jquery popper.js</b>
-</pre>
+{% shell_user %}
+yarn add bootstrap@4.5 jquery popper.js
+{% endshell_user %}
 
 \*Karena Bootstrap sangat tergantung dengan JQuery dan Popper.js, maka kita juga perlu menyertakan dalam proses instalasi.
 

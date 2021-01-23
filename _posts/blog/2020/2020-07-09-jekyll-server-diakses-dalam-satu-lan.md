@@ -43,15 +43,15 @@ Cara pertama, dengan langsung mendefinisikan dari *command* terminal.
 
 Cukup tambahkan option `-H` atau `--host` diikuti dengan *broadcast ip address*.
 
-<pre>
-$ <b>bundle exec jekyll s -H 0.0.0.0</b>
-</pre>
+{% shell_user %}
+bundle exec jekyll s -H 0.0.0.0
+{% endshell_user %}
 
 Atau,
 
-<pre>
-$ <b>bundle exec jekyll s --host 0.0.0.0</b>
-</pre>
+{% shell_user %}
+bundle exec jekyll s --host 0.0.0.0
+{% endshell_user %}
 
 ### 2. _config.yml
 
@@ -61,8 +61,8 @@ Cara kedua, dengan mendefinisikan `host:` pada file `_config.yml`.
 {% highlight yml linenos %}
 # _config.yml
 
-...
-...
+# ...
+# ...
 
 # Deployment
 host: 0.0.0.0
@@ -101,13 +101,13 @@ Fitur ini ditambahkan pada Jekyll versi [3.7.0](https://jekyllrb.com/news/2018/0
 
 Caranya, dapat menggunakan `-l` atau `--livereload` pada saat menjalankan Jekyll server.
 
-<pre>
-$ <b>bundle exec jekyll s -l</b>
-</pre>
+{% shell_user %}
+bundle exec jekyll s -l
+{% endshell_user %}
 
-<pre>
-$ <b>bundle exec jekyll s --livereload</b>
-</pre>
+{% shell_user %}
+bundle exec jekyll s --livereload
+{% endshell_user %}
 
 ## Incremental Regeneration (Build)
 

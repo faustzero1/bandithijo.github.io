@@ -48,9 +48,9 @@ Untuk memanggil config sxhkd, saya lebih senang menggunakan option `-c`.
 
 Karena saya memiliki beberapa file config untuk masing-masing WM.
 
-```
+{% shell_user %}
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc-dwm
-```
+{% endshell_user %}
 
 Langkah selanjutnya, tinggal dipasang pada konfigurasi autostart yang teman-teman miliki.
 
@@ -68,17 +68,16 @@ Saya akan ambil beberapa contoh yang simple dan berbeda dengan yang lain.
 
 Ini adalah contoh yang menggnunakan single key.
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # screenshot
 Print
     /usr/bin/scrot-full
-```
 
-```shell
 # pulseaudio controls mute speaker on/off
 XF86AudioMute
     pamixer --toggle-mute
-```
+{% endhighlight %}
 
 Dalam contoh di atas, saya menggunakan tombol <kbd>PrtScr</kbd> untuk memanggil script yang bernama `scrot-full`.
 
@@ -93,27 +92,30 @@ Kita dapat menggunakan 2 atau lebih kombinasi tombol yang kita gunakan dengan ca
 
 Ini adalah contoh 2 kombinasi untuk menggunakan command terminal.
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # make sxhkd reload its configuration files
 super + Escape
     pkill -USR1 -x sxhkd
-```
+{% endhighlight %}
 
 Ini adalah contoh 2 kombinasi untuk memanggil script dmenu (custom) launcher.
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # application launcher
 super + d
     /usr/bin/dmenu-apps
-```
+{% endhighlight %}
 
 Ini adalah contoh 3 kombinasi untuk memanggil program slock.
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # lock screen
 super + shift + x
     /usr/local/bin/slock
-```
+{% endhighlight %}
 
 ## 3. Simple Parenthesis
 
@@ -151,11 +153,12 @@ Dan seterusnya.
 <br>
 **Contoh**:
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # pulseaudio controls speaker volume up & down
 {XF86AudioRaiseVolume, XF86AudioLowerVolume}
     pamixer {--increase 2, --decrease 2}
-```
+{% endhighlight %}
 
 ## 4. Combination Sequence Key with Parenthesis
 
@@ -192,11 +195,12 @@ Misal, statement A, adalah statement untuk memanggil, sedangkan statement B, ada
 
 **Contoh**:
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # key-mon
 super + ~F11
     {/usr/bin/key-mon, killall key-mon}
-```
+{% endhighlight %}
 
 ## 6. Multiline for Long Statement
 
@@ -211,20 +215,22 @@ Kita dapat menggunakan `\` backslash untuk memisahkan satu statement panjang men
 
 ## 7. Multistatement
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 super + F1
     pamixer --increase 10; notify-send "Volume +"
-```
+{% endhighlight %}
 
 Kita dapat menggunakan tanda `;` untuk memisahkan antar statement. Maka statement ini akan dijalankan berurutan dimulai dari yang paling depan.
 
 ## 8. Multiline for Multistatement
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 super + F1
     pamixer --increase 10; \
     notify-send "Volume +"
-```
+{% endhighlight %}
 
 Ini adalah kombinasi dari point ke 6 & 7. Tujuannya agar statement yang kita definisikan menjadi lebih readable.
 
@@ -238,7 +244,8 @@ Saya akan mencontohkan penggunaan yang terlihat ribet.
 
 Tujuannya untuk menjelaskan dari keuntungan menggunakan SXHKD sesuai pada point ke-2, yaitu "Fleksibilitas".
 
-```shell
+{% highlight_caption $HOME/.config/sxhkd/sxhkdrc %}
+{% highlight sh %}
 # pulseaudio controls speaker volume up & down
 {XF86AudioRaiseVolume, XF86AudioLowerVolume}
     pamixer {-i 2, -d 2}; \
@@ -293,7 +300,7 @@ alt + XF86AudioMute
     get_brightness=$(xbacklight -get | cut -f 1 -d '.'); \
     dunstify "  Brightness: "$get_brightness -t 1000 -r 1
 
-```
+{% endhighlight %}
 
 Penggunaan seperti ini tidak saya rekomendasikan. Saya lebih merekomendasikan dimasukkan saja ke dalam file script.
 

@@ -46,9 +46,9 @@ gem 'caxlsx_rails',                       '~> 0.6.2'
 
 Kemudian install.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 # Implementasi
 

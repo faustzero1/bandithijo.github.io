@@ -23,9 +23,9 @@ Ketika saya mengcopy sebuah URL dari YouTube dan mempaste di Terminal saya.
 
 Bentuk dari URL berubah seperti ini:
 
-<pre class="url">
+{% pre_url %}
 https://www.youtube.com/watch<mark>\</mark>?v<mark>\</mark>=Q5eDxR7bU2k
-</pre>
+{% endpre_url %}
 
 Perhatikan, terdapat tanda `\` (backslash) pada sebelum karakter `?` dan `=`.
 
@@ -43,7 +43,7 @@ Menurut beberapa GitHub issue yang sudah di closed, saya mendapati beberapa solu
 
 Tambahkan pada file `~/.zshrc`.
 
-{% highlight_caption ~/.zshrc %}
+{% highlight_caption $HOME/.zshrc %}
 {% highlight bash linenos %}
 # ~/.zshrc
 
@@ -55,10 +55,10 @@ DISABLE_MAGIC_FUNCTIONS = true
 
 Simpan, dan source kembali.
 
-<pre>
-$ <b>source $ZSH/oh-my-zsh.sh</b>
-$ <b>exec $SHELL</b>
-</pre>
+{% shell_user %}
+source $ZSH/oh-my-zsh.sh
+exec $SHELL
+{% endshell_user %}
 
 Namun, saya tidak berhasil dengan cara ini.
 
@@ -70,15 +70,15 @@ Saya mencari library yang berisi url-quote-magic function.
 
 Ternyata berlokasi di:
 
-<pre class="url">
-~/.oh-my-zsh/lib/misc.zsh
-</pre>
+{% pre_url %}
+$HOME/.oh-my-zsh/lib/misc.zsh
+{% endpre_url %}
 
 Namun, untuk teman-teman yang menggunakan plugin seperti saya (ZGEN), maka lokasinya akan tergantung dari plugin tersebut.
 
-<pre class="url">
-~/.zgen/robbyrussell/oh-my-zsh-master/lib/misc.zsh
-</pre>
+{% pre_url %}
+$HOME/.zgen/robbyrussell/oh-my-zsh-master/lib/misc.zsh
+{% endpre_url %}
 
 Kemudian, buka dan commenting blok kode yang berkaitan dengan url-quote-magic.
 
@@ -125,16 +125,16 @@ Perhatikan pada baris ke 4-16, adalah baris yang saya commenting.
 
 Sip, kalau sudah bisa reload lagi $SHELL.
 
-<pre>
-$ <b>source $ZSH/oh-my-zsh.sh</b>
-$ <b>exec $SHELL</b>
-</pre>
+{% shell_user %}
+source $ZSH/oh-my-zsh.sh
+exec $SHELL
+{% endshell_user %}
 
 Kalau berhasil, seharusnya saat kita mempaste URL di Terminal, sudah tidak lagi diberikan escape character.
 
-<pre class="url">
+{% pre_url %}
 https://www.youtube.com/watch?v=Q5eDxR7bU2k
-</pre>
+{% endpre_url %}
 
 
 

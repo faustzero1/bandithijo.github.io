@@ -116,9 +116,9 @@ Cara paling mudah untuk menambahkan *custom boot menu* adalah dengan menambahkan
 
 Saya akan menambahkan custom boot menu di bawah nya, seperti pada baris 7-14 di bawah.
 
-<pre>
-$ <b>sudoedit /etc/grub.d/40_custom</b>
-</pre>
+{% shell_user %}
+sudoedit /etc/grub.d/40_custom
+{% endshell_user %}
 
 {% highlight_caption /etc/grub.d/40_custom %}
 {% highlight bash linenos %}
@@ -156,15 +156,15 @@ Setiap melakukan modifikasi terhadap GRUB, lakukan GRUB update.
 
 **Arch Linux based**
 
-<pre>
-$ <b>sudo grub-mkconfig -o /boot/grub/grub.cfg</b>
-</pre>
+{% shell_user %}
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+{% endshell_user %}
 
 **Debian/Ubuntu based**
 
-<pre>
-$ <b>sudo update-grub</b>
-</pre>
+{% shell_user %}
+sudo update-grub
+{% endshell_user %}
 
 Kalau sudah, tinggal menikmati hasilnya.
 

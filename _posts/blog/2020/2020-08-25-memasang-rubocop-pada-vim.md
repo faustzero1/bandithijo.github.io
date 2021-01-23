@@ -39,9 +39,9 @@ Sebelum memasang Rubocop pada Vim, kita perlu memasang Rubocop pada Ruby environ
 
 Terlebih dahulu saya melakukan pengecekan versi Ruby yang saat ini sedang saya pergunakan. Tujuannya agar saya mengetahui bahwa saya pernah memasang Rubocop pada Ruby versi tertentu.
 
-<pre>
-$ <b>ruby -v</b>
-</pre>
+{% shell_user %}
+ruby -v
+{% endshell_user %}
 
 ```
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux]
@@ -49,9 +49,9 @@ ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux]
 
 Setelah itu pasang Rubocop gem terbaru.
 
-<pre>
-$ <b>gem install rubocop</b>
-</pre>
+{% shell_user %}
+gem install rubocop
+{% endshell_user %}
 
 Tunggu proses instalasinya hingga selesai.
 
@@ -73,13 +73,14 @@ Dan juga, untuk Asynchronous Lint Engine, kita akan menggunakan [**ALE**](https:
 
 Tambahkan pada `.vimrc`.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml linenos %}
 " A The Vim RuboCop plugin runs RuboCop and displays the results in Vim
 Plug 'ngmy/vim-rubocop'
 
 " A Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
 Plug 'dense-analysis/ale'
-```
+{% endhighlight %}
 
 Kemudian refresh dulu vimrc dengan melakukan source ke vimrc agar plugin yang baru saja kita tambahkan dapat dikenali.
 
@@ -130,10 +131,10 @@ Saya menggunakan nomor 6 dan akan membuat symbolic link untuk nomor 5. 😁
 
 Pertama buat dahulu direktori config untuk Rubocop dan masuk ke dalam direktori tersebut.
 
-<pre>
-$ <b>mkdir -p $HOME/.config/rubocop</b>
-$ <b>cd $HOME/.config/rubocop</b>
-</pre>
+{% shell_user %}
+mkdir -p $HOME/.config/rubocop
+cd $HOME/.config/rubocop
+{% endshell_user %}
 
 Kemudian download dulu aturan-aturan Rubocop yang default dari alamat di bawah ini.
 
@@ -141,22 +142,22 @@ Kemudian download dulu aturan-aturan Rubocop yang default dari alamat di bawah i
 
 Ganti nama filenya menjadi `rubocop.yml.example`.
 
-<pre>
-$ <b>mv default.yml rubocop.yml.example</b>
-</pre>
+{% shell_user %}
+mv default.yml rubocop.yml.example
+{% endshell_user %}
 
 Selanjutnya, saya akan membuat file **config.yml** yang berisi aturan-aturan yang akan meng-override aturan default untuk saya disable.
 
 Jadi fungsi dari file **config.yml** ini saya pergunakan hanya untuk men-disable aturan yang saya tidak inginkan.
 
-<pre>
-$ <b>touch $HOME/.config/rubocop/config.yml</b>
-</pre>
+{% shell_user %}
+touch $HOME/.config/rubocop/config.yml
+{% endshell_user %}
 
 Apabila saya melakukan list direktori akan seperti ini hasilnya
 
 <pre>
-$ <b>ls</b>
+<span class="cmd">$ </span><b>ls</b>
 config.yml  rubocop.yml.example
 </pre>
 
@@ -235,9 +236,9 @@ Saya mendisable:
 
 Kemudian, saya akan membuat symbolic link file **config.yml** untuk saya letakkan di $HOME direktori secara hidden.
 
-<pre>
-$ <b>ln -sf $HOME/.config/rubocop/config.yml $HOME/.rubocop.yml</b>
-</pre>
+{% shell_user %}
+ln -sf $HOME/.config/rubocop/config.yml $HOME/.rubocop.yml
+{% endshell_user %}
 
 Dengan begini, saya memiliki file `~/.rubocop.yml` yang isinya akan sama dengan file `~/.config/rubocop/config.yml`.
 
@@ -251,9 +252,10 @@ Setelah kita mendifinikan aturan-aturan apa saja, kita perlu mendifinisikan file
 
 Tambahkan pada `.vimrc`.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml %}
 let g:vimrubocop_config = '~/.rubocop.yml'
-```
+{% endhighlight %}
 
 Saya mendefinisikan file `~/.rubocop.yml` yang merupakan symbolic link dari file `~/.config/rubocop/config.yml`.
 
@@ -261,19 +263,21 @@ Saya mendefinisikan file `~/.rubocop.yml` yang merupakan symbolic link dari file
 
 Setelah kita mengkonfigurasi vim-rubocop, kita juga perlu mengkonfigurasi ALE untuk mendifinisikan linter apa yang akan kita gunakan.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml %}
 let g:ale_linters = {
 \   'ruby': ['rubocop'],
 \}
-```
+{% endhighlight %}
 
 Kemudian, definisikan juga fixer yang akan digunakan.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml %}
 let g:ale_fixers = {
 \   'ruby': ['rubocop'],
 \}
-```
+{% endhighlight %}
 
 Untuk mengaktifkan ALE fixer kita dapat menggunakan perintah.
 
@@ -307,16 +311,18 @@ Press q to close this window
 
 Tambahkan juga beberapa dekorasi.
 
-```viml
-let g:ale_sign_error = '❌'
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml %}
+let g:ale_sign_error   = '❌'
 let g:ale_sign_warning = '⚠️ '
-```
+{% endhighlight %}
 
 Saya tidak mengaktifkan fix pada saat save.
 
-```viml
+{% highlight_caption $HOME/.vimrc %}
+{% highlight viml %}
 let g:ale_fix_on_save = 0
-```
+{% endhighlight %}
 
 Untuk melihat Linter Variable gunakan perintah:
 
@@ -350,11 +356,9 @@ let g:ale_command_wrapper = ''
 ...
 ```
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Pada saat ini, saya hanya mendifinisikan untuk bahasa Ruby, namun sebenarnya, saya juga mendifinisikan untuk bahasa yang lain seperi JavaScript dan Python.</p>
-</div>
+{% endbox_info %}
 
 Meskipun saat ini, saya hanya berhasil menjalankan fixer untuk `remove_trailing_lines`.
 

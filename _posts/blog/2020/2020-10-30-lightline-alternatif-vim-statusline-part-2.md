@@ -36,9 +36,11 @@ Maka, pada buffer Defx, Lightline statusline **tidak diperlukan untuk menampilka
 
 Saya menggunakan **vim-plug**.
 
-```vimscript
+{% highlight_caption $HOME/.config/nvim/init.vim %}
+{% highlight viml %}
 Plug 'itchyny/lightline.vim'
-```
+{% endhighlight %}
+
 
 # Konfigurasi
 
@@ -250,11 +252,11 @@ Function-function modifikasi ini nantinya ditempatkan pada `'component_function'
 <!--
 ## Function Readonly
 
-<pre>
+```vimscript
 function! LightlineReadonly()
   return &readonly ? '' : ''
 endfunction
-</pre>
+```
 
 Blok kode di atas sudah cukup menjelaskan. Menggunakan operator pengkondisian ternary.
 
@@ -262,16 +264,16 @@ Apakah file **&readonly** ? jika benar tampilkan string `''` (locked symbol),
 
 Kemudian saya tempatkan di status aktif bagian kiri, dengan posisi di tengah. Diantara mode & filename.
 
-<pre>
+```vimscript
 \   'active': {
 \    'left' : [[ 'mode', 'paste' ],
 \              [ 'gitbranch', <mark>'readonly'</mark> ],
 \              [ 'filename' ]],
-</pre>
+```
 
 ## Function Git Branch
 
-<pre>
+```vimscript
 function! LightlineFugitive()
   if &filetype !=? 'defx'
     if exists('*fugitive#head')
@@ -283,18 +285,18 @@ function! LightlineFugitive()
     return ''
   endif
 endfunction
-</pre>
+```
 
 Blok kode di atas, adalah function yang saya pergunakan untuk menampilkan git branch.
 
 Kemudian saya tempatkan di status aktif bagian kiri, dengan posisi di tengah. Diantara mode & filename.
 
-<pre>
+```vimscript
 \   'active': {
 \    'left' : [[ 'mode', 'paste' ],
 \              [ <mark>'gitbranch'</mark>, 'readonly' ],
 \              [ 'filename' ]],
-</pre>
+```
 
 -->
 

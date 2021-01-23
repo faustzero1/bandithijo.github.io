@@ -23,23 +23,23 @@ Kalau teman-teman berkunjung ke ["HelloDev Online Meetup: 💎 Ruby for Beginner
 
 Kemudian, memperhatikan URL-nya.
 
-<pre class="url">
+{% pre_url %}
 https://bandithijo.github.io/hellodev_ruby_meetup
-</pre>
+{% endpre_url %}
 
 Saya menggunakan domain yang saya dengan blog ini. Namun, halaman tersebut tidak berada pada repositori yang sama dengan repositori blog ini. Source dari halaman tersebut berada pada repositori yang berbeda.
 
 Blog ini ada pada repo ini:
 
-<pre class="url">
+{% pre_url %}
 github.com/bandithijo/bandithijo.github.io
-</pre>
+{% endpre_url %}
 
 Sedangkan, halaman pengumuman tersebut, berada pada repositori ini:
 
-<pre class="url">
+{% pre_url %}
 github.com/bandithijo/hellodev_ruby_meetup
-</pre>
+{% endpre_url %}
 
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/dV81Qds3/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
 
@@ -87,9 +87,9 @@ Sehingga, isi yang ada pada GitHub repo README dengan single page yang kita buat
 
 Buat file bernama **Gemfile**.
 
-<pre>
-$ <b>touch Gemfile</b>
-</pre>
+{% shell_user %}
+touch Gemfile
+{% endshell_user %}
 
 File Gemfile ini yang akan kita gunakan untuk memberikan spesifikasi gem apa saja yang akan kita gunakan. Kita akan mendefinisikan gem Jekyll pada file Gemfile ini.
 
@@ -107,9 +107,9 @@ gem 'jekyll', '~> 4.1.1'
 
 Kemudian, install dengan menjalankan perintah.
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 ## 3. Definisikan _config.yml
 
@@ -117,9 +117,9 @@ Selanjutnya adalah mendifinisikan isi dari file **_config.yml**.
 
 Buat file bernama **_config.yml**.
 
-<pre>
-$ <b>touch _config.yml</b>
-</pre>
+{% shell_user %}
+touch _config.yml
+{% endshell_user %}
 
 Kemudian, isi dan modifikasi seperti di bawah ini, sesuai dengan kepentingan kalian.
 
@@ -165,16 +165,16 @@ project_repositori/
 
 Buat **_layouts** direktori.
 
-<pre>
-$ <b>mkdir _layouts</b>
-</pre>
+{% shell_user %}
+mkdir _layouts
+{% endshell_user %}
 
 Kemudian, masuk ke dalam direktori **layouts** dan buat file **default.html**.
 
-<pre>
-$ <b>cd _layouts</b>
-$ <b>touch default.html</b>
-</pre>
+{% shell_user %}
+cd _layouts
+touch default.html
+{% endshell_user %}
 
 Kemudian isikan file **default.html** seperti di bawah ini. Sesuaikan dengan kebutuhan kalian.
 
@@ -247,17 +247,17 @@ Silahkan tambahkan sesuai kebutuhan kalian.
 
 Semua kebutuhan di atas sudah dibuat dan dipenuhi, selanjutnya tinggal menjalankan Jekyll server.
 
-<pre>
-$ <b>bundle exec jekyll s -l</b>
-</pre>
+{% shell_user %}
+bundle exec jekyll s -l
+{% endshell_user %}
 
 Saya menambahkan `-l` agar halaman akan "auto reload" tanpa perlu kita refresh kalau ada perubahan.
 
 Hasilnya, dapat kita lihat pada browser di alamat.
 
-<pre class="url">
+{% pre_url %}
 http://localhost:4000
-</pre>
+{% endpre_url %}
 
 Kalau konfigurasinya sudah benar, maka akan menampilkan isi dari halaman **README.md** yang ada di project direktori kita.
 
@@ -267,9 +267,9 @@ Kalau konfigurasinya sudah benar, maka akan menampilkan isi dari halaman **READM
 
 Setelah semua sudah dikonfigurasi di lokal, saatnya kita deploy ke GitHub repositori.
 
-<pre>
-$ <b>git push -u origin master</b>
-</pre>
+{% shell_user %}
+git push -u origin master
+{% endshell_user %}
 
 Kemudian, pergi ke tab **⚙️ Settings**.
 
@@ -279,9 +279,9 @@ Pada section **GitHub Pages**, pilih branch **master** sebagai source yang akan 
 
 Kalau sudah dirubah, notifkasi dengan pita hijau akan muncul bertuliskan,
 
-<pre class="url">
+{% pre_whiteboard %}
 Your site is <b>published</b> at ...
-</pre>
+{% endpre_whiteboard %}
 
 Nah, selesai!
 

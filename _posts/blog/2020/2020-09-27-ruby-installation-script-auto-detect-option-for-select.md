@@ -28,7 +28,7 @@ Ingin saya copy ke direktori asset dari keymon yang berada di
 Jika menggunakan command **cp** akan seperti ini kira-kira.
 
 <pre>
-$ <b>sudo cp -vf $HOME/theme/keymon/oblivion/meta_01.svg \
+<span class="cmd">$ </span><b>sudo cp -vf $HOME/theme/keymon/oblivion/meta_01.svg \
               /usr/lib/python3.8/site-packages/keymon/themes/oblivion/meta.svg</b>
 </pre>
 

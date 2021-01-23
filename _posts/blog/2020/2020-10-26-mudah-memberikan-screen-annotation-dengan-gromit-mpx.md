@@ -59,27 +59,29 @@ Saya memilih membuild sendiri aplikasi ini.
 Untuk teman-teman yang kurang nyaman, bisa mencari di repositori dari distribusi sistem operasi masing-masin.
 
 <pre>
-$ <b>git clone https://github.com/bk138/gromit-mpx.git</b>
-$ <b>cd gromit-mpx</b>
-$ <b>mkdir build</b>
-$ <b>cd build</b>
-$ <b>cmake ..</b>
-$ <b>make</b>
 </pre>
+{% shell_user %}
+git clone https://github.com/bk138/gromit-mpx.git
+cd gromit-mpx
+mkdir build
+cd build
+cmake ..
+make
+{% endshell_user %}
 
 Tunggu proses make sampai selesai.
 
 Kalau tidak ada masalah, kita bisa pasang ke sistem.
 
-<pre>
-$ <b>sudo make install</b>
-</pre>
+{% shell_user %}
+sudo make install
+{% endshell_user %}
 
 Untuk proses uninstall, tinggal masuk lagi ke direktori `build/` dan jalankan.
 
-<pre>
-$ <b>sudo make uninstall</b>
-</pre>
+{% shell_user %}
+sudo make uninstall
+{% endshell_user %}
 
 # Konfigurasi
 
@@ -87,15 +89,15 @@ Secara default, Gromit-MPX akan mmebaca file `gromit-mx.cfg` yang berada pada di
 
 Artinya, tidak didalam direktori khusus Gromit-MPX.
 
-<pre class="url">
-~/.config/gromit-mpx.cfg
-</pre>
+{% pre_url %}
+$HOME/.config/gromit-mpx.cfg
+{% endpre_url %}
 
 Sekarang, kita perlu mencontek config default yang disediakan oleh Gromit-MPX.
 
-<pre>
-$ <b>cp /usr/local/etc/gromit-mpx/gromit-mpx.cfg ~/.config</b>
-</pre>
+{% shell_user %}
+cp /usr/local/etc/gromit-mpx/gromit-mpx.cfg ~/.config
+{% endshell_user %}
 
 Kemudian buka file **gromit-mpx.cfg** tersebut.
 

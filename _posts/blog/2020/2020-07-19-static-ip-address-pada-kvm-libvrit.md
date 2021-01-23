@@ -31,9 +31,7 @@ Agar IP address dari guest instance tidak berubah-ubah, kita perlu mendefinisika
 
 Saya akan tulis langkah-langkahnya di bawah ini.
 
-<!-- PERHATIAN -->
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Sebelumnya, guest instance <b>harus dalam keadaan mati</b>.</p>
 <p>Pastikan <b>libvirtd.service</b> berstatus <b>active (running)</b>.</p>
 <pre>
@@ -53,15 +51,15 @@ TriggeredBy: ● libvirtd-admin.socket
              ├─107870 /usr/bin/dnsmasq --conf-file=/var/lib/libvirt/dnsmasq/default.conf --leasefile-ro --dhcp-script=/usr/lib/libvirt/libvirt_leaseshelper
              └─345535 /usr/bin/libvirtd --timeout 120
 </pre>
-</div>
+{% endbox_perhatian %}
 
 ## 1. Mengecek Daftar Virtual Network
 
 Kita perlu mengetahui nama dari virtual network yang ada dan yang kita gunakakan.
 
-<pre>
-$ <b>sudo virsh net-list</b>
-</pre>
+{% shell_user %}
+sudo virsh net-list
+{% endshell_user %}
 
 ```
  Name      State    Autostart   Persistent
@@ -76,9 +74,9 @@ Sudah dapat dipastikan, kalau network yang digunakan oleh guest instance yang ki
 
 Untuk memastikan lagi kita perlu melihat range Ip address yang ada ada virtual network **default**.
 
-<pre>
-$ <b>sudo virsh net-dumpxml default | grep -i '<range'</b>
-</pre>
+{% shell_user %}
+sudo virsh net-dumpxml default | grep -i '<range'
+{% endshell_user %}
 
 <pre>
       &lt;range start='<b>192.168.122.2</b>' end='<b>192.168.122.254</b>'/&gt;
@@ -92,9 +90,9 @@ Karena kita ingin mengeset IP address static pada guest instance yang kita perlu
 
 Kita memerlukan nama dari guest instance.
 
-<pre>
-$ <b>sudo virsh list --all</b>
-</pre>
+{% shell_user %}
+sudo virsh list --all
+{% endshell_user %}
 
 ```
  Id   Name                State
@@ -112,17 +110,17 @@ Maka, kita perlu mengambil dan mencata kedua MAC address dari kedua guest instan
 
 Cara untuk mendapatkan MAC address dari guest instance,
 
-<pre>
-$ <b>sudo virsh dumpxml <mark>ubuntu18.04</mark> | grep -i '<mac'</b>
-</pre>
+{% shell_user %}
+sudo virsh dumpxml <mark>ubuntu18.04</mark> | grep -i '<mac'
+{% endshell_user %}
 
 <pre>
       &lt;mac address='<b>52:54:00:c0:95:43</b>'/&gt;
 </pre>
 
-<pre>
-$ <b>sudo virsh dumpxml <mark>ubuntu18.04-clone</mark> | grep -i '<mac'</b>
-</pre>
+{% shell_user %}
+sudo virsh dumpxml <mark>ubuntu18.04-clone</mark> | grep -i '<mac'
+{% endshell_user %}
 
 <pre>
       &lt;mac address='<b>52:54:00:ef:b7:15</b>'/&gt;
@@ -136,9 +134,9 @@ Nah, pada tahap ini, kita akan melakukan pendefinisian IP address static kepada 
 
 Kalau ingin melihat konfigurasi dari network **default** ini, kita dapat menggunakan perintah berikut.
 
-<pre>
-$ <b>sudo virsh net-edit default</b>
-</pre>
+{% shell_user %}
+sudo virsh net-edit default
+{% endshell_user %}
 
 {% highlight_caption %}
 {% highlight xml linenos %}
@@ -169,9 +167,7 @@ Pada baris ke 14 & 15, saya menambahkan konfigurasi IP address static untuk kedu
 <host mac='52:54:00:ef:b7:15' name='ubuntu18.04-clone' ip='192.168.122.102'/>
 ```
 
-<!-- INFORMATION -->
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p>Perintah <code>net-edit</code> akan secara otomatis menggunakan <b>vi</b> text editor.</p>
 <p>Apabila teman-teman tidak memiliki <b>vi</b>, teman-teman dapat menggunakan <b>nano</b> atau <b>vim</b>.</p>
 <pre>
@@ -180,15 +176,15 @@ $ <b>sudo EDITOR=nano virsh net-edit default</b>
 <pre>
 $ <b>sudo EDITOR=vim virsh net-edit default</b>
 </pre>
-</div>
+{% endbox_info %}
 
 Kemudian simpan.
 
 Untuk melihat hasilnya, kita dapat menggunakan perintah di bawah.
 
-<pre>
-$ <b>sudo virsh net-dumpxml default</b>
-</pre>
+{% shell_user %}
+sudo virsh net-dumpxml default
+{% endshell_user %}
 
 {% highlight_caption %}
 {% highlight xml linenos %}
@@ -218,9 +214,9 @@ Apabila sudah terdapat konfigurasi yang kita tambahkan tadi, artinya kita sudah 
 
 Karena konfigurasi IP address di virtual network ini dihandle oleh DHCP server, kita perlu me-reset ulang untuk mengaktifkan konfigurasi yang baru saja kita tambahkan.
 
-<pre>
-$ <b>sudo virsh net-destroy default</b>
-</pre>
+{% shell_user %}
+sudo virsh net-destroy default
+{% endshell_user %}
 
 ```
 Network default destroyed
@@ -229,9 +225,9 @@ Network default destroyed
 
 Kemudian, jalankan kembali virtual network nya.
 
-<pre>
-$ <b>sudo virsh net-start default</b>
-</pre>
+{% shell_user %}
+sudo virsh net-start default
+{% endshell_user %}
 
 ```
 Network default started
@@ -242,9 +238,9 @@ Network default started
 
 Restart <b>libvirtd.service</b>.
 
-<pre>
-$ <b>sudo systemctl restart libvirtd.service</b>
-</pre>
+{% shell_user %}
+sudo systemctl restart libvirtd.service
+{% endshell_user %}
 
 ## 6. ReOpen The Stage
 
@@ -252,9 +248,9 @@ Kalau teman-teman menggunakan Virtual Machine Manager, harus exit dan buka kemba
 
 Kalau teman-teman yang tidak menggunakan Virtual Machine Manager, tinggal langsung jalakan saja.
 
-<pre>
-$ <b>sudo virsh start ubuntu18.04-clone</b>
-</pre>
+{% shell_user %}
+sudo virsh start ubuntu18.04-clone
+{% endshell_user %}
 
 ```
 Domain ubuntu18.04-clone started
@@ -263,9 +259,9 @@ Domain ubuntu18.04-clone started
 
 Kemudian check statusnya.
 
-<pre>
-$ <b>sudo virsh list --all</b>
-</pre>
+{% shell_user %}
+sudo virsh list --all
+{% endshell_user %}
 
 <pre>
  Id   Name                State
@@ -279,9 +275,9 @@ Nah, sudah running.
 
 Coba ping dulu IP address dari guest instance,
 
-<pre>
-$ <b>ping -c 3 192.168.122.102</b>
-</pre>
+{% shell_user %}
+ping -c 3 192.168.122.102
+{% endshell_user %}
 
 ```
 PING 192.168.122.102 (192.168.122.102) 56(84) bytes of data.
@@ -296,9 +292,9 @@ rtt min/avg/max/mdev = 0.258/0.293/0.332/0.030 ms
 
 Selanjutnya, tinggal ssh session ke guest instance tersebut.
 
-<pre>
-$ <b>ssh deploy@192.168.122.102</b>
-</pre>
+{% shell_user %}
+ssh deploy@192.168.122.102
+{% endshell_user %}
 
 <pre>
 Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-111-generic x86_64)
@@ -320,9 +316,9 @@ Last login: Sun Jul 19 02:46:17 2020 from 192.168.122.1
 
 Kalau mau matikan tinggal jalanin.
 
-<pre>
-$ <b>sudo virsh shutdown ubuntu18.04-clone</b>
-</pre>
+{% shell_user %}
+sudo virsh shutdown ubuntu18.04-clone
+{% endshell_user %}
 
 ```
 Domain ubuntu18.04-clone is being shutdown
