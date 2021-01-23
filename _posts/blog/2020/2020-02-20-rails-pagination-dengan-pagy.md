@@ -69,9 +69,9 @@ gem 'pagy',          '~> 3.7', '>= 3.7.2'
 
 Jalankan bundle install
 
-<pre>
-$ <b>bundle install</b>
-</pre>
+{% shell_user %}
+bundle install
+{% endshell_user %}
 
 Setelah selesai, tambahkan module **Pagy::Backend** dan **Pagy::Frontend**.
 
