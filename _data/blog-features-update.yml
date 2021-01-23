@@ -3,6 +3,11 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '21/01/23'
+  url:
+  detail: |
+      Menghilangkan Disqus
+
 - tanggal: '21/01/22'
   url:
   detail: |
