@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Kadang saya memerlukan sebuah pananda yang benar-benar dapat menarik perhatian saya saat CPU temperature mencapai suhu tinggi. Tujuannya agar saya dapat mengambil tindakan antisipasi. Saya memang sudah memiliki status indikator. Namun, masih belum cukup menarik perhatian saya, terutama saat saya tidak sedang berada di depan laptop dan laptop sedang digunakan untuk mengcompile."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -112,9 +112,9 @@ Teman-teman bisa mengolahnya sendiri untuk menangkap nilai dari core yang lain.
 
 Selanjutnya, berikan permission untuk execute.
 
-<pre>
-$ <b>chmod +x notify-hightemp</b>
-</pre>
+{% shell_user %}
+chmod +x notify-hightemp
+{% endshell_user %}
 
 Copykan ke direktori `/usr/bin/` untuk dieksekusi semua user atau `~/.local/bin/` untuk user kita saja.
 
@@ -171,9 +171,9 @@ cd thinkalert
 
 Isinya cuma dua file.
 
-<pre>
-$ <b>ls</b>
-</pre>
+{% shell_user %}
+ls
+{% endshell_user %}
 
 ```
 README.md  thinkalert  thinkalert.c

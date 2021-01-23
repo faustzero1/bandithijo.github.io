@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Fitur tethering Wi-Fi mungkin mudah didapatkan apabila menggunakan Desktop Environment tertentu. Karena biasanya sudah menyediakan menu untuk berbagi network dengan Wi-Fi. Namun, bagaimana apabila kita menggunakan Window Manager? comprehensive network manager seperti NetworkManager sejauh yang saya tahu, belum memiliki fitur ini, namun ConnMan sudah memiliki fitur Wi-F- tethering. Namun, jangan khawatir, sudah ada tools yang standalone yang dapat menyediakan layanan Wi-Fi tethering, yaitu create_ap."
 ---
 
 <!-- BANNER OF THE POST -->

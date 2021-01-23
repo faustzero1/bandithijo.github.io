@@ -12,7 +12,7 @@ tags: ['Tips', 'Database', 'Arch Linux']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production)."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -79,13 +79,13 @@ Saya anggap mayoritas dari teman-teman pasti menggunakan `sudo`.
 Apabila berhasil, akan menampilkan shell akan diawali dengan bentuk seperti di bawah ini.
 
 <pre>
-[postgres]$ <b>_</b>
+<span class="cmd">[postgres]$ </span><b>_</b>
 </pre>
 
 Atau, apabila teman-teman sudah pernah mengkonfigurasi nama hostname pada Arch, akan menjadi seperti ini.
 
 <pre>
-[postgres@THINKPAD-X61]$ <b>_</b>
+<span class="cmd">[postgres@THINKPAD-X61]$ </span><b>_</b>
 </pre>
 
 Intinya adalah kita sudah berpindah menggunakan user `postgres`.
@@ -95,7 +95,7 @@ Intinya adalah kita sudah berpindah menggunakan user `postgres`.
 Kita perlu mengeset *default data directory*, biar mudah tidak usah *custom* deh, ikutin *default*-nya saja, seperti yang dicontohkan oleh Arch Wiki.
 
 <pre>
-[postgres]$ <b>initdb -D /var/lib/postgres/data</b>
+<span class="cmd">[postgres]$ </span><b>initdb -D /var/lib/postgres/data</b>
 </pre>
 
 `-D` menunjukkan lokasi *default* dimana *database cluster* harus disimpan.
@@ -105,7 +105,7 @@ Secara *default* inisialisasi di atas akan menggunakan *default locale* dan *enc
 Namun, kalau teman-teman merasa tidak pernah mengesetnya dan tidak mengerti, sebaiknya gunakan cara di bawah ini saja untuk berjaga-jaga. Karena saya khawatir beberapa diantara teman-teman ada yang belum mengkonfigrasi *locale* secara benar karena hanya ikut-ikutan memasang Arch Linux.
 
 <pre>
-[postgres]$ <b>initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data</b>
+<span class="cmd">[postgres]$ </span><b>initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data</b>
 </pre>
 
 Setelah kita tekan tombol <kbd>ENTER</kbd>, makan akan keluar *output* seperti di bawah ini.
@@ -146,7 +146,7 @@ Langkah selanjutnya kita perlu menjalankan service dari PostgreSQL.
 Keluar dari user `postgres` dengan perintah
 
 <pre>
-[postgres]$ <b>exit</b>
+<span class="cmd">[postgres]$ </span><b>exit</b>
 </pre>
 
 ### Jalankan PostgreSQL Service
@@ -166,6 +166,7 @@ sudo systemctl enable postgresql.service
 {% endshell_user %}
 
 Apabila berhasil akan menampilkan *output* seperti di bawah ini.
+
 ```
 Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
 ```
@@ -224,7 +225,7 @@ sudo -iu postgres
 Kemudian, buat user baru.
 
 <pre>
-[postgres]$ <b>createuser --interactive</b>
+<span class="cmd">[postgres]$ </span><b>createuser --interactive</b>
 </pre>
 
 Kita akan disuguhkan 2 buah pertanyaan mengenai nama user dan role.
@@ -243,7 +244,7 @@ Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username L
 Kita **HARUS** membuat database untuk user yang baru saja kita buat. Kalau tidak, tentu saja tidak akan dapat kita gunakan.
 
 <pre>
-[postgres]$ <b>createdb <mark>bandithijo</mark></b>
+<span class="cmd">[postgres]$ </span><b>createdb <mark>bandithijo</mark></b>
 </pre>
 
 Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.
@@ -267,6 +268,7 @@ bandithijo=# _
 
 Mantap!
 
+<br>
 Langkah selanjutnya, kita perlu merubah kepemilikan (*owner*) dari database atas nama username yang tadi kita buat menggunakan user `postgres`.
 
 Cek dulu dengan perintah,
@@ -332,6 +334,23 @@ bandithijo=# <b>\l</b>
 Mantap!
 
 Sekarang database kita sudah menjadi milik kita.
+
+{% box_info %}
+<p markdown=1>**Cara alternatif membuat user**</p>
+<p markdown=1>Untuk membuat **user** dan **database**, selain menggunakan cara di atas (postgres user shell), kita juga dapat membuatnya dengan **psql**.</p>
+<p markdown=1>Masuk ke dalam psql interaktif shell dengan user postgres.</p>
+{% shell_user %}
+psql -U postgres
+{% endshell_user %}
+<p markdown=1>Jalankan query-query di bawah ini satu persatu secara urut.</p>
+<pre>
+<span class="cmd">postgres=# </span><b>CREATE USER <mark>username</mark> SUPERUSER CREATEDB;</b>
+<span class="cmd">postgres=# </span><b>CREATE DATABASE <mark>username</mark> OWNER <mark>username</mark>;</b>
+</pre>
+<p markdown=1>\*Ganti *username* dengan username teman-teman.</p>
+<p markdown=1>Dengan begini, kita telah membuat user dan database atas nama username kita.</p>
+{% endbox_info %}
+
 
 # Tambahan
 

@@ -12,18 +12,17 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Memiliki Home direktori yang terenkripsi bukan berarti kita hanya dapat mengeset password hanya pada saat pertama kali enkripsi dibuat dan tidak dapat menggantinya. Tentu saja kita dapat menggantinya. Catatan berikut ini mudah-mudahan dapat membantu kalian memberikan gambaran, tentang bagaimana mengganti password terhadap home direktori yang terenkripsi."
 ---
 
 <!-- BANNER OF THE POST -->
 <!-- <img class="post&#45;body&#45;img" src="{{ site.lazyload.logo_blank_banner }}" data&#45;echo="#" alt="banner"> -->
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
+{% box_perhatian %}
 <p>Lakukan <i>backup</i> data sebelum melakukan proses di bawah.</p>
 <p>Segala bentuk kerugian, seperti kehilangan data maupun rusaknya perangkat yang kalian gunakan, bukan merupakan tanggung jawab penulis.</p>
 <p><i>Do with Your Own Risk!</i></p>
-</div>
+{% endbox_perhatian %}
 
 # Prakata
 
@@ -64,27 +63,29 @@ Namun, **saya sangat merekomendasikan untuk *logout* terlebh dahulu, dan menggun
 
 2. Masuk ke TTY shell. Bisa TTY2 - TTY6. Pilih saja yang kosong.
 
-    Dengan cara <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2
+   Dengan cara <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2
 
 3. Login dengan **root**.
 
 4. Jalankan perintah di bawah ini untuk mengganti *password* Home direktori yang terenkripsi dengan eCryptfs.
 
-    <pre>
-# <b>ecryptfs-rewrap-passphrase /home/.ecryptfs/<mark>bandithijo</mark>/.ecryptfs/wrapped-passphrase</b></pre>
+   {% shell_root %}
+ecryptfs-rewrap-passphrase /home/.ecryptfs/<mark>bandithijo</mark>/.ecryptfs/wrapped-passphrase
+{% endshell_root %}
 
-    Jangan lupa mengganti <mark>bandithijo</mark>, dengan username yang teman-teman gunakan.
+   Jangan lupa mengganti <mark>bandithijo</mark>, dengan username yang teman-teman gunakan.
 
-    Apabila berhasil, akan mengeluarkan *output* seperti di bawah ini.
-```
-Old wrapping passphrase: _
-```
+   Apabila berhasil, akan mengeluarkan *output* seperti di bawah ini.
 
-    Masukkan Terlebih dahulu *password* lama, kemudian baru dua kali *password* baru.
+   ```
+   Old wrapping passphrase: _
+   ```
+
+   Masukkan Terlebih dahulu *password* lama, kemudian baru dua kali *password* baru.
 
 5. Dengan begini, proses mengganti *passphrase* dari Home direktori yang terenkripsi dengan eCryptfs telah selesai.
 
-    **Jangan *logout* dulu, karena kita akan lanjut ke tahap berikutnya**.
+   **Jangan *logout* dulu, karena kita akan lanjut ke tahap berikutnya**.
 
 ## Mengganti Password User
 

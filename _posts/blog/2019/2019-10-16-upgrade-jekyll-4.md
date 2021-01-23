@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Ceria proses upgrde Jekyll 3.8.6 ke 4.0.0 dari BanditHijo (R)-Chive."
 ---
 
 <!-- BANNER OF THE POST -->
