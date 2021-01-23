@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Semakin bertambahnya jumlah artikel di BanditHijo blog, mungkin akan memperlambat proses generate static blog ini. Maka dari itu, saya memilih untuk memisahkan beberapa gem yang hanya akan saya gunakan saat di local development, sebagiannya saya jalankan hanya di level production."
 ---
 
 # Latar Belakang Masalah

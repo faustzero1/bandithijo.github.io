@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Saya tidak menyangka, kalau di GNU/Linux, kita dapat dengan bebas membuat dan mengatur resolusi dari monitor. Baik external maupun internal. Kalau di sistem operasi lain, mungkin harus menggunakan tools yang berbayar."
 ---
 
 # Latar Belakang Masalah

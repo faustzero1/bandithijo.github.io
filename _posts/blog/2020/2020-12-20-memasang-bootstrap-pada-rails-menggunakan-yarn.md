@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Mungkin belum ada gem yang menyediakan integrasi Bootstrap 4 dengan Rails 6. Jangan khawatir, karena kita tetap dapat memasang Bootstrap 4 dengan menggunakan Yarn. Caranya juga sangat mudah sekali!"
 ---
 
 # Latar Belakang

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Bluetoothctl adalah interaktif shell yang dapat kita gunakan untuk berinteraksi dengan bluetooth device tanpa perlu menggunakan GUI tool seperti Blueman Manager atau Blueman applet (trayicon). Cukup dengan bermodalkan Terminal, kita dapat melakukan power on, scan on, pairing, connecting dan disconnecting."
 ---
 
 # Latar Belakang

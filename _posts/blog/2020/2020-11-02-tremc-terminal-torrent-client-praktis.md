@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Sebelumnya, saya sering menggunakan torrent client favorit saya sejak masih menggunakan OSX, yaitu Transmission. Namun, ternyata transmission memiliki daemon yang berjalan di background, lantas saya terpikir, kenapa tidak menggunakan user interface yang lebih sederhana, bukan dengan GUI melainkan dengan TUI. Tremc adalah salah satu user interface alternatif untuk transmission daemon yang dapat kita operasikan cukup menggunakan Terminal."
 ---
 
 # Latar Belakang

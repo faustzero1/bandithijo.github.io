@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Pada umumnya, tutorial ActionMailer pasti mendemonstrasikan penggunaan SendGrid dengan Heroku. Sudah terlalu mainstream, dan juga sejak SendGrid diakuisisi, jadi lebih sering gagal. Catatan kali ini mungkin dapat membantu teman-teman agar dapat menggunakan layanan Gmail saja. Hari gini, siapa yang gak pakai Gmail?"
 ---
 
 # Latar Belakang Masalah

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Hal yang masih menjadi misteri buat saya saat menggunakan Bootstrap adalah, hampir semua elemen seperti button, input field, card, alerts, dan lain-lain, sudah menggunakan rounded corner. Tapi kenapa tabel masih belum? Catatan kali ini adalah cara yang saya lakukan untuk membuat Bootstrap tabel memiliki rounded corner."
 ---
 
 # Latar Belakang

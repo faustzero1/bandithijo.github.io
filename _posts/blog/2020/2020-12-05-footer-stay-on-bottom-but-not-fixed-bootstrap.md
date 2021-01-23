@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Footer yang menempel pada body content memang mengesalkan. Terutama bila content masih sedikit. Maka footer akan menempel pada body dengan sangat manja. Catatan ini adalah solusi bagaimana agar footer tetap berada di bagian paling bawah dari halaman meskipun content yang tersedia masih sedikit."
 ---
 
 # Latar Belakang
