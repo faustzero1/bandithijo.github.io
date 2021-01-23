@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Bukan berarti Vim hanya dapat dipanggil dari dalam Terminal saja. Tapi Vim juga dapat dipanggil untuk melakukan 'Open with...' dari dalam File Manager GUI seperti Nautilus dan Thunar."
 ---
 
 # Sekenario Masalah

@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Aplikasi translator ini sangat convenient untuk digunakan. Karena kita dapat menerjemahkan kata/kalimat apa saja yang kita temui di desktop, selama kata/kalimat tersebut dapat diseleksi."
 ---
 
 # Latar Belakang

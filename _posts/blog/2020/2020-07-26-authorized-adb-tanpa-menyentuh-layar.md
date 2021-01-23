@@ -12,7 +12,7 @@ tags: ['Tips', 'Android']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Ide tulisan ini, bermula dari keinginan saya untuk menggambil data yang ada di dalam Smartphone Android yang telah rusak layarnya."
 ---
 
 # Sekenario Masalah

@@ -12,7 +12,7 @@ tags: ['Ulasan', 'Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Tools untuk mengatur kombinasi keyboard (keybind) yang independent. Dapat kita gunakan pada Window Manager atau Desktop Environment apa pun. Konfigurasinya juga menggunakan Bash, dan sangat mudah untuk dikonfigurasi. Cukup fleksibel untuk bermain-main dengan berbagai macam bentuk kombinasi keyboard shortcut. Dengan begini, kita tidak perlu lagi pusing dengan keybind apabila kita ingin mencoba-coba Window Manager yang berbeda."
 ---
 
 # Latar Belakang

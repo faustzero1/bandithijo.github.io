@@ -12,7 +12,7 @@ tags: ['Tips', 'Arch Linux']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Kita dapat memanfatkan GRUB untuk melakukan booting ke dalam ISO yang berada di dalam HardDrive. Dengan begini, kita dapat memanfaatkannya sebagai recovery sistem, apabila sewaktu-waktu sistem kita error dan kita memerlukan ISO dari distribusi yang kita gunakan untuk melakukan chroot. Jadi, tidak perlu lagi menggunakan FlashDrive."
 ---
 
 # Latar Belakang Masalah

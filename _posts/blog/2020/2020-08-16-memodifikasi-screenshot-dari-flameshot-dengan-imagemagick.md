@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Memodifikasi ScreenShot dari Flameshot dengan ImageMagick"
+title: "Memodifikasi Hasil ScreenShot dari Flameshot dengan ImageMagick"
 date: 2020-08-16 10:13
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Ide untuk mempercantik hasil screenshot dari Flameshot ini terinspirasi dari gambar-gambar hasil screenshot yang diproduksi oleh sistem operasi OSX. Jangan khawatir, di GNU/Linux, kita juga dapat membuat hal serupa, malah bisa lebih keren karena kita dapat dengan bebas memodifikasinya. Dengan begini, hasil screenshot setiap orang, akan jadi unik dan khas, sesuai dengan karakter masing-masing."
 ---
 
 # Sekenario Masalah
@@ -324,7 +324,7 @@ convert #{target_file} -profile #{color_profile} #{target_file}
 
 ## Save to Clipboard!
 
-Apabila telah selesai melakukan screnshot, kita dapat menyimpan dengan menekan tombol <kbd>ENTER</kbd>.
+Apabila telah selesai melakukan screenshot, kita dapat menyimpan dengan menekan tombol <kbd>ENTER</kbd>.
 
 Maka, hasil screenshot kita akan disimpan ke clipboard.
 

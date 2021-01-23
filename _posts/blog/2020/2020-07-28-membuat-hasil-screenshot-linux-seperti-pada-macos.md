@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Ide untuk mempercantik hasil screenshot ini terinspirasi dari gambar-gambar hasil screenshot yang diproduksi oleh sistem operasi OSX. Jangan khawatir, di GNU/Linux, kita juga dapat membuat hal serupa, malah bisa lebih keren karena kita dapat dengan bebas memodifikasinya. Dengan begini, hasil screenshot setiap orang, akan jadi unik dan khas, sesuai dengan karakter masing-masing."
 ---
 
 # Sekenario Masalah

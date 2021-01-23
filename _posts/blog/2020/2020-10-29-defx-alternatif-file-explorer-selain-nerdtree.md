@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan', 'Vim']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Alternatif Vim file explorer selain NERDTree yang dapat teman-teman jadikan pilihan untuk memanajemen file saat menggunakan Vim."
 ---
 
 # Latar Belakang

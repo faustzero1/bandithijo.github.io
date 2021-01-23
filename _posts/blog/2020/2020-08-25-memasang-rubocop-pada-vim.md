@@ -12,7 +12,7 @@ tags: ['Tips', 'Vim', 'Ruby']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Linter merupakan tools untuk mengecek aturan menulis kode program dari bahasa yang kita pergunakan. Menggunakan linter sudah menjadi kewajiban kalau kita membangun program secara kolaborasi. Agar baris kode yang kita tulis dapat seragam dengan programer yang lain. Ruby memiliki salah satunya linter yang cukup banyak digunakan yaitu Rubocop. Catatan kali ini mungin dapat membantu teman-teman untuk mengkonfigurasi Rubocop dengan Vim text editor."
 ---
 
 # Latar Belakang Masalah
