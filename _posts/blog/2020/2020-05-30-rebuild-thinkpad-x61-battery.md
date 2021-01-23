@@ -12,7 +12,7 @@ tags: ['Tips', 'ThinkPad']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Dalam project ini, saya iseng merakit battery untuk ThinkPad X61. Tujuannya agar saya dapat terbebas dari cekikan vendor jualan ThinkPad Battery. Dengan begini, saya tetap dapat menggunakan ThinkPad X61 dalam waktu yang lama tanpa khawatir tercekik dengan biaya battery replacement."
 ---
 
 <!-- BANNER OF THE POST -->

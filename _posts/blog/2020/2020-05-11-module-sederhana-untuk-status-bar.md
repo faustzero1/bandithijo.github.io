@@ -12,7 +12,7 @@ tags: ['Tips', 'Script']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Module-module bash script ini dapat digunakan untuk status bar. Saya menggunakannya untuk dwm status saya. Bukan yang terbaik tapi cukup untuk memenuhi kebutuhan saya akan status indikator."
 ---
 
 <!-- BANNER OF THE POST -->

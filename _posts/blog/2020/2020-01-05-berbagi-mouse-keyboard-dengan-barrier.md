@@ -12,7 +12,7 @@ tags: ['Tips', 'Tools', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Mungkin gak sih mengoperasikan banyak komputer hanya dengan satu keyboard dan mouse? Sangat mungkin! Kita dapat menggunakan tools bernama Barrier. Barrier ini mirip dengan aplikasi berbayar Synergy. Kita dapat membuat 1 komputer menjadi server dan komputer-komputer lain sebagai client. Dengan begini, kita dapat mengontrol kursor dan keyboard hanya dari komputer server."
 ---
 
 <!-- BANNER OF THE POST -->

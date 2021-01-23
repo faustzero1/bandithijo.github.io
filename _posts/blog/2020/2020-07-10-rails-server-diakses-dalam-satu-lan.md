@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Kita dapat membuat Rails aplikasi yang kita bangun di local environment sistem kita membuka akes broadcast ke local network. Sehingga, semua perangkat yang berada pada satu network yang sama, dapat mengakses Rails aplikasi yang ada di local sistem kita."
 ---
 
 # Sekenario Masalah

@@ -12,7 +12,7 @@ tags: ['Tips', 'Javascript']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Membuat fitur image fullscreen apabila diklik, dengan element modal menggunakan JavaScript, tanpa JQuery."
 ---
 
 # Sekenario Masalah

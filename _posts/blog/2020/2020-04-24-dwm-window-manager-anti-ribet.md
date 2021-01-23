@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume:
+resume: 
 ---
 
 <!-- BANNER OF THE POST -->

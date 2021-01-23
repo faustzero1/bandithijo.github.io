@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Navigasi next & previouse dalam sebuah post mungkin diperlukan untuk memudahkan pengunjung menelusuri blog."
 ---
 
 <!-- BANNER OF THE POST -->

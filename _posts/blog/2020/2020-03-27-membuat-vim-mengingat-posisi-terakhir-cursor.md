@@ -12,7 +12,7 @@ tags: ['Tips', 'Vim']
 pin:
 hot:
 contributors: []
-excerpt:
+resume: "Ketika kita mengerjakan sebuah proyek, akan sangat membantu apabila cursor dapat tersimpan di posisi terakhir kita meninggalkannya. Apakah ini mungkin dilakukan oleh Vim? Tentu saja!"
 ---
 
 <!-- BANNER OF THE POST -->

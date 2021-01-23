@@ -12,7 +12,7 @@ tags: ['Tips', 'FreeBSD']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Selama ini, saya selalu menggunkan tools pengarsipan GUI. Ternyata dengan 7zip, pengarsipan di Terminal juga jadi lebih mudah. Ada banyak sekali option dan parameter yang dapat kita gunakan. Tapi saya hanya mencatat sebagian kecil yang saya perlukan."
 ---
 
 <!-- BANNER OF THE POST -->

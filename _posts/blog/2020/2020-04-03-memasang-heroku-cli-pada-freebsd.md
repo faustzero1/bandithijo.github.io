@@ -12,7 +12,7 @@ tags: ['Tips', 'FreeBSD']
 pin:
 hot:
 contributors: []
-excerpt:
+resume:
 ---
 
 resume BANNER OF THE POST -->

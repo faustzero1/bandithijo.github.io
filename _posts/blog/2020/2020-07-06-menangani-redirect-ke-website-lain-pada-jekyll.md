@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Cara ini, biasa saya gunakan untuk mempercantik alamat URL yang kurang ramah untuk diingat."
 ---
 
 # Sekenario Masalah

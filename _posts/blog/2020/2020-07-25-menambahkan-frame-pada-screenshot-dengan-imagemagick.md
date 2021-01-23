@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Ide untuk memberikan framing ini muncul saat saya ingin membuat thumbnails di YouTube untuk video dengan resolusi layar saya yang berukuran 4:3, sedangkan thumbnail setidaknya memiliki resolusi berukuran 16:9."
 ---
 
 # Sekenario Masalah

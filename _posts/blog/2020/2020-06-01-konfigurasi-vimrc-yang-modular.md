@@ -12,7 +12,7 @@ tags: ['Tips', 'Vim']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Mengelola dan mengkonfigurasi vimrc yang sudah sangat panjang (ribuan baris) mungkin akan membingungkan. Kita bisa membuat vimrc yang modular untuk memisahkan beberapa komponen-komponen sesuai dengan fungsinya. Dengan begini, diharapkan akan lebih mudah untuk dikelola."
 ---
 
 <!-- BANNER OF THE POST -->
