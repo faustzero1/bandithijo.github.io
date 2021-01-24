@@ -272,9 +272,72 @@ bundle exec jekyll server
 Nah, sederhana kan?
 
 
+## Liquid::Block dengan Parameter
 
+Untuk membuat Liquid::Block dengan Parameter, cukup tricky tapi mungkin.
 
+Saya akan contohkan lagi untuk Command Prompt tapi dapat kita definisikan sendiri bentuk dari prompt dan warnanya.
 
+Seperti ini misalnya,
+
+{% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
+{% highlight liquid %}
+{% raw %}{% shell_cmd [arch@iso ~]# | DC322F %}
+mkdir project
+cd project
+git clone https://github.com/bandithijo/new_project
+cd new_project
+bundle exec jekyll server
+{% endshell_cmd %}{% endraw %}
+{% endhighlight %}
+
+Hasilnya,
+
+{% shell_cmd [arch@iso ~]# | DC322F %}
+mkdir project
+cd project
+git clone https://github.com/bandithijo/new_project
+cd new_project
+bundle exec jekyll server
+{% endshell_cmd %}
+
+Nah! Codenya seperti ini.
+
+{% highlight_caption _plugins/shells.rb %}
+{% highlight ruby linenos %}
+module Jekyll
+  class ShellCommand < Liquid::Block
+    def initialize(tag_name, input, tokens)
+      super
+      @input = input
+    end
+
+    def render(context)
+      params = split_params(@input)
+      prompt_symbol = params[0].strip
+      color = params[1].strip if params.length > 1
+
+      commands = super.split("\n")
+      output  = '<pre>'
+      output += commands[1..].map do |i|
+        if color&.nil? && color&.empty?
+          "<span class='cmd'>#{prompt_symbol} </span><b>#{i}</b><br>"
+        else
+          "<span class='cmd' style='color:##{color};'>#{prompt_symbol} </span><b>#{i}</b><br>"
+        end
+      end.join.to_s
+      output += '</pre>'
+      output
+    end
+
+    def split_params(params)
+      params.split(' | ')
+    end
+  end
+end
+
+Liquid::Template.register_tag('shell_cmd',  Jekyll::ShellCommand)
+{% endhighlight %}
 
 
 
@@ -303,3 +366,6 @@ Terima kasih.
 
 2. [jekyllrb.com/docs/plugins/your-first-plugin/](https://jekyllrb.com/docs/plugins/your-first-plugin/){:target="_blank"}
 <br>Diakses tanggal: 2021/01/22
+
+3. [blog.sverrirs.com/2016/04/custom-jekyll-tags.html](https://blog.sverrirs.com/2016/04/custom-jekyll-tags.html){:target="_blank"}
+<br>Diakses tanggal: 2021/01/25
