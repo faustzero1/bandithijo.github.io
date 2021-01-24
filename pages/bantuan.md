@@ -25,50 +25,29 @@ Halaman bantuan BanditHijo (R)-Chive. Ini adalah halaman yang berisi beberapa pe
 Berikut ini adalah contoh _command line interface_,
 
 ## User Terminal
-```
-$ sudo pacman -Syu
-```
+
+{% shell_user %}
+sudo pacman -Syu
+{% endshell_user %}
 
 ## Root Terminal
-```
-# pacman -Syu
-```
+
+{% shell_root %}
+pacman -Syu
+{% endshell_root %}
 
 Kamu perlu menyalin / _copy & paste_ baris-perbaris tanpa diikuti dengan simbol yang ada di depannya **$** dan **#**, karena simbol ini adalah simbol yang menandakan _previlege_ dari _shell_ tersebut, apakah sedang menggunakan _user shell_ atau _root shell_.
 
-# Code & Output
-## Code
-Code dan output dapat ditampilkan dengan kotak yang bentuknya hampir sama, cara membedakannya tergantung dari konteks yang sedang dibahas.
+# Command Line & Output
 
-### Single Line Code
-```python
-print('Hello, mas Bro !')
-```
-```
-Hello, mas Bro !
-```
+## Output dari Terminal Command
 
-### Multi Line Code
-```python
-if bandit in range(5):
-    print(angka)
-```
-```
-bandit
-bandit
-bandit
-bandit
-bandit
-```
+Output dari Terminal, akan langsung ditampilkan di bawah dari command.
 
-### Code in Paragraph
-Ini adalah contoh `code` di dalam sebuah paragraf
+{% shell_user %}
+sudo pacman -Syu
+{% endshell_user %}
 
-## Output
-### Output dari Terminal Command
-```
-$ sudo pacman -Syu
-```
 ```
 :: Synchronizing package databases...
  core                                                                         130.1 K
@@ -81,11 +60,16 @@ looking for conflicting packages...
 
 ```
 
-### Output dari Text Editor
-```
-$ sudo vim /etc/pam.d/polkit-1
-```
-```
+## Output dari Text Editor
+
+Ketika membuka text editor, outputnya juga akan ditampilkan di bawahnya.
+
+{% shell_user %}
+sudo vim /etc/pam.d/polkit-1
+{% endshell_user %}
+
+{% highlight_caption /etc/pam.d/polkit-1 %}
+{% highlight sh linenos %}
 #%PAM-1.0
 
 auth       sufficient   pam_fprintd.so
@@ -93,43 +77,112 @@ auth       include      system-auth
 account    include      system-auth
 password   include      system-auth
 session    include      system-auth
+{% endhighlight %}
+
+# Code & Output
+
+Code dan output dapat ditampilkan dengan kotak yang bentuknya hampir sama. Code di atas dan output ada di bawahnya, cara membedakannya tergantung dari konteks yang sedang dibahas.
+
+## Single Line Code
+
+```python
+print('Hello, mas Bro !')
 ```
+
+```
+Hello, mas Bro !
+```
+
+Kadang terdapat pula code block dengan line number dan nama file.
+
+{% highlight_caption file_name.py %}
+{% highlight python linenos %}
+print('Hello, mas Bro !')
+{% endhighlight %}
+
+```
+Hello, mas Bro !
+```
+
+## Multi Line Code
+
+```python
+# Menampilkan output sebanyak n
+if bandit in range(5):
+    print(angka)
+```
+
+```
+bandit
+bandit
+bandit
+bandit
+bandit
+```
+
+Kadang terdapat pula code block dengan line number dan nama file.
+
+{% highlight_caption file_name.py %}
+{% highlight python linenos %}
+# Menampilkan output sebanyak n
+if bandit in range(5):
+    print(angka)
+{% endhighlight %}
+
+```
+bandit
+bandit
+bandit
+bandit
+bandit
+```
+
+## Code in Paragraph
+
+Ini adalah contoh `code` di dalam sebuah paragraf. Dapat digunakan untuk menunjukkan command line, code one line, ataupun nama dari file atau direktori.
 
 # Quote
 
 ## Quote Biasa
+
 >Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group.
 
 ## Quote Perhatian
+
 Apabila terdapat hal yang sangat penting untuk disampaikan di tengah-tengah artikel, akan terdapat box seperti di bawah.
 
-<div class="blockquote-red">
-<div class="blockquote-red-title">[ ! ] Perhatian</div>
-Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group.
-</div>
+{% box_perhatian %}
+<p>Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group.</p>
+{% endbox_perhatian %}
 
 ## Quote Informasi
+
 Box informasi akan diberikan apabila terdapat informasi yang ingin ditekankan oleh penulis. Tampilan box informasi akan seperti di bawah.
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href=""><b>Cara Mendaftar Akun Netacad</b></a>
-</div>
+{% box_info %}
+<p>Kabar gembira! Bagi teman-teman yang belum mempunyai akun netacad untuk mendownload Cisco Packet Tracer, dapat terlebih dahulu membaca instruksi yang diberikan oleh mas <b>fathurhoho</b> pada tautan berikut ini >> <a href=""><b>Cara Mendaftar Akun Netacad</b></a></p>
+{% endbox_info %}
 
 ## Quote Pertanyaan
+
 Apabila terdapat pertanyaan-pertanyaan yang sering diajukan, saya akan menampilkannya dalam box seperti di bawah.
 
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Apakah penulis juga menggunakan fingerprint scanner saat login ?</div>
-Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem.
-</div>
+{% box_pertanyaan %}
+<p><b>Apakah penulis juga menggunakan fingerprint scanner saat login?</b></p>
+<p>Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem.</p>
+{% endbox_pertanyaan %}
 
 # Gambar
+
+Gambar yang ada di dalam post, dapat diklik untuk memperbesar. Lalu, klik di area mana saja untuk keluar.
+
 ## Gambar Besar
+
 ![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxBZdyR4/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 1 - Contoh gambar besar</p>
 
 ## Gambar Kecil
+
 ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1b8SQzs/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
 <p class="img-caption">Gambar 2 - Contoh gambar kecil</p>
 
