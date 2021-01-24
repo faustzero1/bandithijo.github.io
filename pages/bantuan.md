@@ -15,7 +15,7 @@ Halaman bantuan BanditHijo (R)-Chive. Ini adalah halaman yang berisi beberapa pe
 
 # Anatomi Blog
 
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Hkr6B2P9/gambar-03.png"}
+{% image https://i.postimg.cc/Hkr6B2P9/gambar-03.png | 3 %}
 
 1. **Navigation Menu**
 2. **Body Blog**: Dapat berubah-ubah sesuai dengan judul dari halaman
@@ -178,13 +178,11 @@ Gambar yang ada di dalam post, dapat diklik untuk memperbesar. Lalu, klik di are
 
 ## Gambar Besar
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxBZdyR4/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Contoh gambar besar</p>
+{% image https://i.postimg.cc/yxBZdyR4/gambar-01.png | 1 | Contoh gambar besar %}
 
 ## Gambar Kecil
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1b8SQzs/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Contoh gambar kecil</p>
+{% image https://i.postimg.cc/C1b8SQzs/gambar-02.png | 2 | Contoh gambar kecil %}
 
 # Bullets & Numbering
 ## Bullets
@@ -224,9 +222,9 @@ Untuk instruksi berupa tekan tombol tertentu pada _keyboard_, akan ditampillkan 
 
 # Fitur Tambahan
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXGmRr1Z/gambar-04.png"}
+{% image https://i.postimg.cc/sXGmRr1Z/gambar-04.png | 4 %}
 
 Untuk memenuhi kebutuhan area baca yang lebih lebar, teman-teman dapat menggunakan tombol seperti ini
 <span style="background:#008352;color:#FFF;font-weight:bold;border-radius:3px;padding:1px 2px;">&#9776;</span> yang tepat berada di samping kanan dari judul artikel.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Hsyq9q2n/gambar-05.png"}
+{% image https://i.postimg.cc/Hsyq9q2n/gambar-05.png | 5 %}
