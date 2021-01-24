@@ -164,17 +164,17 @@ postgres=# _
 <br>
 Saatnya membuat user role dengan nama yang sama dengan username sistem kita.
 
-<pre>
-postgres=# <b>CREATE USER bandithijo SUPERUSER CREATEDB;</b>
-</pre>
+{% shell_cmd postgres=# %}
+CREATE USER bandithijo SUPERUSER CREATEDB;
+{% endshell_cmd %}
 
 Saya juga memberikan role berupa **SUPERUSER** dan **CREATEDB**.
 
 Cek apakah sudah terdaftar, dengan perintah:
 
-<pre>
-postgres=# <b>\du;</b>
-</pre>
+{% shell_cmd postgres=# %}
+\du;
+{% endshell_cmd %}
 
 <pre>
                                     List of roles
@@ -190,15 +190,15 @@ Sip, sudah terdaftar.
 <br>
 Kemudian, buat database dengan nama yang sama dengan nama user role kita.
 
-<pre>
-postgres=# <b>CREATE DATABASE bandithijo OWNER bandithijo;</b>
-</pre>
+{% shell_cmd postgres=# %}
+CREATE DATABASE bandithijo OWNER bandithijo;
+{% endshell_cmd %}
 
 Cek apakah database berhasil dibuat, dengan perintah:
 
-<pre>
-postgres=# <b>\l</b>
-</pre>
+{% shell_cmd postgres=# %}
+\l;
+{% endshell_cmd %}
 
 <pre>
                                              List of databases
@@ -292,9 +292,9 @@ postgres=# _
 
 Jalankan perintah di bawah ini untuk melihat lokasi dari direktori data.
 
-<pre>
-postgres=# <b>SHOW data_directory;</b>
-</pre>
+{% shell_cmd postgres=# %}
+SHOW data_directory;
+{% endshell_cmd %}
 
 <pre>
       data_directory
@@ -313,9 +313,9 @@ Tentunya lokasi ini bukan lokasi yang ada pada Host sistem kita, melainkan lokas
 
 Lihat nama atau container_id, dari postgres container yang mau dicopy datanya.
 
-{% shell_user %}
+{% shell_cmd $ %}
 docker container ls
-{% endshell_user %}
+{% endshell_cmd %}
 
 <pre>
 CONTAINER ID   IMAGE           COMMAND                  CREATED       STATUS          PORTS                    NAMES
