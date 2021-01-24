@@ -2032,12 +2032,6 @@ div.highlight-caption code {
 /* Untuk mengcover layar fullhd */
 @media (width: 1920px) {
 
-  /* .penulis-img { */
-  /*   float: left; */
-  /*   margin: 0 10px 0 0; */
-  /*   width: 5.5em; */
-  /* } */
-
   .kontributor-img {
     margin: 2px;
     width: 4%;
@@ -2060,12 +2054,6 @@ div.highlight-caption code {
     width: auto;
     float: none;
   }
-
-  /* aside.sidebar { */
-  /*   width: 25%; */
-  /*   float: right; */
-  /*   margin-right: 20px; */
-  /* } */
 }
 
 @media (max-width: 1320px) {
@@ -2076,8 +2064,6 @@ div.highlight-caption code {
 
   .post {
     padding: 21px 20px;
-    /* width: 68.0%; */
-    /* float: left; */
   }
 
   .post-wide {
@@ -2085,12 +2071,6 @@ div.highlight-caption code {
     width: auto;
     float: none;
   }
-
-  /* aside.sidebar { */
-  /*   width: 25%; */
-  /*   float: right; */
-  /*   margin-right: 20px; */
-  /* } */
 }
 
 @media (max-width: 1268px) {
@@ -2124,12 +2104,6 @@ div.highlight-caption code {
     width: auto;
     float: none;
   }
-
-  /* aside.sidebar { */
-  /*   width: 25%; */
-  /*   float: right; */
-  /*   margin-right: 20px; */
-  /* } */
 }
 
 @media (max-width: 1150px) {
@@ -2168,14 +2142,6 @@ div.highlight-caption code {
   #header .nav ul {
     margin-top: 2.9em;
   }
-
-  /* .post { */
-  /*   width: 66.0%; */
-  /* } */
-
-  /* aside.sidebar { */
-  /*   width: 27%; */
-  /* } */
 }
 
 @media (max-width: 768px) {
