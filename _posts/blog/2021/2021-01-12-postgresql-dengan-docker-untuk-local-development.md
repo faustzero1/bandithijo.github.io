@@ -49,31 +49,31 @@ Kalau kita sudah memiliki PostgreSQL service yang berjalan, sebaiknya kita henti
 
 **systemd**
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo systemctl stop postgresql.service
-{% endshell_user %}
+{% endshell_cmd %}
 
 **OpenRC**
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo rc-service postgresql stop
-{% endshell_user %}
+{% endshell_cmd %}
 
 ## 2. Pulling PostgreSQL Docker Image
 
 Untuk versi, pada contoh kali ini saya akan menggunakan tag **13.1**.
 
-{% shell_user %}
+{% shell_cmd $ %}
 docker pull postgres:13.1
-{% endshell_user %}
+{% endshell_cmd %}
 
 Untuk tak yang lain, teman-teman dapat merujuk ke [**Docker Hub: Postgres**](https://hub.docker.com/_/postgres?tab=tags){:target="_blank"}.
 
 Setelah selesai, bisa cek images dulu untuk memastikan.
 
-{% shell_user %}
+{% shell_cmd $ %}
 docker images
-{% endshell_user %}
+{% endshell_cmd %}
 
 <pre>
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
