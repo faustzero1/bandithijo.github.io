@@ -12,7 +12,7 @@ tags: ['Ulasan', 'Tips', 'Terminal']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Z Shell juga memiliki plugin-plugin yang dapat kita manfaatkan untuk menambah fitur yang ingin kita gunakan. Untuk memanajemen plugin-plugin tersebut, saya memilih untuk menggunakan plugin manager yang bernama Zgen."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -36,15 +36,17 @@ Penjelasan mengenai **Apa itu Zgen?** dapat dibaca sendiri pada halaman GitHub d
 
 1. Backup `.zshrc`.
 
-   <pre>
-   $ <b>cp ~/.zshrc ~/.zshrc.old</b></pre>
+   {% shell_user %}
+cp ~/.zshrc ~/.zshrc.old
+{% endshell_user %}
 
    Atau bisa gunakan nama apa saja. `.bak`, `.backup`, dll.
 
 2. Cloning repository Zgen.
 
-   <pre>
-   $ <b>git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"</b></pre>
+   {% shell_user %}
+git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"
+{% endshell_user %}
 
    Hasil *cloning* di atas akan berada pada direktori `~/.zgen/`.
 

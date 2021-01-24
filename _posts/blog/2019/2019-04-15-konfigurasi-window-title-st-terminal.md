@@ -12,7 +12,7 @@ tags: ['Tips', 'Terminal']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Simple Terminal (ST) adalah terminal yang sangat minimalis. Sampai-sampai untuk membuat window title menampilkan isi dari ST, kita perlu mengkonfigurasinya sendiri. Ya, memang beginilah tujuan dari ST. Apabila ada fitur lain yang ingin digunakan, user perlu menambahkan sendiri. Karena kebutuhan masing-masing user dapat berbeda satu dengan yang lain."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -47,24 +47,24 @@ Berikut ini langkah-langkahnya.
 
 1. Tambahkan baris perintah di bawah ini ke dalam file `~/.zshrc`.
 
-    ```shell
-    # Untuk merubah titlebar dari st terminal
-    # Sumber: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5
-    case $TERM in
-        st*)
-        precmd () {
-            # menampilkan direktori aktif (kondisi default)
-            print -Pn "\e]0;st:%~\a"
-        }
-        preexec () {
-            # menampilkan program yang sedang berjalan
-            print -Pn "\e]0;st:$1\a"
-        }
-        ;;
-    esac
-    ```
+   ```shell
+   # Untuk merubah titlebar dari st terminal
+   # Sumber: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5
+   case $TERM in
+       st*)
+       precmd () {
+           # menampilkan direktori aktif (kondisi default)
+           print -Pn "\e]0;st:%~\a"
+       }
+       preexec () {
+           # menampilkan program yang sedang berjalan
+           print -Pn "\e]0;st:$1\a"
+       }
+       ;;
+   esac
+   ```
 
-    Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
+   Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
 
 2. Selesai. Coba buka **st** Terminal yang baru dan perhatikan Window Titlenya.
 

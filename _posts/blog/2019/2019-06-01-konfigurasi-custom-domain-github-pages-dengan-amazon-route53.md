@@ -80,9 +80,10 @@ Teman-teman perlu menambahkan file bernama `CNAME` yang berisi nama domain teman
 
 Contohnya seperti `CNAME` milik saya.
 
-```
+{% highlight_caption CNAME %}
+{% highlight sh %}
 bandithijo.com
-```
+{% endhighlight %}
 
 Hanya seperti itu saja isi di dalam `CNAME`.
 
@@ -102,7 +103,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 3. Buat Hosted Zone baru dengan memilih tombol biru pada bagian atas bertuliskan "**Create Hosted Zone**".
 
-    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wjdjPLWD/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wjdjPLWD/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
 4. Isikan **Domain Name:** dengan domain yang teman-teman miliki.
 
@@ -116,7 +117,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 9. Tampilannya akan seperti di bawah ini.
 
-    ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BvmZXyJC/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BvmZXyJC/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
 
 10. Saat pertama kali dibuat, hanya akan terdapat dua buah record set, **Nameservers** dan **SOA (*Start of authority*)**, seperti yang saya kotak merah pada gambar di atas.
 
@@ -139,7 +140,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 1. Buat record set A dengan memilih tombol biru **Create Record Set** di bagian atas.
 
-    ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52q2MyGT/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52q2MyGT/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
 
 2. Lalu isikan seperti gambar di atas.
 
@@ -149,12 +150,12 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 5. **Value:**, isikan dengan 4 IP address yang diberikan oleh GitHub Pages.
 
-    ```
-    185.199.108.153
-    185.199.109.153
-    185.199.110.153
-    185.199.111.153
-    ```
+   ```
+   185.199.108.153
+   185.199.109.153
+   185.199.110.153
+   185.199.111.153
+   ```
 
 6. Kemudian **Save Record Set** untuk menyimpan konfigurasi ini.
 
@@ -162,7 +163,7 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 1. Buat record set CNAME dengan memilih tombol biru **Create Record Set** di bagian atas.
 
-    ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqbKYZzR/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqbKYZzR/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
 
 2. Lalu isikan seperti gambar di atas.
 
@@ -172,9 +173,9 @@ Selanjutnya akan saya bagi dalam 3 tahapan.
 
 5. **Value:**, isikan dengan domain GitHub Pages milik teman-teman.
 
-    ```
-    username.github.io
-    ```
+   ```
+   username.github.io
+   ```
 
 6. Kemudian **Save Record Set** untuk menyimpan konfigurasi ini.
 

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -83,132 +83,144 @@ Oke, langsung saja kita eksekusi.
 
 1. Langkah pertama, kita perlu **logout** dari sistem.
 
-    Jadi, teman-teman yang berniat mengenkripsi Home direktorinya, perlu membuka post blog ini menggunakan *smartphone*.
+   Jadi, teman-teman yang berniat mengenkripsi Home direktorinya, perlu membuka post blog ini menggunakan *smartphone*.
 
 2. Masuk ke TTY shell, bisa TTY2 - TTY6, pilih saja mana yang menampilkan login shell seperti di bawah ini.
 
-    Cara masuk dan berpindah antar TTY, gunakan <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2. <kbd>F3</kbd> untuk TTY3, dan begitu seterusnya.
-    ```
-    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
+   Cara masuk dan berpindah antar TTY, gunakan <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2. <kbd>F3</kbd> untuk TTY3, dan begitu seterusnya.
 
-    BANDITHIJO-X61 login: root
-    Password: _
-    ```
-    Apabila sudah masuk ke TTY, login dengan akun **root**.
+   ```
+   Arch Linux 5.1.9-arch1-1-ARCH (tty6)
+
+   BANDITHIJO-X61 login: root
+   Password: _
+   ```
+   Apabila sudah masuk ke TTY, login dengan akun **root**.
 
 3. Setelah berhasil login dengan akun root, lakukan pengecekan apakah user yang kamu gunakan tadi masih memiliki proses yang berjalan (*running process*).
 
-    <pre>
-# <b>ps -U <mark>bandithijo</mark></b></pre>
+   {% shell_root %}
+ps -U <mark>bandithijo</mark>
+{% endshell_root %}
 
-    Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.
+   Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.
 
-    Apabila perintah di atas menampilkan *output* seperti di bawah ini.
-    ```
-    PID  TTY      TIME  CMD
+   Apabila perintah di atas menampilkan *output* seperti di bawah ini.
 
-    ```
-    Artinya, sudah tidak lagi terdapat proses yang *running* pada user tersebut.
+   ```
+   PID  TTY      TIME  CMD
 
-    Dengan begini, kita dapat lanjut ke tahap berikutnya.
+   ```
+   Artinya, sudah tidak lagi terdapat proses yang *running* pada user tersebut.
+
+   Dengan begini, kita dapat lanjut ke tahap berikutnya.
 
 
 ## Migrasi Home dengan Enkripsi
 
 1. Perintah di bawah ini akan memigrasikan atau membuat salinan (*cloning*) dari Home direktori kalian namun dalam bentuk yang sudah terenkripsi.
 
-    <pre>
-# <b>ecryptfs-migrate-home -u <mark>bandithijo</mark></b></pre>
+   {% shell_root %}
+ecryptfs-migrate-home -u <mark>bandithijo</mark>
+{% endshell_root %}
 
-    Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.
+   Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.
 
-    Perintah di atas, akan menghasilkan *output* seperti di bawah ini.
-    ```
-    INFO: Checking disk space, this may take a few minutes. Please be patient.
-    INFO: Checking for open files in /home/bandithijo
+   Perintah di atas, akan menghasilkan *output* seperti di bawah ini.
 
-    Enter your login passphrase [bandithijo]: _
-    ```
+   ```
+   INFO: Checking disk space, this may take a few minutes. Please be patient.
+   INFO: Checking for open files in /home/bandithijo
 
-    <div class="blockquote-red">
-    <div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg">Perhatian</div>
+   Enter your login passphrase [bandithijo]: _
+   ```
+
+   {% box_perhatian %}
     <p>Masukkan <b>password</b> yang sama dengan <b>login password username</b> kalian.</p>
-    </div>
+   {% endbox_perhatian %}
 
-    Perhatikan dengan seksama *output* tersebut.
+   Perhatikan dengan seksama *output* tersebut.
 
-    Kita diminta memasukkan ***passphrase*** atau ***password*** yang sama seperti password username kita.
+   Kita diminta memasukkan ***passphrase*** atau ***password*** yang sama seperti password username kita.
 
-    Tujuannya agar saat kita login menggunakan username kita, secara otomatis **eCryptfs** akan mendekripsi direktori `/home/username` yang terenkripsi.
+   Tujuannya agar saat kita login menggunakan username kita, secara otomatis **eCryptfs** akan mendekripsi direktori `/home/username` yang terenkripsi.
 
-    Proses ini akan memakan ~~sedikit~~ waktu, tergantung dari banyaknya file yang terdapat di dalam Home direktori yang dienkripsi.
+   Proses ini akan memakan ~~sedikit~~ waktu, tergantung dari banyaknya file yang terdapat di dalam Home direktori yang dienkripsi.
 
 2. Setelah proses enkripsi selesai, kita dapat *logout* (**jangan *reboot**).
-   <pre>
-   $ <b>exit</b></pre>
+
+   {% shell_user %}
+exit
+{% endshell_user %}
 
 ## Pengetesan Dekrip Home Direktori
 
 Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pengetesan apakah proses enkripsi terhadap Home direktori yang kita lakukan telah berhasil.
 
 1. *Login* kembali menggunakan user yang Home direktorinya baru saja kita enkripsi.
-    ```
-    Arch Linux 5.1.9-arch1-1-ARCH (tty6)
 
-    BANDITHIJO-X61 login: &lt;mark&gt;bandithijo&lt;/mark&gt;
-    Password: _
-    ```
+   ```
+   Arch Linux 5.1.9-arch1-1-ARCH (tty6)
+
+   BANDITHIJO-X61 login: &lt;mark&gt;bandithijo&lt;/mark&gt;
+   Password: _
+   ```
 
 2. Jalankan perintah di bawah untuk mendekripsi Home direktori (sekaligus me-*mounting*-nya).
-    <pre>
-    $ <b>ecryptfs-mount-private</b></pre>
-    ```
-    Enter your login passphrase: _
-    ```
 
-    Masukkan *password* yang sudah kita buat sama dengan *login password user* kita.
+   {% shell_user %}
+ecryptfs-mount-private
+{% endshell_user %}
 
-    Perintah di atas akan mendekripsi Home direktori.
+   ```
+   Enter your login passphrase: _
+   ```
+
+   Masukkan *password* yang sudah kita buat sama dengan *login password user* kita.
+
+   Perintah di atas akan mendekripsi Home direktori.
 
 3. Sekarang coba lakukan pengetesan dengan perintas `ls`.
 
-    <pre>
-$ <b>ls -la /home/<mark>bandithijo</mark></b></pre>
+   {% shell_user %}
+ls -la /home/<mark>bandithijo</mark>
+{% endshell_user %}
 
-    Jangan lupa mengganti <mark>bandithijo</mark> dengan nama username kalian.
+   Jangan lupa mengganti <mark>bandithijo</mark> dengan nama username kalian.
 
-    Nama username juga berarti nama direktori dari Home user tersebut.
+   Nama username juga berarti nama direktori dari Home user tersebut.
 
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg">Informasi</div>
+   {% box_info %}
     <p>Kita perlu mencatat kunci simetris 128-bit value yang kita gunakan untuk mengenkripsi/dekripsi. </p>
+    {% shell_user %}
+ecryptfs-unwrap-passphrase
+{% endshell_user %}
     <pre>
-$ <b>ecryptfs-unwrap-passphrase</b></pre>
-    <pre>
-Passphrase: _</pre>
+    Pas phrase: _</pre>
     <p>Masukkan <i>login password</i> yang juga menjadi <i>password dekripsi</i> dari Home direktori.</p>
     <p>Apabila benar, kira-kira hasilnya akan seperti ini.</p>
     <pre>
-c17510cc56hj093gj7930lkfip3vn24g</pre>
+    c17 10cc56hj093gj7930lkfip3vn24g</pre>
     Bentuknya mirip MD5 hash, tapi bukan.
     <br>
     <p>Catat pada secarik kertas dan simpan baik-baik.</p>
     <p>Kita akan gunakan kembali untuk me-<i>recovery</i> Home direktori yang terenkripsi pada kasus misalkan <code>wrapped-passphrase</code> tidak sengaja terhapus atau <i>corrupted</i> atau bahkan kalian lupa <i>login password</i>.</p>
-    </div>
+   {% endbox_info %}
 
 4. Selanjutnya lakukan pengecekan keberadaan dari file-file berikut ini.
 
-    <pre>
-$ <b>ls .ecryptfs</b></pre>
+   {% shell_user %}
+ls .ecryptfs
+{% endshell_user %}
 
-    <pre>
-<mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
+   <pre>
+   <mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
 
-    Pastikan file-file yang saya marking kuning.
+   Pastikan file-file yang saya marking kuning.
 
-    File-file tersebut harus ada pada direktori `.ecryptfs`
+   File-file tersebut harus ada pada direktori `.ecryptfs`
 
-    Direktori ini merupakan *symbolic link* dari `/home/.ecryptfs/bandithijo/.ecryptfs/`
+   Direktori ini merupakan *symbolic link* dari `/home/.ecryptfs/bandithijo/.ecryptfs/`
 
 ## Memberikan eCryptfs Akses PAM
 
@@ -222,10 +234,12 @@ Untuk mengatasi masalah ini sangat mudah. Tinggal kita tambahkan beberapa baris 
 
 1. Gunakan *text editor* favorit kalian untuk mengedit file di bawah ini.
 
-    <pre>
-$ <b>sudo vim /etc/pam.d/system-auth</b></pre>
+   {% shell_user %}
+sudo vim /etc/pam.d/system-auth
+{% endshell_user %}
 
-    <pre>
+   {% highlight_caption /etc/pam.d/system-auth %}
+   {% pre_caption %}
 #%PAM-1.0<br>
 auth      required  pam_unix.so     try_first_pass nullok
 <mark>auth      required  pam_ecryptfs.so unwrap</mark>
@@ -240,17 +254,18 @@ password  optional  pam_permit.so<br>
 session   required  pam_limits.so
 session   required  pam_unix.so
 <mark>session   optional  pam_ecryptfs.so unwrap</mark>
-session   optional  pam_permit.so</pre>
+session   optional  pam_permit.so
+{% endpre_caption %}
 
-    Tambahkan tiga baris yang saya *marking* kuning sesuai posisinya.
+   Tambahkan tiga baris yang saya *marking* kuning sesuai posisinya.
 
-    **Pastikan benar-benar tidak ada yang *typo*!**
+   **Pastikan benar-benar tidak ada yang *typo*!**
 
 2. Simpan dan keluar dari *text editor*.
 
 3. *Reboot* dan *login*.
 
-    Pastikan kalian dapat masuk ke dalam desktop kalian.
+   Pastikan kalian dapat masuk ke dalam desktop kalian.
 
 4. Apabila berhasil, tinggal periksa, apakah isi dari Home direktori kita berhasil di-*mouting* atau tidak.
 

@@ -12,7 +12,7 @@ tags: ['Tips', 'Vim']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Sebagai seorang vimers tentu saja lebih senang menulis di atas Vim. Catatan kali ini saya ingin berbagi pengalaman saya dalam memanajeman Vim untuk digunakan sebagai notetaking."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -54,16 +54,18 @@ Seperti itu saja. Sederhana bukan?
 
    Saya memilih untuk meletakkan di dalam direktori `~/doc/notetaking/`.
 
-   <pre>
-   $ <b>mkdir -p ~/doc/notetaking</b></pre>
+   {% shell_user %}
+mkdir -p ~/doc/notetaking
+{% endshell_user %}
 
    **doc** -- adalah Kependekan dari **Documents**. [Lihat bagaimana cara saya merubah penamaan direktori ini]({{ site.url }}/blog/merubah-nama-direktori-pada-home){:target="_blank"}.
 
 2. Selanjutnya, saya akan membuat file `README.md`, hanya untuk gaya-gaya saja, sebagai penanda bahwa ini adalah direktori yang saya pergunakan untuk *notetaking* dan mungkin di lain waktu akan saya tambahkan beberapa *rules* yang akan saya pergunakan dalam melakukan *notetaking* versi saya sendiri.
 
-   <pre>
-   $ <b>cd ~/doc/notetaking</b>
-   $ <b>touch README.md</b></pre>
+   {% shell_user %}
+cd ~/doc/notetaking
+touch README.md
+{% endshell_user %}
 
    Isikan terserah kalian, saya akan mengisikan seperti ini.
 
@@ -112,11 +114,12 @@ Seperti itu saja. Sederhana bukan?
 
    Saya beri nama Shell script ini dengan `notetaking`.
 
-   <pre>
-   $ <b>cd ~/.local/bin</b>
-   $ <b>touch notetaking</b>
-   $ <b>chmod +x notetaking</b>
-   $ <b>vim notetaking</b></pre>
+   {% shell_user %}
+cd ~/.local/bin
+touch notetaking
+chmod +x notetaking
+vim notetaking
+{% endshell_user %}
 
    Saya isikan dengan perintah dasar saja.
 
@@ -133,9 +136,12 @@ Seperti itu saja. Sederhana bukan?
 
 4. Agar dapat mengaktifkan **NERDTree** pada Vim yang terbuka pada *current directory*, saya perlu menambahkan perintah di bawah pada `~/.vimrc`.
 
-   <pre>
-   $ <b>vim ~/.vimrc</b></pre>
+   {% shell_user %}
+vim ~/.vimrc
+{% endshell_user %}
+
    Tambahkan saja pada bagian/section NERDTree apabila teman-teman memilikinya.
+
    ```viml
    " ...
    " ...
@@ -148,24 +154,25 @@ Seperti itu saja. Sederhana bukan?
    " ...
    ```
 
-    **Sebelum,**
+   **Sebelum,**
 
-    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
 
-    **Sesudah,**
+   **Sesudah,**
 
-    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+   ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
 
-    Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.
+   Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.
 
-    Dengan menggunakan *keyboard shortcut*, <kbd>M</kbd>, Lalu untuk membuat file baru, <kbd>A</kbd>. Tinggal isi nama file yang akan kita buat.
+   Dengan menggunakan *keyboard shortcut*, <kbd>M</kbd>, Lalu untuk membuat file baru, <kbd>A</kbd>. Tinggal isi nama file yang akan kita buat.
 
 5. Terakhir, tinggal membuat lauchernya saja, agar dapat dipanggil menggunakan *application launcher* seperti Rofi.
 
-   <pre>
-   $ <b>cd ~/.local/share/applications</b>
-   $ <b>touch notetaking.desktop</b>
-   $ <b>vim notetaking.desktop</b></pre> 
+   {% shell_user %}
+cd ~/.local/share/applications
+touch notetaking.desktop
+vim notetaking.desktop
+{% endshell_user %}
 
    Lalu, saya isikan seperti di bawah.
 
@@ -192,4 +199,3 @@ Sebenarnya cara inilah yang saya pergunakan sembari belajar menggunakan Vim text
 Bagaimana? Apakah teman-teman memiliki cara yang seru juga? Boleh dong bagi-bagi informasinya.
 
 Mudah-mudah tulisan sederhana ini dapat bermanfaat.
-

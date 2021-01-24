@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunaka."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -397,12 +397,13 @@ bottom = false
 
 1. `monitor =`, untuk mendefinisikan dimana Polybar akan ditampilkan.
 
-    Gunakan perintah di bawah ini untuk mengecek nama dari monitor yang sedang kita pergunakan.
+   Gunakan perintah di bawah ini untuk mengecek nama dari monitor yang sedang kita pergunakan.
 
-   ```
-   $ xrandr -q | grep " connected" | cut -d ' ' -f1
-   ```
-    Saya menggunakan nilai `${env:MONITOR:}` karena berkaitan dengan blok code yang saya jalankan pada file `launch.sh` untuk mendefinisikan dual monitor.
+   {% shell_user %}
+xrandr -q | grep " connected" | cut -d ' ' -f1
+{% endshell_user %}
+
+   Saya menggunakan nilai `${env:MONITOR:}` karena berkaitan dengan blok code yang saya jalankan pada file `launch.sh` untuk mendefinisikan dual monitor.
 
 2. `monitor-fallback =`, sebagai *backup* apabila variabel `monitor =` tidak ditemukan nilainya.
 
@@ -414,7 +415,7 @@ bottom = false
 
 6. `fixed-center =`, untuk membuat Polybar berada di tengah berdasarkan `modules-center`.
 
-    Ketika bernilai `false`, posisi center akan ukuran dari blok yang lain.
+   Ketika bernilai `false`, posisi center akan ukuran dari blok yang lain.
 
 7. `bottom =`, untuk mendefinisikan letak Polybar pada monitor, berada di atas dari layar, atau berada di bawah.
 
@@ -425,7 +426,7 @@ bottom = false
 
 8. `foreground =`, untuk mendefinisikan warna foreground yang akan digunakan secara global oleh setiap modul yang menggunakan label dan icon.
 
-    Untuk variabel seperti ini, dapat menggunakan pemanggilan variabel `colors` dengan cara seperti yang saya pergunakan di atas.
+   Untuk variabel seperti ini, dapat menggunakan pemanggilan variabel `colors` dengan cara seperti yang saya pergunakan di atas.
 
    ```
    foreground = ${colors.foreground}
@@ -439,7 +440,7 @@ bottom = false
 
 9. `background =`, untuk mendefinisikan warna background yang akan digunakan secara global oleh setiap modul.
 
-    Variabel ini termasuk variabel warna. Seperti yang dicontohkan pada variabel foreground di atas.
+   Variabel ini termasuk variabel warna. Seperti yang dicontohkan pada variabel foreground di atas.
 
    ```
    line-size = 1
@@ -600,8 +601,8 @@ Untuk pembahasan modul, saya akan tulis dengan mendahulukan nama-nama modul yang
 
 Untuk beberapa modul yang teman-teman lihat (pada daftar modul di atas) tidak terdapat pada modul bawaan Polybar (custom module), akan saya tulis belakangan.
 
-#### Modul BSPWM
 
+#### Modul BSPWM
 
 {% highlight_caption $HOME/.config/polybar/config %}
 {% highlight sh linenos %}
@@ -664,7 +665,6 @@ Penjelasan lebih lengkap mengenai Text Formating, tentang apa yang dapat dan tid
 <br>
 
 #### Modul xwindow
-
 
 {% highlight_caption $HOME/.config/polybar/config %}
 {% highlight sh linenos %}
@@ -1753,9 +1753,6 @@ Maka dari itu, apabila mengalami kendala pada proses konfigrasi Polybar, silahka
 Sepertinya cukup seperti ini saja.
 
 Terima kasih.
-
-<br>
-Balikpapan, 10 Mei 2019
 
 
 

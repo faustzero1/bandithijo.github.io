@@ -12,7 +12,7 @@ tags: ['Tips', 'ThinkPad']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Saya kurang menyukai tampilan BIOS logo ThinkPad X260 bawaan. Karena hanya bertuliskan kata 'Lenovo' di dalam kota merah. Beda dengan ThinkPad generasi sebelumnya, yang memiliki Tulisan 'ThinkPad' dengan desain logo BIOS khas ThinkPad generasi awal. Apakah gambar BIOS tersebut bisa diganti? Tentu saja! Mudah sekali! Catatan kali ini, saya akan mendemonstrasikan cara untuk memodifikasi gambar untuk BIOS ThinkPad."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -223,14 +223,13 @@ Hasilnya seperti ini.
 ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pLxgqqY6/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 6 - Percobaan kedua, logo terlihat lebih di tengah.</p>
 
-<!-- PERTANYAAN -->
-<div class="blockquote-yellow">
-<div class="blockquote-yellow-title">Apakah custom BIOS logo ini akan kembali ke default apabila kita melakukan update BIOS?</div>
+{% box_pertanyaan %}
+<p><b>Apakah custom BIOS logo ini akan kembali ke default apabila kita melakuka update BIOS?</b></p>
 <p><b>Tidak</b>.</p>
 <p>Apabila kita melakuakan update versi BIOS, misal: versi r02uj69d ke versi r02uj70d, maka custom BIOS tidak akan kembali ke default BIOS logo.</p>
 <p>2019/03/06, saya baru saja mengupdate bios dari versi r02uj69d -> r02uj70d. Setelah proses update selesai. Custom BIOS logo masih tetap tidak berubah.</p>
 <p>Jadi, kita hanya perlu melakukan proses penggantian custom BIOS logo ini sekali saja, dan akan kita pakai seterusnya.</p>
-</div>
+{% endbox_pertanyaan %}
 
 
 # Pesan Penulis

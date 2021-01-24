@@ -12,7 +12,7 @@ tags: ['Tips', 'I3WM']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -74,61 +74,63 @@ Pada tahap ke-1 ini, saya menyebut ini sebagai **file browser** karena secara gl
 
 1. Buat file bernama `help-script-browser.sh`.
 
-    Saya memilih untuk meletakannya pada direktori `~/.config/rofi/`.
+   Saya memilih untuk meletakannya pada direktori `~/.config/rofi/`.
 
-    <pre>
-    $ <b>cd ~/.config/rofi</b>
-    $ <b>touch help-script-browser.sh</b>
-    $ <b>chmod +x help-script-browser.sh</b>
-    $ <b>vim help-script-browser.sh</b></pre>
+   {% shell_user %}
+cd ~/.config/rofi
+touch help-script-browser.sh
+chmod +x help-script-browser.sh
+vim help-script-browser.sh
+{% endshell_user %}
 
-    Isikan di dalamnya seperti ini.
+   Isikan di dalamnya seperti ini.
 
-    ```sh
-    #!/bin/env sh
+   ```sh
+   #!/bin/env sh
 
-    # direktori target tempat script dunstify berada
-    helpDir=~/.config/rofi-help
+   # direktori target tempat script dunstify berada
+   helpDir=~/.config/rofi-help
 
-    # untuk menghandle argument
-    if [ -n "$@" ]; then
-    helpDir="${helpDir}/$@"
-    fi
+   # untuk menghandle argument
+   if [ -n "$@" ]; then
+   helpDir="${helpDir}/$@"
+   fi
 
-    # untuk menghandle apabila argument bukan merupakan direktori
-    if [ ! -d "${helpDir}" ]; then
-        coproc ( "${helpDir}" & > /dev/null  2>&1 )
-        exit;
-    fi
+   # untuk menghandle apabila argument bukan merupakan direktori
+   if [ ! -d "${helpDir}" ]; then
+       coproc ( "${helpDir}" & > /dev/null  2>&1 )
+       exit;
+   fi
 
-    # proses direktori target
-    helpDir=$(readlink -e "${helpDir}")
-    pushd "${helpDir}" >/dev/null
+   # proses direktori target
+   helpDir=$(readlink -e "${helpDir}")
+   pushd "${helpDir}" >/dev/null
 
-    # tampilkan hanya shell script kecuali file text
-    ls --group-directories-first --hide="keybinds-*"
-    ```
+   # tampilkan hanya shell script kecuali file text
+   ls --group-directories-first --hide="keybinds-*"
+   ```
 
 2. Apabila teman-teman menggunakan **i3wm** dan **Rofi**, tinggal kita buatkan konfigurasi `bindkey` nya saja. Pada konfigurasi i3wm.
 
-    <pre>
-    $ <b>vim ~/.config/i3/config</b></pre>
+   {% shell_user %}
+vim ~/.config/i3/config
+{% endshell_user %}
 
-    Tambahkan seperti ini, kira-kira.
+   Tambahkan seperti ini, kira-kira.
 
-    ```sh
-    # ...
-    # ...
+   ```sh
+   # ...
+   # ...
 
-    # Keybind Bantuan
-    bindsym $mod+F10 exec --no-startup-id rofi -modi "KEYBINDS:~/.config/rofi/help-script-browser.sh" -show KEYBINDS -lines 6 -width 300
-    ```
+   # Keybind Bantuan
+   bindsym $mod+F10 exec --no-startup-id rofi -modi "KEYBINDS:~/.config/rofi/help-script-browser.sh" -show KEYBINDS -lines 6 -width 300
+   ```
 
-    Dapat dilihat bahwa saya meletakkannya pada <kbd>SUPER</kbd>+<kbd>F10</kbd>.
+   Dapat dilihat bahwa saya meletakkannya pada <kbd>SUPER</kbd>+<kbd>F10</kbd>.
 
-    Silahkan menyesuaikan dengan preferensi masing-masing.
+   Silahkan menyesuaikan dengan preferensi masing-masing.
 
-    Tahap ke-1, telah selesai.
+   Tahap ke-1, telah selesai.
 
 ## Membuat Script Dunstify
 
@@ -147,27 +149,29 @@ Misalnya,
 
 1. Buat direktori khusus untuk menyimpan Shell *script* ini. Saya akan memilih membuat direktori baru dengan nama `~/.config/rofi-help/`.
 
-    <pre>
-    $ <b>mkdir -p ~/.config/rofi-help</b></pre>
+   {% shell_user %}
+mkdir -p ~/.config/rofi-help
+{% endshell_user %}
 
 2. Buat file Shell *script* dari *keyboard shortcut* yang akan kita gunakan.
 
-    Misalkan i3wm. Namun, jangan berikan ekstensi `.sh` agar tampilannya lebih rapi.
+   Misalkan i3wm. Namun, jangan berikan ekstensi `.sh` agar tampilannya lebih rapi.
 
-    <pre>
-    $ <b>cd ~/.config/rofi-help</b>
-    $ <b>touch "I3WM Window Manager"</b>
-    $ <b>chmod +x "I3WM Window Manager"</b>
-    $ <b>vim "I3 Window Manager"</b></pre>
+   {% shell_user %}
+cd ~/.config/rofi-help
+touch "I3WM Window Manager"
+chmod +x "I3WM Window Manager"
+vim "I3 Window Manager"
+{% endshell_user %}
 
-    Kemudian isikan seperti ini.
+   Kemudian isikan seperti ini.
 
-    ```sh
-    #!/bin/env sh
-    dunstify "i3WM KEYBINDS:" "`tail -n 50 $HOME/.config/rofi-help/keybinds-i3`"
-    ```
+   ```sh
+   #!/bin/env sh
+   dunstify "i3WM KEYBINDS:" "`tail -n 50 $HOME/.config/rofi-help/keybinds-i3`"
+   ```
 
-    Shell *script* di atas, memanggil file text dengan nama `keybinds-i3` yang akan kita buat setelah ini.
+   Shell *script* di atas, memanggil file text dengan nama `keybinds-i3` yang akan kita buat setelah ini.
 
 
 ## Membuat Daftar Keyboard Shortcut
@@ -178,69 +182,70 @@ Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar *keyb
 
 1. Masih pada direktori sebelumnya, yaitu di `~/.config/rofi-help/`.
 
-    Buat file text dengan nama yang relevan dengan Shell *script* yang kita buat di atas.
+   Buat file text dengan nama yang relevan dengan Shell *script* yang kita buat di atas.
 
-    Dalam konteks ini, kita sedang membuat untuk daftar *keyboard shortcut* dari i3wm.
+   Dalam konteks ini, kita sedang membuat untuk daftar *keyboard shortcut* dari i3wm.
 
-    <pre>
-    $ <b>touch keybinds-i3</b></pre>
+   {% shell_user %}
+touch keybinds-i3
+{% endshell_user %}
 
-    **Perhatian!** Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan `keybinds-`.
+   **Perhatian!** Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan `keybinds-`.
 
-    Tujuannya agar saat dipanggil dengan program `help-script-browser.sh`, semua file yang tidak berawalan `keybinds-`, tidak ikut ditampilkan di dalam rofi.
+   Tujuannya agar saat dipanggil dengan program `help-script-browser.sh`, semua file yang tidak berawalan `keybinds-`, tidak ikut ditampilkan di dalam rofi.
 
 2. Selanjutnya tinggal mengisi daftar dari *keyboard shortcut* dari i3wm yang kita perlukan.
 
-    Sebagai contoh, ini adalah beberapa daftar *keyboard shortcut* i3wm yang saya perlukan.
+   Sebagai contoh, ini adalah beberapa daftar *keyboard shortcut* i3wm yang saya perlukan.
 
-    ```
-    <b>LAUNCHER--------------------------------</b>
-    mod+Enter          Terminal
-    mod+Shift+End      Sessions Dialog
-    mod+Shift+x        Lock Screen
-    mod+Shift+q        Kill Window Focus
-    mod+Shift+r        Restart i3 Config
-    mod+d              Rofi: App Launcher
-    mod+Tab            Rofi: Window Switcher
-    mod+/              Rofi: Help
-    mod+p              Rofi: Clipboard
-    mod+Shift+p        Clipboard Cleared
-    mod+Print          Screenshot Silently
-    mod+Shift+Print    Screenshot GUI
-    mod+F7             Arandr
-    mod+F8             Wifi ON/OFF [T]
-    <b>LAYOUT----------------------------------</b>
-    mod+s              Layout: Stacking
-    mod+w              Layout: Tabbed
-    mod+e              layout: Split [T]
-    mod+b              Split Horizontal
-    mod+v              Split Vertical
-    mod+o              Blank Space
-    <b>WINDOW----------------------------------</b>
-    mod+f              Fullscreen Window [T]
-    mod+r              Resize Window
-    mod+Shift+Plus     Sticky Window [T]
-    mod+Shift+Minus    Scratchpad Mode [T]
-    mod+Minus          Scratchpad Show [T]
-    mod+Shift+Space    Floating Window [T]
-    mod+Space          Change Focus [T]
-    mod+a              Focus Parent
-    mod+Shidt+a        Focus Child
-    <b>BORDER----------------------------------</b>
-    mod+t              Border Normal 1
-    mpd+shift+t        Border Normal 0
-    mod+y              Border None
-    mod+shift+y        Border Pixer 1
-    <b>WALLPAPER-------------------------------</b>
-    mod+F5             Blogging Mode
-    mod+F6             Unixporn Mode
-    ```
+   ```
+   <b>LAUNCHER--------------------------------</b>
+   mod+Enter          Terminal
+   mod+Shift+End      Sessions Dialog
+   mod+Shift+x        Lock Screen
+   mod+Shift+q        Kill Window Focus
+   mod+Shift+r        Restart i3 Config
+   mod+d              Rofi: App Launcher
+   mod+Tab            Rofi: Window Switcher
+   mod+/              Rofi: Help
+   mod+p              Rofi: Clipboard
+   mod+Shift+p        Clipboard Cleared
+   mod+Print          Screenshot Silently
+   mod+Shift+Print    Screenshot GUI
+   mod+F7             Arandr
+   mod+F8             Wifi ON/OFF [T]
+   <b>LAYOUT----------------------------------</b>
+   mod+s              Layout: Stacking
+   mod+w              Layout: Tabbed
+   mod+e              layout: Split [T]
+   mod+b              Split Horizontal
+   mod+v              Split Vertical
+   mod+o              Blank Space
+   <b>WINDOW----------------------------------</b>
+   mod+f              Fullscreen Window [T]
+   mod+r              Resize Window
+   mod+Shift+Plus     Sticky Window [T]
+   mod+Shift+Minus    Scratchpad Mode [T]
+   mod+Minus          Scratchpad Show [T]
+   mod+Shift+Space    Floating Window [T]
+   mod+Space          Change Focus [T]
+   mod+a              Focus Parent
+   mod+Shidt+a        Focus Child
+   <b>BORDER----------------------------------</b>
+   mod+t              Border Normal 1
+   mpd+shift+t        Border Normal 0
+   mod+y              Border None
+   mod+shift+y        Border Pixer 1
+   <b>WALLPAPER-------------------------------</b>
+   mod+F5             Blogging Mode
+   mod+F6             Unixporn Mode
+   ```
 
-    Tinggi dari notifikasi ini tidak kurang dari 50 baris dan lebarnya tidak lebih dari 40 karakter.
+   Tinggi dari notifikasi ini tidak kurang dari 50 baris dan lebarnya tidak lebih dari 40 karakter.
 
-    Pengaturan lebar dari notifikasi **Dunst** ini akan berbeda setiap dari teman-teman. Bergantung pada konfigurasi lebar notifikasi dunst yang teman-teman pergunakan (pada `dunstrc` bagian `geometry = `).
+   Pengaturan lebar dari notifikasi **Dunst** ini akan berbeda setiap dari teman-teman. Bergantung pada konfigurasi lebar notifikasi dunst yang teman-teman pergunakan (pada `dunstrc` bagian `geometry = `).
 
-    Contoh-contoh daftar *keboard shortcut* yang saya pergunakan dapat di lihat pada dotfiles milik saya, [di sini](https://github.com/bandithijo/dotfiles/tree/master/.config/rofi-help){:target="_blank"}.
+   Contoh-contoh daftar *keboard shortcut* yang saya pergunakan dapat di lihat pada dotfiles milik saya, [di sini](https://github.com/bandithijo/dotfiles/tree/master/.config/rofi-help){:target="_blank"}.
 
 
 <br>

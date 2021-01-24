@@ -12,7 +12,7 @@ tags: ['Tips', 'Tools', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -71,7 +71,7 @@ Buka Terminal dan edit file `mpv.conf`.
 
 Saya menambahkan pada baris paling akhir setelah bagian/blok `profiles`, option-option di bawah.
 {% highlight_caption $HOME/.config/mpv/mpv.conf %}
-<pre class="caption">
+{% pre_caption %}
 ###########
 # General #
 ###########
@@ -189,7 +189,7 @@ audio-file-auto=fuzzy                     # external audio doesn't has to match 
 audio-pitch-correction=yes                # automatically insert scaletempo when playing with higher speed
 volume-max=200                            # maximum volume in %, everything above 100 results in amplification
 volume=100                                # default volume, 100 = unchanged
-</pre>
+{% endpre_caption %}
 
 Berikut ini adalah penjelasan dari beberapa option yang saya gunakan. Saya tidak dapat menjelaskan semuanya secara detail.
 
@@ -198,32 +198,41 @@ Berikut ini adalah penjelasan dari beberapa option yang saya gunakan. Saya tidak
 ```
 save-position-on-quit=no
 ```
+
 Option di atas digunakan untuk menyimpan posisi terakhir dari *seek bar*. Sehingga memungkinkan kita saat membuka file video yang sama, akan kembali dimulai pada menit sebelum mpv di-*quit*.
 
 ### Display Progress Bar on Terminal
+
 ```
 term-osd-bar
 ```
+
 Karena terkadang saya menjalankan mpv juga dari Terminal, misalkan menonton video melalui url youtube, saya membutuhkan progress bar untuk memberikan saya referensi di mana posisi saya saat ini (sudah berapa menit).
 
 ### Keep Open After Video End
+
 ```
 keep-open
 ```
+
 Option ini digunakan agar mpv tidak otomatis keluar saat selesai menjalankan video/audio.
 
 ### Default Window Size
+
 ```
 autofit-larger=90%x90%
 ```
+
 Option ini saya pergunakan agar saat membuka mpv, video tidak lebih besar dari resolusi layar yang saya gunakan.
 
 ### ScreenShot Format
+
 ```
 screenshot-format=png
 screenshot-png-compression=8
 screenshot-template='~/pix/ScreenShot/%F (%P) %n'
 ```
+
 Option ini saya pergunakan untuk mengatur screenshot file type dan lokasi dimana hasil screenshot disimpan beserta format namanya.
 
 ### youtube-dl Format
@@ -237,6 +246,7 @@ ytdl-format=bestvideo[height<=?720]+bestaudio/best
 profile-desc=cond:is_laptop()
 ytdl-format=bestvideo[height<=?720][fps<=?30][vcodec!=?vp9][protocol!=http_dash_segments]+bestaudio/best
 ```
+
 Option di atas saya pergunakan untuk mengatur format video yang akan dipilih pada saat menonton streaming YouTube. Saya menggunakan fiber optik internet, sehingga tidak ada masalah untuk mengeset pada resoulsi 720.
 
 ## Konfigurasi input.conf
@@ -246,12 +256,13 @@ Untuk file konfigurasi `input.conf` saya tidak menambahkan banyak pengaturan *ke
 Saya hanya menambahkan untuk pengaturan **horizontal flip** dan **rotate** video.
 
 Edit file `input.conf` dan tambahkan di paling bawah.
+
 {% highlight_caption $HOME/.config/mpv/input.conf %}
-<pre class="caption">
+{% pre_caption %}
 - cycle-values video-rotate "90" "180" "270" "0"
 = vf toggle hflip                       # toggle for flip video horizontal
 \ vf toggle negate                      # toggle for invert video color
-</pre>
+{% endpre_caption %}
 
 Option di atas bertujuan untuk:
 
@@ -268,7 +279,7 @@ Sangat praktis sekali untuk dapat menonton video YouTube di MPV.
 Caranya pun sangat mudah. Hanya perlu mengcopy paste url video YouTube setelah perintah mpv.
 
 {% shell_user %}
-mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo 
+mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo
 {% endshell_user %}
 
 {% box_pertanyaan %}

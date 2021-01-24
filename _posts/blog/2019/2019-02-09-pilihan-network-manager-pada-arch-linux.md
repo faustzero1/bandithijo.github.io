@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: 'Network Manager yang Saya Pergunakan pada Arch Linux'
+title: 'Comprehensive Network Manager yang Saya Pergunakan pada Arch Linux'
 date: 2019-02-09 05:52
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Terdapat banyak sekali tools yang dapat kita gunakan untuk mengatur jaringan di GNU/Linux. Perkakas-perkakas ini sering diistilahkan dengan Comprehensive Network Manager, atau Network Manager saja. Tapi jangan salah paham yaa, karena salah satu Network Manager tersebut ada yang bernama NetworkManager."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -86,14 +86,14 @@ Kita hanya perlu memasukkan profil jaringan seperti SSID, dll.
 Ada beberapa paket tambahan yang saya pergunakan, Seperti
 
 1. Modem Support:
-    - [`modemmanager`](https://www.archlinux.org/packages/?name=modemmanager){:target="_blank"}
-    - [`mobile-broadband-provider-info`](https://www.archlinux.org/packages/?name=mobile-broadband-provider-info){:target="_blank"}
-    - [`usb_modeswitch`](https://www.archlinux.org/packages/?name=usb_modeswitch){:target="_blank"}.
+   - [`modemmanager`](https://www.archlinux.org/packages/?name=modemmanager){:target="_blank"}
+   - [`mobile-broadband-provider-info`](https://www.archlinux.org/packages/?name=mobile-broadband-provider-info){:target="_blank"}
+   - [`usb_modeswitch`](https://www.archlinux.org/packages/?name=usb_modeswitch){:target="_blank"}.
 
 2. VPN Support:
-    - [`networkmanager-openvpn`](https://www.archlinux.org/packages/?name=networkmanager-openvpn){:target="_blank"}
-    - [`networkmanager-pptp`](https://www.archlinux.org/packages/?name=networkmanager-pptp){:target="_blank"}
-    - dan masih banyak lagi, silahkan lihat di [Arch Wiki](https://wiki.archlinux.org/index.php/NetworkManager#VPN_support){:target="_blank"}
+   - [`networkmanager-openvpn`](https://www.archlinux.org/packages/?name=networkmanager-openvpn){:target="_blank"}
+   - [`networkmanager-pptp`](https://www.archlinux.org/packages/?name=networkmanager-pptp){:target="_blank"}
+   - dan masih banyak lagi, silahkan lihat di [Arch Wiki](https://wiki.archlinux.org/index.php/NetworkManager#VPN_support){:target="_blank"}
 
 # Tampilan
 

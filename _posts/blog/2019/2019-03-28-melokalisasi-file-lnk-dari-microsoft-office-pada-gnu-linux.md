@@ -12,7 +12,7 @@ tags: ['Tips', 'Wine', 'Arch Linux']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -56,10 +56,9 @@ Beberapa aplikasi Microsoft Office yang belum dapat dijalankan, diantaranya :
 ![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsgV8pc3/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 10 - Microsoft PowerPoint 2010</p>
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
+{% box_info %}
 <p> Ternyata, untuk dapat menjalankan Microsoft PowerPoint, kita perlu menambahkan library pada <code>winecfg</code> bernama <code>riched20</code>.</p>
-</div>
+{% endbox_info %}
 
 Meski begitu saat ini saya tidak benar-benar menggunakan aplikasi Microsoft Office.
 
@@ -163,78 +162,81 @@ Nah, sekarang kita akan sediakan direktori *Recent* untuk mengatasi permasalahan
 
 1. Masuk ke dalam direktori **WINEPREFIX**.
 
-    Secara *default* berada pada `~/.wine/`.
+   Secara *default* berada pada `~/.wine/`.
 
-    Kemudian, lanjutkan ke dalam direktori *users* yang kita miliki di dalam WINEPREFIX.
+   Kemudian, lanjutkan ke dalam direktori *users* yang kita miliki di dalam WINEPREFIX.
 
-    Contohnya seperti punya saya.
+   Contohnya seperti punya saya.
 
-    <pre>
-    $ <b>cd ~/.wine/drive_c/users/bandithijo</b></pre>
+   {% shell_user %}
+cd ~/.wine/drive_c/users/bandithijo
+{% endshell_user %}
 
 2. Kemudian , lihat isi di dalam direktori ini. Apakah sudah terdapat direktori yang bernama `Recent` atau tidak.
 
-    <pre>
-    $ <b>ls -la</b></pre>
+   {% shell_user %}
+ls -la
+{% endshell_user %}
 
-    ```
-    drwxr-xr-x  AppData
-    drwxr-xr-x 'Application Data'
-    drwxr-xr-x  Contacts
-    drwxr-xr-x  Cookies
-    lrwxrwxrwx  Desktop -> /home/bandithijo/dex
-    drwxr-xr-x  Downloads
-    drwxr-xr-x  Favorites
-    drwxr-xr-x  .LINE
-    drwxr-xr-x  Links
-    drwxr-xr-x 'Local Settings'
-    lrwxrwxrwx 'My Documents' -> /home/bandithijo/doc
-    lrwxrwxrwx 'My Music' -> /home/bandithijo/snd
-    lrwxrwxrwx 'My Pictures' -> /home/bandithijo/pix
-    lrwxrwxrwx 'My Videos' -> /home/bandithijo/vid
-    drwxr-xr-x 'Saved Games'
-    drwxr-xr-x  Searches
-    drwxr-xr-x 'Start Menu'
-    drwxr-xr-x  Temp
-    ```
+   ```
+   drwxr-xr-x  AppData
+   drwxr-xr-x 'Application Data'
+   drwxr-xr-x  Contacts
+   drwxr-xr-x  Cookies
+   lrwxrwxrwx  Desktop -> /home/bandithijo/dex
+   drwxr-xr-x  Downloads
+   drwxr-xr-x  Favorites
+   drwxr-xr-x  .LINE
+   drwxr-xr-x  Links
+   drwxr-xr-x 'Local Settings'
+   lrwxrwxrwx 'My Documents' -> /home/bandithijo/doc
+   lrwxrwxrwx 'My Music' -> /home/bandithijo/snd
+   lrwxrwxrwx 'My Pictures' -> /home/bandithijo/pix
+   lrwxrwxrwx 'My Videos' -> /home/bandithijo/vid
+   drwxr-xr-x 'Saved Games'
+   drwxr-xr-x  Searches
+   drwxr-xr-x 'Start Menu'
+   drwxr-xr-x  Temp
+   ```
 
-    Dapat dilihat, tidak ada direktori yang bernama `Recent`.
+   Dapat dilihat, tidak ada direktori yang bernama `Recent`.
 
-    Maka, kita akan buatkan.
+   Maka, kita akan buatkan.
 
 3. Ketik perintah di bawah untuk membuat direktori `Recent`.
 
-    <pre>
-    $ <b>mkdir Recent</b></pre>
+   {% shell_user %}
+mkdir Recent
+{% endshell_user %}
 
-    Lalu, periksa kembali keberadaan direktori ini, apakah sudah berhasil dibuat atau tidak.
+   Lalu, periksa kembali keberadaan direktori ini, apakah sudah berhasil dibuat atau tidak.
 
-    <pre>
-    drwxr-xr-x  AppData
-    drwxr-xr-x 'Application Data'
-    drwxr-xr-x  Contacts
-    drwxr-xr-x  Cookies
-    lrwxrwxrwx  Desktop -> /home/bandithijo/dex
-    drwxr-xr-x  Downloads
-    drwxr-xr-x  Favorites
-    drwxr-xr-x  .LINE
-    drwxr-xr-x  Links
-    drwxr-xr-x 'Local Settings'
-    lrwxrwxrwx 'My Documents' -> /home/bandithijo/doc
-    lrwxrwxrwx 'My Music' -> /home/bandithijo/snd
-    lrwxrwxrwx 'My Pictures' -> /home/bandithijo/pix
-    lrwxrwxrwx 'My Videos' -> /home/bandithijo/vid
-    <mark>drwxr-xr-x  Recent</mark>
-    drwxr-xr-x 'Saved Games'
-    drwxr-xr-x  Searches
-    drwxr-xr-x 'Start Menu'
-    drwxr-xr-x  Temp</pre>
+   <pre>
+   drwxr-xr-x  AppData
+   drwxr-xr-x 'Application Data'
+   drwxr-xr-x  Contacts
+   drwxr-xr-x  Cookies
+   lrwxrwxrwx  Desktop -> /home/bandithijo/dex
+   drwxr-xr-x  Downloads
+   drwxr-xr-x  Favorites
+   drwxr-xr-x  .LINE
+   drwxr-xr-x  Links
+   drwxr-xr-x 'Local Settings'
+   lrwxrwxrwx 'My Documents' -> /home/bandithijo/doc
+   lrwxrwxrwx 'My Music' -> /home/bandithijo/snd
+   lrwxrwxrwx 'My Pictures' -> /home/bandithijo/pix
+   lrwxrwxrwx 'My Videos' -> /home/bandithijo/vid
+   <mark>drwxr-xr-x  Recent</mark>
+   drwxr-xr-x 'Saved Games'
+   drwxr-xr-x  Searches
+   drwxr-xr-x 'Start Menu'
+   drwxr-xr-x  Temp</pre>
 
-    Buat juga, direktori **Recent** pada *users* Public.
+   Buat juga, direktori **Recent** pada *users* Public.
 
-    Yang beralamat di `~/.wine/drive_c/users/Public`.
+   Yang beralamat di `~/.wine/drive_c/users/Public`.
 
-    Selesai.
+   Selesai.
 
 # Pengujian
 

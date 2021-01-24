@@ -45,12 +45,16 @@ Bagaimana caranya agar di dalam Python Environment yang saya buat dapat mengguna
 # Solusi
 
 1. Install Python 3.6 dari AUR
-   <pre>
-   $ <b>yay python36</b></pre>
+
+   {% shell_user %}
+yay python36
+{% endshell_user %}
 
 2. Buat virtualenv dari versi python 3.6
-   <pre>
-   $ <b>virtualenv -p python3.6 <mark>venv</mark></b></pre>
+
+   {% shell_user %}
+virtualenv -p python3.6 <mark>venv</mark>
+{% endshell_user %}
 
    `venv` adalah nama dari virtual environment.
 
@@ -65,17 +69,21 @@ Bagaimana caranya agar di dalam Python Environment yang saya buat dapat mengguna
    Apabila menampilkan `done` artinya proses pembuatan virtual environment telah berhasil.
 
    Proses pembuatan virtual environment ini membutuh kan akses internet.
+
 3. Aktivasi virtual environment.
 
-   <pre>
-   $ <b>cd venv</b></pre>
+   {% shell_user %}
+cd venv
+{% endshell_user %}
 
-   <pre>
-   $ <b>source bin/activate</b></pre>
+   {% shell_user %}
+source bin/activate
+{% endshell_user %}
 
    Nanti akan ada tanda-tanda pada Terminal kalian apabila kalian mengunakan Theme tertentu yang menampilkan bahwa kita saat ini telah berada pada virtual environment.
 
    Seperti ini.
+
    <pre>
    <mark>(venv)</mark>
    ~/venv
@@ -83,12 +91,14 @@ Bagaimana caranya agar di dalam Python Environment yang saya buat dapat mengguna
 
    Lakukan pengecekan versi Python.
 
-   <pre>
-   $ <b>python -V</b></pre>
+   {% shell_user %}
+python -V
+{% endshell_user %}
 
    ```
    Python 3.6.7
    ```
+
    Yak, kita sudah berada pada versi Python yang saya inginkan, yaitu versi 3.6.
 
    Kalau sudah begini tinggal kita sikat miring.

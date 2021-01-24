@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -56,42 +56,47 @@ Langsung saja tanpa bertele-tele.
 1. Buat file script boleh pada direktori `~/.local/bin/` atau pada direktori `/usr/bin/` dengan nama sembarang saja, tapi berkorelasi.
 
    Saya akan memberi nama `keybind-helper`.
-   <pre>
-   $ <b>sudo touch /usr/bin/keybind-helper</b>
-   $ <b>sudo chmod +x /usr/bin/keybind-helper</b></pre>
+
+   {% shell_user %}
+sudo touch /usr/bin/keybind-helper
+sudo chmod +x /usr/bin/keybind-helper
+{% endshell_user %}
 
 2. Edit file script tersebut dengan *text editor* favorit kalian.
-   <pre>
-   $ <b>sudo vim /usr/bin/keybind-helper</b></pre>
+
+   {% shell_user %}
+sudo vim /usr/bin/keybind-helper
+{% endshell_user %}
 
 3. Isikan, kira-kira seperti contoh di bawah ini.
-```bash
-#!/bin/env sh
-pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"
-terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)
-case "$terpilih" in
-        BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
-        MPV)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
-        ST)    dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
-        TMUX)  dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
-        VIM)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
-esac
-```
 
-    Sesuaikan saja dengan jumlah aplikasi yang ingin kalian buatkan *keybind*-nya.
+   ```bash
+   #!/bin/env sh
+   pilihan="BSPWM\nMPV\nST\nTMUX\nVIM"
+   terpilih=$(echo -e "$pilihan" | dmenu -i -p KEYBINDS:)
+   case "$terpilih" in
+           BSPWM) dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-bspwm`" ;;
+           MPV)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-mpv`" ;;
+           ST)    dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-st`" ;;
+           TMUX)  dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-tmux`" ;;
+           VIM)   dunstify "$terpilih KEYBINDS:" "`tail -n 55 $HOME/.config/rofi-help/keybinds-vim`" ;;
+   esac
+   ```
 
-    Seperti contoh di atas, saya baru membuat 5 aplikasi.
+   Sesuaikan saja dengan jumlah aplikasi yang ingin kalian buatkan *keybind*-nya.
 
-    Perhatikan bagian ini,
+   Seperti contoh di atas, saya baru membuat 5 aplikasi.
 
-    <pre>
-tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark></pre>
+   Perhatikan bagian ini,
 
-    Pada bagian yang saya *marking* adalah bagian dimana saya meletakkan *plain text* berisi *keyboard shortcut*.
+   <pre>
+   tail -n 55 <mark>$HOME/.config/rofi-help/keybinds-bspwm</mark></pre>
 
-    Sesuaikan dengan lokasi dimana kalian menyimpan *plain text* tersebut.
+   Pada bagian yang saya *marking* adalah bagian dimana saya meletakkan *plain text* berisi *keyboard shortcut*.
 
-    Nilai `55` adalah maksimal banyaknya jumlah baris yang di tampilkan.
+   Sesuaikan dengan lokasi dimana kalian menyimpan *plain text* tersebut.
+
+   Nilai `55` adalah maksimal banyaknya jumlah baris yang di tampilkan.
 
 4. Apabila ingin menambahkan pilihan yang lain, cukup menambahkan pada variabel `pilihan=`.
 

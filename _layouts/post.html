@@ -48,6 +48,17 @@ layout: baseof
 
           <p>{{ content }}</p>
 
+          <!-- License -->
+          {% if page.category == 'blog'
+            or page.category == 'vlog' %}
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            {% if page.license %}
+              {% include license.html %}
+            {% endif %}
+          {% endif %}
+
+          <div style="clear:both;"></div>
+
           <!-- Penulis -->
           {% if page.category == 'blog'
             or page.category == 'vlog'
@@ -65,17 +76,6 @@ layout: baseof
           <div style="clear:both;"></div>
 
           {% include mail_subscriber.html %}
-
-          <div style="clear:both;"></div>
-
-          <!-- License -->
-          {% if page.category == 'blog'
-            or page.category == 'vlog' %}
-            <div style="text-align:center; margin:0 0 10px 0;"></div>
-            {% if page.license %}
-              {% include license.html %}
-            {% endif %}
-          {% endif %}
 
         </div><!-- markdown-body -->
       </article>

@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -47,11 +47,11 @@ cat /boot/loader/loader.conf
 {% endshell_user %}
 
 {% highlight_caption /boot/loader/loader.conf %}
-<pre class="caption">
+{% pre_caption %}
 timeout 0
 editor 0
 default <mark>arch</mark>
-</pre>
+{% endpre_caption %}
 
 Terlihat pada tanda yang saya *marking*, bahwa file loader ini akan memanggil file konfigurasi lain yang bernama `arch` yang merupakan kependekan dari `arch.conf`.
 
@@ -98,13 +98,13 @@ sudo vim
 {% endshell_user %}
 
 {% highlight_caption /boot/loader/entries/arch-lts.conf %}
-<pre class="caption">
+{% pre_caption %}
 <mark>title    Arch Linux LTS</mark>
 <mark>linux    /vmlinuz-linux-lts</mark>
 initrd	 /intel-ucode.img
 <mark>initrd   /initramfs-linux-lts.img</mark>
 options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disable
-</pre>
+{% endpre_caption %}
 
 Pada bagian yang saya *marking*, adalah bagian-bagian yang saya rubah dengan nama kernel yang saya gunakan. Dalam hal ini `linux-lts`.
 

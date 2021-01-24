@@ -12,7 +12,7 @@ tags: ['I3WM', 'Ulasan', 'Tips']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "i3WM disebut-sebut sebagai Window Manager yang cocok untuk kalian yang baru ingin memulai mengenal dan menggunakan Window Manager. Hal tersebut tidak lain karena i3wm memiliki file configurasi dalam bentuk plain text, sehingga dapat dimengerti meski tanpa pengetahuan tentang bahasa pemrograman. Selain itu, i3wm juga memiliki dokumentasi yang sangat lengkap yang berada di website resminya. Catatan kali ini, saya ingin mencoba membagikan, bagaimana cara saya mengkonfigurasi i3wm."
 ---
 
 <!-- BANNER OF THE POST -->

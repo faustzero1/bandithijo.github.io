@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Apabila kamu merasa nama-nama direktori yang kamu miliki di Home terlalu panjang, seperti Documents, Desktop, Pictures, Vidoes, Sound, dll. Kita dapat merubahnya menjadi lebih singkat. Saya lebih senang dengan 3 huruf."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -21,6 +21,7 @@ resume:
 # Prakata
 
 Mungkin teman-teman melihat struktur direktori home milik saya, yang hanya mengandung 3 huruf.
+
 ```
 /home/bandithijo/
  tree -d -L 1
@@ -45,6 +46,7 @@ Mungkin teman-teman melihat struktur direktori home milik saya, yang hanya menga
 ├── vbx
 └── vid
 ```
+
 Sepintas bentuk penamaan seperti di atas, hampir sama dengan penamaan pada direktori root.
 
 Saya memang membuat penamaan pada direktori home ini menjadi lebih singkat. Minimal 3 huruf bahkan kalau bisa hanya 3 huruf.

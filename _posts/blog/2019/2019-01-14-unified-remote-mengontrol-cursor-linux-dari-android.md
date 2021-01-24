@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Siapa yang tidak kagum dengan remote control? Menggerakkan benda jarak jauh? Keren sekali yaa! Catatan kali ini saya akan membahasa dan mengulas tentang sebuah perkakas untuk mengontrol mouse cursor GNU/Linux dari Smartphone Android."
 ---
 
 <!-- BANNER OF THE POST -->

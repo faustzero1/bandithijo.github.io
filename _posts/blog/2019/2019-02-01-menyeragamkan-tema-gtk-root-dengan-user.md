@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Bicara tentang tampilan desktop, setidaknya terdapat 2 library yang banyak digunakna oleh aplikasi-aplikasi GUI di lingkungan GNU/Linux, yaitu GTK+ dan Qt. Kedua library ini mungkin memiliki default theme mereka sendiri. Mungkin gak kalau kita seragamkan? Sangat mungkin! Beberapa teman-teman yang sering melihat screenshot atau video-video pendek yang sering saya share di Telegram mungkin pernah melihat dan memperhatikan."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -38,8 +38,9 @@ Lakukan pengecekan untuk syarat pertama, apakah GKT theme yang kita pakai sudah 
 
    Cek menggunakan Terminal,
 
-   <pre>
-   $ <b>ll /usr/share/themes | grep -e "Numix"</b></pre>
+   {% shell_user %}
+ll /usr/share/themes | grep -e "Numix"
+{% endshell_user %}
 
    <pre>
    drwxr-xr-x 11 root root Numix
@@ -67,29 +68,35 @@ Selanjutnya, lakukan pengecekan apakah teman yang kita pergunakan memiliki kompa
 
 1. Caranya cukup masuk ke dalam direktori tema dan cek apakah terdapat direktori `gtk-2.0/` dan `gtk-3.0/`.
 
-    Cek menggunakan Terminal,
-    <pre>
-$ cd /usr/share/themes/<mark>NumixSolarizedDarkYellow</mark>
-$ ll</pre>
-Ganti `NumixSolarizedDarkYellow` dengan tema yang kalian gunakan.
-    <pre>
-total 40
-drwxr-xr-x 2 root root assets
-<mark>drwxr-xr-x 2 root root gtk-2.0
-drwxr-xr-x 2 root root gtk-3.0</mark>
-drwxr-xr-x 2 root root gtk-3.20
--rw-r--r-- 1 root root index.theme
-drwxr-xr-x 2 root root metacity-1
-drwxr-xr-x 2 root root openbox-3
-drwxr-xr-x 3 root root unity
-drwxr-xr-x 2 root root xfce-notify-4.0
-drwxr-xr-x 2 root root xfwm4</pre>
-Atau, cek menggunakan File Manager,
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XvmCnkBB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+   Cek menggunakan Terminal,
 
-Apabila hanya terdapat salah satu dari keduanya, artinya GTK theme yang kalian pergunakan hanya mendukung GTK versi yang tersedia di tema.
+   {% shell_user %}
+cd /usr/share/themes/<mark>NumixSolarizedDarkYellow</mark>
+ll
+{% endshell_user %}
 
-Nah, dengan ini, tahap pengecekan sudah selesai.
+   Ganti `NumixSolarizedDarkYellow` dengan tema yang kalian gunakan.
+
+   <pre>
+   total 40
+   drwxr-xr-x 2 root root assets
+   <mark>drwxr-xr-x 2 root root gtk-2.0
+   drwxr-xr-x 2 root root gtk-3.0</mark>
+   drwxr-xr-x 2 root root gtk-3.20
+   -rw-r--r-- 1 root root index.theme
+   drwxr-xr-x 2 root root metacity-1
+   drwxr-xr-x 2 root root openbox-3
+   drwxr-xr-x 3 root root unity
+   drwxr-xr-x 2 root root xfce-notify-4.0
+   drwxr-xr-x 2 root root xfwm4</pre>
+
+   Atau, cek menggunakan File Manager,
+
+   ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XvmCnkBB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+
+   Apabila hanya terdapat salah satu dari keduanya, artinya GTK theme yang kalian pergunakan hanya mendukung GTK versi yang tersedia di tema.
+
+   Nah, dengan ini, tahap pengecekan sudah selesai.
 
 # Eksekusi
 
@@ -107,7 +114,8 @@ Coba kita buka untuk melihat bagaimana bentuk konfigurasi yang ada di dalamnya.
 vim ~/.gtkrc-2.0
 {% endshell_user %}
 
-<pre>
+{% highlight_caption $HOME/.gtkrc-2.0 %}
+{% pre_caption %}
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
@@ -128,7 +136,7 @@ gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
 gtk-modules="canberra-gtk-module:gail:atk-bridge"
-</pre>
+{% endpre_caption %}
 
 Dapat dilihat bahwa, pada sistem saya, file `gtkrc-2.0` ini digenerate oleh `LXAppearance`.
 ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/257SKdFf/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
@@ -159,7 +167,8 @@ Coba kita buka untuk melihat bagaimana bentuk konfigurasi yang ada di dalamnya.
 vim ~/.config/gtk-3.0/settings.ini
 {% endshell_user %}
 
-<pre>
+{% highlight_caption $HOME/.config/gtk-3.0/settings.ini %}
+{% pre_caption %}
 [Settings]
 gtk-application-prefer-dark-theme=0
 <mark>gtk-theme-name=NumixSolarizedDarkYellow</mark>
@@ -181,7 +190,8 @@ gtk-modules=canberra-gtk-module:gail:atk-bridge
 gtk-recent-files-max-age=0
 gtk-recent-files-limit=0
 gtk-recent-files-enabled=0
-</pre>
+{% endpre_caption %}
+
 Kurang lebih hampir mirip dengan konfigurasi GTK2 di atas yaa, `~/.gtkrc-2.0`.
 
 Selanjutnya, tinggal men-copy ke dalam direktori `/root/`.

@@ -12,7 +12,7 @@ tags: ['Tips', 'Tools', 'Terminal']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "ST sangat saya inginkan karena kesederhanannya. Karena minimalisnya inilah saya ingin menjadikannya basis untuk meracik terminal yang sesuai dengan yang saya inginkan."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -58,24 +58,34 @@ Proses instalasi St Terminal menurut saya sangat-sangat mudah.
 3. Klik kanan link dari [`st 0.8.1`](https://dl.suckless.org/st/st-0.8.1.tar.gz){:target="_blank"} (2018-03-20) dan pilih **Copy Link Location**.
 
 4. Buka Terminal, dan arahkan ke dalam direktori `~/.config/`.
-   <pre>
-   $ <b>shell:user</b></pre>
+
+   {% shell_user %}
+shell:user
+{% endshell_user %}
 
 5. Download dengan menggunakan `wget`.
-   <pre>
-   $ <b>wget "https://dl.suckless.org/st/st-0.8.1.tar.gz"</b></pre>
+
+   {% shell_user %}
+wget "https://dl.suckless.org/st/st-0.8.1.tar.gz"
+{% endshell_user %}
 
 6. Ekstraksi paket `st-0.8.1.tar.gz` tersebut.
-   <pre>
-   $ <b>tar -xvf st-0.8.1.tar.gz</b></pre>
+
+   {% shell_user %}
+tar -xvf st-0.8.1.tar.gz
+{% endshell_user %}
 
 7. Rename direktori hasil ekstraksi.
-   <pre>
-   $ <b>mv st-0.8.1 st</b></pre>
+
+   {% shell_user %}
+mv st-0.8.1 st
+{% endshell_user %}
 
 8. Masuk ke dalam direktori `st`
-   <pre>
-   $ <b>cd st</b></pre>
+
+   {% shell_user %}
+cd st
+{% endshell_user %}
 
    Secara default paket `st-0.8.1` akan berisi seperti ini.
    ```
@@ -98,20 +108,26 @@ Proses instalasi St Terminal menurut saya sangat-sangat mudah.
    ```
 
 9. Saya memilih untuk me-*rename* file `config.def.h` daripada meng-*copy* nya.
-   <pre>
-   $ <b>mv config.def.h config.h</b></pre>
+
+   {% shell_user %}
+mv config.def.h config.h
+{% endshell_user %}
+
    File konfig header ini berisi konfigurasi untuk font style, font size, fungsi keyboard, colorscheme, dan lain-lain.
 
 10. Selanjutnya, bisa coba di compile dulu. Sekedar memastikan bisa di compile saja.
-    <pre>
-    $ <b>sudo make install</b></pre>
+
+    {% shell_user %}
+sudo make install
+{% endshell_user %}
 
     Nanti akan terbuat file binary yang bernama `st`.
 
     Kalau ingin dibuild lagi secara **clean**.
 
-    <pre>
-    $ <b>sudo make uninstall; sudo make install</b></pre>
+    {% shell_user %}
+sudo make uninstall; sudo make install
+{% endshell_user %}
 
     Hasil make ini akan berada pada `/usr/local/bin/st`.
 
@@ -160,8 +176,7 @@ Patch yang saya gunakan tidak banyak. Beberapa di antaranya.
 1. [st-alpha-0.8.1.diff](https://st.suckless.org/patches/alpha/st-alpha-0.8.1.diff){:target="_blank"}
 <br>Patch ini untuk menambahkan fitur alpha atau transparansi pada background Terminal.
 
-    <div class="blockquote-blue">
-    <div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg"> Informasi</div>
+   {% box_info %}
     <p><b>2019/04/24</b>, Saya sudah tidak lagi menggunakan patch Alpha. Saya lebih memilih mengatur alpha atau opacity menggunakan <i>compsitor</i> seperti <b>compton</b>.</p>
     <p>Berikut ini adalah pengaturan pada compton yang saya gunakan.</p>
     <pre>
@@ -170,7 +185,7 @@ Patch yang saya gunakan tidak banyak. Beberapa di antaranya.
     <mark>"95:class_g = 'st-256color'",</mark>
     ];</pre>
     <p>Nilai dari <code>95</code> adalah nilai dari opacity (0 - 100).</p>
-    </div>
+   {% endbox_info %}
 
 <br>
 **Bagaimana cara menggunakan patch ini?**
@@ -203,9 +218,9 @@ Saya sangat puas dengan hasilnya. Dikarenakan ada beberapa hal yang saya tidak d
 
 1. Saya masih belum dapat menggunakan tombol <kbd>DELETE</kbd> sebagai mana fungsinya. Karena saat ini fungsi tombol ini malah menampilkan karakter `~`.
 
-    Ada patch untuk **delkey**, namun setelah saya coba, malah berfungsi selayaknya <kbd>BACKSPACE</kbd>.
+   Ada patch untuk **delkey**, namun setelah saya coba, malah berfungsi selayaknya <kbd>BACKSPACE</kbd>.
 
-    Saya memerlukan <kbd>DELETE</kbd> untuk fungsi "Move to Trash" pada Ranger. Sehingga saat ini saya memindahkan fungsinya ke tombol <kbd>F8</kbd>.
+   Saya memerlukan <kbd>DELETE</kbd> untuk fungsi "Move to Trash" pada Ranger. Sehingga saat ini saya memindahkan fungsinya ke tombol <kbd>F8</kbd>.
 
 2. Link/URL yang *clickable*. Fitur ini juga masih belum saya cari tahu.
 
