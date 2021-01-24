@@ -113,9 +113,9 @@ Teman-teman dapat memodifikasi bagian:
 
 Cek status container apakah sudah berhasil dibuat dan dijalankan.
 
-{% shell_user %}
+{% shell_cmd $ %}
 docker container ls
-{% endshell_user %}
+{% endshell_cmd %}
 
 <pre>
 CONTAINER ID   IMAGE           COMMAND                  CREATED       STATUS       PORTS                    NAMES
@@ -140,9 +140,9 @@ Misal, username sistem saya **bandithijo**, maka untuk menikmati kemudahan di at
 
 Masuk dengan user role **postgres** terlebih dahulu,
 
-{% shell_user %}
+{% shell_cmd $ %}
 psql -h localhost -p 5432 -U postgres
-{% endshell_user %}
+{% endshell_cmd %}
 
 <pre>
 Password for user postgres: _
