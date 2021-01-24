@@ -23,6 +23,12 @@ module Jekyll
     end
   end
 
+  # SHELL PROMPT WITH CUSTOM PARAMETER
+  # You can add custom prompt & color. And able to use with multiline.
+  # How to use?
+  # {% shell_cmd $ | EB3D2D %}
+  # sudo pacman -Syy
+  # {% endshell_cmd %}
   class ShellCommand < Liquid::Block
     def initialize(tag_name, input, tokens)
       super
