@@ -111,11 +111,18 @@ Mungkin artikel ini akan berkesinambungan seiring bertambahnya teknik yang saya 
 
 # Praktik Membuat Liquid Tags
 
-Sebenarnya ada banyak Liquid module yang dapat kita gunakan untuk membangun tags, namun pada catatan kali ini, saya hanya akan mencontohkan untuk **Liquid::Block** module saja.
+Di Jekyll, saya melihat pada module Tags menggunakan setidaknya **Liquid::Block** dan juga **Liquid::Tags**.
 
-## Liquid::Block Tanpa Parameter
+Liquid tags yang disediakan oleh Jekyll, pasti teman-teman pernah menggunakannya.
 
-Untuk membuat Liquid::Block Tanpa Parameter, cukup mudah.
+1. **highlight**, menggunakan **Liquid::Block** (lib/jekyll/tags/highlight.rb)
+2. **include**, menggunakan **Liquid::Tags** (lib/jekyll/tags/include.rb)
+3. **link**, menggunakan **Liquid::Tags** (lib/jekyll/tags/link.rb)
+
+<br>
+Nah, kita akan mamanfaatkan kedua module ini untuk membuat Liquid tags yang kita perlukan.
+
+Misal, kalau di BanditHijo, saya lebih banyak memerlukan untuk menampilkan **command prompt**, **highlight code**, dan **image**.
 
 Pertama-tama, karena kita menggunakan Jekyll, kita akan menganggap fitur yang kita buat ini sebagai plugin.
 
@@ -124,16 +131,84 @@ Maka kita akan menempatkannya pada direktori **_plugins/**.
 <pre>
 .
 ├── _plugins/
-│   ├── boxes.rb
-│   ├── highlight_caption.rb
-│   ├── jekyll_git_data.rb
-│   ├── pre_class.rb
-│   ├── shells.rb
-│   └── youtube.rb
+│   ├── images.rb
+│   └── shells.rb
 ...
 </pre>
 
 Dapat dilihat, kalau saya memiliki beberapa custom plugin yang saya buat untuk memudahkan proses menulis di blog ini.
+
+Ayo kita lihat!
+
+## Liquid::Tags dengan Parameter
+
+Rasanya, penggunaan module **Liquid::Tags** memang hampir semuanya menggunakan parameter.
+
+### Image Tag
+
+Saya menggunakannya untuk menghandle image.
+
+Sebelum mengenal Liquid tags, saya menggunakan cara ini untuk memasukkan gambar.
+
+{% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
+{% highlight liquid %}
+{% raw %}![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wT7rfFFX/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{% endraw %}
+{% endhighlight %}
+
+Ribet banget yaa.
+
+Saya membuat snippets agar tidak ribet saat akan menggunakannya, namun, tetap saja hal ini membuat markdown file yang kita tulis menjadi kotor.
+
+Saya ingin terlihat lebih rapi tanpa terlalu banyak HTML tag.
+
+Kira-kira seperti ini,
+
+{% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
+{% highlight liquid %}
+{% raw %}{% image https://i.postimg.cc/wT7rfFFX/gambar-01.png" | 1 | Ini adalah caption }{% endraw %}
+{% endhighlight %}
+
+Nah! Lebih sederhana kan?
+
+Berikut ini adalah codenya,
+
+{% highlight_caption _plugins/shells.rb %}
+{% highlight ruby linenos %}
+module Jekyll
+  class Image < Liquid::Tag
+    def initialize(tag_name, input, tokens)
+      super
+      @input = input
+    end
+
+    def render(context)
+      params = split_params(@input)
+      url = params[0].strip
+      num = params[1].strip if params.length > 1
+      cap = params[2].strip if params.length > 2
+
+      output  = "![gambar_#{num}](/assets/img/logo/logo_blank.svg){:data-echo='#{url}' onerror='imgError(this);'}{:class='myImg'}"
+      output += "\n<p class='img-caption' markdown='1'>Gambar #{num} - #{cap}</p>" if params.length == 3
+      output
+    end
+
+    def split_params(params)
+      params.split(' | ')
+    end
+  end
+end
+
+Liquid::Template.register_tag('image', Jekyll::Image)
+{% endhighlight %}
+
+Blok kode di atas adalah untuk kebutuhan saya.
+
+Tentunya, teman-teman perlu memodifikasi sesuai dengan yang teman-teman butuhkan.
+
+
+## Liquid::Block Tanpa Parameter
+
+Untuk membuat Liquid::Block Tanpa Parameter, cukup mudah.
 
 ### Command Prompt
 
@@ -275,6 +350,8 @@ Nah, sederhana kan?
 ## Liquid::Block dengan Parameter
 
 Untuk membuat Liquid::Block dengan Parameter, cukup tricky tapi mungkin.
+
+### Command Prompt
 
 Saya akan contohkan lagi untuk Command Prompt tapi dapat kita definisikan sendiri bentuk dari prompt dan warnanya.
 
