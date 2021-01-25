@@ -95,7 +95,7 @@ Keyboard shortcut ini dapat kita langsung panggil di dalam desktop --mungkin aka
 
 # Demonstrasi
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/L8Hwc0zz/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/L8Hwc0zz/gambar-01.gif | 1 %}
 
 
 

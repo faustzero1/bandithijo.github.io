@@ -19,8 +19,7 @@ resume: "Pada umumnya, tutorial ActionMailer pasti mendemonstrasikan penggunaan 
 
 Catatan kali ini terinspirasi saat saya mencoba menggunakan SendGrid dengan Heroku sebagai Add-ons, namun tidak berjalan dengan baik.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wT7rfFFX/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Virtual User untuk SendGrid yang dibuatkan oleh Heroku, dibanned oleh SendGrid.</p>
+{% image https://i.postimg.cc/wT7rfFFX/gambar-01.png | 1 | Virtual User untuk SendGrid yang dibuatkan oleh Heroku, dibanned oleh SendGrid %}
 
 Ternyata, masalah tersebut bukan saya saja yang mengalami.
 
@@ -63,29 +62,29 @@ Caranya, teman-teman dapat mengikuti langkah-langkahnya di bawah ini.
 
 2. Pastikan **2-Step Verification** sudah di-**enable**-kan (1).
 
-  ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/90pJzwWY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+  {% image https://i.postimg.cc/90pJzwWY/gambar-02.png | 2 %}
 
 {:start="3"}
 3. Pilih **App passwords** (2), untuk men-generate App passwords.
 
 4. Berikan nama aplikasi dengan cara seperti gambar di bawah ini (3).
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/L6jZkFfG/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/L6jZkFfG/gambar-03.png | 3 %}
 
 {:start="5"}
 5. Isikan saja dengan nama bebas sesuai nama Rails project yang sedang dikerjakan, agar tidak bingung (4).
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QtDzt3Qs/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/QtDzt3Qs/gambar-04.png | 4 %}
 
 {:start="6"}
 6. Catat password yang berada di kotak kuning (5).
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y0nDbLJq/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/Y0nDbLJq/gambar-05.png | 5 %}
 
 {:start="7"}
 7. Nah, kalau sudah seperti ini. Kita telah berhasil men-generate App password yang nantinya akan kita gunakan untuk ActionMailer.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gk1Njpp5/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/gk1Njpp5/gambar-06.png | 6 %}
 
 {% box_info %}
 <p>Cara di atas dilakukan dengan mengaktifkan 2-Step Verification, agar kita dapat mengontrol app apa yang akan kita berikan akses dan yang tidak.</p>

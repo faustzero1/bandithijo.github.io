@@ -36,8 +36,7 @@ Contoh, untuk durasi selama **8 jam 30 menit**, berarti data akan disimpan sebes
 
 Tampilannya kira-kira seperti ini, untuk pemilihan jam dan menit.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5s63RNM/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - time_select untuk jam dan menit</p>
+{% image https://i.postimg.cc/j5s63RNM/gambar-01.png | 1 | time_select untuk jam dan menit %}
 
 # Permasalahan
 

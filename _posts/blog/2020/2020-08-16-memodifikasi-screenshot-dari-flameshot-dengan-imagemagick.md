@@ -119,7 +119,7 @@ File Original tidak dimodifikasi, tujuannya sebagai backup. Karena saya menyadar
 
 File Modifikasi adalah hasil pengolahan dengan imagemagick, kalau dibuka akan seperti ini hasilnya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1jrwMbJ/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/C1jrwMbJ/gambar-01.png | 1 %}
 
 Nah, dengan seperti ini, kita tetap dapat memanfaatkan fitur annotate milik flameshot.
 
@@ -344,7 +344,7 @@ Namun, dengan Ruby script ini, hasil screenshot tetap berada pada direktori scre
 
 Jangan lupa untuk mendisable tombol save pada configurasi interface di Flameshot.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7LTNWWGB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/7LTNWWGB/gambar-02.png | 2 %}
 
 Tujuannya agar kita tidak latah lalu menekan tombol save. Agar hanya ada satu pilihan untuk menyimpan, yaitu menekan tombol <kbd>ENTER</kbd>.
 

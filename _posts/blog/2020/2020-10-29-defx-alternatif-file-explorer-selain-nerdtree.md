@@ -352,9 +352,9 @@ endif
 
 # Hasilnya
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bJnLsY3b/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/bJnLsY3b/gambar-01.png | 1 %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BQStvYvQ/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/BQStvYvQ/gambar-02.gif | 2 %}
 
 Kalau diperhatikan, kenapa status bar saya dapat berbeda ketika berada di buffer Defx?
 

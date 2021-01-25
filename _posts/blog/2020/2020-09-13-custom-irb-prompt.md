@@ -138,7 +138,7 @@ Sebelum versi Ruby 2.7. IRB memiliki tampilan yang flat tanpa sintax highlightin
 
 Nah, sebelum IRB mendapatkan *facelift* tersebut, saya sudah lebih dahulu menggunakan alternatif dari IRB, yaitu [**Pry**](https://github.com/pry/pry){:target="_blank"}.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/YqMDyBvP/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/YqMDyBvP/gambar-01.png | 1 %}
 
 Pry sudah lebih dahulu menggunakan sintax highlighting dan juga memiliki beberapa fitur-fitur yang dapat mempermudah pekerjaan. Beberapa fitur dari Pry dapat kalian lihat [di sini](https://github.com/pry/pry#key-features){:target="_blank"}.
 

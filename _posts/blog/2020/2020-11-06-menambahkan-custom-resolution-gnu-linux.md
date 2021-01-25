@@ -19,15 +19,15 @@ resume: "Saya tidak menyangka, kalau di GNU/Linux, kita dapat dengan bebas membu
 
 Saya memiliki external monitor berupa TV yang dihubungkan dengan ThinkPad X61 menggunakan kabel HDMI dengan bantuan konektor VGA to HDMI.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4xzLxLY3/gambar-01.jpg" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/4xzLxLY3/gambar-01.jpg | 1 %}
 
 Eksternal monitor ini terbaca sebagai **VGA1**.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JhMTDNX5/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/JhMTDNX5/gambar-02.png | 2 %}
 
 Sayangnya, resolusi maksimal yang dapat dihasilkan adalah **1024x768**.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/85CtwTtF/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/85CtwTtF/gambar-03.png | 3 %}
 
 Sedangkan external monitor saya memiliki resolusi maksimal sebesar **1920x1080**.
 
@@ -117,7 +117,7 @@ Selesai!
 
 Kalau sudah seperti ini, tinggal kita gunakan saja.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8zmhJqNj/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/8zmhJqNj/gambar-04.png | 4 %}
 
 ## Menghapus Custom Resolution
 

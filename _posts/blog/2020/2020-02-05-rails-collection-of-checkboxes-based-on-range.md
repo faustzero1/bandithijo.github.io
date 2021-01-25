@@ -26,8 +26,7 @@ resume:
 
 Catatan kali ini, saya akan kembali mendokumentasikan tentang search filter yang menggunakan Ransack sebagai backend dengan tampilan frontend berupa checkbox.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gjrXFksr/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Rails view helper collection_check_boxes</p>
+{% image https://i.postimg.cc/gjrXFksr/gambar-01.gif | 1 | Rails view helper collection_check_boxes %}
 
 Seperti ilustrasi di atas, dapat teman-teman lihat, bahwa collection checkbox pada search filter panel tersebut memiliki rentang tertentu pada setiap listnya.
 

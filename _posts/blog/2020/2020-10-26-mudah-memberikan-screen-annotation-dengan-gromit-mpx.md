@@ -21,8 +21,7 @@ Saat presentasi menggunakan aplikasi presentasi semacam LibreOffice Impress, pas
 
 Menurut saya, memberikan anotasi pada slide, lebih efektif untuk menjelaskan dan lebih mudah dimengerti oleh penyimak, ketimbang hanya menunjuk-nujuk bagian-bagian dari slide.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4XY6mZt/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Slide Annotation pada LibreOffice</p>
+{% image https://i.postimg.cc/J4XY6mZt/gambar-01.png | 1 | Slide Annotation pada LibreOffice %}
 
 Kalau teman-teman menggunakan aplikasi Flameshot, pasti juga pernah menggunakan tools-tools untuk memberikan anotasi yang disediakan oleh Flameshot.
 
@@ -46,11 +45,11 @@ Latar belakang Simon Budig mengembangkan Gromit karena saat ia membuat presentas
 
 Berikut ini adalah ilustrasi dari Simon Budig yang saya ambil dari website [Gromit](http://www.home.unix-ag.org/simon/gromit/){:target="_blank"}.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rFYyJ1Gq/gambar-02.jpg" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/rFYyJ1Gq/gambar-02.jpg | 2 %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/52h4cfkG/gambar-03.jpg" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/52h4cfkG/gambar-03.jpg | 3 %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BnLSwjNH/gambar-04.jpg" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/BnLSwjNH/gambar-04.jpg | 4 %}
 
 # Instalasi
 
@@ -156,11 +155,11 @@ UNDOKEY = "F8";
 
 # Demonstrasi
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SxzC4NDb/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/SxzC4NDb/gambar-05.gif | 5 %}
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5NZRjCmP/gambar-06.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/5NZRjCmP/gambar-06.gif | 6 %}
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/2Sbqp0Gc/gambar-07.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/2Sbqp0Gc/gambar-07.gif | 7 %}
 
 
 

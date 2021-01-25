@@ -411,8 +411,7 @@ Bisa dilihat, beberapa *patch* branch yang berkonflik pada script **suckmerge2**
 
 Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8kyg5LVJ/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - RicingShow: DeWayEm Project 2020-05</p>
+{% image https://i.postimg.cc/8kyg5LVJ/gambar-01.png | 1 | RicingShow: DeWayEm Project 2020-05 %}
 
 Repositorinya dapat dilihat [di sini](https://github.com/bandithijo/dwm){:target="_blank"}.
 
@@ -590,8 +589,7 @@ Saya juga hanya menggunakan top bar saja, yang sebelumnya saya menggunakan top d
 
 Nah, seperti ini tampilan bar yang saya pergunakan sekarang.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4NNsVpvT/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - dwmsatus (custom made)</p>
+{% image https://i.postimg.cc/4NNsVpvT/gambar-02.png | 2 | dwmsatus (custom made) %}
 
 Saya membuat file bernama `~/.local/bin/dwmstatus`. Dan tambahkan *execute permission* `$ chmod +x dwmstatus`.
 

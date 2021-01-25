@@ -30,8 +30,7 @@ Tapi, mudah-mudahan judul yang saya berikan saat ini, dapat mewakili isi dari tu
 
 Mungkin saya akan mulai dengan memberikan ilustrasi gambar.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jdv4sB52/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Navigation Bar dengan Menu Language dan Currency Preferences</p>
+{% image https://i.postimg.cc/jdv4sB52/gambar-01.gif | 1 | Navigation Bar dengan Menu Language dan Currency Preferences %}
 
 Nah, sudah sedikit terbayang kan.
 

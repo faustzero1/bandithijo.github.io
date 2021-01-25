@@ -54,7 +54,7 @@ ll /usr/share/themes | grep -e "Numix"
    drwxr-xr-x 11 root root NumixSolarizedLightYellow</pre>
 
    Atau, cek menggunakan File Manager,
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CKjv85C1/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/CKjv85C1/gambar-01.png | 1 %}
 
    Apabila GTK theme yang kita pergunakan ternyata tidak terdapat pada direktori `/usr/share/themes`, lantas coba lakukan pengecekan pada direktori `~/.local/share/themes/`.
 
@@ -92,7 +92,7 @@ ll
 
    Atau, cek menggunakan File Manager,
 
-   ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XvmCnkBB/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/XvmCnkBB/gambar-02.png | 2 %}
 
    Apabila hanya terdapat salah satu dari keduanya, artinya GTK theme yang kalian pergunakan hanya mendukung GTK versi yang tersedia di tema.
 
@@ -139,8 +139,7 @@ gtk-modules="canberra-gtk-module:gail:atk-bridge"
 {% endpre_caption %}
 
 Dapat dilihat bahwa, pada sistem saya, file `gtkrc-2.0` ini digenerate oleh `LXAppearance`.
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/257SKdFf/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Interface dari LXAppearance</p>
+{% image https://i.postimg.cc/257SKdFf/gambar-03.png | 3 | Interface dari LXAppearance %}
 
 Dapat dilihat di dalam file `~/.gtkrc-2.0` ini terdapat GTK theme yang saya pergunakan. Karena tema yang saya pergunakan memang menyediakan tema untuk GTK2.
 
@@ -151,7 +150,7 @@ sudo cp ~/.gtkrc-2.0 /root/
 {% endshell_user %}
 
 Berikut ini adalah ilustrasinya.
-![gtk2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/htBLQBs4/gtk2.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/htBLQBs4/gtk2.gif | gtk2 %}
 
 ## GTK3
 
@@ -203,7 +202,7 @@ sudo cp -rvf ~/.config/gtk-3.0 /root/.config
 Sekarang coba buka aplikasi GTK3 dengan root permission.
 
 Berikut ilustrasinya.
-![gtk3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Ssq3g3mm/gtk3.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/Ssq3g3mm/gtk3.gif | gtk3 %}
 
 Nah, sekarang tampilan aplikasi GTK3 yang dimiliki oleh root dan user sudah sama.
 

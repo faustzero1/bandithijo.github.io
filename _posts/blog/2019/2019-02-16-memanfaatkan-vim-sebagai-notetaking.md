@@ -156,11 +156,11 @@ vim ~/.vimrc
 
    **Sebelum,**
 
-   ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nLgKpDzY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/nLgKpDzY/gambar-02.png | 2 %}
 
    **Sesudah,**
 
-   ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qRKsRv6f/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+   {% image https://i.postimg.cc/qRKsRv6f/gambar-03.png | 3 %}
 
    Saya menggunakan NERDTree, untuk membuat file baru. Karena sudah terbiasa menggunakan NERDTree.
 
@@ -188,7 +188,7 @@ vim notetaking.desktop
 
 # Hasilnya
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mkGQFW7P/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/mkGQFW7P/gambar-01.gif | 1 %}
 
 # Pesan Penulis
 

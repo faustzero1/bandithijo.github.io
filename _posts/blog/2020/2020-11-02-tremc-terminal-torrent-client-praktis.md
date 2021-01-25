@@ -116,7 +116,7 @@ file_prio_low              = fg:yellow,bg:default
 file_prio_off              = fg:blue,bg:default
 {% endhighlight %}
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/3xrDRmTm/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/3xrDRmTm/gambar-01.png | 1 %}
 
 # Keyboard Mapping
 
@@ -126,31 +126,31 @@ Tremc, sudah membundle keybind help info yang sangat mudah dipahami dan mudah di
 
 Tekan <kbd>F1</kbd> atau <kbd>?</kbd>.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XvmZQPyk/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/XvmZQPyk/gambar-02.png | 2 %}
 
 Apabila terdapat keterangan **More...**, kita dapat scroll ke bawah dengan <kbd>Page Down</kbd>.
 
 Untuk melihat detail dari torrent, tekan <kbd>Enter</kbd>.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6Qy2VKTQ/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/6Qy2VKTQ/gambar-03.png | 4 %}
 
 Kemudian, pindah ke tab selanjutnya dengan <kbd>Tab</kbd> atau <kbd>-></kbd>.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nzmX514b/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/nzmX514b/gambar-04.png | 4 %}
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/t4rnVJqf/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/t4rnVJqf/gambar-05.png | 5 %}
 
 ## Add Torrent
 
 Kita dapat menambahkan torrent dengan menekan tombol <kbd>a</kbd>.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7hxqV1XN/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/7hxqV1XN/gambar-06.png | 6 %}
 
 Saya lebih sering memasukkan alamat Magnet Link, seperti ini contohnya.
 
-<pre class="url">
+{% pre_url %}
 magnet:?xt=urn:btih:ba7a8d78a535a9bf22dbb4482b9174ea8fd70891&dn=archlinux-2020.11.01-x86_64.iso
-</pre>
+{% endpre_url %}
 
 ## Move Torrent File
 

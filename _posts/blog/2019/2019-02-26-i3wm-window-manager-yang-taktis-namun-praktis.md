@@ -26,15 +26,15 @@ Berdasarkan daftar log video pada [bandithijo.com/vlog]({{ site.url }}/vlog/){:t
 
 Saya merasa perlu untuk membuat catatan mengenai apa saja yang sudah saya manfaatkan dan pergunakan dengan i3wm. Mungkin dari catatan ini, teman-teman yang membaca mendapatkan informasi yang subjektif dari sudut pandang saya sebagai pengguna. Jujur saja, saya pun sangat menyukai tulisan-tulisan yang mengulas tentang suatu teknologi dari sudut pandang pengguna.
 
-![gambar_18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WpHmyggn/gambar-18.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/WpHmyggn/gambar-18.png | 18 %}
 
-![gambar_19]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ZqHpxdJ6/gambar-19.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/ZqHpxdJ6/gambar-19.png | 19 %}
 
-![gambar_20]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jjtyfXYs/gambar-20.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/jjtyfXYs/gambar-20.png | 20 %}
 
-![gambar_21]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/50P5bFGf/gambar-21.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/50P5bFGf/gambar-21.png | 21 %}
 
-![gambar_22]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/6QMYz3K4/gambar-22.png | 22 %}
 
 # Window Manager
 
@@ -145,21 +145,17 @@ Kemudian mengingat-ingat kembali, kalau distribusi Manjaro, beberapa kali selalu
 
 Setelah beberapa kali melihat video ulasan i3wm dari beberapa user, saya pun memutuskan untuk mempelajarinya terlebih dahulu. Kebetulan terdapat video yang memberikan informasi dasar bagaimana cara menggunakan i3wm.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jj641YCy/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - <a href="https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank">Code Cast - i3wm (Playlist) at YouTube</a></p>
+{% image https://i.postimg.cc/jj641YCy/gambar-01.png | 1 | <a href="https://www.youtube.com/watch?v=j1I63wGcvU4&list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank">Code Cast - i3wm (Playlist) at YouTube</a> %}
 
 Menurut saya video ini sangat bagus sekali sebagai pondasi awal mengenal i3wm. Video di atas juga termasuk dalam jajaran video yang direkomendasikan oleh website i3wm.org, [di sini](https://i3wm.org/screenshots/){:target="_blank"}.
 
 Saya sarankan untuk dapat mempelajari video-video lain yang direkomendasikan oleh i3wm.org.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/VNGMbfhs/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - <a href="https://youtu.be/Wx0eNaGzAZU" target="_blank">i3 window manager screencast v4.1 at YouTube</a></p>
+{% image https://i.postimg.cc/VNGMbfhs/gambar-02.png | 2 | <a href="https://youtu.be/Wx0eNaGzAZU" target="_blank">i3 window manager screencast v4.1 at YouTube</a> %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mDP93xxY/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - <a href="https://youtu.be/AWA8Pl57UBY" target="_blank">i3 screencast: containers and the tree data structure at YouTube</a></p>
+{% image https://i.postimg.cc/mDP93xxY/gambar-03.png | 3 | <a href="https://youtu.be/AWA8Pl57UBY" target="_blank">i3 screencast: containers and the tree data structure at YouTube</a> %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8kF3csY5/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - <a href="https://youtu.be/QnYN2CTb1hM" target="_blank">i3 - An Improved Tiling Window Manager at YouTube</a></p>
+{% image https://i.postimg.cc/8kF3csY5/gambar-04.png | 4 | <a href="https://youtu.be/QnYN2CTb1hM" target="_blank">i3 - An Improved Tiling Window Manager at YouTube</a> %}
 
 Sebenarnya, istilah *Tiling* window manager, bukan pertama kali saya dengar. Saya pernah mendengar dari percakapan beberapa teman-teman di group Telegram BGLI (Belajar GNU/Linux Indonesia). Kang [Sucipto](https://sucipto.net){:target="_blank"} pun sudah pernah menawarkan untuk menggunakan *i3wm*, namun saat itu saya belum memahami apa kelebihannya dan keuntungan menggunakan *Tiling* window manager.
 
@@ -239,8 +235,7 @@ bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu='rofi -dmenu -lines
 
 Pada contoh di atas, saya menggunakan aplikasi **Rofi** sebagai *application launcher* yang saya letakkan pada <kbd>SUPER</kbd>+<kbd>D</kbd>.
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/dtttfbtr/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - Rofi+dmenu</p>
+{% image https://i.postimg.cc/dtttfbtr/gambar-05.png | 5 | Rofi+dmenu %}
 
 Sebenarnya saya memanfaatkan **dmenu** sebagai *backend* yang berfungsi me-*list* semua aplikasi saya, kemudian Rofi yang bertugas memberikan tampilan seperti di atas.
 
@@ -484,8 +479,7 @@ Stacking layout pada i3wm ini tidak seperti stacking pada Desktop Environment de
 
 Kalau masih bingung, saya ambilkan gambar dari i3wm.org.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mZ3wb5fm/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 6 - Layout yang dimiliki oleh i3wm</p>
+{% image https://i.postimg.cc/mZ3wb5fm/gambar-06.png | 6 | Layout yang dimiliki oleh i3wm %}
 
 Kita dapat mengatur *default layout* yang akan kita gunakan pada setiap Workspace.
 
@@ -804,8 +798,7 @@ client.urgent            $urgent-bg-color    $urgent-bg-color    $urgent-text-co
 
 Hasilnya akan seperti ini.
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5nmsrtC/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 7 - Window Container Aktif (kiri) dan Window Container Tidak Aktf (kanan)</p>
+{% image https://i.postimg.cc/j5nmsrtC/gambar-08.png | 7 | Window Container Aktif (kiri) dan Window Container Tidak Aktf (kanan) %}
 
 #### Menentukan Container Border
 
@@ -868,20 +861,16 @@ bindsym $mod+y       border none
 Hasilnya akan seperti ini,
 
 **Border Normal 0**, menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>T</kbd>
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/xCbfB7Z3/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 8 - Window Container Border Normal 0</p>
+{% image https://i.postimg.cc/xCbfB7Z3/gambar-09.png | 8 | Window Container Border Normal 0 %}
 
 **Border Normal 1**, menggunakan <kbd>SUPER</kbd>+<kbd>T</kbd>
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QN1Nb21X/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 9 - Window Container Border Normal 1</p>
+{% image https://i.postimg.cc/QN1Nb21X/gambar-10.png | 9 | Window Container Border Normal 1 %}
 
 **Border Pixel 1**, menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Y</kbd>
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vTrQZnb1/gambar-11.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 10 - Window Container Border Pixel 1</p>
+{% image https://i.postimg.cc/vTrQZnb1/gambar-11.png | 10 | Window Container Border Pixel 1 %}
 
 **Border None**, menggunakan <kbd>SUPER</kbd>+<kbd>Y</kbd>
-![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/905m2b55/gambar-12.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 11 - Window Container Border None</p>
+{% image https://i.postimg.cc/905m2b55/gambar-12.png | 11 | Window Container Border None %}
 
 #### Menentukan Container Border Aplikasi Tertentu
 
@@ -1100,8 +1089,7 @@ bindsym $mod+Tab exec --no-startup-id j4-dmenu-desktop --dmenu="rofi -show windo
 
 Saya menggunakan <kbd>SUPER</kbd>+<kbd>TAB</kbd>, sebagai ganti dari <kbd>ALT</kbd>+<kbd>TAB</kbd>.
 
-![gambar_12]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8k3jCdGY/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 12 - Mendaftar semua Window Container dengan Rofi</p>
+{% image https://i.postimg.cc/8k3jCdGY/gambar-07.png | 12 | Mendaftar semua Window Container dengan Rofi %}
 
 
 ### Memuat Ulang Konfigurasi
@@ -1485,13 +1473,11 @@ bindsym $mod+Shift+p exec --no-startup-id rm -rf /tmp/clipmenu/*
 
 Dapat dilihat, saya menggunakan <kbd>SUPER</kbd>+<kbd>P</kbd> untuk memanggil Rofi yang menampilkan isi dari clipboard.
 
-![gambar_13]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vBPLT0Lj/gambar-13.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 13 - Clipboard dalam keadaan terisi</p>
+{% image https://i.postimg.cc/vBPLT0Lj/gambar-13.png | 13 | Clipboard dalam keadaan terisi %}
 
 Sedangkan untuk menghapus seluruh isi clipboard, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>.
 
-![gambar_14]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4ymv9pW3/gambar-14.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 14 - Clipboard dalam keadaan kosong</p>
+{% image https://i.postimg.cc/4ymv9pW3/gambar-14.png | 14 | Clipboard dalam keadaan kosong %}
 
 #### Volume Control
 
@@ -1532,8 +1518,7 @@ Saya menggunakan <kbd>SUPER</kbd>+<kbd>F3</kbd> untuk memanggil `pavucontrol` ka
 
 Namun, belakangan ini sudah sangat jarang saya menggunakan `pavucontrol`, lebih sering menggunakan `ncpamixer`, tapi enah mengapa, aplikasi ini tidak dapat dijalankan dengan *keybinding*.
 
-![gambar_15]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8PnP19JW/gambar-15.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 15 - Tampilan TUI dari ncpamixer</p>
+{% image https://i.postimg.cc/8PnP19JW/gambar-15.png | 5 | Tampilan TUI dari ncpamixer %}
 
 #### Brightness Control
 
@@ -1571,8 +1556,7 @@ Saya menggunakan <kbd>SUPER</kbd>+<kbd>F7</kbd>.
 
 Lagi-lagi, karena tombol <kbd>F7</kbd> saya bergambar projector, maka saya letakkan kombinasi untuk memanggil Arandr pada tombol ini.
 
-![gambar_16]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/1XXh2RKd/gambar-16.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 16 - Tampilan GUI dari Arandr</p>
+{% image https://i.postimg.cc/1XXh2RKd/gambar-16.png | 6 | Tampilan GUI dari Arandr %}
 
 
 #### Network Manager
@@ -1658,8 +1642,7 @@ gui_if_available = True
 
 Hasilnya, akan seperti di bawah ini.
 
-![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsHPsDVN/gambar-17.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
+{% image https://i.postimg.cc/LsHPsDVN/gambar-17.gif | 7 | Tampilan NetworkManager_dmenu dengan Rofi %}
 
 
 # Dotfiles

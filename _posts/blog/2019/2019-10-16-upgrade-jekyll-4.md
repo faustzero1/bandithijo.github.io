@@ -122,8 +122,7 @@ Namun sepertinya gem ini belum mengupgrade gemspec mereka, jadi dengan senang ha
 
 Kemudian, saya mendapati bahwa untuk Jekyll, kita sudah dapat mengeset **Environment variables** pada Netlify. Seingat saya, diawal-awal saya menggunakan Netlify, memang belum bisa, maka dari itu saya menggunakan bantuan gem jekyll-netlify.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/dVH7Tggr/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Netlify Deploy Environment Variables</p>
+{% image https://i.postimg.cc/dVH7Tggr/gambar-01.png | 1 | Netlify Deploy Environment Variables %}
 
 Yay! Dengan begini, mendeploy Jekyll project pada Netlify sudah sangat enak sekali.
 

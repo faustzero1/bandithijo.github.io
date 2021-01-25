@@ -396,8 +396,7 @@ Kalau sudah begini, langsung bisa kita gunakan.
 
 Coba lakukan pengetesan dengan [**dnsleaktest.com**](https://www.dnsleaktest.com/){:target="_blank"}.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/zvPYSxkr/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Hasil pengetesan dengan dnsleaktest.com<br>(<i>gambar menyusul server postimages sedang maintenance</i>)</p>
+{% image https://i.postimg.cc/zvPYSxkr/gambar-01.png | 1 | Hasil pengetesan dengan dnsleaktest.com<br>(<i>gambar menyusul server postimages sedang maintenance</i>) %}
 
 Selanjutnya, saya perlu untuk membuat proses pemanggilan DNSCrypt-proxy ini menjadi otomatis saat sistem pertama kali di jalankan. Agar tidak perlu repot-repot.
 

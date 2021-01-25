@@ -30,15 +30,13 @@ Mungkin kali ini belum bisa dikatakn merakit, meskipun memang prosesnya merakit.
 
 Saya mulai dengan menggambar skema wiring ala-ala, agar tidak kehilangan arah saat merakit kembali. Meskipun rangkaian battery ini meruapakan rangkaian paralel sederhana, namun karena saya tidak terbiasa dengan hal-hal seperti ini, lebih baik saya catat. Hehe.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Gmb27184/gambar-01.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Gambar skema wiring battery ala-ala</p>
+{% image https://i.postimg.cc/Gmb27184/gambar-01.jpg | 1 | Gambar skema wiring battery ala-ala %}
 
 Battery dengan cell berwarna biru ini adalah isi dari battery ThinkPad X61 yang sudah saya buka. Battery ini bukan battery original. Jujur saja saya penasaran seperti apa isi dari battery ThinkPad Original.
 
 Battery yang saya buka ini, sudah tidak dapat bertahan lama, paling hanya 5-10 menitan kalau digunakan. Ternyata setelah dibuka dan saya periksa voltase masing-masing cell, benar saja. Hanya 1 cell yang masih 3,6V sedangkan 2 diantaranya 1,5V dan tersisa 1 yang tidak menunjukkan nilai voltase sama sekali.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/13MzbYwJ/gambar-02.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Cell yang ditunjuk adalah cell yang rusak (bocor)</p>
+{% image https://i.postimg.cc/13MzbYwJ/gambar-02.jpg | 2 | Cell yang ditunjuk adalah cell yang rusak (bocor) %}
 
 Cell ini mengeluarkan cairan, meski tidak terlihat basah namun terasa basah di tangan dan mengeluarkan bau khas bahan battery Li-ion.
 
@@ -46,15 +44,13 @@ Cell ini mengeluarkan cairan, meski tidak terlihat basah namun terasa basah di t
 
 Setelah cukup yakin bahwa saya mencatat semua yang saya perlukan untuk nantinya dapat saya rangkai kembali, saya mulai membongkar rangkaian. Saya mulai dari melepas kabel-kabel yang terhubung dengan battery.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/CLTd88wH/gambar-04.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Rangkaian battery yang sudah saya lepas perkabelannya</p>
+{% image https://i.postimg.cc/CLTd88wH/gambar-04.jpg | 4 | Rangkaian battery yang sudah saya lepas perkabelannya %}
 
 Pada Gambar 3, terlihat bahwa masing-masing battery terhubung dengan plat tipis. Plat ini yang saya baru paham, ditempel ke kutub-kutub battery dengan menggunakan sebuah teknik yang bernama "*Spot Welding*". Pantas saja ketika saya coba panaskan dengan solder, tidak bergeming sama sekali. Mungkin dilain kesempatan saya akan coba membuat alat *spot welder* saya sendiri. Agar memudahkan untuk perakitan battery. Sayang sekali saya tidak memiliki gambar dari battery yang dipasang plat dengan *spot welding*. Mungkin teman-teman dapat mencari saja di internet, bentuknya seperti titik-titik di kepala Kurilin. Hehe.
 
 Selanjutnya, saya sudah menyiapkan battery ThinkPad X260 68+ (6 cell) yang benar-benar sudah tidak dapat digunakan.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RFJV6S8D/gambar-03.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Cell dari battery ThinkPad X260 68+</p>
+{% image https://i.postimg.cc/RFJV6S8D/gambar-03.jpg | 3 | Cell dari battery ThinkPad X260 68+ %}
 
 Dari Gambar 4, terlihat bahwa dari 6 cell, ternyata ada 2 cell yang rusak. Padahal battery case nya masih bagus dan tidak ada menggembung atau terlihat rusak --meskipun akhirnya battery casenya rusak karena saya buka paksa. Pantas saja battery ini sudah tidak dapat digunakan. Ke empat cell yang masing bagus tersebut masih memiliki voltase sebesar 3,6V.
 
@@ -68,8 +64,7 @@ Sejujurnya saya sudah mencoba merapikan sobekan-sobekan plat tersebut, namun say
 
 Karena tidak memiliki alat bantu untuk memegang battery, saya mengakali dengan memanfaatkan kunci inggris dan tang. Hehe
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WbGzw43R/gambar-05.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - Kunci inggris dan tang yang diberikaret gelang sebagai battery holder</p>
+{% image https://i.postimg.cc/WbGzw43R/gambar-05.jpg | 5 | Kunci inggris dan tang yang diberikaret gelang sebagai battery holder %}
 
 Seharusnya jaraknya antara battery masih bisa lebih dekat lagi, namun saya memutuskan untuk memberi jarak terlebih dahulu. Kebetulan juga battery case ThinkPad X61 masih cukup lega, dan maih terdapat cukup ruang untuk perkabelan yang semrawut. Hehe.
 
@@ -84,8 +79,7 @@ Setelah battery selesai dirakit, saatnya pengukuran voltase bagian akhir. pabila
 
 ### Pengukuran Battery Bawaan
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rpPww0h4/gambar-06.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 6 - Battery yang saya beli (abal)</p>
+{% image https://i.postimg.cc/rpPww0h4/gambar-06.jpg | 6 | Battery yang saya beli (abal) %}
 
 Loh, nilai voltase pada battery di Gambar 6 kok lebih dari 14,4V? Nah, saya juga kurang paham. Battery ini yang saya pakai, dan masih dapat bertahan sekitar 30 menitan.
 
@@ -93,8 +87,7 @@ Battery ini adalah battery yang disertakan saat saya membeli ThinkPad X61.
 
 Kalau saya ukur berapa lama battery ini dapat digunakan dengan GNome Power Statistics.
 
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wTdV1BMy/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 10 - Pengukuran dengan Gnome Power Statistics Battery Bawaan</p>
+{% image https://i.postimg.cc/wTdV1BMy/gambar-10.png | 10 | Pengukuran dengan Gnome Power Statistics Battery Bawaan %}
 
 Presentase sangat tidak akurat, lebih dari 40 menit berada pada presentase 99-98% kemudian drop ke 10%.
 
@@ -130,8 +123,7 @@ Bisa dilihat, pada bagian yang saya marking, menunjukkan value yang aneh.
 ### Pengukuran Battery Rebuild
 Kemudian, saya mengukur battery yang saya rakit (*rebuild*).
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vmBmyLvM/gambar-07.jpg" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 7 - Battery hasil rebuild</p>
+{% image https://i.postimg.cc/vmBmyLvM/gambar-07.jpg | 7 | Battery hasil rebuild %}
 
 Nah, hasil pengukuran voltasenya sebesar 14,26V. Mendekai lah yaa dengan nilai normal.
 
@@ -161,8 +153,7 @@ Perintah di atas akan menjalankan kalibrasi battery dimana proses bermula dari p
 
 Berikut ini adalah grafik hasil kalibrasi battery rebuild.
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/htnkVDJ5/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 8 - Hasil pengukuran dengan Gnome Power Statistics</p>
+{% image https://i.postimg.cc/htnkVDJ5/gambar-08.png | 8 | Hasil pengukuran dengan Gnome Power Statistics %}
 
 Untuk meliahat informasi dari battery, saya juga menggunakan perintah:
 
@@ -212,8 +203,7 @@ Saya kurang paham, ini perilaku dari Cell atau module controller dari battery in
 <br>
 **Update: 2020-05-31**
 
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/zfwwdDHb/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 9 - Hasil discharge setelah kalibrasi kedua</p>
+{% image https://i.postimg.cc/zfwwdDHb/gambar-09.png | 9 | Hasil discharge setelah kalibrasi kedua %}
 
 Pada Gambar 9, ini adalah grafik discharging yang saya laukan setelah rekalibrasi yang kedua. Saya tidak menyangka, tidak drop pada 40% namun pada 19%. Oh yaa, discharging ini juga dilakukan sambil menjalankan perintah:
 

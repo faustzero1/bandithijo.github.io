@@ -28,8 +28,7 @@ Pernah membuat menu select atau dropdown menu, namun merasa keterngan nama yang 
 
 Misalnya, seperti pada project yang sedang saya kerjakan. Terdapat menu select untuk memilih salah satu Cancellation Policy melalui menu select. Seperti di bawah ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4NKCw592/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Cancellation Policy Menu Select</p>
+{% image https://i.postimg.cc/4NKCw592/gambar-01.png | 1 | Cancellation Policy Menu Select %}
 
 Lihat, tidak ada informasi yang lebih detail mengenail masing-masing menu.
 
@@ -129,8 +128,7 @@ Atau dapat juga menggunakan inspect element pada Browser untuk mengetahui id dar
 
 Nah, kalau sudah semua, hasilnya akan seperti ini.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/bN475t0y/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Cancellation Policy Menu Select dengan Short Description</p>
+{% image https://i.postimg.cc/bN475t0y/gambar-02.gif | 2 | Cancellation Policy Menu Select dengan Short Description %}
 
 Selesai!
 

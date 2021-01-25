@@ -21,7 +21,7 @@ Saya baru-baru saja menyeragamkan semua produksi video yang saya jadikan [vlog d
 
 Dalam video tersebut, saya menggunakan frame seperti ini:
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/kg4MKtmK/obs-frame.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/kg4MKtmK/obs-frame.png | obs-frame %}
 
 Nah, permasalahannya adalah:
 
@@ -29,13 +29,13 @@ Nah, permasalahannya adalah:
 
 Saat ini, hasil screenshot yang diambil langsung dari laptop ThinkPad X61 saya, seperti ini:
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9FXcHqzK/thinkpad-x61-1024x768.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/9FXcHqzK/thinkpad-x61-1024x768.png | thinkpad-x61-1024x768 %}
 
 Nah, hasil screenshot di atas memiliki resolusi 1024x768.
 
 Saya ingin menggabungkan hasil screenshot dengan frame.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rmLLnDvh/mockup-imagemagick.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/rmLLnDvh/mockup-imagemagick.png | mockup-imagemagick %}
 
 # Pemecahan Masalah
 
@@ -88,7 +88,7 @@ super + Print
 
 Hasilnya seperti ini.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yNGTs9VP/hasil-screenshot-frame-imagemagick.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/yNGTs9VP/hasil-screenshot-frame-imagemagick.png | hasil-screenshot-frame-imagemagick %}
 
 # Tambahan
 

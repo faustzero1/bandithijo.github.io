@@ -40,8 +40,7 @@ Teman-teman dapat melihat contoh pertama [di sini](/blog/rails-single-table-inhe
 
 Kira-kira seperti ini ERD-nya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T1bRRy6Q/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - ERD Single Table Inheritance antara user model dengan participants dan sponsors model</p>
+{% image https://i.postimg.cc/T1bRRy6Q/gambar-01.png | 1 | ERD Single Table Inheritance antara user model dengan participants dan sponsors model %}
 
 Dari diagram di atas, saya hanya membuat satu buah tabel, yaitu users.
 

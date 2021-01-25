@@ -19,7 +19,7 @@ resume: "Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari 
 
 Kalau teman-teman berkunjung ke ["HelloDev Online Meetup: 💎 Ruby for Beginner"](https://bandithijo.github.io/hellodev_ruby_meetup/).
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PrCmDq3W/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/PrCmDq3W/gambar-01.png | 1 %}
 
 Kemudian, memperhatikan URL-nya.
 
@@ -41,16 +41,16 @@ Sedangkan, halaman pengumuman tersebut, berada pada repositori ini:
 github.com/bandithijo/hellodev_ruby_meetup
 {% endpre_url %}
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/dV81Qds3/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/dV81Qds3/gambar-07.png | 7 %}
 
 <br>
 Sebenarnya, GitHub Page sudah menyediakan beberapa template default apabila kita mengaktifkan memilih "Theme" pada pengaturan yang ada pada masing-masing repositori --lihat gambar di bawah.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d3LTGWBs/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/d3LTGWBs/gambar-02.png | 2 %}
 
 Namun, terkadang, theme yang disediakan kurang sesuai "feel"-nya dengan konten yang ingin kita tampilkan.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/BZXN0sWV/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/BZXN0sWV/gambar-03.png | 3 %}
 
 # Solusinya
 
@@ -261,7 +261,7 @@ http://localhost:4000
 
 Kalau konfigurasinya sudah benar, maka akan menampilkan isi dari halaman **README.md** yang ada di project direktori kita.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NfGdzTsR/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/NfGdzTsR/gambar-04.png | 4 %}
 
 # Let's Push
 
@@ -275,7 +275,7 @@ Kemudian, pergi ke tab **⚙️ Settings**.
 
 Pada section **GitHub Pages**, pilih branch **master** sebagai source yang akan ditampilkan sebagai GitHub Pages.
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pVzGWwQw/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/pVzGWwQw/gambar-08.png | 8 %}
 
 Kalau sudah dirubah, notifkasi dengan pita hijau akan muncul bertuliskan,
 
@@ -292,11 +292,11 @@ Nah, selesai!
 
 Kalau teman-teman ke bagian TOPICS, akan melihat bagian yang dapat "collapsible", seperti di bawah ini.
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RFRc7sny/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/RFRc7sny/gambar-05.png | 5 %}
 
 Kemudian, saat di klik, maka akan terbuka, seperti di bawah ini.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0jy7cYYQ/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/0jy7cYYQ/gambar-06.png | 6 %}
 
 **Bagaimana cara membuatnya?**
 

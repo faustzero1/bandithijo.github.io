@@ -231,8 +231,7 @@ Untuk menjalankan server, sangat mudah sekali.
 
 3. Buka ip address yang diberikan dengan browser.
    <!-- IMAGE CAPTION -->
-   ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxM1qzjK/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-   <p class="img-caption">Gambar 1 - Status Bluetooth Interface</p>
+   {% image https://i.postimg.cc/yxM1qzjK/gambar-01.png | 1 | Status Bluetooth Interface %}
 Apaila status **Bluetooth: Interface is Listening** berwarna hijau, artinya kita telah berhasil mengkonfigurasi server untuk menerima konektifitas dengan Bluetooth.
 
    Langkah selanjutnya tinggal memasangkan Unified Remote pada Android.
@@ -240,56 +239,45 @@ Apaila status **Bluetooth: Interface is Listening** berwarna hijau, artinya kita
 ## Instalasi Unified Remote Client
 
 1. Buka Google PlayStore dan cari "**Unified Remote**"
-    <!-- IMAGE CAPTION -->
-    ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7ZWNFHJd/gambar-02.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 2 - Unified Remote di Google PlayStore</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/7ZWNFHJd/gambar-02.jpg | 2 | Unified Remote di Google PlayStore %}
 Pasang dan tunggu prosesnya hingga selesai.
 
 ## Konfigurasi Unified Remote Client
 
 1. Hubungkan komputer/laptop dengan Android menggunakan Bluetooth. Saya menggunakan aplikasi `blueman-manager`
-    <!-- IMAGE CAPTION -->
-    ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wBD9CBbj/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 3 - Interface dari Blueman Manager</p>
-    <!-- IMAGE CAPTION -->
-    ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/YqWGrQ0p/gambar-04.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 4 - Tampilan Bluetooth Settings Android</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/wBD9CBbj/gambar-03.png | 3 | Interface dari Blueman Manager %}
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/YqWGrQ0p/gambar-04.jpg | 4 | Tampilan Bluetooth Settings Android %}
 
-    Kita dapat melihat dari kedua gambar di atas bahwa komputer/laptop dan Android sudah saling terhubung.
+   Kita dapat melihat dari kedua gambar di atas bahwa komputer/laptop dan Android sudah saling terhubung.
 2. Setelah laptop dan Android saling terhubung, buka aplikasi Unified Remote di Android.
-    <!-- IMAGE CAPTION -->
-    ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fyYzNRbK/gambar-05.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 5 - Hamburger menu</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/fyYzNRbK/gambar-05.jpg | 5 | Hamburger menu %}
 Pilih menu di pojok kiri atas.
 3. Kita perlu untuk menambahkan server
-    <!-- IMAGE CAPTION -->
-    ![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Qt45TSgP/gambar-06.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 6 - Tambahkan server</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/Qt45TSgP/gambar-06.jpg | 6 | Tambahkan server %}
 Bisa dilihat pada Status server di kotak hijau, "No servers added", karena kita belum membuat konektifitas dengan server.
 4. Pada bagian **Servers** ini lah kita akan memilih konektifitas.
-    <!-- IMAGE CAPTION -->
-    ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/13WZbjS4/gambar-07.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 7 - Tempat untuk memilih, membuat, mengubah, atau menghapus konektifitas dengan server</p>
-Pilih nama dari Bluetooth Android *smartphone* kita.
-    <!-- IMAGE CAPTION -->
-    ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MpnsKPRn/gambar-08.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 8 - Android kita sudah masuk dalam daftar "saved Servers"</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/13WZbjS4/gambar-07.jpg | 7 | Tempat untuk memilih, membuat, mengubah, atau menghapus konektifitas dengan server %}
+Pilh nama dari Bluetooth Android *smartphone* kita.
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/MpnsKPRn/gambar-08.jpg | 8 | Android kita sudah masuk dalam daftar "saved Servers" %}
 5. Selanjutnya kembali ke menu, dan pilih Remotes
-    <!-- IMAGE CAPTION -->
-    ![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HnCxjhVd/gambar-09.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 9 - Dapat dilihat status server yang kota hijau, kita sudah terhubung dengan Bluetooth Android</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/HnCxjhVd/gambar-09.jpg | 9 | Dapat dilihat status server yang kota hijau, kita sudah terhubung dengan Bluetooth Android %}
 Pilih **Remotes**
 6. Pada bagian ini, kita dapat memilih berbagai macam jenis fungsi remote
-    <!-- IMAGE CAPTION -->
-    ![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HkSV3zP9/gambar-10.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 10 - Tekan tanda ( + ) untuk menambahkan fungsi remote baru</p>
-Silahkan bereksplorasi sendiri, karena di dalamnya terdapat banyak sekali fungsi remote yang berbeda-beda. Saya hanya menggunakan 2 fungsi remote, yaitu : **Basic Input** dan **Slide Show**
-    <!-- IMAGE CAPTION -->
-    ![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/N05LnX3q/gambar-11.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 11 - Tampilan Basic Input remote</p>
-    <!-- IMAGE CAPTION -->
-    ![gambar_12]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KYw4hzbK/gambar-12.jpg" onerror="imgError(this);"}{:class="myImg"}
-    <p class="img-caption">Gambar 12 - Tampilan Slide Show remote</p>
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/HkSV3zP9/gambar-10.jpg | 10 | Tekan tanda ( + ) untuk menambahkan fungsi remote baru %}
+Silhkan bereksplorasi sendiri, karena di dalamnya terdapat banyak sekali fungsi remote yang berbeda-beda. Saya hanya menggunakan 2 fungsi remote, yaitu : **Basic Input** dan **Slide Show**
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/N05LnX3q/gambar-11.jpg | 11 | Tampilan Basic Input remote %}
+   <!-- IMAGE CAPTION -->
+   {% image https://i.postimg.cc/KYw4hzbK/gambar-12.jpg | 12 | Tampilan Slide Show remote %}
 
 # Preview Video
 

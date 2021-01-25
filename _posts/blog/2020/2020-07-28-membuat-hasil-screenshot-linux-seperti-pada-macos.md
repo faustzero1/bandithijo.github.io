@@ -31,7 +31,7 @@ Saya juga beberapa menulis konten blog menggunakan macOS dan cukup sering mengam
 
 Kira-kira seperti ini hasil screenshot window aplikasi pada macOS.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXwSKwyj/ss-macos.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/sXwSKwyj/ss-macos.png | s %}
 
 # Pemecahan Masalah
 
@@ -47,17 +47,15 @@ convert gambar.png -bordercolor none -border 30 gambar.png</b>
 
 Misal, saya punya gambar hasil screenshot seperti ini:
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XJzqph4C/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}{:style="border-radius:0!important"}
+{% image https://i.postimg.cc/XJzqph4C/gambar-01.png | 1 %}
 
 Kemudian, saya jalankan command dari ImageMagick di atas.
 
 Hasilnya akan seperti ini:
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rz6p9rdy/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Menggunakan -shadow 50x10+0+10</p>
+{% image https://i.postimg.cc/rz6p9rdy/gambar-02.png | 2 | Menggunakan -shadow 50x10+0+10 %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/tJnTP54m/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Menggunakan -shadow 50x20+0+20</p>
+{% image https://i.postimg.cc/tJnTP54m/gambar-03.png | 3 | Menggunakan -shadow 50x20+0+20 %}
 
 Tinggal teman-teman sesuaikan dengan preferensi untuk attribute `-shadow` nya.
 
@@ -130,7 +128,7 @@ Biasanya untuk modifikasi yang dapat kita lakukan, kita akan menambahkan ciri kh
 
 Maka dari itu, pada modifikasi ini, saya menambahkan ciri khas untuk memberikan author.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1jrwMbJ/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/C1jrwMbJ/gambar-01.png | 1 %}
 
 ## Versi Ruby
 
