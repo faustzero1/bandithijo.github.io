@@ -29,7 +29,7 @@ Catatan kali ini adalah mengenai beberapa aplikasi yang sudah saya kenal, sejak 
 
 ## Gpick
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/V6v81DpV/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/V6v81DpV/gambar-01.png | 1 %}
 
 **Gpick**.
 
@@ -46,7 +46,7 @@ Saya pribadi, awal-awal mengenal Gpick, sangat menyukainya. Namun, karena kebutu
 
 ## Gcolor2
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PJ8nvNtb/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/PJ8nvNtb/gambar-02.png | 2 %}
 
 **Gcolor2**
 
@@ -65,7 +65,7 @@ Saya pribadi, sempat memakai Gcolor2 dalam waktu yang cukup lama.
 
 ## Gcolor3
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SjFF6qsB/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/SjFF6qsB/gambar-03.png | 3 %}
 
 **Gcolor3**
 
@@ -82,7 +82,7 @@ Alasan saya menggunakan Gcolor3, ketimbang Gcolor2, karena mengikuti trend saja.
 
 ## ColorGrab
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ydGzN0zY/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/ydGzN0zY/gambar-04.png | 4 %}
 
 **ColorGrab**
 

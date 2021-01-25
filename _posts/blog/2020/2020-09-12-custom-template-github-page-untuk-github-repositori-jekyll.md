@@ -19,7 +19,7 @@ resume: "Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari 
 
 Kalau teman-teman berkunjung ke ["HelloDev Online Meetup: 💎 Ruby for Beginner"](https://bandithijo.github.io/hellodev_ruby_meetup/).
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PrCmDq3W/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/PrCmDq3W/gambar-01.png | 1 %}
 
 Kemudian, memperhatikan URL-nya.
 

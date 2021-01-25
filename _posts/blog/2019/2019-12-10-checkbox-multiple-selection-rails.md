@@ -51,11 +51,9 @@ Checkbox ini akan harus dapat:
 
 Kira-kira seperti ini hasilnya,
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5yCpTnr2/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Multiple checkbox dengan fitur Select All</p>
+{% image https://i.postimg.cc/5yCpTnr2/gambar-01.gif | 1 | Multiple checkbox dengan fitur Select All %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HWcSrkL1/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Uncheck Select All jika salah satu dari checkbox tidak dicentang</p>
+{% image https://i.postimg.cc/HWcSrkL1/gambar-02.gif | 2 | Uncheck Select All jika salah satu dari checkbox tidak dicentang %}
 
 
 

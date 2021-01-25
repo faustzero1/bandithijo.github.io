@@ -256,8 +256,7 @@ Lalu, bisa coba jalankan di Home direktori.
 ncdu ~
 {% endshell_user %}
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/26kvgVfs/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Proses listing direktori yang kegemukan</p>
+{% image https://i.postimg.cc/26kvgVfs/gambar-01.gif | 1 | Proses listing direktori yang kegemukan %}
 
 Masih ada tools-tools dengan fungsi yang sama, yang teman-teman dapat gunakan untuk mencari direktori yang kegemukan, seperti:
 

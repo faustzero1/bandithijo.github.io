@@ -34,11 +34,9 @@ Misal, dalam project yang saya kerjakan adalah field location dan nama dari expe
 
 Kira-kira, hasilnya akan seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PxTsjZ4z/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Autocomplete suggestion pada input field pencarian</p>
+{% image https://i.postimg.cc/PxTsjZ4z/gambar-01.png | 1 | Autocomplete suggestion pada input field pencarian %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KzfXvzpX/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Ilustrasi bergerak dari autocomplete suggestion pada pencarian</p>
+{% image https://i.postimg.cc/KzfXvzpX/gambar-02.gif | 2 | Ilustrasi bergerak dari autocomplete suggestion pada pencarian %}
 
 Nah, pada implementasi fitur ini, saya menggunakan bantuan JQuery plugin yang bernama [**EasyAutocomplete**](http://easyautocomplete.com/){:target="_blank"}. Saya menggunakan tipe [**categories**](http://easyautocomplete.com/guide#sec-categories){:target="_blank"}.
 
@@ -297,8 +295,7 @@ http://localhost:3000/experiences.json?q=<mark>location_atau_nama_experience</ma
 
 akan seperti ini hasilnya.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9XBGF43f/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Hasil pencarian dalam bentuk JSON.</p>
+{% image https://i.postimg.cc/9XBGF43f/gambar-03.png | 3 | Hasil pencarian dalam bentuk JSON. %}
 
 Nah, langkah terakhir tinggal membuat blok kode untuk menampilkan hasil pencarian pada `index.html.erb`.
 

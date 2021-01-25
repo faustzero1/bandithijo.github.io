@@ -48,11 +48,9 @@ Nah, atas dasar permasalah tersebut, catatan ini saya buat.
 Kira-kira, tampilan jadinya akan seperti ini.
 
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/8kKFvCr4/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Multiple tag</p>
+{% image https://i.postimg.cc/8kKFvCr4/gambar-01.png | 1 | Multiple tag %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vmsDygpY/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Autcomplete tag suggestion</p>
+{% image https://i.postimg.cc/vmsDygpY/gambar-02.png | 2 | Autcomplete tag suggestion %}
 
 Nah, dari ilustrasi gambar tersebut, saya rasa pasti sudah paham kan yaa.
 

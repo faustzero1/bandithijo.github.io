@@ -19,7 +19,7 @@ resume: "Hal yang masih menjadi misteri buat saya saat menggunakan Bootstrap ada
 
 Kalau teman-teman menggunakan Bootstrap sebagai CSS Framework --terkhusus Bootstrap 4-- pasti akan mendapatkan table dengan bagian corner yang bersiku.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/c1TKPGPS/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/c1TKPGPS/gambar-01.png | 1 %}
 
 ```html
 <table class="table table-bordered table-hover my-3">
@@ -151,7 +151,8 @@ Tujuannya agar terlihat menyatu dan seragam --tidak terlihat seperti custom abal
 
 Dan beginilah hasilnya setelah modifikasi di atas kita lakukan.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NFWvZMcD/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/NFWvZMcD/gambar-02.png | 2 %}
+
 
 
 

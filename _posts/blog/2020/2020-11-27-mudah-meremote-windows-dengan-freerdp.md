@@ -25,7 +25,7 @@ Baru 2019-2020 ini saya memanfaatkan workflow dimana saya me-remote laptop Windo
 
 Bukan bukan. Ini lebih ke "menunjukkan betapa fleksibel-nya GNU/Linux (dalam hal ini user dan didukung oleh aplikasinya)" dalam menyelesaikan suatu pekerjaan.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XqysDXhL/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/XqysDXhL/gambar-01.png | 1 %}
 
 Bagian monitor di bagian atas adalah monitor external, tempat saya menampilkan Windows. Dan Monitor di bawah adalah latop, tempat saya menggunakan Linux.
 
@@ -33,7 +33,7 @@ Saya dapat dengan mudah berpindah-pindah antar Windows dan Linux.
 
 Misal, saya manfaatkan untuk melihat desain dari web yang sedang saya kerjakan dengan menggunakan Chrome.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Z0twk4zS/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/Z0twk4zS/gambar-02.png | 2 %}
 
 Kalau saya buka di Laptop saya, akan cukup memakan resource. Maka saya memilih membukanya di Windows, kemudian saya akses dengan remote.
 

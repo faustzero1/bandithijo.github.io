@@ -32,8 +32,7 @@ Saya baru-baru saja menyadari, ternyata terdapat kebutuhan lain lagi dari st yan
 
 Saat ini, Window Title pada st hanya menampilkan tulisan "st" saja. Sedangkan, saya membutuhkan Window Title yang dapat menampilkan detail dari perintah atau program yang sedang berjalan di dalam st.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RVVnXhvC/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Window Title pada st yang statis, hanya menampilkan details berupa tulisan "st"</p>
+{% image https://i.postimg.cc/RVVnXhvC/gambar-01.png | 1 | Window Title pada st yang statis, hanya menampilkan details berupa tulisan "st" %}
 
 # Pemecahan Masalah
 
@@ -72,11 +71,9 @@ Berikut ini langkah-langkahnya.
 
 Apabila berhasil, akan menampilkan Window Title dengan detail seperti gambar di bawah ini.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Kvq3VbYP/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Tampilan detail Window Title yang menampilkan direktori aktif (<i>Default</i>)</p>
+{% image https://i.postimg.cc/Kvq3VbYP/gambar-02.png | 2 | Tampilan detail Window Title yang menampilkan direktori aktif (<i>Default</i>) %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jSDnY1WG/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Tampilan detail Window Title saat menjalankan program</p>
+{% image https://i.postimg.cc/jSDnY1WG/gambar-03.png | 3 | Tampilan detail Window Title saat menjalankan program %}
 
 
 

@@ -32,7 +32,7 @@ Ternyata, setelah saya cek website dari target belajar, desain dari website suda
 
 Sekarang menjadi seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yYZzBw7k/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/yYZzBw7k/gambar-01.png | 1 %}
 
 Tampilan yang sekarang, tentunya tidak dapat difetch menggunakan CSS selector yang sebelumnya. Karena markup dari HTML sudah berubah.
 
@@ -416,7 +416,7 @@ end
 
 # Hasilnya
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qR48MVf0/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/qR48MVf0/gambar-02.gif | 2 %}
 
 # Demo
 

@@ -101,11 +101,9 @@ Ada beberapa paket tambahan yang saya pergunakan, Seperti
 
 Berikut ini adalah beberapa tampilan NetworkManager menggunakan GUI.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/0NDyGKzB/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - nm-applet</p>
+{% image https://i.postimg.cc/0NDyGKzB/gambar-01.png | 1 | nm-applet %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C14MXyHC/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - nm-connection-editor</p>
+{% image https://i.postimg.cc/C14MXyHC/gambar-02.png | 2 | nm-connection-editor %}
 
 ## TUI
 
@@ -113,17 +111,13 @@ Untuk saat ini, saya lebih sering menggunakan TUI, dan tidak menggunakan kedua p
 
 Fungsinya sama saja, hanya berbeda tampilan.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/W1HPDNSf/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - nmtui, bagian depan</p>
+{% image https://i.postimg.cc/W1HPDNSf/gambar-03.png | 3 | nmtui, bagian depan %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/vBWRSWyp/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - nmtui, bagian Edit connection</p>
+{% image https://i.postimg.cc/vBWRSWyp/gambar-04.png | 4 | nmtui, bagian Edit connection %}
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/j5V0XMpH/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - nmtui, bagian Activate a connection</p>
+{% image https://i.postimg.cc/j5V0XMpH/gambar-05.png | 5 | nmtui, bagian Activate a connection %}
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QMKZ12yN/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 6 - nmtui, bagian Set system hostname</p>
+{% image https://i.postimg.cc/QMKZ12yN/gambar-06.png | 6 | nmtui, bagian Set system hostname %}
 
 Sejak menggunakan `nmtui`, saya tidak memerlukan lagi `nm-applet`. Sehingga membuat saya terbebas dari menggunakan trayicon.
 
@@ -146,8 +140,7 @@ bindsym $mod+F8 exec --no-startup-id networkmanager_dmenu
 
 Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan `dmenu` atau `rofi` sebagai frontend nya. Tentu saja saya memilih menggunakan `rofi` agar seragam dengan theme. Hehehe.
 
-![gambar_17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsHPsDVN/gambar-17.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 17 - Tampilan NetworkManager_dmenu dengan Rofi</p>
+{% image https://i.postimg.cc/LsHPsDVN/gambar-17.gif | 17 | Tampilan NetworkManager_dmenu dengan Rofi %}
 
 
 # Pesan Penulis
@@ -158,11 +151,9 @@ Menggunakan Arch Linux memberikan kita kemudahan untuk membongkar-pasang berbaga
 
 Beberapa waktu yang lalu, saya pun sempat mencoba **connman** dan **wicd**.
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/mZ9spG8J/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 7 - Tampilan GUI dari <code>connman-gtk</code></p>
+{% image https://i.postimg.cc/mZ9spG8J/gambar-07.png | 7 | Tampilan GUI dari <code>connman-gtk</code> %}
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/3JHHPbqR/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 8 - Tampilan GUI dari <code>wicd-gtk</code></p>
+{% image https://i.postimg.cc/3JHHPbqR/gambar-08.png | 8 | Tampilan GUI dari <code>wicd-gtk</code> %}
 
 Sebaik-baik dokumentasi adalah yang ditulis dan dikelola secara aktif oleh developer dari aplikasi yang bersangkutan.
 

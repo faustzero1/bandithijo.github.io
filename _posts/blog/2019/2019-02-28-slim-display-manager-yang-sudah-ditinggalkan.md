@@ -22,8 +22,7 @@ resume: "SLiM Display Manager termasuk display manager favorit yang banyak digun
 
 Mungkin sebagian dari teman-teman ada yang sudah pernah mencicipi distribusi sistem operasi GNU/Linux yang menggunakan SLiM display manager.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/JzS4m67p/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - SLiM display manager dengan default theme</p>
+{% image https://i.postimg.cc/JzS4m67p/gambar-01.png | 1 | SLiM display manager dengan default theme %}
 
 Dari informasi yang saya baca pada halaman [Arch Wiki/SLiM](https://wiki.archlinux.org/index.php/SLiM#Match_SLiM_and_Desktop_Wallpaper){:target="_blank"}. Proyek ini sudah ditinggalkan. Rilis paling akhir pada tahun 2013. Website dari proyek inipun sudah tidak ada lagi.
 
@@ -35,7 +34,7 @@ Sebenarnya sudah lama mencari-cari pengganti dari LightDM display manager. Saya 
 
 Sampai beberapa waktu lalu, menemukan halaman pada Slant.co yang membahas [What is the best Linux Display Manager?](https://www.slant.co/topics/2053/~best-linux-display-manager){:target="_blank"}.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SRfqskGy/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/SRfqskGy/gambar-02.png | 2 %}
 
 Saya agak heran, karena bukan LightDM yang menduduki peringkat no. 1 saat ini (2019/02/28), melainkan SLiM dengan perolehan point sebanyak 92, disusul LightDM sebesar 84.
 
@@ -45,8 +44,7 @@ Namun, saya tetap ingin mencoba SLiM. Karena rasa penasaran saya atas apa yang m
 
 ## Kelebihan dan Kekurangan SLiM
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/C1N5Z5SM/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Sumber: <a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">Slant.co - SLiM Pros and Cons</a></p>
+{% image https://i.postimg.cc/C1N5Z5SM/gambar-08.png | 8 | Sumber: <a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">Slant.co - SLiM Pros and Cons</a> %}
 
 # Pengecekan Paket
 
@@ -62,14 +60,11 @@ Beberapa hal yang saya perhatikan adalah:
 
 Berikut ini tampilan dari ketiga hal di atas.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T2NPtdTS/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - <a href="https://www.archlinux.org/packages/extra/x86_64/slim/" target="_blank">last Updated</a></p>
+{% image https://i.postimg.cc/T2NPtdTS/gambar-03.png | 3 | <a href="https://www.archlinux.org/packages/extra/x86_64/slim/" target="_blank">last Updated</a> %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fT3RFGLb/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - <a href="https://git.archlinux.org/svntogit/packages.git/log/trunk?h=packages/slim" target="_blank">View Changes</a></p>
+{% image https://i.postimg.cc/fT3RFGLb/gambar-04.png | 4 | <a href="https://git.archlinux.org/svntogit/packages.git/log/trunk?h=packages/slim" target="_blank">View Changes</a> %}
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5NZ2MsYS/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - <a href="https://bugs.archlinux.org/?project=1&string=slim" target="_blank">Bug Reports</a></p>
+{% image https://i.postimg.cc/5NZ2MsYS/gambar-05.png | 5 | <a href="https://bugs.archlinux.org/?project=1&string=slim" target="_blank">Bug Reports</a> %}
 
 Nah, dengan begini, kita dapat memantau, apakah paket SLiM ini **tidak lagi dimaintain** di Arch Linux atau **memiliki bug**.
 
@@ -183,7 +178,7 @@ exec $1
 
 Tujuannya agar inputan yang dipilih menggunakan <kbd>F1</kbd> akan dieksekusi.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/d35FFTvd/gambar-06.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/d35FFTvd/gambar-06.gif | 6 %}
 
 Kita dapat memilih session dengan menekan tombol <kbd>F1</kbd>.
 
@@ -268,7 +263,7 @@ esac
 Untuk mengganti <i>default session</i> yang ingin digunakan, ubah nilai dari <i>variabel</i> <code>DEFAULTSESSION=</code>.
 </s>
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yxs6sHRq/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/yxs6sHRq/gambar-07.png | 7 %}
 
 # System Sessions
 
@@ -317,11 +312,10 @@ darky_solarized_dark_yellow
 
 
 
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4x6g4MJs/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Themes: darky_pink</p>
+{% image https://i.postimg.cc/4x6g4MJs/gambar-09.png | 9 | Themes: darky_pink %}
+<p class="img-caption"></p>
 
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/MGz8nDTR/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Themes: darky_solarized_dark_yellow</p>
+{% image https://i.postimg.cc/MGz8nDTR/gambar-10.png | 10 | Themes: darky_solarized_dark_yellow %}
 
 Cara instalasi themes sangat mudah.
 
@@ -397,7 +391,7 @@ Terima kasih.
 
 Terima kasih, Bro **Harry Kurn**.
 
-![gambar_11]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/xdSvWxK2/gambar-11.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/xdSvWxK2/gambar-11.png | 11 %}
 
 
 

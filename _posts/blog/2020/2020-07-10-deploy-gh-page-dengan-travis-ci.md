@@ -268,11 +268,11 @@ Atau klik link ini [Settings/Developer settings](https://github.com/settings/tok
 
 Setelah itu, klik tombol <kbd>Generate new tokens</kbd>.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/4y4yz80x/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/4y4yz80x/gambar-02.png | 2 %}
 
 Berikan nama yang mudah untuk dikenali.
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/66zy9X72/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/66zy9X72/gambar-03.png | 3 %}
 
 Checklist semua *permission* yang ada pada scope **repo**.
 
@@ -280,13 +280,13 @@ Sip mantap!
 
 Jangan lupa disimpan dengan menekan tombol <kbd>Generate token</kbd>.
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/qMRgq5nm/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/qMRgq5nm/gambar-04.png | 4 %}
 
 Kita akan mendapatkan token. Copy dan simpan dulu di tempat yang aman.
 
 Token tersebut akan kita daftarkan ke environment variable GITHUB_TOKEN di Travis CI.
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rFKFMtX3/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/rFKFMtX3/gambar-05.png | 5 %}
 
 Dengan begini, konfigurasi pada GitHub sudah selesai.
 
@@ -296,11 +296,11 @@ Buka situs [Travis-CI.Org](https://travis-ci.org/){:target="_blank"} dan login d
 
 Atau, bisa ke halaman [travis-ci.org/account/repositories](https://travis-ci.org/account/repositories){:target="_blank"}.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/brMsRYP6/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/brMsRYP6/gambar-01.png | 1 %}
 
 Setelah di **enable**, klik tombol <kbd>Settings</kbd>, untuk pergi ke pengaturan.
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/KzpSHJzz/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/KzpSHJzz/gambar-06.png | 6 %}
 
 Isikan environment variable seperti contoh di atas.
 
@@ -319,13 +319,13 @@ Isikan environment variable seperti contoh di atas.
 
 Setelah itu, tekan tombol <kbd>Add</kbd>.
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QNBdrTrP/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/QNBdrTrP/gambar-07.png | 7 %}
 
 Nah, kalau tampilannya seperti di atas, artinya kita sudah berhasil mengeset environment variable GITHUB_TOKEN.
 
 Sekedar info, saya tidak mengutak atik pengaturan **General** & **Auto Cancellation**.
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/nrf55gxn/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/nrf55gxn/gambar-08.png | 8 %}
 
 Mantap! Konfigurasi pada Travis CI sudah selesai.
 
@@ -340,9 +340,9 @@ Kita akan melihat Travis CI akan menjalankan proses build.
 
 Kalau berhasil akan sepeti ini tampilannya.
 
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sxfPv49p/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/sxfPv49p/gambar-09.png | 9 %}
 
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/9f3GGhYX/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/9f3GGhYX/gambar-10.png | 10 %}
 
 Perhatikan pada baris ke-320, kita dapat melihat pada akhir proses build, akan mendeploy hasil generate static site `_site/` di branch **master** ke GitHub Pages.
 

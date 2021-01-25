@@ -26,8 +26,7 @@ Salah satu kesenangan menggunakan distribusi Arch adalah kemudahan dalam hal men
 Beberapa waktu lalu `dunstify` masih terdapat di AUR, namun begitu sudah di merge dari upstream, repo `dunst` official pun ikut membawa `dunstify`.
 
 <!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Jn5zQgJW/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Kemudahan mengecek paket pada archlinux.org</p>
+{% image https://i.postimg.cc/Jn5zQgJW/gambar-01.png | 1 | Kemudahan mengecek paket pada archlinux.org %}
 
 <hr>
 Untuk mengecek apakah `dunstify` sudah terdapat pada paket `dunst`, kita dapat menggunakan perintah.
@@ -37,8 +36,7 @@ sudo pacman -Ql dunst
 {% endshell_user %}
 
 <!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ydHNcBDP/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Kemduahan mengecek paket pada pacman</p>
+{% image https://i.postimg.cc/ydHNcBDP/gambar-02.png | 2 | Kemduahan mengecek paket pada pacman %}
 
 Karena `dunstify` sudah terdapat pada paket `dunst`, saya harus menghapus paket `dunstify` yang saya pasang melalui AUR.
 
@@ -54,8 +52,7 @@ sudo pacman -S dunst
 <hr>
 Saya menggunakan `dunstify` untuk keperluan menampilkan **HELP** dari daftar keyboard shortcut pada masing-masing aplikasi yang saya pergunakan.
 <!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gjcktDqL/gambar-03.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Salah satu pemanfaatan dunstify</p>
+{% image https://i.postimg.cc/gjcktDqL/gambar-03.gif | 3 | Salah satu pemanfaatan dunstify %}
 
 Kapan-kapan akan saya tuliskan mengenai "Pemanfaatan **dunstify** untuk menjadi fitur **HELP**" seperti yang saya pergunakan ini.
 <!-- text-align:center -->

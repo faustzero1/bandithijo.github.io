@@ -123,9 +123,9 @@ Nah, setelah mendapatkan hak akses, kita bisa ngapain aja deh.
 
 Misalkan untuk menjalankan **scrcpy** dan lain-lain.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SNfLLYWN/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/SNfLLYWN/gambar-01.png | 1 %}
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pLVfsVZQ/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/pLVfsVZQ/gambar-02.png | 2 %}
 
 
 

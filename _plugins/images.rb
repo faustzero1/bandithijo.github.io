@@ -12,7 +12,7 @@ module Jekyll
       cap = params[2].strip if params.length > 2
 
       output  = "![gambar_#{num}](/assets/img/logo/logo_blank.svg){:data-echo='#{url}' onerror='imgError(this);'}{:class='myImg'}"
-      output += "\n<p class='img-caption'>Gambar #{num} - #{cap}</p>" if params.length == 3
+      output += "\n<p class='img-caption' markdown='1'>Gambar #{num} - #{cap}</p>" if params.length == 3
       output
     end
 

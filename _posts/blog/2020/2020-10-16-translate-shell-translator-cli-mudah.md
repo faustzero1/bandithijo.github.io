@@ -183,8 +183,6 @@ trans -t id+ja impersonate
 
 Keuntungan menggunakan option `-t`, kita dapat menuliskan bahasa target dengan nama bahasanya.
 
-<pre>
-</pre>
 {% shell_user %}
 trans -t japanese impersonate
 trans -t 日本語 impersonate
@@ -386,7 +384,7 @@ esac
 
 Hasilnya akan seperti ini,
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/jjtp9bdv/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/jjtp9bdv/gambar-01.gif | 1 %}
 
 Saya biasa gunakan untuk mentranslate beberapa kata/frase/atau kalimat yang saya tidak paham maksudnya.
 
@@ -403,11 +401,9 @@ Ada beberapa plugin yang dapat kita gunakan untuk mengintegrasikan Translate She
 <br>
 Saat tulisan ini dibuat, saya baru mencoba **VincentCordobes/vim-translate**.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/ncMB4j4G/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption" markdown="1">Mencoba `:Translate` dan `:TranslateReplace`</p>
+{% image https://i.postimg.cc/ncMB4j4G/gambar-02.gif | 2 | Mencoba `:translate` dan `:TranslateReplave` %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/v805xLVm/gambar-03.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption" markdown="1">Perbandingan kecepatan Translate Shell dengan vim-translate & REPL</p>
+{% image https://i.postimg.cc/v805xLVm/gambar-03.gif | 3 | Perbandingan kecepatan Translate Shell dengan vim-translate %}
 
 
 # Pesan Penulis

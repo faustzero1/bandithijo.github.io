@@ -21,7 +21,7 @@ Kalian pasti pernah melihat Footer yang manja di sebuah website.
 
 Kira-kira seperti ini contohnya.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RFGxYSgJ/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/RFGxYSgJ/gambar-01.png | 1 %}
 
 Perhatikan kotak berwarna merah.
 
@@ -34,7 +34,7 @@ Namun, saya juga tidak ingin membuat Footer ini terlalu keras kepala (Fixed), se
 
 Idealnya, Footer yang saya inginkan seperti ini.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pdHNXh7n/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/pdHNXh7n/gambar-02.png | 2 %}
 
 Meskipun post content hanya sedikit, Footer tetap berada di bagian bawah layar. Dan apabila post content sudah banyak, Footer akan terdorong menghilang bersama post content yang paling bawah.
 

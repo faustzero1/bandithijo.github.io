@@ -19,9 +19,7 @@ resume: "Membuat output hasil akan ditampilkan tanpa perlu merefresh halaman. Te
 
 Tujuannya menggunakan AJAX untuk menampilkan hasil tanpa perlu mereload tempate berulang kali. Cukup sekali panggil dan yang berubah adalah pada bagian hasilnya saja.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5tQfnNtN/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-
-<p class="img-caption">Gambar 1 - Kotak merah adalah satu-satunya bagian yang berubah, sedangkan bagian lain tidak.</p>
+{% image https://i.postimg.cc/5tQfnNtN/gambar-01.png | 1 | Kotak merah adalah satu-satunya bagian yang berubah, sedangkan bagian lain tidak %}
 
 Cara yang umum, untuk menampilkan output seperti di atas, adalah seperti ini.
 
@@ -241,7 +239,7 @@ Terakhir, tinggal menambahkan asynchronous form pada form pencarian dengan `remo
 <br>
 Hasilnya,
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/fyMDNjBL/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/fyMDNjBL/gambar-02.gif | 2 %}
 
 Kalau diperhatikan pada bagian address bar, alamat tidak berubah. Karena kita tidak merender template lagi untuk menampilkan hasil, namun hanya merubah bagian yang memiliki `<div id=results></div>`.
 

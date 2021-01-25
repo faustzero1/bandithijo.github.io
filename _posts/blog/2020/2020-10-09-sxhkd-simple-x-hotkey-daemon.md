@@ -56,7 +56,7 @@ Langkah selanjutnya, tinggal dipasang pada konfigurasi autostart yang teman-tema
 
 Misal, contohnya seperti yang saya pergunakan di bawah ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/RVts5LyC/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/RVts5LyC/gambar-01.png | 1 %}
 
 # Contoh Penggunaan
 

@@ -40,8 +40,7 @@ Hal ini juga disebabkan karena minimalnya sistem notifikasi dari sistem yang say
 
 Atas dasar ini, saya berinisiatif untuk menambahkan fitur notifikasi suara apabila CPU sudah mencapai suhu tertentu.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Cx6kK0qQ/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Tampilan notifikasi Peringatan Hot CPU Temperature</p>
+{% image https://i.postimg.cc/Cx6kK0qQ/gambar-01.png | 1 | Tampilan notifikasi Peringatan Hot CPU Temperature %}
 
 Langsung saja saya tuliskan script ~~sederhana~~ cupu, yang saya tulis menggunakan bahasa Ruby.
 

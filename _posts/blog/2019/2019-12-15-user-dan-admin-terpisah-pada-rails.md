@@ -87,8 +87,7 @@ Lalu, jalankan Rails server untuk sekedar melihat apakah project berhasil dijala
 rails s
 {% endshell_user %}
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QdHVbnLy/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Default Welcome Page pada Rails Project</p>
+{% image https://i.postimg.cc/QdHVbnLy/gambar-01.png | 1 | Default Welcome Page pada Rails Project %}
 
 Yay! Berhasil.
 
@@ -854,14 +853,11 @@ $ <b>rails s</b>
 
 Kira-kira, seperti inilah hasilnya.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/15mvFB1T/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Public Page</p>
+{% image https://i.postimg.cc/15mvFB1T/gambar-02.gif | 2 | Public Page %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - User Login, Register Dashboard</p>
+{% image https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif | 3 | User Login, Register Dashboard %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/pXsqJj2d/gambar-04.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Admin Login dan Register</p>
+{% image https://i.postimg.cc/pXsqJj2d/gambar-04.gif | 4 | Admin Login dan Register %}
 
 Selesai!
 

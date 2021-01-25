@@ -137,11 +137,8 @@ Kalau berhasil, file arsip berformat ZIP yang terenkripsi telah berhasil dibuat.
 
 Ilustrasinya kira-kira seperti ini.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Y9W5f9Xs/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/Y9W5f9Xs/gambar-01.gif | 1 %}
 
-<div class="blockquote-blue">
-<div class="blockquote-blue-title">[ i ] Informasi</div>
-</div>
 {% box_info %}
 <p>Selain membuat arsip berformat ZIP dari beberapa file, dapat pula langsung membuat file pada direktori.
 <br>
@@ -199,7 +196,7 @@ Nah kalau berhasil,
 
 Ilustrasinya kira-kira seperti ini.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SRGtDzcD/gambar-02.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/SRGtDzcD/gambar-02.gif | 2 %}
 
 # Pesan Penulis
 

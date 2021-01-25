@@ -22,39 +22,30 @@ resume: "File .lnk dapat benar-benar membuat kotor direktori home kalian apabila
 
 Beberapa waktu yang lalu, saya mencoba memasang **Microsoft Office 2010** pada distribusi sistem operasi **Arch Linux** menggunakan **Wine 4.4-1**.
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/yWqzSvDJ/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/yWqzSvDJ/gambar-01.gif | 1 %}
 
 Hasilnya lumayan memuaskan, meskipun beberapa aplikasi yang dibawa oleh Microsoft Office ini belum dapat dijalankan.
 
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXSKwrKg/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Microsoft Word 2010</p>
+{% image https://i.postimg.cc/sXSKwrKg/gambar-02.png | 2 | Microsoft Word 2010 %}
 
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SxjzTwBC/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Microsoft Excel 2010</p>
+{% image https://i.postimg.cc/SxjzTwBC/gambar-03.png | 3 | Microsoft Excel 2010 %}
 
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sDKmnKP7/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Microsoft Access 2010</p>
+{% image https://i.postimg.cc/sDKmnKP7/gambar-04.png | 4 | Microsoft Access 2010 %}
 
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/PfW2DdP6/gambar-05.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - Microsoft Outlook 2010</p>
+{% image https://i.postimg.cc/PfW2DdP6/gambar-05.png | 5 | Microsoft Outlook 2010 %}
 
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/prJCMJwN/gambar-06.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 6 - Microsoft Clip Organizer</p>
+{% image https://i.postimg.cc/prJCMJwN/gambar-06.png | 6 | Microsoft Clip Organizer %}
 
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WbsS6xZs/gambar-07.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 7 - Microsoft Publisher 2010</p>
+{% image https://i.postimg.cc/WbsS6xZs/gambar-07.png | 7 | Microsoft Publisher 2010 %}
 
-![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/x14RQC4d/gambar-08.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 8 - Microsoft Office Picture Manager</p>
+{% image https://i.postimg.cc/x14RQC4d/gambar-08.png | 8 | Microsoft Office Picture Manager %}
 
 <br>
 Beberapa aplikasi Microsoft Office yang belum dapat dijalankan, diantaranya :
 
-![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/Wzv8yHf6/gambar-09.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 9 - Microsoft OneNote 2010</p>
+{% image https://i.postimg.cc/Wzv8yHf6/gambar-09.png | 9 | Microsoft OneNote 2010 %}
 
-![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/LsgV8pc3/gambar-10.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 10 - Microsoft PowerPoint 2010</p>
+{% image https://i.postimg.cc/LsgV8pc3/gambar-10.png | 10 | Microsoft PowerPoint 2010 %}
 
 {% box_info %}
 <p> Ternyata, untuk dapat menjalankan Microsoft PowerPoint, kita perlu menambahkan library pada <code>winecfg</code> bernama <code>riched20</code>.</p>

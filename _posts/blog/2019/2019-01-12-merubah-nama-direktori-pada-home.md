@@ -74,17 +74,38 @@ vim ~/.config/user-dirs.dirs
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
 #
-XDG_DESKTOP_DIR="$HOME/<mark>Desktop</mark>"
-XDG_DOWNLOAD_DIR="$HOME/<mark>Download</mark>"
-XDG_TEMPLATES_DIR="$HOME/<mark>Templates</mark>"
-XDG_PUBLICSHARE_DIR="$HOME/<mark>Public</mark>"
-XDG_DOCUMENTS_DIR="$HOME/<mark>Documents</mark>"
-XDG_MUSIC_DIR="$HOME/<mark>Music</mark>"
-XDG_PICTURES_DIR="$HOME/<mark>Pictures</mark>"
-XDG_VIDEOS_DIR="$HOME/<mark>Videos</mark>"
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_DOWNLOAD_DIR="$HOME/Download"
+XDG_TEMPLATES_DIR="$HOME/Templates"
+XDG_PUBLICSHARE_DIR="$HOME/Public"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_VIDEOS_DIR="$HOME/Videos"
 {% endhighlight %}
 
 Nah, tinggal ubah nama direktori sesuai dengan yang teman-teman inginkan.
+
+Kalau punya saya seperti ini.
+
+{% highlight_caption $HOME/.config/user-dirs.dirs %}
+{% highlight sh linenos %}
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+#
+XDG_DESKTOP_DIR="$HOME/dex"
+XDG_DOWNLOAD_DIR="$HOME/dwn"
+XDG_TEMPLATES_DIR="$HOME/tpl"
+XDG_PUBLICSHARE_DIR="$HOME/pub"
+XDG_DOCUMENTS_DIR="$HOME/doc"
+XDG_MUSIC_DIR="$HOME/snd"
+XDG_PICTURES_DIR="$HOME/pic"
+XDG_VIDEOS_DIR="$HOME/vid"
+{% endhighlight %}
 
 Setelah itu jalankan perintah.
 
