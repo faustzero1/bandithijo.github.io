@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Netbeans merupakan aplikasi yang dibangun dengan bahasa Java. Java GUI Toolkit biasanya belum terkonfigurasi dengan baik agar memiliki tampilan yang mulus. Maka kita perlu untuk mengkonfigurasi agar tampilan Netbeans kita terlihat mulus."
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-t8rFinLgSyM/WmCaNEg1ffI/AAAAAAAAG5Y/MteYia1GKyg3j6SGVMOAxT7slgPeX84YwCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
@@ -28,9 +28,9 @@ Kita perlu mengetahui terlebih dahulu direktori tempat file `netbeans.conf` disi
 
 Kemudian, kita akan mengedit file `netbeans.conf`,
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo nano /usr/share/netbeans/etc/netbeans.conf
-{% endshell_user %}
+{% endshell_cmd %}
 
 {% highlight_caption /usr/share/netbeans/etc/netbeans.conf %}
 {% highlight sh linenos %}

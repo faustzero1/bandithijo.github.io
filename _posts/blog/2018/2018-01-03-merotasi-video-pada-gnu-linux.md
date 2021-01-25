@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Merotasi video mungkin menjadi hal yang cukup memusingkan apabila kita tidak terbiasa menggunakan perkakas GUI. Namun, cukup dengan ffmpeg, kita dapat merotasi video sesuai dengan parameter yang tersedia. Caranya mudah sekali!"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-8Zdbis7q7Zg/WmLxSO4-GHI/AAAAAAAAG64/NtBEawlhLpcXQiDANDzezBpBMjd_8jJWQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
@@ -28,9 +28,9 @@ Kita membutuhkan paket bernama [ffmpeg](https://www.archlinux.org/packages/extra
 # Penerapan
 Buka Terminal dan masuk ke dalam direktori tempat dimana kalian menyimpan file video yang akan dirotasi. Kemudian ketikkan _command_ di bawah,
 
-{% shell_user %}
+{% shell_cmd $ %}
 ffmpeg -i in.mp4 -vf "transpose=1" out.mp4
-{% endshell_user %}
+{% endshell_cmd %}
 
 ><p class="title-quote">Transpose Parameter :</p>
 ><b>0</b> = 90 counterclockwise and vertical flip (default)<br>

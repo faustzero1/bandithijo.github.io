@@ -24,8 +24,7 @@ Beberapa hari lalu saya sedang giat-giatnya membaca beberapa *ebook* yang saya k
 
 Untuk mengelola *ebook* yang saya kumpulkan, karena jumlahnya ~~tidak sedikit~~, saya tidak menggunakan manajemen direktori untuk mengatur dan mengkategorikan koleksi *ebook* yang saya miliki. Karena, akan sangat merepotkan apabila kita ingin mencari dan menelusuri semua *ebook* yang kita miliki dalam satu waktu. Lebih mudah apabila kita menggunakan aplikasi yang menampilkan koleksi *ebook* yang kita miliki layaknya sebuah galeri foto atau rak buku di toko buku. Sehingga dapat memudahkan kita dalam memilih *ebook* apa yang akan kita baca, dan masih banyak segudang kemudahan lainnya yang bisa kita nikmati apabila kita menggunakan aplikasi untuk memanajemen koleksi *ebook* yang kita miliki. Karena latar belakang tersebut, saya menggunakan aplikasi *ebook management* yang bernama, [**Calibre**](https://calibre-ebook.com/){:target="_blank"}.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/z6gsr6ykd/gambar_1.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Calibre pada GNU/Linux</p>
+{% image https://s20.postimg.cc/z6gsr6ykd/gambar_1.png | 1 | Calibre pada GNU/Linux %}
 
 # Masalah
 
@@ -41,15 +40,15 @@ File PDF mempunyai mimetype berupa `application/pdf`, yang dapat kamu temukan di
 
 Caranya sangat mudah, cukup jalankan perintah di bawah.
 
-{% shell_user %}
+{% shell_cmd $ %}
 xdg-mime default evince.desktop application/pdf
-{% endshell_user %}
+{% endshell_cmd %}
 
 Kita dapat melakukan verifikasi, apakah format PDF sudah secara *default* dibuka dengan menggunakan Evince dengan menjalankan perintah `xdg-open` pada file PDF yang kalian miliki.
 
-{% shell_user %}
+{% shell_cmd $ %}
 xdg-open pemrograman_pyton.pdf
-{% endshell_user %}
+{% endshell_cmd %}
 
 Apabila file PDF terbuka menggunakan Evince, maka konfigurasi *default* mimetype kita, telah berhasil.
 
@@ -63,16 +62,13 @@ Kita dapat menggunakan plugins yang sudah disediakan oleh Calibre, yaitu **Open 
 
 Berikut ilustrasinya.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/gj786a2d9/gambar_02.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Sebelum dipasang Plugin</p>
+{% image https://s20.postimg.cc/gj786a2d9/gambar_02.gif | 2 | Sebelum dipasang Plugin %}
 
 <br>
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/3rt1zv81p/gambar_03.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Instalasi Plugin</p>
+{% image https://s20.postimg.cc/3rt1zv81p/gambar_03.gif | 3 | Instalasi Plugin %}
 
 <br>
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/h8q0iosn1/gambar_04.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Konfigurasi Open With</p>
+{% image https://s20.postimg.cc/h8q0iosn1/gambar_04.gif | 4 | Konfigurasi Open With %}
 
 
 # Referensi

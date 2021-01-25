@@ -12,7 +12,7 @@ tags: ['Jekyll', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll."
 ---
 
 # Latar Belakang
@@ -23,7 +23,7 @@ resume:
 
 Website: [wordpress.com](https://www.wordpress.com){:target="_blank"}
 
-![gambar8]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/jf83v1r3x/gambar_08.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/jf83v1r3x/gambar_08.png | wordpress %}
 
 "Migrasi Blog 2.0". Ya, sesuai judul dari post ini, **BanditHijo (R)-Chive**, bukan yang pertama kali saya migrasikan. Pertama kali saya menulis blog, saya memilih menggunakan WordPress sebagai _platform_ yang saya percayakan untuk menampung tulisan-tulisan saya. Saya perkirakan mungkin sejak 2010 saya mulai membuat _post_ pertama saya dengan WordPress.
 
@@ -35,7 +35,7 @@ Dengan WordPress, tidak begitu kesulitan bagi saya untuk memodifikasi WordPress 
 
 Website: [blogger.com](https://www.blogger.com){:target="_blank"}
 
-![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/l712pxv19/gambar_09.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/l712pxv19/gambar_09.png | blogspot %}
 
 Singkat cerita, tahun 2012, saya berkeinginan untuk mencoba _platform_ lain. Saya memutuskan untuk berpindah _platform_ dari WordPress dan beralih menggunakan Blogger atau yang lebih dikenal dengan Blogspot, sebuah CMS yang dipayungin oleh Google. Saya cukup lama menggunakan Blogspot, hingga 2018 Maret, tepat dimana saya pun bermigrasi untuk yang kedua kalinya.
 
@@ -57,7 +57,7 @@ Templates: EJS, Pug, Haml, Swig, Nunjucks, Mustache, Handlebars, Twig, Marko
 
 Website: [hexo.io](https://hexo.io/){:target="_blank"}
 
-![gambar10]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/8seapmb8t/gambar_10.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/8seapmb8t/gambar_10.png | hexo %}
 
 _Static Site Generator_ ini, adalah yang pertama kali memperkenalkan saya tentang konsep dari _Static Site Generator_. Saya belajar dari berbagai macam sumber, mulai dari YouTube, hingga artikel-artikel di internet. Proses saya belajar memakan waktu lama, hahaha, saya juga tidak begitu mengerti kenapa saya sangat malas dikala itu. Hingga 2018 Januari, saya memutuskan untuk serius mendalami Hexo.
 
@@ -71,7 +71,7 @@ Templates: Go
 
 Website: [gohugo.io](https://gohugo.io/){:target="_blank"}
 
-![gambar11]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/gxwcnsex9/gambar_11.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/gxwcnsex9/gambar_11.png | hugo %}
 
 Selain Hexo, saya juga sudah mengenal nama lain, yaitu Hugo, namun karena saya belum pernah sama sekali belajar bahasa pemrograman Go, saya pikir akan sulit, sehingga saya memutuskan untuk tetap menggunakan Hexo.
 
@@ -85,7 +85,7 @@ Templates: Liquid
 
 Website: [jekyllrb.com](https://jekyllrb.com/){:target="_blank"}
 
-![gambar12]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/oqn0frsm5/gambar_12.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/oqn0frsm5/gambar_12.png | jekyll %}
 
 Karena sudah mengenal _static site generator_ dari Hexo dan Hugo, saya tidak begitu kesulitan untuk beradaptasi menggunakan Jekyll dalam memproduksi konten. Terlebih lagi saat membuat Jekyll _layout_, Jekyll menggunakan [Liquid](https://shopify.github.io/liquid/){:target="_blank"}, dimana Liquid ini hampir mirip seperti [Jinja](http://jinja.pocoo.org/){:target="_blank"} _template_ dalam mengambil _variable_ atau _filters_ yang diperlukan, sehingga saya tidak membutuhkan waktu lama untuk mengerti dan beradaptasi.
 
@@ -93,7 +93,7 @@ Seperti ini contoh penggunaan Liquid.
 
 **Tags**
 {% raw %}
-```
+```liquid
 {% if user %}
   Hello {{ user.name }}!
 {% endif %}
@@ -102,14 +102,14 @@ Seperti ini contoh penggunaan Liquid.
 
 **Filters**
 {% raw %}
-```
+```liquid
 {{ "adam!" | capitalize | prepend: "Hello " }}
 ```
 {% endraw %}
 
 **Variabels**
 {% raw %}
-```
+```liquid
 {{ page.title }}
 {{ page.content }}
 {{ page.url }}
@@ -119,6 +119,11 @@ Seperti ini contoh penggunaan Liquid.
 
 Tepat tengah malam, _layout_ yang saya _develop_ sudah berhasil dan sesuai dengan yang saya inginkan. Saya juga dengan mudah memahami struktur dan konvensi-konvensi dalam Jekyll _layout_. Saya merasa Jekyll _layout_ memberikan saya kebebasan yang sangat banyak untuk saya mengatur sendiri mau seperti apa struktur direktori dan penamaan dari _layout_ yang saya bangun. Mungkin karena aspek ini, saya dapat memahami mengapa Jekyll ada diperingkat teratas pada statistik **staticgen.com**.
 
+{% box_info %}
+<p>Serunya lagi, kita dapat membuat sendiri Liquid tags sesuai dengan kebutuhan kita.</p>
+<p markdown=1>Simak catatannya di sini, [**Membuat Tampilan Command Prompt untuk Blog dengan Jekyll Liquid Tags**](/blog/membuat-tampilan-command-prompt-dengan-jekyll-liquid-tags){:target="_blank"}</p>
+{% endbox_info %}
+
 # Template yang Saya Gunakan
 
 ## Old Template
@@ -126,7 +131,7 @@ Dari cerita-cerita di atas, saya berkali-kali menyinggung kata "_layout_". Kenap
 
 Saya mengadopsi desain dari blog lama saya, yang menggunakan template buatan [StyleShout](https://www.styleshout.com/){:target="_blank"}. Yang menurut saya, desain _template_ ini mirip dengan _default template_ Blogspot di awal-awal kemunculannya, hal ini sangat membuat saya bernostalgia dan betah berlama-lama memandangi _template_ ini.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/62rxouut9/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/62rxouut9/gambar_01.png | 1 %}
 
 Sederhana dan _old school_ sekali bukan?
 
@@ -136,19 +141,19 @@ Saya memiliki kesan yang sangat baik terhadap bentuk desain _template_ seperti i
 Atas dasar kecintaan saya terhadap warna, desain, dan _layout_ dari template sebelumnya, saya memutuskan untuk mencoba meniru desain dari _template_ tersebut. Tentunya sudah menggunakan prinsip _responsive design_. Dari cerita di atas, saya berhasil membuat _template_ ini dengan menggunakan Go _template_, namun saya kurang mengerti untuk mengembangkannya lebih jauh, sehingga saya memutuskan untuk mencoba Jekyll yang menggunakan Liquid untuk membangun _layout_. Dan, jadilah _layout_ yang saya inginkan. Hampir menyerupai _template_ buatan StyleShout.
 
 **HomePage**
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ttrb6yfkt/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/ttrb6yfkt/gambar_03.png | 3 %}
 
 **Blog (Post List)**
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/iu63vcwvh/gambar_04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/iu63vcwvh/gambar_04.png | 4 %}
 
 **Page**
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/fnbkbqrv1/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/fnbkbqrv1/gambar_02.png | 2 %}
 
 **Post**
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/y8mrg0on1/gambar_05.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/y8mrg0on1/gambar_05.png | 5 %}
 
 **Mobile Device Wide**
-![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/966fxw8wt/gambar_06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/966fxw8wt/gambar_06.png | 6 %}
 
 <br>
 Hohoho, sejujurnya saya sangat menyukai _layout_ ini. Karena saya bisa melakukan apa saja, meletakkan apa saja, dan memindahkan apa saja.

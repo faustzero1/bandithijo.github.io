@@ -12,7 +12,7 @@ tags: ['Security', 'Tips', 'Terminal', 'Tools', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "pwgen adalah perkakas command line interface yang praktis digunakan untuk mengenerate password."
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/t810ca5cd/banner_post_00.png" onerror="imgError(this);" alt="banner">
@@ -72,18 +72,18 @@ Dari manual yang ditulis, pwgen dirancang untuk menghasilkan _password_ yang mud
 ### Instalasi
 Untuk distribusi Arch Linux
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo pacman -S pwgen
-{% endshell_user %}
+{% endshell_cmd %}
 
 Untuk distribusi sistem operasi yang lain, dapat menyesuaikan dan mencari paket yang bernama `pwgen`.
 
 ### Melihat Help
 Kita perlu mengetahui opsi apa saja yang disediakan oleh pwgen sebelum kita dapat mengenerate _password_. _Help_ dari pwgen ini sangat sederhana dan mudah dipahami.
 
-{% shell_user %}
+{% shell_cmd $ %}
 pwgen -h
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
@@ -126,9 +126,9 @@ Seperti yang kalian lihat, pwgen menyediakan banyak sekali opsi untuk kita dapat
 
 Hasilnya akan seperti ini.
 
-{% shell_user %}
+{% shell_cmd $ %}
 pwgen -sy 15
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 I##3DKHZCA\[S:w (3::;s2P1!ABm7' !WS2LL)Jp[/].ob !1Z%K/E=Rt?1-TC /_,p}73!k|h&pDS
@@ -159,16 +159,16 @@ Kemudian, saya akan pilih satu dari 100 _random password_ yang sudah berhasil di
 
 Kalau teman-teman ingin hasil generate password langsung otomatis ditangkap oleh clipboard, dapat menggunakan cara ini.
 
-{% shell_user %}
+{% shell_cmd $ %}
 pwgen -sy 15 -1 | tr -d '\n' | xclip -sel clip
-{% endshell_user %}
+{% endshell_cmd %}
 
 Atau buatkan saja shell script nya.
 
-{% shell_user %}
+{% shell_cmd $ %}
 touch $HOME/.local/bin/pwgenskin
 chmod +x $HOME/.local/bin/pwgenskin
-{% endshell_user %}
+{% endshell_cmd %}
 
 Isinya seperti ini,
 

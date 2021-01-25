@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Network', 'Tips']
 pin:
 hot: true
 contributors: []
-resume:
+resume: "Catatan untuk memasang Packet Tracer dari AUR"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
@@ -42,9 +42,9 @@ Meskipun proses instalasi Cisco Packet Tracer 7.1.1 ini tidak biasa, namun terny
 
    Kita perlu mengekstrak isi dari _snapshot_. Buka Terminal dan pergi ke direktori tempat dimana _snapshot_ dari Cisco Packet Tracer 7.1.1 yang sudah kita download tadi tersimpan. Kemudian lakukan _command_ di bawah untuk mengekstrak isi dari _snapshot_.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 tar -zxf packettracer.tar.gz
-{% endshell_user %}
+{% endshell_cmd %}
 
    Setelah proses ekstraksi berhasil, maka akan terbuat satu buah direktori bernama `packettracer` dengan PKGBUILD beserta file-file lain di dalamnya.
 
@@ -68,9 +68,9 @@ tar -zxf packettracer.tar.gz
 
    Bahan-bahan yang diperlukan sudah lengkap, sekarang saatnya meracik bahan-bahan dengan resep menjadi satu buah paket siap instal. Caranya dengan mengetikkan _command_ di bawah.
 
-   {% shell_user %}
-   makepkg -s
-   {% endshell_user %}
+   {% shell_cmd $ %}
+makepkg -s
+{% endshell_cmd %}
 
    `-s`, digunakan untuk *install missing dependencies with pacman*.
 
@@ -80,9 +80,9 @@ tar -zxf packettracer.tar.gz
 
    Sekarang kita sudah memiliki sebuah paket yang siap kita pasang ke dalam sistem Arch Linux. Untuk melakukan proses instalasi terdapat dua cara, dengan `makepkg -i` atau dengan menggunakan `sudo pacman -U`, namun saya lebih familiar terhadap _command_ yang kedua.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo pacman -U packettracer.pkg.tar.xz
-{% endshell_user %}
+{% endshell_cmd %}
 
 <br>
 Ikuti proses instalasi hingga sampai akhir. Maka proses instalasi Cisco Packet Tracer 7.1.1 dengan menggunakan PKGBUILD dari AUR telah selesai.

@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">
@@ -38,21 +38,21 @@ Sedangkan paket `qt5ct` adalah paket wajib yang akan kita gunakan untuk mengatur
 
 Pasang paket-paket yang dibutuhkan. Paket wajib,
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo pacman -S qt5ct
-{% endshell_user %}
+{% endshell_cmd %}
 
 Paket tambahan,
 
-{% shell_user %}
+{% shell_cmd $ %}
 pacaur -S adwaita-qt4 adwaita-qt5
-{% endshell_user %}
+{% endshell_cmd %}
 
 Atau
 
-{% shell_user %}
+{% shell_cmd $ %}
 yaourt adwaita-qt4; yaourt adwaita-qt5
-{% endshell_user %}
+{% endshell_cmd %}
 
 # Penerapan
 Kita dapat melakukan dua macam konfigurasi. Penerapan konfigurasi secara global atau penerapan hanya pada aplikasi tertentu.
@@ -66,8 +66,7 @@ Untuk penerapan konfigurasi ini, dampaknya adalah semua aplikasi yang menggunaka
 
 Konfigurasinya cukup mudah karena kita menggunakan aplikasi GUI yang bernama Qt5 Settings (`qt5ct`).
 
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Qt5 Settings</p>
+{% image https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png | 1 | Qt5 Settings %}
 
 Tampilan GUI Qt5 Settings seperti pada Gambar 1. Kalian dapat melihat pada bagian “_Style_” saya menggunakan Adwaita _theme_.
 
@@ -114,9 +113,9 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/org.gnome.Nautilus.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -128,9 +127,9 @@ vim .local/share/applications/org.gnome.Nautilus.desktop
 
    Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/org.gnome.Nautilus.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
    {% highlight_caption $HOME/.local/share/applications/org.gnome.Nautilus.desktop %}
    {% pre_caption %}
@@ -146,9 +145,9 @@ Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U
 
    Adwaita juga memiliki _dark theme_, kita dapat menggunakannya dengan cara seperti ini.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U
-{% endshell_user %}
+{% endshell_cmd %}
 
 ### GTK+2
 
@@ -160,9 +159,9 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/inkscape.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -174,9 +173,9 @@ vim .local/share/applications/inkscape.desktop
 
    Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/inkscape.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
    {% highlight_caption $HOME/.local/share/applications/inkscape.desktop %}
    {% pre_caption %}
@@ -200,9 +199,9 @@ Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pa
 
    Untuk dapat mengubah pengaturan _theme_ secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari `.desktop` aplikasi yang kita ingin ubah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/vokoscreen.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 2. **Modifikasi nilai dari parameter Exec=**
 
@@ -214,9 +213,9 @@ vim .local/share/applications/vokoscreen.desktop
 
    Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 vim .local/share/applications/vokoscreen.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
    {% highlight_caption $HOME/.local/share/applications/vokoscreen.desktop %}
    {% pre_caption %}

@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+resume: "Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" onerror="imgError(this);" alt="banner">
@@ -34,13 +34,13 @@ Selanjutnya saya akan melakukan order.
 
 ## Order Custom Domain
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zfnikq5t9/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/zfnikq5t9/gambar_01.png | 1 %}
 
 Pilih menu **Order > Domain > Beli Domain Baru**.
 
 Nanti akan terbuka halaman seperti di bawah.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ostpf907x/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/ostpf907x/gambar_02.png | 2 %}
 
 Isikan nama _domain_ dan ekstensi _domain_ yang kamu inginkan. Pada contoh di atas, saya menggunakan nama _domain_ `devikamarina` dengan ekstensi _domain_ `.com`. Kemudian tekan tombol **Cek Domain**.
 
@@ -48,7 +48,7 @@ Apabila tersedia, pilih jangka waktu penagihan pembayaran. 1 tahun, 2 tahun, ata
 
 Nanti akan diarahkan pada halaman **Konfigurasi Domain**.
 
-![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
+![gambar 3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
 
 Yang perlu diperhatikan pada halaman ini adalah apakah kamu ingin memberikan **Whois Privacy Protection** terhadap domain kamu. Layanan ini bersifat _optional_.
 
@@ -58,9 +58,9 @@ Maksud dari _Whois Privacy Protection_ ini adalah untuk mengkamuflasekan data-da
 
 Saya akan mencontohkan melakukan pengecekan `whois` kepada kaskus.co.id.
 
-{% shell_user %}
+{% shell_cmd $ %}
 whois kaskus.co.id
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 Domain ID:PANDI-DO253792
@@ -86,9 +86,9 @@ Registrant Email:domain@kaskusnetworks.com
 
 Kemudian saya akan melakukan pengecekan informasi domain dengan menggunakan `whois` kepada domain yang saya beli di dewaweb.com dengan menggunakan tambahana layanan _Whois Privacy Protection_.
 
-{% shell_user %}
+{% shell_cmd $ %}
 whois bandithijo.com
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 Domain Name: BANDITHIJO.COM
@@ -117,7 +117,7 @@ Untuk pengaturan **Nameserver** akan kita ubah nanti saja. Saya berencana menggu
 
 Kemudian tekan tombol **Update Keranjang Belanja**.
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/48ovgrzwd/gambar_04.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/48ovgrzwd/gambar_04.png | 4 %}
 
 Setelah dipastikan kembali tidak ada yang kurang atau yang lebih dari daftar item yang kita pesan di atas. Selanjutnya tekan tombol **Checkout dan Bayar**.
 
@@ -154,30 +154,30 @@ Misalkan, kita ingin menampilkan domain berupa nama dan ekstensi domain, seperti
 
 Isikan sebagaimana kalian ingin menampilkan nama blog kalian pada _address bar_.
 
-<pre class="url">
+{% pre_url %}
 https://bandithijo.com
-</pre>
+{% endpre_url %}
 
 *Perhatikan! Isi dari CNAME ini hanya 1 baris.
 
 Langkah selanjutnya commit file CNAME yang baru saja kita buat ke dalam repositori GitHub kita.
 
-{% shell_user %}
+{% shell_cmd $ %}
 git add -A
 git commit -m “Added CNAME file.”
 git push origin master
-{% endshell_user %}
+{% endshell_cmd %}
 
 Kemudian, buka repositori GitHub tempat dimana kamu menyimpan repositori dari .github.io. Lakukan pengecekan apakah file CNAME yang kita buat sudah berada pada repositori GitHub kita.
 
 Kemudian selanjutnya pilih menu **Settings**.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/rzo8yvcy5/gambar_05.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/rzo8yvcy5/gambar_05.png | 5 %}
 
 <br>
 Selanjutnya, _scrolling page_ ke bagian **GitHub Pages** dan isikan nama domain yang baru saja kamu beli pada kolom **Custom domain**.
 
-![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/irw0i78gt/gambar_06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/irw0i78gt/gambar_06.png | 6 %}
 
 Pilih **Save**.
 
@@ -187,11 +187,11 @@ Pada tahap ini konfigurasi GitHub hanya seperti ini saja. Namun, _custom domain_
 
 Buka [cloudflare.com](https://www.cloudflare.com/){:target="_blank"}. Apabila belum memiliki akun, sebaiknya buat akun terlebih dahulu. Kemudian Login dan tambahkan website kamu. **+ Add site**.
 
-![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sp71b8sx9/gambar_07.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/sp71b8sx9/gambar_07.png | 7 %}
 
 Setelah itu, pergi ke tab **DNS**.
 
-![gambar8](https://s20.postimg.cc/dtma8qvwt/gambar_08.png)
+{% image https://s20.postimg.cc/dtma8qvwt/gambar_08.png | 8 %}
 
 Isi dan ikuti seperti gambar di atas.
 
@@ -213,21 +213,21 @@ wesley.ns.cloudflare.com
 
 Saya lupa urutan detail konfigurasi nameserver pada Cloudflare ini seperti apa, yang jelas, nanti akan diberikan contoh bagaimana cara melakukan pengisian nameserver pada dewaweb.com menjadi nameserver Cloudflare. Seperti contoh di bawah.
 
-![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce78vx/gambar_09.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/mo9ce78vx/gambar_09.png | 9 %}
 
 Secara _default_, dewaweb.com sudah memberikan 3 alamat nameserver bawaan dewaweb.com. Kita perlu mengganti Nameserver 1 dan 2 dengan nameserver yang sudah diberikan oleh Cloudflare, kemudian menghapus Nameserver 3.
 
 Buka kembali dewaweb.com, dan pergi ke bagian [**Login ke Client Area**](https://client.dewaweb.com/clientarea.php){:target="_blank"}. Setelah login, pilih menu **Domain > Domain Saya**.
 
-![gambar10]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/i2d85ufn1/gambar_10.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/i2d85ufn1/gambar_10.png | 10 %}
 
 Selanjutnya, pada domain yang akan kita konfigurasi, pilih tanda panah pada tombol **Edit**. Dan pilih **Pengaturan Nameserver**.
 
-![gambar11]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/boo52lq6l/gambar_11.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/boo52lq6l/gambar_11.png | 11 %}
 
 Masukkan nameserver yang kita dapat dari Cloudflare.
 
-![gambar12]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/mo9ce83r1/gambar_12.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/mo9ce83r1/gambar_12.png | 12 %}
 
 Kosongkan Nameserver 3.
 
@@ -239,7 +239,7 @@ Sekarang coba lakukan pemanggilan domain kita pada Browser. Apabila belum dapat 
 
 Karena kita menggunakan _custom domain_, maka pengaturan HTTPS pada GitHub Pages tidak dapat kita gunakan.
 
-![gambar13]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/k7bdc6ga5/gambar_13.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/k7bdc6ga5/gambar_13.png | 13 %}
 
 Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.
 
@@ -247,7 +247,7 @@ Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.
 
 Buka tab **Crypto** dan pada bagian SSL, pilih **Full**.
 
-![gambar14]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/62am7cg3h/gambar_14.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/62am7cg3h/gambar_14.png | 14 %}
 
 Setelah mengaktifkan SSL ini kita perlu menunggu 24 jam setelah situs aktif di Cloudflare untuk menerbitkan sertifikat baru.
 
@@ -257,7 +257,7 @@ Sampai nanti status **Active Certificate** sudah tersedia, seperti pada gambar d
 
 Selanjutnya, buka tab **Page Rules**.
 
-![gambar19]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/bezglg1f1/gambar_19.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/bezglg1f1/gambar_19.png | 19 %}
 
 Kita akan menambahkan 3 _rules_ baru untuk _domain_ kita.
 
@@ -268,21 +268,21 @@ Kita akan menambahkan 3 _rules_ baru untuk _domain_ kita.
 <br>
 **Always Use HTTPS**
 
-![gambar15]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/q9o1zr8gt/gambar_15.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/q9o1zr8gt/gambar_15.png | 15 %}
 
 Saya memilih menggunakan APEX domain, dengan nama **bandithijo.com**, sehingga url yang harus saya masukkan adalah `https://bandithijo.com/*`. Penggunaan tanda `*` dimaksudkan untuk membuat _dynamic patterns_ yang dapat mencocokkan banyak URL.
 
 <br>
 **Forwarding URL**
 
-![gambar16]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/d5ihn2o4t/gambar_16.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/d5ihn2o4t/gambar_16.png | 16 %}
 
 Dikarenakan saya menggunakan nama domain **bandithijo.com**, maka saya perlu melakukan _forwarding URL_. Tujuannya, apabila terdapat pengunjung yang mengetikkan **www.bandithijo.com** akan langsung diarahkan ke URL **https://bandithijo.com**.
 
 <br>
 **Cache Level**
 
-![gambar17]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/wMxbT1Xw/gambar-17.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/wMxbT1Xw/gambar-17.png | 17 %}
 
 Mungkin teman-teman ingin menggunakan fitur cache level yang diberikan oleh CloudFlare.
 
@@ -312,39 +312,35 @@ Sebagai contoh di atas, saya menggunakan "No Query String".
 
 Sebelumnya saya menggunakan "Cache Everything", namun kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, ~~mungkin~~ kita dapat melakukan pembersihan cache dengan **Purge Everything**.
 
-![gambar20]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/h4fp62kjh/gambar_20.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/h4fp62kjh/gambar_20.png | 20 %}
 
 <br>
 Nah! setelah selesai melakukan 3 konfigurasi **Page Rules** di atas, maka, tampilan akhir dari konfigurasi **Page Rules** akan seperti ini.
 
-![gambar18]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J0TYyRKM/gambar-18.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://i.postimg.cc/J0TYyRKM/gambar-18.png | 18 %}
 
 *Perhatikan! **Always Use HTTPS**, harus berada di layer paling atas.
 
 Dikarenakan kita menggunakan **Free Plan**, maka kita hanya dapat membuat 3 _page rules_. Tapi ini bukan masalah, karena sudah mencakup apa yang kita butuhkan.
 
-><p class="title-quote">[ ! ] Perhatian</p>
->Saya menggunakan **SSH** untuk melakukan `push` ke dalam repositori GitHub, bukan menggunakan **HTTPS**.
->
->Saya mencurigai adanya indikasi kegagalan melakukan push ke dalam repositori GitHub, setelah melakukan konfigurasi di atas.
->
->Apabila hal ini terjadi, maka teman-teman perlu merubah jalur push ke repositori GitHub melalui SSH.
->
->**Caranya :**
->
->Buka folder `.git`, kemudian cari file `config`.
->
->Cari bagian,
->
+{% box_perhatian %}
+<p markdown=1>Saya menggunakan **SSH** untuk melakukan `push` ke dalam repositori GitHub, bukan menggunakan **HTTPS**.</p>
+<p markdown=1>Saya mencurigai adanya indikasi kegagalan melakukan push ke dalam repositori GitHub, setelah melakukan konfigurasi di atas.</p>
+<p markdown=1>Apabila hal ini terjadi, maka teman-teman perlu merubah jalur push ke repositori GitHub melalui SSH.</p>
+<p markdown=1>**Caranya :**</p>
+<p markdown=1>Buka folder `.git`, kemudian cari file `config`.</p>
+<p markdown=1>Cari bagian,</p>
+<pre>
     [remote "origin"]
         url = https://github.com/bandithijo/bandithijo.github.io.git
->
-> Diganti menjadi,
->
+</pre>
+<p markdown=1>Diganti menjadi,</p>
+<pre>
     [remote "origin"]
         url = git@github.com:bandithijo/bandithijo.github.io.git
->
->**Tentunya teman-teman harus melakukan konfigurasi SSH dengan GitHub terlebih dahulu** ([Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/){:target="_blank"})
+</pre>
+<p markdown=1>**Tentunya teman-teman harus melakukan konfigurasi SSH dengan GitHub terlebih dahulu** ([Connecting to GitHub with SSH](https://help.github.com/articles/connecting-to-github-with-ssh/){:target="_blank"})</p>
+{% endbox_perhatian %}
 
 
 
