@@ -391,7 +391,7 @@ Atau, dengan parameter warna
 
 {% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
 {% highlight liquid %}
-{% raw %}{% shell_cmd [arch@iso ~]# | DC322F %}
+{% raw %}{% shell_cmd [arch@iso ~]# | #DC322F %}
 mkdir project
 cd project
 git clone https://github.com/bandithijo/new_project
@@ -400,9 +400,7 @@ bundle exec jekyll server
 {% endshell_cmd %}{% endraw %}
 {% endhighlight %}
 
-Hasilnya,
-
-{% shell_cmd [arch@iso ~]# | DC322F %}
+{% shell_cmd [arch@iso ~]# | #DC322F %}
 mkdir project
 cd project
 git clone https://github.com/bandithijo/new_project
@@ -424,18 +422,15 @@ module Jekyll
     end
 
     def render(context)
-      params = split_params(@input)
-      prompt_symbol = params[0].strip
-      color = params[1].strip if params.length > 1
+      params        = split_params(@input)
+      prompt_symbol = params[0]&.strip
+      prompt_color  = params[1]&.strip if params.length > 1
 
       commands = super.split("\n")
       output  = '<pre>'
       output += commands[1..].map do |i|
-        if color&.nil? && color&.empty?
-          "<span class='cmd'>#{prompt_symbol} </span><b>#{i}</b><br>"
-        else
-          "<span class='cmd' style='color:##{color};'>#{prompt_symbol} </span><b>#{i}</b><br>"
-        end
+        "<span class='cmd' #{"style='color:#{prompt_color};'" unless prompt_color.nil?}>" \
+        "#{prompt_symbol.nil? ? '$' : prompt_symbol} </span><b>#{i}</b><br>"
       end.join.to_s
       output += '</pre>'
       output
