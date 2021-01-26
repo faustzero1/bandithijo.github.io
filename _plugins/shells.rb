@@ -37,16 +37,16 @@ module Jekyll
 
     def render(context)
       params = split_params(@input)
-      prompt_symbol = params[0].strip
-      color = params[1].strip if params.length > 1
+      prompt_symbol = params[0]&.strip
+      color = params[1]&.strip if params.length > 1
 
       commands = super.split("\n")
       output  = '<pre>'
       output += commands[1..].map do |i|
         if color&.nil? && color&.empty?
-          "<span class='cmd'>#{prompt_symbol} </span><b>#{i}</b><br>"
+          "<span class='cmd'>#{prompt_symbol.nil? ? '$' : prompt_symbol} </span><b>#{i}</b><br>"
         else
-          "<span class='cmd' style='color:##{color};'>#{prompt_symbol} </span><b>#{i}</b><br>"
+          "<span class='cmd' style='color:##{color};'>#{prompt_symbol.nil? ? '$' : prompt_symbol} </span><b>#{i}</b><br>"
         end
       end.join.to_s
       output += '</pre>'

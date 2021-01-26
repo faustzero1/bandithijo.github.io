@@ -359,6 +359,38 @@ Seperti ini misalnya,
 
 {% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
 {% highlight liquid %}
+{% raw %}{% shell_cmd $ %}
+sudo pacman -Syu
+sudo pacman -Scc
+{% endshell_cmd %}{% endraw %}
+{% endhighlight %}
+
+{% shell_cmd $ %}
+sudo pacman -Syu
+sudo pacman -Scc
+{% endshell_cmd %}
+
+Atau,
+
+{% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
+{% highlight liquid %}
+{% raw %}{% shell_cmd # %}
+pacman -Syu
+pacman -Scc
+{% endshell_cmd %}{% endraw %}
+{% endhighlight %}
+
+{% shell_cmd # %}
+pacman -Syu
+pacman -Scc
+{% endshell_cmd %}
+
+Saya menggunakan parameter `$` untuk mengindikasikan user biasa dan `#` untuk mengindikasikan root.
+
+Atau, dengan parameter warna
+
+{% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
+{% highlight liquid %}
 {% raw %}{% shell_cmd [arch@iso ~]# | DC322F %}
 mkdir project
 cd project
@@ -377,6 +409,8 @@ git clone https://github.com/bandithijo/new_project
 cd new_project
 bundle exec jekyll server
 {% endshell_cmd %}
+
+Jadi lebih fleksible.
 
 Nah! Codenya seperti ini.
 

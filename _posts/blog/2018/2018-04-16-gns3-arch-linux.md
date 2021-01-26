@@ -151,7 +151,7 @@ sudo mv iouyap /usr/local/bin
 
 Kemudian kita perlu mengeset *capabilities* dari IOUYAP.
 
-{% shell_cmd %}
+{% shell_cmd $ %}
 cd $HOME
 sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)
 {% endshell_cmd %}
@@ -336,7 +336,7 @@ mkdir -p $HOME/GNS3-Dev && cd $_
 
 Pasang **GNS3 Server** dari GitHub.
 
-{% shell_cmd %}
+{% shell_cmd $ %}
 git clone https://github.com/GNS3/gns3-server.git
 cd gns3-server
 git tag --list 'v2.1.*'
