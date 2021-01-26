@@ -39,9 +39,9 @@ Apabila telah dipasang, maka kita akan dapat memanggil perintah `adb` dan `fastb
 
 Lakukan pengecekan versi `adb`.
 
-{% shell_user %}
+{% shell_cmd $ %}
 adb --version
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 Android Debug Bridge version 1.0.39
@@ -50,9 +50,9 @@ Version 0.0.1-4500957
 
 Lakukan pengecekan versi `fastboot`.
 
-{% shell_user %}
+{% shell_cmd $ %}
 fastboot - version
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 fastboot version 0.0.1-4500957
@@ -137,24 +137,24 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 
 1. Ekstrak file *fastboot* ROM **.tgz** yang kita miliki.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 tar -xvf libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz
-{% endshell_user %}
+{% endshell_cmd %}
 
    Nanti akan terbuat sebuah direktori baru yang memiliki nama yang sama seperti *fasboot* ROM.
 
 2. Masuk ke dalam direktori tersebut.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 cd libra_images_6.1.7_20151221.0000.11_5.1_cn
-{% endshell_user %}
+{% endshell_cmd %}
 
    Di dalam direktori ini berisi file-file seperti yang sudah saya jelaskan di atas.
    Kamu dapat mengeceknya dengan perintah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 ls -al
-{% endshell_user %}
+{% endshell_cmd %}
 
    ```
    total 72
@@ -170,16 +170,15 @@ ls -al
 
 3. Buat *smartphone* kamu dalam mode **Fastboot** dengan menekan kombinasi tombol. Tekan dan tahan <kbd>Volume Down</kbd> + <kbd>Power</kbd> secara berurutan.
 
-   ![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/sbu6t0nfx/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
-   <p class="img-caption">Gambar 2 - Mode Fastboot</p>
+   {% image https://s20.postimg.cc/sbu6t0nfx/gambar_02.png | 2 | Mode Fastboot %}
 
    Setelah *smartphone* kita sudah dalam mode *fastboot*, kita dapat menghubungkannya dengan komputer / laptop menggunakan kabel data.
 
 4. Deteksi apakah *smartphone* dengan komputer / laptop sudah terhubung atau tidak.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot devices
-{% endshell_user %}
+{% endshell_cmd %}
 
    ```
    dd46fe2b	fastboot
@@ -195,17 +194,17 @@ sudo fastboot devices
 
    Pilih sesuai kebutuhan kalian. Kalo saya lebih memilih `flash_all.sh`. Kita akan membuat file **.sh** yang kita pilih, agar menjadi *excutable*.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 chmod +x flash_all.sh
-{% endshell_user %}
+{% endshell_cmd %}
 
    Sebenarnya file BASH *script* tersebut sudah mendapatkan *excutable permission* `-rwxr-xr-x`, namun saya hanya mengantisipasi apabila ada dari teman-teman yang belum memahami perbedaan file *excutable* dan *non excutable*.
 
 6. Eksekusi file *script* tersebut.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo sh flash_all.sh
-{% endshell_user %}
+{% endshell_cmd %}
 
    Tunggu prosesnya hingga selesai.
 
@@ -226,9 +225,9 @@ Prosesnya simple saja, ndak rumit.
 1. Masuk kembali ke dalam mode **Fastboot**.
 2. Hubungkan *smartphone* dengan komputer / laptop. Dan periksa apakah sudah terhubung atau belum.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot devices
-{% endshell_user %}
+{% endshell_cmd %}
 
    ```
    dd46fe2b	fastboot
@@ -236,9 +235,9 @@ sudo fastboot devices
 
 3. Periksa status **Bootloader**, apakah **Device unlocked : false** atau **true**.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot oem device-info
-{% endshell_user %}
+{% endshell_cmd %}
 
    <pre>
    ...
@@ -251,15 +250,15 @@ sudo fastboot oem device-info
 
    Apabila **Device unlocked: false**, lakukan perintah di bawah untuk membuatnya menjadi **true**.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot oem unlock
-{% endshell_user %}
+{% endshell_cmd %}
 
    Periksa kembali, apakah sudah menjadi **true**.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot oem device-info
-{% endshell_user %}
+{% endshell_cmd %}
 
    <pre>
    ...
@@ -290,9 +289,9 @@ Proses instalasinya sangat mudah.
 1. Buka Terminal. Masuk ke dalam direktori tempat kamu menyimpan file *image* TWRP.
 2. Jalankan perintah di bawah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot flash recovery twrp-3.1.0-0-libra.img
-{% endshell_user %}
+{% endshell_cmd %}
 
    Sesuaikan dengan *image* TWRP yang kalian pilih.
 
@@ -309,9 +308,9 @@ sudo fastboot flash recovery twrp-3.1.0-0-libra.img
 
 3. Kemudian, setelah berhasil, kita langsung masuk saja ke dalam mode **Recovery** menggunakan perintah di bawah.
 
-   {% shell_user %}
+   {% shell_cmd $ %}
 sudo fastboot boot twrp-3.1.0-0-libra.img
-{% endshell_user %}
+{% endshell_cmd %}
 
    ```
    downloading 'boot.img'...
@@ -323,8 +322,7 @@ sudo fastboot boot twrp-3.1.0-0-libra.img
 
    Tunggu beberapa detik, sampai *smartphone* kita akan *reboot* dan masuk ke dalam mode **Recovery**.
 
-   ![gambar3]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/kgjnegtbh/gambar_03.png" onerror="imgError(this);"}{:class="myImg"}
-   <p class="img-caption">Gambar 3 - Tampilan Depan Custom Recovery TWRP</p>
+   {% image https://s20.postimg.cc/kgjnegtbh/gambar_03.png | 3 | Tampilan Depan Custom Recovery TWRP %}
 
    Cara lain untuk masuk ke dalam mode **Recovery** dengan menggunakan kombinasi tombol.
 
@@ -337,8 +335,7 @@ sudo fastboot boot twrp-3.1.0-0-libra.img
 
 Kita melakukan instalasi *custom* ROM dengan bantuan TWRP. Untuk itu kita perlu memasukkan semua bahan-bahan yang akan kita pasang ke dalam *internal memory* dengan bantuan **File Manager**. Dalam hal ini saya menggunakan **Thunar** atau **PCMANFM**.
 
-![gambar4]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/fzrafmmrh/gambar_04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Bahan-bahan yang diperlukan</p>
+{% image https://s20.postimg.cc/fzrafmmrh/gambar_04.png | 4 | Bahan-bahan yang diperlukan %}
 
 Ini adalah bahan-bahan untuk memasang sistem operasi **LineageOS** beserta **OpenGAPS** (*Google Apps packages*) arm64 - 7.1 - nano. Saya juga menambahkan **SuperSU** untuk mendapatkan akses root. Apabila teman-teman tidak ingin menggunakan root, **SuperSU** tidak perlu ikut diinstal.
 
@@ -352,12 +349,11 @@ Download semua bahan-bahan yang diperlukan. Sesuaikan dengan kebutuhan dan tipe 
 
 Selanjutnya, masukkan ke dalam *internal memory* *smartphone* XiaoMi kita. Letakkan saja di luar, agar lebih mudah di akses dari TWRP. Untuk melihat file-file tersebut, masuk ke dalam menu **Install**.
 
-![gambar5]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/8eo9k7wwt/gambar_06.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/8eo9k7wwt/gambar_06.png | 5 %}
 
 Hasilnya akan seperti di bawah.
 
-![gambar6]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/4iaxoc6t9/gambar_05.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - Bahan-bahan yang sudah dimasukkan</p>
+{% image https://s20.postimg.cc/4iaxoc6t9/gambar_05.png | 6 | Bahan-bahan yang sudah dimasukkan %}
 
 ## Instalasi Custom ROM
 
@@ -369,17 +365,17 @@ Masih pada menu **Install**, pilih file **.zip** secara berurutan :
 
 Untuk menambahkan lebih dari 1 **.zip**, pilih **Add more Zips**.
 
-![gambar7]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/nne6y7o31/gambar_07.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/nne6y7o31/gambar_07.png | 7 %}
 
 Lakukan terus menerus sampai keempat semua bahan yang diperlukan masuk ke dalam daftar **queued** instalasi.
 
 Kemudian lakukan eksekusi, dengan menggeser tombol biru yang ada di paling bawah.
 
-![gambar8]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/zds4f31al/gambar_08.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/zds4f31al/gambar_08.png | 8 %}
 
 Proses instalasi akan seperti di bawah ini.
 
-![gambar9]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/c28m47x4d/gambar_09.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/c28m47x4d/gambar_09.png | 9 %}
 
 Tunggu sampai proses instalasi dari semua file selesai di eksekusi.
 

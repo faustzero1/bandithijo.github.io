@@ -32,7 +32,7 @@ Mayoritas teman-teman yang mempunyai urusan dengan saya belum menggunakan platfo
 
 Sebenarnya, WhatsApp menyediakan layanan [WhatsApp-Web](https://web.whatsapp.com/){:target="_blank"} untuk pengguna Linux -- sedangkan untuk Windows dan macOS, mereka memberikan aplikasi *native desktop*.
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/cd9zmy9lp/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/cd9zmy9lp/gambar_02.png | 1 %}
 
 Namun, saya merasa kurang praktis karena sebagian besar saya beraktifitas menggunakan browser yang saya tidak ingin diganggu oleh hal-hal lain selain pekerjaan yang sedang saya kerjakan.
 
@@ -43,8 +43,7 @@ Pada tahun 2016 - 2017 saya masih sempat menggunakan aplikasi *unofficial* yang 
 
 Beberapa waktu lalu saya menemukan sebuah aplikasi yang mirip dengan Whatsie. Aplikasi yang berbasis Whatsapp Web dan dibangun menggunakan [Electron](http://electron.atom.io/){:target="_blank"} juga. Aplikasi ini bernama **Whatsapp-Desktop** yang dikelola oleh **Enrico204** yang semula dikelola oleh **bcalik**.
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ujj3orbst/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - User Interface dari Whatsapp-Desktop</p>
+{% image https://s20.postimg.cc/ujj3orbst/gambar_01.png | 2 | User Interface dari Whatsapp-Desktop %}
 
 Whatsapp-Desktop ini juga mempunyai *tray icon* dan memiliki notifikasi yang terintegrasi dengan sistem.
 
@@ -57,15 +56,15 @@ Namun pada dokumentasi ini saya hanya akan menuliskan proses instalasi menggunak
 <br>
 Langkah awal, kita membutuhkan *package manager* bernama [**Yarn**](https://yarnpkg.com){:target="_blank"}. Yarn merupakan *package manager* untuk Java Script.
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo pacman -S yarn
-{% endshell_user %}
+{% endshell_cmd %}
 
 Lakukan pengetesan apakah yarn sudah berhasil dipasang atau belum.
 
-{% shell_user %}
+{% shell_cmd $ %}
 yarn --version
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 1.6.0
@@ -74,15 +73,15 @@ yarn --version
 <br>
 Pasang juga paket **Git** karena kita akan memerlukannya untuk melakukan *repository cloning*.
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo pacman -S git
-{% endshell_user %}
+{% endshell_cmd %}
 
 Lakukan pengetesan apakah git sudah berhasil di pasang atau belum.
 
-{% shell_user %}
+{% shell_cmd $ %}
 git --version
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 git version 2.17.0
@@ -97,18 +96,18 @@ git version 2.17.0
 <br>
 Setelah `yarn` dan `git` berhasil terpasang, langkah selanjutnya melakukan *cloning* terhadap repositori Whatsapp-Desktop.
 
-{% shell_user %}
+{% shell_cmd $ %}
 mkdir -p ~/app/whatsapp
 cd ~/app/whatsapp
 git clone https://github.com/Enrico204/Whatsapp-Desktop.git
 cd Whatsapp-Desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 Kita dapat melihat isi dari direktori hasil *repository cloning*.
 
-{% shell_user %}
+{% shell_cmd $ %}
 ls -al
-{% endshell_user %}
+{% endshell_cmd %}
 
 ```
 app
@@ -135,17 +134,17 @@ Sekarang, tinggal melakukan kompilasi saja menggunakan **Yarn**.
 
 Masih pada direktori yang sama -- direktori hasil *repository cloning* Whatsapp-Desktop.
 
-{% shell_user %}
+{% shell_cmd $ %}
 yarn install
-{% endshell_user %}
+{% endshell_cmd %}
 
 Tunggu proses ini hinggal selesai.
 
 Selanjutnya,
 
-{% shell_user %}
+{% shell_cmd $ %}
 yarn run build:linux
-{% endshell_user %}
+{% endshell_cmd %}
 
 Pada tahap ini, apabila telah selesai maka, akan terdapat sebuah direktori baru bernama `dist`.
 
@@ -159,9 +158,9 @@ dist
 
 Sekarang, tinggal kita buatkan *application launcher* nya saja.
 
-{% shell_user %}
+{% shell_cmd $ %}
 touch ~/.local/share/applications/whatsapp-desktop.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 Buka file `whatsapp-desktop.desktop` yang baru saja kita buat menggunakan *text editor* favorit kalian dan copy paste kode di bawah.
 

@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Membuat Tampilan Command Prompt untuk Blog dengan Jekyll Liquid Tags"
+title: "Membuat Jekyll Custom Tags dengan Liquid Tags"
 date: 2021-01-22 09:53
 permalink: '/blog/:title'
 author: 'BanditHijo'

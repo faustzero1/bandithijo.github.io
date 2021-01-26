@@ -20,9 +20,9 @@ resume:
 
 # Hasil
 
-![gambar1]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/ev897h365/gambar_01.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/ev897h365/gambar_01.png | 1 %}
 
-![gambar2]({{ site.lazyload.logo_blank }}){:data-echo="https://s20.postimg.cc/6xn0xertp/gambar_02.png" onerror="imgError(this);"}{:class="myImg"}
+{% image https://s20.postimg.cc/6xn0xertp/gambar_02.png | 2 %}
 
 # Video Dokumentasi
 

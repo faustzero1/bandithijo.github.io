@@ -22,8 +22,7 @@ resume:
 
 Semester ini saya mengikuti mata kuliah **Sekuriti Jaringan**. Pada salah satu pembahasan, terdapat praktik membuat dan mengkonfigurasi VPN (*Virtual Private Network*). Perangkat yang digunakan adalah perangkat dari **MikroTik** yang membutuhkan aplikasi **WinBox** untuk mempermudah proses konfigurasi. Dapat lebih memudahkan karena konfigurasi dilakukan dengan menggunakan GUI (*Graphical User Interface*).
 
-![gambar1](https://s20.postimg.cc/54wzb42hp/gambar_01.png)
-<p class="img-caption">Gambar 1 - User Interface dari WinBox</p>
+{% image https://s20.postimg.cc/54wzb42hp/gambar_01.png | 1 | User Interface dari WinBox %}
 
 # Permasalahan
 
@@ -45,9 +44,9 @@ Proses instalasi Wine dapat merujuk pada distribusi sistem operasi GNU/Linux mas
 
 Untuk distribusi Arch Linux.
 
-{% shell_user %}
+{% shell_cmd $ %}
 sudo pacman -S wine wine_gecko wine-mono
-{% endshell_user %}
+{% endshell_cmd %}
 
 `wine_gecko` dan `wine-mono` diperlukan untuk aplikasi yang membutuhkan Internet Explorer dan .NET. Sebenarnya paket ini tidak benar-benar harus dipasang karena Wine secara pintar akan mengunduh paket-paket yang relevan sesuai dengan kebutuhan. Namun apabila kamu memasangnya lebih dulu akan lebih menguntungkan apabila nantinya kamu tidak mendapatkan akses internet saat proses instalasi aplikasi Microsoft Windows di atas Wine.
 
@@ -57,9 +56,10 @@ Untuk kebutuhan dokumentasi ini (instalasi WinBox), hanya sejauh ini saja yang d
 
 Terlebih dahulu kalian harus mengunduh WinBox installer pada situs *official* MikroTik [di sini](https://mikrotik.com/download){:target="_blank"}.
 
-![gambar2](https://s20.postimg.cc/h82aymvjh/gambar_02.png)
+{% image https://s20.postimg.cc/h82aymvjh/gambar_02.png | 2 %}
 
 Klik tombol **WinBox** untuk mengunduh file **.exe** pada versi paling baru. Setelah proses unduh selesai, letakkan WinBox pada direktori dimana kamu mudah untuk mengaksesnya. Saya biasa mengelompokkan file instalasi pada direktori tersendiri. Sebagai contoh seperti ini `~/app/winbox/`.
+
 ```
 home
 └── bandithijo
@@ -74,13 +74,13 @@ Lakukan pengetesan untuk menguji apakah WinBox dapat berjalan di atas Wine.
 
 Buka **Terminal** dan pergi ke direktori tempat dimana file `winbox.exe` kalian simpan. Kemudian jalankan *command* di bawah.
 
-{% shell_user %}
+{% shell_cmd $ %}
 wine winbox.exe
-{% endshell_user %}
+{% endshell_cmd %}
 
 Apabila berhasil, akan menampilkan jendela WinBox seperti di bawah.
 
-![gambar3](https://s20.postimg.cc/5ms4r57jx/gambar_03.png)
+{% image https://s20.postimg.cc/5ms4r57jx/gambar_03.png | 3 %}
 
 Untuk pertama kali, karena belum pernah digunakan, *text input* **Connect To:** belum akan terisi MAC address apapun.
 
@@ -88,9 +88,9 @@ Selanjutnya tinggal membuat *launcher* atau *shortcut* untuk memanggil WinBox da
 
 Buat file `winbox.desktop` pada direktori `~/.local/share/applications/`
 
-{% shell_user %}
+{% shell_cmd $ %}
 touch ~/.local/share/applications/winbox.desktop
-{% endshell_user %}
+{% endshell_cmd %}
 
 Kemudian, buka dengan text editor favorit kalian, dan isikan seperti contoh di bawah.
 
