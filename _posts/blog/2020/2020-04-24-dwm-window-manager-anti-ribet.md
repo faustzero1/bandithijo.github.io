@@ -22,9 +22,10 @@ resume: "Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun,
 
 Sejak Oktober 2017, saya mulai masuk ke dunia Window Manager. Diawali dengan i3WM. Hingga April 2019, Saya mulai berpindah menggunakan BSPWM. Dan April 2020, saya kembali melangkahkan kaki ke Window Manger yang lain, yaitu DWM.
 
-i3WM dan BSPWM masuk dalam Window Manager yang berkelas "Manual Tilling". Dimana penggunanya diberikan kebebasan untuk mengatur dan menempatkan window. Lain hal dengan DWM, yang masuk dalam kelas "Dynamic Tilling". Dengan mengusung konsep "Master & Stack", pengguna tidak perlu dipusingkan untuk mengatur sendiri dimana window akan ditampilkan. Namun, Window yang baru, akan secara otomatis masuk ke dalam stack (tumpukan) "Master", sedangkan window yang lain, akan masuk ke dalam stack "Stack"
+i3WM dan BSPWM masuk dalam Window Manager yang berkelas "Manual Tilling". Dimana penggunanya diberikan kebebasan untuk mengatur dan menempatkan window. Lain hal dengan DWM, yang masuk dalam kelas "Dynamic Tilling". Dengan mengusung konsep "Master & Stack", pengguna tidak perlu dipusingkan untuk mengatur sendiri dimana window akan ditampilkan. Namun, Window yang baru, akan secara otomatis menggantikan "Master" sebelumnya (sisi kiri), sedangkan "Master sebelumnya", akan masuk ke dalam stack "Stack" (sisi kanan).
 
 Inilah alasan, mengapa saya memberi judul catatan ini sebagai "DWM, Window Manager yang Gak Pake Ribet".
+
 Anti ribet-ribet kleb! lah pokoknya!
 
 Tapi...
@@ -147,7 +148,13 @@ Manula patching adalah melakukan patching dengan meng-copy-kan baris demi baris 
 
 ## Bagaimana Cara Compiling?
 
-Nah! untuk mempermudah proses *compiling*, saya menggunakan bantuan beberapa script.
+Cara saya membangun DWM mungkin tidak sama seperti kebanyakan orang.
+
+Saya menggunakan model "*each branch has its own branch*".
+
+Setiap patch saya buatkan branch tersendiri yang saya create dari master branch. Namun, ada beberapa patch yang akan saya merge karena terdapat conflict satu dengan yang lainnya.
+
+Nah! untuk mempermudah proses *merging* dan *compiling*, saya menggunakan bantuan beberapa script.
 
 Berikut ini daftar script yang saya gunakan.
 
