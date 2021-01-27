@@ -23,6 +23,16 @@ Satu-satunya bluetooth device yang saya gunakan adalah headset bluetooth yang ja
 
 Karena jarang digunakan, maka ketika harus berurusan dengannya, saya memilih untuk gak ribet-ribet untuk mencoba workflow baru. Maka, saya gunakan Blueman Manager saja yang praktis.
 
+
+# Terminologi
+
+Kita samakan persepsi dulu yaa, agar teman-teman mudah memahami istilah-istilah yang ada dalam catatan ini.
+
+**Bluetooth Controller**, adalah perangkah bluetooth yang berada di laptop/komputer kita.
+
+**Bluetooth Device**, adalah perangkat bluetooth yang akan dihubungkan dengan bluetooth controller, seperti Bluetooth Headset, Bluetooth Keyboard, Blutooth Speaker, Smartphone, dll.
+
+
 # Apa itu bluetoothctl?
 
 Bluetoothctl adalah tools yang dapat kita pergunakan untuk melakukan pairing a device from the shell.
@@ -44,7 +54,37 @@ sudo rc-service bluetoothd start
 {% endshell_cmd %}
 
 <br>
-Pastikan **bluetoothd** service sudah salam status aktif.
+Pastikan **bluetoothd** service sudah dalam status aktif.
+
+
+## Periksa Bluetooth Controller
+
+Biasanya, kalau kita memiliki satu buah bluetooth controller, maka akan bernama **hci0**.
+
+Periksa dengan peritah,
+
+{% shell_cmd $ %}
+hciconfig -a
+{% endshell_cmd %}
+
+<pre>
+hci0:   Type: Primary  Bus: USB
+        BD Address: 00:1C:26:D8:E0:18  ACL MTU: 1017:8  SCO MTU: 64:8
+        DOWN
+        RX bytes:488 acl:0 sco:0 events:20 errors:0
+        TX bytes:82 acl:0 sco:0 commands:20 errors:0
+        Features: 0xff 0xff 0x8f 0xfe 0x9b 0xf9 0x00 0x80
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
+        Link policy: RSWITCH HOLD SNIFF PARK
+        Link mode: SLAVE ACCEPT
+</pre>
+
+Dapat terlihat, di laptop saya, terdapat Bluetooth Controller.
+
+Namun, statusnya masih DOWN (bukan OFF).
+
+Untuk dapat menggunakannya, kita perlu menjalankan langkah-langkah di bawah.
+
 
 
 ## Masuk bluetoothctl shell
@@ -173,6 +213,35 @@ power on
 {% endshell_cmd %}
 
 Perintah di atas akan menyalakan controller yang kita set sebagai default dengan perintah **select**.
+
+
+{% box_info %}
+<p>Pada tahap ini, kalau teman-teman buka Terminal lain dan mejalankan,</p>
+{% shell_cmd $ %}
+hciconfig -a
+{% endshell_cmd %}
+<p markdown=1>Maka, status yang tadinya **DOWN**, sudah berubah menjadi UP **RUNNING PSCAN**.</p>
+<pre>
+hci0:   Type: Primary  Bus: USB
+        BD Address: 00:1C:26:D8:E0:18  ACL MTU: 1017:8  SCO MTU: 64:8
+        UP RUNNING PSCAN
+        RX bytes:1277 acl:0 sco:0 events:47 errors:0
+        TX bytes:438 acl:0 sco:0 commands:47 errors:0
+        Features: 0xff 0xff 0x8f 0xfe 0x9b 0xf9 0x00 0x80
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3
+        Link policy: RSWITCH HOLD SNIFF PARK
+        Link mode: SLAVE ACCEPT
+        Name: 'BlueZ 5.55'
+        Class: 0x2c010c
+        Service Classes: Rendering, Capturing, Audio
+        Device Class: Computer, Laptop
+        HCI Version: 2.0 (0x3)  Revision: 0x212b
+        LMP Version: 2.0 (0x3)  Subversion: 0x41d3
+        Manufacturer: Broadcom Corporation (15)
+</pre>
+<p markdown=1>\*Perintah di atas, dijalankan di luar dari bluetoothctl.</p>
+{% endbox_info %}
+
 
 ## Scanning Perangkat Bluetooth yang Lain
 
