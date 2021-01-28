@@ -23,7 +23,7 @@ Created : Maret 2018
 
 body {
   background: #D7CCBC;
-  font: 15px/1.5 'Fira Sans';
+  font: 16px/1.5 'Fira Sans';
   letter-spacing: 0;
   width: 100%;
   margin: 0;
@@ -42,7 +42,7 @@ body {
 
 pre, code {
   color: #FFF;
-  font-size: 12px !important;
+  font-size: 13px !important;
   border-radius: 5px;
 }
 
@@ -129,7 +129,7 @@ mark {
 .container {
   background: #FFF;
   /* width: menggunakan % untuk responsif design */
-  max-width: 940px;
+  max-width: 980px;
   /* untuk membuat halaman menjadi center */
   margin: auto;
   /* untuk mencegah parameter float terabaikan */
@@ -248,7 +248,7 @@ kbd {
   border-radius: 10px 10px 0 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* untuk menghilangkan border-bottom dari header */
-  margin-bottom: -1px;
+  margin-bottom: -2px;
 }
 
 #header .container-inner {
@@ -418,7 +418,7 @@ img.post-header-img {
 
 .post-title {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
-  font-size: 28px;
+  font-size: 34px;
   color: #000;
   border-bottom: 1px dashed #B8B8B8;
   padding-bottom: 14px;
@@ -439,7 +439,7 @@ img.post-header-img {
 }
 
 p.post-title-index {
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
   border-bottom: 1px dashed #B8B8B8;
   text-align: left;
@@ -473,11 +473,11 @@ p.post-title-index a:hover {
   background: #626262;
   color: #FFF;
   text-align: center;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: bold;
   width: 26em;
   position: relative;
-  top: -7px;
+  top: -5px;
   padding: 0 2px;
   border-width: 1px;
   border-style: solid;
@@ -486,12 +486,12 @@ p.post-title-index a:hover {
 
 p.post-details-index {
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
   background: #B8B8B8;
   padding: 3px 4px;
   position: relative;
-  top: -38px;
+  top: -39px;
   float: right;
   margin: 0;
   border-radius: 0;
@@ -504,7 +504,7 @@ p.post-details-index a {
 
 p.post-details-index-pin {
   color: #000;
-  font-size: 12px;
+  font-size: 14px;
   text-align: right;
   background: #FF7700;
   padding: 3px 4px;
@@ -657,7 +657,7 @@ aside.sidebar ul {
 
 aside.sidebar li {
   text-align: left;
-  font-size: 12px;
+  font-size: 13px;
   margin-left: -5px;
 }
 
@@ -666,7 +666,7 @@ aside.sidebar li span {
 }
 
 aside.sidebar p {
-  font-size: 12px;
+  font-size: 13px;
   margin: 5px 0;
 }
 
@@ -1127,7 +1127,7 @@ button.active {
 }
 
 .notif-donasi {
-  width: 40%;
+  width: 43%;
   padding: 0 !important;
   color: #404040;
   border: 1px solid #404040;
@@ -1223,9 +1223,9 @@ button.active {
   padding: 1px 2px;
   margin-left: 1px;
   color: #FFF;
-  font-size: 10px;
+  font-size: 12px;
   position: relative;
-  top: -2px;
+  top: 0;
 }
 
 .tag a {
@@ -1389,7 +1389,7 @@ button.active {
   background: #008352;
   border-radius: 3px;
   padding: 2px 3px;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: capitalize;
   white-space: nowrap;
 }
@@ -1762,7 +1762,7 @@ ul.chkbox li.chkbox-checked:before {
 
 /* BREADCRUMBS ------------------------------------------------------------ */
 .breadcrumbs {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 /* COOKIE-CONSENT --------------------------------------------------------- */
@@ -1895,7 +1895,7 @@ a.disqus_button {
   color: #FFF;
   width: 100%;
   margin: 0 auto;
-  padding-top: 3px;
+  padding-top: 5px;
   text-align: center;
 }
 
