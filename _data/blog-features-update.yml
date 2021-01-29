@@ -3,20 +3,35 @@
 # Tambah data baru diletakkan di paling atas
 # ----------------------------------------------------------------------------
 
+- tanggal: '21/01/25'
+  url:
+  detail: |
+    Merubah markdown image tag ke Jekyll liquid custom image tag.
+
+- tanggal: '21/01/25'
+  url:
+  detail: |
+    Jekyll liquid tags: Shell Custom Prompt block. {% shell_cmd <prompt> %}
+
+- tanggal: '21/01/25'
+  url:
+  detail: |
+    Mengganti platform donasi ke Saweria
+
 - tanggal: '21/01/23'
   url:
   detail: |
-      Menghilangkan Disqus
+    Menghilangkan Disqus
 
 - tanggal: '21/01/22'
   url:
   detail: |
-      Menambahkan collapsible title for resume pada Blog index
+    Menambahkan collapsible title for resume pada Blog index
 
 - tanggal: '20/12/28'
   url:
   detail: |
-      Merubah post & sidebar style to single page style
+    Merubah post & sidebar style to single page style
 
 - tanggal: '20/07/12'
   url:

@@ -1135,7 +1135,7 @@ button.active {
   display: flex;
   float: right;
   margin: auto;
-  margin-top: -195px !important;
+  margin-top: -200px !important;
   margin-right: 20px !important;
 }
 
@@ -1150,14 +1150,14 @@ button.active {
 
 .notif-donasi p {
   color: #404040;
-  font-size: 10px !important;
+  font-size: 11px !important;
   padding: 5px 5px !important;
   text-align: left !important;
 }
 
 .notif-donasi-img {
   padding: 5px !important;
-  width: 110px !important;
+  width: 120px !important;
 }
 
 .notif-info {
