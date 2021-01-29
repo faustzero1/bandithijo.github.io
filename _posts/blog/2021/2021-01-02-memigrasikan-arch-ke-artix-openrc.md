@@ -113,7 +113,7 @@ Copy **mirrorlist** yang telah berisi mirror server Artix menjadi **mirrorlist.a
 {% shell_root %}
 cp -vf /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.artix
 {% endshell_root %}
-Tujuannya sebagai bakcup, apabila ditengah-tengah proses akan ada command yang menghapus mirrorlist. Kita dapat melakukan resorasi dengan cepat tanpa perlu mengunduh kembali.
+Tujuannya sebagai bakcup, apabila ditengah-tengah proses akan ada command yang menghapus mirrorlist. Kita dapat melakukan restorasi dengan cepat tanpa perlu mengunduh kembali.
 
 <br>
 Oke, tahapan persiapan file pacman.conf dan mirrorlist dari Artix Linux telah selesai.
