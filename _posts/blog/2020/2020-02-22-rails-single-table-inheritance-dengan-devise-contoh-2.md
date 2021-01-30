@@ -125,17 +125,19 @@ rails db:migrate
 
 Kemudian buat dua model untuk participant dan sponsor.
 
+Kita dapat memanfaatkan rails generator untuk membuat kedua model (**participant** dan **sponsor**) dengan turunan dari model **user**.
+
 {% shell_user %}
-rails g model participant
+rails g model participant --parent=User
 {% endshell_user %}
 
 {% shell_user %}
-rails g model sponsor
+rails g model sponsor --parent=User
 {% endshell_user %}
 
 Karena saya sudah menambahkan field `:type` pada tabel users, maka kedua model ini yang akan mendapat turunan sifat dari model user dengan mengambil dari nama class dari masing-masing model.
 
-Modifikasi kedua model ini dengan mengganti inheritance-nya dari class `ApplicationRecord` menjadi class `User`.
+Kalau kita buka, kedua model tersebut, class dari kedua model tersebut sudah merupakan turunan dari model **user**.
 
 {% highlight_caption app/models/participant.rb %}
 {% highlight ruby linenos %}
