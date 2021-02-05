@@ -175,7 +175,7 @@ Nah, openresolv menyediakan file binary perintah bernama `resolvconf` dan file k
 
 Buka file konfig tersebut, dan **uncomment** baris yang mengandung `name_servers=`.
 
-{% highlight_caption /etc/resolv.conf %}
+{% highlight_caption /etc/resolvconf.conf %}
 {% pre_caption %}
 # Configuration for resolvconf(8)
 # See resolvconf.conf(5) for details
