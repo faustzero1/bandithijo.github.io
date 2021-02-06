@@ -349,7 +349,7 @@ Namun, dengan Ruby script ini, hasil screenshot tetap berada pada direktori scre
 Jangan lupa untuk mendisable tombol save pada configurasi interface di Flameshot.
 
 {% shell_cmd $ %}
-flameshot cofig
+flameshot config
 {% endshell_cmd %}
 
 {% image https://i.postimg.cc/7LTNWWGB/gambar-02.png | 2 %}
