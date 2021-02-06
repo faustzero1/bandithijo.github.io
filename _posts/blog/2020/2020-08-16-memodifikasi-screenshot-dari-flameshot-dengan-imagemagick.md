@@ -15,6 +15,10 @@ contributors: []
 resume: "Ide untuk mempercantik hasil screenshot dari Flameshot ini terinspirasi dari gambar-gambar hasil screenshot yang diproduksi oleh sistem operasi OSX. Jangan khawatir, di GNU/Linux, kita juga dapat membuat hal serupa, malah bisa lebih keren karena kita dapat dengan bebas memodifikasinya. Dengan begini, hasil screenshot setiap orang, akan jadi unik dan khas, sesuai dengan karakter masing-masing."
 ---
 
+# Requirements
+
+`imagemagick 7.x` `flameshot 0.8.x` `xclip 0.13` `ruby 2.7.x`
+
 # Sekenario Masalah
 
 Beberapa waktu yang lalu, saya menulis tentang ["Membuat Hasil ScreenShot pada GNU/Linux seperti Milik macOS"](/blog/membuat-hasil-screenshot-linux-seperti-pada-macos){:target="_blank"}.
@@ -52,7 +56,7 @@ original_file     = Time.now.strftime('Screenshot_%Y-%m-%d_%H-%M-%S.png')
 target_file       = original_file.split('').insert(-5, 'X').join
 color_profile     = '/usr/share/color/icc/colord/sRGB.icc'
 border_size       = '1'
-background_color  = 'white' # 'none' for transparent; Hex color use ''#ffffff''
+background_color  = '"#FFFFFF"' # 'none' for transparent; Hex color use '"#000000"'
 background_size   = '10'
 shadow_size       = '50x10+0+10'
 font              = 'JetBrains-Mono-Regular-Nerd-Font-Complete'
@@ -65,28 +69,28 @@ author            = 'Shooter: @' + `echo $USER`.strip
 %x(
 flameshot gui --raw > #{original_file}
 
-convert #{original_file} -bordercolor '#{color_bg}' -border #{border_size} \
+magick convert #{original_file} -bordercolor '#{color_bg}' -border #{border_size} \
 #{target_file}
 
-convert #{target_file} \\( +clone -background black \
+magick convert #{target_file} \\( +clone -background black \
 -shadow #{shadow_size} \\) +swap -background none \
 -layers merge +repage #{target_file}
 
-convert #{target_file} -bordercolor #{background_color} \
+magick convert #{target_file} -bordercolor #{background_color} \
 -border #{background_size} #{target_file}
 
-echo -n " #{author} " | convert #{target_file} \
+echo -n " #{author} " | magick convert #{target_file} \
 -gravity #{author_position[0]} -pointsize #{font_size} -fill '#{color_fg}' \
 -undercolor '#{color_bg}' -font #{font} \
 -annotate #{author_position[1]} @- #{target_file}
 
-convert #{target_file} -gravity South -chop 0x#{background_size.to_i / 2} \
+magick convert #{target_file} -gravity South -chop 0x#{background_size.to_i / 2} \
 #{target_file}
 
-convert #{target_file} -gravity North -background #{background_color} \
+magick convert #{target_file} -gravity North -background #{background_color} \
 -splice 0x#{background_size.to_i / 2} #{target_file}
 
-convert #{target_file} -profile #{color_profile} #{target_file}
+magick convert #{target_file} -profile #{color_profile} #{target_file}
 )
 
 list_file = `ls -p | grep -v /`
@@ -420,28 +424,28 @@ author            = "Shooter: @" + \
 os.system(f"""
 flameshot gui --raw > {original_file}
 
-convert {original_file} -bordercolor '{color_bg}' -border {border_size} \
+magick convert {original_file} -bordercolor '{color_bg}' -border {border_size} \
 {target_file} \
 
-convert {target_file} \\( +clone -background black \
+magick convert {target_file} \\( +clone -background black \
 -shadow {shadow_size} \\) +swap -background none \
 -layers merge +repage {target_file} \
 
-convert {target_file} -bordercolor {background_color} \
+magick convert {target_file} -bordercolor {background_color} \
 -border {background_size} {target_file} \
 
-echo -n " {author} " | convert {target_file} \
+echo -n " {author} " | magick convert {target_file} \
 -gravity {author_position[0]} -pointsize {font_size} -fill '{color_fg}' \
 -undercolor '{color_bg}' -font {font} \
 -annotate {author_position[1]} @- {target_file} \
 
-convert {target_file} -gravity South -chop 0x{int(background_size)/2} \
+magick convert {target_file} -gravity South -chop 0x{int(background_size)/2} \
 {target_file} \
 
-convert {target_file} -gravity North -background {background_color} \
+magick convert {target_file} -gravity North -background {background_color} \
 -splice 0x{int(background_size)/2} {target_file} \
 
-convert {target_file} -profile {color_profile} {target_file} \
+magick convert {target_file} -profile {color_profile} {target_file} \
 """)
 
 list_file = os.popen("ls -p | grep -v /").read().split("\n")[:-1]
