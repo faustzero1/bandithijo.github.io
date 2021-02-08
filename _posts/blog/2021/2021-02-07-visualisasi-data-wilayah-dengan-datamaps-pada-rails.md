@@ -43,7 +43,7 @@ Kira-kira ilustrasinya seperti ini:
 <script src='https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.idn.min.js'></script>
 
-<div id="container1" style="position: relative; width: 900px; height: 400px; margin: 0 auto;"></div>
+<div id="container1" style="position: relative; width: 890px; height: 400px; margin: 0 auto;"></div>
 
 <script type="text/javascript">
 //basic map config with custom fills, mercator projection
@@ -54,7 +54,7 @@ setProjection: function (element) {
 var projection = d3.geo.mercator()
 .center([120, -5])
 .rotate([0, 0])
-.scale(4200 / 4)
+.scale(4000 / 4)
 var path = d3.geo.path()
 .projection(projection);
 return {path: path, projection: projection};
@@ -379,7 +379,7 @@ class DataPetaController < ApplicationController
 end
 {% endhighlight %}
 
-Instance variable `@cumulative_cae` inilah yang akan kita gunakan pada view template.
+Instance variable `@cumulative_cases` inilah yang akan kita gunakan pada view template.
 
 ## ActionView
 
