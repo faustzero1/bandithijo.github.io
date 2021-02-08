@@ -38,6 +38,7 @@ Saya ingin membuat sebuah visualisasi data peta Indonesia yang terbagi-bagi berd
 Kira-kira ilustrasinya seperti ini:
 
 
+<div style="overflow:auto;">
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/datamaps/0.5.9/datamaps.idn.min.js'></script>
@@ -45,76 +46,77 @@ Kira-kira ilustrasinya seperti ini:
 <div id="container1" style="position: relative; width: 900px; height: 400px; margin: 0 auto;"></div>
 
 <script type="text/javascript">
-  //basic map config with custom fills, mercator projection
-  var map = new Datamap({
-    scope: 'idn',
-    element: document.getElementById('container1'),
-    setProjection: function (element) {
-      var projection = d3.geo.mercator()
-        .center([120, -5])
-        .rotate([0, 0])
-        .scale(4200 / 4)
-      var path = d3.geo.path()
-        .projection(projection);
-      return {path: path, projection: projection};
-    },
-    fills: {
-      defaultFill: '#dddddd',
-      'AAA': '#DB1836',
-      'BBB': '#F15A23',
-      'CCC': '#F89A1C',
-      'DDD': '#FFD500',
-      'EEE': '#C1D737',
-      'FFF': '#44B549',
-      'GGG': '#0EB049',
-      'HHH': '#016533',
-    },
-    data: {
-      'ID.AC': {fillKey: 'AAA', totalCases: '12.345'},
-      'ID.BA': {fillKey: 'AAA', totalCases: '12.345'},
-      'ID.BT': {fillKey: 'AAA', totalCases: '12.345'},
-      'ID.BE': {fillKey: 'BBB', totalCases: '12.345'},
-      'ID.JK': {fillKey: 'BBB', totalCases: '12.345'},
-      'ID.YO': {fillKey: 'BBB', totalCases: '12.345'},
-      'ID.GO': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.JA': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.JR': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.JT': {fillKey: 'DDD', totalCases: '12.345'},
-      'ID.JI': {fillKey: 'DDD', totalCases: '12.345'},
-      'ID.KB': {fillKey: 'DDD', totalCases: '12.345'},
-      'ID.KS': {fillKey: 'EEE', totalCases: '12.345'},
-      'ID.KT': {fillKey: 'EEE', totalCases: '12.345'},
-      'ID.KI': {fillKey: 'EEE', totalCases: '12.345'},
-      'ID.KU': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.BB': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.KR': {fillKey: 'CCC', totalCases: '12.345'},
-      'ID.LA': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.MU': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.MA': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.NB': {fillKey: 'GGG', totalCases: '12.345'},
-      'ID.NT': {fillKey: 'GGG', totalCases: '12.345'},
-      'ID.IB': {fillKey: 'GGG', totalCases: '12.345'},
-      'ID.PA': {fillKey: 'HHH', totalCases: '12.345'},
-      'ID.RI': {fillKey: 'HHH', totalCases: '12.345'},
-      'ID.SR': {fillKey: 'HHH', totalCases: '12.345'},
-      'ID.SE': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.ST': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.SG': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.SW': {fillKey: 'FFF', totalCases: '12.345'},
-      'ID.SB': {fillKey: 'GGG', totalCases: '12.345'},
-      'ID.SL': {fillKey: 'GGG', totalCases: '12.345'},
-      'ID.SU': {fillKey: 'GGG', totalCases: '12.345'}
-    },
-    geographyConfig: {
-      popupTemplate: function(geo, data) {
-        return ['<div class="hoverinfo"><strong>',
-          geo.properties.name + '</strong><br>Kasus (Kulumatif)',
-          ': ' + data.totalCases,
-          '</div>'].join('');
-      }
-    }
-  });
+//basic map config with custom fills, mercator projection
+var map = new Datamap({
+scope: 'idn',
+element: document.getElementById('container1'),
+setProjection: function (element) {
+var projection = d3.geo.mercator()
+.center([120, -5])
+.rotate([0, 0])
+.scale(4200 / 4)
+var path = d3.geo.path()
+.projection(projection);
+return {path: path, projection: projection};
+},
+fills: {
+defaultFill: '#dddddd',
+'AAA': '#DB1836',
+'BBB': '#F15A23',
+'CCC': '#F89A1C',
+'DDD': '#FFD500',
+'EEE': '#C1D737',
+'FFF': '#44B549',
+'GGG': '#0EB049',
+'HHH': '#016533',
+},
+data: {
+'ID.AC': {fillKey: 'AAA', totalCases: '12.345'},
+'ID.BA': {fillKey: 'AAA', totalCases: '12.345'},
+'ID.BT': {fillKey: 'AAA', totalCases: '12.345'},
+'ID.BE': {fillKey: 'BBB', totalCases: '12.345'},
+'ID.JK': {fillKey: 'BBB', totalCases: '12.345'},
+'ID.YO': {fillKey: 'BBB', totalCases: '12.345'},
+'ID.GO': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.JA': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.JR': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.JT': {fillKey: 'DDD', totalCases: '12.345'},
+'ID.JI': {fillKey: 'DDD', totalCases: '12.345'},
+'ID.KB': {fillKey: 'DDD', totalCases: '12.345'},
+'ID.KS': {fillKey: 'EEE', totalCases: '12.345'},
+'ID.KT': {fillKey: 'EEE', totalCases: '12.345'},
+'ID.KI': {fillKey: 'EEE', totalCases: '12.345'},
+'ID.KU': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.BB': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.KR': {fillKey: 'CCC', totalCases: '12.345'},
+'ID.LA': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.MU': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.MA': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.NB': {fillKey: 'GGG', totalCases: '12.345'},
+'ID.NT': {fillKey: 'GGG', totalCases: '12.345'},
+'ID.IB': {fillKey: 'GGG', totalCases: '12.345'},
+'ID.PA': {fillKey: 'HHH', totalCases: '12.345'},
+'ID.RI': {fillKey: 'HHH', totalCases: '12.345'},
+'ID.SR': {fillKey: 'HHH', totalCases: '12.345'},
+'ID.SE': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.ST': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.SG': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.SW': {fillKey: 'FFF', totalCases: '12.345'},
+'ID.SB': {fillKey: 'GGG', totalCases: '12.345'},
+'ID.SL': {fillKey: 'GGG', totalCases: '12.345'},
+'ID.SU': {fillKey: 'GGG', totalCases: '12.345'}
+},
+geographyConfig: {
+popupTemplate: function(geo, data) {
+return ['<div class="hoverinfo"><strong>',
+geo.properties.name + '</strong><br>Kasus (Kulumatif)',
+': ' + data.totalCases,
+'</div>'].join('');
+}
+}
+});
 </script>
+</div>
 
 Visualisasi peta di atas menggunakan bantuan **datamaps** yang menggunakan **D3.js** library.
 
