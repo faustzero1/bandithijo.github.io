@@ -129,7 +129,7 @@ Bagaimana caranya menghubungkan data yang ada di database Rails, dengan datamaps
 Kalau kita lihat pada bagian `data: {...}`,
 
 {% highlight_caption app/views/data_peta/index.html.erb %}
-{% highlight eruby linenos %}
+{% highlight javascript linenos %}
 // ...
 
     fills: {
