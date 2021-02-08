@@ -342,7 +342,7 @@ Kalau tidak ada, apakah kita perlu membuat sendiri?
 
 Apakah di ActionController ada juga method helper yang sama?
 
-Mudahnya tinggal kita include saja.
+Mudahnya tinggal kita include saja `ActionView::Helpers::NumberHelper`.
 
 {% highlight_caption app/controllers/data_peta_controller.rb %}
 {% highlight ruby linenos %}
