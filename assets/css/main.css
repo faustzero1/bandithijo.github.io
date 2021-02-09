@@ -1978,6 +1978,7 @@ div.highlight-caption {
   -moz-border-radius: 4px 4px 0 0;
   border-radius: 5px 5px 0 0;
   overflow: auto;
+  margin-top: 10px;
   white-space: nowrap;
 }
 
