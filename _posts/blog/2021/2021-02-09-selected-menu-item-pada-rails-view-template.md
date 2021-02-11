@@ -238,14 +238,8 @@ Terima kasih.
 
 # Referensi
 
-1. [](){:target="_blank"}
+1. [How TO - Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp){:target="_blank"}
 <br>Diakses tanggal: 2021/02/09
 
-2. [](){:target="_blank"}
-<br>Diakses tanggal: 2021/02/09
-
-3. [How TO - Collapsibles/Accordion](https://www.w3schools.com/howto/howto_js_accordion.asp){:target="_blank"}
-<br>Diakses tanggal: 2021/02/09
-
-4. [gist.github.com/pelted/5dac756f690a61f698145dc9495a9633](https://gist.github.com/pelted/5dac756f690a61f698145dc9495a9633){:target="_blank"}
+2. [gist.github.com/pelted/5dac756f690a61f698145dc9495a9633](https://gist.github.com/pelted/5dac756f690a61f698145dc9495a9633){:target="_blank"}
 <br>Diakses tanggal: 2021/02/09
