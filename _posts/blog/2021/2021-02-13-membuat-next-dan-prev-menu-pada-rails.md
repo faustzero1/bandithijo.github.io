@@ -25,7 +25,7 @@ Catatan kali ini, saya akan membahas Ruby on Rails dari sisi front-end.
 
 Apabila kita memiliki sebuah fitur blog pada web aplikasi yang kita bangun menggunakan Ruby on Rails, mungkin akan cukup praktis kalau kita dapat menavigasikan halaman blog post dengan go to next & previous post pada halaman di mana saat ini kita berada.
 
-{% image https://i.postimg.cc/htJ0sXh8/gambar-01.png | 01 %}
+{% image https://i.postimg.cc/yYhJHBtq/gambar-01.gif | 01 %}
 
 Contohnya seperti gambar di atas, bagian yang saya beri kotak merah.
 
