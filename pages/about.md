@@ -58,48 +58,54 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 <br>
 **Tabel Mesin**
 
-| <center>Mesin</center> | <center>Tahun Produksi</center> | <center>Tahun Digunakan</center> |
-| :--- | :--- | :--- |
-| **Apple Macbook 4.1**     | 2008 | 2009 - 2011 |
-| **Apple Macbook Pro 8.1** | 2011 | 2012 - 2016 |
-| **Lenovo ThinkPad X260**  | 2016 | 2017 - 2018 |
-| **Lenovo ThinkPad X61**   | 2007 | 2019 - Sekarang |
+|---------------------------|---------------------------------|----------------------------------|
+| <center>Mesin</center>    | <center>Tahun Produksi</center> | <center>Tahun Digunakan</center> |
+| :---                      | :---                            | :---                             |
+|---------------------------|---------------------------------|----------------------------------|
+| **Apple Macbook 4.1**     | 2008                            | 2009 - 2011                      |
+| **Apple Macbook Pro 8.1** | 2011                            | 2012 - 2016                      |
+| **Lenovo ThinkPad X260**  | 2016                            | 2017 - 2018                      |
+| **Lenovo ThinkPad X61**   | 2007                            | 2019 - Sekarang                  |
+|---------------------------|---------------------------------|----------------------------------|
 
 <br>
 **Tabel Aplikasi**
 
-| <center>Data</center> | <center>Keterangan</center> |
-| :--- | :--- |
-| Static Site Generator | **Jekyll** |
-| Hosting               | **GitHub Pages** |
-| Format Text           | **Markdown** & **Orgmode** |
-| Sistem Operasi        | **GNU/Linux** |
+|-----------------------|----------------------------------------------|
+| <center>Data</center> | <center>Keterangan</center>                  |
+| :---                  | :---                                         |
+|-----------------------|----------------------------------------------|
+| Static Site Generator | **Jekyll**                                   |
+| Hosting               | **GitHub Pages**                             |
+| Format Text           | **Markdown** & **Orgmode**                   |
+| Sistem Operasi        | **GNU/Linux**                                |
 | Distribusi            | **Artix Linux** (Arch Linux with no-systemd) |
-| Desktop Env.          | - |
-| Window Manager        | **dwm** |
-| Terminal Emulator     | **st** |
-| Shell                 | **zsh** |
-| Application Launcher  | **dmenu** |
-| Statusbar             | **dwmbar** (handmade) |
-| Text Editor           | **neovim** |
-| Raster Image Editor   | **GIMP** & **gthumb** |
-| Vector Image Editor   | **Inkscape** |
-| Image Preview         | **sxiv** |
-| Office                | **LibreOffice** |
-| ScreenShoter          | **scrot** & **flameshot** |
-| PDF Reader            | **zathura** & **evince** |
-| Video Editor          | **kdenlive** & **olive** |
-| Screen Recorder       | **ffmpeg** |
-| Webcam                | **ffplay** |
-| Browser               | **firefox** & **qutebrowser** |
-| File Manager          | **ranger** |
-| Video Player          | **mpv** |
-| Email Client          | **neomutt** |
-| IRC Client            | **weechat** |
-| RSS Feed Reader       | **newsboat** |
-| Torrent Client        | **tremc** |
-| RDP Client            | **xfreerdp** |
-| VNC Client            | **x11vnc** |
+| Desktop Env.          | -                                            |
+| Window Manager        | **dwm**                                      |
+| Terminal Emulator     | **st**                                       |
+| Shell                 | **zsh**                                      |
+| Application Launcher  | **dmenu**                                    |
+| Statusbar             | **dwmbar** (handmade)                        |
+| Text Editor           | **neovim**                                   |
+| Raster Image Editor   | **GIMP** & **gthumb**                        |
+| Vector Image Editor   | **Inkscape**                                 |
+| Image Preview         | **sxiv**                                     |
+| Office                | **LibreOffice**                              |
+| ScreenShoter          | **scrot** & **flameshot**                    |
+| PDF Reader            | **zathura** & **evince**                     |
+| Video Editor          | **kdenlive** & **olive**                     |
+| Screen Recorder       | **ffmpeg**                                   |
+| Webcam                | **ffplay**                                   |
+| Browser               | **firefox** & **qutebrowser**                |
+| File Manager          | **ranger**                                   |
+| Video Player          | **mpv**                                      |
+| Email Client          | **neomutt**                                  |
+| IRC Client            | **weechat**                                  |
+| RSS Feed Reader       | **newsboat**                                 |
+| Torrent Client        | **tremc**                                    |
+| RDP Client            | **xfreerdp**                                 |
+| VNC Client            | **x11vnc**                                   |
+|-----------------------|----------------------------------------------|
 
 # Ilustrasi Workflow
 
