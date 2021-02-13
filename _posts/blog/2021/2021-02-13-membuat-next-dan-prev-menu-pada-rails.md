@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Membuat Next dan Previous Menu pada Blog Post yang Dibangun dengan Rails"
+title: "Membuat Go To Next dan Previous Post Menu pada Blog Post yang Dibangun dengan Rails"
 date: 2021-02-13 18:07
 permalink: '/blog/:title'
 author: 'BanditHijo'
