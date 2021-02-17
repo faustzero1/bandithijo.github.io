@@ -342,6 +342,10 @@ Terima kasih.
 
 (^_^)
 
+# Tambahan
+
+1. [**Membuat Relasi dengan Hanya Salah Satu Type pada Single Table Inheritance Model di Rails**](/blog/relasi-dengan-salah-satu-type-pada-sti-pada-rails){:target="_blank"}
+
 
 # Referensi
 
