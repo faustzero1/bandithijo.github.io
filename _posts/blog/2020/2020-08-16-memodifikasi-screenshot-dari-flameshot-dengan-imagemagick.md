@@ -404,6 +404,8 @@ Teman-teman dapat menikmati source nya di sini yaa, [**Bash version oleh Berrabe
 
 {% image https://github.com/berrabe/awesome-flameshot/raw/master/docs/logo.png | 3 %}
 
+{% image https://github.com/berrabe/awesome-flameshot/raw/master/docs/output.png | 4 %}
+
 
 ## Versi Python
 
