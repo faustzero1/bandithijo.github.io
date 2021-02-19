@@ -390,6 +390,10 @@ Terima kasih.
 
 # BONUS
 
+## Alternatif Project
+
+1. [**Bash version oleh Berrabe**](https://github.com/berrabe/awesome-flameshot){:target="_blank"}
+
 ## Versi Python
 
 {% box_perhatian %}
