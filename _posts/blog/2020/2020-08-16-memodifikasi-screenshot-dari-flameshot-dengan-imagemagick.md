@@ -394,6 +394,10 @@ Terima kasih.
 
 ### 1. Awesome Flameshot (Bash Version oleh Berrabe)
 
+Tidak semua temann-teman memiliki Ruby, namun, biasanya sudah memiliki Bash secara default.
+
+Versi Bash ini dapat menjadi alternatif yang sangat praktis untuk teman-teman.
+
 Terima kasih kepada bro Berrabe telah mem-porting ke Bash.
 
 Teman-teman dapat menikmati source nya di sini yaa, [**Bash version oleh Berrabe**](https://github.com/berrabe/awesome-flameshot){:target="_blank"}.
