@@ -392,7 +392,14 @@ Terima kasih.
 
 ## Alternatif Project
 
-1. [**Bash version oleh Berrabe**](https://github.com/berrabe/awesome-flameshot){:target="_blank"}
+### 1. Awesome Flameshot (Bash Version oleh Berrabe)
+
+Terima kasih kepada bro Berrabe telah mem-porting ke Bash.
+
+Teman-teman dapat menikmati source nya di sini yaa, [**Bash version oleh Berrabe**](https://github.com/berrabe/awesome-flameshot){:target="_blank"}.
+
+{% image https://github.com/berrabe/awesome-flameshot/raw/master/docs/logo.png | 3 %}
+
 
 ## Versi Python
 
