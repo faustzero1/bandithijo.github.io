@@ -227,10 +227,10 @@ Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada 
 {% highlight_caption $HOME/.config/ranger/rc.conf %}
 {% pre_caption %}
 bindsym $mod+p exec --no-startup-id clipmenu
-bindsym $mod+Shift+p exec --no-startup-id clipdel -r '.'
+bindsym $mod+Shift+p exec --no-startup-id clipdel -d '.'
 {% endpre_caption %}
 
-Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -r '.'`.
+Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -d '.'`.
 
 **dwm**
 
