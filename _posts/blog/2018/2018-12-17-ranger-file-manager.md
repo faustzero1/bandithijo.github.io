@@ -313,7 +313,7 @@ Untuk menampilkan file info dari file gambar, caranya sagat mudah. Ranger sudah 
 sudo pacman -S perl-image-exiftool
 {% endshell_cmd %}
 
-Kemudian, untuk melakukan toggling antar image preview dengan file info, kita dapat menggunakan keybing <kbd>z</kbd>+<kbd>i</kbd>.
+Kemudian, untuk melakukan toggling antar image preview dengan file info, kita dapat menggunakan keybind <kbd>z</kbd>+<kbd>i</kbd>.
 
 {% image https://i.postimg.cc/mrjLpLC3/gambar-08.gif | 08 %}
 
