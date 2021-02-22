@@ -39,6 +39,21 @@ Seperti pepatah lama, "Berakit-rakit ke hulu, bersenang-senang kemudian."
 <p>"Gak pake ribet" di sini juga saya maksudkan kepada perilaku dari tilling layout yang menganut prinsip "Master & Stack" tadi. Karena apabila dibandingkan berdasarkan kemampuan untuk mengelola window, i3WM dan BSPWM "jauh" lebih mumpuni.</p>
 {% endbox_info %}
 
+# Salah Satu Filosofi dari DWM
+
+DWM merupakan salah satu dari project yang dikembangkan oleh [**suckkless.org**](https://suckless.org/){:target="_blank"}. Project-project yang mereka kembangkan ingin lebih berfokus pada **advanced** dan **experienced** computer user. Biasanya propietary software dan kebanyakan project-project open source yang mainstream, lebih berfokus pada pengguna dengan tingkat kemahiran **average** atau **non-technical**. Mereka (suckless) berpikir **experienced** user kebanyakan lebih sering diabaikan.
+
+{% box_info %}
+<p markdown=1>Saya hanya mengambil salah satu paragraf dari filosofi DWM, lebih lengkapnya teman-teman dapat menbacanya sendiri [**di sini**](https://suckless.org/philosophy/){:target="_blank"}.</p>
+{% endbox_info %}
+
+
+
+
+{% box_perhatian %}
+<p markdown=1>Maka dari itu, kalau teman-teman tidak memantaskan diri sebagai **advanced** dan **experienced** computer user, sebaiknya tidak menggunakan DWM atau tools-tools buatan suckless dulu yaa.</p>
+{% endbox_perhatian %}
+
 # Alasan Migrasi ke DWM
 
 **Lah, kalau i3WM dan BPSWM jauh lebih mumpuni untuk mengelola window, kenapa pindah, mas Bro?**
