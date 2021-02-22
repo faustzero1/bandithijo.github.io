@@ -100,7 +100,7 @@ uid           [ unknown] Santiago Torres-Arias <santiago@nyu.edu>
 sub   rsa4096 2014-05-22 [E]
 ```
 
-Perhatikan, terdapat 5 kunci public yang saya tampilkan di atas.
+Perhatikan, terdapat 5 fingerprint yang saya tampilkan di atas.
 
 1. Remi Gacogne<br>A4CBEA7974898599195E4FEC46EC46F39F3E2EF1
 2. Linux Torvalds<br>ABAF11C65A2970B130ABE3C479BE3E4300411886
@@ -113,7 +113,7 @@ Perhatikan, terdapat 5 kunci public yang saya tampilkan di atas.
 
 Nah, gimana? Sudah kebayang kan?
 
-> Dengan begini, kita **tidak perlu membuat banyak GPG key untuk masing-masing email yang kita meiliki**.
+> Dengan begini, kita **tidak perlu membuat banyak GPG key untuk masing-masing email yang kita memiliki**.
 
 ## Pemecahan Masalah
 
@@ -159,13 +159,78 @@ Artinya, kunci yang tampil tersebut, memili **private key** dan **public key** d
 
 Kalau teman-teman pernah membuat (men-*generate*) lebih dari 1 kunci, tentunya tampilannya tidak hanya satu saja.
 
-Catat atau copy keyID yang berupa Hex-string dari GPG secret key yang ingin ditambahkan email lain.
+Catat atau copy fingerprint yang berupa Hex-string dari GPG secret key yang ingin ditambahkan email lain.
 
 Contohnya seperti milik saya,
 
 ```
 AE706A616B252A6822635041560691E942A02F91
 ```
+
+
+### Key ID Format
+
+Selain menggunakan fingerprit seperti di atas, kita juga dapat mengguakan key id.
+
+Terdapat beberapa keterangan tentang key id.
+
+{% pre_whiteboard %}
+sec => 'SECret key'
+ssb => 'Secret SuBkey'
+pub => 'PUBlic key'
+sub => 'public SUBkey'
+{% endpre_whiteboard %}
+
+Untuk melihat key id yang kita miliki, kita dapat melihat dengan setidaknya 4 format.
+
+1. 0xshort
+2. short
+3. 0xlong
+4. long
+
+<br>
+{% shell_cmd $ %}
+gpg --keyid-format 0xshort -K
+{% endshell_cmd %}
+
+<pre>
+/home/bandithijo/.gnupg/pubring.kbx
+-----------------------------------
+sec   rsa4096/<mark>0x66666666</mark> 2018-08-11 [SC] [expires: 2021-12-30]
+      AE706A616B252A6822635041560691E942A02F91
+uid           [ultimate] Rizqi Nur Assyaufi <bandithijo@gmail.com>
+ssb   rsa4096/<mark>0x99999999</mark> 2018-08-11 [E] [expires: 2021-12-30]
+
+</pre>
+
+**0x66666666** adalah bentuk dari SECret key id.
+
+**0x99999999** adalah bentuk dari Secret SuBkey.
+
+Tinggal disesuaikan saja format yang diperlukan, apakah **0xshort**, **short**, **0xlong**, dan **long**.
+
+
+### Fingerprit
+
+Untuk menampilkan fingerprint, kita dapat menambahkan option `--fingerprint`, baik untuk melihat public key ataupu private key.
+
+Misal, untuk melihat key id kita sendiri dengan format `0xshort` dan `--fingerprint`
+
+{% shell_cmd $ %}
+gpg --keyid-format 0xshort -K --fingerprint
+{% endshell_cmd %}
+
+<pre>
+/home/bandithijo/.gnupg/pubring.kbx
+-----------------------------------
+sec   rsa4096/<mark>0x66666666</mark> 2018-08-11 [SC] [expires: 2021-12-30]
+      Key fingerprint = <mark>AE70 6A61 6B25 2A68 2263  5041 5606 91E9 42A0 2F91</mark>
+uid           [ultimate] Rizqi Nur Assyaufi <bandithijo@gmail.com>
+ssb   rsa4096/<mark>0x99999999</mark> 2018-08-11 [E] [expires: 2021-12-30]
+
+</pre>
+
+
 
 ## 2. Edit GPG Key untuk Menambahkan Email Lain
 
@@ -196,10 +261,10 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Secret key is available.
 
-sec  rsa4096/560691E942A02F91
+sec  rsa4096/6666666666666666
      created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
+ssb  rsa4096/9999999999999999
      created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1)  Rizqi Nur Assyaufi <bandithijo@gmail.com>
 
@@ -227,10 +292,10 @@ Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? <span class="is-warning">o</
 Kalau berhasil nanti email yang baru ditambahkan, akan masuk ke dalam list.
 
 <pre>
-sec  rsa4096/560691E942A02F91
+sec  rsa4096/6666666666666666
      created: 2018-08-11  expires: 2021-11-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
+ssb  rsa4096/9999999999999999
      created: 2018-08-11  expires: 2021-11-30  usage: E
 [ultimate] (1)  Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ unknown] (2). Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
@@ -280,11 +345,11 @@ Bagaimana cara menghapus email (uid) yang sudah tidak kita gunakan lagi?
 <pre>
 <span class="cmd">gpg> </span><b>list</b>
 
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)  Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 </pre>
@@ -300,11 +365,11 @@ Gunakan perintah `uid <id>` untuk memilih uid yang dimakdudkan.
 Nanti, akan ada tanda bintang `*` pada uid yang telah terpilih.
 
 ```
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)* Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 ```
@@ -331,11 +396,11 @@ Misal,
 <pre>
 <span class="cmd">gpg> </span><b>list</b>
 
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)  Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 </pre>
@@ -349,11 +414,11 @@ Untuk mengubah uid 2 menjadi primary, sebelumnya, marking dulu uid yang ingin di
 </pre>
 
 ```
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)* Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 ```
@@ -367,11 +432,11 @@ Selanjutnya, jalankan perintah,
 </pre>
 
 ```
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1)  Rizqi Nur Assyaufi <bandithijo@gmail.com>
 [ultimate] (2)* Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 ```
@@ -391,11 +456,11 @@ gpg --list-secret-keys
 {% endshell_user %}
 
 ```
-sec  rsa4096/560691E942A02F91
-     created: 2018-08-11  expires: never       usage: SC
+sec  rsa4096/6666666666666666
+     created: 2018-08-11  expires: 2021-12-30  usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/9C7F5CB3FEB49D47
-     created: 2018-08-11  expires: never       usage: E
+ssb  rsa4096/9999999999999999
+     created: 2018-08-11  expires: 2021-12-30  usage: E
 [ultimate] (1). Rizqi Nur Assyaufi <rizqiassyaufi@gmail.com>
 [ultimate] (2)  Rizqi Nur Assyaufi <bandithijo@gmail.com>
 ```
