@@ -170,7 +170,7 @@ AE706A616B252A6822635041560691E942A02F91
 
 ### Key ID Format
 
-Selain menggunakan fingerprit seperti di atas, kita juga dapat mengguakan key id.
+Selain menggunakan fingerprit seperti di atas, kita juga dapat menggunakan key id.
 
 Terdapat beberapa keterangan tentang key id.
 
