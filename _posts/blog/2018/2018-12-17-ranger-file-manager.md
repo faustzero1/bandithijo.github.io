@@ -24,29 +24,17 @@ Ranger adalah *text-based file manager* (aplikasi untuk memanajemen file bebasis
 
 Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom, yaitu: kolom direktori sebelumnya, direktori sekarang, dan file preview atau direktori selanjutnya.
 
-<!-- IMAGE CAPTION -->
-![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/TY3F2Fbw/gambar-01.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - Antar muka Ranger. (1) Direktori sebelumnya, (2) Direktori Sekarang, (3) Direktori Selanjutnya atau file preview</p>
+{% image https://i.postimg.cc/TY3F2Fbw/gambar-01.gif | 1 | Antar muka Ranger. (1) Direktori sebelumnya, (2) Direktori Sekarang, (3) Direktori Selanjutnya atau file preview %}
 
-<!-- IMAGE CAPTION -->
-![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/02X3znGC/gambar-02.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - Kolom ke-3 menampilkan konten dari file teks</p>
+{% image https://i.postimg.cc/02X3znGC/gambar-02.png | 2 | Kolom ke-3 menampilkan konten dari file teks %}
 
-<!-- IMAGE CAPTION -->
-![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/y8wbPNbg/gambar-03.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 3 - Kolom ke-3 menampilkan preview dari gambar</p>
+{% image https://i.postimg.cc/y8wbPNbg/gambar-03.png | 3 | Kolom ke-3 menampilkan preview dari gambar %}
 
-<!-- IMAGE CAPTION -->
-![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/rwdHx4Q2/gambar-04.png" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 4 - Kolom ke-3 menampilkan detail dari audio atau video file</p>
+{% image https://i.postimg.cc/rwdHx4Q2/gambar-04.png | 4 | Kolom ke-3 menampilkan detail dari audio atau video file %}
 
-<!-- IMAGE CAPTION -->
-![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/J4CwqqDn/gambar-06.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 5 - Kolom ke-3 menampilkan detail dari file teks dengan highlight dan dapat di-<i>scrolldown</i></p>
+{% image https://i.postimg.cc/J4CwqqDn/gambar-06.gif | 5 | Kolom ke-3 menampilkan detail dari file teks dengan highlight dan dapat di-<i>scrolldown</i> %}
 
-<!-- IMAGE CAPTION -->
-![gambar_6]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/28QsXZhx/gambar-07.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 6 - Kolom ke-3 menampilkan detail dari file Open Document Format (.odt, .ods, .odp)</p>
+{% image https://i.postimg.cc/28QsXZhx/gambar-07.gif | 6 | Kolom ke-3 menampilkan detail dari file Open Document Format (.odt, .ods, .odp) %}
 
 <br>
 **Gimana keren yaa?**
@@ -458,9 +446,7 @@ Dari konfigurasi di atas, sederhananya, saya membuat file `.pdf` akan terbuka de
 
 Nah, apabila saya ingin membukanya dengan `calibre`, kita dapat menekan tombol <kbd>R</kbd>. Ranger akan menampilkan pilihan yang mirip sseperti menu *Open with...*.
 
-<!-- IMAGE CAPTION -->
-![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/QC91qj2M/gambar-05.gif" onerror="imgError(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 7 - Ilustrasi penggunaan tombol R, seperti menu <i>Open with...</i></p>
+{% image https://i.postimg.cc/QC91qj2M/gambar-05.gif | 7 | Ilustrasi penggunaan tombol R, seperti menu <i>Open with...</i> %}
 
 Jika ingin memilih `calibre`, pilih `1`, lalu tekan <kbd>ENTER</kbd>. Maka, file `.pdf` tersebut akan terbuka dengan `calibre`.
 
