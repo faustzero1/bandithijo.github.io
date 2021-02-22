@@ -293,6 +293,31 @@ set preview_images_method w3m
 set w3m_delay 0.01
 {% endhighlight %}
 
+<br>
+Saya tidak lagi menggunakan w3m. Namun saat ini, saya sudah menggunakan **ueberzug** untuk menampilkan gambar.
+
+{% shell_cmd $ %}
+sudo pacman -S ueberzug
+{% endshell_cmd %}
+
+{% highlight_caption $HOME/.config/ranger/rc.conf %}
+{% highlight sh linenos %}
+set preview_images_method uqberzug
+{% endhighlight %}
+
+### Togglig Antar Image Preview & File Info
+
+Untuk menampilkan file info dari file gambar, caranya sagat mudah. Ranger sudah menyediakan fitur ini secara default, kita hanya perlu memasang paket dependensi yang diperlukan saja.
+
+{% shell_cmd $ %}
+sudo pacman -S perl-image-exiftool
+{% endshell_cmd %}
+
+Kemudian, untuk melakukan toggling antar image preview dengan file info, kita dapat menggunakan keybing <kbd>z</kbd>+<kbd>i</kbd>.
+
+{% image https://i.postimg.cc/mrjLpLC3/gambar-08.gif | 08 %}
+
+
 ### Memilih Colorscheme
 
 Secara *default*, Ranger sudah menyertakan *colorscheme* bawaan, yaitu: default, jungle, snow, solarized. Saat ini kita masih menggunakan *colorscheme* default. Coba ganti dengan *colorscheme* lain yang disediakan.
