@@ -36,9 +36,6 @@ Memodularkan konfigurasi vim (vimrc), bisa dikatakan mengelompokkan konfigurasi 
 
 Berikut ini adalah struktur direktori yang saya pergunakan, saya sedikit melakukan penyesuaian dari yang direkomendasi oleh **@mnabila**.
 
-1. **after/plugin/**<br>
-Direktori ini saya pergunakan untuk menyimpan konfigurasi dari masing-masing plugin.
-
 1. **autoload/**<br>
 Direktori ini saya pergunakan, apabila terdapat plugin yang mengharuskan untuk menambahkan konfigurasi pada autoload. Atau kadang juga saya pergunakan untuk mengoverride konfig yang dibawa oleh plugin.
 
@@ -54,6 +51,9 @@ Direktori ini berisi pecahan konfigurasi yang sebagian besar ada di vimrc.
 5. **plugin/**<br>
 Direktori ini berisi plugin. Biasanya plugin yang ingin saya modifikasi sendiri karena kebutuhan.
 
+6. **plugin-config/**<br>
+Direktori yang berisi konfigurasi dari masing-masing plugin.
+
 6. **syntax/**<br>
 Direktori ini saya gunakan untuk menambahkan file sintaks tanpa perlu menggunakan plugin.
 
@@ -68,21 +68,6 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 
 <pre>
 <b>~/.config/nvim/</b>
-├── <b>after/</b>
-│   ├── <b>ftplugin/</b>
-│   └── <b>plugin/</b>
-│       ├── config-coc-snippets.vim
-│       ├── config-coc.vim
-│       ├── config-emmet-vim.vim
-│       ├── config-fzf.vim
-│       ├── config-indentline.vim
-│       ├── config-lightline-bufferline.vim
-│       ├── config-lightline.vim
-│       ├── config-nerdtree.vim
-│       ├── config-pylint.vim
-│       ├── config-python-mode.vim
-│       ├── config-vim-commentary.vim
-│       └── config-vim-devicons.vim
 ├── <b>autoload/</b>
 │   ├── <b>lightline/</b>
 │   │   └── <b>colorscheme</b>
@@ -98,9 +83,22 @@ Kemudian saya akan mapping dan distribusikan seperti ini.
 ├── <b>init.d/</b>
 │   ├── filetype.vim
 │   ├── formating.vim
-│   ├── mapping.vim
+│   ├── keybinding.vim
 │   ├── plugin.vim
 │   └── settings.vim
+├── <b>plugin-config/</b>
+│   ├── config-coc-snippets.vim
+│   ├── config-coc.vim
+│   ├── config-emmet-vim.vim
+│   ├── config-fzf.vim
+│   ├── config-indentline.vim
+│   ├── config-lightline-bufferline.vim
+│   ├── config-lightline.vim
+│   ├── config-nerdtree.vim
+│   ├── config-pylint.vim
+│   ├── config-python-mode.vim
+│   ├── config-vim-commentary.vim
+│   └── config-vim-devicons.vim
 ├── <b>plugin/</b>
 │   ├── autoscroll.vim
 │   ├── checkbox.vim
@@ -125,19 +123,19 @@ Yang paling penting adalah proses sourcing di dalam file **init.vim**.
 
 {% highlight_caption $HOME/.config/nvim/init.vim %}
 {% pre_caption %}
-runtime init.d/settings.vim
-runtime init.d/formating.vim
-runtime init.d/filetype.vim
-runtime init.d/mapping.vim
-runtime init.d/plugin.vim
-
+runtime  init.d/settings.vim
+runtime  init.d/formating.vim
+runtime  init.d/filetype.vim
+runtime  init.d/keybinding.vim
+runtime  init.d/plugin.vim
+runtime! plugin-config/*.vim
 {% endpre_caption %}
 
-Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/**.
+Hanya perlu melakukan sourcing pada file **.vim** yang ada pada direktori **init.d/** dan file-file configurasi plugin yang ada di dalam direktori **plugin-config/**.
 
 {% box_perhatian %}
 <p markdown="1">Saya **tidak** lagi menempatkan file konfigurasi plugin di dalam direktori **plugin/config/**, karena akan **menyebabkan kegagalan** apabila dilakukan pengujian dengan menggunakan script profiler `vim-plugins-profile` (untuk mengetahui berapa lama plugin di load saat startup).</p>
-<p markdown="1">Saya juga **tidak** lagi menempatkan file konfigurasi plugin pada direktori **plugin/plugin-config/**, saat ini, konfigurasi dari plugin saya letakkan pada **after/plugin/**. Vim secara natural akan mendeteksi file-file tersebut sebagai file konfigurasi local user dan juga. Sehingga saya tidak perlu melakukan sourcing pada file **init.vim**.</p>
+<p markdown="1">Maka dari itu, saat ini, konfigurasi dari plugin saya letakkan di root direktori **plugin-config/**.</p>
 {% endbox_perhatian %}
 
 Selesai!
