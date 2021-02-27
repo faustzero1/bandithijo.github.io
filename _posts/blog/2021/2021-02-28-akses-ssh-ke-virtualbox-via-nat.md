@@ -21,7 +21,9 @@ Ketika kita memasang sistem operasi server degan VirtualBox, saya secara pribadi
 
 Saya lebih familiar dengan Terminal Emulator yang saya biasa gunakan sehari-hari.
 
-Karena tidak ada GUI pada sistem operasi server, latas kenapa tidak saya gunakan Terminal Emulator sendiri dan mengakses server dengan SSH?
+Karena tidak ada GUI pada sistem operasi server, lantas kenapa tidak saya gunakan Terminal Emulator sendiri dan mengakses server dengan SSH?
+
+Selain itu, saya merasa kurang praktis untuk berpindah-pindah antara Guest dan Host karena harus menekan "Host Key Combination" yang saya atur ke <kbd>Right Alt</kbd> untuk melepaskan fokus input keyboard dari Guest.
 
 Nah, biasanya karena ingin praktis, saya menggunakan konfigurasi NAT agar Guest mendapatkan akses internet dari Host. Karena itu, saya tidak dapat melakukan SSH dengan cara biasa.
 
