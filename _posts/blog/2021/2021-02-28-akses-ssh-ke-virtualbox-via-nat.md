@@ -85,6 +85,9 @@ openbsd$ _
 
 Mantap!
 
+{% box_info %}
+<p markdown=1>Pengaturan **Port Forwarding** ini, dapat dilakukan meski instance sedang berjalan.</p>
+{% endbox_info %}
 
 
 
