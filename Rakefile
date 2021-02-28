@@ -20,6 +20,10 @@ namespace :jekyll do
     task :inc do
       sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch')
     end
+
+    task :inc_draft do
+      sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch --drafts')
+    end
   end
 
   desc 'Push blog to repo source'
