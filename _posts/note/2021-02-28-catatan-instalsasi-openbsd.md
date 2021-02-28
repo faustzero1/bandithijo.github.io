@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'note'
-tags: ['Tips', 'Ulasan']
+tags: ['Tips']
 wip: true
 pin:
 contributors: []
@@ -22,7 +22,7 @@ Karena prosesnya yang tidak sekali waktu langsung selesai, namun saya cicil di w
 
 Saya mempublikasikan catatan untuk teman-teman pembaca Blog BaditHijo, agar dapat sama-sama kita manfaatkan.
 
-Terima kasih telah menjadi pembaca setia.
+Terima kasih telah menjadi pembaca setia dan menemani saya sampai saat ini.
 
 
 # Troubleshooting
