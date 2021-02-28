@@ -1232,6 +1232,14 @@ button.active {
   color: #FFF;
 }
 
+.wiptag_title {
+  background: #000;
+  border-radius: 3px;
+  padding: 2px 10px;
+  color: #FFF;
+  font-weight: bold;
+}
+
 .wiptag {
   background: #000;
   border-radius: 3px;
