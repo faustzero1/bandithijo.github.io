@@ -1232,6 +1232,18 @@ button.active {
   color: #FFF;
 }
 
+.wiptag {
+  background: #000;
+  border-radius: 3px;
+  padding: 2px 3px;
+  margin-left: 1px;
+  color: #FFF;
+  font-size: 10px;
+  font-weight: bold;
+  position: relative;
+  top: -2px;
+}
+
 .voice {
   background: #000;
   border-radius: 3px;
