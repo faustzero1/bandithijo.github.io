@@ -5,7 +5,7 @@ module Jekyll
       @input = input
     end
 
-    def render(context)
+    def render(_context)
       params = split_params(@input)
       url = params[0].strip
       num = params[1].strip if params.length > 1

@@ -25,7 +25,7 @@ module Jekyll
       end
     end
 
-    def render(context)
+    def render(_context)
       source  = '<div class="highlight-caption">'
       source += '<span class="label">FILE</span>'
       source += "<code>#{@path}</code>"

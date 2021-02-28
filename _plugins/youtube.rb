@@ -26,7 +26,7 @@ module Jekyll
       end
     end
 
-    def render(context)
+    def render(_context)
       source = "<div class=\"embed-container\">"
       source += "<iframe style=\"display:block;margin:0 auto;\" src=\"/assets/img/logo/logo_blank_banner.svg\" data-echo=\"//www.youtube.com/embed/#{@url}\" onerror=\"imgError(this);\" frameborder=\"0\" allowfullscreen></iframe>"
       source += "</div>"
