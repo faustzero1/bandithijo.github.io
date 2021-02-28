@@ -174,4 +174,8 @@ Cara di atas akan meng-enable-kan Display Manager yang --mungkin bernama-- **xen
 Dan ketika kita login, default sessionnya adalah **fvwm** yang merupakan turunan dari **twm**.
 
 
+{% comment %}
+# Referensi
 
+1. [openbsdhandbook.com/openbsd_for_linux_users/](https://www.openbsdhandbook.com/openbsd_for_linux_users/){:target="_blank"}
+{% endcomment %}
