@@ -6,6 +6,8 @@
     </div>
 {% elsif page.category == 'blog' and page.toc == true %}
     {% include _sidebar/sidebar_toc_gem.html %}
+{% elsif page.category == 'note' and page.toc == true %}
+    {% include _sidebar/sidebar_toc_gem.html %}
 {% comment %} {% elsif page.category == 'blog' and page.toc == nil %} {% endcomment %}
 {% comment %} {% elsif page.permalink == '/vlog/:title' %} {% endcomment %}
 {% comment %}     {% include _sidebar/sidebar_vlog.html %} {% endcomment %}

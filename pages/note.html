@@ -1,0 +1,59 @@
+---
+layout: 'page'
+title: 'Daftar Log: Note'
+author: 'BanditHijo'
+permalink: '/note/'
+---
+
+<div class="post-body noselect">
+
+  <!-- PINNED POSTS -->
+  <!-- {% assign pin = true %}<!-1- change to false if no pinned post -1-> -->
+  <!-- {% if pin == true %} -->
+  <!-- <div style="clear:both;"> -->
+  <!--   <img class="post-header-img" src="/assets/img/logo/logo_pin.svg" style="width:35px;"> -->
+  <!--   <h3 style="font-size:2.5em;margin-bottom:0;">Pinned Post</h3> -->
+  <!-- </div><!-1- clear:both -1-> -->
+  <!-- <div style="clear:both;margin-top:5px;"> -->
+  <!-- {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'note'" %} -->
+  <!-- {% for post in posts reversed %} -->
+  <!-- {% if post.pin == true and post.voice == nil %} -->
+  <!--   <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p> -->
+  <!--     <div class="post-title-tags"> -->
+  <!--       <span class="notag"></span> -->
+  <!--     </div> -->
+  <!--   <p class="post-details-index-pin"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p> -->
+  <!-- {% elsif post.pin == true and post.voice == true %} -->
+  <!--   <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p> -->
+  <!--   <div class="post-title-tags"> -->
+  <!--     <span class="voice">VOICE</span> -->
+  <!--   </div> -->
+  <!--   <p class="post-details-index-pin"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p> -->
+  <!-- {% elsif post.pin == nil %} -->
+  <!-- {% endif %} -->
+  <!-- {% endfor %} -->
+  <!-- {% endif %}<!-1- pin == true -1-> -->
+  <!-- </div><!-1- clear:both -1-> -->
+
+  <!-- REGULAR POSTS -->
+  {% assign posts = site.posts | sort | where_exp:"page", "page.category == 'note'" %}
+  {% assign postsByYear = posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+  {% for year in postsByYear reversed %}
+    <div style="clear:both;">
+      <img class="post-header-img" src="/assets/img/logo/logo_cal.svg">
+      <h3 class="post-header" style="font-size:2.5em;margin:40px 0 0 0;">&nbsp;{{ year.name }}</h3>
+    </div><!-- clear:both -->
+    <div style="clear:both;">
+    {% for post in year.items reversed %}
+      {% if post.category == 'note' and post.pin == nil %}
+        <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
+        <div class="post-title-tags">
+          <span class="notag"></span>
+        </div>
+        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+      {% endif %}
+    {% endfor %}
+    </div><!-- clear:both -->
+  {% endfor %}
+
+</div><!-- post-body -->
