@@ -7,7 +7,7 @@ module Jekyll
 
     def render(_context)
       input  = @input
-      output = "<p class='font-latin' style='margin-top:20px;text-align:left;'>#{input}</p>"
+      output = "<p class='font-latin' style='padding-top:20px;text-align:left;'>#{input}</p>"
       output
     end
   end
