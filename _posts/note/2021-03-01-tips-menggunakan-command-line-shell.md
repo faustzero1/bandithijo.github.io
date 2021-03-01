@@ -76,7 +76,7 @@ Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dap
 cd -
 {% endshell_cmd %}
 
-## Menghapus Seluruh Inputan Karakter
+## Menghapus seluruh inputan karakter
 
 Apabila kita memiliki command yang panjang, namun tidak jadi dijalankan dan ingin dibersihkan,
 
@@ -101,6 +101,28 @@ _
 Maka, inputan karakter yang kita masukkan sebelumnya, akan dihapus semua, dan dimulai dari awal.
 
 Cara ini, juga dapat kita lakukan untuk membersihkan inputan password yang tidak terlihat (tidak ditampilkan).
+
+
+## Melihat perubahan output dari waktu ke waktu
+
+Ada beberapa tools yang ketika dijalankan hanya menampilkan output (stdout) satu kali, lalu berakhir.
+
+Beberapa diantaranya seperti: `lsblk`, `lsusb`, `sensors`, dan lain-lain.
+
+**Contoh kasus**
+
+Misalnya saja, kita ingin melihat apakah flashdrive yang kita pasang sudah terdeteksi atau tidak dengan menggunakan perintah **lsblk**. Maka, kita perlu melakukannya berulang kali apabila ternyata setelah kita sambungkan dengan komputer, flashdrive belum terdeteksi.
+
+Kita tidak perlu menjalankan perintah **lsblk** berulang kali. Cukup tambahkan **watch** tepat sebelum menjalankan **lsblk**.
+
+{% shell_cmd $ %}
+watch lsblk
+{% endshell_cmd %}
+
+Maka **lsblk** akan dijalankan dan outputnya akan diperbaharui setiap 2 detik.
+
+Untuk keluar dari **watch**, dapat menggunakan kombinasi tombol <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+
 
 
 {% comment %}
