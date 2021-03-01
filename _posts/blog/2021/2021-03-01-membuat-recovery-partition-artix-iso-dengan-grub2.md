@@ -47,6 +47,30 @@ Saya membuat partisi **/dev/sda2** sebesar 1 GiB dan saya beri label **RECOVERY*
 Ukuran partisi hanya 1 GiB karena tujuan saya membuat partisi ini adalah untuk menyimpan file ISO dari Artix Linux Base OpenRC yang hanya sebesar 600an MiB
 
 
+## Masukkan File Artix ISO
+
+Kemudian, masukkan file Artix Linux ISO ke dalam partisi recovery.
+
+Agar tidak ribet karena harus menggunakan root permission, saya akan buat direktori dengan user permission yang akan saya berinama **iso/**.
+
+{% shell_cmd $ %}
+sudo mkdir iso
+{% endshell_cmd %}
+
+Kemduian, ubar kepemilikan direktori **iso/** ke user yang kita gunakan.
+
+{% shell_cmd $ %}
+sudo chown -R bandithijo:bandithijo iso
+{% endshell_cmd %}
+
+Kemudian, tinggal masukkan Artix Linux ISO ke dalam direktori **iso/** ini.
+
+<pre>
+└── iso
+    └── artix-base-openrc-20210101-x86_64.iso
+</pre>
+
+
 ## Membuat GRUB2 Menuentry
 
 Selanjutnya, kita perlu membuat menuentry pada GRUB2, untuk mengarahkan boot ke dalam partisi recovery yang di dalamnya sudah berisi Artix Linux ISO.
@@ -61,7 +85,7 @@ exec tail -n +3 $0
 
 menuentry "ArtixLinux ISO (OpenRC)" {
   iso_drv=(hd0,msdos2)
-  iso_path="/artix-base-openrc-20210101-x86_64.iso"
+  iso_path="/iso/artix-base-openrc-20210101-x86_64.iso"
   export iso_path
   search --set=root --file "$iso_path"
   probe -u $root --set=rootuuid
@@ -77,7 +101,7 @@ menuentry "ArtixLinux ISO (OpenRC)" {
 
 **iso_drv**, adalah path yang mengarahkan ke partisi yang kita siapkan khusus untuk recovery. **hd0** berarti disk pertama, **msdos2** berarti partisi kedua. (**/dev/sda2**).
 
-**iso_path**, adalah letak dimana Artix ISO kita letakkan di dalam partisi recovery. Saya meletakkanya di luar, tanpa direktori apapun, agar path tidak terlalu panjang.
+**iso_path**, adalah letak dimana Artix ISO kita letakkan di dalam partisi recovery.
 
 Kedua variable di atas, perlu teman-teman sesuaikan sendiri dengan kondisi sistem yang teman-teman miliki.
 
@@ -107,6 +131,59 @@ Kalau sudah begini tinggal mencobanya.
 {% youtube 1WImC1ge40c %}
 
 
+# Tips
+
+## Menyembunyikan Recovery Partition
+
+Karena kita membuat partisi recovery, otomatis oleh GVFS, partisi ini akan terbaca di File Manager.
+
+{% image https://i.postimg.cc/xCzxJx9k/gambar-01.png | 01 %}
+
+Untuk menyembunyikan partisi RECOVERY, kita dapat memberikan rules di udev.
+
+Recovery partisi saya berada pada **/dev/sda2**.
+
+<pre>
+NAME   FSTYPE   SIZE TYPE LABEL    MOUNTPOINT
+sda           447.1G disk
+├─sda1 ext4   445.1G part ROOT     /
+└─<mark>sda2 ext4       2G part RECOVERY</mark>
+</pre>
+
+Blok partisi inilah yang akan saya sembunyikan.
+
+Buat file udev rule dengan text editor favorit teman-teman, dengan root permission.
+
+Tambahkan seperti rule di bawah.
+
+{% highlight_caption /etc/udev/rules.d/99-hide-partitions.rules %}
+{% highlight sh linenos %}
+KERNEL=="sda2",ENV{UDISKS_IGNORE}="1"
+{% endhighlight %}
+
+Setelah itu, jalankan perintah:
+
+{% shell_cmd $ %}
+sudo udevadm trigger --verbose
+{% endshell_cmd %}
+
+{% image https://i.postimg.cc/nrK3TXjp/gambar-02.png | 02 %}
+
+Nah, sekarag partisi RECOVERY sudah tidak terlihat.
+
+Namun, masih dapat kita lihat pada `$ lsblk`.
+
+Kalau ingin memperbaharui file ISO, tinggal dimount saja sengan **udisksctl**.
+
+{% shell_cmd $ %}
+udisksctl mount -b /dev/sda2
+{% endshell_cmd %}
+
+Unmount dengan,
+
+{% shell_cmd $ %}
+udisksctl unmount -b /dev/sda2
+{% endshell_cmd %}
 
 
 
