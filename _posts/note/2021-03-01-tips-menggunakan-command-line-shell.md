@@ -123,6 +123,8 @@ Maka **lsblk** akan dijalankan dan outputnya akan diperbaharui setiap 2 detik.
 
 Untuk keluar dari **watch**, dapat menggunakan kombinasi tombol <kbd>Ctrl</kbd>+<kbd>C</kbd>.
 
+Cara penggunaan **watch** lebih lengkap, teman-teman dapat membaca [**man watch(1)**](https://man.archlinux.org/man/watch.1){:target="_blank"}.
+
 
 
 {% comment %}
