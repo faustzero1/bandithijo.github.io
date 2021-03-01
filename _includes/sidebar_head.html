@@ -8,9 +8,6 @@
     {% include _sidebar/sidebar_toc_gem.html %}
 {% elsif page.category == 'note' and page.toc == true %}
     {% include _sidebar/sidebar_toc_gem.html %}
-{% comment %} {% elsif page.category == 'blog' and page.toc == nil %} {% endcomment %}
-{% comment %} {% elsif page.permalink == '/vlog/:title' %} {% endcomment %}
-{% comment %}     {% include _sidebar/sidebar_vlog.html %} {% endcomment %}
 {% elsif page.category == 'python' and page.toc == true %}
     {% include _sidebar/book/python/sidebar_python_silabus.html %}
     {% include _sidebar/sidebar_toc_gem.html %}
@@ -23,13 +20,8 @@
     {% include _sidebar/book/arch/sidebar_arch_daftarisi.html %}
 {% elsif page.permalink == '/blog/' %}
     {% include _sidebar/sidebar_blog.html %}
-    {% include _sidebar/sidebar_outdated.html %}
-    {% include _sidebar/sidebar_bantuan.html %}
-    {% include _sidebar/sidebar_search.html %}
 {% elsif page.permalink == '/vlog/' %}
     {% include _sidebar/sidebar_vlog.html %}
-    {% include _sidebar/sidebar_outdated.html %}
-    {% include _sidebar/sidebar_search.html %}
 {% elsif page.permalink == '/log/' %}
     {% include _sidebar/sidebar_blog_features_update.html %}
 {% elsif page.permalink == '/python/' %}
