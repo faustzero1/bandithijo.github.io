@@ -47,6 +47,7 @@ pwd
 
 **pwd** adalah abreviation dari print name of current/working directory.
 
+
 ## Kembali ke direktori sebelumnya
 
 Misalkan kita berada pada,
@@ -66,6 +67,7 @@ Sekarang, kita sudah berada pada direktori **app**.
 /home/bandithijo/app/
 {% endpre_url %}
 
+
 ## Keluar dan masuk, lagi dari dan ke direktori saat ini
 
 Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dapat menggunakan,
@@ -74,6 +76,31 @@ Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dap
 cd -
 {% endshell_cmd %}
 
+## Menghapus Seluruh Inputan Karakter
+
+Apabila kita memiliki command yang panjang, namun tidak jadi dijalankan dan ingin dibersihkan,
+
+Kita dapat membersihkannya dengan menggunakan kombinasi tombol:
+
+<kbd>Ctrl</kbd>+<kbd>U</kbd>
+
+Ilustrasinya,
+
+**Sebelum**
+
+{% shell_cmd $ %}
+sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+{% endshell_cmd %}
+
+**Sesudah**
+
+{% shell_cmd $ %}
+_
+{% endshell_cmd %}
+
+Maka, inputan karakter yang kita masukkan sebelumnya, akan dihapus semua, dan dimulai dari awal.
+
+Cara ini, juga dapat kita lakukan untuk membersihkan inputan password yang tidak terlihat (tidak ditampilkan).
 
 
 {% comment %}
