@@ -1,81 +1,81 @@
 <footer id="footer" class="noselect">
   <div class="container">
     <div class="container-inner">
-    <div class="footer-line">
-      <p style="font-size:20px;"><a href="/"><strong>{{ site.title }}</strong></a> &copy; 2012 - {{ site.time | date: '%Y' }}</p>
-      <p style="font-size:12px;margin-top:-35px;color:#404040;">
-        Blog ini dibuat di atas distribusi sistem operasi <a href="https://archlinux.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Arch Linux</a>.<br>
-        Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
-        Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
-        Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
-        Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
-        Terakhir update: <b>{{ site.time | date: '%d/%m/%Y' }}</b>
-      </p>
-      <p class="footer-menu">
-        <br>
-        <a href="/contact/">Contact</a> |&nbsp;
-        <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer">Twitter</a> |&nbsp;
-        <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer">YouTube</a> |&nbsp;
-        <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
-        {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
-          <a href="/feed/blog.xml" target="_blank">RSS</a>
-        {% elsif page.permalink == '/note/' or page.permalink == '/note/:title' %}
-          <a href="/feed/note.xml" target="_blank">RSS</a>
-        {% elsif page.permalink == '/vlog/' or page.permalink == '/vlog/:title' %}
-          <a href="/feed/vlog.xml" target="_blank">RSS</a>
-        {% elsif page.permalink == '/python/' or page.permalink == '/python/:title' %}
-          <a href="/feed/python.xml" target="_blank">RSS</a>
-        {% else %}
-          <a href="/feed/blog.xml" target="_blank">RSS</a>
-        {% endif %}
-      </p>
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>{{ site.title }}</strong></a> &copy; 2012 - {{ site.time | date: '%Y' }}</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Blog ini dibuat di atas distribusi sistem operasi <a href="https://archlinux.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Arch Linux</a>.<br>
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>{{ site.time | date: '%d/%m/%Y' }}</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/">Contact</a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer">Twitter</a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer">YouTube</a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer">GitHub</a> |&nbsp;
+          {% if page.permalink == '/blog/' or page.permalink == '/blog/:title' %}
+            <a href="/feed/blog.xml" target="_blank">RSS</a>
+          {% elsif page.permalink == '/note/' or page.permalink == '/note/:title' %}
+            <a href="/feed/note.xml" target="_blank">RSS</a>
+          {% elsif page.permalink == '/vlog/' or page.permalink == '/vlog/:title' %}
+            <a href="/feed/vlog.xml" target="_blank">RSS</a>
+          {% elsif page.permalink == '/python/' or page.permalink == '/python/:title' %}
+            <a href="/feed/python.xml" target="_blank">RSS</a>
+          {% else %}
+            <a href="/feed/blog.xml" target="_blank">RSS</a>
+          {% endif %}
+        </p>
 
-      <div class="notif-donasi">
-        <div class="notif-donasi-col-1">
-          <a href="https://saweria.co/bandithijo" target="_blank" rel="noopener">
-            <p>Apabila ingin memberikan <b>apresiasi</b> atas tulisan-tulisan di blog ini, dapat melalui <span class="nobr"><b>Saweria</b></span> atas nama <span class="nobr"><b>Rizqi Nur Assyaufi</b></span>.</p>
-            <p style="margin-top:-8px;">Berapapun besarnya dukungan dari kamu, akan sangat bermanfaat untuk proses produksi tulisan di blog ini.</p>
-            <p style="margin-top:-8px;">Terima kasih, mas Bro!</p>
+        <div class="notif-donasi">
+          <div class="notif-donasi-col-1">
+            <a href="https://saweria.co/bandithijo" target="_blank" rel="noopener">
+              <p>Apabila ingin memberikan <b>apresiasi</b> atas tulisan-tulisan di blog ini, dapat melalui <span class="nobr"><b>Saweria</b></span> atas nama <span class="nobr"><b>Rizqi Nur Assyaufi</b></span>.</p>
+              <p style="margin-top:-8px;">Berapapun besarnya dukungan dari kamu, akan sangat bermanfaat untuk proses produksi tulisan di blog ini.</p>
+              <p style="margin-top:-8px;">Terima kasih, mas Bro!</p>
+            </a>
+          </div>
+          <div class="notif-donasi-col-2">
+            <a href="https://saweria.co/bandithijo" target="_blank" rel="noopener">
+              <img class="notif-donasi-img" src="/assets/img/logo/logo_qr_saweria.png">
+            </a>
+          </div>
+        </div><!-- notif-donasi -->
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
           </a>
-        </div>
-        <div class="notif-donasi-col-2">
-          <a href="https://saweria.co/bandithijo" target="_blank" rel="noopener">
-            <img class="notif-donasi-img" src="/assets/img/logo/logo_qr_saweria.png">
+          <a href="https://github.com/bandithijo" target="_blank" rel="noopener">
+            <img class="footer-img-github" src="/assets/img/logo/logo_github.png">
           </a>
-        </div>
-      </div><!-- notif-donasi -->
+          <a href="https://travis-ci.org" target="_blank" rel="noopener">
+            <img class="footer-img-travisci" src="/assets/img/logo/logo_travisci.png">
+          </a>
+        </div><!-- tech-i-used-desktop -->
 
-      <div class="tech-i-used-desktop">
-        <a href="https://jekyllrb.com" target="_blank" rel="noopener">
-          <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
-        </a>
-        <a href="https://github.com/bandithijo" target="_blank" rel="noopener">
-          <img class="footer-img-github" src="/assets/img/logo/logo_github.png">
-        </a>
-        <a href="https://travis-ci.org" target="_blank" rel="noopener">
-          <img class="footer-img-travisci" src="/assets/img/logo/logo_travisci.png">
-        </a>
-      </div><!-- tech-i-used-desktop -->
-
-      <div class="tech-i-used-mobile">
-        <a href="https://travis-ci.org/" target="_blank" rel="noopener">
-          <img class="footer-img-1" src="/assets/img/logo/logo_travisci_mobile.png">
-        </a>
-        <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer">
-          <img class="footer-img-2" src="/assets/img/logo/logo_github_mobile.png">
-        </a>
-        <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
-          <img class="footer-img-3" src="/assets/img/logo/logo_jekyll_mobile.png">
-        </a>
-      </div><!-- tech-i-used-mobile -->
-    </div><!-- footer-line -->
+        <div class="tech-i-used-mobile">
+          <a href="https://travis-ci.org/" target="_blank" rel="noopener">
+            <img class="footer-img-1" src="/assets/img/logo/logo_travisci_mobile.png">
+          </a>
+          <a href="https://github.com/bandithijo" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-2" src="/assets/img/logo/logo_github_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-3" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
     </div><!-- container-innner -->
   </div><!-- footer container -->
 </footer>
 
 <!-- site.git.build_version -->
 <div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
-{{ site.data['longhash'] }}
+  {{ site.data['longhash'] }}
 </div>
 <!-- END site.git.build_version -->
 
