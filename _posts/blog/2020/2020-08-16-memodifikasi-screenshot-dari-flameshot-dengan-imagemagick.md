@@ -328,6 +328,19 @@ convert #{target_file} -profile #{color_profile} #{target_file}
 
 ## Save to Clipboard!
 
+Jangan lupa modifikasi pendefinisikan shortcut untuk **COPY** yang defaultnya menggunakan <kbd>Ctrl</kbd>+<kbd>C</kbd>, menjadi <kbd>Enter</kbd> pada file **~/.config/flameshot/flameshot.ini**.
+
+{% highlight_caption $HOME/.config/flameshot/flameshot.ini %}
+{% highlight shell linenos %}
+
+# ...
+
+[Shortcuts]
+# ...
+TYPE_COPY=Return
+# ...
+{% endhighlight %}
+
 Apabila telah selesai melakukan screenshot, kita dapat menyimpan dengan menekan tombol <kbd>ENTER</kbd>.
 
 Maka, hasil screenshot kita akan disimpan ke clipboard.
