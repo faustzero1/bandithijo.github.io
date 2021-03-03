@@ -37,6 +37,7 @@ su
 
 Masukkan password root yang dibuat pada saat proses instalasi.
 
+<br>
 ## Root permission from user
 
 **doas** is preinstalled by default, kita hanya perlu melakukan konfigurasi,
@@ -53,6 +54,7 @@ Kalau kita mau user hanya memasukkan password sekali, dan sementara waktu tidak 
 permit persist :wheel
 {% endhighlight %}
 
+<br>
 ## Text editor
 
 **vi** is preinstalled by default, jadi kita dapat menggunakan text editor ini.
@@ -61,6 +63,7 @@ permit persist :wheel
 vi
 {% endshell_cmd %}
 
+<br>
 ## Firmware update
 
 Dapat dilakukan dengan:
@@ -69,6 +72,7 @@ Dapat dilakukan dengan:
 fw_update
 {% endshell_cmd %}
 
+<br>
 ## USB tethering
 
 Lihat interface dari usb tethering,
@@ -109,6 +113,7 @@ urndis0: flags=808843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST,AUTOCONF4> mtu 1500
         inet 192.168.42.224 netmask 0xffffff00 broadcast 192.168.42.255
 </pre>
 
+<br>
 ## Connect Wifi
 
 Untuk melakukan scaning, misal wifi interface kita **iwn0**.
@@ -131,6 +136,7 @@ Kemudian, untuk mendapatkan IP address, dapat menggunakan dhcp.
 dhcp
 {% endshell_cmd %}
 
+<br>
 ## DHCP Server
 
 Jika ingin mengaktifkan DHCP server service saat startup, dapat menggunakan,
@@ -147,6 +153,7 @@ Misal, untuk etheret interface **em0** dan **iwn0**.
 rcctl set dhcpd flags em0 iwn0
 {% endshell_cmd %}
 
+<br>
 ## Tmux
 
 Sejak OpeBSD 4.6, tmux telah menjadi bagian dari base system, sehingga kita tidak perlu repot-repot memasangnya.
@@ -157,6 +164,7 @@ Tinggal jalankan tmux di terminal.
 tmux
 {% endshell_cmd %}
 
+<br>
 ## Starting X (Xenodm)
 
 The recommended way to run X is with the xenodm(1) display manager. It offers some important security benefits over the traditional startx(1) command.

@@ -47,7 +47,7 @@ pwd
 
 **pwd** adalah abreviation dari print name of current/working directory.
 
-
+<br>
 ## Kembali ke direktori sebelumnya
 
 Misalkan kita berada pada,
@@ -67,7 +67,7 @@ Sekarang, kita sudah berada pada direktori **app**.
 /home/bandithijo/app/
 {% endpre_url %}
 
-
+<br>
 ## Keluar dan masuk, lagi dari dan ke direktori saat ini
 
 Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dapat menggunakan,
@@ -76,6 +76,7 @@ Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dap
 cd -
 {% endshell_cmd %}
 
+<br>
 ## Menghapus seluruh inputan karakter
 
 Apabila kita memiliki command yang panjang, namun tidak jadi dijalankan dan ingin dibersihkan,
@@ -102,7 +103,7 @@ Maka, inputan karakter yang kita masukkan sebelumnya, akan dihapus semua, dan di
 
 Cara ini, juga dapat kita lakukan untuk membersihkan inputan password yang tidak terlihat (tidak ditampilkan).
 
-
+<br>
 ## Melihat perubahan output dari waktu ke waktu
 
 Ada beberapa tools yang ketika dijalankan hanya menampilkan output (stdout) satu kali, lalu berakhir.
