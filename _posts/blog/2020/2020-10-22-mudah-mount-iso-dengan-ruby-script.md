@@ -37,11 +37,9 @@ Kita perlu mengetahui bagaimana cara menggunakan command `mount` & `umount`.
 
 **Mount ISO image**
 
-{% shell_user %}
-sudo mount -l -o loop /source/path/iso /target/path
-{% endshell_user %}
-
-Misal,
+{% pre_url %}
+<span class="cmd">$ </span>sudo mount -l -o loop /source/path/iso /target/path
+{% endpre_url %}
 
 {% shell_user %}
 sudo mount -l -o loop archlinux.iso /run/media/bandithijo
@@ -76,11 +74,9 @@ Keterangan perintah:
 <br>
 **Unmount ISO image**
 
-{% shell_user %}
-sudo umount /target/path
-{% endshell_user %}
-
-Misal,
+{% pre_url %}
+<span class="cmd">$ </span>sudo umount /target/path
+{% endpre_url %}
 
 {% shell_user %}
 sudo umount /run/media/bandithijo
