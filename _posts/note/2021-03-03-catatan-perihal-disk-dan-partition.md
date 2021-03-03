@@ -53,66 +53,6 @@ lsblk --output=NAME,FSTYPE,SIZE,TYPE,LABEL,MOUNTPOINT
 Teman-teman tinggal mendefinisikan aliasnya saja biar praktis.
 
 <br>
-## Mounting File ISO dengan Mount
-
-{% pre_url %}
-<span class="cmd">$ </span>sudo mount -l -o loop /source/path/iso /target/path
-{% endpre_url %}
-
-{% shell_user %}
-sudo mount -l -o loop archlinux.iso /run/media/bandithijo
-{% endshell_user %}
-
-<pre>
-$ lsblk
-NAME   FSTYPE    SIZE TYPE LABEL       MOUNTPOINT
-<mark>loop0  iso9660   681M loop ARCH_202010 /run/media/bandithijo</mark>
-sda            447.1G disk
-└─sda1 ext4    447.1G part             /
-</pre>
-
-Maka, isi dari direktori `/run/media/bandithijo/` adalah
-
-<pre>
-$ ls -l /run/media/bandithijo
-total 697396
--rw-r--r-- 1 bandithijo users 714080256 Oct 20 02:11 archlinux-2020.10.01-x86_64.iso
-drwxr-xr-x 2 bandithijo users      4096 May  3 08:54 Backup
--rw-r--r-- 1 bandithijo users        66 Feb 14  2019 cek_md5
--rwxr-xr-x 1 bandithijo users       246 Oct  9 18:57 lazymigrate.rb
-drwxr-xr-x 3 bandithijo users     12288 May  3 08:54 Manual
-</pre>
-
-Keterangan perintah:
-
-`-l`, untuk memberikan label yang disertakan oleh ISO image.
-
-`-o loop`, untuk option menggunakan **loopback** device.
-
-
-<br>
-## Unmouting File ISO dengan Umount
-
-{% pre_url %}
-<span class="cmd">$ </span>sudo umount /target/path
-{% endpre_url %}
-
-{% shell_user %}
-sudo umount /run/media/bandithijo
-{% endshell_user %}
-
-Atau, bisa juga menggunakan ISO image yang dimount sebelumnya.
-
-{% shell_user %}
-sudo umount archlinux.iso
-{% endshell_user %}
-
-{% box_perhatian %}
-<p markdown="1">Perlu diperhatikan, perintah yang digunakan untuk melakukan proses *unmount*.</p>
-<p markdown="1">Bukan `unmount` tapi `umount`.</p>
-{% endbox_perhatian %}
-
-<br>
 ## Mounting File ISO dengan Udisks
 
 Terdapat 2 tahap:
