@@ -1197,11 +1197,12 @@ button.active {
 /* HOT TUGAS -------------------------------------------------------------- */
 .hot {
   background: red;
-  border-radius: 4px;
-  padding: 5px;
+  border-radius: 2px;
+  padding: 1px 2px;
   color: #FFF;
-  animation: 1s blink infinite;
-  font-size: 10px;
+  /* animation: 1s blink infinite; */
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .new {
@@ -1210,11 +1211,11 @@ button.active {
   padding: 1px 2px;
   margin-left: 1px;
   color: #FFF;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   /* animation: 1s blink infinite; */
   position: relative;
-  top: -2px;
+  top: 0;
 }
 
 .tag {
