@@ -50,8 +50,8 @@ permalink: '/blog/'
   overflow: hidden;
   font-size: 14px;
   width: 92%;
-  margin-top: -5px;
-  margin-bottom: 8px;
+  margin-top: -6px;
+  margin-bottom: 7px;
   border-bottom: 1px dashed #B8B8B8;
 }
 
@@ -83,7 +83,7 @@ permalink: '/blog/'
               {% for tag in tag_list %}
                 <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
               {% endfor %}
-              <span class="new">HOT</span>
+              <span class="hot">HOT</span>
             </div>
           {% else %}
             <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
@@ -97,7 +97,7 @@ permalink: '/blog/'
               {% for tag in tag_list %}
                 <span class="tag"><a href="{{ site.url }}/tags/#{{ tag | downcase | downcase | url_escape | strip | replace: ' ', '-' }}">{{tag}}</a></span>
               {% endfor %}
-              <span class="new">HOT</span>
+              <span class="hot">HOT</span>
             </div>
           {% endif %}
           <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
