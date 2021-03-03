@@ -237,7 +237,7 @@ Sebelumnya, kita samakan persepsi dulu yaa.
 
 {% pre_whiteboard %}
 NAME
-loop0        &lt;== disebut, <strong>block_device</strong>
+loop0        &lt;== disebut, <strong>block_devices</strong>
 ├─loop0p1    &lt;== disebut, <strong>block_partition</strong>
 └─loop0p2    &lt;== disebut, <strong>block_partition</strong>
 {% endpre_whiteboard %}
