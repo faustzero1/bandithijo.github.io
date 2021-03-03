@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Tips Menggunakan Command Line Shell"
+title: "Catatan dalam Menggunakan Command Line Shell"
 date: 2021-03-01 00:35
 permalink: '/note/:title'
 author: 'BanditHijo'
