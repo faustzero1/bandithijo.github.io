@@ -36,7 +36,7 @@ sda       &lt;== disebut, <strong>block devices</strong>,   biasanya ditulis <st
 
 # Tips & Tricks
 
-## Melihat List Block Device
+## Melihat list block device
 
 Atau dapat kita artikan mengecek struktur dari partisi.
 
@@ -53,7 +53,7 @@ lsblk --output=NAME,FSTYPE,SIZE,TYPE,LABEL,MOUNTPOINT
 Teman-teman tinggal mendefinisikan aliasnya saja biar praktis.
 
 <br>
-## Mounting File ISO dengan Udisks
+## Mounting file ISO dengan Udisks
 
 Terdapat 2 tahap:
 
@@ -100,7 +100,7 @@ loop0     iso9660   681M loop ARCH_202010
 Secara otomatis **udisks** akan membuat mount point ke path $XDG_RUNTIME_USER.
 
 <br>
-## Unmounting File ISO dengan Udisks
+## Unmounting file ISO dengan Udisks
 
 Sekenarionya tinggal dibalik dari proses mounting di atas.
 
@@ -132,10 +132,52 @@ udisksctl loop-delete -b block_devices/block_device
 udisksctl loop-delete -b block_devices/loop0
 {% endshell_cmd %}
 
+<br>
+## Membuat bootable flash drive dengan dd
+
+Kita dapat menggunakan tools yang bernama **dd** untuk membuat bootable flash drive dari file ISO.
+
+Misal, kita memiliki file ISO dari Arch Linux yang berlokasi di **$HOME/iso/archlinux.iso** dan sebuah flash drive yang apabila di pasangkan ke laptop, akan beralamat di **/dev/sdb**.
+
+{% box_info %}
+<p markdown=1>Kita dapat mengetahui alamat blok dari flashdrive dengan perintah **lsblk**.</p>
+{% endbox_info %}
+
+Selanjutnya tinggal kita ekseskusi.
+
+{% pre_url %}
+<span class="cmd">$ </span><b>sudo dd if=/path/source of=/path/target</b>
+{% endpre_url %}
+
+{% shell_cmd $ %}
+sudo dd if=~/iso/archlinux.iso of=/dev/sdb
+{% endshell_cmd %}
+
+Kita juga dapat menambahkan beberapa parameter seperti `bs=BYTES` atay `status=LEVEL`.
+
+Seringnya, saya gunakan seperti ini:
+
+{% shell_cmd $ %}
+sudo dd if=~/iso/archlinux.iso of=/dev/sdb bs=1M status=progress
+{% endshell_cmd %}
+
+Untuk penjelasan mengenai parameter lebih lengkapnya, teman-teman dapat membaca sendiri di [**man dd**](https://man.archlinux.org/man/dd.1){:target="_blank"}.
+
+
+
+
+
+{% box_perhatian %}
+<p markdown=1>Jangan tambahkan nomor atau block partition number, seperti: **/dev/sdb1**.</p>
+<p markdown=1>Tapi, gunakan block device, seperti: **/dev/sdX**, di mana **X** merupakan abjad yang nilainya berbeda-beda (kondisional), sesuai dengan banyaknya external drive yang terhubung dengan sistem kita.</p>
+{% endbox_perhatian %}
+
+
 
 
 {% comment %}
 # Referensi
 
-1. [](){:target="_blank"}
+1. [https://wiki.archlinux.org/index.php/USB_flash_installation_medium](https://wiki.archlinux.org/index.php/USB_flash_installation_medium){:target="_blank"}
+2. [](){:target="_blank"}
 {% endcomment %}
