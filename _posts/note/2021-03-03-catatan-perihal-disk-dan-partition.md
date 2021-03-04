@@ -28,7 +28,7 @@ Sederhananya seperti ini,
 
 {% pre_whiteboard %}
 NAME
-sda       &lt;== disebut, <strong>block devices</strong>,    biasanya ditulis <strong>/dev/sda</strong>
+sda       &lt;== disebut, <strong>block devices</strong>,   biasanya ditulis <strong>/dev/sda</strong>
 ├─sda1    &lt;== disebut, <strong>block partition</strong>, biasanya ditulis <strong>/dev/sda1</strong>
 └─sda2    &lt;== disebut, <strong>block partition</strong>  biasanya ditulis <strong>/dev/sda2</strong>
 {% endpre_whiteboard %}
