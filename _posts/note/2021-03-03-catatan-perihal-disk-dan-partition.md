@@ -170,6 +170,9 @@ Untuk penjelasan mengenai parameter lebih lengkapnya, teman-teman dapat membaca 
 {% box_perhatian %}
 <p markdown=1>Jangan tambahkan nomor atau block partition number, seperti: **/dev/sdb1**.</p>
 <p markdown=1>Tapi, gunakan block device, seperti: **/dev/sdX**, di mana **X** merupakan abjad yang nilainya berbeda-beda (kondisional), sesuai dengan banyaknya external drive yang terhubung dengan sistem kita.</p>
+<hr>
+<p markdown=1>Kesalahan mendefinisikan **if=** dan **of=** dapat berakibat fatal.</p>
+<p markdown=1>Telitilah sebelum mengeksekusi.</p>
 {% endbox_perhatian %}
 
 
