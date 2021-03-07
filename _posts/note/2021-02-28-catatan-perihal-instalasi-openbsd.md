@@ -181,6 +181,16 @@ Cara di atas akan meng-enable-kan Display Manager yang --mungkin bernama-- **xen
 
 Dan ketika kita login, default sessionnya adalah **fvwm** yang merupakan turunan dari **twm**.
 
+<br>
+## Mirror pkg_add OpenBSD
+
+Versi OpenBSD yang baru-baru menyimpan mirror pada **/etc/installurl**.
+
+{% highlight_caption /etc/installurl %}
+{% highlight hs linenos %}
+https://cdn.openbsd.org/pub/OpenBSD
+{% endhighlight %}
+
 
 {% comment %}
 # Referensi
