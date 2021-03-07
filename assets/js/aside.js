@@ -23,6 +23,6 @@ function toggleShowHideSidebar() {
     var article = document.querySelector('.post');
 
     button.addEventListener('click', function(){
-        article.classList.toggle('post-wide');
+      article.classList.toggle('post-wide');
     });
 })();
