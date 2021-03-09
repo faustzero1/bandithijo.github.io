@@ -10,20 +10,15 @@ layout: baseof
         {% include newsline.html %}
       {% endif %}
 
-      <article>
-        <div class="post-body-sidebar">
-          {% include sidebar_head.html %}
-        </div>
-      </article>
-
       <article class="post">
         <div class="post-body">
           <h1 class="post-title noselect"><a href="{{ page.url }}">{{ page.title }}</a></h1>
 
-          {% if page.permalink == '/about/'
-            or page.permalink == '/bantuan/' %}
-            <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
-          {% endif %}
+          <article>
+            <div class="post-body-sidebar" style="margin:0;">
+              {% include sidebar_head.html %}
+            </div>
+          </article>
 
           <div class="post-title-spacer"></div>
           <div class="markdown-body">
