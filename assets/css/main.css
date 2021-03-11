@@ -525,7 +525,9 @@ p.post-details-index-pin:before {
   border-top: 8px solid transparent;
   border-right: 8px solid #FF7700;
   border-bottom: 8px solid transparent;
-  position: absolute; left: -8px; top: 4px;
+  position: absolute;
+  left: -8px;
+  top: 5px;
 }
 
 .post-title-spacer {
