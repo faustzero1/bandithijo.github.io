@@ -85,8 +85,11 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 Selesai!
 
 
+# Demonstrasi
 
+{% image https://i.postimg.cc/W3cmXqyt/gambar-02.gif | 02 %}
 
+Dengan begini, kita dapat menguji fitur email dengan berbagai macam alamat email yang akan langsung ditangkap oleh MailCatcher.
 
 
 <br>
