@@ -12,7 +12,7 @@ tags: ['Tips', 'Terminal']
 pin:
 hot:
 contributors: []
-resume: "Simple Terminal (ST) adalah terminal yang sangat minimalis. Sampai-sampai untuk membuat window title menampilkan isi dari ST, kita perlu mengkonfigurasinya sendiri. Ya, memang beginilah tujuan dari ST. Apabila ada fitur lain yang ingin digunakan, user perlu menambahkan sendiri. Karena kebutuhan masing-masing user dapat berbeda satu dengan yang lain."
+description: "Simple Terminal (ST) adalah terminal yang sangat minimalis. Sampai-sampai untuk membuat window title menampilkan isi dari ST, kita perlu mengkonfigurasinya sendiri. Ya, memang beginilah tujuan dari ST. Apabila ada fitur lain yang ingin digunakan, user perlu menambahkan sendiri. Karena kebutuhan masing-masing user dapat berbeda satu dengan yang lain."
 ---
 
 <!-- BANNER OF THE POST -->

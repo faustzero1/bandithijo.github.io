@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda."
+description: "Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda."
 ---
 
 # Latar Belakang Masalah

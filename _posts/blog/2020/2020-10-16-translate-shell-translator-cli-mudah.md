@@ -12,7 +12,7 @@ tags: ['Ulasan', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat."
+description: "Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat."
 ---
 
 # Latar Belakang

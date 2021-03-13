@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Mengetahui sebuah warna yang ada pada objek merupakan kebutuhan seorang desainer. Tidak juga graphic desainer, seorang ricer juga memerlukannya. Berikut ini adalah beberapa color picker tools yang pernah saya cicipi sepanjang menggunakan GNU/Linux."
+description: "Mengetahui sebuah warna yang ada pada objek merupakan kebutuhan seorang desainer. Tidak juga graphic desainer, seorang ricer juga memerlukannya. Berikut ini adalah beberapa color picker tools yang pernah saya cicipi sepanjang menggunakan GNU/Linux."
 ---
 
 # Latar Belakang

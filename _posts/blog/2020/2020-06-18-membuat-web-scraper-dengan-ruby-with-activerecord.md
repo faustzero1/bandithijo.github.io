@@ -12,7 +12,7 @@ tags: ['Ruby']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 {% box_perhatian %}

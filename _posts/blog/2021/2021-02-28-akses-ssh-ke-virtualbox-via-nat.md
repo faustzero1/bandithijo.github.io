@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Apabila kita memasang sistem operasi server yang hanya menjalankan CLI pada VirtualBox, saya lebih memilih untuk mengaksesnya menggunakan SSH ketimbang harus menggunakan UI dari VirtualBox. Alasannya karena, saya lebih familiar dengan Terminal Emulator yang saya gunakan."
+description: "Apabila kita memasang sistem operasi server yang hanya menjalankan CLI pada VirtualBox, saya lebih memilih untuk mengaksesnya menggunakan SSH ketimbang harus menggunakan UI dari VirtualBox. Alasannya karena, saya lebih familiar dengan Terminal Emulator yang saya gunakan."
 ---
 
 # Latar Belakang Masalah

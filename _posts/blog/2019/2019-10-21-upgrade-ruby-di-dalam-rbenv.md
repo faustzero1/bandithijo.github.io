@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume: "Versi Ruby sudah mencapai versi tertentu, tapi kenapa saya tidak mendapat pembaharuan? Bagaimana cara mengupgrade versi Ruby yang ada di dalam Rbenv? Catatan kali ini, saya akan membahas tentang hal itu."
+description: "Versi Ruby sudah mencapai versi tertentu, tapi kenapa saya tidak mendapat pembaharuan? Bagaimana cara mengupgrade versi Ruby yang ada di dalam Rbenv? Catatan kali ini, saya akan membahas tentang hal itu."
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'Tools', 'Terminal']
 pin:
 hot: true
 contributors: []
-resume: "ST sangat saya inginkan karena kesederhanannya. Karena minimalisnya inilah saya ingin menjadikannya basis untuk meracik terminal yang sesuai dengan yang saya inginkan."
+description: "ST sangat saya inginkan karena kesederhanannya. Karena minimalisnya inilah saya ingin menjadikannya basis untuk meracik terminal yang sesuai dengan yang saya inginkan."
 ---
 
 <!-- BANNER OF THE POST -->

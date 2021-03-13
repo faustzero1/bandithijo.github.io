@@ -12,7 +12,7 @@ tags: ['Vim', 'Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume: "Sudah mulai merasakan kalau vim-airline terasa berat atau terasa bloated? Hihihi, mungkin ini saatnya kamu mencoba mencicipi Lightline."
+description: "Sudah mulai merasakan kalau vim-airline terasa berat atau terasa bloated? Hihihi, mungkin ini saatnya kamu mencoba mencicipi Lightline."
 ---
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css">

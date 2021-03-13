@@ -12,7 +12,7 @@ tags: ['Jekyll', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver."
+description: "Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver."
 ---
 
 <!-- BANNER OF THE POST -->

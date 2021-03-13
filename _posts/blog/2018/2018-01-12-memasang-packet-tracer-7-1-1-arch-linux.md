@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Network', 'Tips']
 pin:
 hot: true
 contributors: []
-resume: "Catatan untuk memasang Packet Tracer dari AUR"
+description: "Catatan untuk memasang Packet Tracer dari AUR"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-BowYWqgwdWY/WmHgRqi8cFI/AAAAAAAAG6E/Q3vgYPF4blEWr4CfCfepG8ld3zXlghOjQCEwYBhgL/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Memiliki email yang banyak tidak berarti juga memiliki GPG key yang banyak. Kita dapat membuat alias untuk masing-masing email agar menggunakan GPG key kita yang sudah ada. Simak caranya di catatan berikut ini. Mudah banget!"
+description: "Memiliki email yang banyak tidak berarti juga memiliki GPG key yang banyak. Kita dapat membuat alias untuk masing-masing email agar menggunakan GPG key kita yang sudah ada. Simak caranya di catatan berikut ini. Mudah banget!"
 ---
 
 # Latar Belakang

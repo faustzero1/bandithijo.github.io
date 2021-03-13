@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Saya jarang sekali menggunakan comprehensive network manager seperti NetworkManager atau ConnMan. Terhubung ke jaringan juga hanya lewat Wi-Fi. Maka saya putuskan untuk menghapus NetworkManager dan hanya menggunakan wpa_supplicant. Ternyata tidak semengerikan yang saya bayangkan. wpa_supplicant juga memiliki interaktif shell yang bernama wpa_cli. Sangat memudahkan untuk digunakan memanajemen jaringan konektifitas Wi-Fi di sistem kita."
+description: "Saya jarang sekali menggunakan comprehensive network manager seperti NetworkManager atau ConnMan. Terhubung ke jaringan juga hanya lewat Wi-Fi. Maka saya putuskan untuk menghapus NetworkManager dan hanya menggunakan wpa_supplicant. Ternyata tidak semengerikan yang saya bayangkan. wpa_supplicant juga memiliki interaktif shell yang bernama wpa_cli. Sangat memudahkan untuk digunakan memanajemen jaringan konektifitas Wi-Fi di sistem kita."
 ---
 
 # Latar Belakang Masalah

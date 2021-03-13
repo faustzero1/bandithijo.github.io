@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Sebelumnya, saya sudah pernah mencatat tentang konfigurasi ActionMailer dengan memanfaatkan Gmail SMTP protokol untuk mengirimkan email confirmation. Untuk testing di lokal, kita dapat memanfaatkan tools MailCatcher."
+description: "Sebelumnya, saya sudah pernah mencatat tentang konfigurasi ActionMailer dengan memanfaatkan Gmail SMTP protokol untuk mengirimkan email confirmation. Untuk testing di lokal, kita dapat memanfaatkan tools MailCatcher."
 ---
 
 # Latar Belakang Masalah

@@ -12,7 +12,7 @@ tags: ['Tips', 'Vim']
 pin:
 hot:
 contributors: []
-resume: "Sebagai seorang vimers tentu saja lebih senang menulis di atas Vim. Catatan kali ini saya ingin berbagi pengalaman saya dalam memanajeman Vim untuk digunakan sebagai notetaking."
+description: "Sebagai seorang vimers tentu saja lebih senang menulis di atas Vim. Catatan kali ini saya ingin berbagi pengalaman saya dalam memanajeman Vim untuk digunakan sebagai notetaking."
 ---
 
 <!-- BANNER OF THE POST -->

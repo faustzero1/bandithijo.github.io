@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Kita mungkin gak sadar, kalau banyak cache yang menumpuk di sistem kita. Apalagi kalau kita tidak pernah membersihkannya, bisa mencapai ukuran Giga, loh! Berikut ini catatan yang mungkin dapat membantu teman-teman membersihkan cache agar sistem kita tetap bersih dan masih banyak space yang dapat kita gunakan. Sayang kan, kalau space bergiga-giga hanya untuk cache yang beberapa diantaranya mungkin sudah tidak kita perlukan."
+description: "Kita mungkin gak sadar, kalau banyak cache yang menumpuk di sistem kita. Apalagi kalau kita tidak pernah membersihkannya, bisa mencapai ukuran Giga, loh! Berikut ini catatan yang mungkin dapat membantu teman-teman membersihkan cache agar sistem kita tetap bersih dan masih banyak space yang dapat kita gunakan. Sayang kan, kalau space bergiga-giga hanya untuk cache yang beberapa diantaranya mungkin sudah tidak kita perlukan."
 ---
 
 # Latar Belakang Masalah

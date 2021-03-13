@@ -12,7 +12,7 @@ tags: ['Jekyll', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume: "Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll."
+description: "Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll."
 ---
 
 # Latar Belakang

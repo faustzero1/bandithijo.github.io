@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Tidak perlu perkakas GUI untuk menggabungkan banyak file PDF menjadi satu. Cukup dengan ImageMagick. Caranya pun sangat mudah!"
+description: "Tidak perlu perkakas GUI untuk menggabungkan banyak file PDF menjadi satu. Cukup dengan ImageMagick. Caranya pun sangat mudah!"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-vjyMAweQN0s/WmK8err6iRI/AAAAAAAAG6c/xqNj-dLuKkUFH9eJnVNnMQ-fRPneyYxJACLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

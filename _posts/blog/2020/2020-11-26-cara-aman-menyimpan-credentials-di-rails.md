@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Menyimpan credentials merupakan hal yang wajib sebagai seorang developer atau sistem administrator. Ada banyak sekali cara yang dapat diimplementasikan. Catatan kali ini mungkin hanya salah satu cara yang mungkin dapat teman-teman gunakan."
+description: "Menyimpan credentials merupakan hal yang wajib sebagai seorang developer atau sistem administrator. Ada banyak sekali cara yang dapat diimplementasikan. Catatan kali ini mungkin hanya salah satu cara yang mungkin dapat teman-teman gunakan."
 ---
 
 # Latar Belakang

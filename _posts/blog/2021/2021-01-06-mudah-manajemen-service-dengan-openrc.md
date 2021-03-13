@@ -12,7 +12,7 @@ tags: ['Tips', 'Artix Linux']
 pin:
 hot:
 contributors: []
-resume: "Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC."
+description: "Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC."
 ---
 
 # Latar Belakang

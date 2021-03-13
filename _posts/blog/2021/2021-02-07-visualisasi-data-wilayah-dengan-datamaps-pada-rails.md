@@ -12,7 +12,7 @@ tags: ['Tips', 'Javascript', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Mungkin teman-teman pernah melihat interaktif peta yang memvisualisasikan data tertentu, misal data jumlah penduduk setiap provinsi yang ditampilkan dalam bentuk peta. Catatan kali ini saya akan membahas bagaimana cara membuat hal tersebut dengan datamaps Javascript library pada Rails."
+description: "Mungkin teman-teman pernah melihat interaktif peta yang memvisualisasikan data tertentu, misal data jumlah penduduk setiap provinsi yang ditampilkan dalam bentuk peta. Catatan kali ini saya akan membahas bagaimana cara membuat hal tersebut dengan datamaps Javascript library pada Rails."
 ---
 
 # Requirements

@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Javascript']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Mencoret-coret layar untuk memberikan atensi kepada lawan bicara, kini sudah tidak lagi sulit. Dengan Gromit-MPX kita dapat mencoret-coret di mana saja."
+description: "Mencoret-coret layar untuk memberikan atensi kepada lawan bicara, kini sudah tidak lagi sulit. Dengan Gromit-MPX kita dapat mencoret-coret di mana saja."
 ---
 
 # Latar Belakang Masalah

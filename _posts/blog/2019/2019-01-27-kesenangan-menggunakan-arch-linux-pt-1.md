@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Pada catatan ini saya sedikit bercerita kemudahan dalam menelusuri sebuah paket di repositori Arch Linux."
+description: "Pada catatan ini saya sedikit bercerita kemudahan dalam menelusuri sebuah paket di repositori Arch Linux."
 ---
 
 <!-- banner of the post -->

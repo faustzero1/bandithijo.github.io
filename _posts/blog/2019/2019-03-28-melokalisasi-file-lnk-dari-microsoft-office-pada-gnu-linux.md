@@ -12,7 +12,7 @@ tags: ['Tips', 'Wine', 'Arch Linux']
 pin:
 hot: true
 contributors: []
-resume: "File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar."
+description: "File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar."
 ---
 
 <!-- BANNER OF THE POST -->

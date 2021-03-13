@@ -12,7 +12,7 @@ tags: ['Tips', 'Database', 'Arch Linux']
 pin:
 hot:
 contributors: []
-resume: "Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production)."
+description: "Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production)."
 ---
 
 <!-- BANNER OF THE POST -->

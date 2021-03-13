@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume: "Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy."
+description: "Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy."
 ---
 
 <!-- BANNER OF THE POST -->

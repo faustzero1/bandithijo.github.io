@@ -12,7 +12,7 @@ tags: ['Terminal', 'Arch Linux', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://1.bp.blogspot.com/-KF2Kx7Lid-A/V2F0WfmSFnI/AAAAAAAADTs/xQ1Xu0qqI74ckHyXueXOgPD_4VL9lECNACPcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B21.1.png" onerror="imgError(this);" alt="banner">

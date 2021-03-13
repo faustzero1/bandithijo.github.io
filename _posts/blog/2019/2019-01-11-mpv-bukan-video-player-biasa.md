@@ -12,7 +12,7 @@ tags: ['Tips', 'Tools', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV."
+description: "Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV."
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'Arch Linux']
 pin:
 hot:
 contributors: []
-resume: "Hibernasi terkadang memang tidak langsung berjalan out of the box, kita perlu untuk mengaturnya sendiri. Catatan ini mungkin dapat membantu teman-teman mengkonfigurasi hibernasi di Arch Linux."
+description: "Hibernasi terkadang memang tidak langsung berjalan out of the box, kita perlu untuk mengaturnya sendiri. Catatan ini mungkin dapat membantu teman-teman mengkonfigurasi hibernasi di Arch Linux."
 ---
 
 # Pendahuluan

@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Menyambung catatan tentang Single Table Inheritance, namun kali ini mengenai relasi salah satu type dari model yang dipasang STI."
+description: "Menyambung catatan tentang Single Table Inheritance, namun kali ini mengenai relasi salah satu type dari model yang dipasang STI."
 ---
 
 # Requirements

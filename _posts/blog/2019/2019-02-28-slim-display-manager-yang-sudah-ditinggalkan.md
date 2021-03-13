@@ -12,7 +12,7 @@ tags: ['Ulasan', 'Tips', 'Arch Linux']
 pin:
 hot:
 contributors: []
-resume: "SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM."
+description: "SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM."
 ---
 
 <!-- BANNER OF THE POST -->

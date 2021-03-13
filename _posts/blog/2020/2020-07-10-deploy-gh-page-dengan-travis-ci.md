@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume: "Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel."
+description: "Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel."
 ---
 
 <!-- BANNER OF THE POST -->

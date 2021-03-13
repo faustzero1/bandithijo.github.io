@@ -12,7 +12,7 @@ tags: ['Tips', 'Network']
 pin:
 hot:
 contributors: []
-resume: "IP address yang dimiliki guest instance selalu berubah-ubah. Akibatnya, setiap ingin melakukan ssh session, kita harus mengubah tujuan dari IP address yang dimiliki oleh guest instance. Permasalahan ini dapat diatasi dengan membuat IP address yang dimiliki oleh setiap guest instance menjadi static."
+description: "IP address yang dimiliki guest instance selalu berubah-ubah. Akibatnya, setiap ingin melakukan ssh session, kita harus mengubah tujuan dari IP address yang dimiliki oleh guest instance. Permasalahan ini dapat diatasi dengan membuat IP address yang dimiliki oleh setiap guest instance menjadi static."
 ---
 
 # Sekenario Masalah

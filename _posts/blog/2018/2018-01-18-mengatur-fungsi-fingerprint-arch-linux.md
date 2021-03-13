@@ -12,7 +12,7 @@ tags: ['ThinkPad', 'Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock."
+description: "Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock."
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

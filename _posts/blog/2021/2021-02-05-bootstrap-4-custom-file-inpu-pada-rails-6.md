@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Bootstrap']
 pin:
 hot:
 contributors: []
-resume: "Bootstrap 4 menyediakan component untuk custom file input, namun component ini memiliki dependensi Javascript library yang bernama bs-custom-file-input. Catatan kali ini, saya akan membahas bagaimana cara memasang bs-custom-file-input pada Rails 6 yang menggunakan Webpacker."
+description: "Bootstrap 4 menyediakan component untuk custom file input, namun component ini memiliki dependensi Javascript library yang bernama bs-custom-file-input. Catatan kali ini, saya akan membahas bagaimana cara memasang bs-custom-file-input pada Rails 6 yang menggunakan Webpacker."
 ---
 
 # Requirements

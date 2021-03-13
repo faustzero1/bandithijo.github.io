@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!"
+description: "Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" onerror="imgError(this);" alt="banner">

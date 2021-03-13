@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume: "Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien."
+description: "Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien."
 ---
 
 # Pendahuluan

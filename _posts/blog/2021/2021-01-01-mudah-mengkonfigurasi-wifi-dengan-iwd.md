@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl."
+description: "iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl."
 ---
 
 # Latar Belakang

@@ -12,7 +12,7 @@ tags: ['Tips', 'Heroku']
 pin:
 hot:
 contributors: []
-resume: "Kamu punya web aplikasi yang dideploy di Heroku? Dan tarnyata zona waktu Heroku berbeda dengan zona waktu konsumen dari web aplikasi kamu. Pada catatan kali ini, saya akan menunjukkan bagaimana cara mengganti zona waktu pada Heroku."
+description: "Kamu punya web aplikasi yang dideploy di Heroku? Dan tarnyata zona waktu Heroku berbeda dengan zona waktu konsumen dari web aplikasi kamu. Pada catatan kali ini, saya akan menunjukkan bagaimana cara mengganti zona waktu pada Heroku."
 ---
 
 

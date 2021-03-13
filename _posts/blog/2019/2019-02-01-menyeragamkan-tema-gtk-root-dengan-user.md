@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Bicara tentang tampilan desktop, setidaknya terdapat 2 library yang banyak digunakna oleh aplikasi-aplikasi GUI di lingkungan GNU/Linux, yaitu GTK+ dan Qt. Kedua library ini mungkin memiliki default theme mereka sendiri. Mungkin gak kalau kita seragamkan? Sangat mungkin! Beberapa teman-teman yang sering melihat screenshot atau video-video pendek yang sering saya share di Telegram mungkin pernah melihat dan memperhatikan."
+description: "Bicara tentang tampilan desktop, setidaknya terdapat 2 library yang banyak digunakna oleh aplikasi-aplikasi GUI di lingkungan GNU/Linux, yaitu GTK+ dan Qt. Kedua library ini mungkin memiliki default theme mereka sendiri. Mungkin gak kalau kita seragamkan? Sangat mungkin! Beberapa teman-teman yang sering melihat screenshot atau video-video pendek yang sering saya share di Telegram mungkin pernah melihat dan memperhatikan."
 ---
 
 <!-- BANNER OF THE POST -->

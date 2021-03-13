@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan."
+description: "Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan."
 ---
 
 <!-- BANNER OF THE POST -->

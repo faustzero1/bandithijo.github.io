@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal']
 pin:
 hot:
 contributors: []
-resume: "Terdapat banyak sekali tools yang dapat kita gunakan untuk mengatur jaringan di GNU/Linux. Perkakas-perkakas ini sering diistilahkan dengan Comprehensive Network Manager, atau Network Manager saja. Tapi jangan salah paham yaa, karena salah satu Network Manager tersebut ada yang bernama NetworkManager."
+description: "Terdapat banyak sekali tools yang dapat kita gunakan untuk mengatur jaringan di GNU/Linux. Perkakas-perkakas ini sering diistilahkan dengan Comprehensive Network Manager, atau Network Manager saja. Tapi jangan salah paham yaa, karena salah satu Network Manager tersebut ada yang bernama NetworkManager."
 ---
 
 <!-- BANNER OF THE POST -->

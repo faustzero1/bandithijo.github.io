@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume: "Kita dapat membuat Jekyll blog yang kita bangun di local environment sistem kita, membuka akes broadcast ke local network. Sehingga, semua perangkat yang berada pada satu network yang sama, dapat mengakses Jekyll blog yang ada di local sistem kita."
+description: "Kita dapat membuat Jekyll blog yang kita bangun di local environment sistem kita, membuka akes broadcast ke local network. Sehingga, semua perangkat yang berada pada satu network yang sama, dapat mengakses Jekyll blog yang ada di local sistem kita."
 ---
 
 # Sekenario Masalah

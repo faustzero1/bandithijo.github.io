@@ -12,7 +12,7 @@ tags: ['Ruby']
 pin:
 hot:
 contributors: []
-excerpt:
+description:
 ---
 
 # Latar Belakang Masalah

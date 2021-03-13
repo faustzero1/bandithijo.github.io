@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Membuat output hasil akan ditampilkan tanpa perlu merefresh halaman. Tentu saja di Ruby on Rails juga dapat mengimplementasikan ini. Kita dapat menggunakan AJAX."
+description: "Membuat output hasil akan ditampilkan tanpa perlu merefresh halaman. Tentu saja di Ruby on Rails juga dapat mengimplementasikan ini. Kita dapat menggunakan AJAX."
 ---
 
 # Latar Belakang

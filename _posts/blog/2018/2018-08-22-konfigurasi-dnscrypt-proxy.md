@@ -12,7 +12,7 @@ tags: ['Security', 'Tips', 'Arch Linux']
 pin:
 hot: true
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

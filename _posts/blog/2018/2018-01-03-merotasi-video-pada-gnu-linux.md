@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Merotasi video mungkin menjadi hal yang cukup memusingkan apabila kita tidak terbiasa menggunakan perkakas GUI. Namun, cukup dengan ffmpeg, kita dapat merotasi video sesuai dengan parameter yang tersedia. Caranya mudah sekali!"
+description: "Merotasi video mungkin menjadi hal yang cukup memusingkan apabila kita tidak terbiasa menggunakan perkakas GUI. Namun, cukup dengan ffmpeg, kita dapat merotasi video sesuai dengan parameter yang tersedia. Caranya mudah sekali!"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://4.bp.blogspot.com/-8Zdbis7q7Zg/WmLxSO4-GHI/AAAAAAAAG64/NtBEawlhLpcXQiDANDzezBpBMjd_8jJWQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

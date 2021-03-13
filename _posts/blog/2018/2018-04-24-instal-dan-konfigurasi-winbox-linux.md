@@ -12,7 +12,7 @@ tags: ['Tools', 'Wine', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Saya ingin kembali menggunakan traditional network interface name, seperti sebelumnya eth0 & wlan0. Toh juga ini laptop sendiri. Biar gak ribet aja. Hehehe."
+description: "Saya ingin kembali menggunakan traditional network interface name, seperti sebelumnya eth0 & wlan0. Toh juga ini laptop sendiri. Biar gak ribet aja. Hehehe."
 ---
 
 # Latar Belakang Masalah

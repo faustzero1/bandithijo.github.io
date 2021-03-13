@@ -12,7 +12,7 @@ tags: ['Tips', 'Terminal']
 pin:
 hot:
 contributors: []
-resume: "Backslash yang tersisipi apabila kita mempaste URL di Terminal dengan Z Shell, cukup mengganggu. Catatan kali ini mungkin dapat dijadikan solusi untuk mengatasi hal tersebut."
+description: "Backslash yang tersisipi apabila kita mempaste URL di Terminal dengan Z Shell, cukup mengganggu. Catatan kali ini mungkin dapat dijadikan solusi untuk mengatasi hal tersebut."
 ---
 
 # Latar Belakang Masalah

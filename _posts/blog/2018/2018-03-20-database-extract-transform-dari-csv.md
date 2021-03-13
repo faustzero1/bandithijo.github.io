@@ -12,7 +12,7 @@ tags: ['Database', 'Tools']
 pin:
 hot: true
 contributors: []
-resume:
+description:
 ---
 
 # TUGAS 1

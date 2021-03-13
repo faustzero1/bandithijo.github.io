@@ -12,7 +12,7 @@ tags: ['Tips', 'ThinkPad']
 pin:
 hot: true
 contributors: []
-resume: "Saya kurang menyukai tampilan BIOS logo ThinkPad X260 bawaan. Karena hanya bertuliskan kata 'Lenovo' di dalam kota merah. Beda dengan ThinkPad generasi sebelumnya, yang memiliki Tulisan 'ThinkPad' dengan desain logo BIOS khas ThinkPad generasi awal. Apakah gambar BIOS tersebut bisa diganti? Tentu saja! Mudah sekali! Catatan kali ini, saya akan mendemonstrasikan cara untuk memodifikasi gambar untuk BIOS ThinkPad."
+description: "Saya kurang menyukai tampilan BIOS logo ThinkPad X260 bawaan. Karena hanya bertuliskan kata 'Lenovo' di dalam kota merah. Beda dengan ThinkPad generasi sebelumnya, yang memiliki Tulisan 'ThinkPad' dengan desain logo BIOS khas ThinkPad generasi awal. Apakah gambar BIOS tersebut bisa diganti? Tentu saja! Mudah sekali! Catatan kali ini, saya akan mendemonstrasikan cara untuk memodifikasi gambar untuk BIOS ThinkPad."
 ---
 
 <!-- BANNER OF THE POST -->

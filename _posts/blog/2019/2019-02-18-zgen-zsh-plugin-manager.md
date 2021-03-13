@@ -12,7 +12,7 @@ tags: ['Ulasan', 'Tips', 'Terminal']
 pin:
 hot:
 contributors: []
-resume: "Z Shell juga memiliki plugin-plugin yang dapat kita manfaatkan untuk menambah fitur yang ingin kita gunakan. Untuk memanajemen plugin-plugin tersebut, saya memilih untuk menggunakan plugin manager yang bernama Zgen."
+description: "Z Shell juga memiliki plugin-plugin yang dapat kita manfaatkan untuk menambah fitur yang ingin kita gunakan. Untuk memanajemen plugin-plugin tersebut, saya memilih untuk menggunakan plugin manager yang bernama Zgen."
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume: "Mengecualikan value tertentu dari sebuah data collection."
+description: "Mengecualikan value tertentu dari sebuah data collection."
 ---
 
 # Sekenario Masalah

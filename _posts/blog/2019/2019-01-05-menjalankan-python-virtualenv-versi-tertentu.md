@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Python']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

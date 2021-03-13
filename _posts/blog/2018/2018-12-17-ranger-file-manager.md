@@ -12,7 +12,7 @@ tags: ['Terminal', 'Tools', 'Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

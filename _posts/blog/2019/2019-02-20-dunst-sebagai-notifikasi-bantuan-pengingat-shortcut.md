@@ -12,7 +12,7 @@ tags: ['Tips', 'I3WM']
 pin:
 hot: true
 contributors: []
-resume: "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap."
+description: "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap."
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'ThinkPad']
 pin:
 hot:
 contributors: []
-resume: "Kalau kita mengecek temperature ThinkPad laptop dengan menggunakan perintah sensors, kita akan mendapati label-label seperti temp1, temp2, temp3, dst. Bagaimana kita tahu, kalau label-label tersebut menujuk pada objek-objek seperti CPU, GPU, dll? Nah, catatan kali ini, kita akan memberikan label terhadap sensor-sensor tersebut."
+description: "Kalau kita mengecek temperature ThinkPad laptop dengan menggunakan perintah sensors, kita akan mendapati label-label seperti temp1, temp2, temp3, dst. Bagaimana kita tahu, kalau label-label tersebut menujuk pada objek-objek seperti CPU, GPU, dll? Nah, catatan kali ini, kita akan memberikan label terhadap sensor-sensor tersebut."
 ---
 
 # Latar Belakang Masalah

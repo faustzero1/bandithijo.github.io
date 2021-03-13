@@ -12,7 +12,7 @@ tags: ['Tips', 'Jekyll']
 pin:
 hot:
 contributors: []
-resume: "Menulis teknikal blog cukup merepotkan apabila kita tidak menghandle dengan baik cara untuk memasukkan command prompt, karena akan banyak sekali command prompt yang akan digunakan pada teknikal blog. Catatan ini akan membahas bagaimana BanditHijo dalam menghandle command prompt di blog."
+description: "Menulis teknikal blog cukup merepotkan apabila kita tidak menghandle dengan baik cara untuk memasukkan command prompt, karena akan banyak sekali command prompt yang akan digunakan pada teknikal blog. Catatan ini akan membahas bagaimana BanditHijo dalam menghandle command prompt di blog."
 ---
 
 # Latar Belakang Masalah

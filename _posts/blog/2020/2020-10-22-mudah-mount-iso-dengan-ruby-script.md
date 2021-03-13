@@ -12,7 +12,7 @@ tags: ['Ruby', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!"
+description: "Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!"
 ---
 
 # Latar Belakang

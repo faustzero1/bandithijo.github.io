@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Catatan kali ini tentang pemanfaatan Devise gem untuk registration tanpa menginputkan password, password akan diminta setelah user membuka link konfirmasi yang dikirimkan via email."
+description: "Catatan kali ini tentang pemanfaatan Devise gem untuk registration tanpa menginputkan password, password akan diminta setelah user membuka link konfirmasi yang dikirimkan via email."
 ---
 
 # Latar Belakang Masalah

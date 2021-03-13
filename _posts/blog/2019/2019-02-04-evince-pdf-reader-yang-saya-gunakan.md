@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini."
+description: "Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini."
 ---
 
 <!-- BANNER OF THE POST -->

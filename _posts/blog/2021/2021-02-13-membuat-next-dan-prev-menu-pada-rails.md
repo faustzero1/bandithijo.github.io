@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-resume: "Mungkin teman-teman pernah melihat sebuah blog yang memiliki fitur go to next dan previous post? Nah, kita akan membuat fitur yang sama seperti itu, apabila teman-teman memiliki web aplikasi dalam bentuk blog yang dibangun menggunakan Ruby on Rails."
+description: "Mungkin teman-teman pernah melihat sebuah blog yang memiliki fitur go to next dan previous post? Nah, kita akan membuat fitur yang sama seperti itu, apabila teman-teman memiliki web aplikasi dalam bentuk blog yang dibangun menggunakan Ruby on Rails."
 ---
 
 # Requirements

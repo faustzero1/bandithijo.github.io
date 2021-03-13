@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tools', 'Network']
 pin:
 hot: true
 contributors: []
-resume: "Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa."
+description: "Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa."
 ---
 
 <!-- BANNER OF THE POST -->

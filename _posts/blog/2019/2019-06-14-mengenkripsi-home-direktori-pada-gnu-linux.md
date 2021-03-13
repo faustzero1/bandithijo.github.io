@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka."
+description: "Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka."
 ---
 
 <!-- BANNER OF THE POST -->

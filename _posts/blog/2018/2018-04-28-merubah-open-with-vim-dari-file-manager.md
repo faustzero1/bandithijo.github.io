@@ -12,7 +12,7 @@ tags: ['Vim', 'Tips', 'Tools']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 <!-- BANNER OF THE POST -->

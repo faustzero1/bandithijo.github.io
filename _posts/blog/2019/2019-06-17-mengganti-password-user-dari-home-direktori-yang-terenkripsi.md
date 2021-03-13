@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Memiliki Home direktori yang terenkripsi bukan berarti kita hanya dapat mengeset password hanya pada saat pertama kali enkripsi dibuat dan tidak dapat menggantinya. Tentu saja kita dapat menggantinya. Catatan berikut ini mudah-mudahan dapat membantu kalian memberikan gambaran, tentang bagaimana mengganti password terhadap home direktori yang terenkripsi."
+description: "Memiliki Home direktori yang terenkripsi bukan berarti kita hanya dapat mengeset password hanya pada saat pertama kali enkripsi dibuat dan tidak dapat menggantinya. Tentu saja kita dapat menggantinya. Catatan berikut ini mudah-mudahan dapat membantu kalian memberikan gambaran, tentang bagaimana mengganti password terhadap home direktori yang terenkripsi."
 ---
 
 <!-- BANNER OF THE POST -->

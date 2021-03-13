@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-resume: "Meremote desktop bukan lagi hal asing kalau kita menggunakan GNU/Linux. Saya pun juga sering menggunakan remote desktop untuk mengakses laptop Windows yang ada di ruangan lain. Dengan cara ini, saya tidak perlu repot-repot membawa dan memindahkan laptop tersebut ke ruangan saya. Cukup akses secara remote dengan RDP."
+description: "Meremote desktop bukan lagi hal asing kalau kita menggunakan GNU/Linux. Saya pun juga sering menggunakan remote desktop untuk mengakses laptop Windows yang ada di ruangan lain. Dengan cara ini, saya tidak perlu repot-repot membawa dan memindahkan laptop tersebut ke ruangan saya. Cukup akses secara remote dengan RDP."
 ---
 
 # Latar Belakang

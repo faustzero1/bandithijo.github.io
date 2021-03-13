@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume: "Kadang saya memerlukan sebuah pananda yang benar-benar dapat menarik perhatian saya saat CPU temperature mencapai suhu tinggi. Tujuannya agar saya dapat mengambil tindakan antisipasi. Saya memang sudah memiliki status indikator. Namun, masih belum cukup menarik perhatian saya, terutama saat saya tidak sedang berada di depan laptop dan laptop sedang digunakan untuk mengcompile."
+description: "Kadang saya memerlukan sebuah pananda yang benar-benar dapat menarik perhatian saya saat CPU temperature mencapai suhu tinggi. Tujuannya agar saya dapat mengambil tindakan antisipasi. Saya memang sudah memiliki status indikator. Namun, masih belum cukup menarik perhatian saya, terutama saat saya tidak sedang berada di depan laptop dan laptop sedang digunakan untuk mengcompile."
 ---
 
 <!-- BANNER OF THE POST -->

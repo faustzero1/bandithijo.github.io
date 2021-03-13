@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-resume: "Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?"
+description: "Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?"
 ---
 
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner">

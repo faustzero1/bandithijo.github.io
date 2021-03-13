@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-resume:
+description:
 ---
 
 # Latar Belakang

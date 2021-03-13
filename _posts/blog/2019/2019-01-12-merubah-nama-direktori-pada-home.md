@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-resume: "Apabila kamu merasa nama-nama direktori yang kamu miliki di Home terlalu panjang, seperti Documents, Desktop, Pictures, Vidoes, Sound, dll. Kita dapat merubahnya menjadi lebih singkat. Saya lebih senang dengan 3 huruf."
+description: "Apabila kamu merasa nama-nama direktori yang kamu miliki di Home terlalu panjang, seperti Documents, Desktop, Pictures, Vidoes, Sound, dll. Kita dapat merubahnya menjadi lebih singkat. Saya lebih senang dengan 3 huruf."
 ---
 
 <!-- BANNER OF THE POST -->

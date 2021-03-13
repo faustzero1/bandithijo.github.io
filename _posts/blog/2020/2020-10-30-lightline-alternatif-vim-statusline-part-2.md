@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan', 'Vim']
 pin:
 hot:
 contributors: []
-resume: "Pembaharuan konfig dari catatan sebelumnya. Kali ini dengan perubahan beberapa komponen untuk Defx dan juga Tagbar."
+description: "Pembaharuan konfig dari catatan sebelumnya. Kali ini dengan perubahan beberapa komponen untuk Defx dan juga Tagbar."
 ---
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wernight/powerline-web-fonts@ba4426cb0c0b05eb6cb342c7719776a41e1f2114/PowerlineFonts.css">
