@@ -501,6 +501,9 @@ Pasang nav untuk menempatkan link indikator apabila user telah login atau belum.
 {% image https://i.postimg.cc/ZqNC6RFV/gambar-01.gif | 01 %}
 
 
+# Repositori
+
+[**github.com/bandithijo/demo_devise_confirmable**](https://github.com/bandithijo/demo_devise_confirmable){:target="_blank"}
 
 
 
