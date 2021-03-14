@@ -13,7 +13,7 @@ pin:
 ---
 
 <!-- OUTDATED POST -->
-<p class="notif-post" style="margin-bottom: -20px;">Post ini Akan Dilakukan Perubahan</p>
+<p class="notif-post" style="margin-bottom: -20px;">Post ini Belum Saya Perbaharui</p>
 
 
 # STEP 7 : Install GNOME and Complete Installation
