@@ -3,11 +3,11 @@
     <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
   </h1>
   <!-- untuk random dotfriends list sebanyak 8 -->
-  {% assign friends = site.data.dotfriends.dotfriends.friends | sample: 8 %}
-  {% for friend in friends limit: 8 %}
+  {% assign friends = site.data.dotfriends.dotfriends.friends | sample: 5 %}
+  {% for friend in friends limit: 5 %}
     <p>+&nbsp;<a href="https://{{ friend.url }}/" target="_blank">{{ friend.nama }}</a></p>
   {% endfor %}
-  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*8 daftar blog di atas digenerate secara random</p>
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
   <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
   <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
 </div>

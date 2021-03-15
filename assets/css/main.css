@@ -352,6 +352,7 @@ kbd {
   border-width: 0 1px 0 1px;
   border-style: solid;
   border-color: #B8B8B8;
+  padding-bottom: 30px;
   /* untuk memunculkan properties di atas */
   overflow: hidden;
 }
@@ -601,7 +602,7 @@ aside .sidebar-body-rss {
   border: 1px dashed #B8B8B8;
   border-radius: 10px;
   /* width: 91%; */
-  margin: 25px 0 30px 0;
+  margin: 25px 0 0 0;
   padding: 5px 10px;
 }
 
@@ -2312,6 +2313,7 @@ div.highlight-caption code {
   }
 
   #main .container-edge-border {
+    padding-bottom: 0;
     border: none;
     /* untuk memunculkan properties di atas */
     overflow: hidden;
