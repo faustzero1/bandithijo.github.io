@@ -5,9 +5,9 @@ permalink: :title
 
 <section id="main">
   <div class="container noselect">
+    {% comment %}
     <div class="container-edge-border">
 
-      {% comment %}
       {% if site.newsline %}
         {% include newsline.html %}
       {% endif %}
@@ -120,7 +120,7 @@ permalink: :title
       </article><!-- box-container -->
 
       <br>
-      {% endcomment %}
     </div><!-- container-edge-border -->
+    {% endcomment %}
   </div><!-- main container -->
 </section><!-- main -->
