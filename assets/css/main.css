@@ -2319,8 +2319,9 @@ div.highlight-caption code {
     overflow: hidden;
   }
 
-  h1.post-title {
+  .post-title {
     margin-top: 10px;
+    border-bottom: 0;
   }
 
   p.post-title-index {

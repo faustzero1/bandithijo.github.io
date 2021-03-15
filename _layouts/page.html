@@ -10,17 +10,22 @@ layout: baseof
         {% include newsline.html %}
       {% endif %}
 
+      <article class="post" style="padding-bottom:0;">
+        <div class="post-body" style="margin-bottom:0;">
+          <h1 class="post-title noselect">
+            <a href="{{ page.url }}">{{ page.title }}</a>
+          </h1>
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar" style="margin-top:0;">
+          {% include sidebar_head.html %}
+        </div>
+      </article>
+
       <article class="post">
         <div class="post-body">
-          <h1 class="post-title noselect"><a href="{{ page.url }}">{{ page.title }}</a></h1>
-
-          <article>
-            <div class="post-body-sidebar" style="margin:0;">
-              {% include sidebar_head.html %}
-            </div>
-          </article>
-
-          <div class="post-title-spacer"></div>
           <div class="markdown-body">
             {% include enlarge-image-modal.html %}
             <p>{{ content }}</p>
