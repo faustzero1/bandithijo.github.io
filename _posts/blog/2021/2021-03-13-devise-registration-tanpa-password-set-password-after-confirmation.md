@@ -432,7 +432,7 @@ yaitu halaman **views/devise/confirmations/show.html.erb**.
 
 <br>
 {% highlight_caption app/views/devise/confirmations/new.html.erb %}
-{% highlight ruby linenos %}
+{% highlight eruby linenos %}
 <h2>Resend confirmation instructions</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
