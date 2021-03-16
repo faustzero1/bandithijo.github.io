@@ -2181,7 +2181,7 @@ div.highlight-caption code {
   }
 
   .footer-line {
-    border-radius: none;
+    border-radius: 0;
   }
 
   #header .container,
@@ -2632,8 +2632,9 @@ div.highlight-caption code {
     max-width: 290px;
     padding: 0 !important;
     color: #404040;
-    border: 1px solid #404040;
-    border-radius: 5px;
+    border: 0;
+    /* border: 1px solid #404040; */
+    /* border-radius: 5px; */
     display: block;
     float: none;
     margin: 0 auto !important;
