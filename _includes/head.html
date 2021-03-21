@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
 <link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
 <link rel="manifest" href="/manifest.json">
+{% seo title=false %}
+{% include opengraph.html %}
 {% if jekyll.environment == 'production' %}
-  {% seo title=false %}
-  {% include opengraph.html %}
   {% include analytics.html %}
   <meta name="google-site-verification" content="{{ site.google_verify }}">
 {% endif %}
