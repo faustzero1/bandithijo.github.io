@@ -4,6 +4,6 @@
 <meta property="og:image:height"   content="230"/>
 
 <meta property="twitter:card"      content="summary_large_image"/>
-<meta property="twitter:title"     content="{{ site.title }}"/>
-<meta property="twitter:author"    content="{{ site.author }}"/>
+<meta property="twitter:title"     content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
+<meta property="twitter:author"    content="{% if page.author %}{{ page.author | escape }}{% else %}{{ site.author | escape }}{% endif %}"/>
 <meta property="twitter:image:src" content="{{ site.image }}"/>
