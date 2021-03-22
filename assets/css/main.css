@@ -13,7 +13,8 @@ Created : Maret 2018
 @import url(/assets/fonts/fira_sans_condensed/FiraSansCondensed.css);
 
 /* CODE COLORSCHEME */
-@import url(/assets/css/solarizeddark.css);
+/* @import url(/assets/css/solarizeddark.css); */
+@import url(/assets/css/codedark.css);
 
 /* PRELOAD */
 @import url(/assets/css/preload.css);
@@ -56,12 +57,12 @@ pre.highlight {
 }
 
 pre.lineno {
-  color: #586e75;
+  color: var(--BASE03);
   padding-right: 0 !important;
 }
 
 td.gutter.gl, td.code {
-  background: #002b36;
+  background: var(--BASE00);
   padding-right: 0 !important;
   padding-left: 0 !important;
   padding-top: 0 !important;
@@ -1995,7 +1996,7 @@ div.highlight-caption {
   padding-right: 8.5px;
   padding-bottom: 6.25px;
   padding-left: 8.5px;
-  background-color: #073642;
+  background-color: var(--BASE01);
   border: 1px solid #ccc;
   border: 1px solid rgba(0,0,0,0.15);
   border-bottom: none;
@@ -2029,7 +2030,7 @@ div.highlight-caption span.label {
 
 div.highlight-caption code {
   border: none;
-  background-color: #073642 !important;
+  background-color: var(--background-cap) !important;
   color: #fff;
   font-weight: bold;
   margin-left: 0.2em;

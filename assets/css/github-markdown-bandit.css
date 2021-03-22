@@ -4,6 +4,10 @@ SampleURL: https://sindresorhus.com/github-markdown-css/
 SourceURL: https://github.com/sindresorhus/github-markdown-css
 */
 
+:root {
+  --background-code: #1E1E1E;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;
@@ -298,7 +302,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body td,
 .markdown-body th {
-  border: 1px solid #002b36;
+  border: 1px solid var(--background-code);
   padding: 0;
 }
 
@@ -431,7 +435,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
   margin-bottom: 0;
   margin-top: 0;
   font-family: 'FiraCodeNerdFontComplete-Medium', 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', 'Ubuntu Mono', monospace;
-  background: #002b36; /* <-- solarized */
+  background: var(--background-code);
 }
 
 .markdown-body input::-webkit-inner-spin-button,
@@ -736,7 +740,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body code {
-  background: #002b36; /* <-- solarized */
+  background: var(--background-code);
   border-radius: 3px;
   border-width: 0;
   color: #FFF;
@@ -775,7 +779,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  background: #002b36; /* <-- solarized */
+  background: var(--background-code);
   border-radius: 5px;
   font-size: 14px;
   font-family: 'FiraCodeNerdFontComplete-Medium', 'TypoPRO Fantasque Sans Mono', 'Roboto Mono', 'Ubuntu Mono', monospace;
