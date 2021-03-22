@@ -22,6 +22,10 @@ Created : Maret 2018
 /* ADD TO HOMESCREEN */
 @import url(/assets/css/add-to-homescreen.css);
 
+:root {
+  --WHITE: #FFFFFF;
+}
+
 body {
   background: #D7CCBC;
   font: 16px/1.5 'Fira Sans';
@@ -42,7 +46,7 @@ body {
 }
 
 pre, code {
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 13px !important;
   border-radius: 5px;
 }
@@ -128,7 +132,7 @@ mark {
 
 /* Global ----------------------------------------------------------------- */
 .container {
-  background: #FFF;
+  background: var(--WHITE);
   /* width: menggunakan % untuk responsif design */
   max-width: 980px;
   /* untuk membuat halaman menjadi center */
@@ -218,7 +222,7 @@ kbd {
 }
 
 .is-white {
-  color: #FFF;
+  color: var(--WHITE);
 }
 
 .is-danger {
@@ -242,10 +246,10 @@ kbd {
 }
 
 #header .container {
-  background: #FFF;
+  background: var(--WHITE);
   border-width: 20px 20px 0 20px;
   border-style: solid;
-  border-color: #FFF;
+  border-color: var(--WHITE);
   border-radius: 10px 10px 0 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* untuk menghilangkan border-bottom dari header */
@@ -263,7 +267,7 @@ kbd {
   font-weight: bold;
   text-align: right;
   letter-spacing: -2px;
-  color: #FFF;
+  color: var(--WHITE);
   margin: 0 20px 10px 20px;
 }
 
@@ -275,7 +279,7 @@ kbd {
   font-size: 8px;
   font-weight: normal;
   text-align: right;
-  color: #FFF;
+  color: var(--WHITE);
   margin: -20px 20px 40px 25px;
 }
 
@@ -295,7 +299,7 @@ kbd {
 #header .nav li a {
   font-size: 16px;
   font-weight: bold;
-  color: #FFF;
+  color: var(--WHITE);
   text-decoration: none;
   padding: 0 7.5px;
   border-bottom: none;
@@ -303,14 +307,14 @@ kbd {
 
 #header .nav li a:hover,
 #header .nav li a:active {
-  background: #FFF;
+  background: var(--WHITE);
   color: #00603C;
   border-radius: 5px;
   padding: 5px 7.5px;
 }
 
 #header .nav .active {
-  background: #FFF;
+  background: var(--WHITE);
   color: #00603C;
   border-radius: 5px;
   padding: 5px 7.5px;
@@ -324,7 +328,7 @@ kbd {
   text-align: center;
   margin: auto;
   padding: 10px 0;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 30px;
   font-weight: bold;
   display: none;
@@ -345,7 +349,7 @@ kbd {
 #main .container {
   border-width: 0 20px 0 20px;
   border-style: solid;
-  border-color: #FFF;
+  border-color: var(--WHITE);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -473,7 +477,7 @@ p.post-title-index a:hover {
 
 .post-details {
   background: #626262;
-  color: #FFF;
+  color: var(--WHITE);
   text-align: center;
   font-size: 14px;
   font-weight: bold;
@@ -681,10 +685,10 @@ aside.sidebar p {
 }
 
 #footer .container {
-  background: #FFF;
+  background: var(--WHITE);
   border-width: 0 20px 20px 20px;
   border-style: solid;
-  border-color: #FFF;
+  border-color: var(--WHITE);
   border-radius: 0 0 10px 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   /* untuk merapatkan footer dengan #post */
@@ -970,7 +974,7 @@ article.homepage .notif-157-kalender {
   margin-bottom: 0;
   border: 1px solid #000000;
   border-radius: 5px;
-  background:#FFF;
+  background:var(--WHITE);
 }
 
 article.homepage .notif-157-kalender p,
@@ -988,7 +992,7 @@ article.homepage .notif-157-kalender a {
 p.kalender-item {
   border: 1px solid #000000 !important;
   border-radius: 5px;
-  background:#FFF;
+  background:var(--WHITE);
   width: 100%;
   font-size: 90% !important;
   font-weight: normal;
@@ -1012,7 +1016,7 @@ p.kalender-item.off {
 
 p.kalender-item.next {
   border: 1px dashed #B8B8B8 !important;
-  background:#FFF !important;
+  background:var(--WHITE) !important;
   color:#B8B8B8 !important;
 }
 
@@ -1026,7 +1030,7 @@ p.kalender-item.next {
   margin-bottom: 0;
   border: 1px solid #000000;
   border-radius: 5px;
-  background:#FFF;
+  background:var(--WHITE);
 }
 
 .notif-rundown p,
@@ -1044,7 +1048,7 @@ p.kalender-item.next {
 p.rundown-item {
   border: 1px solid #000000 !important;
   border-radius: 5px;
-  background:#FFF;
+  background:var(--WHITE);
   width: 100%;
   font-size: 90% !important;
   font-weight: normal;
@@ -1068,7 +1072,7 @@ p.rundown-item.off {
 
 p.rundown-item.next {
   border: 1px dashed #B8B8B8 !important;
-  background:#FFF !important;
+  background:var(--WHITE) !important;
   color:#B8B8B8 !important;
 }
 
@@ -1078,7 +1082,7 @@ p.notif-post {
   padding: 1em 1em;
   font-size: 25px;
   font-weight: bold;
-  color: #FFF;
+  color: var(--WHITE);
   text-align: center;
   text-shadow:
   -2px -2px 0 #232323,
@@ -1203,7 +1207,7 @@ button.active {
   background: red;
   border-radius: 2px;
   padding: 1px 2px;
-  color: #FFF;
+  color: var(--WHITE);
   /* animation: 1s blink infinite; */
   font-size: 12px;
   font-weight: bold;
@@ -1214,7 +1218,7 @@ button.active {
   border-radius: 2px;
   padding: 1px 2px;
   margin-left: 1px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 12px;
   font-weight: bold;
   /* animation: 1s blink infinite; */
@@ -1227,21 +1231,21 @@ button.active {
   border-radius: 2px;
   padding: 1px 2px;
   margin-left: 1px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 12px;
   position: relative;
   top: 0;
 }
 
 .tag a {
-  color: #FFF;
+  color: var(--WHITE);
 }
 
 .wiptag_title {
   background: #000;
   border-radius: 3px;
   padding: 2px 10px;
-  color: #FFF;
+  color: var(--WHITE);
   font-weight: bold;
 }
 
@@ -1250,7 +1254,7 @@ button.active {
   border-radius: 3px;
   padding: 2px 3px;
   margin-left: 1px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 10px;
   font-weight: bold;
   position: relative;
@@ -1262,18 +1266,18 @@ button.active {
   border-radius: 3px;
   padding: 2px 3px;
   margin-left: 1px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 10px;
   position: relative;
   top: -2px;
 }
 
 .notag {
-  background: #FFF;
+  background: var(--WHITE);
   border-radius: 3px;
   padding: 2px 3px;
   margin-left: 1px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 10px;
   position: relative;
   top: -2px;
@@ -1281,16 +1285,16 @@ button.active {
 
 .emblem-l {
   background-color: transparent;
-  border: 1px solid #FFF;
+  border: 1px solid var(--WHITE);
   border-radius: 5px 0 0 5px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 12px;
   padding: 5px 5px 5px 5px;
 }
 
 .emblem-r {
-  background-color: #FFF;
-  border: 1px solid #FFF;
+  background-color: var(--WHITE);
+  border: 1px solid var(--WHITE);
   border-radius: 0 5px 5px 0;
   color: #008352;
   font-size: 12px;
@@ -1298,8 +1302,8 @@ button.active {
 }
 
 .emblem-f {
-  background-color: #FFF;
-  border: 2px solid #FFF;
+  background-color: var(--WHITE);
+  border: 2px solid var(--WHITE);
   border-radius: 5em 2em 2em 5em;
   color: #008352;
   font-size: 12px;
@@ -1311,7 +1315,7 @@ button.active {
   background-color: #008352;
   border: 1px solid #008352;
   border-radius: 5px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 12px;
   font-weight: bold;
   padding: 3px 5px;
@@ -1321,7 +1325,7 @@ button.active {
 .tombol-a {
   background-color: #000;
   border-radius: 5em;
-  color: #fff;
+  color: var(--WHITE);
   font-size: 12px;
   padding: 3px 8px;
   margin: 0;
@@ -1354,7 +1358,7 @@ button.active {
 }
 
 .tags-on-btn {
-  background: #FFF;
+  background: var(--WHITE);
   border: 1px solid #000;
   border-radius: 3px;
   padding: 2px 3px;
@@ -1385,7 +1389,7 @@ button.active {
   border-radius: 3px;
   padding: 2px 3px;
   margin-left: 2px;
-  color: #FFF;
+  color: var(--WHITE);
   font-size: 90%;
   font-weight: normal;
   position: relative;
@@ -1407,7 +1411,7 @@ button.active {
 
 .tags-in-post {
   margin-top: 5px;
-  color: #FFF;
+  color: var(--WHITE);
 }
 
 .tags {
@@ -1420,7 +1424,7 @@ button.active {
 }
 
 .tags a {
-  color: #fff;
+  color: var(--WHITE);
 }
 
 @keyframes blink {
@@ -1456,7 +1460,7 @@ button.active {
 
 .box-text {
   text-align: center;
-  color: #FFF;
+  color: var(--WHITE);
   padding: 10px;
   background: #008352;
   border-radius: 0 0 5px 5px;
@@ -1850,7 +1854,7 @@ ul.chkbox li.chkbox-checked:before {
 }
 
 a.disqus_button {
-  color: #fff;
+  color: var(--WHITE);
   font-size: 18px;
   font-weight: bold;
   text-transform: capitalize;
@@ -1866,7 +1870,7 @@ a.disqus_button {
   height: 30px;
   font-weight: bold;
   font-size: 18px;
-  color: #FFF;
+  color: var(--WHITE);
   cursor: pointer;
   position: relative;
   right: 0;
@@ -1918,7 +1922,7 @@ a.disqus_button {
 .newsline-high, .newsline-low p {
   font-size: 14px !important;
   font-weight: normal !important;
-  color: #FFF;
+  color: var(--WHITE);
   width: 100%;
   margin: 0 auto;
   padding-top: 5px;
@@ -2018,7 +2022,7 @@ div.highlight-caption span.label {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: .25em;
-  background-color: #fff;
+  background-color: var(--WHITE);
   color: #000;
   user-select: none;
   -webkit-user-select: none;
@@ -2031,7 +2035,7 @@ div.highlight-caption span.label {
 div.highlight-caption code {
   border: none;
   background-color: var(--background-cap) !important;
-  color: #fff;
+  color: var(--WHITE);
   font-weight: bold;
   margin-left: 0.2em;
 }
@@ -2307,7 +2311,7 @@ div.highlight-caption code {
   }
 
   #header .nav .active {
-    background: #FFF;
+    background: var(--WHITE);
     color: #00603C;
     border-radius: 5px;
     padding: 5px 7.5px;
@@ -2447,7 +2451,7 @@ div.highlight-caption code {
     margin-bottom: 10px;
     border: 1px solid #000;
     border-radius: 5px;
-    background:#FFF;
+    background:var(--WHITE);
   }
 
   article.homepage .notif-home p,
