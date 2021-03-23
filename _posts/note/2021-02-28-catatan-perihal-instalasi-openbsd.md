@@ -12,6 +12,7 @@ tags: ['Tips']
 wip:
 pin:
 contributors: []
+description: "Migrasi ke OpenBSD mungkin akan menjadi perjalaan yang panjang dan penuh persiapan. Karena proses pengerjaannya diwaktu luang dan tidak sekali waktu langsung selesai, saya merasa perlu untuk mendokumentasikan catatan, agar tidak lupa begitu saja."
 ---
 
 # Prakata

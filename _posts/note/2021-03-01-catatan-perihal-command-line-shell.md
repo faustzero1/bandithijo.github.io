@@ -12,15 +12,16 @@ tags: ['Tips']
 wip: true
 pin:
 contributors: []
+description: "Menggunakan command line shell, mungkin merupakan mimpi buruk bagi sebagian orang. Jangan khawatir, terkadang memang terasa mengerikan memasuki dunia baru yang kita belum mengenalnya. Belum terbiasa. Saya pun, terkadang masih sering lupa perintah-perintah yang akan digunakan. Untuk itulah catatan ini saya dokumentasikan."
 ---
 
 # Prakata
 
-Menggunakan Command Line Shell mungkin merupakan mimpi buruk bagi sebagian orang.
+Menggunakan Command Line Shell, mungkin merupakan mimpi buruk bagi sebagian orang.
 
 Untuk teman-teman yang masih merasa seperti itu, jangan khawatir, kalian hanya belum terbiasa saja.
 
-Saya pun, terkadang juga masih sering lupa, perintah-perintah apa saja yang pernah saya gunakan.
+Saya pun, terkadang juga masih sering lupa perintah-perintah apa saja yang pernah saya gunakan.
 
 Terlebih lagi, kalau perintah tersebut tidak sering saya gunakan, bisa dipastikan minggu depan, saya pasti sudah lupa.
 
