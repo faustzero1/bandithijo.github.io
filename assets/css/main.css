@@ -2874,6 +2874,3 @@ div.highlight-caption code {
     background-color: #404040;
   }
 }
-
-/* This stylesheet should be in the end of the line */
-@import url(/assets/css/github-markdown-bandit.css);
