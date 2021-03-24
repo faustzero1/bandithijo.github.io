@@ -1,4 +1,4 @@
-# BanditHijo [R]-Chive
+# BanditHijo (R)-Chive
 
 <a href="https://bandithijo.github.io">
 <img alt="banner" width="100%" src="/assets/img/banner/banner.png" />
