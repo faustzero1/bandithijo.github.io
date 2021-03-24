@@ -34,6 +34,6 @@ Untuk mengunduh konten terbaru ke lokal repo, berikut langkahnya:
    `$ git pull origin source`
 
 
-## Kontribusi
+## Ingin Ikut Berkontribusi Menulis/Mengedit Artikel?
 
 *Sedang dalam proses penyusunan...*
