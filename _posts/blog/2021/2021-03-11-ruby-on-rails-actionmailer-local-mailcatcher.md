@@ -78,7 +78,7 @@ config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025 }
 Kalau menggunakan Devise, biasanya diminta untuk menambahkan,
 
 ```ruby
-config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 ```
 
 Jadinya akan seperti ini
@@ -88,6 +88,7 @@ Jadinya akan seperti ini
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025 }
+config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 {% endhighlight %}
 
 Sesuaikan saja dengan yang sudah ada. Jangan ada baris konfig yang berulang.
