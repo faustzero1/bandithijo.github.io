@@ -25,9 +25,15 @@ Untuk menjalankan blog ini secara offline, berikut langkah-langkahnya:
 4. <b>Buka browser, akses blog pada alamat:</b><br>
    `http://localhost:4000`
 
-# Update Konten Terbaru
 
-Untuk mengunduh konten terbaru ke local repo, berikut langkah-langkahnya:
+## Update Konten Terbaru
+
+Untuk mengunduh konten terbaru ke lokal repo, berikut langkahnya:
 
 1. <b>Pulling</b><br>
    `$ git pull origin source`
+
+
+## Kontribusi
+
+*Sedang dalam proses penyusunan...*
