@@ -1,5 +1,9 @@
 # BanditHijo [R]-Chive
 
+<a href="https://bandithijo.github.io">
+<img alt="banner" width="100%" src="/assets/img/banner/banner.png" />
+</a>
+
 ## Requirements
 
 `Ruby 3.0.0` `Jekyll 4.2.0`
