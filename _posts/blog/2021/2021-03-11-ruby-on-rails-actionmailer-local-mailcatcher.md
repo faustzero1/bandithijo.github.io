@@ -93,6 +93,29 @@ config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
 Sesuaikan saja dengan yang sudah ada. Jangan ada baris konfig yang berulang.
 
+**Perhatian!**
+
+Karena **action_mailer.delivery_method** di atas menggunakan protokol `:smtp`, kita perlu memisahkan antara ActionMailer development dengan production.
+
+Apabila terdapat configurasi untuk ActionMailer pada file **config/environment.rb**, tinggal tambahkan kondisi untuk environment production.
+
+{% highlight_caption config/environment.rb %}
+{% highlight ruby linenos %}
+# ...
+
+# ActionMailer with Gmail
+if Rails.env.production?
+  ActionMailer::Base.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    user_name:            Rails.application.credentials.gmail[:SMTP_USER_NAME],
+    password:             Rails.application.credentials.gmail[:SMTP_PASSWORD],
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
+end
+{% endhighlight %}
+
 Selesai!
 
 
