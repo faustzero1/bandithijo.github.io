@@ -158,11 +158,11 @@ Kita akan mulai dari Copywriter.
 irb(main)> user_copywriter = Copywriter.first
 => #<Copywriter id: 2, email: "bololoba@gmail.com", ...
 
-irb(main)> user_developer.news
+irb(main)> user_copywriter.news
 => #<ActiveRecord::Associations::CollectionProxy []>
 ```
 
-Nah, copywriter masih memiliki berasosiasi dengan model News.
+Nah, copywriter **masih** memiliki berasosiasi dengan model News.
 
 
 <br>
@@ -172,11 +172,11 @@ Seharusnya model Developer, sudah tidak dapat membuat News.
 irb(main)> user_developer = Developer.first
 => #<Developer id: 1, email: "bayuyuba@gmail.com", ...
 
-irb(main)> user_copywriter.news
+irb(main)> user_developer.news
 NoMethodError (undefined method `news' for #<Developer id: 1, email: "bayuyuba@gmail.com", ...">)
 ```
 
-Oke, mantap! Developer sudah tidak dapat membuat News.
+Oke, mantap! Developer sudah **tidak dapat** membuat News.
 
 
 
