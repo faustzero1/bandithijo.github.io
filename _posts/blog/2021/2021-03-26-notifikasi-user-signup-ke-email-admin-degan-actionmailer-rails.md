@@ -15,6 +15,10 @@ contributors: []
 description: "Catatan kali ini, saya akan mencatatat tentang bagaimana membuat email notifikasi yang dikirimakan ke email admin, apabila terdapat user yang baru mendaftar (signup) ke web aplikasi yang kita develop. Kita dapat menggunakan Rails ActionMailer untuk fitur ini."
 ---
 
+# Prerequisite
+
+`Ruby 3.0.0` `Rails 6.1.3` `PostgreSQL 12.5` `RSpec 4.0.0`
+
 # Latar Belakang Masalah
 
 Membuat fitur email notifikasi ke email admin apabila terdapat user baru yang mendaftar (*signup*) ke web aplikasi yang kita develop.
@@ -109,7 +113,7 @@ Yang saya catat di atas, hanya contoh sederhana saja.
 
 ## Models
 
-Karena kita akan memberika notifikasi email apabila terdapat user baru yang mendaftar, maka logika bisnis untuk mengirimkan notifikasi akan kita letakkan pada **user** model.
+Karena kita akan memberikan notifikasi email apabila terdapat user baru yang mendaftar, maka logika bisnis untuk mengirimkan notifikasi akan kita letakkan pada **user** model.
 
 {% highlight_caption app/models/user.rb %}
 {% highlight ruby linenos %}

@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai memperbaiki systemd-timesyncd yang mengalami kegagalan saat proses booting."
 ---
 
 <!-- BANNER OF THE POST -->

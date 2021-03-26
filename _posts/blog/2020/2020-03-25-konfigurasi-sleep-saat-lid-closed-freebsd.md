@@ -12,7 +12,7 @@ tags: ['Tips', 'FreeBSD']
 pin:
 hot:
 contributors: []
-description:
+description: "Apakah kita dapat mengkonfigurasi FreeBSD untuk melakukan sleep/standby ketika lid laptop di tutup?"
 ---
 
 <!-- BANNER OF THE POST -->

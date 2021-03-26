@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara menggunakan input time_select namun dengan tupe data integer pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

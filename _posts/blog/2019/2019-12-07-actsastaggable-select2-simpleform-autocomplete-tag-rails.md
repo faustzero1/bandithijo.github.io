@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Javascript']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai cara membuat autocomplete tag dengan ActsAsTaggable, Select2, dan SimpleForm pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

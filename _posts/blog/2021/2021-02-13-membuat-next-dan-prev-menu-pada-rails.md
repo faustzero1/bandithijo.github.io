@@ -15,9 +15,9 @@ contributors: []
 description: "Mungkin teman-teman pernah melihat sebuah blog yang memiliki fitur go to next dan previous post? Nah, kita akan membuat fitur yang sama seperti itu, apabila teman-teman memiliki web aplikasi dalam bentuk blog yang dibangun menggunakan Ruby on Rails."
 ---
 
-# Requirements
+# Prerequisite
 
-`Ruby 2.7.2` `Rails 6.1.2.1`
+`Ruby 2.7.2` `Rails 6.1.2` `PostgreSQL 12.5` `RSpec 4.0.0`
 
 # Latar Belakang Masalah
 

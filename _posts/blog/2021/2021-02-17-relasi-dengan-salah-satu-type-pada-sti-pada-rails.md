@@ -15,9 +15,9 @@ contributors: []
 description: "Menyambung catatan tentang Single Table Inheritance, namun kali ini mengenai relasi salah satu type dari model yang dipasang STI."
 ---
 
-# Requirements
+# Prerequisite
 
-`Ruby 3.0.0` `Rails 6.1.2.1`
+`Ruby 3.0.0` `Rails 6.1.2` `PostgreSQL 12.5` `RSpec 4.0.0`
 
 # Latar Belakang Masalah
 

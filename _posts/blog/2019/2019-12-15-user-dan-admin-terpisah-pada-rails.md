@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Membuat User dan Admin Terpisah pada Rails"
+title: "Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise"
 date: 2019-12-15 20:18
 permalink: '/blog/:title'
 author: 'BanditHijo'
@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini tentang cara membuat user dan admin yang memiliki tabel terpisah pada Rails yang menggunakan Devise gem."
 ---
 
 <!-- BANNER OF THE POST -->

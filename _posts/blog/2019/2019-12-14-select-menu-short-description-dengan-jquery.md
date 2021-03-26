@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Javascript']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat select menu dengan keterangan kecil yang berada di bagian bawah dari menu menggunaka jQuery pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

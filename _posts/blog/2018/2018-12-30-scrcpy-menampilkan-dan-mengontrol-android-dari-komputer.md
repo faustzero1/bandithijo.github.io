@@ -12,7 +12,7 @@ tags: ['Tools', 'Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-description:
+description: "Dengan menggunakan Scrcpy, kita dengan mudah dapat mengendalikan smartphone dari komputer."
 ---
 
 <!-- BANNER OF THE POST -->

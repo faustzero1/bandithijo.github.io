@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Membuat turunan dari original image dapat mempermudah kita membuat diferensiasi terhadap ukuran image yang akan kita gunakan pada masing-msing kebutuhan yang berbeda pada sis frontend. Misalkan, ukuran image untuk thumbnails, menggunakan image dengan ukuran yang lebih kecil dari pada image untuk gallery. Catatan kali ini, akan membahas bagaimana cara membuat image derivatives dengan Shrine gem pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

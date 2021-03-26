@@ -15,6 +15,10 @@ contributors: []
 description: "Catatan kali ini tentang pemanfaatan Devise gem untuk registration tanpa menginputkan password, password akan diminta setelah user membuka link konfirmasi yang dikirimkan via email."
 ---
 
+# Prerequisite
+
+`Ruby 3.0.0` `Rails 6.1.3` `PostgreSQL 12.5` `RSpec 4.0.0`
+
 # Latar Belakang Masalah
 
 Catatan kali ini tentang pemanfaatan Devise gem untuk registration tanpa menginputkan password, password akan diminta setelah user membuka link konfirmasi yang dikirimkan via email.

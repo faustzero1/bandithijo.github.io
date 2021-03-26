@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai cara mengkonfigurasi custom domain dengan GitHub Pages dan Amazon Route 53."
 ---
 
 <!-- BANNER OF THE POST -->

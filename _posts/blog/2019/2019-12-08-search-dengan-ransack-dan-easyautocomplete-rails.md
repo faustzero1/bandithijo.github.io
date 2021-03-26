@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Javascript']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat fitur pencari dengan memanfaatkan Rasack gem dan EasyAutocomplete javascript library pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

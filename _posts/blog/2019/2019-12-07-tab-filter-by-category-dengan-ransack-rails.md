@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai cara membuat filter by category menggunakan Ransack gem pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

@@ -12,7 +12,7 @@ tags: ['Tips', 'Java']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya mendapati beberapa aplikasi berbasis Java, apabila dibuka, hanya menampilkan *canvas* putih dan tidak merender *asset* seperti form, menu, button, text, gambar dan lain-lain."
 ---
 
 <!-- BANNER OF THE POST -->

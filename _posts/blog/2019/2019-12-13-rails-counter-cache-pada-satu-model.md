@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat counter cache pada model yang sama (self)."
 ---
 
 <!-- BANNER OF THE POST -->

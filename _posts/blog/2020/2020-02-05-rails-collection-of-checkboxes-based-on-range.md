@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'jQuery']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat daftar checkbox yang berbasis rentang (range) pada web aplikasi yang dibabgun dengan Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

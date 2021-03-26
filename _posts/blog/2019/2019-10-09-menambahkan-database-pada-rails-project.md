@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara menambahkan atau mengganti database pada Ruby on Rails project yang sudah ada."
 ---
 
 <!-- BANNER OF THE POST -->

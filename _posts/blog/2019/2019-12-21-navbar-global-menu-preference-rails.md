@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat navbar yang memiliki menu yang pilihannya hanya terdapat pada controller tertentu, namun menjadi dapat digunakan pada semua halaman."
 ---
 
 <!-- BANNER OF THE POST -->

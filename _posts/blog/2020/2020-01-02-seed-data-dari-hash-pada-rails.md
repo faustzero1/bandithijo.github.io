@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini tentang cara membuat seed data dari data yang berbentuk hash pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

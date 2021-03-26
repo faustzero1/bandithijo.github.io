@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Mudah membuat grafik diagram pada Ruby on Rails dengan menggunakan ChartKick gem."
 ---
 
 # Sekenario Masalah

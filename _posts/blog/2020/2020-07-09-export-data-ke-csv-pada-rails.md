@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya memeiliki sejumlah data yang ingin saya eksport ke dalam bentuk CSV. Apakah saya dapat melakukannya pada Ruby on Rails?"
 ---
 
 # Prerequisite

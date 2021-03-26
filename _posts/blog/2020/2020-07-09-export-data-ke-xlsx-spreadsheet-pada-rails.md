@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya memeiliki sejumlah data yang ingin saya eksport ke dalam bentuk spreadshet dengan format XLSX. Apakah saya dapat melakukannya dengan Ruby on Rails?"
 ---
 
 # Prerequisite

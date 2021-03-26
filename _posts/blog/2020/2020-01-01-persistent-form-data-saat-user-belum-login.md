@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai cara memperhankan data (persistent) pada sebuah form ketika user belum melakukan authentication atau registration pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

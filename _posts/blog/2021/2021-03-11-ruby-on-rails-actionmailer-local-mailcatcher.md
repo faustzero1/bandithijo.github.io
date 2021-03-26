@@ -15,6 +15,10 @@ contributors: []
 description: "Sebelumnya, saya sudah pernah mencatat tentang konfigurasi ActionMailer dengan memanfaatkan Gmail SMTP protokol untuk mengirimkan email confirmation. Untuk testing di lokal, kita dapat memanfaatkan tools MailCatcher."
 ---
 
+# Prerequisite
+
+`Ruby 3.0.0` `Rails 6.1.3` `PostgreSQL 12.5` `RSpec 4.0.0`
+
 # Latar Belakang Masalah
 
 Mungkin teman-teman pernah dalam situasi harus mendevelop fitur email di web aplikasi yang teman-teman bangun, tapi tidak ada internet.

@@ -12,7 +12,7 @@ tags: ['Tips']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara memperbaiki font rendering yang jelek pada aplikasi Jitsi di GNU/Linux."
 ---
 
 <!-- BANNER OF THE POST -->

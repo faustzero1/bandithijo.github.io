@@ -12,7 +12,7 @@ tags: ['Tips', 'Docker']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya sedang memanfaatkan docker untuk memasang beberapa komponen-komponen pendukuk web development. Kali ini, yang saya coba pasang adalah PostgreSQL."
 ---
 
 {% box_perhatian %}
@@ -24,7 +24,7 @@ description:
 
 Saya sedang mencoba untuk memanfaatkan docker untuk memasang beberapa komponen-komponen pendukung web development.
 
-Kali ini yang saya coba pasang adalah PostgreSQL.
+Kali ini, yang saya coba pasang adalah PostgreSQL.
 
 # Sekenarion Masalah
 

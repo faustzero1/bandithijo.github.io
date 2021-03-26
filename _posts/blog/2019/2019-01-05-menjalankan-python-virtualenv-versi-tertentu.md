@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Python']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai trik membuat dan menjalankan Python Virtualenv dengan versi yang spesifik pada Arch Linux."
 ---
 
 <!-- BANNER OF THE POST -->

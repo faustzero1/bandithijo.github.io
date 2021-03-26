@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-description:
+description: "Mengkonstumisasi IRB prompt agar menjadi lebih sederhana (sesuai degan yang kita inginkan)."
 ---
 
 # Latar Belakang

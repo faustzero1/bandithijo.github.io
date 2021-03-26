@@ -12,7 +12,7 @@ tags: ['Ruby']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya membuat sebuah Ruby script untuk shell wraper dalam memudahkan proses copy paste asset modifikasi dari user direktori ke root direktori. Isi dari menu akan otomatis berubah (bertambah/berkurang) sesuai dengan isi dari direktori."
 ---
 
 # Latar Belakang Masalah

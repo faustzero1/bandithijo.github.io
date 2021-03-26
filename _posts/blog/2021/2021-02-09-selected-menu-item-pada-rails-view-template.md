@@ -15,7 +15,7 @@ contributors: []
 description: "Membuat menu item untuk menampilkan menu yang aktif dan yang tidak mungkin akan menjadi hal yang sedikit menyulitkan. Catatan kali ini, saya akan sedikit mencatat berbagai macam cara yang pernah saya lakukan untuk membuat fitur menu item yang dapat menampilkan indikator aktif (selected)."
 ---
 
-# Requirements
+# Prerequisite
 
 `ruby 2.7.2` `rails 6.1.1` `bootstrap 4.6.x`
 

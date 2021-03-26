@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat Ruby on Rails project tanpa menggunakan database."
 ---
 
 <!-- BANNER OF THE POST -->

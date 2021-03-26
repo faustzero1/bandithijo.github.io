@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat input selection yang berbasis rentang (range) pada web aplikasi yang dibangun dengan Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

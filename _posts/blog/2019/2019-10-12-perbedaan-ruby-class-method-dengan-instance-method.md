@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai perbedaan antara Method class dengan Instance class pada bahasa pemrograman Ruby."
 ---
 
 <!-- BANNER OF THE POST -->

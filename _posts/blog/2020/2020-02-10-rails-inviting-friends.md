@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini adalah mengenai cara membuat fitur pertemanan sederhana dengan menggunakan referral link saat melakukan invitation pada web aplikasi yang dibangun dengan Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

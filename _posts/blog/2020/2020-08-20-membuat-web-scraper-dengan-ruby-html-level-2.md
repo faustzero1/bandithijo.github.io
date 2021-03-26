@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini adalah modifikasi untuk tulisan sebelumnya, dimana script sebelumnya sudah tidak dapat digunakan kembali, karea web target belajar merubah layout dari web mereka."
 ---
 
 {% box_perhatian %}

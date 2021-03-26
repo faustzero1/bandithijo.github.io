@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Mengimplementasikan Single Table Inheritance pada web apps yang menggunakan Device gem."
 ---
 
 <!-- BANNER OF THE POST -->

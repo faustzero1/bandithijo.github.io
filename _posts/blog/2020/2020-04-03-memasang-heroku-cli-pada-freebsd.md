@@ -12,7 +12,7 @@ tags: ['Tips', 'FreeBSD']
 pin:
 hot:
 contributors: []
-description:
+description: "Heroku adalah Cloud Application Platform (PAAS - Platform as a Service) dimana kita sebagai web developer dapat dengan mudah mengkonfigurasi aplikasi yang kita buat agar dapat diakses di internet. Apakah CLI yang disediakan, dapat digunakan pada FreeBSD?"
 ---
 
 resume BANNER OF THE POST -->

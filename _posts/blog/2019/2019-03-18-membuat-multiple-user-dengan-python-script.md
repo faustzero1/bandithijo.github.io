@@ -12,7 +12,7 @@ tags: ['Python', 'Script']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini mengenai cara membuat user dalam jumlah banyak sekaligus menggunakan Python script."
 ---
 
 <!-- BANNER OF THE POST -->

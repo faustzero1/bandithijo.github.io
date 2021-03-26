@@ -12,7 +12,7 @@ tags: ['Ruby']
 pin:
 hot:
 contributors: []
-description:
+description: "Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis."
 ---
 
 {% box_perhatian %}

@@ -12,7 +12,7 @@ tags: ['Tips', 'FreeBSD']
 pin:
 hot:
 contributors: []
-description:
+description: "Kali ini adalah catatan mengenai konfigurasi dnscrypt-proxy pada lingkungan FreeBSD."
 ---
 
 <!-- BANNER OF THE POST -->

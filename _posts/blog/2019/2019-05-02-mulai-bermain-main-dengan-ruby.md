@@ -12,7 +12,7 @@ tags: ['Ruby', 'Ulasan']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini adalah awal pertama kali saya mulai menekuni bahasa pemrograman Ruby."
 ---
 
 <!-- BANNER OF THE POST -->

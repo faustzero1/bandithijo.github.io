@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails', 'Javascript']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai cara membuat checkbox dengan multiple selection pada Ruby on Rails."
 ---
 
 <!-- BANNER OF THE POST -->

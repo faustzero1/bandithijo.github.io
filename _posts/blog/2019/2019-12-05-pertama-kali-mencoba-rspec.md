@@ -8,11 +8,11 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Rails']
+tags: ['Tips', 'Rails', 'RSpec']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan kali ini mengenai pertama kalinya mencoba RSpec."
 ---
 
 <!-- BANNER OF THE POST -->

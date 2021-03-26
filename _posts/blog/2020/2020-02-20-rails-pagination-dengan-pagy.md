@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Bagaimana memasangkan pagination pada web aplikasi yang dibangun menggunakan Ruby on Rails. Kali ini, saya akan menggunakan gem yang mengklaim dirinya sebagai salah satu gem tercepat dan teringan diantara gem-gem pagination yang lain. yaitu, Pagy."
 ---
 
 <!-- BANNER OF THE POST -->

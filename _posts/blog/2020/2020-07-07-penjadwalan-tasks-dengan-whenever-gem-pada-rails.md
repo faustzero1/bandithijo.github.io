@@ -12,7 +12,7 @@ tags: ['Tips', 'Ruby', 'Rails']
 pin:
 hot:
 contributors: []
-description:
+description: "Saya memiliki sebuah rake task atau ruby script yang ingin saya jalankan secara otomatis di belakang layar tanpa perlu saya harus panggil terlebih dahulu. Bagaimana cara saya melakukannya pada Ruby on Rails?"
 ---
 
 # Sekenario Masalah
