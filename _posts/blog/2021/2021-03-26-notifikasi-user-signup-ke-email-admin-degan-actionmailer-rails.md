@@ -17,7 +17,7 @@ description: "Catatan kali ini, saya akan mencatatat tentang bagaimana membuat e
 
 # Prerequisite
 
-`Ruby 3.0.0` `Rails 6.1.3` `PostgreSQL 12.5` `RSpec 4.0.0`
+`Ruby 3.0.0` `Rails 6.1.3`
 
 # Latar Belakang Masalah
 
