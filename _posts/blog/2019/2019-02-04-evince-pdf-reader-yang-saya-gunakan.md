@@ -106,6 +106,7 @@ Pada area kertas, kita dapat menggunakan navigasi yang mirip seperti Vim.
 | <kbd>CTRL</kbd>+<kbd>i</kbd> | Toggle Night Mode |
 | <kbd>CTRL</kbd>+<kbd>L</kbd> | Go to Page Number |
 | <kbd>CTRL</kbd>+<kbd>F</kbd> | Menampilkan Search bar |
+| <kbd>CTRL</kbd>+<kbd>H</kbd> | Hightlihgt text |
 
 **Touchpad Gesture**
 <div style="clear:both;"></div>
