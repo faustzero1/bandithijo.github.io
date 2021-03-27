@@ -79,13 +79,13 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Hosting               | **GitHub Pages**                             |
 | Format Text           | **Markdown** & **Orgmode**                   |
 | Sistem Operasi        | **GNU/Linux**                                |
-| Distribusi            | **Artix Linux** (Arch Linux with no-systemd) |
+| Distribusi            | **Artix Linux** (Arch Linux without systemd) |
 | Desktop Env.          | -                                            |
 | Window Manager        | **dwm**                                      |
 | Terminal Emulator     | **st**                                       |
 | Shell                 | **zsh**                                      |
-| Application Launcher  | **dmenu**                                    |
-| Statusbar             | **dwmbar** (handmade)                        |
+| Application Launcher  | **dmenu** & **rofi**                         |
+| Statusbar             | **polybar**                                  |
 | Text Editor           | **neovim**                                   |
 | Raster Image Editor   | **GIMP** & **gthumb**                        |
 | Vector Image Editor   | **Inkscape**                                 |
