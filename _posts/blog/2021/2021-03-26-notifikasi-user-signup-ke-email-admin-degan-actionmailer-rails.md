@@ -58,7 +58,7 @@ Perintah ini akan mengenerate file mailers dan juga directory views yang bernama
 
 ## Konfigurasi Mailer
 
-Modifikasi alamat **form**,
+Modifikasi alamat **from**,
 
 ```ruby
 default from: 'from@example.com'
