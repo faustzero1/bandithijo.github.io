@@ -10,7 +10,7 @@ toc: true
 category: 'blog'
 tags: ['Terminal', 'Tools', 'Tips', 'Ulasan']
 pin:
-description:
+description: "Jaman sekarang sudah sangat jarang orang menggunakan IRC. Namun bukan berarti IRC sudah mati. Masih ada beberapa user yang masih menggunakan IRC. Bahkan beberapa distribusi yang besar, memiliki official channel yang terpelihara, seperti #archlinux. Untuk dapat masuk ke dalam layanan IRC, kita memerlukan IRC client. Saya ingin yang simple, salah satunya adalah Irssi."
 ---
 
 <!-- BANNER OF THE POST -->

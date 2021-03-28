@@ -12,7 +12,7 @@ tags: ['Tips', 'Terminal', 'Tools', 'I3WM', 'Ulasan']
 pin:
 hot:
 contributors: []
-description:
+description: "Clipboard manajemen mungkin merupakan kebutuhan sebagian temen-temen. Saya pun juga menggunakannya. Ternyata sangat praktis sekali, kalau kita menggunakan clipboard manajemen, tidak perlu melakukan copy paste berulang-ulang perihal yang sama. Clipmenu adalah salah satu clipboard manajemen yang simple. Karena kebanyakan kebutuhan clipboard saya adalah text, saya merasa clipmenu sudah lebih dari cukup untuk memenuhi kebutuhan saya."
 ---
 
 <!-- BANNER OF THE POST -->

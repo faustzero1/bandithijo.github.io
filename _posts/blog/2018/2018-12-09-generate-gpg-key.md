@@ -12,7 +12,7 @@ tags: ['Security', 'Tips']
 pin:
 hot:
 contributors: []
-description:
+description: "Catatan ini hanya sekedar catatan praktis tentang bagaimana cara membuat GPG key sendiri."
 ---
 
 <!-- BANNER OF THE POST -->

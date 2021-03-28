@@ -12,7 +12,7 @@ tags: ['Arch Linux', 'Tips', 'Tools', 'Terminal', 'Ulasan']
 pin:
 hot:
 contributors: []
-description:
+description: "Masih ribet memilih-milih mirror yang cepat sesuai dengan network yang kita gunakan? Saya lebih memilih menggunakan script yang dapat melakukan profiling (penilaian) mana-mana saja mirror yang cepat untuk network saya. Reflector adalah salah satu tools yang dapat kita gunakan untuk menentukan mana saja mirror yang cepat untuk kita."
 ---
 
 <!-- BANNER OF THE POST -->

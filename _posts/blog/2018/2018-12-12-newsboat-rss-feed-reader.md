@@ -12,7 +12,7 @@ tags: ['Terminal', 'Tools', 'Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-description:
+description: "Newsboat adalah salah satu RSS feed reader yang sederhana dan berjalan dengan Terminal User Interface. Sangat cocok untuk teman-teman yang lebih sering berinteraksi dengan Terminal."
 ---
 
 <!-- BANNER OF THE POST -->

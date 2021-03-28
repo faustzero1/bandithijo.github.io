@@ -12,7 +12,7 @@ tags: ['Terminal', 'Tools', 'Tips', 'Ulasan']
 pin:
 hot: true
 contributors: []
-description:
+description: "Ranger adalah TUI (*Terminal User Interface*) file manager yang ditulis dengan bahasa pemrograman Python. Kalau yang pernah tahu MC (Midnight Commander), nah serupa, sama-sama file manager. Menggunakian ranger sangat mendongkrak efektifitas saya dalam melakukan eksplorasi terhadap file-file yang terdapat di sistem saya."
 ---
 
 <!-- BANNER OF THE POST -->
@@ -20,7 +20,7 @@ description:
 
 # Prakata
 
-Ranger adalah *text-based file manager* (aplikasi untuk memanajemen file bebasis teks) yang ditulis dengan bahasa Python.
+Ranger adalah *Terminal User Interface file manager* (aplikasi untuk memanajemen file yang menggunakan antarmuka Terminal) yang ditulis dengan bahasa Python.
 
 Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom, yaitu: kolom direktori sebelumnya, direktori sekarang, dan file preview atau direktori selanjutnya.
 
