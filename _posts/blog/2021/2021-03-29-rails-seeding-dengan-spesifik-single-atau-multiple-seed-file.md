@@ -187,7 +187,7 @@ end
 Cara menjalankanya,
 
 {% shell_cmd $ %}
-rails db:seed:multiple SEEDS=01_admins,02_developers
+rails db:seed:multiple SEEDS=01_admins,02_customers
 {% endshell_cmd %}
 
 Kalau berhasil,
