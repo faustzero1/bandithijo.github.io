@@ -187,15 +187,17 @@ end
 Cara menjalankanya,
 
 {% shell_cmd $ %}
-rails db:seed:multiple SEEDS=01_admins,02_customers
+rails db:seed:multiple SEEDS=01_admins,03_subscribers
 {% endshell_cmd %}
+
+\* **Jangan ada spasi diantara koma**.
 
 Kalau berhasil,
 
 <pre>
 Seeding /home/bandithijo/rails_project/db/seeds/01_admins.seeds.rb...
 Admin has created: bandithijo@gmail.com
-Seeding /home/bandithijo/rails_project/db/seeds/02_customers.seeds.rb...
+Seeding /home/bandithijo/rails_project/db/seeds/02_subscribers.seeds.rb...
 Customer has created: budidibu@gmail.com
 Customer has created: bayuyuba@gmail.com
 </pre>
