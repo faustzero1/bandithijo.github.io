@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description: "Catatan kali ini, saya akan mencatatat tentang bagaimana mendiferensiasi seeds sesuai kategori tertentu dan juga menjalankan rails db:seed untuk single spesifik file."
+description: "Catatan kali ini, saya akan mencatatat tentang bagaimana mendiferensiasi seeds sesuai kategori tertentu dan juga menjalankan rails db:seed untuk single ataupun multiple spesifik file."
 ---
 
 # Prerequisite
@@ -123,6 +123,7 @@ Kita perlu membuat file tasks untuk mengcover hal tersebut.
 {% highlight ruby linenos %}
 namespace :db do
   namespace :seed do
+    desc "Loads the single selected file seed data from directory db/seeds/"
     task :single => :environment do
       filename = Dir[File.join(Rails.root, 'db', 'seeds', "#{ENV['SEED']}.seeds.rb")][0]
       puts "Seeding #{filename}..."
@@ -153,6 +154,10 @@ Kita hanya perlu menuliskan nama file, tanpa sufix **\*.seeds.rb**.
 
 Kali ini, kebutuhannya adalah melakukan seeding pada 1 atau lebih file seeds.
 
+Misalkan, untuk file seed **01_admins.seeds.rb** dan **03_subscribers.seeds.rb**.
+
+Sebelumnya, kita perlu membuat fle rake task lagi. Saya akan beri nama **db_seed_multiple.rake**.
+
 {% pre_whiteboard %}
  app
  bin
@@ -172,6 +177,7 @@ Kali ini, kebutuhannya adalah melakukan seeding pada 1 atau lebih file seeds.
 {% highlight ruby linenos %}
 namespace :db do
   namespace :seed do
+    desc "Loads the single or multiple selected file seed data from directory db/seeds/ (SEEDS=seed_1,seed_2,seed_3)"
     task :multiple => :environment do
       seeds = ENV['SEEDS'].split(',')
       seeds.each do |seed|
@@ -205,6 +211,40 @@ Customer has created: bayuyuba@gmail.com
 
 <br>
 Nah, mantap!
+
+Kita dapat melihat rake task spesifik untuk namespace **db:** yang baru saja kita buat pada daftar task dengan cara,
+
+{% shell_cmd $ %}
+rails -T | grep 'db:'
+{% endshell_cmd %}
+
+<pre>
+rails db:create                          # Creates the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databases in the config). Without RAILS_ENV or when RAILS_ENV is development, it defaults to creating the development and test databases, except when DATABASE_URL is present
+rails db:drop                            # Drops the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:drop:all to drop all databases
+in the config). Without RAILS_ENV or when RAILS_ENV is development, it defaults to dropping the development and test databases, except when DATABASE_URL is present
+rails db:environment:set                 # Set the environment value for the database
+rails db:fixtures:load                   # Loads fixtures into the current environment's database
+rails db:migrate                         # Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)
+rails db:migrate:down                    # Runs the "down" for a given migration VERSION
+rails db:migrate:redo                    # Rolls back the database one migration and re-migrates up (options: STEP=x, VERSION=x)
+rails db:migrate:status                  # Display status of migrations
+rails db:migrate:up                      # Runs the "up" for a given migration VERSION
+rails db:prepare                         # Runs setup if database does not exist, or runs migrations if it does
+rails db:reset                           # Drops and recreates the database from db/schema.rb for the current environment and loads the seeds
+rails db:rollback                        # Rolls the schema back to the previous version (specify steps w/ STEP=n)
+rails db:schema:cache:clear              # Clears a db/schema_cache.yml file
+rails db:schema:cache:dump               # Creates a db/schema_cache.yml file
+rails db:schema:dump                     # Creates a database schema file (either db/schema.rb or db/structure.sql, depending on `config.active_record.schema_format`)
+rails db:schema:load                     # Loads a database schema file (either db/schema.rb or db/structure.sql, depending on `config.active_record.schema_format`) into the database
+rails db:seed                            # Loads the seed data from db/seeds.rb
+<mark>rails db:seed:multiple                   # Loads the single or multiple selected file seed data from directory db/seeds/ (SEEDS=seed_1,seed_2,seed_3)</mark>
+rails db:seed:replant                    # Truncates tables of each database for current environment and loads the seeds
+<mark>rails db:seed:single                     # Loads the single selected file seed data from directory db/seeds/ (SEEDS=seed_1)</mark>
+rails db:setup                           # Creates the database, loads the schema, and initializes with the seed data (use db:reset to also drop the database first)
+rails db:structure:dump                  # Dumps the database structure to db/structure.sql
+rails db:structure:load                  # Recreates the databases from the structure.sql file
+rails db:version                         # Retrieves the current schema version number
+</pre>
 
 
 
