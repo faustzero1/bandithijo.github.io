@@ -27,7 +27,7 @@ Umumnya, Junior Rails Developer akan meletakkan semua seeds pada file tersebut. 
 
 Hal ini wajar, karena secara default, saat membuat project baru, Rails menyediakan skeleton seperti itu.
 
-<pre>
+{% pre_whiteboard %}
  app
  bin
  config
@@ -39,7 +39,7 @@ Hal ini wajar, karena secara default, saat membuat project baru, Rails menyediak
  log
  public
 ...
-</pre>
+{% endpre_whiteboard %}
 
 Lantas, **bagaimana apabila kita hanya ingin menjalankan satu buah seed saja?**
 
@@ -53,7 +53,7 @@ Modularisasi, merujuk pada proses yang biasa digunakan untuk memecah-mecah sebua
 
 Kira-kira seperti ini project skeleton untuk seeds apabila telah dipecah-pecah.
 
-<pre>
+{% pre_whiteboard %}
  app
  bin
  config
@@ -70,7 +70,8 @@ Kira-kira seperti ini project skeleton untuk seeds apabila telah dipecah-pecah.
  lib
  log
  public
-</pre>
+...
+{% endpre_whiteboard %}
 
 Pemecahan file **db/seeds.rb**, saya letakkan pada direktori **db/seeds/** dan saya berikan nama dengan sufix **\*.seeds.rb**.
 
@@ -104,7 +105,7 @@ Seperti yang sudah saya singgung sebelumnya, catatan ini adalah mengenai cara me
 
 Kita perlu membuat file tasks untuk mengcover hal tersebut.
 
-<pre>
+{% pre_whiteboard %}
  app
  bin
  config
@@ -115,7 +116,8 @@ Kita perlu membuat file tasks untuk mengcover hal tersebut.
   └  <mark>db_seed_single.rake</mark>
  log
  public
-</pre>
+...
+{% endpre_whiteboard %}
 
 {% highlight_caption lib/tasks/db_seed_single.rake %}
 {% highlight ruby linenos %}
