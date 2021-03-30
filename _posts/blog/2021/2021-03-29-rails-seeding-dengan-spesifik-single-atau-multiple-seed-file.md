@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Rails Seeding dengan Spesifik Single atau Multiple Seed File"
+title: "Rails Seeding dengan Spesifik Single atau Multiple Seed File (Modularisasi Seeds)"
 date: 2021-03-29 19:00
 permalink: '/blog/:title'
 author: 'BanditHijo'
