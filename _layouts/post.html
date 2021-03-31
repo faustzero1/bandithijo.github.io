@@ -83,8 +83,9 @@ layout: baseof
               {% include kontributor.html %}
             {% endif %}
 
-            {% include penulis.html %}
-
+            {% if page.category != 'note' %}
+              {% include penulis.html %}
+            {% endif %}
           {% endif %}
 
           <div style="clear:both;"></div>
