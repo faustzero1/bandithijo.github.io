@@ -2041,6 +2041,35 @@ div.highlight-caption code {
   margin-left: 0.2em;
 }
 
+/* COLLAPSIBLE TITLE */
+.collapsible-title {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.collapsible-title:before {
+  content: '\002B';
+  color: black;
+  float: left;
+  margin-right: 13px;
+}
+
+.collapsible-title.active:before {
+  content: "\2212";
+}
+
+.content-title {
+  padding: 0 13px;
+  display: none;
+  overflow: hidden;
+  font-size: 14px;
+  width: 92%;
+  margin-top: -6px;
+  margin-bottom: 6px;
+  border-bottom: 1px dashed #B8B8B8;
+}
+
 
 /* ------------------------------------------------------------------------ */
 /*
@@ -2748,6 +2777,11 @@ div.highlight-caption code {
 
   .kontributor-img img {
     width: 15%;
+  }
+
+  .content-title {
+    width: 100%;
+    padding-bottom: 21px;
   }
 }
 
