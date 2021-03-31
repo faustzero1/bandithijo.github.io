@@ -16,13 +16,13 @@ permalink: '/note/'
         <div class="post-title-tags">
           <span class="notag"></span>
         </div>
-        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+        <p class="post-details-index">[{{ post.date | date: '%Y%m%d' }}]</p>
       {% elsif post.category == 'note' and post.pin == nil and post.wip == true %}
         <p class="post-title-index">+&nbsp;<a href="{{ post.url }}">{{ post.title }}</a></p>
         <div class="post-title-tags">
           <span class="wiptag">WIP</span>
         </div>
-        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+        <p class="post-details-index">[{{ post.date | date: '%Y%m%d' }}]</p>
       {% endif %}
     {% else %}
       {% if post.category == 'note' and post.pin == nil and post.wip == nil %}
@@ -35,7 +35,7 @@ permalink: '/note/'
         <div class="post-title-tags">
           <span class="notag"></span>
         </div>
-        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+        <p class="post-details-index">[{{ post.date | date: '%Y%m%d' }}]</p>
       {% elsif post.category == 'note' and post.pin == nil and post.wip == true %}
         <p type="button" class="post-title-index collapsible-title">{{ post.title }}</p>
         <div class="content-title">
@@ -46,7 +46,7 @@ permalink: '/note/'
         <div class="post-title-tags">
           <span class="wiptag">WIP</span>
         </div>
-        <p class="post-details-index"><a href="{{ post.url }}">[&nbsp;{{ post.date | date: '%Y%m%d' }}&nbsp;]</a></p>
+        <p class="post-details-index">[{{ post.date | date: '%Y%m%d' }}]</p>
       {% endif %}
     {% endif %}
   {% endfor %}

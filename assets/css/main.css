@@ -493,12 +493,13 @@ p.post-title-index a:hover {
 
 p.post-details-index {
   color: var(--BLACK);
+  font-family: 'Fira Code';
   font-size: 14px;
   text-align: right;
   background: #B8B8B8;
   padding: 3px 4px;
   position: relative;
-  top: -39px;
+  top: -28px;
   float: right;
   margin: 0;
   border-radius: 0;
@@ -509,14 +510,25 @@ p.post-details-index a {
   border-bottom:none;
 }
 
+p.post-details-index:before {
+  content: "";
+  border-top: 8px solid transparent;
+  border-right: 8px solid #B8B8B8;
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  left: -8px;
+  top: 5px;
+}
+
 p.post-details-index-pin {
   color: var(--BLACK);
+  font-family: 'Fira Code';
   font-size: 14px;
   text-align: right;
   background: #FF7700;
   padding: 3px 4px;
   position: relative;
-  top: -38px;
+  top: -28px;
   float: right;
   margin: 0;
   border-radius: 0;
