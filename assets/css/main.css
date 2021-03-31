@@ -1661,6 +1661,7 @@ img.kontributor-img  {
   padding-right: 5px;
   width: 65px;
   border-radius: 50%;
+  margin:0 auto;
 }
 
 /* collapsible ------------------------------------------------------------ */
