@@ -44,7 +44,7 @@ module Jekyll
       output  = '<pre>'
       output += commands[1..].map do |i|
         "<span class='cmd' #{"style='color:#{prompt_color};'" unless prompt_color.nil?}>" \
-        "#{prompt_symbol.nil? ? '$' : prompt_symbol} </span><b>#{i}</b><br>"
+          "#{prompt_symbol.nil? ? '$' : prompt_symbol} </span><b>#{i.rstrip}</b><br>"
       end.join.to_s
       output += '</pre>'
       output
