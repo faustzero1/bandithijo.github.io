@@ -12,7 +12,7 @@ tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
-description: "Membuat button atau link yang memiliki animation loading ketika di klik, sangat membantu dalam hal user experience, untuk memberikan informasi kepada pengguna, bahwa inputan sedang diproses. Apakah sulit membuatnya?"
+description: "Catatan kali ini tentang bagaimana membuat sebuah fitur update value pada sebuah halaman tanpa perlu refresh halaman. Sekaligus membuat animasi loading pada link/button tersebut."
 ---
 
 # Prerequisite
@@ -173,7 +173,6 @@ class BooksController < ApplicationController
 
   # def index, show, new, edit, dst...
 
-
   # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy
@@ -295,7 +294,7 @@ class BooksController < ApplicationController
   end
 
   private
-  
+
   # ...
 end
 {% endhighlight %}
