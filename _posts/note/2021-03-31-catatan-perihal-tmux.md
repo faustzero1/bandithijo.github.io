@@ -132,6 +132,51 @@ Tmux session tersebut tidak akan hilang, tapi masih berjalan di background proce
 
 Untuk mengakses Tmux session yang kita detach tersebut, gunakan [**cara ini**](#attachmemasang-kembali-session-yang-sudah-di-detach-dari-terminal)
 
+<br>
+## Memberikan/Mengganti nama session
+
+Secara default, nama session akan otomatis digenerate secara incremental dalam bentuk integer mulai dari 0.
+
+Kita, dapat mengganti nama session dengan cara,
+
+<kbd>Ctrl</kbd>-<kbd>b</kbd> <kbd>$</kbd>
+
+Pada command mode, akan tertulis seperti ini,
+
+{% pre_url %}
+(rename-session) 0
+{% endpre_url %}
+
+Ganti **0** dengan nama yang kalian inginkan.
+
+<br>
+## Membuat window (tab) baru
+
+Secara default, saat session baru dibuat, hanya akan ada 1 window (tab) yang biasanya bernama **0:zsh**.
+
+Kita dapat membuat/manambah window baru dengan cara,
+
+<kbd>Ctrl</kbd>-<kbd>b</kbd> <kbd>c</kbd>
+
+Window (tab) baru akan secara otomatis ditambahkan ke bagian akhir dari windows stack.
+
+<br>
+## Memberikan/Mengganti nama window (tab)
+
+Secara default, nama window akan otomatis diambil dari nama shell yang digunakan.
+
+Kita, dapat mengganti nama window dengan cara,
+
+<kbd>Ctrl</kbd>-<kbd>b</kbd> <kbd>,</kbd>
+
+Pada command mode, akan tertulis seperti ini,
+
+{% pre_url %}
+(rename-window) zsh
+{% endpre_url %}
+
+Ganti **zsh** dengan nama yang kalian inginkan.
+
 
 
 <br>
@@ -155,7 +200,7 @@ Kalau kita sudah berada di dalam Tmux, namun ingin membuat session lain (session
 {% endpre_url %}
 
 <br>
-## Mengganti working wirectory pada session yang sudah ada dari dalam Tmux
+## Mengganti working directory pada session yang sudah ada dari dalam Tmux
 
 Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working directory*-nya,
 
@@ -164,23 +209,6 @@ Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working d
 {% endpre_url %}
 
 **-t** adalah *specify target session*.
-
-<br>
-## Memberikan nama pada session
-
-Secara default, nama session akan otomatis digenerate secara incremental dalam bentuk integer mulai dari 0.
-
-Kita, dapat mengganti nama session dengan cara,
-
-<kbd>Ctrl</kbd>-<kbd>b</kbd> <kbd>$</kbd>
-
-Pada command mode, akan tertulis seperti ini,
-
-{% pre_url %}
-(rename-session) 0
-{% endpre_url %}
-
-Ganti **0** dengan nama yang kalian inginkan.
 
 
 <br>
