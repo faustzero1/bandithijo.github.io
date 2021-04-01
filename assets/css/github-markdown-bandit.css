@@ -341,11 +341,11 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h2 {
-  font-size: 28px !important;
+  font-size: 30px !important;
 }
 
 .markdown-body h3 {
-  font-size: 22px !important;
+  font-size: 26px !important;
 }
 
 .markdown-body h3,
@@ -354,7 +354,7 @@ SourceURL: https://github.com/sindresorhus/github-markdown-css
 }
 
 .markdown-body h4 {
-  font-size: 18px !important;
+  font-size: 20px !important;
 }
 
 .markdown-body h5 {
