@@ -21,7 +21,7 @@ Banyak sekali hal-hal terkait Tmux yang terlupakan karena tidak pernah saya cata
 
 Karena alasan tersebut, saya putuskan untuk mencatat beberapa hal terkait Tmux. Mungkin, teman-teman juga dapat memanfaatkannya.
 
-# Tips dan Trick
+# Mappings (Keyboard Shortcut)
 
 ## Tmux Prefix
 
@@ -59,17 +59,8 @@ Kalau berhasil, Tmux akan menampilkan command mode pada Tmux statusbar seperti i
 Tinggal kita masukkan command yang ingin di-input-kan.
 
 <br>
-## Membuat Session Baru dari Terminal
+# Command Mode
 
-Untuk membuat session baru dari Terminal,
-
-{% shell_cmd $ %}
-tmux new-session -s &lt;nama_session&gt;
-{% endshell_cmd %}
-
-**-s** adalah flag option untuk **name the session**.
-
-<br>
 ## Membuat Session Baru dari dalam Tmux
 
 Untuk membuat session baru dari dalam Tmux,
@@ -77,21 +68,6 @@ Untuk membuat session baru dari dalam Tmux,
 {% pre_url %}
 :new-session -s &lt;nama_session&gt;
 {% endpre_url %}
-
-<br>
-## Membuat Session Baru dengan Working Directory dari Terminal
-
-Tmux session yang baru dibuat, akan dimulai dari WD (*Working Directory*) dimana session tersebut dibuat.
-
-Jadi, kalau kita buat Tmux session pada direktori **~/Desktop**, maka setiap WD dari Tmux window pane yang ada di dalam Tmux session tersebut akan dimulai dari sana.
-
-Namun, kita dapat membuat session baru, sambil mendefinisikan lokasi dari WD yang akan digunakan.
-
-{% shell_cmd $ %}
-tmux new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
-{% endshell_cmd %}
-
-**-c** adalah *specify working directory for the session*.
 
 <br>
 ## Membuat Session Baru dengan Working Directory dari dalam Tmux
@@ -112,6 +88,35 @@ Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working d
 {% endpre_url %}
 
 **-t** adalah *specify target session*.
+
+<br>
+# Command Line Terminal
+
+## Membuat Session Baru dari Terminal
+
+Untuk membuat session baru dari Terminal,
+
+{% shell_cmd $ %}
+tmux new-session -s &lt;nama_session&gt;
+{% endshell_cmd %}
+
+**-s** adalah flag option untuk **name the session**.
+
+<br>
+## Membuat Session Baru dengan Working Directory dari Terminal
+
+Tmux session yang baru dibuat, akan dimulai dari WD (*Working Directory*) dimana session tersebut dibuat.
+
+Jadi, kalau kita buat Tmux session pada direktori **~/Desktop**, maka setiap WD dari Tmux window pane yang ada di dalam Tmux session tersebut akan dimulai dari sana.
+
+Namun, kita dapat membuat session baru, sambil mendefinisikan lokasi dari WD yang akan digunakan.
+
+{% shell_cmd $ %}
+tmux new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
+{% endshell_cmd %}
+
+**-c** adalah *specify working directory for the session*.
+
 
 
 
