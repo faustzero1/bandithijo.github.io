@@ -35,7 +35,7 @@ rails g mailer AdminMailer
 
 Perintah ini akan mengenerate file mailers dan juga directory views yang bernama **admin_mailer**.
 
-<pre>
+{% pre_whiteboard %}
  app
 │  assets
 │  channels
@@ -54,7 +54,7 @@ Perintah ini akan mengenerate file mailers dan juga directory views yang bernama
  config
  db
 ...
-</pre>
+{% endpre_whiteboard %}
 
 ## Konfigurasi Mailer
 
