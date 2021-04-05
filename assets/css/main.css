@@ -1927,16 +1927,37 @@ a.disqus_button {
   height: 25px;
   background: repeating-linear-gradient(
   45deg,
-  #CA9900,
-  #CA9900 15px,
-  #D8A400 15px,
-  #D8A400 30px);
+  #EA9700,
+  #EA9700 15px,
+  #FFA500 15px,
+  #FFA500 30px);
 }
 
-.newsline-high, .newsline-low p {
+.newsline-high p {
+  color: var(--WHITE);
+}
+
+.newsline-high p a,
+.newsline-high p a :hover {
+  color: var(--WHITE);
+  font-weight: bold;
+  border-bottom-color: var(--WHITE);
+}
+
+.newsline-low p {
+  color: var(--BLACK);
+}
+
+.newsline-low p a,
+.newsline p a:hover {
+  color: var(--BLACK);
+  font-weight: bold;
+  border-bottom-color: var(--BLACK);
+}
+
+.newsline-high, .newsline-low {
   font-size: 14px !important;
   font-weight: normal !important;
-  color: var(--WHITE);
   width: 100%;
   margin: 0 auto;
   padding-top: 5px;
