@@ -3,7 +3,11 @@
 
 state: high
 news: |
-  Mulai <b>April 2020</b>, bandithijo.com akan menggunakan GitHub subdomain menjadi <a href="https://bandithijo.github.io" style="color:white;"><b>bandithijo.github.io</b></a>. Penggunaan domain .com tidak sejalan dengan cara pandang saya terhadap sebuah blog, dimana blog harus bisa tetap hidup tanpa saya. Terima kasih (^_^) (bandithijo, 2020/03/25) ●
+  Please <a href="https://github.com/rms-support-letter/rms-support-letter.github.io" style="color:white;font-weight:bold;">support</a> Richard M. Stallman, free software movement activist, founder of <a href="https://www.gnu.org/" style="color:white;font-weight:bold;">GNU project</a> and <a href="https://www.fsf.org/" style="color:white;font-weight:bold;">Free Software Foundation</a>, during ongoing attempt to defame and displace him. Terima kasih (^_^) (bandithijo, 2021/04/05) ●
+
+# state: high
+# news: |
+#   Mulai <b>April 2020</b>, bandithijo.com akan menggunakan GitHub subdomain menjadi <a href="https://bandithijo.github.io" style="color:white;"><b>bandithijo.github.io</b></a>. Penggunaan domain .com tidak sejalan dengan cara pandang saya terhadap sebuah blog, dimana blog harus bisa tetap hidup tanpa saya. Terima kasih (^_^) (bandithijo, 2020/03/25) ●
 
 
 # Old News
