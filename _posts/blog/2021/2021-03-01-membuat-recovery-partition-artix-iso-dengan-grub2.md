@@ -173,6 +173,8 @@ Nah, sekarag partisi RECOVERY sudah tidak terlihat.
 
 Namun, masih dapat kita lihat pada `$ lsblk`.
 
+## Memperbaharui File ISO
+
 Kalau ingin memperbaharui file ISO, tinggal dimount saja sengan **udisksctl**.
 
 {% shell_cmd $ %}
