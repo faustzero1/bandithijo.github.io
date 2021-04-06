@@ -107,7 +107,7 @@ Maka, versi yang ditampilkan adalah versi terbaru dengan rilis stable.
 Kalau ingin melihat semua versi, gunakan perintah di bawah ini.
 
 {% shell_user %}
-rbenv install --list
+rbenv install --list-all
 {% endshell_user %}
 
 Maka yang tampil adalah semua versi.
