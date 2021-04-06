@@ -1964,6 +1964,13 @@ a.disqus_button {
   text-align: center;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
 /* MODAL ------------------------------------------------------------------- */
 
 .myImg {
@@ -2386,6 +2393,10 @@ div.highlight-caption code {
     border: none;
     /* untuk memunculkan properties di atas */
     overflow: hidden;
+  }
+
+  .sticky {
+    top: 53px;
   }
 
   .post-title {
