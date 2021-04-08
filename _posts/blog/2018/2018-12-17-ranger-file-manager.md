@@ -284,9 +284,9 @@ set w3m_delay 0.01
 <br>
 Saya tidak lagi menggunakan w3m. Namun saat ini, saya sudah menggunakan **ueberzug** untuk menampilkan gambar.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S ueberzug
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption $HOME/.config/ranger/rc.conf %}
 {% highlight sh linenos %}
@@ -297,9 +297,9 @@ set preview_images_method uqberzug
 
 Untuk menampilkan file info dari file gambar, caranya sagat mudah. Ranger sudah menyediakan fitur ini secara default, kita hanya perlu memasang paket dependensi yang diperlukan saja.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S perl-image-exiftool
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudian, untuk melakukan toggling antar image preview dengan file info, kita dapat menggunakan keybind <kbd>z</kbd>+<kbd>i</kbd>.
 

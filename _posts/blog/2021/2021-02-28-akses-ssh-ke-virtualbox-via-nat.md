@@ -40,9 +40,9 @@ Saya sudah mengaktifkan service SSH di Guest, jadi tinggal saya akses saja via S
 
 Bagian **Guest IP** adalah IP address dari Guest yang bisa didapatkan dengan,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 ip a s eth0
-{% endshell_cmd %}
+{% endshell_term %}
 
 **eth0** adalah ethernet interface.
 
@@ -53,9 +53,9 @@ Berbeda distro, bisa berbeda nama (new namspace atau old namespace).
 <br>
 Selajutnya, tinggal kita akses dari Host menggunakan Terminal Emulator favorit.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 ssh -p 2222 &lt;username>@127.0.0.1
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 The authenticity of host '[127.0.0.1]:2222 ([127.0.0.1]:2222)' can't be established.

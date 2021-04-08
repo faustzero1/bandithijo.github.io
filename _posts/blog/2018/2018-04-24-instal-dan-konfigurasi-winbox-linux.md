@@ -44,9 +44,9 @@ Proses instalasi Wine dapat merujuk pada distribusi sistem operasi GNU/Linux mas
 
 Untuk distribusi Arch Linux.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S wine wine_gecko wine-mono
-{% endshell_cmd %}
+{% endshell_term %}
 
 `wine_gecko` dan `wine-mono` diperlukan untuk aplikasi yang membutuhkan Internet Explorer dan .NET. Sebenarnya paket ini tidak benar-benar harus dipasang karena Wine secara pintar akan mengunduh paket-paket yang relevan sesuai dengan kebutuhan. Namun apabila kamu memasangnya lebih dulu akan lebih menguntungkan apabila nantinya kamu tidak mendapatkan akses internet saat proses instalasi aplikasi Microsoft Windows di atas Wine.
 
@@ -74,9 +74,9 @@ Lakukan pengetesan untuk menguji apakah WinBox dapat berjalan di atas Wine.
 
 Buka **Terminal** dan pergi ke direktori tempat dimana file `winbox.exe` kalian simpan. Kemudian jalankan *command* di bawah.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 wine winbox.exe
-{% endshell_cmd %}
+{% endshell_term %}
 
 Apabila berhasil, akan menampilkan jendela WinBox seperti di bawah.
 
@@ -88,9 +88,9 @@ Selanjutnya tinggal membuat *launcher* atau *shortcut* untuk memanggil WinBox da
 
 Buat file `winbox.desktop` pada direktori `~/.local/share/applications/`
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 touch ~/.local/share/applications/winbox.desktop
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudian, buka dengan text editor favorit kalian, dan isikan seperti contoh di bawah.
 

@@ -359,31 +359,31 @@ Seperti ini misalnya,
 
 {% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
 {% highlight liquid %}
-{% raw %}{% shell_cmd $ %}
+{% raw %}{% shell_term $ %}
 sudo pacman -Syu
 sudo pacman -Scc
-{% endshell_cmd %}{% endraw %}
+{% endshell_term %}{% endraw %}
 {% endhighlight %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -Syu
 sudo pacman -Scc
-{% endshell_cmd %}
+{% endshell_term %}
 
 Atau,
 
 {% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
 {% highlight liquid %}
-{% raw %}{% shell_cmd # %}
+{% raw %}{% shell_term # %}
 pacman -Syu
 pacman -Scc
-{% endshell_cmd %}{% endraw %}
+{% endshell_term %}{% endraw %}
 {% endhighlight %}
 
-{% shell_cmd # %}
+{% shell_term # %}
 pacman -Syu
 pacman -Scc
-{% endshell_cmd %}
+{% endshell_term %}
 
 Saya menggunakan parameter `$` untuk mengindikasikan user biasa dan `#` untuk mengindikasikan root.
 
@@ -391,22 +391,22 @@ Atau, dengan parameter warna
 
 {% highlight_caption _posts/blog/2021/2021-01-01-contoh-artikel.md %}
 {% highlight liquid %}
-{% raw %}{% shell_cmd [arch@iso ~]# | #DC322F %}
+{% raw %}{% shell_term [arch@iso ~]# | #DC322F %}
 mkdir project
 cd project
 git clone https://github.com/bandithijo/new_project
 cd new_project
 bundle exec jekyll server
-{% endshell_cmd %}{% endraw %}
+{% endshell_term %}{% endraw %}
 {% endhighlight %}
 
-{% shell_cmd [arch@iso ~]# | #DC322F %}
+{% shell_term [arch@iso ~]# | #DC322F %}
 mkdir project
 cd project
 git clone https://github.com/bandithijo/new_project
 cd new_project
 bundle exec jekyll server
-{% endshell_cmd %}
+{% endshell_term %}
 
 Jadi lebih fleksible.
 
@@ -442,7 +442,7 @@ module Jekyll
   end
 end
 
-Liquid::Template.register_tag('shell_cmd',  Jekyll::ShellCommand)
+Liquid::Template.register_tag('shell_term',  Jekyll::ShellCommand)
 {% endhighlight %}
 
 

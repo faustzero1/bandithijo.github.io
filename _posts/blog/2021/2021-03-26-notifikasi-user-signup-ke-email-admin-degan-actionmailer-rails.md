@@ -29,9 +29,9 @@ Membuat fitur email notifikasi ke email admin apabila terdapat user baru yang me
 
 Saya akan memberikan nama **AdminMailer** untuk fitur mailer yang akan dibuat.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g mailer AdminMailer
-{% endshell_cmd %}
+{% endshell_term %}
 
 Perintah ini akan mengenerate file mailers dan juga directory views yang bernama **admin_mailer**.
 

@@ -28,9 +28,9 @@ Kita membutuhkan paket bernama [ffmpeg](https://www.archlinux.org/packages/extra
 # Penerapan
 Buka Terminal dan masuk ke dalam direktori tempat dimana kalian menyimpan file video yang akan dirotasi. Kemudian ketikkan _command_ di bawah,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 ffmpeg -i in.mp4 -vf "transpose=1" out.mp4
-{% endshell_cmd %}
+{% endshell_term %}
 
 ><p class="title-quote">Transpose Parameter :</p>
 ><b>0</b> = 90 counterclockwise and vertical flip (default)<br>

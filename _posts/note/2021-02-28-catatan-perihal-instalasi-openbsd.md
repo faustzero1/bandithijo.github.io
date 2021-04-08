@@ -32,9 +32,9 @@ Terima kasih telah menjadi pembaca setia dan menemani saya sampai saat ini.
 
 Untuk berpindah ke root shell, dapat menggunakan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 su
-{% endshell_cmd %}
+{% endshell_term %}
 
 Masukkan password root yang dibuat pada saat proses instalasi.
 
@@ -60,27 +60,27 @@ permit persist :wheel
 
 **vi** is preinstalled by default, jadi kita dapat menggunakan text editor ini.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 vi
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## Firmware update
 
 Dapat dilakukan dengan:
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fw_update
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## USB tethering
 
 Lihat interface dari usb tethering,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 ifconfig
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 ...
@@ -95,9 +95,9 @@ Biasanya akan bernama **urndis0**.
 
 Tinggal kita jalankan,
 
-{% shell_cmd # %}
+{% shell_term # %}
 dhclient urndis0
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kalau berhasil, kita akan mendapatkan IP address.
 
@@ -121,38 +121,38 @@ Untuk melakukan scaning, misal wifi interface kita **iwn0**.
 
 \* dapat ditebak kalau wireless card saya adalah intel.
 
-{% shell_cmd # %}
+{% shell_term # %}
 ipconfig iwn0 scan
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudia, setelah mendapatkan SSID yang kita inginkan, tinggal connect.
 
-{% shell_cmd # %}
+{% shell_term # %}
 ifconfig iw0 nwid &lt;network-name> wpakey &lt;passphrase>
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudian, untuk mendapatkan IP address, dapat menggunakan dhcp.
 
-{% shell_cmd # %}
+{% shell_term # %}
 dhcp
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## DHCP Server
 
 Jika ingin mengaktifkan DHCP server service saat startup, dapat menggunakan,
 
-{% shell_cmd # %}
+{% shell_term # %}
 rcctl enable dhcpd
-{% endshell_cmd %}
+{% endshell_term %}
 
 Atau untuk mengeset perinterface saja, dapat menggunkan,
 
 Misal, untuk etheret interface **em0** dan **iwn0**.
 
-{% shell_cmd # %}
+{% shell_term # %}
 rcctl set dhcpd flags em0 iwn0
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## Tmux
@@ -161,9 +161,9 @@ Sejak OpeBSD 4.6, tmux telah menjadi bagian dari base system, sehingga kita tida
 
 Tinggal jalankan tmux di terminal.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 tmux
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## Starting X (Xenodm)
@@ -171,10 +171,10 @@ tmux
 The recommended way to run X is with the xenodm(1) display manager. It offers some important security benefits over the traditional startx(1) command.
 If xenodm(1) wasn't enabled during installation, it can be done so later like any other system daemon:
 
-{% shell_cmd # %}
+{% shell_term # %}
 rcctl enable xenodm
 rcctl start xenodm
-{% endshell_cmd %}
+{% endshell_term %}
 
 On some platforms, you will need to disable the console getty(8) to use it. **This is not needed on amd64, i386 or macppc**.
 

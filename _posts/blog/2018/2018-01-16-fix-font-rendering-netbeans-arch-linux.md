@@ -28,9 +28,9 @@ Kita perlu mengetahui terlebih dahulu direktori tempat file `netbeans.conf` disi
 
 Kemudian, kita akan mengedit file `netbeans.conf`,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo nano /usr/share/netbeans/etc/netbeans.conf
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption /usr/share/netbeans/etc/netbeans.conf %}
 {% highlight sh linenos %}

@@ -43,17 +43,17 @@ Sebenarnya, kita dapat membaca email dari log yang ditampilkan pada Rails server
 
 Proses instalasi sangat mudah, selayaknya memasan gem.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 gem install mailcatcher
-{% endshell_cmd %}
+{% endshell_term %}
 
 # Jalankan MailCatcher Daemon
 
 Setelah proses instalasi selesai, jalankan MailCatcher daemon.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 mailcatcher
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Starting MailCatcher

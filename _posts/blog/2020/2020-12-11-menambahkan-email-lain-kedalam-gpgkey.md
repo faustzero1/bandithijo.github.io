@@ -189,9 +189,9 @@ Untuk melihat key id yang kita miliki, kita dapat melihat dengan setidaknya 4 fo
 4. long
 
 <br>
-{% shell_cmd $ %}
+{% shell_term $ %}
 gpg --keyid-format 0xshort -K
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 /home/bandithijo/.gnupg/pubring.kbx
@@ -216,9 +216,9 @@ Untuk menampilkan fingerprint, kita dapat menambahkan option `--fingerprint`, ba
 
 Misal, untuk melihat key id kita sendiri dengan format `0xshort` dan `--fingerprint`
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 gpg --keyid-format 0xshort -K --fingerprint
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 /home/bandithijo/.gnupg/pubring.kbx

@@ -38,9 +38,9 @@ Current Working Directory atau biasa disingkat dengan **cwd**, adalah lokasi/pat
 
 Kita dapat menggunakan perintah,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 pwd
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% pre_url %}
 /home/bandithijo/app/blog/
@@ -59,9 +59,9 @@ Misalkan kita berada pada,
 
 Dan kita ingin mundur satu level ke direktori **app**, maka kita dapat menggunakan cara ini,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 cd ..
-{% endshell_cmd %}
+{% endshell_term %}
 
 Sekarang, kita sudah berada pada direktori **app**.
 {% pre_url %}
@@ -73,9 +73,9 @@ Sekarang, kita sudah berada pada direktori **app**.
 
 Cara cepatnya untuk keluar satu level dan masuk lagi ke direktori yang sama, dapat menggunakan,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 cd -
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## Menghapus seluruh inputan karakter
@@ -90,15 +90,15 @@ Ilustrasinya,
 
 **Sebelum**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
-{% endshell_cmd %}
+{% endshell_term %}
 
 **Sesudah**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 _
-{% endshell_cmd %}
+{% endshell_term %}
 
 Maka, inputan karakter yang kita masukkan sebelumnya, akan dihapus semua, dan dimulai dari awal.
 
@@ -117,9 +117,9 @@ Misalnya saja, kita ingin melihat apakah flashdrive yang kita pasang sudah terde
 
 Kita tidak perlu menjalankan perintah **lsblk** berulang kali. Cukup tambahkan **watch** tepat sebelum menjalankan **lsblk**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 watch lsblk
-{% endshell_cmd %}
+{% endshell_term %}
 
 Maka **lsblk** akan dijalankan dan outputnya akan diperbaharui setiap 2 detik.
 

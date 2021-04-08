@@ -23,9 +23,9 @@ VBoxManage adalah command line interface dari VirtualBox. Lengkapnya adalah "*Or
 
 Untuk melihat daftar vm yang ada,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 VBoxManage list vms
-{% endshell_cmd %}
+{% endshell_term %}
 
 Outputnya akan seperti ini,
 
@@ -49,9 +49,9 @@ Cara menjalankan vm dengan headless mode,
 $ VBoxManage startvm &lt;nama_vm&gt; --type headless
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 VBoxManage startvm RDPWindows --type headless
-{% endshell_cmd %}
+{% endshell_term %}
 
 Outputnya akan seperti ini,
 
@@ -69,18 +69,18 @@ Saya tidak merekomendasikan mematikan vm dengan cara ini, karena sering sekali W
 $ VBoxManage controlvm &lt;nama_vm> poweroff
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 VBoxManage controlvm RDPWindows poweroff
-{% endshell_cmd %}
+{% endshell_term %}
 
 
 # Konektifitas USB Host -> Guest VM
 
 ## Mengecek daftar device yang terhubung dengan USB port
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 VBoxManage list usbhost
-{% endshell_cmd %}
+{% endshell_term %}
 
 Outputnya akan seperti ini,
 
@@ -115,9 +115,9 @@ Untuk memindahkan perangkat USB yang terhubung dengan Host ke Guest vm.
 $ VBoxManage controlvm &lt;nama_vm> usbattach &lt;UUID>
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 VBoxManage controlvm RDPWindows usbattach dcab5dcf-37c1-4718-962f-0e54ff7cc80c
-{% endshell_cmd %}
+{% endshell_term %}
 
 Untuk melepasnya, tinggal "Safely Remove" saja. Meskipun, ada command untuk *detach* juga.
 

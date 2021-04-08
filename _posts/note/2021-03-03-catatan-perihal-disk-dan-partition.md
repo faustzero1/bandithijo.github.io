@@ -41,15 +41,15 @@ sda       &lt;== disebut, <strong>block devices</strong>,   biasanya ditulis <st
 
 Atau dapat kita artikan mengecek struktur dari partisi.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 lsblk
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita juga dapat memformat tampilan output untuk menampilkan field apa saya yang ingin kita tampilkan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 lsblk --output=NAME,FSTYPE,SIZE,TYPE,LABEL,MOUNTPOINT
-{% endshell_cmd %}
+{% endshell_term %}
 
 Teman-teman tinggal mendefinisikan aliasnya saja biar praktis.
 
@@ -64,9 +64,9 @@ Terdapat 2 tahap:
 <span class="cmd">$ </span><b>udisksctl loop-setup -f file_image.iso</b>
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl loop-mount -f archlinux.iso
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kalau berhasil, fileiso akan terpasang ke loop block device.
 
@@ -86,9 +86,9 @@ Tinggal dimounting.
 <span class="cmd">$ </span><b>udisksctl mount -p block_devices/block_partition</b>
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl mount -p block_devices/loop0p1
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 $ lsblk
@@ -111,9 +111,9 @@ Sekenarionya tinggal dibalik dari proses mounting di atas.
 udisksctl unmount -p block_devices/block_partition
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl unmount -p block_devices/loop0p1
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 $ lsblk
@@ -129,9 +129,9 @@ loop0     iso9660   681M loop ARCH_202010
 udisksctl loop-delete -b block_devices/block_device
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl loop-delete -b block_devices/loop0
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ## Membuat bootable flash drive dengan dd
@@ -150,17 +150,17 @@ Selanjutnya tinggal kita ekseskusi.
 <span class="cmd">$ </span><b>sudo dd if=/path/source of=/path/target</b>
 {% endpre_url %}
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo dd if=~/iso/archlinux.iso of=/dev/sdb
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita juga dapat menambahkan beberapa parameter seperti `bs=BYTES` atay `status=LEVEL`.
 
 Seringnya, saya gunakan seperti ini:
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo dd if=~/iso/archlinux.iso of=/dev/sdb bs=1M status=progress
-{% endshell_cmd %}
+{% endshell_term %}
 
 Untuk penjelasan mengenai parameter lebih lengkapnya, teman-teman dapat membaca sendiri di [**man dd**](https://man.archlinux.org/man/dd.1){:target="_blank"}.
 

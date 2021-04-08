@@ -27,9 +27,9 @@ _FingerPrint scanner_ dapat digunakan secara _plug and play_ pada Arch Linux (da
 
 Untuk mengetahui tipe dan _brand_ dari _fingerprint scanner_ yang kalian miliki, gunakan _command_ berikut ini,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 lsusb
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -45,9 +45,9 @@ Dari keterangan di atas dapat terlihat bahwa _fingerprint_ saya ada pada baris k
 
 Untuk dapat menggunakan _fingerprint scanner_, kalian membutuhkan paket bernama [fprintd](https://www.archlinux.org/packages/?name=fprintd){:target="_blank"}. Mungkin beberapa paket lain seperti [imagemagick](https://www.archlinux.org/packages/?name=imagemagick){:target="_blank"} juga akan diperlukan sebagai dependensi.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S fprintd libfprint
-{% endshell_cmd %}
+{% endshell_term %}
 
 \***libfprint** adalah dependensi sari **fprintd**.
 
@@ -88,9 +88,9 @@ Bagi teman-teman yang tidak menggunakan Gnome seperti di atas, Ada 2 cara untuk 
 
 Untuk menambahkan _signature_ 1 jari, defaultnya adalah telunjuk kanan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fprintd-enroll <mark>username</mark>
-{% endshell_cmd %}
+{% endshell_term %}
 
 \*Ganti `username` dengan nama _username_ kamu.
 
@@ -106,26 +106,26 @@ Berikut ini daftar nama jari.
 | left-ring-finger | right-ring-finger |
 | left-little-finger | right-little-finger |
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fprintd-enroll <mark>username</mark> -f <mark>nama_jari</mark>
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 ### Semua Jari (10 jari)
 
 Atau, dengan membuat baru _signature_ untuk semua jari, namun terlebih dahulu kita perlu menghapus _signature_ yang sudah kita buat sebelumnya,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fprintd-delete <mark>username</mark>
-{% endshell_cmd %}
+{% endshell_term %}
 
 \*Ganti `username` dengan nama _username_ kamu.
 
 Selanjutnya, langkah memasukkan _signature_ untuk semua jari,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 for finger in {left,right}-{thumb,{index,middle,ring,little}-finger}; do fprintd-enroll -f $finger <mark>username</mark>; done
-{% endshell_cmd %}
+{% endshell_term %}
 
 \*Ganti `username` dengan nama username kamu.
 
@@ -135,9 +135,9 @@ Kemudian, kalian akan diminta memasukkan 10 sidik jari dengan masing-masing 3x s
 
 Setelah kita mendaftarkan sidik jari, kita perlu melakukan konfirmasi, apakah sidik jari yang usdah kita inputkan dapat digunakan atau tidak.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fprintd-verify <mark>username</mark>
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 Using device /net/reactivated/Fprint/Device/0
@@ -158,9 +158,9 @@ Secara _default_, hasil _enroll_ dari _fingerprint scanner_ yang sudah kita buat
 
 Kita akan membuat file baru pada `/etc/polkit-1/rules.d/` dengan isi hanya _superuser_ yang dapat melakukan perubahan pada _fingerprint signature_.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo vim /etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption /etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules %}
 {% highlight sh linenos %}
@@ -180,9 +180,9 @@ Untuk menggunakan _fingerprint scanner_ pada saat Terminal meminta kita memasuka
 ### Sudo
 Untuk menggunakan _fingerprint_ pada saat menggunakan `sudo`,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo vim /etc/pam.d/sudo
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption /etc/pam.d/sudo %}
 <pre class="caption">
@@ -208,9 +208,9 @@ Kalau tidak ingin menginputkan password, langsung saja tekan <kbd>Enter</kbd> un
 
 Untuk menggunakan _fingerprint_ pada saat ada aplikasi GUI yang membutuhkan akses _superuser_ dengan bantuan _Polkit_,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo vim /etc/pam.d/polkit-1
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption /etc/pam.d/polkit-1 %}
 <pre class="caption">
@@ -232,9 +232,9 @@ Demonya begini,
 
 Untuk membuka i3lock dengan menggunakan _fingerprint scanner_,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo vim /etc/pam.d/i3lock
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption /etc/pam.d/i3lock %}
 {% pre_caption %}

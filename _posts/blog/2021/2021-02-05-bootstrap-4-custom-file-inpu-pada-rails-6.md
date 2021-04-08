@@ -47,9 +47,9 @@ Nah, ini karena bs-custom-file-input belum dipasang.
 
 Saya memilih menggunakan **yarn** untuk memasang library ini.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 yarn add bs-custom-file-input
-{% endshell_cmd %}
+{% endshell_term %}
 
 
 ## Definisikan pada pack

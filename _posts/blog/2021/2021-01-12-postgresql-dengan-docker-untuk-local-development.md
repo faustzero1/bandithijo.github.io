@@ -49,31 +49,31 @@ Kalau kita sudah memiliki PostgreSQL service yang berjalan, sebaiknya kita henti
 
 **systemd**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo systemctl stop postgresql.service
-{% endshell_cmd %}
+{% endshell_term %}
 
 **OpenRC**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo rc-service postgresql stop
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## 2. Pulling PostgreSQL Docker Image
 
 Untuk versi, pada contoh kali ini saya akan menggunakan tag **13.1**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 docker pull postgres:13.1
-{% endshell_cmd %}
+{% endshell_term %}
 
 Untuk tak yang lain, teman-teman dapat merujuk ke [**Docker Hub: Postgres**](https://hub.docker.com/_/postgres?tab=tags){:target="_blank"}.
 
 Setelah selesai, bisa cek images dulu untuk memastikan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 docker images
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
@@ -113,9 +113,9 @@ Teman-teman dapat memodifikasi bagian:
 
 Cek status container apakah sudah berhasil dibuat dan dijalankan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 docker container ls
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 CONTAINER ID   IMAGE           COMMAND                  CREATED       STATUS       PORTS                    NAMES
@@ -140,9 +140,9 @@ Misal, username sistem saya **bandithijo**, maka untuk menikmati kemudahan di at
 
 Masuk dengan user role **postgres** terlebih dahulu,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 psql -h localhost -p 5432 -U postgres
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Password for user postgres: _
@@ -164,17 +164,17 @@ postgres=# _
 <br>
 Saatnya membuat user role dengan nama yang sama dengan username sistem kita.
 
-{% shell_cmd postgres=# %}
+{% shell_term postgres=# %}
 CREATE USER bandithijo SUPERUSER CREATEDB;
-{% endshell_cmd %}
+{% endshell_term %}
 
 Saya juga memberikan role berupa **SUPERUSER** dan **CREATEDB**.
 
 Cek apakah sudah terdaftar, dengan perintah:
 
-{% shell_cmd postgres=# %}
+{% shell_term postgres=# %}
 \du;
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
                                     List of roles
@@ -190,15 +190,15 @@ Sip, sudah terdaftar.
 <br>
 Kemudian, buat database dengan nama yang sama dengan nama user role kita.
 
-{% shell_cmd postgres=# %}
+{% shell_term postgres=# %}
 CREATE DATABASE bandithijo OWNER bandithijo;
-{% endshell_cmd %}
+{% endshell_term %}
 
 Cek apakah database berhasil dibuat, dengan perintah:
 
-{% shell_cmd postgres=# %}
+{% shell_term postgres=# %}
 \l;
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
                                              List of databases
@@ -292,9 +292,9 @@ postgres=# _
 
 Jalankan perintah di bawah ini untuk melihat lokasi dari direktori data.
 
-{% shell_cmd postgres=# %}
+{% shell_term postgres=# %}
 SHOW data_directory;
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
       data_directory
@@ -313,9 +313,9 @@ Tentunya lokasi ini bukan lokasi yang ada pada Host sistem kita, melainkan lokas
 
 Lihat nama atau container_id, dari postgres container yang mau dicopy datanya.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 docker container ls
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 CONTAINER ID   IMAGE           COMMAND                  CREATED       STATUS          PORTS                    NAMES

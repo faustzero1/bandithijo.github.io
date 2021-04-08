@@ -40,15 +40,15 @@ File PDF mempunyai mimetype berupa `application/pdf`, yang dapat kamu temukan di
 
 Caranya sangat mudah, cukup jalankan perintah di bawah.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 xdg-mime default evince.desktop application/pdf
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita dapat melakukan verifikasi, apakah format PDF sudah secara *default* dibuka dengan menggunakan Evince dengan menjalankan perintah `xdg-open` pada file PDF yang kalian miliki.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 xdg-open pemrograman_pyton.pdf
-{% endshell_cmd %}
+{% endshell_term %}
 
 Apabila file PDF terbuka menggunakan Evince, maka konfigurasi *default* mimetype kita, telah berhasil.
 

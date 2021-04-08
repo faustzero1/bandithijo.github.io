@@ -62,27 +62,27 @@ Saya akan membuat project baru dengan nama **demo_rails_ujs**.
 
 Saya menggunakan Rails 6.1.3.1 dengan Ruby 3.0.0
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails new demo_rails_ujs
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## Generate scaffold book
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g scaffold Book name:string description:text published_at:datetime
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## Run migration
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails db:migrate
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## Run server
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails s
-{% endshell_cmd %}
+{% endshell_term %}
 
 Dan akses alamat,
 

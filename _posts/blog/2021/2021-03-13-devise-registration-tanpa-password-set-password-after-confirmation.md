@@ -40,23 +40,23 @@ gem 'simple_form', '~> 5.1'
 
 Jalankan bundle install,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 bundle install
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudian install kedua gem tersebut ke dalam web aplikasi.
 
 Dahulukan **simple_form**, dengan begitu form-form yang akan digenerate oleh **Devise** akan otomatis menggunakan form dari simple_form.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g simple_form:install
-{% endshell_cmd %}
+{% endshell_term %}
 
 Setelah itu, **devise**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g devise:install
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## ActionMailer
 
@@ -118,9 +118,9 @@ Ganti `config.reconfirmable =` menjadi **false**.
 
 Kita akan membuat User model dengan devise.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g devise User
-{% endshell_cmd %}
+{% endshell_term %}
 
 Buka migrationsnya, dan enablekan `:confirmation_token`, `:confirmed_at`, `:confirmation_sent_at` pada bagian **Confirmable**.
 
@@ -149,9 +149,9 @@ end
 
 Saya akan menambahkan filed **name**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g migration add_name_to_users name:string
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% highlight_caption db/migration/20210312145059_add_name_to_users.rb %}
 {% highlight ruby linenos %}
@@ -164,9 +164,9 @@ end
 
 Sip, jalankan migration.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails db:migrate
-{% endshell_cmd %}
+{% endshell_term %}
 
 Aktifkan module `:confirmable` pada **user.rb** model.
 
@@ -328,9 +328,9 @@ Baris baris ke 58, kita akan membuat sendiri custom view template tersebut.
 <br>
 Pada catatan ini, saya membuat homepage, untuk tempat bernaung setelah melakukan registrasi dan juga sebagai **root_path**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g controller Home index
-{% endshell_cmd %}
+{% endshell_term %}
 
 
 ## Routes
@@ -357,9 +357,9 @@ end
 
 Kita akan mengenerate Devise views.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails g devise:views
-{% endshell_cmd %}
+{% endshell_term %}
 
 Yang perlu dimodifikasi adalah:
 

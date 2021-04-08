@@ -19,9 +19,9 @@ description: "Kalau kita mengecek temperature ThinkPad laptop dengan menggunakan
 
 Apakah kalian pernah mengecek temperatur pada ThinkPad dengan menggunakan perintah?
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sensors
-{% endshell_cmd %}
+{% endshell_term %}
 
 Hasilnya akan sepertin ini,
 
@@ -170,9 +170,9 @@ Selesai!
 {% box_info %}
 <p markdown=1>Ketika menjalankan command **sensors**, maka output akanlangsung ditampilkan sekali.<br>
 Apabila kita ingin output terus diupdate secara periodik, kita dapat menggunakan **watch**</p>
-{% shell_cmd $ %}
+{% shell_term $ %}
 watch sensors
-{% endshell_cmd %}
+{% endshell_term %}
 <p markdown=1>Maka, output akan diupdate setiap 2 detik.</p>
 <p markdown=1>Untuk keluar, dapat menekan kombinasi keyboard <kbd>Ctrl</kbd>+<kbd>C</kbd></p>
 

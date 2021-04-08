@@ -72,18 +72,18 @@ Dari manual yang ditulis, pwgen dirancang untuk menghasilkan _password_ yang mud
 ### Instalasi
 Untuk distribusi Arch Linux
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S pwgen
-{% endshell_cmd %}
+{% endshell_term %}
 
 Untuk distribusi sistem operasi yang lain, dapat menyesuaikan dan mencari paket yang bernama `pwgen`.
 
 ### Melihat Help
 Kita perlu mengetahui opsi apa saja yang disediakan oleh pwgen sebelum kita dapat mengenerate _password_. _Help_ dari pwgen ini sangat sederhana dan mudah dipahami.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 pwgen -h
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
@@ -126,9 +126,9 @@ Seperti yang kalian lihat, pwgen menyediakan banyak sekali opsi untuk kita dapat
 
 Hasilnya akan seperti ini.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 pwgen -sy 15
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 I##3DKHZCA\[S:w (3::;s2P1!ABm7' !WS2LL)Jp[/].ob !1Z%K/E=Rt?1-TC /_,p}73!k|h&pDS
@@ -159,16 +159,16 @@ Kemudian, saya akan pilih satu dari 100 _random password_ yang sudah berhasil di
 
 Kalau teman-teman ingin hasil generate password langsung otomatis ditangkap oleh clipboard, dapat menggunakan cara ini.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 pwgen -sy 15 -1 | tr -d '\n' | xclip -sel clip
-{% endshell_cmd %}
+{% endshell_term %}
 
 Atau buatkan saja shell script nya.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 touch $HOME/.local/bin/pwgenskin
 chmod +x $HOME/.local/bin/pwgenskin
-{% endshell_cmd %}
+{% endshell_term %}
 
 Isinya seperti ini,
 

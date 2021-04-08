@@ -43,15 +43,15 @@ Bluetoothctl adalah tools yang dapat kita pergunakan untuk melakukan pairing a d
 
 **systemd**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo systemctl start bluetoothd.service
-{% endshell_cmd %}
+{% endshell_term %}
 
 **OpenRC**
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo rc-service bluetoothd start
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 Pastikan **bluetoothd** service sudah dalam status aktif.
@@ -63,9 +63,9 @@ Biasanya, kalau kita memiliki satu buah bluetooth controller, maka akan bernama 
 
 Periksa dengan peritah,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 hciconfig -a
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 hci0:   Type: Primary  Bus: USB
@@ -91,22 +91,22 @@ Untuk dapat menggunakannya, kita perlu menjalankan langkah-langkah di bawah.
 
 Untuk mengakses bluetoothctl shell, cukup jalankan perintah di Termial:
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 bluetoothctl
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita akan dibawa ke dalam bluetoothctl shell, ditandai dengan prompt seperti ini:
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 _
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 Gunakan perintah **help** untuk melihat perintah apa saja yang tersedia.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 help
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Menu main:
@@ -153,9 +153,9 @@ export                                            Print environment variables
 
 Untuk melihat daftar bluetooth controller yang tersedia:
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 list
-{% endshell_cmd %}
+{% endshell_term %}
 
 Hasilnya, kira-kira seperti ini.
 
@@ -167,17 +167,17 @@ Saya hanya memiliki satu buat bluetooth controller yang terpasang secara built-i
 
 Apabila terdapat lebih dari satu bluetooth controller, kalian harus memilih salah satu yang akan digunakan untuk menghubungkan dengan perangkat lain.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 select 00:1C:26:D8:E0:18
-{% endshell_cmd %}
+{% endshell_term %}
 
 ## Melihat Detail dari Controller
 
 Untuk melihat detail dari controller yang dipilih, gunakan perintah:
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 show 00:1C:26:D8:E0:18
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Controller 00:1C:26:D8:E0:18 (public)
@@ -208,18 +208,18 @@ Controller 00:1C:26:D8:E0:18 (public)
 
 Kalau, status **Powered: no**, bisa kita nyalakan dulu.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 power on
-{% endshell_cmd %}
+{% endshell_term %}
 
 Perintah di atas akan menyalakan controller yang kita set sebagai default dengan perintah **select**.
 
 
 {% box_info %}
 <p>Pada tahap ini, kalau teman-teman buka Terminal lain dan mejalankan,</p>
-{% shell_cmd $ %}
+{% shell_term $ %}
 hciconfig -a
-{% endshell_cmd %}
+{% endshell_term %}
 <p markdown=1>Maka, status yang tadinya **DOWN**, sudah berubah menjadi UP **RUNNING PSCAN**.</p>
 <pre>
 hci0:   Type: Primary  Bus: USB
@@ -247,9 +247,9 @@ hci0:   Type: Primary  Bus: USB
 
 Untuk melakukan scanning terhadap perangkat bluetooth yang lain,
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 scan on
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Discovery started
@@ -273,9 +273,9 @@ Dapat dilihat, bahwa ada perangkat bluetooth bernama **MBH20** yang terdeteksi o
 
 Kalau sudah terdeteksi, tinggal kita pairing saja.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 pair 44:D4:E0:EF:94:DD
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Attempting to pair with 44:D4:E0:EF:94:DD
@@ -300,9 +300,9 @@ Status **Paired: yes**, namun **Connected: no**.
 
 Kalau sudah dipairing, sekarang kita bisa hubungkan.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 connect 44:D4:E0:EF:94:DD
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Attempting to connect to 44:D4:E0:EF:94:DD
@@ -315,16 +315,16 @@ Nah, sudah berhasil terhubung.
 
 Ciri-cirinya adalah prompt akan berubah mengikuti nama device.
 
-{% shell_cmd [MBH20]# %}
+{% shell_term [MBH20]# %}
 _
-{% endshell_cmd %}
+{% endshell_term %}
 
 <br>
 Kita bisa lihat keterangan tentang device ini.
 
-{% shell_cmd [MBH20]# %}
+{% shell_term [MBH20]# %}
 info
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Device 44:D4:E0:EF:94:DD (public)
@@ -347,9 +347,9 @@ Device 44:D4:E0:EF:94:DD (public)
 
 Kalau ingin ditrust, tinggal jalankan perintah trust saja.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 trust 44:D4:E0:EF:94:DD
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 [CHG] Device 44:D4:E0:EF:94:DD Trusted: yes
@@ -361,9 +361,9 @@ Changing 44:D4:E0:EF:94:DD trust succeeded
 
 Untuk memutuskan hubungan dengan device yang terhubung,
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 disconnect 44:D4:E0:EF:94:DD
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Attempting to disconnect from 44:D4:E0:EF:94:DD
@@ -374,18 +374,18 @@ Successful disconnected
 
 Prompt akan kembali ke semula
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 _
-{% endshell_cmd %}
+{% endshell_term %}
 
 
 ## Melihat Daftar Paired Devices
 
 Untuk melihat daftar device yang sudah kita pair.
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 paired-devices
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 Device 44:D4:E0:EF:94:DD MBH20
@@ -398,9 +398,9 @@ Kebetulan saya hanya memiliki satu device saja.
 
 Untuk menghapus device yang sudah pernah kita pair,
 
-{% shell_cmd [bluetooth]# %}
+{% shell_term [bluetooth]# %}
 remove 44:D4:E0:EF:94:DD
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 [<span class="is-danger">DEL</span>] Device 44:D4:E0:EF:94:DD MBH20

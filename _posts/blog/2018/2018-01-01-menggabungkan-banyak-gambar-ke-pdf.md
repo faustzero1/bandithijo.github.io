@@ -32,9 +32,9 @@ Selanjutnya, buka Terminal dan masuk ke dalam direktori yang sudah kita buat dan
 
 Langkah selajutnya tinggal menjalankan perintah `convert`,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 convert * namafile.pdf
-{% endshell_cmd %}
+{% endshell_term %}
 
 Ganti namafile dengan nama file yang kamu inginkan
 

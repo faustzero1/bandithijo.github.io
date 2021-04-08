@@ -93,9 +93,9 @@ Untuk isi dari file-file **db/seeds/\*.seeds.rb** tidak perlu saya tuliskan lah 
 
 Rails menyediakan rake task untuk melakukan seeding,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails db:seed
-{% endshell_cmd %}
+{% endshell_term %}
 
 Meskipun kita sudah me-modularisasi-kan seeds, kalau kita melakukan seeding dengan perintah di atas, maka rails akan menjalankan semua file seeding tersebut.
 
@@ -137,9 +137,9 @@ Nah, dengan begini, kita sudah membuat 1 buah rake task baru dengan perintah,
 
 Misal, untuk file **db/seeds/01_admins.seeds.rb**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails db:seed:single SEED=01_admins
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kalau berhasil,
 
@@ -192,9 +192,9 @@ end
 
 Cara menjalankanya,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails db:seed:multiple SEEDS=01_admins,03_subscribers
-{% endshell_cmd %}
+{% endshell_term %}
 
 \* **Jangan ada spasi diantara koma**.
 
@@ -214,9 +214,9 @@ Nah, mantap!
 
 Kita dapat melihat rake task spesifik untuk namespace **db:** yang baru saja kita buat pada daftar task dengan cara,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 rails -T | grep 'db:'
-{% endshell_cmd %}
+{% endshell_term %}
 
 <pre>
 rails db:create                          # Creates the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databases in the config). Without RAILS_ENV or when RAILS_ENV is development, it defaults to creating the development and test databases, except when DATABASE_URL is present

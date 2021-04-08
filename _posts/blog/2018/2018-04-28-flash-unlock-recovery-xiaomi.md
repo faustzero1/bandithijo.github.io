@@ -39,9 +39,9 @@ Apabila telah dipasang, maka kita akan dapat memanggil perintah `adb` dan `fastb
 
 Lakukan pengecekan versi `adb`.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 adb --version
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 Android Debug Bridge version 1.0.39
@@ -50,9 +50,9 @@ Version 0.0.1-4500957
 
 Lakukan pengecekan versi `fastboot`.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 fastboot - version
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 fastboot version 0.0.1-4500957
@@ -137,24 +137,24 @@ Nah, kalo sudah ROM apa yang akan kita gunakan, kalian perlu mencari *fastboot* 
 
 1. Ekstrak file *fastboot* ROM **.tgz** yang kita miliki.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 tar -xvf libra_images_6.1.7_20151221.0000.11_5.1_cn_b09dac7 0a0.tgz
-{% endshell_cmd %}
+{% endshell_term %}
 
    Nanti akan terbuat sebuah direktori baru yang memiliki nama yang sama seperti *fasboot* ROM.
 
 2. Masuk ke dalam direktori tersebut.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 cd libra_images_6.1.7_20151221.0000.11_5.1_cn
-{% endshell_cmd %}
+{% endshell_term %}
 
    Di dalam direktori ini berisi file-file seperti yang sudah saya jelaskan di atas.
    Kamu dapat mengeceknya dengan perintah.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 ls -al
-{% endshell_cmd %}
+{% endshell_term %}
 
    ```
    total 72
@@ -176,9 +176,9 @@ ls -al
 
 4. Deteksi apakah *smartphone* dengan komputer / laptop sudah terhubung atau tidak.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot devices
-{% endshell_cmd %}
+{% endshell_term %}
 
    ```
    dd46fe2b	fastboot
@@ -194,17 +194,17 @@ sudo fastboot devices
 
    Pilih sesuai kebutuhan kalian. Kalo saya lebih memilih `flash_all.sh`. Kita akan membuat file **.sh** yang kita pilih, agar menjadi *excutable*.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 chmod +x flash_all.sh
-{% endshell_cmd %}
+{% endshell_term %}
 
    Sebenarnya file BASH *script* tersebut sudah mendapatkan *excutable permission* `-rwxr-xr-x`, namun saya hanya mengantisipasi apabila ada dari teman-teman yang belum memahami perbedaan file *excutable* dan *non excutable*.
 
 6. Eksekusi file *script* tersebut.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo sh flash_all.sh
-{% endshell_cmd %}
+{% endshell_term %}
 
    Tunggu prosesnya hingga selesai.
 
@@ -225,9 +225,9 @@ Prosesnya simple saja, ndak rumit.
 1. Masuk kembali ke dalam mode **Fastboot**.
 2. Hubungkan *smartphone* dengan komputer / laptop. Dan periksa apakah sudah terhubung atau belum.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot devices
-{% endshell_cmd %}
+{% endshell_term %}
 
    ```
    dd46fe2b	fastboot
@@ -235,9 +235,9 @@ sudo fastboot devices
 
 3. Periksa status **Bootloader**, apakah **Device unlocked : false** atau **true**.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot oem device-info
-{% endshell_cmd %}
+{% endshell_term %}
 
    <pre>
    ...
@@ -250,15 +250,15 @@ sudo fastboot oem device-info
 
    Apabila **Device unlocked: false**, lakukan perintah di bawah untuk membuatnya menjadi **true**.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot oem unlock
-{% endshell_cmd %}
+{% endshell_term %}
 
    Periksa kembali, apakah sudah menjadi **true**.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot oem device-info
-{% endshell_cmd %}
+{% endshell_term %}
 
    <pre>
    ...
@@ -289,9 +289,9 @@ Proses instalasinya sangat mudah.
 1. Buka Terminal. Masuk ke dalam direktori tempat kamu menyimpan file *image* TWRP.
 2. Jalankan perintah di bawah.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot flash recovery twrp-3.1.0-0-libra.img
-{% endshell_cmd %}
+{% endshell_term %}
 
    Sesuaikan dengan *image* TWRP yang kalian pilih.
 
@@ -308,9 +308,9 @@ sudo fastboot flash recovery twrp-3.1.0-0-libra.img
 
 3. Kemudian, setelah berhasil, kita langsung masuk saja ke dalam mode **Recovery** menggunakan perintah di bawah.
 
-   {% shell_cmd $ %}
+   {% shell_term $ %}
 sudo fastboot boot twrp-3.1.0-0-libra.img
-{% endshell_cmd %}
+{% endshell_term %}
 
    ```
    downloading 'boot.img'...

@@ -60,9 +60,9 @@ Pada catatan ini, saya menggunakan zona waktu **Asia/Makassar**.
 
 Buka Terminal emulator kalian dan jalankan,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 heroku config:set TZ="Asia/Makassar"
-{% endshell_cmd %}
+{% endshell_term %}
 
 Tunggu prosesnya hingga selesai.
 
@@ -76,9 +76,9 @@ Nah, berhasil.
 
 ## Cek TimeZone
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 heroku config:get TZ
-{% endshell_cmd %}
+{% endshell_term %}
 
 Hasilnya,
 

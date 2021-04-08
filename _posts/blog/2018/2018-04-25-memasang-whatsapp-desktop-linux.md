@@ -56,15 +56,15 @@ Namun pada dokumentasi ini saya hanya akan menuliskan proses instalasi menggunak
 <br>
 Langkah awal, kita membutuhkan *package manager* bernama [**Yarn**](https://yarnpkg.com){:target="_blank"}. Yarn merupakan *package manager* untuk Java Script.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S yarn
-{% endshell_cmd %}
+{% endshell_term %}
 
 Lakukan pengetesan apakah yarn sudah berhasil dipasang atau belum.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 yarn --version
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 1.6.0
@@ -73,15 +73,15 @@ yarn --version
 <br>
 Pasang juga paket **Git** karena kita akan memerlukannya untuk melakukan *repository cloning*.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo pacman -S git
-{% endshell_cmd %}
+{% endshell_term %}
 
 Lakukan pengetesan apakah git sudah berhasil di pasang atau belum.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 git --version
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 git version 2.17.0
@@ -96,18 +96,18 @@ git version 2.17.0
 <br>
 Setelah `yarn` dan `git` berhasil terpasang, langkah selanjutnya melakukan *cloning* terhadap repositori Whatsapp-Desktop.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 mkdir -p ~/app/whatsapp
 cd ~/app/whatsapp
 git clone https://github.com/Enrico204/Whatsapp-Desktop.git
 cd Whatsapp-Desktop
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita dapat melihat isi dari direktori hasil *repository cloning*.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 ls -al
-{% endshell_cmd %}
+{% endshell_term %}
 
 ```
 app
@@ -134,17 +134,17 @@ Sekarang, tinggal melakukan kompilasi saja menggunakan **Yarn**.
 
 Masih pada direktori yang sama -- direktori hasil *repository cloning* Whatsapp-Desktop.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 yarn install
-{% endshell_cmd %}
+{% endshell_term %}
 
 Tunggu proses ini hinggal selesai.
 
 Selanjutnya,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 yarn run build:linux
-{% endshell_cmd %}
+{% endshell_term %}
 
 Pada tahap ini, apabila telah selesai maka, akan terdapat sebuah direktori baru bernama `dist`.
 
@@ -158,9 +158,9 @@ dist
 
 Sekarang, tinggal kita buatkan *application launcher* nya saja.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 touch ~/.local/share/applications/whatsapp-desktop.desktop
-{% endshell_cmd %}
+{% endshell_term %}
 
 Buka file `whatsapp-desktop.desktop` yang baru saja kita buat menggunakan *text editor* favorit kalian dan copy paste kode di bawah.
 

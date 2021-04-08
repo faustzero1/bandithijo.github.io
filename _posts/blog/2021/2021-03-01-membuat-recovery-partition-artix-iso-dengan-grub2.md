@@ -53,15 +53,15 @@ Kemudian, masukkan file Artix Linux ISO ke dalam partisi recovery.
 
 Agar tidak ribet karena harus menggunakan root permission, saya akan buat direktori dengan user permission yang akan saya berinama **iso/**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo mkdir iso
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemduian, ubar kepemilikan direktori **iso/** ke user yang kita gunakan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo chown -R bandithijo:bandithijo iso
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kemudian, tinggal masukkan Artix Linux ISO ke dalam direktori **iso/** ini.
 
@@ -109,15 +109,15 @@ Kedua variable di atas, perlu teman-teman sesuaikan sendiri dengan kondisi siste
 
 Kalau sudah, tinggal update GRUB2.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo update-grub
-{% endshell_cmd %}
+{% endshell_term %}
 
 Atau,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-{% endshell_cmd %}
+{% endshell_term %}
 
 Agar custom menuentry yang baru saja kita buat/modifikasi, digenerate ke dalam GRUB2 menuentry.
 
@@ -163,9 +163,9 @@ KERNEL=="sda2",ENV{UDISKS_IGNORE}="1"
 
 Setelah itu, jalankan perintah:
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 sudo udevadm trigger --verbose
-{% endshell_cmd %}
+{% endshell_term %}
 
 {% image https://i.postimg.cc/nrK3TXjp/gambar-02.png | 02 %}
 
@@ -177,15 +177,15 @@ Namun, masih dapat kita lihat pada `$ lsblk`.
 
 Kalau ingin memperbaharui file ISO, tinggal dimount saja sengan **udisksctl**.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl mount -b /dev/sda2
-{% endshell_cmd %}
+{% endshell_term %}
 
 Unmount dengan,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 udisksctl unmount -b /dev/sda2
-{% endshell_cmd %}
+{% endshell_term %}
 
 
 

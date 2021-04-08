@@ -113,9 +113,9 @@ Untuk masuk ke Tmux command mode,
 
 Kalau berhasil, Tmux akan menampilkan command mode pada Tmux statusbar seperti ini,
 
-{% pre_url %}
+<pre>
 :
-{% endpre_url %}
+</pre>
 
 Tinggal kita masukkan command yang ingin di-input-kan.
 
@@ -143,9 +143,9 @@ Kita, dapat mengganti nama session dengan cara,
 
 Pada command mode, akan tertulis seperti ini,
 
-{% pre_url %}
+{% shell_cmd : %}
 (rename-session) 0
-{% endpre_url %}
+{% endshell_cmd %}
 
 Ganti **0** dengan nama yang kalian inginkan.
 
@@ -171,9 +171,9 @@ Kita, dapat mengganti nama window dengan cara,
 
 Pada command mode, akan tertulis seperti ini,
 
-{% pre_url %}
+{% shell_cmd : %}
 (rename-window) zsh
-{% endpre_url %}
+{% endshell_cmd %}
 
 Ganti **zsh** dengan nama yang kalian inginkan.
 
@@ -186,27 +186,28 @@ Ganti **zsh** dengan nama yang kalian inginkan.
 
 Untuk membuat session baru dari dalam Tmux,
 
-{% pre_url %}
-:new-session -s &lt;nama_session&gt;
-{% endpre_url %}
+{% shell_cmd : %}
+new-session -s &lt;nama_session&gt;
+{% endshell_cmd %}
+
 
 <br>
 ## Membuat session baru dengan working directory dari dalam Tmux
 
 Kalau kita sudah berada di dalam Tmux, namun ingin membuat session lain (session baru yang lain) sambil mendefinisikan WD-nya,
 
-{% pre_url %}
-:new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
-{% endpre_url %}
+{% shell_cmd : %}
+new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
+{% endshell_cmd %}
 
 <br>
 ## Mengganti working directory pada session yang sudah ada dari dalam Tmux
 
 Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working directory*-nya,
 
-{% pre_url %}
-:attach-session -t &lt;nama_session&gt; -c /lokasi/working/directory/baru
-{% endpre_url %}
+{% shell_cmd : %}
+attach-session -t &lt;nama_session&gt; -c /lokasi/working/directory/baru
+{% endshell_cmd %}
 
 **-t** adalah *specify target session*.
 
@@ -218,9 +219,9 @@ Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working d
 
 Untuk membuat session baru dari Terminal,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 tmux new-session -s &lt;nama_session&gt;
-{% endshell_cmd %}
+{% endshell_term %}
 
 **-s** adalah flag option untuk **name the session**.
 
@@ -233,9 +234,9 @@ Jadi, kalau kita buat Tmux session pada direktori **~/Desktop**, maka setiap WD 
 
 Namun, kita dapat membuat session baru, sambil mendefinisikan lokasi dari WD yang akan digunakan.
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 tmux new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
-{% endshell_cmd %}
+{% endshell_term %}
 
 **-c** adalah *specify working directory for the session*.
 
@@ -246,9 +247,9 @@ Apabila kita memiliki session yang masih aktif di background karena kita melakuk
 
 Kita dapat masuk kembali, ke dalam session tersebut dengan cara,
 
-{% shell_cmd $ %}
+{% shell_term $ %}
 tmux attach-session -t &lt;nama_session&gt;
-{% endshell_cmd %}
+{% endshell_term %}
 
 Kita perlu mengetahui **nama_session** dari session yang akan kita attach.
 
