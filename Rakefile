@@ -1,13 +1,3 @@
-task :default do
-  puts 'Running CI tasks...'
-
-  # Runs the jekyll build command for production
-  # TravisCI will now have a site directory with our
-  # statically generated files.
-  sh('JEKYLL_ENV=production bundle exec jekyll build')
-  puts('Jekyll successfully built!')
-end
-
 # For Development Evironment
 namespace :jekyll do
   desc 'Menjalankan Jekyll pada Environment Development'
