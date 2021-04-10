@@ -55,6 +55,10 @@ Definisikan text editor favorit kalian.
 git config --global core.editor "vim"
 {% endshell_term %}
 
+Ketika git memerlukan editor, akan menggunakan editor yang kita definisikan.
+
+Misalkan pada perintah `$ git commit`.
+
 ## Membuka git config dengan editor
 
 Selain mengeset config via `$ git config`, kita juga dapat mengesetnya via file config.
