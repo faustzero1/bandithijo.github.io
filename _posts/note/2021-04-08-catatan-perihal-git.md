@@ -21,7 +21,21 @@ Beberapa perintah Git yang tidak sering saya gunakan, cenderung terlupakan. Saya
 
 Agar hal tersebut tidak perlu terjadi --lupa--, saya memutuskan untuk membuat catatan ini. Mungkin teman-teman yang baru mempelajari atau sudah lama menggunakan Git akan membutuhkannya.
 
-# Configurasi Awal
+# Konfigurasi
+
+Sekedar pengetahuan, terdapat setidaknya 3 level konfigurasi.
+
+|--------|--------------------------------------|
+| Level  | Keterangan                           |
+|--------|--------------------------------------|
+| SYSTEM | All users                            |
+| GLOBAL | All repositories of the current user |
+| LOCAL  | The curent repository                |
+|--------|--------------------------------------|
+
+Pada catatan ini, saya lebih banyak mencontohkan pada level konfigurasi Global.
+
+## Username & Email
 
 Kita perlu untuk mendefinisikan setidaknya **nama** dan **email**.
 
@@ -33,6 +47,78 @@ git config --global user.name "Rizqi Nur Assyaufi"
 git config --global user.email "bandithijo@gmail.com"
 {% endshell_term %}
 
+## Default editor
+
+Definisikan text editor favorit kalian.
+
+{% shell_term $ %}
+git config --global core.editor "vim"
+{% endshell_term %}
+
+## Membuka git config dengan editor
+
+Selain mengeset config via `$ git config`, kita juga dapat mengesetnya via file config.
+
+{% shell_term $ %}
+git config --global -e
+{% endshell_term %}
+
+{% highlight_caption $HOME/.gitconfig %}
+{% highlight conf linenos %}
+[user]
+  name = Rizqi Nur Assyaufi
+  email = bandithijo@gmail.com
+[core]
+  editor = vim
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+{% endhighlight %}
+
+## Konfigurasi End of Line
+
+{% pre_whiteboard %}
+# End of line on Windows
+
+  a b c <border>\r</border> <border>\n</border>
+        │   │
+        │   └─> Line Feed
+        │
+        └─────> Carriage Return
+
+
+# End of line on Linux/macOS
+
+  a b c <border>\n</border>
+        │
+        └─> Line Feed
+{% endpre_whiteboard %}
+
+Kita perlu menghandle hal ini agar tidak terjadi issue yang aneh-aneh terkait end of line.
+
+{% shell_term $ %}
+git config --global core.autocrlf input
+{% endshell_term %}
+
+Jika kamu menggunakan Windows, ganti value **input** menjadi **true**.
+
+## Bantuan untuk git config
+
+Tentu saja untuk membaca manual help dapat menggunakan,
+
+{% shell_term $ %}
+git config --help
+{% endshell_term %}
+
+<kbd>q</kbd> untuk exit.
+
+Kalau ingin ringkasannya,
+
+{% shell_term $ %}
+git config -h
+{% endshell_term %}
 
 
 
