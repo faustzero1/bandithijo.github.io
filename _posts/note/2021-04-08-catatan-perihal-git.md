@@ -124,6 +124,18 @@ Kalau ingin ringkasannya,
 git config -h
 {% endshell_term %}
 
+# Tips & Trick
+
+## Remove dir/file on staging area
+
+Kasus ini biasanya terjadi apabila kita ingin menghapus dir/file yang sudah terlanjur masuk ke dalam repositori tetap terlambat masuk ke dalam gitignore. Tentu saja, akan diabaikan oleh gitignore, karena dir/file sudah lebih dulu masuk ke dalam repositori.
+
+Untuk mengatasinya, kita gunakan,
+
+{% shell_term $ %}
+git rm --cached <nama_dir/file>
+{% endshell_term %}
+
 
 
 
