@@ -183,6 +183,11 @@ Terima kasih.
 
 (^_^)
 
+{% box_perhatian %}
+<p markdown=1>Saya sudah migrasi menggunakan model partition.</p>
+<p markdown=1>[**Membuat Recovery Partition Artix Linux ISO dengan GRUB2**](/blog/membuat-recovery-partition-artix-iso-dengan-grub2){:target="_blank"}</p>
+{% endbox_perhatian %}
+
 
 
 # Referensi
