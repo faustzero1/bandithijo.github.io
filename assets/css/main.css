@@ -2035,6 +2035,7 @@ pre span.cmd {
 }
 
 .markdown-body table.rouge-table td.gutter pre.lineno {
+  text-align: right;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
