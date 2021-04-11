@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Auhtorization dengan Pundit untuk Nested Controller dan User Turunan pada Rails"
+title: "Authorization dengan Pundit untuk Nested Controller dan User Turunan pada Rails"
 date: 2021-04-09 05:40
 permalink: '/blog/:title'
 author: 'BanditHijo'
