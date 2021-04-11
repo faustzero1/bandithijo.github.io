@@ -126,6 +126,16 @@ git config -h
 
 # Tips & Trick
 
+## Melihat isi dari staging area
+
+Nama lain dari **staging area** adalah **index**, mungkin teman-teman akan menemukan beberapa dokumentasi yang menyebutkan staging area sebagai index.
+
+Untuk melihat isi dari staging area,
+
+{% shell_term $ %}
+git ls-files
+{% endshell_term %}
+
 ## Remove dir/file on staging area
 
 Kasus ini biasanya terjadi apabila kita ingin menghapus dir/file yang sudah terlanjur masuk ke dalam repositori tetap terlambat masuk ke dalam gitignore. Tentu saja, akan diabaikan oleh gitignore, karena dir/file sudah lebih dulu masuk ke dalam repositori.
