@@ -749,7 +749,7 @@ img.footer-img-1 {
   float: right;
   margin: -160px 198px 0 0;
   width: 100px;
-  filter: opacity(85%);
+  filter: opacity(80%);
 }
 
 img.footer-img-2 {
@@ -792,10 +792,10 @@ img.footer-img-netlify {
   width: 120px;
 }
 
-img.footer-img-travisci {
+img.footer-img-githubactions {
   float: right;
-  margin: -54px 263px 0 0;
-  width: 120px;
+  margin: -65px 263px 0 0;
+  width: 135px;
 }
 
 img.footer-bedge-1 {
@@ -2590,8 +2590,8 @@ div.highlight-caption code {
     margin: auto;
     position: relative;
     top: 20px;
-    right: 70px;
-    filter: grayscale(100%) opacity(80%);
+    right: 73px;
+    filter: grayscale(80%) opacity(70%);
   }
 
   img.footer-img-2 {
@@ -2748,7 +2748,7 @@ div.highlight-caption code {
   .notif-donasi-img {
     padding: 5px !important;
     margin-top: -5px;
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
   }
 
   .notif-info {
