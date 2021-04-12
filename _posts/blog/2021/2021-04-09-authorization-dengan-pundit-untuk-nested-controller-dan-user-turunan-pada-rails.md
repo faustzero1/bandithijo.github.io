@@ -102,7 +102,7 @@ end
 
 Pundit menyediakan objek **current_user** sebagai instansiasi terhadap user yang sudah melakukan authentication.
 
-Namun, karena kita menggunakan user type berupa Authro yang merupakan turunan dari User, kita perlu memodifikasi method **pundit_user**.
+Namun, karena kita menggunakan user type berupa Author yang merupakan turunan dari User, kita perlu memodifikasi method **pundit_user**.
 
 Kita letakkan pada controller.
 
