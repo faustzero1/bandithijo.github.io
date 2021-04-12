@@ -1,14 +1,14 @@
-# BanditHijo (R)-Chive
+# 📦 BanditHijo (R)-Chive
 
 <a href="https://bandithijo.github.io">
 <img alt="banner" width="100%" src="/assets/img/banner/banner.png" />
 </a>
 
-## Requirements
+## 🍱 Requirements
 
 `Ruby 3.0.0` `Jekyll 4.2.0`
 
-## Menjalankan Blog secara Offline
+## 🏃 Menjalankan Blog secara Offline
 
 Untuk menjalankan blog ini secara offline, berikut langkah-langkahnya:
 
@@ -26,7 +26,7 @@ Untuk menjalankan blog ini secara offline, berikut langkah-langkahnya:
    `http://localhost:4000`
 
 
-## Update Konten Terbaru
+## 📬 Update Konten Terbaru
 
 Untuk mengunduh konten terbaru ke lokal repo, berikut langkahnya:
 
@@ -34,6 +34,6 @@ Untuk mengunduh konten terbaru ke lokal repo, berikut langkahnya:
    `$ git pull origin source`
 
 
-## Ingin Ikut Berkontribusi Menulis/Mengedit Artikel?
+## 🧱 Ingin Ikut Berkontribusi Menulis/Mengedit Artikel?
 
 *Sedang dalam proses penyusunan...*
