@@ -80,6 +80,14 @@ Tanda **\*** adalah indikator window yang sedang aktif terbuka (*selected window
        1 pane                   2 panes                  3 panes
 {% endpre_whiteboard %}
 
+Jadi secara garis besar dapat diurutkan seperti ini.
+
+{% pre_whiteboard %}
+server > sessions > windows > panes
+{% endpre_whiteboard %}
+
+**server** adalah bagian paling luar dari session, tempat dimana session berada.
+
 
 
 # Mappings (Keyboard Shortcut)
