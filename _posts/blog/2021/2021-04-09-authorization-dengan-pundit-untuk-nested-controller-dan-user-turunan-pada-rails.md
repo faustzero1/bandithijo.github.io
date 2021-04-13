@@ -235,6 +235,44 @@ Parameter **policy_class** ini sebenarnya adalah cara manual untuk mengarahkan f
 
 Saya menggunakannya hanya sebagai contoh siapa tahu kita mendapatkan kasus-kasus khusus, seperti nama Object dengan nama Controller atau Policy tidak sama.
 
+## Views Template
+
+Selanjutnya, cara membatasi button atau link yang hanya dikhususkan untuk Author yang memiliki Article.
+
+Misalnya, button atau link untuk Edit atau Delete.
+
+Sebelum menggunakan Pundit Policy, saya biasa menggunakan cara seperti ini (baris ke-1),
+
+{% highlight_caption app/views/authors/articles/show.html.erb %}
+{% highlight eruby linenos %}
+<% if @article.user_id == current_author.id %>
+  <%= link_to 'Edit', edit_authors_article_path(@news), class: 'btn btn-info' %>
+  <%= link_to 'Delete', authors_article_path(@article), method: :delete, data: {confirm: "Are you sure, you want to delete the article?"}, class: 'btn btn-danger' %>
+<% end %>
+{% endhighlight %}
+
+Setelah menggunakan Pundit, kita dapat memanfaatkan policy yang ada.
+
+{% highlight_caption app/views/authors/articles/show.html.erb %}
+{% highlight eruby linenos %}
+<% if policy([Authors, @article]).edit? %>
+  <%= link_to 'Edit', edit_authors_article_path(@news), class: 'btn btn-info' %>
+  <%= link_to 'Delete', authors_article_path(@article), method: :delete, data: {confirm: "Are you sure, you want to delete the article?"}, class: 'btn btn-danger' %>
+<% end %>
+{% endhighlight %}
+
+Saya menggunakan **[Authors, @article]**, karena **articles_controller** merupakan controller bertingkat (*nested controller*) dari Authors.
+
+```ruby
+policy([Authors, @article]).edit?
+```
+
+Kalau tidak bertingkat, dapat langsung memanggil objek modelnya saja.
+
+```ruby
+policy(Article).edit?
+```
+
 Selesai.
 
 
