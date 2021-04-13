@@ -209,6 +209,17 @@ class Author::ArticlePolicy < AuthorPolicy
 end
 {% endhighlight %}
 
+Dapat pula seperti ini.
+
+{% highlight_caption app/policies/author/article_policy.rb %}
+{% highlight ruby linenos %}
+class Author::ArticlePolicy < AuthorPolicy
+  def edit?
+    user.present? && user == record.author
+  end
+end
+{% endhighlight %}
+
 Misalkan, kita akan membatasi action **edit**, maka kita definisikan method **edit?** dengan isinya, apabila user_id dari record sama dengan id dari user yang sedang mengakses, maka diberikan ijin untuk mengedit.
 
 ## Authroize controller
