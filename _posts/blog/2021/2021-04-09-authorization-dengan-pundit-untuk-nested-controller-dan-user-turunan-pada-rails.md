@@ -246,8 +246,12 @@ Karena edit, sangat erat dengan update, maka saya akan buat seperti ini.
 {% highlight_caption app/policies/author/article_policy.rb %}
 {% highlight ruby linenos %}
 class Author::ArticlePolicy < AuthorPolicy
-  def edit?
+  def update?
     user.present? && user == article.author
+  end
+
+  def edit?
+    update?
   end
 
   def 
