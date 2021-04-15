@@ -222,6 +222,45 @@ end
 
 Misalkan, kita akan membatasi action **edit**, maka kita definisikan method **edit?** dengan isinya, apabila user_id dari record sama dengan id dari user yang sedang mengakses, maka diberikan ijin untuk mengedit.
 
+**record** dapat pula kita buat menjadi method berisi **record**.
+
+{% highlight_caption app/policies/author/article_policy.rb %}
+{% highlight ruby linenos %}
+class Author::ArticlePolicy < AuthorPolicy
+  def edit?
+    user.present? && user == article.author
+  end
+
+  private
+
+  def article
+    record
+  end
+end
+{% endhighlight %}
+
+Letakkan di dalam **private** agar penamaan **article** hanya dapat diakses oleh class **Author::ArticlePolicy**.
+
+Karena edit, sangat erat dengan update, maka saya akan buat seperti ini.
+
+{% highlight_caption app/policies/author/article_policy.rb %}
+{% highlight ruby linenos %}
+class Author::ArticlePolicy < AuthorPolicy
+  def edit?
+    user.present? && user == article.author
+  end
+
+  def 
+
+  private
+
+  def article
+    record
+  end
+end
+{% endhighlight %}
+
+
 ## Authroize controller
 
 Nah, kita telah mengatur policy untuk action edit, maka kita perlu memberikan authorization pada action edit di **articles_controller**.
