@@ -44,28 +44,31 @@ Maka dari itu, saya pertegas kembali, <mark><b>Artikel ini hanya untuk pengguna 
 
 Berikut ini langkah-langkahnya.
 
-1. Tambahkan baris perintah di bawah ini ke dalam file `~/.zshrc`.
+Tambahkan baris perintah di bawah ini ke dalam file `~/.zshrc`.
 
-   ```shell
-   # Untuk merubah titlebar dari st terminal
-   # Sumber: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5
-   case $TERM in
-       st*)
-       precmd () {
-           # menampilkan direktori aktif (kondisi default)
-           print -Pn "\e]0;st:%~\a"
-       }
-       preexec () {
-           # menampilkan program yang sedang berjalan
-           print -Pn "\e]0;st:$1\a"
-       }
-       ;;
-   esac
-   ```
+{% highlight_caption $HOME/.zshrc %}
+{% highlight shell linenos %}
+# Untuk merubah titlebar dari st terminal
+# Sumber: http://www.faqs.org/docs/Linux-mini/Xterm-Title.html#s5
+case $TERM in
+    st*)
+    precmd () {
+        # menampilkan direktori aktif (kondisi default)
+        print -Pn "\e]0;st:%~\a"
+    }
+    preexec () {
+        # menampilkan program yang sedang berjalan
+        print -Pn "\e]0;st:$1\a"
+    }
+    ;;
+esac
+{% endhighlight %}
 
-   Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
+Silahkan dimodifikasi sendiri bentuk format dari detail Window Title yang diinginkan.
 
-2. Selesai. Coba buka **st** Terminal yang baru dan perhatikan Window Titlenya.
+Selesai.
+
+Coba buka **st** Terminal yang baru dan perhatikan Window Titlenya.
 
 <hr>
 
