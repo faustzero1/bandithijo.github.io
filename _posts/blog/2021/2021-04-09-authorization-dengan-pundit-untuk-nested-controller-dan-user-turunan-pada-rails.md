@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips']
+tags: ['Tips', 'Rails']
 pin:
 hot:
 contributors: []
@@ -254,7 +254,7 @@ class Author::ArticlePolicy < AuthorPolicy
     update?
   end
 
-  def 
+  def
 
   private
 
