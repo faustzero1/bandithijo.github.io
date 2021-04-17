@@ -2112,6 +2112,14 @@ div.highlight-caption code {
   border-bottom: 1px dashed #B8B8B8;
 }
 
+.keyboard-mapping {
+  border: 1px dashed black;
+  border-radius: 5px;
+  font-family: 'FiraCodeNerdFontComplete-Medium';
+  font-weight: bold;
+  font-size: 30px;
+  padding: 3px 8px;
+}
 
 /* ------------------------------------------------------------------------ */
 /*
