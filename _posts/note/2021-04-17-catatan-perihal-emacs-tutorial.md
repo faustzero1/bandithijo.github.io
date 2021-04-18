@@ -42,6 +42,13 @@ Bila keduanya berkombinasi dengan key yang lain, maka akan ditampilkan seperti i
 
 **C-x k**, artinya tekan dan tahan CONTROL, lalu tekan x, lepas semua tombol sebelumnya, lalu tekan k.
 
+<br>
+SPACE, akan diwakilkan sebagai &lt;SPC&gt;.
+
+DELETE, akan diwakilkan sebagai &lt;DEL&gt;.
+
+RETURN atau ENTER, akan diwakilkan sebagai &lt;RET&gt;
+
 ## Keluar dari Emacs Tutorial
 
 Dapat pula digunakan sebagai "kill buffer", karena buffer yang sedang terbuka adalah Emacs Tutorial.
@@ -76,9 +83,13 @@ M-v
 
 ## Positioning Cursor on Center/Top/Bottom
 
+Kita dapat melakukan scrolling pada screen tanpa memindahkan cursor berfokus pada baris tertentu.
+
 {% keymap %}
 C-l
 {% endkeymap %}
+
+Akan dimulai dari tengah screen, kemudian atas, lalu bawah.
 
 ## Basic Cursor Control (Basic Movement)
 
@@ -197,6 +208,101 @@ Misal, kita ingin bergerak 20 character ke depan.
 {% keymap %}
 M-20 C-f
 {% endkeymap %}
+
+## Jika Emacs Berhenti Merespon
+
+Beberapa hal yang dapat menyebabkan Emacs berhenti merespon:
+
+1. Tidak merespon saat kita memasukkan inputan
+2. Menghentikan command yang berjalan terlalu dieksekusi
+3. Membatalkan command dengan *numeric argument* yang tidak ingin kita eksekusi
+
+Dapat kita atasi dengan,
+
+{% keymap %}
+C-g
+{% endkeymap %}
+
+## Disabled Commands
+
+{% keymap %}
+C-g
+{% endkeymap %}
+
+Pda command display mode, Emacs akan menampilkan **Quit**.
+
+## Manipulation Windows
+
+### Delete other windows
+
+Saya asumsikan sebagai *maximize current focused selected window*.
+
+{% keymap %}
+C-x 1
+{% endkeymap %}
+
+Command ini akan membuat current focuses selected window akan menjadi maximize.
+
+## Inserting
+
+### Insert repeating character with repeat count
+
+Sama sepertin repeat count pada movement, kita dapat menggunakannya untuk memasukkan karakter sejumlah **n**.
+
+Misal, kita ingin memasukkan karakter "+" (tambah) sebanyak 20.
+
+{% keymap %}
+C-u 20 +
+{% endkeymap %}
+
+Maka, hasilnya akan menjadi,
+
+{% pre_whiteboard %}
+++++++++++++++++++++
+{% endpre_whiteboard %}
+
+## Deleting
+
+### Delete 1 karakter di depan cursor
+
+{% keymap %}
+C-d
+{% endkeymap %}
+
+### Delete 1 kata sebelum cursor
+
+{% keymap %}
+M-&lt;DEL&gt;
+{% endkeymap %}
+
+### Delete 1 kata setelah cursor
+
+{% keymap %}
+M-d
+{% endkeymap %}
+
+### Hapus seluruh karakter mulai dari posisi cursor sampai akhir baris
+
+{% keymap %}
+C-k
+{% endkeymap %}
+
+### Hapus 1 paragraf mulai dari posisi cursor sampai akhir paragraph
+
+{% keymap %}
+M-k
+{% endkeymap %}
+
+## Text Selection
+
+Akan melakukan selection dimulai dari posisi cursor berada.
+
+{% keymap %}
+C-&lt;SPC&gt;
+{% endkeymap %}
+
+Pada command display mode, Emacs akan menampilkan tulisan **Mark set**.
+
 
 
 
