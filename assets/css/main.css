@@ -420,7 +420,7 @@ img.post-header-img {
 }
 
 .post-pre-title {
-  margin: 25px 20px 0 20px;
+  margin: 0px 20px;
 }
 
 .post-title {
@@ -428,6 +428,7 @@ img.post-header-img {
   font-size: 34px;
   color: #000;
   border-bottom: 1px dashed #B8B8B8;
+  padding-top: 14px;
   padding-bottom: 14px;
   text-align: left;
   line-height: 40px;
