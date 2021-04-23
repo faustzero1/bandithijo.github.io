@@ -172,5 +172,5 @@ Terima kasih.
 1. [freebsd.org/doc/en_US.ISO8859-1/articles/linux-users/startup.html](https://www.freebsd.org/doc/en_US.ISO8859-1/articles/linux-users/startup.html){:target="_blank"}
 <br>Diakses tanggal: 2020/03/25
 
-2. [FreeBSD Handkbook - 11.13. Power and Resource Management](https://www.freebsd.org/doc/handbook/acpi-overview.html){:target="_blank"}
-<br>Diakses tanggal: 2020/03/25
+2. [FreeBSD Handkbook - Power and Resource Management](https://docs.freebsd.org/en/books/handbook/config/#acpi-overview){:target="_blank"}
+<br>Diakses tanggal: 2021/04/23
