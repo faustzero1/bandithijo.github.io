@@ -25,15 +25,13 @@ Sehingga, apabila dibaca secara utuh menjadi, /BanditHijo Arkaiv/ yang berarti A
 
 Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
 
-Sudah menikah dengan wanita yang sangat mencintai saya sejak awal bertemu. **Devika Marina** (sudah dikonfirmasi dengan yang bersangkutan) Hihihi.
-
 Pekerjaan: tukang ketik.
 
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
 
-*Blogging* merupakan aktifitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
+*Blogging* merupakan aktivitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
@@ -51,12 +49,12 @@ Tampilan dari tema blog ini pun saya buat sendiri. Tujuannya agar saya lebih beb
 
 Ceritanya dapat teman-teman baca [di sini]({{ site.url }}/blog/migrasi-blog-2-0){:target="_blank"}.
 
-# Spesifikasi Mesin Ketik
+# Spesifikasi Mesin Ketik & Aplikasi Favorit
 
 Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saat ini saya gunakan untuk berkomputasi ataupun untuk mengukir tulisan di blog ini.
 
 <br>
-**Tabel Mesin**
+**Daftar Mesin Ketik**
 
 |---------------------------|---------------------------------|----------------------------------|
 | <center>Mesin</center>    | <center>Tahun Produksi</center> | <center>Tahun Digunakan</center> |
@@ -69,7 +67,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 |---------------------------|---------------------------------|----------------------------------|
 
 <br>
-**Tabel Aplikasi**
+**Aplikasi Favorit**
 
 |-----------------------|----------------------------------------------|
 | <center>Data</center> | <center>Keterangan</center>                  |
