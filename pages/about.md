@@ -88,12 +88,12 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Raster Image Editor   | **GIMP** & **gthumb**                        |
 | Vector Image Editor   | **Inkscape**                                 |
 | Image Preview         | **sxiv**                                     |
-| Office                | **LibreOffice**                              |
+| Office                | **LibreOffice** & **OnlyOffice**             |
 | ScreenShoter          | **scrot** & **flameshot**                    |
 | PDF Reader            | **zathura** & **evince**                     |
-| Video Editor          | **kdenlive** & **olive**                     |
+| Video Editor          | **kdenlive** & **olive** & **LWKS**          |
 | Screen Recorder       | **ffmpeg**                                   |
-| Webcam                | **ffplay**                                   |
+| Webcam                | **ffplay** & **mpv**                         |
 | Browser               | **firefox** & **qutebrowser**                |
 | File Manager          | **ranger**                                   |
 | Video Player          | **mpv**                                      |
@@ -102,7 +102,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | RSS Feed Reader       | **newsboat**                                 |
 | Torrent Client        | **tremc**                                    |
 | RDP Client            | **xfreerdp**                                 |
-| VNC Client            | **x11vnc**                                   |
+| VNC Server            | **x11vnc**                                   |
 |-----------------------|----------------------------------------------|
 
 # Ilustrasi Workflow
