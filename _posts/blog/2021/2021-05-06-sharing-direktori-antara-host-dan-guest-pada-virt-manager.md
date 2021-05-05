@@ -276,6 +276,9 @@ Terima kasih.
 (^_^)
 
 
+# Terima Kasih
+
+1. Arya Pramudika, atas informasi membuat Virtual Network Bridge.
 
 
 # Referensi
