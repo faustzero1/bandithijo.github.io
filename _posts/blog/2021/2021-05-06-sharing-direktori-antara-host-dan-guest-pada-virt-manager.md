@@ -104,12 +104,12 @@ smbpasswd -x bandithijo
 ## Membuat Virtual Network
 
 {% box_perhatian %}
-<p markdown=1>Saya tidak terlalu mahir dengan Networking.</p>
+<p markdown=1>Harap dimaklumi, karena saya tidak begitu mahir dengan Networking. 😄</p>
 {% endbox_perhatian %}
 
 **Virtual Network yang dibuat harus memiliki network yang sama dengan Host OS**.
 
-Misal, Host OS memiliki IP address, 192.168.1.7/24, artinya Host OS berada pada network 192.168.1.0/24 dengan jumlah IP address yang tersedia adalah 254. Mulai dari rentar 192.168.1.2 - 192.168.1.254
+Misal, Host OS memiliki IP address, 192.168.1.7/24, artinya Host OS berada pada network 192.168.1.0/24 dengan jumlah IP address yang tersedia adalah 254. Mulai dari rentang 192.168.1.2 - 192.168.1.254
 
 Kita akan mengambil sebagian IP address yang tersedia tersebut.
 
