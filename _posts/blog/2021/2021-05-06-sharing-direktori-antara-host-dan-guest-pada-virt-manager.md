@@ -261,6 +261,10 @@ Hasilnya,
 {% image https://i.postimg.cc/MHpr30xn/gambar-08.png | 08 %}
 
 
+# Demo
+
+{% image https://i.postimg.cc/NfCPpGDp/gambar-09.gif | 09 %}
+
 
 
 # Pesan Penulis
