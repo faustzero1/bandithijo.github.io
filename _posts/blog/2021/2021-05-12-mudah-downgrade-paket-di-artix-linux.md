@@ -74,7 +74,7 @@ Okelah, balik ke topik Artix Linux karena catatan ini bukan membahas secara mend
 
 Ya berbeda.
 
-Pada Arch Linux, proses downgrade mengambil metadata dari repositori arsip yang berada di [**Arch Linux Archive**](https://archive.archlinux.org/){:target="_blank"}. Yang mana alamat ini sudah menjadi default dari option `--ala-url`, sehingga tanpa perlu menggunakan option ini, sudah otomatis diarahkan ke alamat tersebut.
+Pada Arch Linux, proses downgrade mengambil package dari repositori arsip yang berada di [**Arch Linux Archive**](https://archive.archlinux.org/){:target="_blank"}. Yang mana alamat ini sudah menjadi default dari option `--ala-url`, sehingga tanpa perlu menggunakan option ini, sudah otomatis diarahkan ke alamat tersebut.
 
 Namun, pada Artix Linux, tentu saja kita harus mengarahkan alamat arsip tersebut ke alamat arsip untuk Artix Linux, yang beralamat di [**Artix Linux Archive**](https://archive.artixlinux.org/){:target="_blank"}.
 
