@@ -143,6 +143,11 @@ select a package by number:
 </pre>
 
 
+Cara penggunaan **downgrade** lebih lengkapnya, dapat teman-teman baca di:
+
+{% shell_term $ %}
+man downgrade
+{% endshell_term %}
 
 
 
