@@ -92,6 +92,10 @@ sudo downgrade --ala-url "https://archive.artixlinux.org" &lt;package&gt;
 sudo downgrade --ala-url "https://archive.artixlinux.org" &lt;package1&gt; &lt;package2&gt; &lt;package3&gt;
 {% endshell_term %}
 
+## Kapan Harus Menggunakan ala-url ?
+
+{% text_latin Sedang dalam proses riset... %}
+
 ## Contoh Penggunaan
 
 Misal, kita mau downgrade kernel **linux**. Saya mencontohkan package **linux** karena perbedaannya terlihat di nama packagenya **-arch** dan **-artix**.
