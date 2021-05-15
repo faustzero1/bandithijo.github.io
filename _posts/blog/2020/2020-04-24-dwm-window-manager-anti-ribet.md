@@ -906,9 +906,11 @@ Bisa teman-teman lihat [di sini](https://github.com/bandithijo/dwm){:target="_bl
 
 Cara pasangnya sangat mudah.
 
+Saya meletakkan source code dari dwm ke direktori **~/.local/src/**.
+
 {% shell_user %}
-git clone https://github.com/bandithijo/dwm.git $HOME/.config/dwm
-cd $HOME/.config/dwm
+git clone https://github.com/bandithijo/dwm.git $HOME/.local/src/dwm
+cd $HOME/.local/src/dwm
 {% endshell_user %}
 
 Kalau kita menjalankan,
