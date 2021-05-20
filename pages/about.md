@@ -33,7 +33,7 @@ Karena Allah *Subhanahu Wa Ta'ala*.
 
 *Blogging* merupakan aktivitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
-Mudah-mudahan catatan kecil yang sederhana ini dapat bermanfaat bagi teman-teman yang memerlukan.
+Mudah-mudahan catatan-catatan kecil yang sederhana di blog ini dapat bermanfaat bagi teman-teman yang memerlukan.
 
 # Apa yang Ditulis di dalam Blog?
 
