@@ -21,15 +21,15 @@ Berinteraksi dengan disk dan partition mungkin merupakan pekerjaan harian bagi s
 
 Catatan ini hadir untuk menyimpan beberapa "best practice" yang dapat kita gunakan, apabila kita memerlukannya saat akan berurusan dengan disk dan partition.
 
-# Perbedaan Block Device dan Block Partition
+# Perbedaan Block Disk dan Block Partition
 
-Saya lihat banyak sekali teman-teman yang masih suka tertukar-tukar dalam membedakan dan mengidentifikasi sebuah block termasuk block device atau block partition.
+Saya lihat banyak sekali teman-teman yang masih suka tertukar-tukar dalam membedakan dan mengidentifikasi sebuah block termasuk block disk atau block partition.
 
 Sederhananya seperti ini,
 
 {% pre_whiteboard %}
 NAME
-sda       &lt;== disebut, <strong>block devices</strong>,   biasanya ditulis <strong>/dev/sda</strong>
+sda       &lt;== disebut, <strong>block disk</strong>,      biasanya ditulis <strong>/dev/sda</strong>
 ├─sda1    &lt;== disebut, <strong>block partition</strong>, biasanya ditulis <strong>/dev/sda1</strong>
 └─sda2    &lt;== disebut, <strong>block partition</strong>  biasanya ditulis <strong>/dev/sda2</strong>
 {% endpre_whiteboard %}
@@ -37,7 +37,7 @@ sda       &lt;== disebut, <strong>block devices</strong>,   biasanya ditulis <st
 
 # Tips & Tricks
 
-## Melihat list block device
+## Melihat list block disk
 
 Atau dapat kita artikan mengecek struktur dari partisi.
 
@@ -58,7 +58,7 @@ Teman-teman tinggal mendefinisikan aliasnya saja biar praktis.
 
 Terdapat 2 tahap:
 
-**1. Setup loop block device**
+**1. Setup loop block disk**
 
 {% pre_url %}
 <span class="cmd">$ </span><b>udisksctl loop-setup -f file_image.iso</b>
@@ -68,7 +68,7 @@ Terdapat 2 tahap:
 udisksctl loop-mount -f archlinux.iso
 {% endshell_term %}
 
-Kalau berhasil, fileiso akan terpasang ke loop block device.
+Kalau berhasil, fileiso akan terpasang ke loop block disk.
 
 <pre>
 $ lsblk
@@ -80,14 +80,14 @@ loop0     iso9660   681M loop ARCH_202010
 
 Tinggal dimounting.
 
-**2. Mounting loop block device**
+**2. Mounting loop block disk**
 
 {% pre_url %}
-<span class="cmd">$ </span><b>udisksctl mount -p block_devices/block_partition</b>
+<span class="cmd">$ </span><b>udisksctl mount -p block_disk/block_partition</b>
 {% endpre_url %}
 
 {% shell_term $ %}
-udisksctl mount -p block_devices/loop0p1
+udisksctl mount -p block_disk/loop0p1
 {% endshell_term %}
 
 <pre>
@@ -105,14 +105,14 @@ Secara otomatis **udisks** akan membuat mount point ke path $XDG_RUNTIME_USER.
 
 Sekenarionya tinggal dibalik dari proses mounting di atas.
 
-**1. Unmounting loop block device**
+**1. Unmounting loop block disk**
 
 {% pre_url %}
-udisksctl unmount -p block_devices/block_partition
+udisksctl unmount -p block_disk/block_partition
 {% endpre_url %}
 
 {% shell_term $ %}
-udisksctl unmount -p block_devices/loop0p1
+udisksctl unmount -p block_disk/loop0p1
 {% endshell_term %}
 
 <pre>
@@ -123,14 +123,14 @@ loop0     iso9660   681M loop ARCH_202010
 └─loop0p2 vfat       56M part ARCHISO_EFI
 </pre>
 
-**2. Delete loop block device**
+**2. Delete loop block disk**
 
 {% pre_url %}
-udisksctl loop-delete -b block_devices/block_device
+udisksctl loop-delete -b block_disk/block_partition
 {% endpre_url %}
 
 {% shell_term $ %}
-udisksctl loop-delete -b block_devices/loop0
+udisksctl loop-delete -b block_disk/loop0
 {% endshell_term %}
 
 <br>
@@ -170,7 +170,7 @@ Untuk penjelasan mengenai parameter lebih lengkapnya, teman-teman dapat membaca 
 
 {% box_perhatian %}
 <p markdown=1>Jangan tambahkan nomor atau block partition number, seperti: **/dev/sdb1**.</p>
-<p markdown=1>Tapi, gunakan block device, seperti: **/dev/sdX**, di mana **X** merupakan abjad yang nilainya berbeda-beda (kondisional), sesuai dengan banyaknya external drive yang terhubung dengan sistem kita.</p>
+<p markdown=1>Tapi, gunakan block disk, seperti: **/dev/sdX**, di mana **X** merupakan abjad yang nilainya berbeda-beda (kondisional), sesuai dengan banyaknya external drive yang terhubung dengan sistem kita.</p>
 <hr>
 <p markdown=1>Kesalahan mendefinisikan **if=** dan **of=** dapat berakibat fatal.</p>
 <p markdown=1>Telitilah sebelum mengeksekusi.</p>
