@@ -21,17 +21,17 @@ Berinteraksi dengan disk dan partition mungkin merupakan pekerjaan harian bagi s
 
 Catatan ini hadir untuk menyimpan beberapa "best practice" yang dapat kita gunakan, apabila kita memerlukannya saat akan berurusan dengan disk dan partition.
 
-# Perbedaan Block Disk dan Block Partition
+# Perbedaan Disk dan Partition
 
-Saya lihat banyak sekali teman-teman yang masih suka tertukar-tukar dalam membedakan dan mengidentifikasi sebuah block termasuk block disk atau block partition.
+Saya lihat banyak sekali teman-teman yang masih suka tertukar-tukar dalam membedakan dan mengidentifikasi sebuah block termasuk disk atau partition.
 
 Sederhananya seperti ini,
 
 {% pre_whiteboard %}
 NAME
-sda       &lt;== disebut, <strong>block disk</strong>,      biasanya ditulis <strong>/dev/sda</strong>
-├─sda1    &lt;== disebut, <strong>block partition</strong>, biasanya ditulis <strong>/dev/sda1</strong>
-└─sda2    &lt;== disebut, <strong>block partition</strong>  biasanya ditulis <strong>/dev/sda2</strong>
+sda       &lt;== disebut, <strong>disk</strong>,      biasanya ditulis <strong>/dev/sda</strong>
+├─sda1    &lt;== disebut, <strong>partition</strong>, biasanya ditulis <strong>/dev/sda1</strong>
+└─sda2    &lt;== disebut, <strong>partition</strong>  biasanya ditulis <strong>/dev/sda2</strong>
 {% endpre_whiteboard %}
 
 
@@ -169,7 +169,7 @@ Untuk penjelasan mengenai parameter lebih lengkapnya, teman-teman dapat membaca 
 
 
 {% box_perhatian %}
-<p markdown=1>Jangan tambahkan nomor atau block partition number, seperti: **/dev/sdb1**.</p>
+<p markdown=1>Jangan tambahkan nomor atau partition number, seperti: **/dev/sdb1**.</p>
 <p markdown=1>Tapi, gunakan block disk, seperti: **/dev/sdX**, di mana **X** merupakan abjad yang nilainya berbeda-beda (kondisional), sesuai dengan banyaknya external drive yang terhubung dengan sistem kita.</p>
 <hr>
 <p markdown=1>Kesalahan mendefinisikan **if=** dan **of=** dapat berakibat fatal.</p>
