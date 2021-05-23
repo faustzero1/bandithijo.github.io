@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Catatan Daftar CLI dan TUI Tools"
+title: "Catatan Daftar Terminal Tools"
 date: 2021-05-04 04:17
 permalink: '/note/:title'
 author: 'BanditHijo'
@@ -311,6 +311,58 @@ WeeChat (Wee Enhanced Environment for Chat) is a free chat client, fast and ligh
 
 ## battop
 
+
+# RSS Reader
+
+## newsboat
+
+{% image https://i.postimg.cc/ryKZJNGB/gambar-newsboat.png | gambar-newsboat %}
+
+Newsboat is an RSS/Atom feed reader for the text console. It's an actively maintained fork of Newsbeuter.
+
+A feed reader pulls updates directly from sites like blogs and news agencies, and lets you review them in a single interface. Many times, the feed includes the full text of the update, so you don't even need to start a web browser! You can learn more about feed readers [on Wikipedia](https://en.wikipedia.org/wiki/News_aggregator){:target="_blank"}.
+
+[https://github.com/newsboat/newsboat](https://github.com/newsboat/newsboat){:target="_blank"}
+
+
+# Email Client
+
+## neomutt
+
+{% image https://i.postimg.cc/vHSQKzC5/gambar-neomutt.png | gambar-neomutt %}
+
+Teaching an Old Dog New Tricks
+
+**What is NeoMutt?**
+
+1. NeoMutt is a project of projects.
+2. A place to gather all the patches against Mutt.
+3. A place for all the developers to gather.
+
+Hopefully this will build the community and reduce duplicated effort.
+
+NeoMutt was created when Richard Russon (@FlatCap) took all the old Mutt patches, sorted through them, fixed them up and documented them.
+
+[https://neomutt.org/](https://neomutt.org/){:target="_blank"}
+
+[https://github.com/neomutt/neomutt](https://github.com/neomutt/neomutt){:target="_blank"}
+
+
+# File Manager
+
+## ranger
+
+{% image https://i.postimg.cc/ryfcdjV7/gambar-ranger.png | gambar-ranger %}
+
+ranger is a console file manager with VI key bindings. It provides a minimalistic and nice curses interface with a view on the directory hierarchy. It ships with rifle, a file launcher that is good at automatically finding out which program to use for what file type.
+
+[https://ranger.github.io/](https://ranger.github.io/){:target="_blank"}
+
+[https://github.com/ranger/ranger](https://github.com/ranger/ranger){:target="_blank"}
+
+## lf
+
+## nnn
 
 
 
