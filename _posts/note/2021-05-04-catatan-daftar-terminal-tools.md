@@ -19,7 +19,7 @@ description: "Catatan ini merupakan kumpulan dari daftar nama-nama CLI dan TUI t
 
 Seperti yang teman-teman ketahui, sebenarnya ada banyak sekali nama-nama CLI dan TUI tools yang dapat kita gunakan untuk mempermudah pekerjaan kita sehari-hari, tidak hanya dalam hal monitoring.
 
-Yang sangat terkenal dan sangat serig kita lihat dipajang di setiap desktop-desktop yang melakukan "show-off" adahal **htop**, **neofetch**, **ranger**, **pipes**, **cmatrix**, dan masih banyak lagi. Nama-nama tersebut, baru sebagian kecil saja.
+Yang sangat terkenal dan sangat serig kita lihat dipajang di setiap desktop-desktop yang melakukan "show-off" adalah **htop**, **neofetch**, **ranger**, **pipes**, **cmatrix**, dan masih banyak lagi. Nama-nama tersebut, baru sebagian kecil saja.
 
 Catatan ini hadir, dari penulis untuk teman-teman, sebagai catatan untuk mengingatkan penulis akan nama-nama tools-tools tersebut. Karena, apabila tidak sering digunakan, mesti akan terlupakan, dan ketika diperlukan, perlu waktu untuk mengingatnya kembali.
 
