@@ -23,7 +23,7 @@ permalink: '/tags/'
             <span class="tags-hollow">BLOG</span>
           </div>
           <p class="post-details-index">
-            <a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a>
+            <a href="{{ post.url }}">[<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>]</a>
           </p>
           {% elsif post.category == 'vlog' %}
             <p class="post-title-index">
@@ -33,7 +33,7 @@ permalink: '/tags/'
             <span class="tags-hollow">VLOG</span>
           </div>
           <p class="post-details-index">
-            <a href="{{ post.url }}">[&nbsp;<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>&nbsp;]</a>
+            <a href="{{ post.url }}">[<time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y%m%d" }}</time>]</a>
           </p>
           {% endif %}
         {% endif %}
