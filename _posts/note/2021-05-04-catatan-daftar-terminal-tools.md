@@ -154,11 +154,21 @@ vizex is the terminal program for the UNIX/Linux systems which helps the user to
 
 ## iftop
 
+{% image https://i.postimg.cc/rmPrFhT1/gambar-iftop.png | gambar-iftop %}
+
+Display bandwidth usage on an interface.
+
+iftop does for network usage what top(1) does for CPU usage. It listens to network traffic on a named interface and displays a table of current bandwidth usage by pairs of hosts. Handy for answering the question "why is our ADSL link so slow?".
+
+[http://www.ex-parrot.com/pdw/iftop/](http://www.ex-parrot.com/pdw/iftop/){:target="_blank"}
+
+[https://code.blinkace.com/pdw/iftop](https://code.blinkace.com/pdw/iftop){:target="_blank"}
+
 ## nethogs
 
-Net top tool grouping bandwidth per process.
-
 {% image https://i.postimg.cc/L6Pxf09X/gambar-nethogs.png | gmabar-htop %}
+
+Net top tool grouping bandwidth per process.
 
 NetHogs is a small 'net top' tool. Instead of breaking the traffic down per protocol or per subnet, like most tools do, it groups bandwidth by process.
 
