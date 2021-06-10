@@ -422,6 +422,7 @@ sudo dnf install handbrake
 
 {% shell_term $ %}
 sudo dnf install mpv
+suod dnf install celluloid
 {% endshell_term %}
 
 ## DNSCrypt-Proxy
@@ -692,6 +693,12 @@ Lalu set **OFF** untuk language support yang tidak ingin disertakan atau yang me
 sudo dnf install flameshot
 {% endshell_term %}
 
+## Optipng
+
+{% shell_term $ %}
+$ sudo dnf install optipng
+{% endshell_term %}
+
 ## Change/Swap Pipewire with Pulseaudio
 
 {% shell_term $ %}
@@ -855,6 +862,20 @@ To hide the entry in a specific desktop, add the following line to the desktop e
 where desktop-name can be option such as `GNOME`, `Xfce`, `KDE` etc.
 
 A desktop entry can be hidden in more than desktop at once - simply separate the desktop names with a semi-colon.
+
+## Flatpak via Flathuh Remote
+
+{% shell_term $ %}
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+{% endshell_term %}
+
+## Gromit-MPX
+
+(Flatpak - Flathub)
+
+{% shell_term $ %}
+flatpak install flathub net.christianbeier.Gromit-MPX
+{% endshell_term %}
 
 
 
