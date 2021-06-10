@@ -863,7 +863,7 @@ where desktop-name can be option such as `GNOME`, `Xfce`, `KDE` etc.
 
 A desktop entry can be hidden in more than desktop at once - simply separate the desktop names with a semi-colon.
 
-## Flatpak via Flathuh Remote
+## Flatpak via Flathub Remote
 
 {% shell_term $ %}
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
