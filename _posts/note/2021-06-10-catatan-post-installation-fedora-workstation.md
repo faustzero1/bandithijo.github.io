@@ -24,7 +24,7 @@ Saya memutuskan untuk mengkategorikan catatan ini sebagai "note" dan bukan sebag
 # TODO:
 
 ## Enable fastest mirror and Delta RPM
-Sumber: https://www.linuxsec.org/2020/03/menggunakan-fastest-mirror-di-fedora.html
+Sumber: [https://www.linuxsec.org/2020/03/menggunakan-fastest-mirror-di-fedora.html](https://www.linuxsec.org/2020/03/menggunakan-fastest-mirror-di-fedora.html){:target="_blank"}
 
 Edit file `/etc/dnf/dnf.conf`, lalu tambahkan baris,
 
@@ -73,7 +73,7 @@ sudo dnf update --refresh
 {% endshell_term %}
 
 ## Enable RPMFusion Repository
-Sumber: https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
+Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/](https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/){:target="_blank"}
 
 Free Repository
 
@@ -116,7 +116,7 @@ sudo dnf install vim
 {% endshell_term %}
 
 ## Install downgrade package (sample: fprintd)
-Sumber: https://unix.stackexchange.com/a/408511
+Sumber: [https://unix.stackexchange.com/a/408511](https://unix.stackexchange.com/a/408511){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf downgrade --releasever=31 fprintd
@@ -259,7 +259,7 @@ pip install ueberzug
 {% endshell_term %}
 
 ## Samba
-Sumber: https://docs.fedoraproject.org/en-US/quick-docs/samba/
+Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/samba/](https://docs.fedoraproject.org/en-US/quick-docs/samba/){:target="_blank"}
 
 Install dan enable samba service.
 
@@ -297,8 +297,9 @@ sudo dnf install audacious-plugins-freeworld-ffaudio
 {% endshell_term %}
 
 ## Virt-Manager (libvirt)
-Sumber: https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/
-Sumber: https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/
+Sumber: [https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/](https://fedoramagazine.org/full-virtualization-system-on-fedora-workstation-30/){:target="_blank"}
+
+Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/](https://docs.fedoraproject.org/en-US/quick-docs/getting-started-with-virtualization/){:target="_blank"}
 
 Cek apakah CPU spport untuk virtualization,
 
@@ -379,7 +380,7 @@ sudo dnf swap chromium chromium-freeworld
 {% endshell_term %}
 
 ## Codec from RPMFusion
-Sumber: https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
+Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/](https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
@@ -424,7 +425,7 @@ sudo dnf install mpv
 {% endshell_term %}
 
 ## DNSCrypt-Proxy
-Sumber: https://wiki.archlinux.org/title/Systemd-resolved#Manually
+Sumber: [https://wiki.archlinux.org/title/Systemd-resolved#Manually](https://wiki.archlinux.org/title/Systemd-resolved#Manually){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install dnscrypt-proxy
@@ -543,7 +544,7 @@ sudo dnf install libxslt-devel
 Reinstall all your ruby with rbenv (remove and install).
 
 ## Build ADVCMP
-Sumber: https://github.com/jarun/advcpmv
+Sumber: [https://github.com/jarun/advcpmv](https://github.com/jarun/advcpmv){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install patch
@@ -623,7 +624,7 @@ sudo dnf install seahorse
 {% endshell_term %}
 
 ## Crow translate
-Sumber: https://github.com/crow-translate/crow-translate
+Sumber: [https://github.com/crow-translate/crow-translate](https://github.com/crow-translate/crow-translate){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install extra-cmake-modules
@@ -654,7 +655,7 @@ sudo dnf install inkscape
 {% endshell_term %}
 
 ## WeeChat (build)
-Sumber: https://github.com/weechat/weechat
+Sumber: [https://github.com/weechat/weechat](https://github.com/weechat/weechat){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install gnutls-devel
@@ -698,7 +699,7 @@ sudo dnf swap --allowerasing pipewire-pulseaudio pulseaudio
 {% endshell_term %}
 
 ## Pamixer
-Sumber: https://copr.fedorainfracloud.org/coprs/opuk/pamixer/
+Sumber: [https://copr.fedorainfracloud.org/coprs/opuk/pamixer/](https://copr.fedorainfracloud.org/coprs/opuk/pamixer/){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf copr enable opuk/pamixer
@@ -730,14 +731,14 @@ sudo dnf install hexchat
 {% endshell_term %}
 
 Install adwaita-gtk2-theme for fix issue theme,
-Sumber: https://bugzilla.redhat.com/show_bug.cgi?id=1963223
+Sumber: [https://bugzilla.redhat.com/show_bug.cgi?id=1963223](https://bugzilla.redhat.com/show_bug.cgi?id=1963223){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install adwaita-gtk2-theme
 {% endshell_term %}
 
 ## Gping
-Sumber: https://github.com/orf/gping
+Sumber: [https://github.com/orf/gping](https://github.com/orf/gping){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf copr enable atim/gping
@@ -751,7 +752,7 @@ sudo dnf install dunst
 {% endshell_term %}
 
 ## Telegram TG
-Sumber: https://github.com/paul-nameless/tg.git
+Sumber: [https://github.com/paul-nameless/tg.git](https://github.com/paul-nameless/tg.git){:target="_blank"}
 
 {% shell_term $ %}
 $ sudo dnf install tdlib
@@ -772,7 +773,7 @@ sudo dnf install ps_mem
 {% endshell_term %}
 
 ## How to disable Gnome Software autostart
-Sumber: https://forums.fedoraforum.org/showthread.php?315410-How-to-disable-Gnome-Software-autostart
+Sumber: [https://forums.fedoraforum.org/showthread.php?315410-How-to-disable-Gnome-Software-autostart](https://forums.fedoraforum.org/showthread.php?315410-How-to-disable-Gnome-Software-autostart){:target="_blank"}
 
 {% shell_term $ %}
 sudo systemctl disable packagekit.service
@@ -786,7 +787,7 @@ download-updates=false
 ```
 
 Disable autostart gnome-software service.
-Sumber: https://askubuntu.com/questions/959353/disable-gnome-software-from-loading-at-startup
+Sumber: [https://askubuntu.com/questions/959353/disable-gnome-software-from-loading-at-startup](https://askubuntu.com/questions/959353/disable-gnome-software-from-loading-at-startup){:target="_blank"}
 
 1. Copy of the `/etc/xdg/autostart/gnome-software-service.desktop` file to the `~/.config/autostart/` directory.
 
@@ -843,7 +844,7 @@ sudo dnf install telegram-desktop
 {% endshell_term %}
 
 ## Hide desktop icon on Application List
-Sumber: https://wiki.archlinux.org/title/desktop_entries#Hide_desktop_entries
+Sumber: [https://wiki.archlinux.org/title/desktop_entries#Hide_desktop_entries](https://wiki.archlinux.org/title/desktop_entries#Hide_desktop_entries){:target="_blank"}
 
 Firstly, copy the desktop entry file in question to `~/.local/share/applications` to avoid your changes being overwritten.
 
