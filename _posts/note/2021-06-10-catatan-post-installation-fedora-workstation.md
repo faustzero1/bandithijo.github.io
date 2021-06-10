@@ -824,6 +824,18 @@ sudo dnf install gcolor2
 sudo dnf install libXft-devel
 {% endshell_term %}
 
+For Emoji support,
+
+Sumber: [https://copr.fedorainfracloud.org/coprs/linuxredneck/libXft-bgra/](https://copr.fedorainfracloud.org/coprs/linuxredneck/libXft-bgra/){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf copr enable linuxredneck/libXft-bgra
+sudo rpm -e --nodeps libXft-2.3.3-6.fc34.x86_64 libXft-devel-2.3.3-6.fc34.x86_64
+sudo dnf install libXft-bgra
+{% endshell_term %}
+
+Add `libXft` to `exclude=` package on `/etc/dnf/dnf.conf`.
+
 ### dwm
 
 {% shell_term $ %}
@@ -894,6 +906,60 @@ Its also in GNOME Tweaks. It is under "Windows" -> "Center New Windows".
 
 {% shell_term $ %}
 sudo dnf install polybar
+{% endshell_term %}
+
+## Feh
+
+Image viewer and cataloguer.
+
+{% shell_term $ %}
+sudo dnf install feh
+{% endshell_term %}
+
+## SXHKD
+
+Simple HotKey Daemon.
+
+{% shell_term $ %}
+sudo dnf install sxhkd
+{% endshell_term %}
+
+## j4-dmenu-desktop (dmenu wrapper)
+
+{% shell_term $ %}
+sudo dnf install j4-dmenu-desktop
+{% endshell_term %}
+
+## XCompmgr
+
+{% shell_term $ %}
+sudo dnf install libXcomposite-devel
+sudo dnf install libXdamage-devel
+{% endshell_term %}
+
+## Picom
+
+{% shell_term $ %}
+sudo dnf install meson
+sudo dnf install libev-devel
+sudo dnf install xcb-util-renderutil-devel
+sudo dnf install xcb-util-image-devel
+sudo dnf install pixman-devel
+sudo dnf install uthash-devel
+sudo dnf install libconfig-devel
+sudo dnf install dbus-devel
+{% endshell_term %}
+
+## XBacklight
+
+{% shell_term $ %}
+sudo dnf install xbacklight
+{% endshell_term %}
+
+## Udiskie
+
+{% shell_term $ %}
+sudo dnf install udiskie
 {% endshell_term %}
 
 
