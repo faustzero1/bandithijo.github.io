@@ -962,6 +962,12 @@ sudo dnf install xbacklight
 sudo dnf install udiskie
 {% endshell_term %}
 
+## Abduco
+
+{% shell_term $ %}
+sudo dnf install abduco
+{% endshell_term %}
+
 
 
 
