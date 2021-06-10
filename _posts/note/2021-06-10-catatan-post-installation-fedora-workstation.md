@@ -369,8 +369,8 @@ This adds the current user to the group. You must log out and log in to apply th
 ## Chromium browser
 
 {% shell_term $ %}
-$ sudo dnf install chromium
-$ sudo dnf install chromium-libs-media-freeworld
+sudo dnf install chromium
+sudo dnf install chromium-libs-media-freeworld
 {% endshell_term %}
 
 If Chromium can't play video, replace chromium with chromium-freeworld by RPMFusion.
@@ -478,8 +478,8 @@ sudo dnf install libtool
 {% endshell_term %}
 
 {% shell_term $ %}
-$ sudo dnf install nodejs
-$ sudo dnf install python3-neovim
+sudo dnf install nodejs
+sudo dnf install python3-neovim
 {% endshell_term %}
 
 ## PostgreSQL
@@ -613,8 +613,8 @@ sudo dnf install rofi
 ## LazyGit
 
 {% shell_term $ %}
-$ sudo dnf copr enable atim/lazygit
-$ sudo dnf install lazygit
+sudo dnf copr enable atim/lazygit
+sudo dnf install lazygit
 {% endshell_term %}
 
 ## Seahorse
@@ -720,8 +720,8 @@ make
 ## DConf & GConf Editor
 
 {% shell_term $ %}
-$ sudo dnf install dconf-editor
-$ sudo dnf install gconf-editor
+sudo dnf install dconf-editor
+sudo dnf install gconf-editor
 {% endshell_term %}
 
 ## HexChat
@@ -755,9 +755,9 @@ sudo dnf install dunst
 Sumber: [https://github.com/paul-nameless/tg.git](https://github.com/paul-nameless/tg.git){:target="_blank"}
 
 {% shell_term $ %}
-$ sudo dnf install tdlib
-$ pip install python-telegram
-$ pip install .
+sudo dnf install tdlib
+pip install python-telegram
+pip install .
 {% endshell_term %}
 
 ## SimpleScreenRecorder
