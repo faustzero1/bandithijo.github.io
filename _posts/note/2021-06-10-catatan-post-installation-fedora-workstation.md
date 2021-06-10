@@ -854,6 +854,7 @@ sudo dnf install libassuan-devel
 sudo dnf install imlib2-devel
 sudo dnf install libexif-devel
 sudo dnf install giflib-devel
+sudo dnf install libXft-bgra-devel
 {% endshell_term %}
 
 ## Telegram Desktop
