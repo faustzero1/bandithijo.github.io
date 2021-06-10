@@ -118,6 +118,8 @@ sudo dnf install vim
 ## Install downgrade package (sample: fprintd)
 Sumber: [https://unix.stackexchange.com/a/408511](https://unix.stackexchange.com/a/408511){:target="_blank"}
 
+Saya harus mendowngrade paket **fprintd** dikarenakan fingerprint device yang ada di laptop saya (ThinkPad X61 keluaran tahun 2007), tidak dapat berfungsi pada fprintd versi 1.0. Setidaknya saya memerlukan versi 0.9.
+
 {% shell_term $ %}
 sudo dnf downgrade --releasever=31 fprintd
 {% endshell_term %}
