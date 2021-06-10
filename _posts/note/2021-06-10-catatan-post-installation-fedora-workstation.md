@@ -974,12 +974,6 @@ sudo dnf install abduco
 sudo dnf install lxappearance
 {% endshell_term %}
 
-## SASSC
-
-{% shell_term $ %}
-sudo dnf install sassc
-{% endshell_term %}
-
 ## unclutter-xfixes
 Sumber: [https://github.com/Airblader/unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes){:target="_blank"}
 
@@ -1001,6 +995,36 @@ sudo make install
 sudo dnf install calibre
 {% endshell_term %}
 
+## System Config Printer
+
+{% shell_term $ %}
+sudo dnf install system-config-printer
+{% endshell_term %}
+
+## Gparted
+
+{% shell_term $ %}
+sudo dnf install gparted
+{% endshell_term %}
+
+## Numix Solarized Theme Build
+
+{% shell_term $ %}
+sudo dnf install sassc
+sudo dnf install gdk-pixbuf2-devel
+{% endshell_term %}
+
+Saya memiliki Codedark.colors
+
+{% shell_term $ %}
+sudo make THEME=Codedark install
+{% endshell_term %}
+
+Install dependensi numix theme,
+
+{% shell_term $ %}
+sudo dnf install numix-gtk-theme
+{% endshell_term %}
 
 
 
