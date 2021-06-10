@@ -968,6 +968,39 @@ sudo dnf install udiskie
 sudo dnf install abduco
 {% endshell_term %}
 
+## LXappearance
+
+{% shell_term $ %}
+sudo dnf install lxappearance
+{% endshell_term %}
+
+## SASSC
+
+{% shell_term $ %}
+sudo dnf install sassc
+{% endshell_term %}
+
+## unclutter-xfixes
+Sumber: [https://github.com/Airblader/unclutter-xfixes](https://github.com/Airblader/unclutter-xfixes){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf intall libXi-devel
+sudo dnf install asciidoc
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/Airblader/unclutter-xfixes.git
+cd unclutter-xfixes
+make
+sudo make install
+{% endshell_term %}
+
+## Calibre
+
+{% shell_term $ %}
+sudo dnf install calibre
+{% endshell_term %}
+
 
 
 
