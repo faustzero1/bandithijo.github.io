@@ -12,12 +12,12 @@ tags: ['Tips', 'Fedora']
 wip: true
 pin:
 contributors: []
-description: "Catatan ini merupakan kumpulan package-package dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi Fedora Workstation."
+description: "Catatan ini merupakan kumpulan packages dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi Fedora Workstation."
 ---
 
 # Prakata
 
-Catatan ini merupakan kumpulan package-package dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi Fedora Workstation.
+Catatan ini merupakan kumpulan packages dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi Fedora Workstation.
 
 Saya memutuskan untuk mengkategorikan catatan ini sebagai "note" dan bukan sebagai "blog" karena kemungkinan saya akan terus memperbaharui isinya seiring dengan berjalannya waktu pemakaian apabila saya menemupak paket-paket yang menarik.
 
