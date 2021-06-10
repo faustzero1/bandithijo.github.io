@@ -877,7 +877,22 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub net.christianbeier.Gromit-MPX
 {% endshell_term %}
 
+## Center window in GNOME
+Sumber: [https://www.reddit.com/r/gnome/comments/aaqy2p/center_windows_in_gnome/](https://www.reddit.com/r/gnome/comments/aaqy2p/center_windows_in_gnome/){:target="_blank"}
 
+By: carmanaughty
+
+For a keyboard shortcut, there's a dconf key under `/org/gnome/desktop/wm/keybindings` which is `move-to-center` and it should be empty. Change that to whatever you want (for instance, I use ['<Super><Control><Shift>Home']).
+
+By: [deleted]
+
+Its also in GNOME Tweaks. It is under "Windows" -> "Center New Windows".
+
+## Polybar
+
+{% shell_term $ %}
+sudo dnf install polybar
+{% endshell_term %}
 
 
 
