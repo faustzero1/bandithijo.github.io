@@ -701,6 +701,29 @@ sudo dnf install flameshot
 $ sudo dnf install optipng
 {% endshell_term %}
 
+## Scrot
+Sumber: [https://github.com/dreamer/scrot](https://github.com/dreamer/scrot){:target="_blank"}
+
+{% shell_term $ %}
+git clone https://github.com/dreamer/scrot.git
+{% endshell_term %}
+
+{% shell_term $ %}
+sudo dnf install meson imlib2-devel libX11-devel libXfixes-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+meson setup build
+ninja -C build
+sudo ninja -C build install
+{% endshell_term %}
+
+## Maim
+
+{% shell_term $ %}
+sudo dnf install maim
+{% endshell_term %}
+
 ## Change/Swap Pipewire with Pulseaudio
 
 {% shell_term $ %}
