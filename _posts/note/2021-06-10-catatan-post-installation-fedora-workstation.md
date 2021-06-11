@@ -1100,6 +1100,34 @@ sudo dnf install numix-gtk-theme
 sudo dnf install aria2
 {% endshell_term %}
 
+{% shell_term $ %}
+pip install "aria2p[tui]"
+{% endshell_term %}
+
+## Mate Polkit
+
+{% shell_term $ %}
+sudo dnf install mate-polkit
+{% endshell_term %}
+
+## P7Zip
+
+{% shell_term $ %}
+sudo dnf install p7zip
+{% endshell_term %}
+
+## Screenkey
+
+{% shell_term $ %}
+sudo dnf install screenkey
+{% endshell_term %}
+
+## Development Group Packages
+
+{% shell_term $ %}
+sudo dnf group install "Development Tools"
+{% endshell_term %}
+
 
 
 
