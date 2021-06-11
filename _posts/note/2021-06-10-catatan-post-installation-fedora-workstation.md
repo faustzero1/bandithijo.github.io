@@ -381,6 +381,29 @@ If Chromium can't play video, replace chromium with chromium-freeworld by RPMFus
 sudo dnf swap chromium chromium-freeworld
 {% endshell_term %}
 
+## Chromedriver
+
+{% shell_term $ %}
+sudo dnf install chromedriver
+{% endshell_term %}
+
+## Google Chrome
+Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/installing-chromium-or-google-chrome-browsers/#installing-chrome](https://docs.fedoraproject.org/en-US/quick-docs/installing-chromium-or-google-chrome-browsers/#installing-chrome){:target="_blank"}
+
+Click the following link: [https://www.google.com/chrome/browser/desktop/index.html](https://www.google.com/chrome/browser/desktop/index.html){:target="_blank"}
+
+Click on Download Chrome and select Fedora 64 or 32 bits download and install the repo.
+
+{% shell_term $ %}
+sudo dnf install google-chrome-stable_current_x86_64.rpm
+{% endshell_term %}
+
+Enabling Chromium plugins (*under construction*).
+
+{% shell_term $ %}
+rpm2cpio ./google-chrome-stable_current_x86_64.rpm | cpio -idmv
+{% endshell_term %}
+
 ## Codec from RPMFusion
 Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/](https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/){:target="_blank"}
 
@@ -606,6 +629,14 @@ pip install adblock
 {% endshell_term %}
 
 Kemudian, update list dengan `:adblock-update`.
+
+Additional hints, Sumber: [https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora](https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora){:target="_blank"}
+
+Fedora only ships free software in the repositories. To be able to play videos with proprietary codecs with QtWebEngine, you will need to install an additional package from the RPM Fusion Free repository.
+
+{% shell_term $ %}
+sudo dnf install qt5-qtwebengine-freeworld
+{% endshell_term %}
 
 ## Rofi
 
@@ -1023,6 +1054,19 @@ sudo dnf install calibre
 
 {% shell_term $ %}
 sudo dnf install system-config-printer
+{% endshell_term %}
+
+## PPD from foomatic-db
+
+{% shell_term $ %}
+sudo dnf install foomatic-db
+sudo dnf install foomatic-db-ppds
+{% endshell_term %}
+
+## XSane (Scanner)
+
+{% shell_term $ %}
+sudo dnf install xsane
 {% endshell_term %}
 
 ## Gparted
