@@ -1094,6 +1094,12 @@ Install dependensi numix theme,
 sudo dnf install numix-gtk-theme
 {% endshell_term %}
 
+## Aria2
+
+{% shell_term $ %}
+sudo dnf install aria2
+{% endshell_term %}
+
 
 
 
