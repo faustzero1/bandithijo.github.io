@@ -1129,6 +1129,11 @@ sudo dnf group install "Development Tools"
 {% endshell_term %}
 
 
+## Neovim (manual build)
+
+{% shell_term $ %}
+sudo dnf install libvterm-devel
+{% endshell_term %}
 
 
 
