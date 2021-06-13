@@ -1196,6 +1196,21 @@ newgrp docker
 <p markdown=1>You have to log out and log back in (or restart Docker daemon and use `newgrp` command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without `sudo`.</p>
 {% endbox_pertanyaan %}
 
+## KBBI-Qt
+Sumber: [https://github.com/bgli/kbbi-qt](https://github.com/bgli/kbbi-qt){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install qt5-qtbase-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+$ git clone https://github.com/bgli/kbbi-qt.git
+$ cd kbbi-qt
+$ qmake-qt5 KBBI-Qt.pro
+$ make
+$ sudo make install
+{% endshell_term %}
+
 
 
 
