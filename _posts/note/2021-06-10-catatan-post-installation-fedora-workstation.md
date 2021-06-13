@@ -260,6 +260,16 @@ sudo dnf install libXext-devel
 pip install ueberzug
 {% endshell_term %}
 
+{% shell_term $ %}
+sudo dnf install mediainfo
+sudo dnf install highlight
+sudo dnf install atool
+sudo dnf install bsdtar
+sudo dnf install unrar
+sudo dnf install p7zip
+sudo dnf install odt2txt
+{% endshell_term %}
+
 ## Samba
 Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/samba/](https://docs.fedoraproject.org/en-US/quick-docs/samba/){:target="_blank"}
 
