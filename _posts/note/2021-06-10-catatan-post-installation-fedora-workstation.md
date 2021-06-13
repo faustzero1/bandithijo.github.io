@@ -511,6 +511,7 @@ sudo dnf install cmake
 sudo dnf install gcc-c++
 sudo dnf install luajit-devel
 sudo dnf install libtool
+sudo dnf install libvterm-devel
 {% endshell_term %}
 
 {% shell_term $ %}
@@ -1139,11 +1140,6 @@ sudo dnf group install "Development Tools"
 {% endshell_term %}
 
 
-## Neovim (manual build)
-
-{% shell_term $ %}
-sudo dnf install libvterm-devel
-{% endshell_term %}
 
 
 
