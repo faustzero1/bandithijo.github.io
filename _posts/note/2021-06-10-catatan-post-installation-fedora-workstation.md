@@ -1139,6 +1139,63 @@ sudo dnf install screenkey
 sudo dnf group install "Development Tools"
 {% endshell_term %}
 
+## Docker
+Sumber: [https://developer.fedoraproject.org/tools/docker/docker-installation.html](https://developer.fedoraproject.org/tools/docker/docker-installation.html){:target="_blank"}
+
+Install the `docker-ce` package using the Docker repository:
+
+To install the dnf-plugins-core package (which provides the commands to manage your DNF repositories) and set up the stable repository.
+
+{% shell_term $ %}
+sudo dnf install dnf-plugins-core
+{% endshell_term %}
+
+To add the `docker-ce` repository
+
+{% shell_term $ %}
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+{% endshell_term %}
+
+To install the docker engine. The Docker daemon relies on a OCI compliant runtime (invoked via the containerd daemon) as its interface to the Linux kernel namespaces, cgroups, and SELinux.
+
+{% shell_term $ %}
+sudo dnf install docker-ce docker-ce-cli containerd.io
+{% endshell_term %}
+
+Afterwards you need to enable the backward compatability for Cgroups. Docker Engine on Linux relies on control groups (cgroups). A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.
+
+{% shell_term $ %}
+sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+{% endshell_term %}
+
+You must reboot after running the command for the changes to take effect
+
+To start the Docker service use:
+
+{% shell_term $ %}
+sudo systemctl start docker
+{% endshell_term %}
+
+Now you can verify that Docker was correctly installed and is running by running the Docker hello-world image.
+
+{% shell_term $ %}
+sudo docker run hello-world
+{% endshell_term %}
+
+{% box_pertanyaan %}
+<p markdown=1><b>Why can’t I use docker command as a non root user, by default?</b></p>
+<p markdown=1>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user `root` and other users can access it with `sudo`. For this reason, Docker daemon always runs as the `root` user.</p>
+<p markdown=1>You can either [set up sudo](http://www.projectatomic.io/blog/2015/08/why-we-dont-let-non-root-users-run-docker-in-centos-fedora-or-rhel){:target="_blank"} to give docker access to non-root users.</p>
+<p markdown=1>Or you can create a Unix group called `docker` and add users to it. When the Docker daemon starts, it makes the ownership of the Unix socket read/writable by the `docker` group.</p>
+<p markdown=1>**Warning**: The `docker` group is equivalent to the `root` user; For details on how this impacts security in your system, see [Docker Daemon Attack Surface](https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface){:target="_blank"} for details.</p>
+<p markdown=1>To create the `docker` group and add your user:</p>
+{% shell_term $ %}
+sudo groupadd docker && sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
+newgrp docker
+{% endshell_term %}
+<p markdown=1>You have to log out and log back in (or restart Docker daemon and use `newgrp` command as mentioned here) for these changes to take effect. Then you can verify if your changes were successful by running Docker without `sudo`.</p>
+{% endbox_pertanyaan %}
+
 
 
 
