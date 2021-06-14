@@ -1241,6 +1241,23 @@ sudo dnf install zathura
 sudo dnf install zathura-pdf-mupdf
 {% endshell_term %}
 
+## Kamus
+Sumber: [https://github.com/abihf/kamus](https://github.com/abihf/kamus){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install vala
+sudo dnf install libvala-devel
+sudo dnf install gtk3-devel
+sudo dnf install libgee-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+./configure
+make
+sudo make install
+{% endshell_term %}
+
+
 
 
 
