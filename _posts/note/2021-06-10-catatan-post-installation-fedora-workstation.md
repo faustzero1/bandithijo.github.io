@@ -621,6 +621,29 @@ sudo dnf install msmtp
 sudo dnf copr enable chriscowleyunix/neomutt
 {% endshell_term %}
 
+**Manual Build**
+
+Sumber: [https://neomutt.org/dev/build/build](https://neomutt.org/dev/build/build){:target="_blank"}
+
+Deps 
+
+{% shell_term $ %}
+sudo dnf install libidn-devel
+sudo dnf install gpgme-devel
+sudo dnf install notmuch-devel
+sudo dnf install sqlite-devel
+sudo dnf install cyrus-sasl-devel
+sudo dnf install tokyocabinet-devel
+sudo dnf install tokyocabinet
+sudo dnf install urlview
+{% endshell_term %}
+
+{% shell_term $ %}
+./configure --ssl --lua --notmuch --gpgme --gss --autocrypt --sqlite --sasl --mixmaster --fmemopen --homespool --tokyocabinet --locales-fix
+make
+sudo make install
+{% endshell_term %}
+
 ## RDP
 
 {% shell_term $ %}
