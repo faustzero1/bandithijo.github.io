@@ -625,7 +625,7 @@ sudo dnf copr enable chriscowleyunix/neomutt
 
 Sumber: [https://neomutt.org/dev/build/build](https://neomutt.org/dev/build/build){:target="_blank"}
 
-Deps 
+Deps
 
 {% shell_term $ %}
 sudo dnf install libidn-devel
@@ -1232,6 +1232,13 @@ $ cd kbbi-qt
 $ qmake-qt5 KBBI-Qt.pro
 $ make
 $ sudo make install
+{% endshell_term %}
+
+## Zathura
+
+{% shell_term $ %}
+sudo dnf install zathura
+sudo dnf install zathura-pdf-mupdf
 {% endshell_term %}
 
 
