@@ -224,21 +224,23 @@ Selanjutnya tinggal mendefiniskan keyboard shortcut.
 
 Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada konfigurasi masing-masing.
 
-{% highlight_caption $HOME/.config/ranger/rc.conf %}
-{% pre_caption %}
+**i3wm**
+
+{% highlight_caption $HOME/.config/i3/config %}
+{% highlight shell linenos %}
 bindsym $mod+p exec --no-startup-id clipmenu
 bindsym $mod+Shift+p exec --no-startup-id clipdel -d '.'
-{% endpre_caption %}
+{% endhighlight %}
 
 Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah `$ clipdel -d '.'`.
 
 **dwm**
 
 {% highlight_caption config.h %}
-{% pre_caption %}
+{% highlight shell linenos %}
 { MODKEY,             XK_p,   spawn,   SHCMD("/usr/bin/clipmenu") },
 { MODKEY|ShiftMask,   XK_p,   spawn,   SHCMD("clipdel -d '.'") },
-{% endpre_caption %}
+{% endhighlight %}
 
 Sesuaikan keyboard shortcut sesuai preferensi kalian.
 
