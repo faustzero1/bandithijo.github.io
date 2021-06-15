@@ -1257,6 +1257,12 @@ make
 sudo make install
 {% endshell_term %}
 
+## Thunderbird
+
+{% shell_term $ %}
+sudo dnf install thunderbird
+{% endshell_term %}
+
 
 
 
