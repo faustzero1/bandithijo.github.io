@@ -1315,6 +1315,25 @@ sudo dnf install thunderbird
 sudo dnf install gucharmap
 {% endshell_term %}
 
+## Dragon (drag and drop helper)
+Sumber: [https://github.com/mwh/dragon.git](https://github.com/mwh/dragon.git){:target="_blank"}
+
+{% shell_term $ %}
+git clone https://github.com/mwh/dragon.git
+cd dragon
+make
+make install
+{% endshell_term %}
+
+## Zoom Meeting Client
+Sumber: [https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_825b50ac-ad15-44a8-9959-28c97e4803ef](https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_825b50ac-ad15-44a8-9959-28c97e4803ef){:target="_blank"}
+
+Sumber: [https://tecadmin.net/install-zoom-client-on-fedora/](https://tecadmin.net/install-zoom-client-on-fedora/){:target="_blank"}
+
+{% shell_term $ %}
+wget https://zoom.us/client/latest/zoom_x86_64.rpm
+sudo dnf localinstall zoom_x86_64.rpm
+{% endshell_term %}
 
 
 
