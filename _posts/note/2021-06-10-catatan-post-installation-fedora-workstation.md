@@ -483,6 +483,12 @@ sudo dnf install mpv
 suod dnf install celluloid
 {% endshell_term %}
 
+User script that may help you steroid your mpv.
+
+1. [mpv-playlistmanager](https://github.com/jonniek/mpv-playlistmanager){:target="_blank"}
+2. [mpv-youtube-download](https://github.com/cvzi/mpv-youtube-download){:target="_blank"}
+3. [mpv-youtube-quality](https://github.com/jgreco/mpv-youtube-quality){:target="_blank"}
+
 ## DNSCrypt-Proxy
 Sumber: [https://wiki.archlinux.org/title/Systemd-resolved#Manually](https://wiki.archlinux.org/title/Systemd-resolved#Manually){:target="_blank"}
 
