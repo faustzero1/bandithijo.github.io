@@ -1309,6 +1309,12 @@ sudo make install
 sudo dnf install thunderbird
 {% endshell_term %}
 
+## Gucharmap (Character Map)
+
+{% shell_term $ %}
+sudo dnf install gucharmap
+{% endshell_term %}
+
 
 
 
