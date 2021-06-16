@@ -220,6 +220,29 @@ sudo dnf install git-svn
 sudo dnf install tig
 {% endshell_term %}
 
+## Git-Credential-Libsecret
+Sumber: [https://discussion.fedoraproject.org/t/attention-git-credential-libsecret-for-storing-git-passwords-in-the-gnome-keyring-is-now-an-extra-package/18275](https://discussion.fedoraproject.org/t/attention-git-credential-libsecret-for-storing-git-passwords-in-the-gnome-keyring-is-now-an-extra-package/18275){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install git-credential-libsecret
+{% endshell_term %}
+
+{% highlight_caption $HOME/.gitconfig %}
+{% highlight shell linenos %}
+...
+
+[credential]
+	helper = /usr/libexec/git-core/git-credential-libsecret
+{% endhighlight %}
+
+## SSH AskPass
+
+{% shell_term $ %}
+sudo dnf install lxqt-openssh-askpass
+{% endshell_term %}
+
+Saya memilih menggunakan versi **lxqt-openssh-askpass.x86_64**, daripada versi **openssh-askpass.x86_64** dan **x11-ssh-askpass.x86_64**.
+
 ## Glances
 
 {% shell_term $ %}
@@ -494,7 +517,7 @@ sudo dnf install adwaita-qt5
 sudo dnf install qt5ct
 {% endshell_term %}
 
-## Change default cursor on lightdm/gdm
+## Change default cursor on lightdm
 
 Change value of `/usr/share/icons/default/index.theme`
 
@@ -503,6 +526,23 @@ Change value of `/usr/share/icons/default/index.theme`
 [Icon Theme]
 Inherits=ComixCursors-Opaque-White
 {% endhighlight %}
+
+## Change default cursor on GDM
+Sumber: [https://wiki.archlinux.org/title/GDM#Changing_the_cursor_theme](https://wiki.archlinux.org/title/GDM#Changing_the_cursor_theme){:target="_blank"}
+
+GDM disregards GNOME cursor theme settings and it also ignores the cursor theme set according to the XDG specification. To change the cursor theme used in GDM, either create the following keyfile
+
+{% highlight_caption /etc/dconf/db/gdm.d/10-cursor-settings %}
+{% highlight shell linenos %}
+[org/gnome/desktop/interface]
+cursor-theme='theme-name'
+{% endhighlight %}
+
+and then recompile the GDM database or alternatively log in to the GDM user and execute the following:
+
+{% shell_term $ %}
+gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
+{% endshell_term %}
 
 ## Neovim (build)
 
@@ -1144,6 +1184,12 @@ pip install "aria2p[tui]"
 sudo dnf install mate-polkit
 {% endshell_term %}
 
+## LXpolkit
+
+{% shell_term $ %}
+sudo dnf install lxpolkit
+{% endshell_term %}
+
 ## P7Zip
 
 {% shell_term $ %}
@@ -1262,6 +1308,7 @@ sudo make install
 {% shell_term $ %}
 sudo dnf install thunderbird
 {% endshell_term %}
+
 
 
 
