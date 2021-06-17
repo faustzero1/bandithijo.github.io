@@ -1353,6 +1353,12 @@ sudo dnf install ffmulticonverter
 sudo dnf install HandBrake-gui
 {% endshell_term %}
 
+## x11vnc
+
+{% shell_term $ %}
+sudo dnf install x11vnc
+{% endshell_term %}
+
 
 
 
