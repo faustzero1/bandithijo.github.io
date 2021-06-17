@@ -1366,6 +1366,21 @@ sudo dnf install HandBrake-gui
 sudo dnf install x11vnc
 {% endshell_term %}
 
+## Discord
+
+(RPMFusion - NonFree)
+{% shell_term $ %}
+sudo dnf install discord
+{% endshell_term %}
+
+## Slack
+Sumber: [https://slack.com/intl/en-id/downloads/linux](https://slack.com/intl/en-id/downloads/linux){:target="_blank"}
+
+{% shell_term $ %}
+wget https://downloads.slack-edge.com/linux_releases/slack-4.17.0-0.1.fc21.x86_64.rpm
+sudo dnf localinstall slack-4.17.0-0.1.fc21.x86_64.rpm
+{% endshell_term %}
+
 
 
 
