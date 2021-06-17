@@ -1341,6 +1341,18 @@ wget https://zoom.us/client/latest/zoom_x86_64.rpm
 sudo dnf localinstall zoom_x86_64.rpm
 {% endshell_term %}
 
+## ffmulticonverter
+
+{% shell_term $ %}
+sudo dnf install ffmulticonverter
+{% endshell_term %}
+
+## HandBrake
+
+{% shell_term $ %}
+sudo dnf install HandBrake-gui
+{% endshell_term %}
+
 
 
 
