@@ -1381,6 +1381,20 @@ wget https://downloads.slack-edge.com/linux_releases/slack-4.17.0-0.1.fc21.x86_6
 sudo dnf localinstall slack-4.17.0-0.1.fc21.x86_64.rpm
 {% endshell_term %}
 
+## PDF Arranger
+
+{% shell_term $ %}
+sudo dnf install pdfarranger
+{% endshell_term %}
+
+## Master PDF Editor 4
+Sumber: [https://www.linuxuprising.com/2019/04/download-master-pdf-editor-4-for-linux.html](https://www.linuxuprising.com/2019/04/download-master-pdf-editor-4-for-linux.html){:target="_blank"}
+
+{% shell_term $ %}
+wget http://code-industry.net/public/master-pdf-editor-4.3.89_qt5.x86_64.rpm
+sudo dnf localinstall master-pdf-editor-4.3.89_qt5.x86_64.rpm
+{% endshell_term %}
+
 
 
 
