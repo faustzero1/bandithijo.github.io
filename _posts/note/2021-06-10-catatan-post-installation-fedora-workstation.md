@@ -622,6 +622,7 @@ sudo dnf install openssl-devel
 sudo dnf install libpq-devel
 sudo dnf install libxml2-devel
 sudo dnf install libxslt-devel
+sudo dnf install readline-devel
 {% endshell_term %}
 
 Reinstall all your ruby with rbenv (remove and install).
@@ -839,6 +840,12 @@ sudo dnf install maim
 
 {% shell_term $ %}
 sudo dnf swap --allowerasing pipewire-pulseaudio pulseaudio
+{% endshell_term %}
+
+Install PulseAudio sound server utilities
+
+{% shell_term $ %}
+sudo dnf install pulseaudio-utils
 {% endshell_term %}
 
 ## Pamixer
