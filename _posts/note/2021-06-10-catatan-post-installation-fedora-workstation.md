@@ -1395,6 +1395,30 @@ wget http://code-industry.net/public/master-pdf-editor-4.3.89_qt5.x86_64.rpm
 sudo dnf localinstall master-pdf-editor-4.3.89_qt5.x86_64.rpm
 {% endshell_term %}
 
+## Intel GPU Tools
+
+{% shell_term $ %}
+sudo dnf install igt-gpu-tools
+{% endshell_term %}
+
+## Autocutsel
+Sumber: [http://www.nongnu.org/autocutsel/](http://www.nongnu.org/autocutsel/){:target="_blank"}
+
+Sumber: [https://github.com/sigmike/autocutsel](https://github.com/sigmike/autocutsel){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install libXaw-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/sigmike/autocutsel
+cd autocutsel
+./bootstrap
+./configure
+make
+sudo make install
+{% endshell_term %}
+
 
 
 
