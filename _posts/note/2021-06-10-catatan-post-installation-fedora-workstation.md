@@ -1419,6 +1419,38 @@ make
 sudo make install
 {% endshell_term %}
 
+## XZoom
+Sumber: [https://copr.fedorainfracloud.org/coprs/bgstack15/stackrpms/](https://copr.fedorainfracloud.org/coprs/bgstack15/stackrpms/){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf copr enable bgstack15/stackrpms
+sudo dnf install xzoom
+{% endshell_term %}
+
+{% comment %}
+Sumber: [https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=xzoom](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=xzoom){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install imake
+{% endshell_term %}
+
+{% shell_term $ %}
+wget http://webdiis.unizar.es/pub/unix/X11/xzoom-0.3.tgz
+wget ftp://ftp.acc.umu.se/mirror/cdimage/snapshot/Debian/pool/main/x/xzoom/xzoom_0.3-23.diff.gz
+{% endshell_term %}
+
+**md4sum**
+
+```
+d3a397e24aba7025f94e264fea0906d0  xzoom_0.3-23.diff.gz
+c6ecc5fade34cf46cbe8c00b93d7ac78  xzoom-0.3.tgz
+```
+
+{% shell_term $ %}
+gzip -f -d "xzoom_0.3-23.diff.gz"
+{% endshell_term %}
+{% endcomment %}
+
 
 
 
