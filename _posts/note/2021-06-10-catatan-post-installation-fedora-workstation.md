@@ -814,20 +814,26 @@ $ sudo dnf install optipng
 {% endshell_term %}
 
 ## Scrot
-Sumber: [https://github.com/dreamer/scrot](https://github.com/dreamer/scrot){:target="_blank"}
+Sumber: [https://github.com/resurrecting-open-source-projects/scrot](https://github.com/resurrecting-open-source-projects/scrot){:target="_blank"}
 
 {% shell_term $ %}
-git clone https://github.com/dreamer/scrot.git
+sudo dnf install autoconf-archive
+sudo dnf install imlib2-devel
+sudo dnf install libtool
+sudo dnf install libXcomposite-devel
+sudo dnf install libXfixes-devel
 {% endshell_term %}
 
 {% shell_term $ %}
-sudo dnf install meson imlib2-devel libX11-devel libXfixes-devel
+git clone https://github.com/resurrecting-open-source-projects/scrot.git
+cd scrot
 {% endshell_term %}
 
 {% shell_term $ %}
-meson setup build
-ninja -C build
-sudo ninja -C build install
+./autogen.sh
+./configure
+make
+sudo make install
 {% endshell_term %}
 
 ## Maim
