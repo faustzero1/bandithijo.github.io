@@ -1457,7 +1457,20 @@ gzip -f -d "xzoom_0.3-23.diff.gz"
 {% endshell_term %}
 {% endcomment %}
 
+## Minder (mind mapping)
 
+{% shell_term $ %}
+sudo dnf install minder
+{% endshell_term %}
+
+## Taskell (Kanban Board)
+Sumber: [https://github.com/smallhadroncollider/taskell](https://github.com/smallhadroncollider/taskell){:target="_blank"}
+
+Command-line Kanban board/task manager with support for Trello boards and GitHub projects
+
+{% shell_term $ %}
+sudo dnf install ncurses-compat-libs
+{% endshell_term %}
 
 
 
