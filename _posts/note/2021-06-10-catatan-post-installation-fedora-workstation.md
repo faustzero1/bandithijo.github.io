@@ -1292,11 +1292,11 @@ sudo dnf install qt5-qtbase-devel
 {% endshell_term %}
 
 {% shell_term $ %}
-$ git clone https://github.com/bgli/kbbi-qt.git
-$ cd kbbi-qt
-$ qmake-qt5 KBBI-Qt.pro
-$ make
-$ sudo make install
+git clone https://github.com/bgli/kbbi-qt.git
+cd kbbi-qt
+qmake-qt5 KBBI-Qt.pro
+make
+sudo make install
 {% endshell_term %}
 
 ## Zathura
