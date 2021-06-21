@@ -1472,6 +1472,18 @@ Command-line Kanban board/task manager with support for Trello boards and GitHub
 sudo dnf install ncurses-compat-libs
 {% endshell_term %}
 
+## Show/Hide GRUB Menu
+Sumber: [https://fedoraproject.org/wiki/Changes/HiddenGrubMenu](https://fedoraproject.org/wiki/Changes/HiddenGrubMenu){:target="_blank"}
+
+On systems with only a single OS installed, the grub menu does not offer any useful functionality, so we should hide it by default.
+
+This new auto-hide functionality will be automatically enabled on new Fedora Workstation installs. This can be disabled by running:
+
+{% shell_term $ %}
+sudo grub2-editenv - unset menu_auto_hide
+{% endshell_term %}
+
+
 
 
 
