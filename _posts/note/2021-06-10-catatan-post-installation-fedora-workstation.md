@@ -1483,6 +1483,14 @@ This new auto-hide functionality will be automatically enabled on new Fedora Wor
 sudo grub2-editenv - unset menu_auto_hide
 {% endshell_term %}
 
+## Zeal
+
+Offline documentation browser inspired by Dash
+
+{% shell_term $ %}
+sudo dnf install zeal
+{% endshell_term %}
+
 
 
 
