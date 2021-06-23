@@ -1491,6 +1491,12 @@ Offline documentation browser inspired by Dash
 sudo dnf install zeal
 {% endshell_term %}
 
+## xinput
+
+{% shell_term $ %}
+sudo dnf install xinput
+{% endshell_term %}
+
 
 
 
