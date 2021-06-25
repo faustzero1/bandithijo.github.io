@@ -1497,6 +1497,12 @@ sudo dnf install zeal
 sudo dnf install xinput
 {% endshell_term %}
 
+## gThumb (image viewer, editor, organizer)
+
+{% shell_term $ %}
+sudo dnf install gthumb
+{% endshell_term %}
+
 
 
 
