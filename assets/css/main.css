@@ -1253,6 +1253,7 @@ button.active {
 
 .tag a {
   color: var(--WHITE);
+  border-bottom: none !important;
 }
 
 .wiptag_title {
@@ -1439,6 +1440,7 @@ button.active {
 
 .tags a {
   color: var(--WHITE);
+  border-bottom: none !important;
 }
 
 @keyframes blink {
