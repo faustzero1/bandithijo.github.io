@@ -491,6 +491,19 @@ User script that may help you steroid your mpv.
 2. [mpv-youtube-download](https://github.com/cvzi/mpv-youtube-download){:target="_blank"}
 3. [mpv-youtube-quality](https://github.com/jgreco/mpv-youtube-quality){:target="_blank"}
 
+Manual Build
+
+{% shell_term $ %}
+sudo dnf install ffmpeg-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+./bootstrap.py
+./waf configure
+./waf
+sudo ./waf install
+{% endshell_term %}
+
 ## DNSCrypt-Proxy
 Sumber: [https://wiki.archlinux.org/title/Systemd-resolved#Manually](https://wiki.archlinux.org/title/Systemd-resolved#Manually){:target="_blank"}
 
