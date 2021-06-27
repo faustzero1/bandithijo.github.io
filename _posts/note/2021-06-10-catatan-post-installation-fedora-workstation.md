@@ -21,6 +21,8 @@ Catatan ini merupakan kumpulan packages dan beberapa konfigurasi yang saya lakuk
 
 Saya memutuskan untuk mengkategorikan catatan ini sebagai "note" dan bukan sebagai "blog" karena kemungkinan saya akan terus memperbaharui isinya seiring dengan berjalannya waktu pemakaian apabila saya menemupak paket-paket yang menarik.
 
+Selain itu, memiliki sebuah catatan "perjalanan" akan **menumbuhkan rasa percaya diri untuk terus maju ke depan**. Karena, apabila gagal, kita tidak takut untuk memulai lagi dari awal. Ataupun, kita dapat dengan mudah memulai percabangan untuk awal baru yang lain.
+
 # TODO:
 
 ## Enable fastest mirror and Delta RPM
