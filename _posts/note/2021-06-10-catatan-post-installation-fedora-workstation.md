@@ -801,6 +801,32 @@ ccmake ..
 
 Lalu set **OFF** untuk language support yang tidak ingin disertakan atau yang menyebabkan error.
 
+## WeeChat-Matrix
+Sumber: [https://github.com/poljar/weechat-matrix](https://github.com/poljar/weechat-matrix){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install libolm-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/poljar/weechat-matrix.git
+cd weechat-matrix
+pip install -r requirements.txt
+{% endshell_term %}
+
+Kalau kamu sudah pernah mengkonfigurasi weechat, tinggal jalankan,
+
+{% shell_term $ %}
+make install
+{% endshell_term %}
+
+Selanjutnya tinggal membuat plugin matrix menjadi autostart ketika weechat dijalankan.
+
+{% shell_term $ %}
+cd ~/.weechat/python/autoload
+ln -s ../matrix.py ~/.weechat/python/autoload
+{% endshell_term %}
+
 ## Flameshot
 
 {% shell_term $ %}
@@ -1502,6 +1528,7 @@ sudo dnf install xinput
 {% shell_term $ %}
 sudo dnf install gthumb
 {% endshell_term %}
+
 
 
 
