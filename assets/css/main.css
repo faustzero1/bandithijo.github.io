@@ -1699,10 +1699,10 @@ img.kontributor-img  {
 
 .dotfriends-page-img {
   float: left;
-  width: 25%;
-  top: 10%;
+  width: 20%;
+  /* top: 10%; */
   position: relative;
-  /* top: 1.5em; */
+  top: 1.5em;
 }
 
 .dotfriends-page-img img {
@@ -2862,10 +2862,11 @@ div.highlight-caption code {
 
   .dotfriends-page-img {
     float: none;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
-    /* position: relative; */
-    /* top: 1.5em; */
+    padding-top: 20px;
+    position: relative;
+    top: 0.0em;
   }
 
   aside p.sidebar-isi,
