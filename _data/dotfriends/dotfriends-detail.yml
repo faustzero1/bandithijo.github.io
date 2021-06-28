@@ -11,11 +11,10 @@ friends:
 - github_username: "suciptoid"
   nama:  "Sucipto"
   photo: "https://github.com/suciptoid.png?size=200"
-  url1:  "https://sucipto.net"
+  url1:  "https://sucipto.id"
   url2:  "https://github.com/suciptoid"
   detail: |
-      <p>Hello, I am a Web and Android Developer. Writes about tech and my stories in this blog and Medium.</p>
-      <p>Recently interesting with NodeJS ecosystem, so I migrate my blog from Wordpress to Hexo.</p>
+      <p>Hello, I am a Web Developer. Writes about tech and my stories in my blog and Medium.</p>
 
 
 - github_username: "agungsetiawan"
