@@ -248,6 +248,13 @@ Tapi, jangan digunakan pada level production yaa.
 
 ## 1. Connection on Unix Domain Socket
 
+Ketika menjalankan perintah,
+
+{% shell_term $ %}
+psql
+{% endshell_term %}
+
+
 Kalau teman-teman mendapatkan error seperti ini,
 
 <pre>
@@ -256,15 +263,35 @@ could not connect to server: No such file or directory
         connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
 </pre>
 
-Kita bisa atas dengan cara yang sedikit kotor.
+~~Kita bisa atas dengan cara yang sedikit kotor.~~
 
-Yaitu dengan membuatkan simbolik link.
+~~Yaitu dengan membuatkan simbolik link.~~
 
 {% shell_user %}
-sudo ln -sf /var/run/postgresql/.s.PGSQL.5432 /tmp
+<del>sudo ln -sf /var/run/postgresql/.s.PGSQL.5432 /tmp</del>
 {% endshell_user %}
 
+Coba test jalankan,
 
+{% shell_term $ %}
+psql -h localhost -p 5432 -U bandithijo
+{% endshell_term %}
+
+\* Ganti user **bandithijo** dengan user kalian.
+
+Kalau bisa masuk ke psql shell, berarti tinggal mendefinisikan **PGHOST** sebagai **localhost**.
+
+Bisa di file shell rc.
+
+{% shell_term $HOME/.zshrc %}
+export PGHOST=localhost
+{% endshell_term %}
+
+Kemudian restart shell,
+
+{% shell_term $ %}
+exec $SHELL
+{% endshell_term %}
 
 
 # Tambahan
