@@ -1550,6 +1550,14 @@ sudo dnf install gthumb
 sudo dnf install speedtest-cli
 {% endshell_term %}
 
+## Spotify
+
+(Flatpak - Flathub)
+
+{% shell_term $ %}
+flatpak install flathub com.spotify.Client
+{% endshell_term %}
+
 
 
 
