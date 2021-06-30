@@ -1544,6 +1544,12 @@ sudo dnf install xinput
 sudo dnf install gthumb
 {% endshell_term %}
 
+## Speedtest CLI
+
+{% shell_term $ %}
+sudo dnf install speedtest-cli
+{% endshell_term %}
+
 
 
 
