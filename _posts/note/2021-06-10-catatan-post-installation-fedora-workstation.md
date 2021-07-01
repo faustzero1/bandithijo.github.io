@@ -565,7 +565,7 @@ and then recompile the GDM database or alternatively log in to the GDM user and 
 gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
 {% endshell_term %}
 
-## Neovim (build)
+## Neovim Nighlty (build)
 
 {% shell_term $ %}
 sudo dnf install cmake
@@ -578,6 +578,20 @@ sudo dnf install libvterm-devel
 {% shell_term $ %}
 sudo dnf install nodejs
 sudo dnf install python3-neovim
+{% endshell_term %}
+
+{% shell_term $ %}
+cd ~/.local/src
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo -j3
+sudo make install
+{% endshell_term %}
+
+For plugins,
+
+{% shell_term $ %}
+sudo dnf install ripgrep
 {% endshell_term %}
 
 ## PostgreSQL
