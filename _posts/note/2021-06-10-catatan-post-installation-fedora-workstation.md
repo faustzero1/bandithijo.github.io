@@ -565,7 +565,7 @@ and then recompile the GDM database or alternatively log in to the GDM user and 
 gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
 {% endshell_term %}
 
-## Neovim Nighlty (build)
+## Neovim Nightly (build)
 
 {% shell_term $ %}
 sudo dnf install cmake
