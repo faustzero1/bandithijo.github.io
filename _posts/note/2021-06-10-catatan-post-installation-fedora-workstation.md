@@ -644,6 +644,42 @@ Tambahkan pada file `/var/lib/pgsql/data/pg_hba.conf`.
 host    all             bandithijo       127.0.0.1/32            trust
 {% endhighlight %}
 
+Or, using another way with Container.
+
+Since, Fedora has built in container utility named as **Podman**. So, I decided to use this tool than using Docker.
+
+I'll use **bitnami/postgresql** container image from **quay.io**.
+
+{% shell_term # %}
+podman pull quay.io/bitnami/postgresql:13.3.0
+podman run --name postgresql --net host -v /var/lib/pgsql/data/userdata:/bitnami/postgresql/data:Z -e ALLOW_EMPTY_PASSWORD=yes bitnami/postgresql:13.3.0
+{% endshell_term %}
+
+postgresql container imge from bitnami is set **User: 1001**. So, for convenient purposes,
+
+{% shell_term $ %}
+sudo chown -R 1001:1001 /var/lib/pgsql
+{% endshell_term %}
+
+\* **/var/lib/pgsql** is where Fedora put postgresql data.
+
+Generate systemd unit file.
+
+{% shell_term # %}
+podman generate systemd --new --files --name postgresql
+mv container-postgresql.service /etc/systemd/system
+systemctl daemon-reload
+{% endshell_term %}
+
+Stop and remove postgresql running container.
+
+{% shell_term # %}
+podman stop postgresql
+podman rm postgresql
+{% endshell_term %}
+
+That's it! Now you're able to start and check the status of running container with systemct start and status.
+
 ## Ruby or Rails Developer
 
 {% shell_term $ %}
