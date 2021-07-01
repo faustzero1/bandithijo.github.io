@@ -197,6 +197,14 @@ Ping, but with a graph.
 
 [https://github.com/orf/gping](https://github.com/orf/gping){:target="_blank"}
 
+## prettyping
+
+{% image https://i.postimg.cc/rwqVqFR3/gambar-prettyping.png | gambar-prettyping %}
+
+prettyping is a wrapper around the standard ping tool with the objective of making the output prettier, more colorful, more compact, and easier to read.
+
+[https://github.com/denilsonsa/prettyping](https://github.com/denilsonsa/prettyping){:target="_blank"}
+
 
 ## wavemon
 
