@@ -942,6 +942,13 @@ sudo dnf copr enable atim/gping
 sudo dnf install gping
 {% endshell_term %}
 
+## PrettyPing
+Sumber: [https://github.com/denilsonsa/prettyping](https://github.com/denilsonsa/prettyping){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install prettyping
+{% endshell_term %}
+
 ## Dunst
 
 {% shell_term $ %}
