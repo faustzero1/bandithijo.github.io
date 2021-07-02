@@ -148,6 +148,12 @@ sudo dnf install htop
 sudo dnf install iftop
 {% endshell_term %}
 
+## iperf
+
+{% shell_term $ %}
+sudo dnf install iperf
+{% endshell_term %}
+
 ## Neofetch
 
 {% shell_term $ %}
@@ -1212,6 +1218,13 @@ sudo dnf install udiskie
 
 {% shell_term $ %}
 sudo dnf install abduco
+{% endshell_term %}
+
+## dtach
+Sumber: [https://github.com/crigler/dtach](https://github.com/crigler/dtach){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install dtach
 {% endshell_term %}
 
 ## LXappearance
