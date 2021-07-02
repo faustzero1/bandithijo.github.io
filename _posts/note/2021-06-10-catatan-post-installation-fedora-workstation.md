@@ -940,6 +940,7 @@ sudo dnf install maim
 {% endshell_term %}
 
 ## Change/Swap Pipewire with Pulseaudio
+Sumber: [https://fedoraproject.org/wiki/Changes/DefaultPipeWire#Upgrade.2Fcompatibility_impact](https://fedoraproject.org/wiki/Changes/DefaultPipeWire#Upgrade.2Fcompatibility_impact){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf swap --allowerasing pipewire-pulseaudio pulseaudio
