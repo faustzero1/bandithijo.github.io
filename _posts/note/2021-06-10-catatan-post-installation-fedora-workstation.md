@@ -1629,6 +1629,13 @@ sudo dnf install speedtest-cli
 flatpak install flathub com.spotify.Client
 {% endshell_term %}
 
+## rpkg
+Sumber: [https://pagure.io/rpkg-util](https://pagure.io/rpkg-util){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install rpkg
+{% endshell_term %}
+
 
 
 
