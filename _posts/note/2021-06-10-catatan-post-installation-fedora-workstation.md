@@ -1648,6 +1648,30 @@ gem install asciidoctor-pdf --pre
 gem install pygments.rb
 {% endshell_term %}
 
+## Tmux
+Sumber: [https://github.com/tmux/tmux](https://github.com/tmux/tmux){:target="_blank"}
+
+Manual build
+
+{% shell_term $ %}
+sudo dnf install libevent-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/tmux/tmux.git
+cd tmux
+sh autogen.sh
+./configure
+make
+sudo make install
+{% endshell_term %}
+
+Fedora repo
+
+{% shell_term $ %}
+sudo dnf instal tmux
+{% endshell_term %}
+
 
 
 
