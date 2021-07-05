@@ -1636,6 +1636,17 @@ Sumber: [https://pagure.io/rpkg-util](https://pagure.io/rpkg-util){:target="_bla
 sudo dnf install rpkg
 {% endshell_term %}
 
+## asciidoc
+
+{% shell_term $ %}
+sudo dnf install asciidoc
+{% endshell_term %}
+
+{% shell_term $ %}
+gem install asciidoctor
+gem install asciidoctor-pdf --pre
+gem install pygments.rb
+{% endshell_term %}
 
 
 
