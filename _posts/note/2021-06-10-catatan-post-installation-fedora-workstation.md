@@ -23,6 +23,83 @@ Saya memutuskan untuk mengkategorikan catatan ini sebagai "note" dan bukan sebag
 
 Selain itu, memiliki sebuah catatan "perjalanan" akan **menumbuhkan rasa percaya diri untuk terus maju ke depan**. Karena, apabila gagal, kita tidak takut untuk memulai lagi dari awal. Ataupun, kita dapat dengan mudah memulai percabangan untuk awal baru yang lain.
 
+# Pre Install
+
+## Verify your download with CHECKSUM files.
+
+Setelah mengunduh file ISO, lakukan verifikasi untuk menguji keamanan dan integritas file ISO yang telah didownload.
+
+Langkah awal, import Fedora's GPG key(s).
+
+{% shell_term $ %}
+curl https://getfedora.org/static/fedora.gpg | gpg --import
+{% endshell_term %}
+
+<pre>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 12543  100 12543    0     0  10945      0  0:00:01  0:00:01 --:--:-- 10945
+gpg: key 1161AE6945719A39: public key "Fedora (34) <fedora-34-primary@fedoraproject.org>" imported
+gpg: key 49FD77499570FF31: public key "Fedora (33) <fedora-33-primary@fedoraproject.org>" imported
+gpg: key 6C13026D12C944D0: public key "Fedora (32) <fedora-32-primary@fedoraproject.org>" imported
+gpg: key 50CB390B3C3359C4: public key "Fedora (31) <fedora-31-primary@fedoraproject.org>" imported
+gpg: key 7BB90722DBBDCF7C: public key "Fedora (iot 2019) <fedora-iot-2019@fedoraproject.org>" imported
+gpg: key 21EA45AB2F86D6A1: public key "Fedora EPEL (8) <epel@fedoraproject.org>" imported
+gpg: key 6A2FAEA2352C64E5: public key "Fedora EPEL (7) <epel@fedoraproject.org>" imported
+gpg: key 3B49DF2A0608B895: public key "EPEL (6) <epel@fedoraproject.org>" imported
+gpg: Total number processed: 8
+gpg:               imported: 8
+</pre>
+
+Dapat dilihat, kita telah berhasil mengimport 8 public keys.
+
+Kemudian, download file **CHECKSUM** dari yang dapat kita download di halaman ini, [**di sini**](https://getfedora.org/en/security/){:target="_blank"}. Download file CHECKSUM yang sesuai dengan file ISO yang teman-teman gunakan.
+
+Kemudian, verifikasi file CHECKSUM tersebut.
+
+{% pre_url %}
+$ gpg --verify-files *-CHECKSUM
+{% endpre_url %}
+
+{% shell_term $ %}
+gpg --verify-files Fedora-Workstation-34-1.2-x86_64-CHECKSUM
+{% endshell_term %}
+
+<pre>
+gpg: Signature made Sat 24 Apr 2021 03:37:01 AM WITA
+gpg:                using RSA key 8C5BA6990BDB26E19F2A1A801161AE6945719A39
+gpg: Good signature from "Fedora (34) <fedora-34-primary@fedoraproject.org>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+Primary key fingerprint: 8C5B A699 0BDB 26E1 9F2A  1A80 1161 AE69 4571 9A39
+</pre>
+
+CHECKSUM harus memiliki keterangan "Good signature"dari salah satu key.
+
+Letakkan file ISO (\*.iso) dengan file checksum (\*-CHECKSUM) pada direktori yang sama.
+
+<pre>
+├─ Fedora-Workstation-34-1.2-x86_64-CHECKSUM
+└─ Fedora-Workstation-Live-x86_64-34-1.2.iso
+</pre>
+
+Selanjutnya, lakukan pengecekan checksum terhadap file ISO yang telah kita download.
+
+{% pre_url %}
+$ sha256sum -c *-CHECKSUM
+{% endpre_url %}
+
+{% shell_term $ %}
+sha256sum -c Fedora-Workstation-34-1.2-x86_64-CHECKSUM
+{% endshell_term %}
+
+<pre>
+Fedora-Workstation-Live-x86_64-34-1.2.iso: OK
+sha256sum: WARNING: 19 lines are improperly formatted
+</pre>
+
+\* Abaikan saja warning 19 lines are improperly formated, hal ini terjadi karena di dalam file *-CHECKSUM tersebut juga terdapat PGP Signature. Coba komentar saja baris-baris selain SHA256SUM valuenya (termasuk blankline), maka warningnya akan ~~berkurang~~ hilang.
+
 # TODO:
 
 ## Enable fastest mirror and Delta RPM
