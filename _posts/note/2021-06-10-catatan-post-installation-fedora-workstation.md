@@ -234,6 +234,10 @@ sudo dnf install iperf
 ## Neofetch
 
 {% shell_term $ %}
+sudo dnf install w3m-img
+{% endshell_term %}
+
+{% shell_term $ %}
 sudo dnf install neofetch
 {% endshell_term %}
 
