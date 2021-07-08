@@ -1749,6 +1749,11 @@ Fedora repo
 sudo dnf instal tmux
 {% endshell_term %}
 
+## Emacs
+
+{% shell_term $ %}
+sudo dnf install emacs
+{% endshell_term %}
 
 
 
