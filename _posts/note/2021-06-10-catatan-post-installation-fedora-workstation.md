@@ -148,8 +148,10 @@ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-
 Lakukan refresh dan update repository dengan perintah,
 
 {% shell_term $ %}
-sudo dnf update --refresh
+sudo dnf upgrade --refresh
 {% endshell_term %}
+
+\* **dnf update** dan **dnf upgrade** sama, namun konvensi terbaru sudah menggunakan **dnf upgrade**.
 
 ## Enable RPMFusion Repository
 Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/](https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/){:target="_blank"}
@@ -1759,6 +1761,20 @@ sudo dnf instal tmux
 sudo dnf install emacs
 {% endshell_term %}
 
+## Wireshark
+Sumber: [https://fedoramagazine.org/how-to-install-wireshark-fedora/](https://fedoramagazine.org/how-to-install-wireshark-fedora/){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install wireshark
+{% endshell_term %}
+
+Add user ke dalam group **wireshark**.
+
+{% shell_term $ %}
+sudo usermod -a -G wireshark bandithijo
+{% endshell_term %}
+
+\* Perlu restart
 
 
 
