@@ -140,6 +140,24 @@ rbenv install 2.7.2
 
 Tunggu prosesnya hingga selesai.
 
+# Migrasi Semua Gem dari Ruby lama ke Ruby Baru
+
+Rbenv menyediakan fitur yang bernama **migrate** untuk memudahkan kita memigrasikan semua gem yang terdapat pada Ruby versi sebelumnya ke veri yang terbaru.
+
+{% shell_term $ %}
+rbenv help migrate
+{% endshell_term %}
+
+{% pre_url %}
+Usage: rbenv migrate
+
+Usage : rbenv migrate <from_version> <to_version> <gem command options>
+{% endpre_url %}
+
+Nah, tinggal kita gunakan saja.
+
+Proses migrasi ini tentu saja akan memasang daftar semua gem. Jadi siapkan kuota sultan yaa.
+
 <br>
 Nah, mudah kan.
 
