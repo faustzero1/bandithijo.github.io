@@ -879,6 +879,28 @@ sudo dnf install qt5-qtwebengine-freeworld
 sudo dnf install rofi
 {% endshell_term %}
 
+## Rofi-Calc
+Sumber: [https://github.com/svenstaro/rofi-calc](https://github.com/svenstaro/rofi-calc){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install qalculate
+{% endshell_term %}
+
+Manual Build
+
+{% shell_term $ %}
+sudo dnf install rofi-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+autoreconf -i
+mkdir build
+cd build/
+../configure
+make
+sudo make install
+{% endshell_term %}
+
 ## LazyGit
 
 {% shell_term $ %}
