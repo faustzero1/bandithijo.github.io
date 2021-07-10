@@ -69,41 +69,42 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 <br>
 **Aplikasi Favorit**
 
-|-----------------------|----------------------------------------------|
-| <center>Data</center> | <center>Keterangan</center>                  |
-| :---                  | :---                                         |
-|-----------------------|----------------------------------------------|
-| Static Site Generator | **Jekyll**                                   |
-| Hosting               | **GitHub Pages**                             |
-| Format Text           | **Markdown** & **Orgmode**                   |
-| Sistem Operasi        | **GNU/Linux**                                |
-| Distribusi            | **Artix Linux** (Arch Linux without systemd) |
-| Desktop Env.          | -                                            |
-| Window Manager        | **dwm**                                      |
-| Terminal Emulator     | **st**                                       |
-| Shell                 | **zsh**                                      |
-| Application Launcher  | **dmenu** & **rofi**                         |
-| Statusbar             | **polybar**                                  |
-| Text Editor           | **neovim**                                   |
-| Raster Image Editor   | **GIMP** & **gthumb**                        |
-| Vector Image Editor   | **Inkscape**                                 |
-| Image Preview         | **sxiv**                                     |
-| Office                | **LibreOffice** & **OnlyOffice**             |
-| ScreenShoter          | **scrot** & **flameshot**                    |
-| PDF Reader            | **zathura** & **evince**                     |
-| Video Editor          | **kdenlive** & **olive** & **LWKS**          |
-| Screen Recorder       | **ffmpeg**                                   |
-| Webcam                | **ffplay** & **mpv**                         |
-| Browser               | **firefox** & **qutebrowser**                |
-| File Manager          | **ranger**                                   |
-| Video Player          | **mpv**                                      |
-| Email Client          | **neomutt**                                  |
-| IRC Client            | **weechat**                                  |
-| RSS Feed Reader       | **newsboat**                                 |
-| Torrent Client        | **tremc**                                    |
-| RDP Client            | **xfreerdp**                                 |
-| VNC Server            | **x11vnc**                                   |
-|-----------------------|----------------------------------------------|
+|-----------------------|-------------------------------------|
+| <center>Data</center> | <center>Keterangan</center>         |
+| :---                  | :---                                |
+|-----------------------|-------------------------------------|
+| Static Site Generator | **Jekyll**                          |
+| Hosting               | **GitHub Pages**                    |
+| Format Text           | **asciidoc**                        |
+| Sistem Operasi        | **GNU/Linux**                       |
+| Distribusi            | **Fedora**                          |
+| Desktop Env.          | -                                   |
+| Window Manager        | **dwm**                             |
+| Terminal Emulator     | **st**                              |
+| Shell                 | **zsh**                             |
+| Application Launcher  | **dmenu** & **rofi**                |
+| Statusbar             | **polybar**                         |
+| Text Editor           | **neovim**                          |
+| Raster Image Editor   | **gimp** & **gthumb**               |
+| Vector Image Editor   | **inkscape**                        |
+| Image Preview         | **sxiv**                            |
+| Office                | **LibreOffice**                     |
+| Get Things Done       | **Taskell** & **Taskwarrior + vit** |
+| ScreenShoter          | **scrot** & **flameshot**           |
+| PDF Reader            | **zathura** & **evince**            |
+| Video Editor          | **kdenlive** & **olive** & **LWKS** |
+| Screen Recorder       | **ffmpeg**                          |
+| Webcam                | **ffplay** & **mpv**                |
+| Video Player          | **mpv**                             |
+| Browser               | **qutebrowser**                     |
+| File Manager          | **ranger**                          |
+| Email Client          | **neomutt**                         |
+| IRC Client            | **weechat**                         |
+| RSS Feed Reader       | **newsboat**                        |
+| Torrent Client        | **tremc**                           |
+| RDP Client            | **xfreerdp**                        |
+| VNC Server            | **x11vnc**                          |
+|-----------------------|-------------------------------------|
 
 # Ilustrasi Workflow
 
