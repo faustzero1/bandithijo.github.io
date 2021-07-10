@@ -1798,6 +1798,40 @@ sudo usermod -a -G wireshark bandithijo
 
 \* Perlu restart
 
+## Scrcpy
+Sumber: [https://github.com/Genymobile/scrcpy](https://github.com/Genymobile/scrcpy){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install SDL2-devel
+sudo dnf install android-tools
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/Genymobile/scrcpy
+cd scrcpy
+./install_release.sh
+{% endshell_term %}
+
+When a new release is out, update the repo and reinstall:
+
+{% shell_term $ %}
+git pull
+./install_release.sh
+{% endshell_term %}
+
+To uninstall:
+
+{% shell_term $ %}
+sudo ninja -Cbuild-auto uninstall
+{% endshell_term %}
+
+## Faketime
+
+Manipulate system time per process for testing purposes.
+
+{% shell_term $ %}
+sudo dnf install libfaketime
+{% endshell_term %}
 
 
 
