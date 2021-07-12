@@ -71,6 +71,8 @@ navigation:
     url: /book/
   - title: About
     url: /about/
+  - title: v2 (beta)
+    url: https://bandithijo.github.io/v2
 
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
