@@ -80,7 +80,7 @@ File inilah yang akan ditangkap oleh Ruby script dan dipermak.
 screenshot_dir = '~/pic/ScreenShots'
 Dir.chdir(File.expand_path(screenshot_dir))
 ss_dir = Dir.pwd
-list_file = %w(ls -p | grep -v /)
+list_file = %x(ls -p | grep -v /)
 files = list_file.split(" ")
 target_file = files.last
 target_file_mod = files.last.split("").insert(-5, 'X').join
