@@ -128,13 +128,13 @@ ipconfig iwn0 scan
 Kemudia, setelah mendapatkan SSID yang kita inginkan, tinggal connect.
 
 {% shell_term # %}
-ifconfig iw0 nwid &lt;network-name> wpakey &lt;passphrase>
+ifconfig iwn0 nwid &lt;network-name> wpakey &lt;passphrase>
 {% endshell_term %}
 
 Kemudian, untuk mendapatkan IP address, dapat menggunakan dhcp.
 
 {% shell_term # %}
-dhcp
+dhclient iwn0
 {% endshell_term %}
 
 <br>
