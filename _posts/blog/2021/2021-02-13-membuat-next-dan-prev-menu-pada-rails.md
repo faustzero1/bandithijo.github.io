@@ -106,9 +106,15 @@ Nah, tinggal kita gunakan instance variable dari **@article** yang telah kita de
 <!-- ... -->
 
 <!-- For go to next & prev feature -->
-<div class="d-flex justify-content-between">
-  <%= link_to "Prev Post", article_path(@article.prev) if @article.prev %>
-  <%= link_to "Next Post", article_path(@article.next) if @article.next %>
+<div class="page-navigation mt-5">
+  <div class="row d-flex justify-content-between">
+    <div class="col-6 text-left">
+      <%= link_to "Sebelumnya", article_path(@article.next) if @article.next %>
+    </div>
+    <div class="col-6 text-right">
+      <%= link_to "Selanjutnya", article_path(@article.prev) if @article.prev %>
+    </div>
+  </div>
 </div>
 {% endhighlight %}
 
