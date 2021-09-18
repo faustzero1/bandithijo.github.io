@@ -134,14 +134,14 @@ Kalau ingin menggunakan tooltip, dapat menggunakan cara seperti ini.
   <div class="row d-flex justify-content-between">
     <div class="col-6 text-left">
       <% if @article.prev %>
-        <%= link_to article_path(@article.prev), data: {toggle: "tooltip", placement: "bottom"}, title: @article.prev.title do %>
+        <%= link_to article_path(@article.prev), data: {toggle: "tooltip", placement: "top"}, title: @article.prev.title do %>
           <%= "Sebelumnya" %>
         <% end %>
       <% end %>
     </div>
     <div class="col-6 text-right">
       <% if @article.next %>
-        <%= link_to article_path(@article.next), data: {toggle: "tooltip", placement: "bottom"}, title: @article.next.title do %>
+        <%= link_to article_path(@article.next), data: {toggle: "tooltip", placement: "top"}, title: @article.next.title do %>
           <%= "Selanjutnya" %>
         <% end %>
       <% end %>
