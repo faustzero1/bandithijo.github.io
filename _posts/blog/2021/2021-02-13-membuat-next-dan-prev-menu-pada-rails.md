@@ -122,6 +122,34 @@ Nah, tinggal kita gunakan instance variable dari **@article** yang telah kita de
 
 Method **.next** dan **.prev** adalah method yang kita definisikan pada **article** model.
 
+Kalau ingin menggunakan tooltip, dapat menggunakan cara seperti ini.
+
+{% highlight_caption app/views/articles/show.html.erb %}
+{% highlight ruby linenos %}
+
+<!-- ... -->
+
+<!-- For go to next & prev feature -->
+<div class="page-navigation my-3 mx-3">
+  <div class="row d-flex justify-content-between">
+    <div class="col-6 text-left">
+      <% if @article.prev %>
+        <%= link_to article_path(@article.prev), data: {toggle: "tooltip", placement: "bottom"}, title: @article.prev.title do %>
+          <%= "Sebelumnya" %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-6 text-right">
+      <% if @article.next %>
+        <%= link_to article_path(@article.next), data: {toggle: "tooltip", placement: "bottom"}, title: @article.next.title do %>
+          <%= "Selanjutnya" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
 Selesai!
 
 
