@@ -28,4 +28,13 @@ namespace :jekyll do
     Y8888D'  `Y88P'  VP   V8P Y88888P YP
     """
   end
+
+  namespace :bundle do
+    desc 'Mengupdate gems via bundler pada Development & Production env.'
+    task :update do
+      sh('BUNDLE_GEMFILE=Gemfile-dev bundle update')
+      sh('BUNDLE_GEMFILE=Gemfile bundle update')
+    end
+  end
+
 end
