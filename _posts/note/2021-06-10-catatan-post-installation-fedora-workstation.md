@@ -115,7 +115,7 @@ Edit file `/etc/dnf/dnf.conf`, lalu tambahkan baris,
 ...
 ...
 fastestmirror=True
-deltarpm=true
+deltarpm=True
 {% endhighlight %}
 
 Kemudian, tambahkan "kode negara" `&country=ID` di belakang meta link repository yang ada di `/etc/yum.repos.d/`.
