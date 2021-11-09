@@ -644,6 +644,8 @@ sudo dnf install qt5ct
 
 ## Change default cursor on lightdm
 
+ComixCursors: [https://www.gnome-look.org/p/999996](https://www.gnome-look.org/p/999996){:target="_blank"}
+
 Change value of `/usr/share/icons/default/index.theme`
 
 {% highlight_caption /usr/share/icons/default/index.theme %}
@@ -923,6 +925,13 @@ sudo dnf copr enable atim/lazygit
 sudo dnf install lazygit
 {% endshell_term %}
 
+## LazyDocker
+
+{% shell_term $ %}
+sudo dnf copr enable atim/lazydocker
+sudo dnf install lazydocker
+{% endshell_term %}
+
 ## Seahorse
 
 {% shell_term $ %}
@@ -942,6 +951,8 @@ sudo dnf install libSM-devel
 {% endshell_term %}
 
 {% shell_term $ %}
+git clone https://github.com/crow-translate/crow-translate.git
+cd crow-translate
 mkdir build
 cd build
 cmake ..
@@ -977,6 +988,8 @@ sudo dnf install guile-devel
 {% endshell_term %}
 
 {% shell_term $ %}
+git clone https://github.com/weechat/weechat.git
+cd weechat
 mkdir build
 cd build
 cmake ..
@@ -1846,6 +1859,16 @@ Manipulate system time per process for testing purposes.
 
 {% shell_term $ %}
 sudo dnf install libfaketime
+{% endshell_term %}
+
+## Notion
+
+Sumber: [https://github.com/davidbailey00/notion-linux](https://github.com/davidbailey00/notion-linux){:target="_blank"}
+
+{% shell_term $ %}
+wget https://notion.davidbailey.codes/notion-linux.repo
+sudo mv notion-linux.repo /etc/yum.repos.d/notion-linux.repo
+sudo dnf install notion-desktop
 {% endshell_term %}
 
 
