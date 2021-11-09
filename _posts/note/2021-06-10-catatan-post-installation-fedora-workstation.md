@@ -600,11 +600,26 @@ Sumber: [https://wiki.archlinux.org/title/Systemd-resolved#Manually](https://wik
 sudo dnf install dnscrypt-proxy
 {% endshell_term %}
 
-Create file /etc/systemd/resolved.conf.d/dns_servers.conf
+Edit file `/etc/dnscrypt-proxy/dnscrypt-proxy.toml`.
 
-{% highlight_caption /etc/systemd/resolved.conf.d/dns_servers.conf %}
+Kemudian, definisikan `server_names=` sesuai yang kalian pergunakan. Pada contoh ini, saya menggunakan cloudflare. Daftar dari public server yang menyediakan layanan dnscrypt, dapat teman-teman lihat [**di sini**](https://dnscrypt.info/public-servers/){:target="_blank"}.
+
+{% highlight_caption /etc/dnscrypt-proxy/dnscrypt-proxy.toml %}
+{% highlight shell linenos %}
+server_names = ['cloudflare']
+{% endhighlight %}
+
+Edit file `/etc/systemd/resolved.conf`.
+
+Cari bagian `#DNS=` dan `#Domains=`. Uncomment dan isikan seperti di bawah ini.
+
+Atau, tambahkan saja dibagian paling bawah.
+
+{% highlight_caption /etc/systemd/resolved.conf %}
 {% highlight shell linenos %}
 [Resolve]
+#...
+#...
 DNS=127.0.0.1
 Domains=~.
 {% endhighlight %}
@@ -612,7 +627,7 @@ Domains=~.
 Kemudian, restart systemd-resolved service
 
 {% shell_term $ %}
-sudo systemctl restart systemd-resolved.conf
+sudo systemctl restart systemd-resolved.service
 {% endshell_term %}
 
 ## Adwaita-Qt5 theme
