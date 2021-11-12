@@ -8,7 +8,7 @@ license: true
 comments: true
 toc: true
 category: 'blog'
-tags: ['Tips', 'Network']
+tags: ['Tips', 'Network', 'ssh']
 pin:
 hot:
 contributors: []
@@ -193,6 +193,14 @@ cat $HOME/.ssh/{nama_public_key}.pub
 {% shell_user %}
 cat $HOME/.ssh/id_rsa.pub
 {% endshell_user %}
+
+## Menyimpan public key di server target
+
+{% shell_term $ %}
+ssh-copy-id -i ~/.ssh/id_rsa.pub <username@ipaddress>
+{% endshell_term %}
+
+# Pesan Penulis
 
 Oke, saya rasa untuk saat ini, cukup seperti ini saja. Saya tidak berhenti menulis, mungkin lain kali kamu datang lagi, tulisan di halaman ini sudah bertambah dengan perintah-perintah SSH yang lain.
 
