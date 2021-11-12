@@ -668,7 +668,7 @@ cursor-theme='theme-name'
 and then recompile the GDM database or alternatively log in to the GDM user and execute the following:
 
 {% shell_term $ %}
-gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
+sudo gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
 {% endshell_term %}
 
 ## Neovim Nightly (build)
