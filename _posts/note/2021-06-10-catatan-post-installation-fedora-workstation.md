@@ -285,6 +285,12 @@ sudo dnf install audacious
 sudo dnf install pass
 {% endshell_term %}
 
+## Bash Completion
+
+{% shell_term $ %}
+sudo dnf install bash-completion
+{% endshell_term %}
+
 ## Change ZSH to your shell
 
 {% shell_term $ %}
@@ -356,6 +362,12 @@ sudo dnf install transmission-daemon
 
 {% shell_term $ %}
 sudo dnf install youtube-dl
+{% endshell_term %}
+
+## yt-dlp
+
+{% shell_term $ %}
+sudo dnf install yt-dlp
 {% endshell_term %}
 
 ## Newsboat (RSS Reader)
