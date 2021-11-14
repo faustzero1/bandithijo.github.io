@@ -1232,8 +1232,8 @@ Sumber: [https://copr.fedorainfracloud.org/coprs/linuxredneck/libXft-bgra/](http
 
 {% shell_term $ %}
 sudo dnf copr enable linuxredneck/libXft-bgra
-sudo rpm -e --nodeps libXft-2.3.3-6.fc34.x86_64 libXft-devel-2.3.3-6.fc34.x86_64
-sudo dnf install libXft-bgra
+sudo rpm -e --nodeps libXft libXft-bgra
+sudo dnf install libXft-bgra libXft-bgra-devel
 {% endshell_term %}
 
 Add `libXft` to `exclude=` package on `/etc/dnf/dnf.conf`.
@@ -1244,10 +1244,18 @@ Add `libXft` to `exclude=` package on `/etc/dnf/dnf.conf`.
 sudo dnf install libXinerama-devel
 {% endshell_term %}
 
-### pinentry-dmenu (still failed)
+### pinentry-dmenu
 
 {% shell_term $ %}
 sudo dnf install libassuan-devel
+sudo dnf install libconfig-devel
+sudo dnf install gpgme-devel
+{% endshell_term %}
+
+Di Fedora, library `assuan.h` tidak berada di dalam directory `/usr/include/` tetapi masih berada di dalam satu level directory lagi, yaitu `/usr/include/libassuan2/`. Buat saja link agar proses make dapat menemukan header tersebut.
+
+{% shell_term $ %}
+sudo ln -sf /usr/include/libassuan2/assuan.h /usr/include/assuan.h
 {% endshell_term %}
 
 ### sxiv
