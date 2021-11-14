@@ -973,8 +973,13 @@ cmake --build .
 
 ## libva-intel-driver
 
+Sumber: [https://github.com/intel/intel-vaapi-driver](https://github.com/intel/intel-vaapi-driver){:target="_blank"}
+
+HW video decode support for Intel integrated graphics.
+
 {% shell_term $ %}
 sudo dnf install libva-intel-driver
+sudo dnf install libva-intel-hybrid-driver
 {% endshell_term %}
 
 ## Inkscape
