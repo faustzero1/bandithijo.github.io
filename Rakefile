@@ -36,5 +36,4 @@ namespace :jekyll do
       sh('BUNDLE_GEMFILE=Gemfile bundle update')
     end
   end
-
 end
