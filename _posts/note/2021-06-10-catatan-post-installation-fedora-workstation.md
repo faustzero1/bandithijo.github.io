@@ -1832,6 +1832,9 @@ Sumber: [https://github.com/Genymobile/scrcpy](https://github.com/Genymobile/scr
 {% shell_term $ %}
 sudo dnf install SDL2-devel
 sudo dnf install android-tools
+sudo dnf install meson
+sudo dnf install ffmpeg-devel
+sudo dnf install libusb-devel
 {% endshell_term %}
 
 {% shell_term $ %}
@@ -1863,15 +1866,215 @@ sudo dnf install libfaketime
 
 ## Notion
 
-Sumber: [https://github.com/davidbailey00/notion-linux](https://github.com/davidbailey00/notion-linux){:target="_blank"}
+Sumber: [https://github.com/notion-enhancer/notion-repackaged](https://github.com/notion-enhancer/notion-repackaged){:target="_blank"}
 
 {% shell_term $ %}
-wget https://notion.davidbailey.codes/notion-linux.repo
-sudo mv notion-linux.repo /etc/yum.repos.d/notion-linux.repo
-sudo dnf install notion-desktop
+sudo vim /etc/yum.repos.d/notion-repackaged.repo
 {% endshell_term %}
 
+{% highlight_caption /etc/yum.repos.d/notion-repackaged.repo %}
+{% highlight shell linenos %}
+[notion-repackaged]
+name=Notion Repackaged Repo
+baseurl=https://yum.fury.io/notion-repackaged/
+enabled=1
+gpgcheck=0
+{% endhighlight %}
 
+With that you will be able to install `notion-app` or `notion-app-enhanced` using `sudo dnf install <package name>`.
+
+## Webcam
+
+{% box_info %}
+<p markdown=1>Langkah ini hanya optional.</p>
+{% endbox_info %}
+
+{% shell_term $ %}
+sudo dnf install libwebcam
+{% endshell_term %}
+
+Cek apakah module **uvcvideo** sudah diload apa belum.
+
+{% shell_term $ %}
+sudo lsmod | grep uvcvideo
+{% endshell_term %}
+
+Seharusnya, memiliki output seperti ini.
+
+```
+uvcvideo              122880  0
+videobuf2_vmalloc      20480  1 uvcvideo
+videobuf2_v4l2         36864  1 uvcvideo
+videobuf2_common       69632  4 videobuf2_vmalloc,videobuf2_v4l2,uvcvideo,videobuf2_memops
+videodev              270336  3 videobuf2_v4l2,uvcvideo,videobuf2_common
+mc                     65536  4 videodev,videobuf2_v4l2,uvcvideo,videobuf2_common
+```
+
+Kalau belum, jalankan,
+
+{% shell_term $ %}
+sudo modprobe uvcvideo
+{% endshell_term %}
+
+Namun, menggunakan cara `modprobe` di atas, tidak permanent. Untuk membuatnya permanent, buatlah file seperti contoh di bawah ini.
+
+{% highlight_caption /etc/modules-load.d/uvcvideo.conf %}
+{% highlight shell linenos %}
+uvcvideo
+{% endhighlight %}
+
+Maka module uvcvideo akan diload saat booting.
+
+## Planner
+
+Sumber: [https://planner-todo.web.app/](https://planner-todo.web.app/){:target="_blank"}
+
+Saya memilih memasang dari flathub, karena versi fedora repo memiliki user interface yang kurang sip.
+
+{% shell_term $ %}
+flatpak install flathub com.github.alainm23.planner
+{% endshell_term %}
+
+## Kdenlive
+
+Sumber: [https://kdenlive.org/en/](https://kdenlive.org/en/){:target="_blank"}
+
+Saya memilih memasang dari flathub.
+
+{% shell_term $ %}
+flatpak install flathub org.kde.kdenlive
+{% endshell_term %}
+
+## Clipnotify
+
+Sumber: [https://github.com/cdown/clipnotify](https://github.com/cdown/clipnotify){:target="_blank"}
+
+Install dependensi terlebih dahulu.
+
+{% shell_term $ %}
+sudo dnf install libXfixes-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/cdown/clipnotify.git
+cd clipnotify
+sudo make install
+{% endshell_term %}
+
+## Bash-Language-Server
+
+{% shell_term $ %}
+sudo dnf install nodejs-bash-language-server
+{% endshell_term %}
+
+## OBS Studio
+
+{% shell_term $ %}
+sudo dnf install obs-studio
+{% endshell_term %}
+
+## Unified Remote (urserver)
+
+Sumber: [https://www.unifiedremote.com/tutorials/how-to-install-unified-remote-server-rpm-via-terminal](https://www.unifiedremote.com/tutorials/how-to-install-unified-remote-server-rpm-via-terminal){:target="_blank"}
+
+{% shell_term $ %}
+wget -O urserver.rpm https://www.unifiedremote.com/d/linux-x64-rpm
+sudo rpm -Uhv urserver.rpm
+{% endshell_term %}
+
+urserver akan diinstall di `/opt/urserver/`.
+
+Untuk menjalankan urserver secara manual,
+
+{% shell_term $ %}
+./opt/urserver/urserver-start
+{% endshell_term %}
+
+Untuk menghentikan urserver secara manual,
+
+{% shell_term $ %}
+./opt/urserver/urserver-stop
+{% endshell_term %}
+
+Untuk uninstall,
+
+{% shell_term $ %}
+sudo rpm -e urserver
+{% endshell_term %}
+
+## Linux-Wifi-Hotspot
+
+Sumber: [https://github.com/lakinduakash/linux-wifi-hotspot](https://github.com/lakinduakash/linux-wifi-hotspot){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install gtk3-devel
+sudo dnf install qrencode-devel
+sudo dnf install hostapd
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/lakinduakash/linux-wifi-hotspot
+cd linux-wifi-hotspot
+make
+sudo make install
+{% endshell_term %}
+
+## Clang / LLVM
+
+{% shell_term $ %}
+sudo dnf install clang
+{% endshell_term %}
+
+## Cockpit
+
+Sumber: [https://www.redhat.com/sysadmin/intro-cockpit](https://www.redhat.com/sysadmin/intro-cockpit){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install cockpit
+{% endshell_term %}
+
+Install module-module tambahan.
+
+{% shell_term $ %}
+sudo dnf install cockpit-podman
+sudo dnf install cockpit-machines
+sudo dnf install cockpit-networkmanager
+sudo dnf install cockpit-packagekit
+sudo dnf install cockpit-storaged
+sudo dnf install cockpit-pcp
+sudo dnf install virt-viewer
+{% endshell_term %}
+
+Nyalakan service.
+
+{% shell_term $ %}
+sudo systemctl enable --now cockpit.socket
+sudo systemctl enable --now pmlogger.service
+{% endshell_term %}
+
+## aircrack-ng
+
+{% shell_term $ %}
+sudo dnf install aircrack-ng
+{% endshell_term %}
+
+## heroku-cli
+
+{% shell_term $ %}
+npm install -g heroku
+{% endshell_term %}
+
+## FreeCAD
+
+{% shell_term $ %}
+sudo dnf install freecad
+{% endshell_term %}
+
+Kalau tampilan UI nya tidak bagus. Coba mainkan env variable yang berhubungan dengan QT scaling.
+
+{% shell_term $ %}
+/usr/bin/env QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=1 FreeCAD
+{% endshell_term %}
 
 
 
