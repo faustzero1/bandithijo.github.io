@@ -196,8 +196,12 @@ cat $HOME/.ssh/id_rsa.pub
 
 ## Menyimpan public key di server target
 
-{% shell_term $ %}
+{% pre_url %}
 ssh-copy-id -i ~/.ssh/id_rsa.pub <username@ipaddress>
+{% endpre_url %}
+
+{% shell_term $ %}
+ssh-copy-id -i ~/.ssh/id_rsa.pub bandithijo@192.168.1.7
 {% endshell_term %}
 
 # Pesan Penulis
