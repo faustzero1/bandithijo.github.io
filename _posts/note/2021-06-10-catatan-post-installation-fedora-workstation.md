@@ -1598,6 +1598,35 @@ sudo make install
 sudo dnf install thunderbird
 {% endshell_term %}
 
+## Evolution
+
+{% shell_term $ %}
+sudo dnf install evolution
+{% endshell_term %}
+
+Tray icon
+
+Sumber: [https://superuser.com/questions/112210/how-do-i-minimize-evolution-to-the-system-tray-in-ubuntu](https://superuser.com/questions/112210/how-do-i-minimize-evolution-to-the-system-tray-in-ubuntu){:target="_blank"}
+
+Sumber: [https://github.com/acidrain42/evolution-on/](https://github.com/acidrain42/evolution-on/){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install evolution-devel
+sudo dnf install intltool
+sudo dnf install gettext-common-devel
+sudo dnf install gettext-devel
+sudo dnf install GConf2-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/acidrain42/evolution-on.git
+cd evolution-on
+autoreconf -sivf
+./configure
+make
+sudo make install
+{% endshell_term %}
+
 ## Gucharmap (Character Map)
 
 {% shell_term $ %}
@@ -2112,6 +2141,17 @@ dnf check-update
 sudo dnf install code
 {% endshell_term %}
 
+## GNOME Battery Bench
+
+{% shell_term $ %}
+sudo dnf install gnome-battery-bench
+{% endshell_term %}
+
+## GNOME Power Manager
+
+{% shell_term $ %}
+sudo dnf install gnome-power-manager
+{% endshell_term %}
 
 
 
