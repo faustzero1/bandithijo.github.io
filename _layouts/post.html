@@ -31,6 +31,16 @@ layout: baseof
               <span class="post-details noselect">Ditulis: {{ page.date | date: '%Y/%m/%d' }}</span>
           {% endif %}
 
+          {% comment %}
+          {% assign page_date = page.date | date: '%Y/%m/%d' %}
+          {% assign page_last_modified_at = page.last_modified_at | date: '%Y/%m/%d' %}
+          {% if page_date == page_last_modified_at %}
+            <span class="post-details noselect">Ditulis: {{ page_date }}</span>
+          {% else %}
+            <span class="post-details noselect">Ditulis: {{ page_date }}</span> <span class="post-details noselect">Diperbaharui: {{ page_last_modified_at }}</span>
+          {% endif %}
+          {% endcomment %}
+
           {% include breadcrumbs.html %}
           {% include tag_post.html %}
         </div>
