@@ -1242,7 +1242,23 @@ Add `libXft` to `exclude=` package on `/etc/dnf/dnf.conf`.
 
 {% shell_term $ %}
 sudo dnf install libXinerama-devel
+sudo dnf install xsetroot
 {% endshell_term %}
+
+Kalau ingin mendaftarkan dwm ke dalam session list yang ada di Display Manager seperti LightDM, GDM, SDDM, dll., tinggal buat saja file Desktop Entry Spec nya saja.
+
+{% highlight_caption /usr/share/xsessions/dwm.desktop %}
+{% highlight shell linenos %}
+[Desktop Entry]
+Name=dwm
+Comment=Dynamic Window Manager
+Exec=/home/bandithijo/.xinitrc
+TryExec=/usr/local/bin/dwm
+Type=Application
+X-LightDM-DesktopName=dwm
+Keywords=tiling;wm;windowmanager;window;manager;
+DesktopNames=dwm
+{% endhighlight %}
 
 ### pinentry-dmenu
 
