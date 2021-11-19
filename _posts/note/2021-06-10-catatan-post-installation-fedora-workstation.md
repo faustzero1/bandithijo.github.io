@@ -902,6 +902,24 @@ Fedora only ships free software in the repositories. To be able to play videos w
 sudo dnf install qt5-qtwebengine-freeworld
 {% endshell_term %}
 
+## Setup Default Browser
+
+Cek default browser yang digunakan saat ini.
+
+{% shell_term $ %}
+xdg-settings get default-web-browser
+{% endshell_term %}
+
+```
+google-chrome.desktop
+```
+
+Kalau mau diganti ke qutebrowser,
+
+{% shell_term $ %}
+xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
+{% endshell_term %}
+
 ## Rofi
 
 {% shell_term $ %}
@@ -1103,14 +1121,8 @@ sudo dnf install pulseaudio-utils
 {% endshell_term %}
 
 ## Pamixer
-Sumber: [https://copr.fedorainfracloud.org/coprs/opuk/pamixer/](https://copr.fedorainfracloud.org/coprs/opuk/pamixer/){:target="_blank"}
 
-{% shell_term $ %}
-sudo dnf copr enable opuk/pamixer
-sudo dnf install pamixer
-{% endshell_term %}
-
-Atau manual build (my recomended).
+Sumber: [https://github.com/cdemoulins/pamixer](https://github.com/cdemoulins/pamixer){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install boost-devel
@@ -1118,7 +1130,9 @@ sudo dnf install boost-devel
 
 {% shell_term $ %}
 git clone https://github.com/cdemoulins/pamixer.git
-make
+meson setup build
+meson compile -C build
+meson install -C build
 {% endshell_term %}
 
 ## DConf & GConf Editor
