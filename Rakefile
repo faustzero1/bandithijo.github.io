@@ -2,17 +2,17 @@
 namespace :jekyll do
   desc 'Menjalankan Jekyll pada Environment Development'
   task :server do
-    sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0')
+    sh('BUNDLE_GEMFILE=Gemfile bundle exec jekyll s -l -H 0.0.0.0')
   end
 
   namespace :server do
     desc 'Menjalankan Jekyll pada Environment Development dengan --incremental --watch'
     task :inc do
-      sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch')
+      sh('BUNDLE_GEMFILE=Gemfile bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch')
     end
 
     task :inc_draft do
-      sh('BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch --drafts')
+      sh('BUNDLE_GEMFILE=Gemfile bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch --drafts')
     end
   end
 
@@ -30,9 +30,8 @@ namespace :jekyll do
   end
 
   namespace :bundle do
-    desc 'Mengupdate gems via bundler pada Development & Production env.'
+    desc 'Mengupdate gems via bundler'
     task :update do
-      sh('BUNDLE_GEMFILE=Gemfile-dev bundle update')
       sh('BUNDLE_GEMFILE=Gemfile bundle update')
     end
   end
