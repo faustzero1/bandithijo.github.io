@@ -1010,6 +1010,12 @@ sudo dnf install libva-intel-driver
 sudo dnf install libva-intel-hybrid-driver
 {% endshell_term %}
 
+## Vulkan Hardware Capability Viewer
+
+Sumber: [http://vulkan.gpuinfo.org/listdevices.php](http://vulkan.gpuinfo.org/listdevices.php){:target="_blank"}
+
+Download: [http://vulkan.gpuinfo.org/download.php](http://vulkan.gpuinfo.org/download.php){:target="_blank"}
+
 ## Inkscape
 
 {% shell_term $ %}
