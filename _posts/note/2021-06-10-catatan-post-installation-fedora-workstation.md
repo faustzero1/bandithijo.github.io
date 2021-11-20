@@ -2232,6 +2232,17 @@ Section "Device"
 EndSection
 {% endhighlight %}
 
+## inxi
+
+{% shell_term $ %}
+sudo dnf install inxi
+{% endshell_term %}
+## lshw
+
+{% shell_term $ %}
+sudo dnf install lshw
+{% endshell_term %}
+
 
 
 
