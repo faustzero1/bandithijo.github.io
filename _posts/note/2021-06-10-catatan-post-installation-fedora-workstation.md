@@ -833,9 +833,19 @@ make
 sudo dnf install tlp
 {% endshell_term %}
 
+Untuk ThinkPad lama, seperti seri X61 yang saya gunakan.
+
 {% shell_term $ %}
 sudo dnf copr enable suhanc/tp_smapi
 sudo dnf install tp_smapi
+{% endshell_term %}
+
+Untuk ThinkPad baru, seperti X260 yang saya gunakan.
+
+{% shell_term $ %}
+git clone https://github.com/teleshoes/tpacpi-bat
+cd tpacpi-bat
+./install.pl
 {% endshell_term %}
 
 ## Email Backend
