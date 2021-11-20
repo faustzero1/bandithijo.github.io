@@ -2199,6 +2199,35 @@ sudo dnf install gnome-power-manager
 sudo dnf install sysfsutils
 {% endshell_term %}
 
+## Intel Graphic
+
+Sumber: [https://wiki.archlinux.org/title/intel_graphics](https://wiki.archlinux.org/title/intel_graphics){:target="_blank"}
+
+Saya menggunakan **Intel Skylake GT2 [HD Graphics 520]**.
+
+{% highlight_caption /etc/X11/xorg.conf.d/20-intel.conf %}
+{% highlight shell linenos %}
+Section "Device"
+    Identifier      "Intel Graphics"
+    Driver          "intel"
+
+    Option          "DRI"             "true"
+
+    #Option         "DRI"             "2"
+    #Option         "AccellMethod"    "uxa"    # Fallback
+
+    Option          "DRI"             "3"      # DRI 3 is now default
+    Option          "AccellMethod"    "sna"    # Default
+
+    # This option does not work with UXA acceleration method, only with SNA.
+    Option          "TearFree"        "true"
+
+    Option          "Backlight"       "intel_backlight"
+EndSection
+{% endhighlight %}
+
+
+
 
 {% comment %}
 # Referensi
