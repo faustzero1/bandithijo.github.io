@@ -2193,7 +2193,11 @@ sudo dnf install gnome-battery-bench
 sudo dnf install gnome-power-manager
 {% endshell_term %}
 
+## Systool
 
+{% shell_term $ %}
+sudo dnf install sysfsutils
+{% endshell_term %}
 
 
 {% comment %}
