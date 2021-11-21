@@ -283,9 +283,10 @@ Kalau bisa masuk ke psql shell, berarti tinggal mendefinisikan **PGHOST** sebaga
 
 Bisa di file shell rc.
 
-{% shell_term $HOME/.zshrc %}
+{% highlight_caption $HOME/.zshrc %}
+{% highlight shelllinenos %}
 export PGHOST=localhost
-{% endshell_term %}
+{% endhighlight %}
 
 Kemudian restart shell,
 
