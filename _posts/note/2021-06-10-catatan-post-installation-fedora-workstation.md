@@ -1207,6 +1207,22 @@ pip install .
 sudo dnf install simplescreenrecorder
 {% endshell_term %}
 
+## Vokoscreen
+
+{% shell_term $ %}
+sudo dnf install vokoscreen
+{% endshell_term %}
+
+Or -NG
+
+{% shell_term $ %}
+sudo dnf install vokoscreenNG
+{% endshell_term %}
+
+{% shell_term $ %}
+sudo dnf install alsa-lib-devel
+{% endshell_term %}
+
 ## ps_mem
 
 {% shell_term $ %}
