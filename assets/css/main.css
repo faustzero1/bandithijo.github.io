@@ -485,7 +485,7 @@ p.post-title-index a:hover {
   font-weight: bold;
   width: 26em;
   position: relative;
-  top: -3px;
+  top: -4px;
   padding: 0 2px;
   border-width: 1px;
   border-style: solid;
@@ -949,8 +949,8 @@ article.homepage .notif-home a {
   border-bottom: none;
   text-align: left;
   /* untuk indentasi title*/
-  padding-left: 68px;
-  text-indent: -136px;
+  padding-left: 15px;
+  text-indent: -27px;
 }
 
 article.homepage .notif-157 {
@@ -2531,8 +2531,8 @@ div.highlight-caption code {
     /* untuk indentasi title*/
     /* padding-left: 67px; */
     /* text-indent: -135px; */
-    padding-left: 71px;
-    text-indent: -143px;
+    padding-left: 16px;
+    text-indent: -27px;
   }
 
   article.homepage .notif-157 {
