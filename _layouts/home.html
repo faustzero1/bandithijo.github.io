@@ -7,33 +7,33 @@ permalink: :title
   <div class="container noselect">
 
     <article class="homepage">
-      <div class="notif-home">
-        <!-- Judul Article Terupdate -->
-        <span style="font-size:16px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Status</span>
-        <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
+      <!-- Judul Article Terupdate -->
+      <article class="box-container"><!-- box-container (3 buku 1 box-container) -->
+      <div class="notif-home" style="border:none;">
         {% assign posts = site.posts | where_exp: 'page', "page.category == 'blog'" | sort: 'date','last' | reverse %}
         {% for post in posts limit: 1 %}
           <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Blog Terbaru</span>
-            <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post.date | date: '%y/%m/%d' }}</span>: {{ post.title }}</a></p>
-          <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
+          <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
         {% endfor %}
+        <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
         {% assign posts = site.posts | where_exp: 'page', "page.category == 'note'" | sort: 'date','last' | reverse %}
         {% for post in posts limit: 1 %}
           <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Note Terbaru</span>
-            <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post.date | date: '%y/%m/%d' }}</span>: {{ post.title }}</a></p>
-          <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
+          <p> <a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
         {% endfor %}
+      </div>
+      <div class="notif-home" style="border:none;">
         <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Diupdate</span>
-        {% assign posts = site.posts | where_exp: 'page', 'page.last_modified_at' %}
+        {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_at' | sort: 'post.last_modified_at' %}
         {% for post in posts limit: 5 %}
           {% assign post_date = post.date | date: '%Y/%m/%d' %}
           {% assign post_last_modified_at = post.last_modified_at | date: '%Y/%m/%d' %}
           {% unless post_date == post_last_modified_at %}
-            <p><a href="{{ post.url }}"><span style="font-family:'Fira Code'">{{ post_last_modified_at | date: '%y/%m/%d' }}</span>: {{ post.title }}</a></p>
+            <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
           {% endunless %}
         {% endfor %}
-        ...
       </div>
+      </article>
     </article>
 
     {% comment %}
