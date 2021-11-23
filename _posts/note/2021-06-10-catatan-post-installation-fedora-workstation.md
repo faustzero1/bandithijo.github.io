@@ -583,7 +583,7 @@ sudo dnf install handbrake
 
 {% shell_term $ %}
 sudo dnf install mpv
-suod dnf install celluloid
+sudo dnf install celluloid
 {% endshell_term %}
 
 User script that may help you steroid your mpv.
@@ -848,6 +848,18 @@ cd tpacpi-bat
 ./install.pl
 {% endshell_term %}
 
+## Cronie (Cronjob)
+
+{% shell_term $ %}
+sudo dnf install cronie
+{% endshell_term %}
+
+Jalankan & enable-kan `crond.service`.
+
+{% shell_term $ %}
+sudo systemctl enable --now crond.service
+{% endshell_term %}
+
 ## Email Backend
 
 {% shell_term $ %}
@@ -899,7 +911,7 @@ sudo dnf install qutebrowser
 Install Breave adblock,
 
 {% shell_term $ %}
-pip install adblock
+pip install --user adblock
 {% endshell_term %}
 
 Kemudian, update list dengan `:adblock-update`.
@@ -1091,7 +1103,7 @@ sudo dnf install flameshot
 ## Optipng
 
 {% shell_term $ %}
-$ sudo dnf install optipng
+sudo dnf install optipng
 {% endshell_term %}
 
 ## Scrot
@@ -1278,7 +1290,7 @@ Sumber: [https://copr.fedorainfracloud.org/coprs/linuxredneck/libXft-bgra/](http
 
 {% shell_term $ %}
 sudo dnf copr enable linuxredneck/libXft-bgra
-sudo rpm -e --nodeps libXft libXft-bgra
+sudo rpm -e --nodeps libXft libXft-devel
 sudo dnf install libXft-bgra libXft-bgra-devel
 {% endshell_term %}
 
@@ -1421,6 +1433,19 @@ sudo dnf install pixman-devel
 sudo dnf install uthash-devel
 sudo dnf install libconfig-devel
 sudo dnf install dbus-devel
+{% endshell_term %}
+
+I'm using picom with rounded corner by [https://github.com/ibhagwan/picom](https://github.com/ibhagwan/picom){:target="_blank"}.
+
+Sumber: [https://github.com/yshui/picom/blob/next/README.md#build](https://github.com/yshui/picom/blob/next/README.md#build){:target="_blank"}
+
+{% shell_term $ %}
+git clone https://github.com/ibhagwan/picom
+cd picom
+git submodule update --init --recursive
+meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
 {% endshell_term %}
 
 ## XBacklight
@@ -1621,6 +1646,7 @@ Sumber: [https://github.com/bgli/kbbi-qt](https://github.com/bgli/kbbi-qt){:targ
 
 {% shell_term $ %}
 sudo dnf install qt5-qtbase-devel
+sudo dnf install qtchooser
 {% endshell_term %}
 
 {% shell_term $ %}
@@ -1701,8 +1727,7 @@ Sumber: [https://github.com/mwh/dragon.git](https://github.com/mwh/dragon.git){:
 {% shell_term $ %}
 git clone https://github.com/mwh/dragon.git
 cd dragon
-make
-make install
+sudo make install
 {% endshell_term %}
 
 ## Zoom Meeting Client
@@ -1918,7 +1943,7 @@ sudo make install
 Fedora repo
 
 {% shell_term $ %}
-sudo dnf instal tmux
+sudo dnf install tmux
 {% endshell_term %}
 
 ## Emacs
@@ -2253,10 +2278,22 @@ EndSection
 {% shell_term $ %}
 sudo dnf install inxi
 {% endshell_term %}
+
 ## lshw
 
 {% shell_term $ %}
 sudo dnf install lshw
+{% endshell_term %}
+
+## cpupower-gui
+
+Sumber: [https://github.com/vagnum08/cpupower-gui](https://github.com/vagnum08/cpupower-gui){:target="_blank"}
+
+You can install cpupower-gui by adding the repository from OpenSUSE build service. For example, in Fedora 32 run the following as root:
+
+{% shell_term $ %}
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:erigas:cpupower-gui/Fedora_32/home:erigas:cpupower-gui.repo
+sudo dnf install cpupower-gui
 {% endshell_term %}
 
 
