@@ -184,17 +184,32 @@ Procedure
 sudo dnf group update core
 {% endshell_term %}
 
-## Install gnome-tweak-tool
+## Install gnome-tweaks
+
+Sebelumnya, paket ini bernama `gnome-tweak-tool`.
 
 {% shell_term $ %}
-sudo dnf install gnome-tweak-tool
+sudo dnf install gnome-tweaks
+{% endshell_term %}
+
+## DConf & GConf Editor
+
+{% shell_term $ %}
+sudo dnf install dconf-editor
+sudo dnf install gconf-editor
+{% endshell_term %}
+
+## Development Group Packages
+
+{% shell_term $ %}
+sudo dnf group install "Development Tools"
 {% endshell_term %}
 
 ## Install Vim
 
-{% shell_term $ %}
-sudo dnf install vim
-{% endshell_term %}
+Fedora Workstation sudah preinstalled `vim-mimimal` dengan binary `vi`.
+
+Karena saya lebih sering menggunakan Neovim, maka saya tidak akan memasang paket `vim`.
 
 ## Install downgrade package (sample: fprintd)
 Sumber: [https://unix.stackexchange.com/a/408511](https://unix.stackexchange.com/a/408511){:target="_blank"}
@@ -249,10 +264,22 @@ sudo dnf install neofetch
 sudo dnf install nmon
 {% endshell_term %}
 
+## Wavemon
+
+{% shell_term $ %}
+sudo dnf install wavemon
+{% endshell_term %}
+
 ## Nethogs
 
 {% shell_term $ %}
 sudo dnf install nethogs
+{% endshell_term %}
+
+## Glances
+
+{% shell_term $ %}
+sudo dnf install glances
 {% endshell_term %}
 
 ## LM Sensors
@@ -339,18 +366,6 @@ sudo dnf install lxqt-openssh-askpass
 {% endshell_term %}
 
 Saya memilih menggunakan versi **lxqt-openssh-askpass.x86_64**, daripada versi **openssh-askpass.x86_64** dan **x11-ssh-askpass.x86_64**.
-
-## Glances
-
-{% shell_term $ %}
-sudo dnf install glances
-{% endshell_term %}
-
-## Wavemon
-
-{% shell_term $ %}
-sudo dnf install wavemon
-{% endshell_term %}
 
 ## Transmission Daemon
 
@@ -538,6 +553,46 @@ Enabling Chromium plugins (*under construction*).
 
 {% shell_term $ %}
 rpm2cpio ./google-chrome-stable_current_x86_64.rpm | cpio -idmv
+{% endshell_term %}
+
+## Qutebrowser
+
+{% shell_term $ %}
+sudo dnf install qutebrowser
+{% endshell_term %}
+
+Install Breave adblock,
+
+{% shell_term $ %}
+pip install --user adblock
+{% endshell_term %}
+
+Kemudian, update list dengan `:adblock-update`.
+
+Additional hints, Sumber: [https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora](https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora){:target="_blank"}
+
+Fedora only ships free software in the repositories. To be able to play videos with proprietary codecs with QtWebEngine, you will need to install an additional package from the RPM Fusion Free repository.
+
+{% shell_term $ %}
+sudo dnf install qt5-qtwebengine-freeworld
+{% endshell_term %}
+
+## Setup Default Browser
+
+Cek default browser yang digunakan saat ini.
+
+{% shell_term $ %}
+xdg-settings get default-web-browser
+{% endshell_term %}
+
+```
+google-chrome.desktop
+```
+
+Kalau mau diganti ke qutebrowser,
+
+{% shell_term $ %}
+xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
 {% endshell_term %}
 
 ## Codec from RPMFusion
@@ -902,44 +957,10 @@ sudo make install
 sudo dnf install freerdp
 {% endshell_term %}
 
-## Qutebrowser
+## x11vnc
 
 {% shell_term $ %}
-sudo dnf install qutebrowser
-{% endshell_term %}
-
-Install Breave adblock,
-
-{% shell_term $ %}
-pip install --user adblock
-{% endshell_term %}
-
-Kemudian, update list dengan `:adblock-update`.
-
-Additional hints, Sumber: [https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora](https://github.com/qutebrowser/qutebrowser/blob/master/doc/install.asciidoc#on-fedora){:target="_blank"}
-
-Fedora only ships free software in the repositories. To be able to play videos with proprietary codecs with QtWebEngine, you will need to install an additional package from the RPM Fusion Free repository.
-
-{% shell_term $ %}
-sudo dnf install qt5-qtwebengine-freeworld
-{% endshell_term %}
-
-## Setup Default Browser
-
-Cek default browser yang digunakan saat ini.
-
-{% shell_term $ %}
-xdg-settings get default-web-browser
-{% endshell_term %}
-
-```
-google-chrome.desktop
-```
-
-Kalau mau diganti ke qutebrowser,
-
-{% shell_term $ %}
-xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
+sudo dnf install x11vnc
 {% endshell_term %}
 
 ## Rofi
@@ -1035,7 +1056,12 @@ sudo dnf install inkscape
 {% endshell_term %}
 
 ## WeeChat (build)
-Sumber: [https://github.com/weechat/weechat](https://github.com/weechat/weechat){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install weechat
+{% endshell_term %}
+
+Manual build, Sumber: [https://github.com/weechat/weechat](https://github.com/weechat/weechat){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install gnutls-devel
@@ -1107,7 +1133,12 @@ sudo dnf install optipng
 {% endshell_term %}
 
 ## Scrot
-Sumber: [https://github.com/resurrecting-open-source-projects/scrot](https://github.com/resurrecting-open-source-projects/scrot){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf install scrot
+{% endshell_term %}
+
+Manual build, Sumber: [https://github.com/resurrecting-open-source-projects/scrot](https://github.com/resurrecting-open-source-projects/scrot){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install autoconf-archive
@@ -1148,6 +1179,12 @@ Install PulseAudio sound server utilities
 sudo dnf install pulseaudio-utils
 {% endshell_term %}
 
+## Pavucontrol
+
+{% shell_term $ %}
+sudo dnf install pavucontrol
+{% endshell_term %}
+
 ## Pamixer
 
 Sumber: [https://github.com/cdemoulins/pamixer](https://github.com/cdemoulins/pamixer){:target="_blank"}
@@ -1161,13 +1198,6 @@ git clone https://github.com/cdemoulins/pamixer.git
 meson setup build
 meson compile -C build
 meson install -C build
-{% endshell_term %}
-
-## DConf & GConf Editor
-
-{% shell_term $ %}
-sudo dnf install dconf-editor
-sudo dnf install gconf-editor
 {% endshell_term %}
 
 ## HexChat
@@ -1264,12 +1294,6 @@ Sumber: [https://askubuntu.com/questions/959353/disable-gnome-software-from-load
 
 3. Now GNOME Software should appear in your Startup Applications list. Disable it. Alternatively, you may append an `X-GNOME-Autostart-enabled=false`
 
-## Pavucontrol
-
-{% shell_term $ %}
-sudo dnf install pavucontrol
-{% endshell_term %}
-
 ## GColor2
 
 {% shell_term $ %}
@@ -1341,12 +1365,31 @@ sudo dnf install giflib-devel
 sudo dnf install libXft-bgra-devel
 {% endshell_term %}
 
+## Flatpak via Flathub Remote
+
+{% shell_term $ %}
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+{% endshell_term %}
+
+## Gromit-MPX
+
+(Flatpak - Flathub)
+
+{% shell_term $ %}
+flatpak install flathub net.christianbeier.Gromit-MPX
+{% endshell_term %}
 ## Telegram Desktop
 
 (RPMFusion - Free)
 
 {% shell_term $ %}
 sudo dnf install telegram-desktop
+{% endshell_term %}
+
+Kalau ingin versi yang lebih up-to-date bisa menggunakan versi flatpak.
+
+{% shell_term $ %}
+flatpak install flathub org.telegram.desktop
 {% endshell_term %}
 
 ## Hide desktop icon on Application List
@@ -1361,20 +1404,6 @@ To hide the entry in a specific desktop, add the following line to the desktop e
 where desktop-name can be option such as `GNOME`, `Xfce`, `KDE` etc.
 
 A desktop entry can be hidden in more than desktop at once - simply separate the desktop names with a semi-colon.
-
-## Flatpak via Flathub Remote
-
-{% shell_term $ %}
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-{% endshell_term %}
-
-## Gromit-MPX
-
-(Flatpak - Flathub)
-
-{% shell_term $ %}
-flatpak install flathub net.christianbeier.Gromit-MPX
-{% endshell_term %}
 
 ## Center window in GNOME
 Sumber: [https://www.reddit.com/r/gnome/comments/aaqy2p/center_windows_in_gnome/](https://www.reddit.com/r/gnome/comments/aaqy2p/center_windows_in_gnome/){:target="_blank"}
@@ -1551,7 +1580,7 @@ sudo dnf install aria2
 {% endshell_term %}
 
 {% shell_term $ %}
-pip install "aria2p[tui]"
+pip install --user "aria2p[tui]"
 {% endshell_term %}
 
 ## Mate Polkit
@@ -1576,12 +1605,6 @@ sudo dnf install p7zip
 
 {% shell_term $ %}
 sudo dnf install screenkey
-{% endshell_term %}
-
-## Development Group Packages
-
-{% shell_term $ %}
-sudo dnf group install "Development Tools"
 {% endshell_term %}
 
 ## Docker
@@ -1721,15 +1744,6 @@ sudo make install
 sudo dnf install gucharmap
 {% endshell_term %}
 
-## Dragon (drag and drop helper)
-Sumber: [https://github.com/mwh/dragon.git](https://github.com/mwh/dragon.git){:target="_blank"}
-
-{% shell_term $ %}
-git clone https://github.com/mwh/dragon.git
-cd dragon
-sudo make install
-{% endshell_term %}
-
 ## Zoom Meeting Client
 Sumber: [https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_825b50ac-ad15-44a8-9959-28c97e4803ef](https://support.zoom.us/hc/en-us/articles/204206269-Installing-or-updating-Zoom-on-Linux#h_825b50ac-ad15-44a8-9959-28c97e4803ef){:target="_blank"}
 
@@ -1750,12 +1764,6 @@ sudo dnf install ffmulticonverter
 
 {% shell_term $ %}
 sudo dnf install HandBrake-gui
-{% endshell_term %}
-
-## x11vnc
-
-{% shell_term $ %}
-sudo dnf install x11vnc
 {% endshell_term %}
 
 ## Discord
@@ -1816,7 +1824,26 @@ Sumber: [https://copr.fedorainfracloud.org/coprs/bgstack15/stackrpms/](https://c
 
 {% shell_term $ %}
 sudo dnf copr enable bgstack15/stackrpms
+{% endshell_term %}
+
+{% shell_term $ %}
 sudo dnf install xzoom
+{% endshell_term %}
+
+## Dragon (drag and drop helper)
+
+(copr - bgstack15/stackrpms)
+
+{% shell_term $ %}
+sudo dnf install dragon-drag-and-drop
+{% endshell_term %}
+
+Manual build, Sumber: [https://github.com/mwh/dragon.git](https://github.com/mwh/dragon.git){:target="_blank"}
+
+{% shell_term $ %}
+git clone https://github.com/mwh/dragon.git
+cd dragon
+sudo make install
 {% endshell_term %}
 
 {% comment %}
@@ -1923,9 +1950,13 @@ gem install pygments.rb
 {% endshell_term %}
 
 ## Tmux
-Sumber: [https://github.com/tmux/tmux](https://github.com/tmux/tmux){:target="_blank"}
+Fedora repo
 
-Manual build
+{% shell_term $ %}
+sudo dnf install tmux
+{% endshell_term %}
+
+Manual build, Sumber: [https://github.com/tmux/tmux](https://github.com/tmux/tmux){:target="_blank"}
 
 {% shell_term $ %}
 sudo dnf install libevent-devel
@@ -1938,12 +1969,6 @@ sh autogen.sh
 ./configure
 make
 sudo make install
-{% endshell_term %}
-
-Fedora repo
-
-{% shell_term $ %}
-sudo dnf install tmux
 {% endshell_term %}
 
 ## Emacs
@@ -2010,7 +2035,7 @@ sudo dnf install libfaketime
 Sumber: [https://github.com/notion-enhancer/notion-repackaged](https://github.com/notion-enhancer/notion-repackaged){:target="_blank"}
 
 {% shell_term $ %}
-sudo vim /etc/yum.repos.d/notion-repackaged.repo
+sudo vi /etc/yum.repos.d/notion-repackaged.repo
 {% endshell_term %}
 
 {% highlight_caption /etc/yum.repos.d/notion-repackaged.repo %}
@@ -2224,7 +2249,7 @@ Sumber: [https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-
 {% shell_term $ %}
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-dnf check-update
+sudo dnf check-update
 sudo dnf install code
 {% endshell_term %}
 
@@ -2294,6 +2319,18 @@ You can install cpupower-gui by adding the repository from OpenSUSE build servic
 {% shell_term $ %}
 sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:erigas:cpupower-gui/Fedora_32/home:erigas:cpupower-gui.repo
 sudo dnf install cpupower-gui
+{% endshell_term %}
+
+## Klavaro
+
+{% shell_term $ %}
+sudo dnf install klavaro
+{% endshell_term %}
+
+## Rust Lang
+
+{% shell_term $ %}
+sudo dnf install rust
 {% endshell_term %}
 
 
