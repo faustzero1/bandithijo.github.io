@@ -71,10 +71,10 @@ Kalau sudah `active (running)` , artinya Podman sudah siap digunakan.
 
 Sebelum mebuat PostgreSQL container, kita perlu mengunduh PostgreSQL image terlebih dahulu.
 
-Kali ini saya akan menggunakan Official Image dari PostgreSQL 13.4 yang berada di dari [Docker Hub](https://hub.docker.com/_/postgres){:target="_blank"}.
+Kali ini saya akan menggunakan Official Image dari PostgreSQL 13 yang berada di dari [Docker Hub](https://hub.docker.com/_/postgres){:target="_blank"}.
 
 {% shell_term $ %}
-podman pull postgres:13.4
+podman pull postgres:13
 {% endshell_term %}
 
 Podman akan memberikan beberapa pilihan registry atau repository tempat kita akan mendownload image PostgreSQL.
@@ -83,17 +83,17 @@ Saya akan pilih image yang berasal dari docker.io
 
 ```
 ? Please select an image:
-    registry.fedoraproject.org/postgres:13.4
-    registry.access.redhat.com/postgres:13.4
-  ▸ docker.io/library/postgres:13.4
-    quay.io/postgres:13.4
+    registry.fedoraproject.org/postgres:13
+    registry.access.redhat.com/postgres:13
+  ▸ docker.io/library/postgres:13
+    quay.io/postgres:13
 ```
 
 Tunggu proses download image PostgreSQL selesai.
 
 ```
-✔ docker.io/library/postgres:13.4
-Trying to pull docker.io/library/postgres:13.4...
+✔ docker.io/library/postgres:13
+Trying to pull docker.io/library/postgres:13...
 Getting image source signatures
 Copying blob d25d54a3ac3a skipped: already exists
 Copying blob c43dfd845683 skipped: already exists
@@ -122,8 +122,7 @@ podman images
 
 ```
 REPOSITORY                  TAG         IMAGE ID      CREATED      SIZE
-docker.io/library/postgres  13          f5d1f43be442  9 days ago   379 MB
-docker.io/library/postgres  13.4        113197da0347  3 weeks ago  379 MB
+docker.io/library/postgres  13        113197da0347  3 weeks ago  379 MB
 ```
 
 {% box_info %}
@@ -134,7 +133,7 @@ $ podman image rm &lt;nama_image/image_ID&gt;
 {% endpre_url %}
 
 {% shell_term $ %}
-podman image rm postgres:13.4
+podman image rm postgres:13
 {% endshell_term %}
 {% endbox_info %}
 
@@ -156,7 +155,7 @@ Saya akan simpan pada direktori `$HOME/Podman/postgresql/data/`.
 Untuk membuat PostgreSQL container dengan praktis, saya menggunakan perintah,
 
 {% shell_term $ %}
-podman run --name postgres --net host -e POSTGRES_PASSWORD=postgres -v ~/Podman/postgresql/data:/var/lib/postgresql/data:Z -d library/postgres:13.4
+podman run --name postgres --net host -e POSTGRES_PASSWORD=postgres -v ~/Podman/postgresql/data:/var/lib/postgresql/data:Z -d library/postgres:13
 {% endshell_term %}
 
 `--name postgres`, container ini saya beri nama **postgres**.
@@ -169,7 +168,7 @@ podman run --name postgres --net host -e POSTGRES_PASSWORD=postgres -v ~/Podman/
 
 `-d`, menandakan kita akan menjadikan container ini sebagai daemon.
 
-`library/postgresql:13.4`, adalah container image yang akan kita buat dan jalankan.
+`library/postgresql:13`, adalah container image yang akan kita buat dan jalankan.
 
 ## Akses PostgreSQL Shell
 
@@ -194,7 +193,7 @@ podman exec -ti postgres psql -U postgres
 Kalau berhasil, kita akan masuk ke dalam PostgreSQL shell,
 
 ```
-psql (13.4 (Debian 13.4-4.pgdg110+1))
+psql (13 (Debian 13-4.pgdg110+1))
 Type "help" for help.
 
 postgres=# _
@@ -272,7 +271,7 @@ podman exec -it postgres psql -U bandithijo
 Kalau berhasil, maka prompt nya akan menunjukkan nama user **bandithijo**.
 
 ```
-psql (13.4 (Debian 13.4-4.pgdg110+1))
+psql (13 (Debian 13-4.pgdg110+1))
 Type "help" for help.
 
 bandithijo=# _
