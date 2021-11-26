@@ -192,6 +192,14 @@ Sebelumnya, paket ini bernama `gnome-tweak-tool`.
 sudo dnf install gnome-tweaks
 {% endshell_term %}
 
+## gnome-extensions-app
+
+GNOME Shell Extension sudah dipisahkan dari GNOME Tweaks, kita perlu memasang tools tambahan untuk mengatur ekstensi2 tersebut selain menggunakan web apps [https://extensions.gnome.org/local/](https://extensions.gnome.org/local/){:target="_blank"}.
+
+{% shell_term $ %}
+sudo dnf install gnome-extensions-app
+{% endshell_term %}
+
 ## DConf & GConf Editor
 
 {% shell_term $ %}
@@ -310,6 +318,12 @@ sudo dnf install audacious
 
 {% shell_term $ %}
 sudo dnf install pass
+{% endshell_term %}
+
+## Pwgen
+
+{% shell_term $ %}
+sudo dnf install pwgen
 {% endshell_term %}
 
 ## Bash Completion
@@ -2332,6 +2346,10 @@ sudo dnf install klavaro
 {% shell_term $ %}
 sudo dnf install rust
 {% endshell_term %}
+
+## Disable Super+P on GNOME for Switch Monitor by default
+
+Sumber: [https://askubuntu.com/a/1038869/777616](https://askubuntu.com/a/1038869/777616){:target="_blank"}
 
 
 
