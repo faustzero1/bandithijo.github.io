@@ -186,6 +186,8 @@ sudo dnf group update core
 
 ## Install gnome-tweaks
 
+GNOME Tweaks allows adjusting advanced configuration settings in GNOME 3. This includes things like the fonts used in user interface elements, alternative user interface themes, changes in window management behavior, GNOME Shell appearance and extension, etc.
+
 Sebelumnya, paket ini bernama `gnome-tweak-tool`.
 
 {% shell_term $ %}
@@ -194,16 +196,27 @@ sudo dnf install gnome-tweaks
 
 ## gnome-extensions-app
 
+GNOME Extensions is an application for configuring and removing GNOME Shell extensions.
+
 GNOME Shell Extension sudah dipisahkan dari GNOME Tweaks, kita perlu memasang tools tambahan untuk mengatur ekstensi2 tersebut selain menggunakan web apps [https://extensions.gnome.org/local/](https://extensions.gnome.org/local/){:target="_blank"}.
 
 {% shell_term $ %}
 sudo dnf install gnome-extensions-app
 {% endshell_term %}
 
-## DConf & GConf Editor
+## DConf Editor
+
+Graphical tool for editing the dconf configuration database.
 
 {% shell_term $ %}
 sudo dnf install dconf-editor
+{% endshell_term %}
+
+## GConf Editor
+
+gconf-editor allows you to browse and modify GConf configuration sources.
+
+{% shell_term $ %}
 sudo dnf install gconf-editor
 {% endshell_term %}
 
@@ -215,11 +228,12 @@ sudo dnf group install "Development Tools"
 
 ## Install Vim
 
-Fedora Workstation sudah preinstalled `vim-mimimal` dengan binary `vi`.
+Fedora Workstation sudah preinstalled `vim-mimimal` dengan file binary bernama `vi`.
 
 Karena saya lebih sering menggunakan Neovim, maka saya tidak akan memasang paket `vim`.
 
 ## Install downgrade package (sample: fprintd)
+
 Sumber: [https://unix.stackexchange.com/a/408511](https://unix.stackexchange.com/a/408511){:target="_blank"}
 
 Saya harus mendowngrade paket **fprintd** dikarenakan fingerprint device yang ada di laptop saya (ThinkPad X61 keluaran tahun 2007), tidak dapat berfungsi pada fprintd versi 1.0. Setidaknya saya memerlukan versi 0.9.
@@ -228,7 +242,7 @@ Saya harus mendowngrade paket **fprintd** dikarenakan fingerprint device yang ad
 sudo dnf downgrade --releasever=31 fprintd
 {% endshell_term %}
 
-## Exlude some packages
+## Exclude some packages
 
 Edit file `/etc/dnf/dnf.conf`
 
@@ -237,6 +251,8 @@ Edit file `/etc/dnf/dnf.conf`
 [main]
 exclude=fprintd fprintd-pam libfprint
 {% endhighlight %}
+
+\* Saya sudah menggunakan ThinkPad x260 dan tidak lagi perlu melakukan exclude terhadap paket ini.
 
 ## Htop
 
@@ -1063,13 +1079,27 @@ Sumber: [http://vulkan.gpuinfo.org/listdevices.php](http://vulkan.gpuinfo.org/li
 
 Download: [http://vulkan.gpuinfo.org/download.php](http://vulkan.gpuinfo.org/download.php){:target="_blank"}
 
+## GIMP
+
+GIMP (GNU Image Manipulation Program) is a powerful image composition and editing program, which can be extremely useful for creating logos and other graphics for web pages. GIMP has many of the tools and filters you would expect to find in similar commercial offerings, and some interesting extras as well. GIMP provides a large image manipulation toolbox, including channel operations and layers, effects, sub-pixel imaging and anti-aliasing, and conversions, all with multi-level undo.
+
+{% shell_term $ %}
+sudo dnf install gimp
+{% endshell_term %}
+
 ## Inkscape
+
+Inkscape is a vector graphics editor, with capabilities similar to Illustrator, CorelDraw, or Xara X, using the W3C standard Scalable Vector Graphics (SVG) file format.  It is therefore a very useful tool for web designers and as an interchange format for desktop publishing.
+
+Inkscape supports many advanced SVG features (markers, clones, alpha blending, etc.) and great care is taken in designing a streamlined interface. It is very easy to edit nodes, perform complex path operations, trace bitmaps and much more.
 
 {% shell_term $ %}
 sudo dnf install inkscape
 {% endshell_term %}
 
-## WeeChat (build)
+## WeeChat
+
+WeeChat (Wee Enhanced Environment for Chat) is a portable, fast, light and extensible IRC client. Everything can be done with a keyboard. It is customizable and extensible with scripts.
 
 {% shell_term $ %}
 sudo dnf install weechat
@@ -1379,6 +1409,24 @@ sudo dnf install giflib-devel
 sudo dnf install libXft-bgra-devel
 {% endshell_term %}
 
+## GTK3-NOCSD
+
+{% shell_term $ %}
+sudo dnf install gtk3-nocsd
+{% endshell_term %}
+
+{% highlight_caption ~/.profile %}
+{% highlight shell linenos %}
+# A hack to disable gtk+ 3 client side decoration
+export LD_PRELOAD=/usr/lib64/libgtk3-nocsd.so.0
+export GTK_CSD=0
+{% endhighlight %}
+
+{% box_info %}
+<p markdown=1>Sejak GNOME 41, beberapa aplikasi GNOME seperti `gnome-calculator` terdapat keanehan pada bagian border.</p>
+<p markdown=1>Karenanya, saya tidak lagi menggunakan cara ini.</p>
+{% endbox_info %}
+
 ## Flatpak via Flathub Remote
 
 {% shell_term $ %}
@@ -1491,10 +1539,22 @@ ninja -C build
 sudo ninja -C build install
 {% endshell_term %}
 
-## XBacklight
+## xev
+
+X Event utility. xev displays the X11 protocol events sent to a given window.
+
+## xdotool
+
+Fake keyboard/mouse input. This tool lets you programmatically (or manually) simulate keyboard input and mouse activity, move and re-size windows, etc.
 
 {% shell_term $ %}
-sudo dnf install xbacklight
+sudo dnf install xdotool
+{% endshell_term %}
+
+## brightlight
+
+{% shell_term $ %}
+sudo dnf install brightlight
 {% endshell_term %}
 
 ## Udiskie
@@ -2284,33 +2344,6 @@ sudo dnf install gnome-power-manager
 {% shell_term $ %}
 sudo dnf install sysfsutils
 {% endshell_term %}
-
-## Intel Graphic
-
-Sumber: [https://wiki.archlinux.org/title/intel_graphics](https://wiki.archlinux.org/title/intel_graphics){:target="_blank"}
-
-Saya menggunakan **Intel Skylake GT2 [HD Graphics 520]**.
-
-{% highlight_caption /etc/X11/xorg.conf.d/20-intel.conf %}
-{% highlight shell linenos %}
-Section "Device"
-    Identifier      "Intel Graphics"
-    Driver          "intel"
-
-    Option          "DRI"             "true"
-
-    #Option         "DRI"             "2"
-    #Option         "AccellMethod"    "uxa"    # Fallback
-
-    Option          "DRI"             "3"      # DRI 3 is now default
-    Option          "AccellMethod"    "sna"    # Default
-
-    # This option does not work with UXA acceleration method, only with SNA.
-    Option          "TearFree"        "true"
-
-    Option          "Backlight"       "intel_backlight"
-EndSection
-{% endhighlight %}
 
 ## inxi
 
