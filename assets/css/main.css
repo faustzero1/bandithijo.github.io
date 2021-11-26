@@ -1536,7 +1536,7 @@ button.active {
 
 .blockquote-red-title {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   color: var(--BLACK) !important;
   border-bottom: 1px dashed #BE7000 !important;
@@ -1574,7 +1574,7 @@ button.active {
 
 .blockquote-blue-title {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   color: var(--BLACK) !important;
   border-bottom: 1px dashed #0B4AB9 !important;
@@ -1612,7 +1612,7 @@ button.active {
 
 .blockquote-yellow-title {
   font-family: 'Fira Sans Condensed','Ubuntu Condensed';
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   color: var(--BLACK) !important;
   border-bottom: 1px dashed #BE7000 !important;
