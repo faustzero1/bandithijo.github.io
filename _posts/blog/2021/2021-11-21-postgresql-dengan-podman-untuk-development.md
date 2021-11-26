@@ -170,6 +170,29 @@ podman run --name postgres --net host -e POSTGRES_PASSWORD=postgres -v ~/Podman/
 
 `library/postgresql:13`, adalah container image yang akan kita buat dan jalankan.
 
+Setelah *command* di atas dieksekusi, kalau outputnya berupa hash,
+
+```
+2b32fd1a84497e4ef1970c32dc16004123f27a9ebf24f4596a79c027e4fdacaf
+```
+
+Dan bukan pesan error, berarti container berhasil dibuat.
+
+Sekarang kita periksa, apakah continer berhasill *running* atau tidak.
+
+{% shell_term $ %}
+podman ps -a
+{% endshell_term %}
+
+```
+CONTAINER ID  IMAGE                          COMMAND     CREATED        STATUS            PORTS       NAMES
+2b32fd1a8449  docker.io/library/postgres:13  postgres    3 seconds ago  Up 4 seconds ago              postgres
+```
+
+Lihat pada kolom STATUS, **Up 4 seconds ago**, berarti sudah berhasil *running*.
+
+Tahap pembuatan container sudah berhasil.
+
 ## Akses PostgreSQL Shell
 
 Biasanya, untuk mengakses PostgreSQL shell, kita memerlukan tools yang bernama `psql`. Namun, karena host sistem yang kita gunakan tidak perlu memasang paket PostgreSQL client/server, maka kita tidak akan menemukan `psql`.
