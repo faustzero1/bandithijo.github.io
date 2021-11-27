@@ -799,6 +799,11 @@ sudo dnf install ripgrep
 
 ## PostgreSQL
 
+{% box_info %}
+<p markdown=1>Saya lebih memilih menggunakan container untuk memasang PostgreSQL.</p>
+<p markdown=1>Bisa baca catatannya di sini, [Mudah Banget! PostgreSQL dengan Podman untuk Development](/blog/postgresql-dengan-podman-untuk-development){:target="_blank"}</p>
+{% endbox_info %}
+
 {% shell_term $ %}
 sudo dnf install postgresql-server
 {% endshell_term %}
