@@ -1673,7 +1673,13 @@ Mudah-mudahan dapat bermanfaat bagi teman-teman.
 
 Terima kasih.
 
->Per-April 2019, saya sudah berpindah menggunakan BSPWM (*Binary Space Partition Window Manager*).
+{% box_info %}
+<p markdown=1>Per-April 2019, saya sudah berpindah menggunakan BSPWM (*Binary Space Partition Window Manager*)</p>
+{% endbox_info %}
+
+{% box_info %}
+<p markdown=1>Per-April 2020, [saya sudah beralih menggunakan DWM (*Dynamic Window Manager*)](/blog/dwm-window-manager-anti-ribet){:target="_blank"}</p>
+{% endbox_info %}
 
 
 
