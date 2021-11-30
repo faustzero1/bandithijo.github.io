@@ -2230,6 +2230,51 @@ ninja -C build
 sudo ninja -C build install
 {% endshell_term %}
 
+## xmodmap
+
+Official site: [https://www.x.org](https://www.x.org){:target="_blank"}
+
+The xmodmap program is used to edit and display the keyboard modifier map and keymap table that are used by client applications to convert event keycodes into keysyms.
+
+{% shell_term $ %}
+sudo dnf install xmodmap
+{% endshell_term %}
+
+## xcape
+
+Official site: [https://github.com/alols/xcape](https://github.com/alols/xcape){:target="_blank"}
+
+xcape allows you to use a modifier key as another key when pressed and released on its own. Note that it is slightly slower than pressing the original key, because the pressed event does not occur until the key is released. The default behaviour is to generate the Escape key when Left Control is pressed and released on its own. (If you don't understand why anybody would want this, I'm guessing that Vim is not your favourite text editor ;)
+
+(copr - dawid/xcape )
+
+{% shell_term $ %}
+sudo dnf copr enable dawid/xcape
+sudo dnf install xcopr
+{% endshell_term %}
+
+<br>
+**Manual Build**
+
+Deps,
+
+{% shell_term $ %}
+sudo dnf install git
+sudo dnf install gcc
+sudo dnf install make
+sudo dnf install pkgconfig
+sudo dnf install libX11-devel
+sudo dnf install libXtst-devel
+sudo dnf install libXi-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/alols/xcape.git
+cd xcape
+make
+sudo make install
+{% endshell_term %}
+
 ## xev
 
 Official site: [https://www.x.org](https://www.x.org){:target="_blank"}
