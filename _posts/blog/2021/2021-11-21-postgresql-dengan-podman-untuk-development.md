@@ -1,6 +1,6 @@
 ---
 layout: 'post'
-title: "Mudah Banget! PostgreSQL dengan Podman untuk Development"
+title: "Mudah Banget! Pasang PostgreSQL dengan Podman untuk Development"
 date: 2021-11-21 15:06
 permalink: '/blog/:title'
 author: 'BanditHijo'
