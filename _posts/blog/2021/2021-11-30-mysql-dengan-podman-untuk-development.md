@@ -305,5 +305,5 @@ Terima kasih.
 
 # Referensi
 
-1. [https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql){:target="_blank"}
+1. [https://hub.docker.com/\_/mysql](https://hub.docker.com/_/mysql){:target="_blank"}
 <br>Diakses tanggal: 2021/11/30
