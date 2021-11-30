@@ -1256,13 +1256,20 @@ Paket-paket yang diperlukan untuk rbenv-install mem-build Ruby.
 
 {% shell_term $ %}
 sudo dnf install openssl-devel
-sudo dnf install libpq-devel
 sudo dnf install libxml2-devel
 sudo dnf install libxslt-devel
 sudo dnf install readline-devel
 {% endshell_term %}
 
-Reinstall all your ruby with rbenv (remove and install).
+Reinstall all your Ruby with rbenv (remove and install).
+
+For database support library (PostgreSQL, MySQL/MariaDB, SQLite).
+
+{% shell_term $ %}
+sudo dnf install libpq-devel
+sudo dnf install mysql++-devel
+sudo dnf install libsqlite3x-devel
+{% endshell_term %}
 
 ## Build ADVCMP
 
