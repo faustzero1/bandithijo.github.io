@@ -3141,6 +3141,20 @@ Saya memilih memasang dari ~~flathub~~ appimage.
 flatpak install flathub org.kde.kdenlive
 {% endshell_term %}
 
+## Olive
+
+Official site: [https://www.olivevideoeditor.org](https://www.olivevideoeditor.org){:target="_blank"}
+
+olive is a free non-linear video editor aiming to provide a fully-featured
+alternative to high-end professional video editing software.
+
+olive is in Alpha stage, so expect bugs/crashes and feel free to report them.
+Builds for Linux, Mac, and Windows are available.
+
+{% shell_term $ %}
+sudo dnf install olive
+{% endshell_term %}
+
 ## Clipnotify
 
 Sumber: [https://github.com/cdown/clipnotify](https://github.com/cdown/clipnotify){:target="_blank"}
