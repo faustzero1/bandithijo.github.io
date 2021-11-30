@@ -715,8 +715,6 @@ fedora-th Linux 5.15.3- 2925 5304 1707 4933.3  11.8K 6614.1 4496.1 10.K 6313.
 
 Kalau kita sudah mengkonfigurasi FAS akun pada file `.config`, setiap selesai melakukan *test*, hasil akan otomatis di submit ke [Fedora Kernel Test Results](https://apps.fedoraproject.org/kerneltest/){:target="_blank"}.
 
-<br>
-
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/XvhXwZpF/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
 Untuk melihat hasil pengujian kita, pilih nama kernel yang sesuai dengan yang kita test.
@@ -800,3 +798,4 @@ Terima kasih.
 <br>Diakses tanggal: 2021/11/24
 
 4. [https://docs.fedoraproject.org/en-US/quick-docs/kernel/howto-kernel-testday/](https://docs.fedoraproject.org/en-US/quick-docs/kernel/howto-kernel-testday/){:target="_blank"}
+<br>Diakses tanggal: 2021/11/24
