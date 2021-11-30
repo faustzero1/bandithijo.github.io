@@ -219,7 +219,7 @@ Kalau berhasil, kita akan masuk ke dalam PostgreSQL shell,
 psql (13 (Debian 13-4.pgdg110+1))
 Type "help" for help.
 
-postgres=# _
+postgres=# █
 ```
 
 ## Buat PostgreSQL user untuk host username
@@ -297,7 +297,7 @@ Kalau berhasil, maka prompt nya akan menunjukkan nama user **bandithijo**.
 psql (13 (Debian 13-4.pgdg110+1))
 Type "help" for help.
 
-bandithijo=# _
+bandithijo=# █
 ```
 
 # Troubleshooting
@@ -340,10 +340,6 @@ Kemudian restart shell,
 exec $SHELL
 {% endshell_term %}
 
-
-
-
-
 # Pesan Penulis
 
 Sepertinya, segini dulu yang dapat saya tuliskan.
@@ -355,7 +351,6 @@ Mudah-mudahan dapat bermanfaat.
 Terima kasih.
 
 (^_^)
-
 
 # Referensi
 
