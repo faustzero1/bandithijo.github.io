@@ -564,6 +564,16 @@ ARandR is designed to provide a simple visual front end for XRandR 1.2/1.3. Rela
 sudo dnf install arandr
 {% endshell_term %}
 
+## xcalib
+
+Official site: [http://xcalib.sourceforge.net/](http://xcalib.sourceforge.net/){:target="_blank"}
+
+Tiny monitor calibration loader for X.org.
+
+{% shell_term $ %}
+sudo dnf install xcalib
+{% endshell_term %}
+
 ## GIT-SVN
 
 Official site: [https://git-scm.com/](https://git-scm.com/){:target="_blank"}
