@@ -1603,6 +1603,18 @@ Inkscape supports many advanced SVG features (markers, clones, alpha blending, e
 sudo dnf install inkscape
 {% endshell_term %}
 
+## Figma for Linu
+
+Official site: [https://github.com/Figma-Linux/figma-linux](https://github.com/Figma-Linux/figma-linux){:target="_blank"}
+
+Figma is the first interface design tool based in the browser, making it easier for teams to create software.
+
+(flatpak - flathub)
+
+{% shell_term $ %}
+flatpak install flathub io.github.Figma_Linux.figma_linux
+{% endshell_term %}
+
 ## WeeChat
 
 WeeChat (Wee Enhanced Environment for Chat) is a portable, fast, light and extensible IRC client. Everything can be done with a keyboard. It is customizable and extensible with scripts.
