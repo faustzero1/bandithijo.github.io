@@ -413,6 +413,29 @@ Glances is a CLI curses based monitoring tool for both GNU/Linux and BSD. Glance
 sudo dnf install glances
 {% endshell_term %}
 
+## Zenith
+
+Official site: [https://github.com/bvaisvil/zenith](https://github.com/bvaisvil/zenith){:target="_blank"}
+
+Zenith - sort of like top or htop but with zoom-able charts, CPU, GPU, network, and disk usage.
+
+**Manual Build**
+
+Deps,
+
+{% shell_term $ %}
+sudo dnf install rust
+sudo dnf install rust-std-static
+sudo dnf install cargo
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/bvaisvil/zenith
+cd zenith
+make
+sudo make install
+{% endshell_term %}
+
 ## LM Sensors
 
 Official site: [http://github.com/lm-sensors/lm-sensors/](http://github.com/lm-sensors/lm-sensors/){:target="_blank"}
