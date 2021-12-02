@@ -134,6 +134,8 @@ $ podman image rm &lt;nama_image/image_ID&gt;
 {% shell_term $ %}
 podman image rm postgres:13
 {% endshell_term %}
+
+<p markdown=1>\* Pastikan sudah tidak ada container yang menggunakan image yang ingin dihapus. Karena proses image remove akan gagal apabila masih ada container yang menggunakan image tersebut.</p>
 {% endbox_info %}
 
 ## Persiapkan Direktori untuk Mounted Volume
