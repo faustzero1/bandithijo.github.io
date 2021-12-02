@@ -1813,6 +1813,16 @@ meson install -C build
 sudo make install
 {% endshell_term %}
 
+## easyeffects
+
+Official site: [https://github.com/wwmm/easyeffects](https://github.com/wwmm/easyeffects){:target="_blank"}
+
+Limiters, compressor, reverberation, high-pass filter, low pass filter, equalizer many more effects for PipeWire applications.
+
+{% shell_term $ %}
+sudo dnf install easyeffects
+{% endshell_term %}
+
 ## HexChat
 
 Official site: [https://hexchat.github.io](https://hexchat.github.io){:target="_blank"}
