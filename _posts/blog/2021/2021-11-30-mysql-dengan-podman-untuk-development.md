@@ -42,20 +42,19 @@ Untuk teman-teman yang menggunakan Fedora (saat tulisan ini dibuat, Fedora 35) s
 
 Untuk yang belum memasang Podman, silahkan merujuk pada [dokumentasi pemasangan Podman](https://podman.io/getting-started/installation){:target="_blank"}.
 
-Jalankan service Podman.
+~~Jalankan service Podman.~~
 
 {% shell_term $ %}
-sudo systemctl start podman.service
+<del>sudo systemctl start podman.service</del>
 {% endshell_term %}
 
-Cek status apakah sudah berhasil running atau belum.
+~~Cek status apakah sudah berhasil running atau belum.~~
 
 {% shell_term $ %}
-sudo systemctl status podman.service
+<del>sudo systemctl status podman.service</del>
 {% endshell_term %}
 
-```
-● podman.service - Podman API Service
+<pre><del>● podman.service - Podman API Service
      Loaded: loaded (/usr/lib/systemd/system/podman.service; disabled; vendor preset: disabled)
      Active: active (running) since Sun 2021-11-30 19:13:59 WITA; 2s ago
 TriggeredBy: ● podman.socket
@@ -65,9 +64,9 @@ TriggeredBy: ● podman.socket
      Memory: 40.0M
      CGroup: /system.slice/podman.service
              └─250724 /usr/bin/podman --log-level=info system service
-```
+</del></pre>
 
-Kalau sudah `active (running)` , artinya Podman sudah siap digunakan.
+~~Kalau sudah `active (running)` , artinya Podman sudah siap digunakan.~~
 
 ## Persiapkan MySQL Image
 
