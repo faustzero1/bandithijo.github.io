@@ -1823,6 +1823,40 @@ Limiters, compressor, reverberation, high-pass filter, low pass filter, equalize
 sudo dnf install easyeffects
 {% endshell_term %}
 
+## helvum
+
+Official site: [https://gitlab.freedesktop.org/ryuukyu/helvum](https://gitlab.freedesktop.org/ryuukyu/helvum){:target="_blank"}
+
+Helvum is a GTK-based patchbay for pipewire, inspired by the JACK tool catia.
+
+**Manual Build**
+
+The recommended way to build is using flatpak, which will take care of all dependencies and avoid any problems that may come from different system configurations.
+
+If you don't have the flathub repo in your remote-list for flatpak you will need to add that first:
+
+{% shell_term $ %}
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+{% endshell_term %}
+
+Then install the required flatpak platform and SDK, if you dont have them already:
+
+{% shell_term $ %}
+flatpak install org.gnome.{Platform,Sdk}//41 org.freedesktop.Sdk.Extension.rust-stable//21.08 org.freedesktop.Sdk.Extension.llvm12//21.08
+{% endshell_term %}
+
+To compile and install as a flatpak, run:
+
+{% shell_term $ %}
+sudo flatpak-builder --install flatpak-build/ build-aux/org.freedesktop.ryuukyu.Helvum.json
+{% endshell_term %}
+
+You can then run the app via:
+
+{% shell_term $ %}
+flatpak run org.freedesktop.ryuukyu.Helvum
+{% endshell_term %}
+
 ## HexChat
 
 Official site: [https://hexchat.github.io](https://hexchat.github.io){:target="_blank"}
