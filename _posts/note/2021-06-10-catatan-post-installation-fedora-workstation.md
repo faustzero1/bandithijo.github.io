@@ -1326,6 +1326,10 @@ make
 
 ## TLP
 
+{% box_info %}
+<p markdown=1>Saya tidak lagi menggunakan **tlp** sejak Fedora 35 sudah menggunakan [**Power Profiles Daemon**](https://fedoraproject.org/wiki/Changes/Power_Profiles_Daemon){:target="_blank"}.</p>
+{% endbox_info %}
+
 Official site: [http://linrunner.de/en/tlp/tlp.html](http://linrunner.de/en/tlp/tlp.html){:target="_blank"}
 
 TLP is an advanced power management tool for Linux. It comes with a default configuration already optimized for battery life. At the same time it is highly customizable to fulfill specific user requirements.
@@ -1354,10 +1358,6 @@ git clone https://github.com/teleshoes/tpacpi-bat
 cd tpacpi-bat
 ./install.pl
 {% endshell_term %}
-
-{% box_info %}
-<p markdown=1>Saya tidak lagi menggunakan **tlp** sejak Fedora 35 sudah menggunakan [**Power Profiles Daemon**](https://fedoraproject.org/wiki/Changes/Power_Profiles_Daemon){:target="_blank"}.</p>
-{% endbox_info %}
 
 Beberapa catatan tentang tlp:
 
