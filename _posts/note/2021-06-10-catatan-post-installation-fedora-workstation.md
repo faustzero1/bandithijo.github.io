@@ -1613,7 +1613,7 @@ Inkscape supports many advanced SVG features (markers, clones, alpha blending, e
 sudo dnf install inkscape
 {% endshell_term %}
 
-## Figma for Linu
+## Figma for Linux
 
 Official site: [https://github.com/Figma-Linux/figma-linux](https://github.com/Figma-Linux/figma-linux){:target="_blank"}
 
