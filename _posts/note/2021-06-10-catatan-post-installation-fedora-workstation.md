@@ -1112,6 +1112,38 @@ and then recompile the GDM database or alternatively log in to the GDM user and 
 sudo gsettings set org.gnome.desktop.interface cursor-theme 'theme-name'
 {% endshell_term %}
 
+## Switch Between Java Versions
+
+Memeriksa versi java yang terpasang.
+
+{% shell_term $ %}
+java -version
+{% endshell_term %}
+
+```
+openjdk version "11.0.13" 2021-10-19
+OpenJDK Runtime Environment 18.9 (build 11.0.13+8)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.13+8, mixed mode, sharing)
+```
+
+Untuk melakukan switch antara versi Java yang terpasang.
+
+{% shell_term $ %}
+sudo alternatives --config java
+{% endshell_term %}
+
+```
+There is 1 program that provides 'java'.
+
+  Selection    Command
+-----------------------------------------------
+*+ 1           java-11-openjdk.x86_64 (/usr/lib/jvm/java-11-openjdk-11.0.13.0.8-2.fc35.x86_64/bin/java)
+
+Enter to keep the current selection[+], or type selection number: █
+```
+
+Kebetulan saya hanya punya 1 versi Java, yaitu Java 11 dengan OpenJDK.
+
 ## Neovim
 
 Official site: [https://neovim.io](https://neovim.io){:target="_blank"}
