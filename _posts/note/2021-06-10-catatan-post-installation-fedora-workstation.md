@@ -2581,6 +2581,7 @@ p7zip is a port of 7za.exe for Unix. 7-Zip is a file archiver with a very high c
 
 {% shell_term $ %}
 sudo dnf install p7zip
+sudo dnf install p7zip-plugins
 {% endshell_term %}
 
 ## Screenkey
