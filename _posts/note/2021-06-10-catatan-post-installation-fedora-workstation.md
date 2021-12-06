@@ -3568,6 +3568,31 @@ This package includes the Rust compiler and documentation generator.
 sudo dnf install rust
 {% endshell_term %}
 
+## XAMPP from Apachefriends
+
+Official site: [https://www.apachefriends.org/index.html](https://www.apachefriends.org/index.html){:target="_blank"}
+
+XAMPP is the most popular PHP development environment.
+
+Download terlebih dahulu file **xamp-*.run**.
+
+{% shell_term $ %}
+chmod +x xampp-*
+sudo ./xampp-*
+{% endshell_term %}
+
+Install deps for Apache Web Server.
+
+{% shell_term $ %}
+sudo dnf install libnsl
+{% endshell_term %}
+
+Jalankan GUI dengan,
+
+{% shell_term $ %}
+sudo /opt/lampp/manager-linux-x64.run
+{% endshell_term %}
+
 
 
 
