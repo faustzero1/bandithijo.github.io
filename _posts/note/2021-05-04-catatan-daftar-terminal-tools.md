@@ -283,7 +283,7 @@ Tig is an ncurses-based text-mode interface for git. It functions mainly as a Gi
 
 A periodic table for the command line.
 
-[http://nmon.sourceforge.net/pmwiki.php](http://nmon.sourceforge.net/pmwiki.php){:target="_blank"}
+[https://github.com/pryme-svg/periodic-table-tui](https://github.com/pryme-svg/periodic-table-tui){:target="_blank"}
 
 
 # Messaging
@@ -305,6 +305,8 @@ WeeChat (Wee Enhanced Environment for Chat) is a free chat client, fast and ligh
 ## ncpamixer
 
 ## pulsemixer
+
+[https://github.com/GeorgeFilipkin/pulsemixer](https://github.com/GeorgeFilipkin/pulsemixer){:target="_blank"}
 
 
 # Audio Player
