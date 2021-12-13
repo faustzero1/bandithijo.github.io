@@ -3625,6 +3625,16 @@ Jalankan GUI dengan,
 sudo /opt/lampp/manager-linux-x64.run
 {% endshell_term %}
 
+## live-server
+
+Sumber: [https://www.chrisatmachine.com/Neovim/20-live-server/](https://www.chrisatmachine.com/Neovim/20-live-server/){:target="_blank"}
+
+Live-server is an npm package that will allow you to see real time changes for .html files in your browser.
+
+{% shell_term $ %}
+npm install -g live-server
+{% endshell_term %}
+
 
 
 
