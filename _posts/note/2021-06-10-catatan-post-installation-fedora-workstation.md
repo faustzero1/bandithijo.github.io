@@ -3635,6 +3635,16 @@ Live-server is an npm package that will allow you to see real time changes for .
 npm install -g live-server
 {% endshell_term %}
 
+## fd-find
+
+Official site: [https://crates.io/crates/fd-find](https://crates.io/crates/fd-find){:target="_blank"}
+
+Fd is a simple, fast and user-friendly alternative to find.
+
+{% shell_term $ %}
+sudo dnf install fd-find
+{% endshell_term %}
+
 
 
 
