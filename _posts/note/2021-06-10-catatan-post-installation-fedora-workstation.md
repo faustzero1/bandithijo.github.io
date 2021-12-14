@@ -3645,6 +3645,18 @@ Fd is a simple, fast and user-friendly alternative to find.
 sudo dnf install fd-find
 {% endshell_term %}
 
+## strace
+
+Official site: [https://strace.io](https://strace.io){:target="_blank"}
+
+The strace program intercepts and records the system calls called and received by a running process. Strace can print a record of each system call, its arguments and its return value. Strace is useful for diagnosing problems and debugging, as well as for instructional purposes.
+
+Install strace if you need a tool to track the system calls made and received by a process.
+
+{% shell_term $ %}
+sudo dnf install strace
+{% endshell_term %}
+
 
 
 
