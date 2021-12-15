@@ -276,6 +276,10 @@ Pada section Stash, pilih stash yang ingin digunakan. Untuk menggunakannya, keti
 
 [https://www.youtube.com/watch?v=CPLdltN7wgE&t=671s](https://www.youtube.com/watch?v=CPLdltN7wgE&t=671s){:target="_blank"}
 
+# Thanks
+
+Trima kasih kepada Jesse Duffield karena telah membuat Lazygit.
+
 # Pesan Penulis
 
 Sepertinya, segini dulu yang dapat saya tuliskan.
