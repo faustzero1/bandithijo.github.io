@@ -3362,6 +3362,16 @@ Open Broadcaster Software is free and open source software for video recording a
 sudo dnf install obs-studio
 {% endshell_term %}
 
+## Barrier
+
+Official site: [https://github.com/debauchee/barrier/wiki](https://github.com/debauchee/barrier/wiki){:target="_blank"}
+
+Barrier is software that mimics the functionality of a KVM switch, which historically would allow you to use a single keyboard and mouse to control multiple computers. Barrier does this in software, allowing you to tell it which machine to control by moving your mouse to the edge of the screen, or by using a key press to switch focus to a different system.
+
+{% shell_term $ %}
+sudo dnf install barrier
+{% endshell_term %}
+
 ## Unified Remote (urserver)
 
 Sumber: [https://www.unifiedremote.com/tutorials/how-to-install-unified-remote-server-rpm-via-terminal](https://www.unifiedremote.com/tutorials/how-to-install-unified-remote-server-rpm-via-terminal){:target="_blank"}
