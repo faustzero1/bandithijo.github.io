@@ -17,7 +17,7 @@ description: "Lazygit adalah Git Tools berupa Terminal User Interface yang dapat
 
 # Tentang Lazygit
 
-Lazygit adalah Terminal User Interface sederhana yang digunakan untuk mempermudah kita dalam menggunakan perintah-perintah Git. Ditulis dengan bahasa pemrograman Go oleh [Jesse Duffield](https://github.com/jesseduffield){:target="_blank"}.
+Lazygit adalah Terminal User Interface ~~sederhana~~ yang digunakan untuk mempermudah kita dalam menggunakan perintah-perintah Git. Ditulis dengan bahasa pemrograman Go oleh [Jesse Duffield](https://github.com/jesseduffield){:target="_blank"}.
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/g01HkB1L/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
 
