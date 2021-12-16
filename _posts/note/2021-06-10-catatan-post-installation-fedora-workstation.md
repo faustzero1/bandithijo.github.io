@@ -1824,6 +1824,16 @@ PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control too
 sudo dnf install pavucontrol
 {% endshell_term %}
 
+## pulsemixer
+
+Official site: [https://github.com/GeorgeFilipkin/pulsemixer](https://github.com/GeorgeFilipkin/pulsemixer){:target="_blank"}
+
+CLI and curses mixer for PulseAudio
+
+{% shell_term $ %}
+pip install --user pulsemixer
+{% endshell_term %}
+
 ## pamixer
 
 Sumber: [https://github.com/cdemoulins/pamixer](https://github.com/cdemoulins/pamixer){:target="_blank"}
@@ -1981,7 +1991,7 @@ sudo dnf install alsa-lib-devel
 
 Official site: [https://github.com/pixelb/ps_mem](https://github.com/pixelb/ps_mem){:target="_blank"}
 
-The ps_mem tool reports how much core memory is used per program (not per process). In detail it reports: sum(private RAM for program processes) + sum(Shared RAM for program processes) 
+The ps_mem tool reports how much core memory is used per program (not per process). In detail it reports: sum(private RAM for program processes) + sum(Shared RAM for program processes)
 
 The shared RAM is problematic to calculate, and the tool automatically selects the most accurate method available for the running kernel.
 
