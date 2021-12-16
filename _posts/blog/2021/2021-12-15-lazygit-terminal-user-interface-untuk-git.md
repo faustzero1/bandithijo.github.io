@@ -29,9 +29,9 @@ Pada catatan kali ini, saya akan mendokumentasikan secara tertulis pemaparan ten
 
 | Key | Deskripsi |
 | --- + --- |
-| <kbd>j</kbd> & <kbd>k</kbd> | Move selected cursor up & down |
-| <kbd>h</kbd> & <kbd>l</kbd> | Move selected section up & down |
-| <kbd>x</kbd> | Keybind help |
+| <span class="nobr"><kbd>j</kbd> & <kbd>k</kbd></span> | Move selected cursor up & down |
+| <span class="nobr"><kbd>h</kbd> & <kbd>l</kbd></span> | Move selected section up & down |
+| <span class="nobr"><kbd>x</kbd> & <kbd>?</kbd></span> | Keybind help |
 
 # Features
 
@@ -52,6 +52,7 @@ Keterangan,
 | --- + --- |
 | ?? | Unstaged file |
 | A | Staged file |
+| M | Modified file |
 
 ### 1.1. Untuk membuat commit message
 
