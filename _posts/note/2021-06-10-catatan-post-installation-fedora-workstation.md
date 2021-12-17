@@ -3585,6 +3585,16 @@ lshw is a small tool to provide detailed informaton on the hardware configuratio
 sudo dnf install lshw
 {% endshell_term %}
 
+## smartmontools
+
+Official site: [http://smartmontools.sourceforge.net/](http://smartmontools.sourceforge.net/){:target="_blank"}
+
+The smartmontools package contains two utility programs (smartctl and smartd) to control and monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (SMART) built into most modern ATA and SCSI hard disks. In many cases, these utilities will provide advanced warning of disk degradation and failure.
+
+{% shell_term $ %}
+sudo dnf install smartmontools
+{% endshell_term %}
+
 ## cpupower-gui
 
 Sumber: [https://github.com/vagnum08/cpupower-gui](https://github.com/vagnum08/cpupower-gui){:target="_blank"}
