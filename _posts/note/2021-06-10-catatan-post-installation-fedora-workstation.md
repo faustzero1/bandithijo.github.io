@@ -3687,6 +3687,22 @@ Install strace if you need a tool to track the system calls made and received by
 sudo dnf install strace
 {% endshell_term %}
 
+## Blender
+
+Official site: [http://www.blender.org](http://www.blender.org){:target="_blank"}
+
+Blender is the essential software solution you need for 3D, from modeling, animation, rendering and post-production to interactive creation and playback.
+
+Professionals and novices can easily and inexpensively publish stand-alone, secure, multi-platform content to the web, CD-ROMs, and other media.
+
+(flatpak - flathub)
+
+{% shell_term $ %}
+flatpak install org.blender.Blender
+{% endshell_term %}
+
+\* **Catatan**: Saya memilih memasang Blender via Flatpak karena alasan beberapa codec seperti ffmpeg tidak terdapat di Blender versi dnf.
+
 
 
 
