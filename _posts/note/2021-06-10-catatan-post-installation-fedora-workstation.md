@@ -1336,6 +1336,18 @@ sudo dnf install mysql++-devel
 sudo dnf install libsqlite3x-devel
 {% endshell_term %}
 
+## pomo
+
+Official site: [https://github.com/tj/pomo](https://github.com/tj/pomo){:target="_blank"}
+
+Command-line application for the Pomodoro time management technique, with notification and tmux status bar support.
+
+(rubygems)
+
+{% shell_term $ %}
+gem install pomo
+{% endshell_term %}
+
 ## Build ADVCMP
 
 Sumber: [https://github.com/jarun/advcpmv](https://github.com/jarun/advcpmv){:target="_blank"}
