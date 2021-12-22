@@ -305,6 +305,20 @@ sudo dnf group install "Development Tools"
 ```
 </details>
 
+## NetworkManager-tui
+
+Kalau tidak terbiasa menggunakan `nmcli` (command line tools yang sudah included dengan NetworkManager), bisa menggunakan `nmtui`.
+
+Berbeda dengan Arch Linux, package NetworkManager menyediakan `nmcli` dan `nmtui`. Di Fedora, NetworkManager hanya menyediakan `nmcli`. Kita perlu memasang package NetworkManager-tui untuk dapat menggunakan `nmtui`.
+
+Official site: [https://networkmanager.dev/](https://networkmanager.dev/){:target="_blank"}
+
+This adds a curses-based "TUI" (Text User Interface) to NetworkManager, to allow performing some of the operations supported by nm-connection-editor and nm-applet in a non-graphical environment.
+
+{% shell_term $ %}
+sudo dnf install NetworkManager-tui
+{% endshell_term %}
+
 ## Install Vim
 
 Fedora Workstation sudah preinstalled `vim-mimimal` dengan file binary bernama `vi`.
