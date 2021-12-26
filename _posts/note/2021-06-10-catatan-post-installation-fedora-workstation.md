@@ -450,6 +450,18 @@ make
 sudo make install
 {% endshell_term %}
 
+## vizex
+
+Official site: [https://github.com/bexxmodd/vizex](https://github.com/bexxmodd/vizex){:target="_blank"}
+
+Visualize disk space and disk usage in your UNIX\Linux terminal.
+
+vizex is the terminal program for the UNIX/Linux systems which helps the user to visualize the disk space usage for every partition and media on the user's machine. vizex is highly customizable and can fit any user's taste and preferences.
+
+{% shell_term $ %}
+pip install --user vizex
+{% endshell_term %}
+
 ## LM Sensors
 
 Official site: [http://github.com/lm-sensors/lm-sensors/](http://github.com/lm-sensors/lm-sensors/){:target="_blank"}
@@ -3728,6 +3740,25 @@ flatpak install org.blender.Blender
 {% endshell_term %}
 
 \* **Catatan**: Saya memilih memasang Blender via Flatpak karena alasan beberapa codec seperti ffmpeg tidak terdapat di Blender versi dnf.
+
+## tty-clock
+
+Official site: [https://github.com/xorg62/tty-clock](https://github.com/xorg62/tty-clock){:target="_blank"}
+
+Clock using lib ncurses.
+
+Deps,
+
+{% shell_term $ %}
+sudo dnf install ncurses ncurses-devel
+{% endshell_term %}
+
+{% shell_term $ %}
+git clone https://github.com/xorg62/tty-clock
+cd tty-clock
+make
+sudo make install
+{% endshell_term %}
 
 
 
