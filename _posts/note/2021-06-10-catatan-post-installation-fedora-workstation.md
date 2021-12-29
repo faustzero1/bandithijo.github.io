@@ -3760,6 +3760,16 @@ make
 sudo make install
 {% endshell_term %}
 
+## kicad
+
+Official site: [https://www.kicad.org](https://www.kicad.org){:target="_blank"}
+
+KiCad is EDA software to design electronic schematic diagrams and printed circuit board artwork of up to 32 layers.
+
+{% shell_term $ %}
+sudo dnf install kicad
+{% endshell_term %}
+
 
 
 
