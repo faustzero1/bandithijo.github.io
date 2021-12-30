@@ -1693,16 +1693,12 @@ img.kontributor-img  {
 
 /* dotfriends-page -------------------------------------------------------- */
 .dotfriends-page {
-  background: red;
   width: 100%;
 }
 
 .dotfriends-page-img {
   float: left;
   width: 20%;
-  /* top: 10%; */
-  position: relative;
-  top: 1.5em;
 }
 
 .dotfriends-page-img img {
