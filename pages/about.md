@@ -21,12 +21,6 @@ Dapat dikatakan **BanditHijo** adalah nama pena saya -- meminjam istilah keren p
 
 Sehingga, apabila dibaca secara utuh menjadi, /BanditHijo Arkaiv/ yang berarti Arsip milik BanditHijo (anggap saja begitu, haha).
 
-# Nama Asli, Status, dan Pekerjaan?
-
-Berdasarkan dokumen catatan akta kelahiran dari Dinas Kependudukan, saya mempunyai nama **Rizqi Nur Assyaufi**. Sebuah nama yang sangat keren yang diberikan oleh kedua orang tua saya -- terima kasih Ayah dan Ibu.
-
-Pekerjaan: tukang ketik.
-
 # Apa Alasan Menulis Blog?
 
 Karena Allah *Subhanahu Wa Ta'ala*.
@@ -63,7 +57,8 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | **Apple Macbook 4.1**     | 2008                            | 2009 - 2011                      |
 | **Apple Macbook Pro 8.1** | 2011                            | 2012 - 2016                      |
 | **Lenovo ThinkPad X260**  | 2016                            | 2017 - 2018                      |
-| **Lenovo ThinkPad X61**   | 2007                            | 2019 - Sekarang                  |
+| **Lenovo ThinkPad X61**   | 2007                            | 2019 - Nov 2021
+| **Lenovo ThinkPad X260**  | 2016                            | Dec 2021 - Sekarang
 |---------------------------|---------------------------------|----------------------------------|
 
 <br>
@@ -83,7 +78,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Terminal Emulator     | **st**                              |
 | Shell                 | **zsh**                             |
 | Application Launcher  | **dmenu** & **rofi**                |
-| Statusbar             | **polybar**                         |
+| Statusbar             | **slstatus**                        |
 | Text Editor           | **neovim**                          |
 | Raster Image Editor   | **gimp** & **gthumb**               |
 | Vector Image Editor   | **inkscape**                        |
@@ -93,7 +88,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | ScreenShoter          | **scrot** & **flameshot**           |
 | PDF Reader            | **zathura** & **evince**            |
 | Video Editor          | **kdenlive** & **olive** & **LWKS** |
-| Screen Recorder       | **ffmpeg**                          |
+| Screen Recorder       | **ffmpeg** & **SimpleScreenRecorder** |
 | Webcam                | **ffplay** & **mpv**                |
 | Video Player          | **mpv**                             |
 | Browser               | **qutebrowser**                     |
@@ -158,8 +153,6 @@ Di awali dengan ThinkPad X260 pada awal tahun 2017, mesin ini benar-benar membua
 Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop. Istri saya, menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu mnejadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
 
 Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang tidak terbatas oleh vendor, sehingga dapat saya gunakan selama mungkin hingga menemukan batas maksimalnya.
-
-Sedang asik dengan Web programming. Bermodalkan belajar dari video-video di YouTube.
 
 # Akhir Kata
 
