@@ -719,7 +719,7 @@ sudo dnf install ranger
 sudo dnf install python3-devel
 sudo dnf install libX11-devel
 sudo dnf install libXext-devel
-pip install ueberzug
+pip install --user ueberzug
 {% endshell_term %}
 
 For enhanced file previews.
@@ -1339,7 +1339,7 @@ Fast, reliable, and secure dependency management.
 sudo dnf install yarnpkg
 {% endshell_term %}
 
-## Ruby or Rails Developer
+## Ruby on Rails Developer
 
 Saya lebih suka menggunakan **rbenv** untuk mendevelop Ruby apps.
 
