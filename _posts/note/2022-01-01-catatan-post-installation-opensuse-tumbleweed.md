@@ -541,20 +541,38 @@ Edit file,
 $ sudo vim /etc/NetworkManager/NetworkManager.conf
 ```
 
-Tambahkan bari `rc-manager=resolvconf` di dalam section `[main]`
+Tambahkan baris `rc-manager=resolvconf` dan `dns=none`di dalam section `[main]`
 
 ```
 [main]
 dhcp=dhclient
 plugins=keyfile
 rc-manager=resolveconf
-dnf=none
+dns=none
 
 [connectivity]
 uri=http://conncheck.opensuse.org
 ```
 
 Oke, urusan dengan NetworkManager selesai.
+
+Selanjutnya configurasi networkconfig.
+
+```
+$ sudo vim /etc/sysconfig/network/config
+```
+
+Cari bagian `NETCONFIG_DNS_POLICY="auto"`, kosongin aja valuenya.
+
+```
+## Type:        string
+## Default:     "auto"
+#
+# Defines the DNS merge policy as documented in netconfig(8) manual page.
+# Set to "" to disable DNS configuration.
+#
+NETCONFIG_DNS_POLICY=""
+```
 
 Selanjutnya, konfigurasi openresolv.
 
