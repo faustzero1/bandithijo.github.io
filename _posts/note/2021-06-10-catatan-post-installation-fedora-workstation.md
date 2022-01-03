@@ -3749,6 +3749,20 @@ KiCad is EDA software to design electronic schematic diagrams and printed circui
 sudo dnf in kicad
 {% endshell_term %}
 
+## dotnet
+
+Official site: [https://github.com/dotnet/](https://github.com/dotnet/){:target="_blank"}
+
+.NET is a fast, lightweight and modular platform for creating cross platform applications that work on Linux, macOS and Windows.
+
+It particularly focuses on creating console applications, web applications and micro-services.
+
+.NET contains a runtime conforming to .NET Standards a set of framework libraries, an SDK containing compilers and a 'dotnet' application to drive everything.
+
+{% shell_term $ %}
+sudo dnf in dotnet
+{% endshell_term %}
+
 
 
 
