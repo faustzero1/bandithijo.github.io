@@ -867,12 +867,6 @@ Click on Download Chrome and select Fedora 64 or 32 bits download and install th
 sudo dnf in google-chrome-stable_current_x86_64.rpm
 {% endshell_term %}
 
-Enabling Chromium plugins (*under construction*).
-
-{% shell_term $ %}
-rpm2cpio ./google-chrome-stable_current_x86_64.rpm | cpio -idmv
-{% endshell_term %}
-
 ## Qutebrowser
 
 Official site: [http://www.qutebrowser.org](http://www.qutebrowser.org){:target="_blank"}
