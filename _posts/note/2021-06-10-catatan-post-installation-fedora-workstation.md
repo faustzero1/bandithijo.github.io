@@ -148,10 +148,14 @@ metalink=https://mirrors.fedoraproject.org/metalink?repo=updates-released-debug-
 Lakukan refresh dan update repository dengan perintah,
 
 {% shell_term $ %}
-sudo dnf upgrade --refresh
+sudo dnf up --ref
 {% endshell_term %}
 
-\* **dnf update** dan **dnf upgrade** sama, namun konvensi terbaru sudah menggunakan **dnf upgrade**.
+**up**, adalah *short hand* dari **upgrade**.
+
+**--ref**, adalah *short hand* dari **--refresh**.
+
+**dnf update** dan **dnf upgrade** sama, namun konvensi terbaru sudah menggunakan **dnf upgrade**.
 
 ## Enable RPMFusion Repository
 Sumber: [https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/](https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/){:target="_blank"}
