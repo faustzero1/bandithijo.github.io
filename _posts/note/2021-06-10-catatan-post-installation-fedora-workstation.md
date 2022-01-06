@@ -1771,6 +1771,23 @@ cd ~/.weechat/python/autoload
 ln -s ../matrix.py ~/.weechat/python/autoload
 {% endshell_term %}
 
+## WeeChat-twitch
+
+Official-site: [https://github.com/mumixam/weechat-twitch](https://github.com/mumixam/weechat-twitch){:target="_blank"}
+
+Checks status of streams using twitch api.
+
+{% shell_term $ %}
+/server add twitch irc.twitch.tv
+/set irc.server.twitch.capabilities "twitch.tv/membership,twitch.tv/commands,twitch.tv/tags"
+/set irc.server.twitch.nicks "My Twitch Username"
+/set irc.server.twitch.password "oauth:yourauthkey"
+{% endshell_term %}
+
+Where to get **oauth**? [https://twitchapps.com/tmi/](https://twitchapps.com/tmi/){:target="_blank"}
+
+Referensi: [https://gist.github.com/noromanba/df3d975613713f60e6ae](https://gist.github.com/noromanba/df3d975613713f60e6ae){:target="_blank"}
+
 ## Flameshot
 
 Official site: [https://github.com/lupoDharkael/flameshot](https://github.com/lupoDharkael/flameshot){:target="_blank"}
