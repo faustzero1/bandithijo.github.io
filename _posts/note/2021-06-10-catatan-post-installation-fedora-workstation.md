@@ -3789,6 +3789,17 @@ It particularly focuses on creating console applications, web applications and m
 sudo dnf in dotnet
 {% endshell_term %}
 
+## fontforge
+
+Official site: [http://fontforge.github.io/](http://fontforge.github.io/){:target="_blank"}
+
+FontForge (former PfaEdit) is a font editor for outline and bitmap fonts. It supports a range of font formats, including PostScript (ASCII and binary Type 1, some Type 3 and Type 0), TrueType, OpenType (Type2) and CID-keyed fonts.
+
+{% shell_term $ %}
+sudo dnf in fontforge
+{% endshell_term %}
+
+
 
 
 
