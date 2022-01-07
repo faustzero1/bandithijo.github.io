@@ -186,7 +186,6 @@ Pada command mode, akan tertulis seperti ini,
 Ganti **zsh** dengan nama yang kalian inginkan.
 
 
-
 <br>
 # Command Mode
 
@@ -218,6 +217,14 @@ attach-session -t . -c /lokasi/working/directory/baru
 {% endshell_cmd %}
 
 **-t .** adalah session yang saat ini sedang digunakan.
+
+Atau bisa juga menggunakan tmux variable untuk cwd, yaitu `pane_current_path`.
+
+Masuk dulu ke direktori yang ingin dijadikan cwd. Lalu jalankan perintah di bawah.
+
+{% shell_cmd : %}
+attach-sesson -t . -c "#{pane_current_path}"
+{% endshell_cmd %}
 
 
 <br>
