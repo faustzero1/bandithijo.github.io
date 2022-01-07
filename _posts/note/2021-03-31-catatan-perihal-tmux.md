@@ -202,7 +202,7 @@ new-session -s &lt;nama_session&gt;
 <br>
 ## Membuat session baru dengan working directory dari dalam Tmux
 
-Kalau kita sudah berada di dalam Tmux, namun ingin membuat session lain (session baru yang lain) sambil mendefinisikan WD-nya,
+Kalau kita sudah berada di dalam Tmux, namun ingin membuat session lain (session baru yang lain) sambil mendefinisikan *workding directory*-nya,
 
 {% shell_cmd : %}
 new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
@@ -214,10 +214,10 @@ new-session -s &lt;nama_session&gt; -c /lokasi/working/directory/baru
 Kalau kita sudah terlanjur membuat session baru, namun ingin menganti *working directory*-nya,
 
 {% shell_cmd : %}
-attach-session -t &lt;nama_session&gt; -c /lokasi/working/directory/baru
+attach-session -t . -c /lokasi/working/directory/baru
 {% endshell_cmd %}
 
-**-t** adalah *specify target session*.
+**-t .** adalah session yang saat ini sedang digunakan.
 
 
 <br>
