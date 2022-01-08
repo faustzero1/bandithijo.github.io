@@ -3382,11 +3382,15 @@ Official site: [https://kdenlive.org/en/](https://kdenlive.org/en/){:target="_bl
 
 Kdenlive is a non linear video editor. It is based on the MLT framework and accepts many audio and video formats, allows you to add effects, transitions and render into the format of your choice.
 
-Saya memilih memasang dari ~~flathub~~ appimage.
+Saya memilih memasang dari ~~flathub~~.
 
 {% shell_term $ %}
 flatpak install flathub org.kde.kdenlive
 {% endshell_term %}
+
+Atau dari appimage.
+
+[Download Kdenlive AppImage](https://kdenlive.org/en/download2/){:target="_blank"}.
 
 ## Olive
 
