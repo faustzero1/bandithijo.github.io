@@ -3366,6 +3366,16 @@ uvcvideo
 
 Maka module uvcvideo akan diload saat booting.
 
+## guvcview
+
+Official site: [http://guvcview.sourceforge.net/](http://guvcview.sourceforge.net/){:target="_blank"}
+
+A simple GTK interface for capturing and viewing video from devices supported by the Linux UVC driver, although it should also work with any v4l2 compatible device.
+
+{% shell_term $ %}
+sudo dnf in guvcview
+{% endshell_term %}
+
 ## Kdenlive
 
 Official site: [https://kdenlive.org/en/](https://kdenlive.org/en/){:target="_blank"}
