@@ -919,6 +919,16 @@ Fedora only ships free software in the repositories. To be able to play videos w
 sudo dnf in qt5-qtwebengine-freeworld
 {% endshell_term %}
 
+## lynx
+
+Official site: [http://lynx.browser.org/](http://lynx.browser.org/){:target="_blank"}
+
+Lynx is a text-based Web browser. Lynx does not display any images, but it does support frames, tables, and most other HTML tags. One advantage Lynx has over graphical browsers is speed; Lynx starts and exits quickly and swiftly displays web pages.
+
+{% shell_term $ %}
+sudo dnf  in lynx
+{% endshell_term %}
+
 ## Setup Default Browser
 
 Cek default browser yang digunakan saat ini.
