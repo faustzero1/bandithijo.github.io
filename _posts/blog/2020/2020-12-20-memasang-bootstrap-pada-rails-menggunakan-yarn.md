@@ -136,31 +136,9 @@ Baris ke 18 adalah baris yang perlu ditambahkan.
 
 ## 3. Konfigurasi StyleSheet
 
-{% highlight_caption app/assets/stylesheets/application.css %}
-{% highlight css linenos %}
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require bootstrap
- *= require_tree .
- *= require_self
- */
-{% endhighlight %}
+Selanjutnya, buat file scss baru pada direktori yang sama dengan nama **custom.scss**.
 
-Baris 13 adalah baris yang perlu ditambahkan.
-
-Selanjutnya, buat file stylesheet baru pada direktori yang sama dengan nama,
-
-{% highlight_caption app/assets/stylesheets/custom.css.scss %}
+{% highlight_caption app/assets/stylesheets/custom.scss %}
 {% highlight scss linenos %}
 @import 'bootstrap/scss/bootstrap';
 {% endhighlight %}
