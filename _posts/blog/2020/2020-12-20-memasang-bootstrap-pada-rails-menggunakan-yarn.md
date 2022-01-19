@@ -145,6 +145,11 @@ Selanjutnya, buat file scss baru pada direktori yang sama dengan nama **custom.s
 
 Selesai!
 
+{% box_pertanyaan %}
+<p markdown=1><b>Darimana saya mengetahui path stylesheet dari sebuah javascript library?</b></p>
+<p markdown=1>Telusuri file stylesheet dari Javascript library yang digunakan, di dalam direktori **node_modules** (dalam root project direktori).</p>
+{% endbox_pertanyaan %}
+
 
 
 
