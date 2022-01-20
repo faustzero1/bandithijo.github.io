@@ -251,7 +251,7 @@ Maksudnya, semacam *autoreload*, jadi sambil kita mengubah-ubah nilai yang ada d
 
 Cara tidak langsung yaitu dengan menggunakan file executable.
 
-Seperti yang di contohkan oleh Wiki Polybar, dengan menggunakan file `launch.sh` yang di letakkan di dalam direktori `~/.config/polybar/`.
+Seperti yang di contohkan oleh Wiki Polybar, dengan menggunakan file `launch.sh` yang diletakkan di dalam direktori `~/.config/polybar/`.
 
 Sekarang kita coba buat dan membuatnya menjadi executable.
 
