@@ -12,7 +12,7 @@ tags: ['Tips', 'Ulasan']
 pin:
 hot:
 contributors: []
-description: "Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunaka."
+description: "Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunakan."
 ---
 
 <!-- BANNER OF THE POST -->
