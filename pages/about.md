@@ -57,49 +57,49 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | **Apple Macbook 4.1**     | 2008                            | 2009 - 2011                      |
 | **Apple Macbook Pro 8.1** | 2011                            | 2012 - 2016                      |
 | **Lenovo ThinkPad X260**  | 2016                            | 2017 - 2018                      |
-| **Lenovo ThinkPad X61**   | 2007                            | 2019 - Nov 2021
-| **Lenovo ThinkPad X260**  | 2016                            | Dec 2021 - Sekarang
+| **Lenovo ThinkPad X61**   | 2007                            | 2019 - Nov 2021                  |
+| **Lenovo ThinkPad X260**  | 2016                            | Dec 2021 - Sekarang              |
 |---------------------------|---------------------------------|----------------------------------|
 
 <br>
 **Aplikasi Favorit**
 
-|-----------------------|-------------------------------------|
-| <center>Data</center> | <center>Keterangan</center>         |
-| :---                  | :---                                |
-|-----------------------|-------------------------------------|
-| Static Site Generator | **Jekyll**                          |
-| Hosting               | **GitHub Pages**                    |
-| Format Text           | **asciidoc**                        |
-| Sistem Operasi        | **GNU/Linux**                       |
-| Distribusi            | **Fedora**                          |
-| Desktop Env.          | -                                   |
-| Window Manager        | **dwm**                             |
-| Terminal Emulator     | **st**                              |
-| Shell                 | **zsh**                             |
-| Application Launcher  | **dmenu** & **rofi**                |
-| Statusbar             | **slstatus**                        |
-| Text Editor           | **neovim**                          |
-| Raster Image Editor   | **gimp** & **gthumb**               |
-| Vector Image Editor   | **inkscape**                        |
-| Image Preview         | **sxiv**                            |
-| Office                | **LibreOffice**                     |
-| Get Things Done       | **Taskell** & **Taskwarrior + vit** |
-| ScreenShoter          | **scrot** & **flameshot**           |
-| PDF Reader            | **zathura** & **evince**            |
-| Video Editor          | **kdenlive** & **olive** & **LWKS** |
+|-----------------------|---------------------------------------|
+| <center>Data</center> | <center>Keterangan</center>           |
+| :---                  | :---                                  |
+|-----------------------|---------------------------------------|
+| Static Site Generator | **Jekyll**                            |
+| Hosting               | **GitHub Pages**                      |
+| Format Text           | **markdown** & **asciidoc**           |
+| Sistem Operasi        | **GNU/Linux**                         |
+| Distribusi            | **Fedora Workstation**                |
+| Desktop Env.          | -                                     |
+| Window Manager        | **dwm**                               |
+| Terminal Emulator     | **st**                                |
+| Shell                 | **bash**                              |
+| Application Launcher  | **dmenu** & **rofi**                  |
+| Statusbar             | **slstatus**                          |
+| Text Editor           | **neovim**                            |
+| Raster Image Editor   | **gimp** & **gthumb**                 |
+| Vector Image Editor   | **inkscape**                          |
+| Image Preview         | **sxiv**                              |
+| Office                | **libreoffice**                       |
+| Get Things Done       | **taskell** & **taskwarrior + vit**   |
+| ScreenShoter          | **scrot** & **flameshot**             |
+| PDF Reader            | **zathura** & **evince**              |
+| Video Editor          | **kdenlive** & **olive** & **LWKS**   |
 | Screen Recorder       | **ffmpeg** & **SimpleScreenRecorder** |
-| Webcam                | **ffplay** & **mpv**                |
-| Video Player          | **mpv**                             |
-| Browser               | **qutebrowser**                     |
-| File Manager          | **ranger**                          |
-| Email Client          | **neomutt**                         |
-| IRC Client            | **weechat**                         |
-| RSS Feed Reader       | **newsboat**                        |
-| Torrent Client        | **tremc**                           |
-| RDP Client            | **xfreerdp**                        |
-| VNC Server            | **x11vnc**                          |
-|-----------------------|-------------------------------------|
+| Webcam                | **ffplay** & **mpv**                  |
+| Video Player          | **mpv**                               |
+| Browser               | **qutebrowser**                       |
+| File Manager          | **ranger**                            |
+| Email Client          | **neomutt**                           |
+| IRC Client            | **weechat**                           |
+| RSS Feed Reader       | **newsboat**                          |
+| Torrent Client        | **tremc**                             |
+| RDP Client            | **xfreerdp**                          |
+| VNC Server            | **x11vnc**                            |
+|-----------------------|---------------------------------------|
 
 # Ilustrasi Workflow
 
@@ -128,7 +128,7 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 Sejak duduk dibangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
-Belajar secara mandiri dengan cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini. Wajar saja kalau tidak semua siswa dapat melakukan yang saya kerjakan.
+Belajar secara mandiri dengan cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini.
 
 Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar baru maupun modifikasi dari gambar sebelumnya.
 
