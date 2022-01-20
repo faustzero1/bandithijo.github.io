@@ -600,6 +600,7 @@ static Key keys[] = {
 <p markdown="1">Saya memindahkan, semua *custom keys* tersebut ke **SXHKD**.</p>
 <p markdown="1">Tujuannya, agar saat ingin dimodifikasi, tidak perlu mengcompile ulang dwm.</p>
 <p markdown="1">Selain itu, juga lebih mudah untuk pengaturan fungsi toggling.</p>
+<p markdown=1>Catatan saya dalam menggunakan SXHKD, [**SXHKD, Simple X Hotkey Daemon**](https://bandithijo.github.io/blog/sxhkd-simple-x-hotkey-daemon){:target="_blank"}</p>
 {% endbox_info %}
 
 
