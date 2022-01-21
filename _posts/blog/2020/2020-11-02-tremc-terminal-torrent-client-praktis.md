@@ -58,6 +58,8 @@ Kalau tidak, tremc akan gagal dibuka, atau tidak akan berjalan sebagaimana mesti
 
 # Konfigurasi
 
+## tremc config
+
 Tremc sudah menyediakan command untuk mengenerate file config.
 
 <pre>
@@ -117,6 +119,31 @@ file_prio_off              = fg:blue,bg:default
 {% endhighlight %}
 
 {% image https://i.postimg.cc/3xrDRmTm/gambar-01.png | 1 %}
+
+## transmission-daemon settings.json
+
+Secara default, lokasi dari file unduhan akan berada pada `/var/lib/transmission/Downloads/` direktori.
+
+Hal ini diatur oleh **transmission-daemon** bukan dari **tremc**.
+
+Maka dari itu, kita perlu merubah lokasi hasil unduhannya ke direktori yang ada di Home user.
+
+{% shell_term $ %}
+sudo vim /var/lib/transmission/.config/transmission-daemon/settings.json
+{% endshell_term %}
+
+{% highlight_caption settings.json %}
+{% highlight json linenos %}
+{
+    ...,
+    "download-dir": "~/dwn/Torrent",
+    ...,
+    "incomplete-dir": "~/dwn/Torrent",
+    ...,
+}
+{% endhighlight %}
+
+`"download-dir":` dan `"incomplete-dir":`, adalah direktori file unduhan, rubah sesuai keingian kalian. Saya meletakkannya pada direktori **~/Downloads/Torrent/**.
 
 # Keyboard Mapping
 
