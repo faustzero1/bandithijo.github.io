@@ -719,7 +719,7 @@ Panduan lebih lengkapnya dapat dilihat di `$ podman image rm --help`.
 Command ini digunakan untuk menghapus data-data baik container maupun image yang sudah tidak lagi digunakan.
 
 {% shell_term $ %}
-podman styem prune
+podman system prune
 {% endshell_term %}
 
 ```
