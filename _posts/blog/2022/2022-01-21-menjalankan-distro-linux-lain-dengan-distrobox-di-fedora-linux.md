@@ -753,7 +753,11 @@ Panduan lebih lengkapnya dapat dilihat di `$ podman system prune --help`.
 
 # Tambahan
 
-Tentu saja, catatan ini tidak dapat mengcover semua dari dokumentasi Distrobox, untuk melihat tips-tips yang lain dapat mengunjungi halaman [**github:distrobox:useful tips**](https://github.com/89luca89/distrobox/blob/main/docs/useful_tips.md){:target="_blank"}
+Tentu saja, catatan ini tidak dapat mengcover semua dari dokumentasi Distrobox:
+
+1. untuk melihat tips-tips yang lain dapat mengunjungi halaman [**github:distrobox:useful tips**](https://github.com/89luca89/distrobox/blob/main/docs/useful_tips.md){:target="_blank"}
+
+1. untuk melihat beberapa contoh penggunaan yang lain dapat mengunjungi halaman [**github:distrobox:usage**](https://github.com/89luca89/distrobox/blob/main/docs/usage/usage.md){:target="_blank"}
 
 
 # Pesan Penulis
