@@ -35,7 +35,7 @@ Praktis dan tidak perlu konfigurasi tambahan. Cukup buat distro container yang d
 
 # Target
 
-Objektif atau tujuan catatan ini adalah untuk mencoba memasang aplikasi-aplikasi GUI yang tidak tersedia pada distribusi Fedora Linux.
+Objektif atau tujuan catatan ini adalah untuk mencoba memasang aplikasi-aplikasi Terminal & GUI yang tidak tersedia pada distribusi Fedora Linux.
 
 Maka, untuk menyelesaikan objektif dari catatan ini, saya memilih menggunakan container Arch Linux. Untuk mempermudah saya dalam mendapatkan aplikasi yang saya inginkan. Sebagaimana yang ~~kita~~ saya tahu, Arch Linux memiliki koleksi paket yang cukup luas, mulai dari yang tersedia di official repo maupun resep-resep yang tersedia di AUR (Arch User Repository).
 
