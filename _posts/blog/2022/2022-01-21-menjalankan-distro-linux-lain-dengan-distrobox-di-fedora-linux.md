@@ -354,7 +354,7 @@ Kalau berhasil diekspor, akan menampilkan output seperti di bawah ini.
 OK!
 ```
 
-Kalau sudah, bisa dicoba jalankan `gping` pada Host system.
+Kalau sudah, bisa dicoba jalankan `gping` pada host system.
 
 {% shell_term $ %}
 gping google.com
@@ -401,7 +401,7 @@ Setelah proses instalasinya selesai, kita dapat menjalankannya dari dalam contai
 yay
 {% endshell_term %}
 
-Atau, tinggal kita export untuk mempermudah menjalankannya dari Host system.
+Atau, tinggal kita export untuk mempermudah menjalankannya dari host system.
 
 {% shell_term [bandithijo@arch-distrobox] %}
 distrobox-export --bin /usr/bin/yay --export-path ~/.local/bin
@@ -412,13 +412,13 @@ distrobox-export --bin /usr/bin/yay --export-path ~/.local/bin
 OK!
 ```
 
-Coba test update Arch Linux dengan `yay` dari Host.
+Coba test update Arch Linux dengan `yay` dari host.
 
 {% shell_term $ %}
 yay -Syu
 {% endshell_term %}
 
-Sip! Sekarang kita dapat memasang paket-paket dari AUR dengan menggunakan `yay` dari Host system.
+Sip! Sekarang kita dapat memasang paket-paket dari AUR dengan menggunakan `yay` dari host system.
 
 {% box_info %}
 <p markdown=1>Direktori **yay** hasil git clone sebelumnya, dapat kita hapus.</p>
@@ -450,7 +450,7 @@ Setelah instalasi selesai, kita dapat menjalankan langsung dari dalam container,
 spotify
 {% endshell_term %}
 
-Atau, lakukan export agar dapat dipanggil dengan mudah dari Host system.
+Atau, lakukan export agar dapat dipanggil dengan mudah dari host system.
 
 {% shell_term [bandithijo@arch-distrobox] %}
 distrobox-export --app spotify
@@ -462,7 +462,7 @@ OK!
 spotify will appear in your applications list in a few seconds.
 ```
 
-Perintah tersebut akan membuat file desktop entry spec pada `~/.local/share/applications/spotify.desktop` di Host system.
+Perintah tersebut akan membuat file desktop entry spec pada `~/.local/share/applications/spotify.desktop` di host system.
 
 {% highlight_caption ~/.local/share/applications/spotify.desktop %}
 {% highlight shell linenos %}
@@ -522,7 +522,7 @@ Setelah selesai, kita dapat langsung menjalankan dari dalam container,
 beekeeper-studio
 {% endshell_term %}
 
-Atau, tinggal kita export agar dapat dipanggil lebih mudah dari Host system.
+Atau, tinggal kita export agar dapat dipanggil lebih mudah dari host system.
 
 {% shell_term [bandithijo@arch-distrobox] %}
 distrobox-export --app beekeeper-studio
@@ -532,6 +532,78 @@ Berikut ini demonstrasinya,
 
 ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/WzWxSsT1/gambar-04.gif" onerror="imgError(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - Demonstrasi pemasangan Beekeeper Studio menggunakan yay pada Distrobox</p>
+
+
+## Ekspor Aplikasi dari Container ke Host
+
+Dari case-case pemasangan beberapa aplkasi di atas, saya sudah menunjukkan cara mengekspor aplikasi dari container ke host system.
+
+Kita dapat mengekspor aplikasi GUI, aplikasi terminal, bahkan systemd service.
+
+Untuk melakukan export, kita menggunakan perintah `distrobox-export` dari dalam container.
+
+### GUI Application
+
+Misal, mengekspor aplikasi chromium dari container ke host.
+
+Karena chromium merupakan aplikasi GUI, maka kita gunakan option `--app`.
+
+{% shell_term [bandithijo@arch-distrobox] %}
+distrobox-export --app chromium
+{% endshell_term %}
+
+```
+Application chromium successfully exported.
+OK!
+chromium will appear in your applications list in a few seconds.
+```
+
+Nah, maka kita langsung dapat memanggil chromium dari application launcher host system yang kita gunakan.
+
+Untuk menghapusnya, tinggal jalankan perintah yang sama, namun dengan penambahan option `--delete`.
+
+{% shell_term [bandithijo@arch-distrobox] %}
+distrobox-export --app chromium --delete
+{% endshell_term %}
+
+```
+Application chromium successfully un-exported.
+OK!
+chromium will disappear from your applications list in a few seconds.
+```
+
+Maka, chromium tidak lagi tersedia di host system kita.
+
+
+### Terminal Application
+
+Misal, mengekspor aplikasi gping dari container ke host.
+
+Karena gping merupakan aplikasi terminal, maka kita gunakan option `--bin` diikuti dengan `--export-path`.
+
+{% shell_term [bandithijo@arch-distrobox] %}
+distrobox-export --bin /usr/bin/gping --export-path ~/.local/bin
+{% endshell_term %}
+
+```
+/usr/bin/gping from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+```
+
+Nah, maka kita langsung dapat memanggil gping dari terminal host system yang kita gunakan.
+
+Untuk menghapusnya, tinggal jalankan perintah yang sama, namun dengan penambahan option `--delete`.
+
+{% shell_term [bandithijo@arch-distrobox] %}
+distrobox-export --bin /usr/bin/gping --export-path ~/.local/bin --delete
+{% endshell_term %}
+
+```
+/usr/bin/gping from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+```
+
+Maka, gping tidak lagi tersedia di terminal host system kita.
 
 
 ## Menghapus Container
