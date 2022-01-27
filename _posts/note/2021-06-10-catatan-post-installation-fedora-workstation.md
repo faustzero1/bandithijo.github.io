@@ -859,6 +859,17 @@ sudo usermod -a -G libvirt $(whoami)
 
 This adds the current user to the group. You must log out and log in to apply the changes.
 
+## firefox-dev
+
+Official site: [https://www.mozilla.org/en-US/firefox/developer/](https://www.mozilla.org/en-US/firefox/developer/){:target="_blank"}
+
+copr source: [https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/](https://copr.fedorainfracloud.org/coprs/the4runner/firefox-dev/){:target="_blank"}
+
+{% shell_term $ %}
+sudo dnf copr enable the4runner/firefox-dev
+sudo dnf in firefox-dev
+{% endshell_term %}
+
 ## Chromium browser
 
 {% shell_term $ %}
