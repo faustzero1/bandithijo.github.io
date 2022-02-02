@@ -3851,6 +3851,16 @@ FontForge (former PfaEdit) is a font editor for outline and bitmap fonts. It sup
 sudo dnf in fontforge
 {% endshell_term %}
 
+## microsoft core font (mscorefont)
+
+Official site: [http://mscorefonts2.sourceforge.net/](http://mscorefonts2.sourceforge.net/){:target="_blank"}
+
+Get Microsoft's Core Fonts for the Web and Cleartype Fonts
+
+{% shell_term $ %}
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+{% endshell_term %}
+
 
 
 
