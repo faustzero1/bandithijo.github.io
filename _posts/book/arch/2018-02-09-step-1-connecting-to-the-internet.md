@@ -449,7 +449,7 @@ pacman -S reflector
 {% endshell_root %}
 <p>*reflector sudah tersedia di ArchISO, kita tidak perlu repot memasangnya lagi.</p>
 {% shell_root %}
-reflector --verbose --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
+reflector --verbose --protocol https --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 {% endshell_root %}
 {% endbox_perhatian %}
 
