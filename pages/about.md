@@ -72,7 +72,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Hosting               | **GitHub Pages**                      |
 | Format Text           | **markdown** & **asciidoc**           |
 | Sistem Operasi        | **GNU/Linux**                         |
-| Distribusi            | **Fedora Workstation**                |
+| Distribusi            | **Arch Linux**                        |
 | Desktop Env.          | -                                     |
 | Window Manager        | **dwm**                               |
 | Terminal Emulator     | **st**                                |
@@ -84,7 +84,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Vector Image Editor   | **inkscape**                          |
 | Image Preview         | **sxiv**                              |
 | Office                | **libreoffice**                       |
-| Get Things Done       | **taskell** & **taskwarrior + vit**   |
+| Get Things Done       | **taskell** & **notion**              |
 | ScreenShoter          | **scrot** & **flameshot**             |
 | PDF Reader            | **zathura** & **evince**              |
 | Video Editor          | **kdenlive** & **olive** & **LWKS**   |
