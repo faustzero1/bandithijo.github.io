@@ -42,7 +42,7 @@ groupadd sudo
 Kemudian buat _username_.
 
 {% shell_root %}
-useradd -m -g users -G sudo,storage,wheel,power,input,network bandithijo
+useradd -m -G sudo,wheel,storage,power,input,network,video bandithijo
 {% endshell_root %}
 
 Saya menggunakan _username_ **bandithijo**. Kamu dapat mengganti dengan _username_ yang kamu inginkan. Sebagai catatan _username_ haruslah berupa karakter huruf, _lowercase_ \(huruf kecil\), dan tidak boleh ada spasi.
@@ -114,7 +114,7 @@ Langkah selanjutnya adalah melihat apakah proses instalasi kita berhasil atau ti
 Namun sebelumnya, tambahkan dulu paket-paket di bawah ini. Agar memudahkan konektifitas jaringan. Saat kita sudah memasuki sistem dasar yang sudah kita bangun.
 
 {% shell_root %}
-pacman -S networkmanager network-manager-applet
+pacman -S networkmanager
 {% endshell_root %}
 
 Aktifkan servicenya saat boot.
@@ -123,13 +123,10 @@ Aktifkan servicenya saat boot.
 systemctl enable NetworkManager.service
 {% endshell_root %}
 
-{% box_info %}
-<p>Paket <code>network-manager-applet</code> diperlukan untuk memberikan NetworkManager trayicon.</p>
-{% endbox_info %}
-
 {% box_perhatian %}
 <p markdown=1>Penting agar sebelum melakukan restart, kita harus memasang *comprehensive network manager*, seperti **NetworkManager**, **ConnMan**, dan lain sebagainya.</p>
 <p markdown=1>Kalau tidak, saat kembali dari restart, kita tidak akan memiliki akses networking.</p>
+<br>
 <p markdown=1>Untuk teman-teman yang sudah mahir, dapat menggunakan pilihan pengaturan networking sendiri.</p>
 <p markdown=1>Seperti menggunakan **netctl**, **dhcp**, atau untuk Wi-Fi: **wpa_supplicant** atau **iwd**.</p>
 {% endbox_perhatian %}
