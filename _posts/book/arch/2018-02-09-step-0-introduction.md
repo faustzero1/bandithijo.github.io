@@ -35,7 +35,7 @@ Hello mas Bro, nama saya **Rizqi Nur Assyaufi**. Beberapa dari teman-teman mungk
 
 Sedikit cerita, saya sudah menggunakan sistem operasi GNU/Linux secara aktif baru dimulai sejak tahun 2014. Sebelumnya, sejak tahun 2009 saya menggunakan sistem operasi besutan Apple, yang dikenal dengan nama OS X, namun kini disebut dengan nama macOS \(denger-denger supaya lebih konvergen dengan iOS\).
 
-Pertama kali mengenal sistem operasi GNU/Linux sejak tahun 2004 melalui sahabat saya yang juga teman berdiskusi soal teknologi \(**Yudo D. Baskoro**\). Beliaulah yang memperkenalkan saya mengenai distribusi sistem operasi GNU/Linux yang bernama Ubuntu dari Canonical. Dari situlah awal mula tanpa saya sadari sedikit demi sedikit saya mulai belajar bermigrasi dari satu sistem operasi ke sistem operasi yang lain.
+Pertama kali mengenal sistem operasi GNU/Linux sejak tahun 2004 melalui sahabat saya yang juga teman berdiskusi soal teknologi \(**Yudo Drajat Baskoro**\). Beliaulah yang memperkenalkan saya mengenai distribusi sistem operasi GNU/Linux yang bernama Ubuntu dari Canonical. Dari situlah awal mula tanpa saya sadari sedikit demi sedikit saya mulai belajar bermigrasi dari satu sistem operasi ke sistem operasi yang lain.
 
 Tujuan awal saya menulis petunjuk manual instalasi Arch Linux ini adalah untuk mempermudah saya dalam melakukan _reinstall_ \(instalasi kembali\) apabila sewaktu-waktu saya mengalami kendala atau kegagalan pada sistem yang saya pergunakan saat ini.
 
