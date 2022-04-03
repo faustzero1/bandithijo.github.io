@@ -101,6 +101,10 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | VNC Server            | **x11vnc**                            |
 |-----------------------|---------------------------------------|
 
+Seperti yang teman-teman lihat di atas, saya banyak menggunakan *free and open source software*. Kalau teman-teman sudah memiliki penghasilan sendiri, jangan lupa untuk berdonasi terhadap project-project *free and open source software* yang teman-teman pergunakan.
+
+Catatan tentang bagaimana cara untuk berdonasi, dapat teman-teman baca di sini, [**Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!**](/blog/berdonasi-ke-project-open-source-yang-digunakan).
+
 # Ilustrasi Workflow
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/T3wM3s7N/gambar-01.png" onerror="imgError(this);"}{:class="myImg"}
