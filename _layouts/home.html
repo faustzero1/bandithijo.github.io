@@ -24,11 +24,11 @@ permalink: :title
       </div>
       <div class="notif-home" style="border:none;">
         <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Diupdate</span>
-        {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_at' | sort: 'post.last_modified_at' %}
+        {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_date' | sort: 'post.last_modified_date' %}
         {% for post in posts limit: 5 %}
           {% assign post_date = post.date | date: '%Y/%m/%d' %}
-          {% assign post_last_modified_at = post.last_modified_at | date: '%Y/%m/%d' %}
-          {% unless post_date == post_last_modified_at %}
+          {% assign post_last_modified_date = post.last_modified_date | date: '%Y/%m/%d' %}
+          {% unless post_date == post_last_modified_date %}
             <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
           {% endunless %}
         {% endfor %}
@@ -37,11 +37,11 @@ permalink: :title
     </article>
 
     {% comment %}
-    {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_at' | sort: 'post.last_modified_at', 'last'%}
+    {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_date' | sort: 'post.last_modified_date', 'last'%}
     {% for post in posts limit: 2 %}
       {% assign post_date = post.date | date: '%Y/%m/%d' %}
-      {% assign post_last_modified_at = post.last_modified_at | date: '%Y/%m/%d' %}
-      {% unless post_date == post_last_modified_at %}
+      {% assign post_last_modified_date = post.last_modified_date | date: '%Y/%m/%d' %}
+      {% unless post_date == post_last_modified_date %}
         <p>{{ post | inspect }}</p>
       {% endunless %}
     {% endfor %}

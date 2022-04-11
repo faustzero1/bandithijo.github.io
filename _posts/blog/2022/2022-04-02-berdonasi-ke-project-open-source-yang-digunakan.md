@@ -34,7 +34,7 @@ Untuk dapat melakukan donasi, tentu saja kita memerlukan media untuk dapat melak
 # Strategi dan Target Donasi
 
 | <center>Step</center> | <center>Description</center> | <center>In</center> | <center>Out</center> |
-| :--: | :-- | --: --: |
+| :--: | :-- | --: | --: |
 | 0 | Saldo Awal Bank Jago | **Rp 200.000** |
 | 1 | Pendaftaran Kartu Debit Bank Jago di Paypal | | **$ 1** => **Rp 14.656** |
 | 2 | Pengembalian Pendaftaran Kartu Debit di PayPal | **Rp 14.656** | |
