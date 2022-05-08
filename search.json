@@ -1,0 +1,15 @@
+---
+---
+[
+  {% for post in site.posts %}
+    {% if post.category == 'blog' or post.category == 'note' %}
+      {
+        "title"       : "{{ post.title | escape }}",
+        "description" : "{{ post.description | escape }}",
+        "url"         : "{{ site.url }}{{ post.url }}",
+        "category"    : "{{ post.category }}",
+        "date"        : "{{ post.date | date: '%Y.%m.%d' }}"
+      } {% unless forloop.last %},{% endunless %}
+    {% endif %}
+  {% endfor %}
+]

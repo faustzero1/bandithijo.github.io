@@ -2120,6 +2120,16 @@ div.highlight-caption code {
   padding: 3px 8px;
 }
 
+/* Search */
+input#search-input,
+input#search-input:focus {
+  border: 1px solid #fff;
+  outline: none;
+}
+ul#results-container > li {
+  padding: 0;
+}
+
 /* ------------------------------------------------------------------------ */
 /*
  ████     ████              ██ ██

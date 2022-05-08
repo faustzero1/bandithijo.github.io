@@ -72,6 +72,8 @@ navigation:
     url: /book/
   - title: About
     url: /about/
+  - title: Grep
+    url: /grep/
 
 # Sitemap Generator
 # Url : https://github.com/kinnetica/jekyll-plugins
