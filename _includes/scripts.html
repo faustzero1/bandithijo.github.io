@@ -1,7 +1,9 @@
 <script type="text/javascript" src="/assets/js/nav.js"></script>
 <script type="text/javascript" src="/assets/js/lazyload.js"></script>
 <script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+{% if site.newsline == true %}
 <script type="text/javascript" src="/assets/js/newsline-sticky.js"></script>
+{% endif %}
 {% if page.layout == 'post' %}
 <script type="text/javascript" src="/assets/js/aside.js"></script>
 {% endif %}
