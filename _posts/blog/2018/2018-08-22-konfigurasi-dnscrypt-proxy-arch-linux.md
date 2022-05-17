@@ -171,6 +171,12 @@ Selanjutnya, kita perlu mengkonfigurasi **openresolv**.
 
 Openresolv sudah merupakan paket dari **core/openresolv**, yang artinya sudah berada pada core package dari Arch Linux. Jadi kita tidak perlu memasangnya.
 
+Kalau ternyata belum terpasang, bisa pasang dulu yaa paket **openresolv**.
+
+{% shell_user %}
+sudo pacman -S openresolv
+{% endshell_user %}
+
 Nah, openresolv menyediakan file binary perintah bernama `resolvconf` dan file konfigurasi di `/etc/resolvconf.conf`.
 
 Buka file konfig tersebut, dan **uncomment** baris yang mengandung `name_servers=`.
@@ -202,7 +208,7 @@ Nah, dengan begini tahap konfigurasi static DNS dengan file resolv.conf telah se
 Untuk memastikan `nameserver` berubah menjadi static, coba restart serivice dari `NetworkManager.service` terlebih dahulu.
 
 {% shell_user %}
-sudo systemctl restart NetworkManager.service`
+sudo systemctl restart NetworkManager.service
 {% endshell_user %}
 
 Kemudian coba lakukan pengecekan isi dari file `/etc/resolv.conf`.
