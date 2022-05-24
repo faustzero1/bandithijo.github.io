@@ -17,7 +17,7 @@ description: "Selama menggunakan Bluetooth Headset di Linux, saya tidak mengetah
 
 # Pendahuluan
 
-Selama menggunakan Bluetooth Headset di Linux, saya tidak mengetahui berapa persentase battery yang tersisa. Ternyata kita perlu mengaktifkan flag experimental pada bluetoothd service agar status bluetooth headset battery dapat dibaca oleh UPower API
+Selama menggunakan Bluetooth Headset di Linux, saya tidak mengetahui berapa persentase battery yang tersisa. Ternyata kita perlu mengaktifkan flag experimental pada bluetoothd service agar status bluetooth headset battery dapat dibaca oleh UPower.
 
 Coba jalankan `upwer -e` dan lihat ada device apa saja yang tersedia.
 
@@ -32,7 +32,7 @@ upower -e
 /org/freedesktop/UPower/devices/DisplayDevice
 ```
 
-Pada hasil di atas, kita dapat melihat, hanya terdapat battery laptop, line power dan dispay. Tidak terdapat bluetooth device.
+Pada hasil di atas, kita dapat melihat, hanya terdapat battery laptop, line power dan display. Tidak terdapat bluetooth device.
 
 Pada catatan kali ini, kita akan meng-enable-kan fitur experimental agar Bluez memberikan Battery Power API.
 
