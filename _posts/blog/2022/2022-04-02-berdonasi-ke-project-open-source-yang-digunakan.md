@@ -125,6 +125,9 @@ Akun PayPal dari Suckless: `finance@suckless.org` (Bisa dicari akun tersebut pad
 ![gambar_7]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/sXhx1pNW/gambar-07.png" onerror="imgerror(this);"}{:class="myImg"}
 <p class="img-caption">Email dari PayPal setelah melakukan donasi ke Suckless Project</p>
 
+![gambar_10]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/xTcmTHMw/gambar-10.png" onerror="imgerror(this);"}{:class="myImg"}
+<p markdown=1 class="img-caption">1-2 bulan kemudian, nama saya masuk ke dalam daftar donatur di halaman [https://suckless.org/donations/](https://suckless.org/donations/){:target="_blank"}</p>
+
 ## Arch Linux
 
 Penjelasan mengenai donasi dapat dibaca di [https://archlinux.org/donate/](https://archlinux.org/donate/){:target="_blank"}
