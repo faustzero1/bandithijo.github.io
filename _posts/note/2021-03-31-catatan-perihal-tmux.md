@@ -223,7 +223,7 @@ Atau bisa juga menggunakan tmux variable untuk cwd, yaitu `pane_current_path`.
 Masuk dulu ke direktori yang ingin dijadikan cwd. Lalu jalankan perintah di bawah.
 
 {% shell_cmd : %}
-attach-sesson -t . -c "#{pane_current_path}"
+attach-session -t . -c "#{pane_current_path}"
 {% endshell_cmd %}
 
 
