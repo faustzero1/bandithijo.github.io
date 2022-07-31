@@ -101,6 +101,8 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Torrent Client        | **tremc**                             |
 | RDP Client            | **xfreerdp**                          |
 | VNC Server            | **x11vnc**                            |
+| Ebook Library         | **calibre**                           |
+| Smartphone Mirroring  | **scrcpy**                            |
 |-----------------------|---------------------------------------|
 
 Seperti yang teman-teman lihat di atas, saya banyak menggunakan *free and open source software*. Kalau teman-teman sudah memiliki penghasilan sendiri, jangan lupa untuk berdonasi terhadap project-project *free and open source software* yang teman-teman pergunakan.
