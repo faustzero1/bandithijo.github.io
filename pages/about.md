@@ -23,11 +23,13 @@ Sehingga, apabila dibaca secara utuh menjadi, /BanditHijo Arkaiv/ yang berarti A
 
 # Apa Alasan Menulis Blog?
 
-Karena Allah *Subhanahu Wa Ta'ala*.
+Karena ilmu yang saya dapat, sejatinya adalah titipan dari Allah *Subhanahu Wa Ta'ala* yang saya terima dari ratusan orang-orang yang memberikannya/menurunkannya kepada saya -- Terima kasih kepada: guru-guru sekolah, dosen-dosen kuliah, teman-teman diskusi, mentor, senior yang dengan besar hati mengajarkan saya dengan penuh kesabaran.
 
 *Blogging* merupakan aktivitas diluar kesibukan saya yang lain. Menulis, bagi saya, bukan untuk mencari popularitas. Tapi, karena memang saya senang untuk menulis. Saya senang bercerita tentang apa yang saya alami dan saya pelajari. Saya senang dapat memiliki sebuah *platform* untuk menuliskan dan mendokumentasikan hasil belajar saya.
 
 Mudah-mudahan catatan-catatan kecil yang sederhana di blog ini dapat bermanfaat bagi teman-teman yang memerlukan.
+
+Ilmu itu seharusnya mengalir, jangan sampai berhenti di kamu, yaa!
 
 # Apa yang Ditulis di dalam Blog?
 
@@ -154,9 +156,11 @@ Setelah MacBook Pro yang saya gunakan mengalami kendala pada akhir Desember 2016
 
 Di awali dengan ThinkPad X260 pada awal tahun 2017, mesin ini benar-benar membuat saya semakin produktif. Tidak ada kendala resource yang berarti, yang menghalangi saya untuk berkreasi membuat sesuatu dengan mesin ini.
 
-Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop. Istri saya, menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu mnejadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
+Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop. Istri saya, menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu menjadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
 
 Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang tidak terbatas oleh vendor, sehingga dapat saya gunakan selama mungkin hingga menemukan batas maksimalnya.
+
+Akhir 2021, saya sudah kembali menggunakan ThinkPad X260.
 
 # Akhir Kata
 
