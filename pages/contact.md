@@ -11,4 +11,6 @@ permalink: '/contact/'
 Kamu dapat menghubungi saya via email: [**rizqi@bandithijo.dev**](mailto:rizqi@bandithijo.dev)*
 
 <br>
-\* <small>Saya biasa membaca email setiap hari, apabila saya tidak membalas email anda dalam 1 pekan, artinya saya tidak bersedia untuk menanggapi email anda.<br>Mohon maaf dan terima kasih yaa.</small>
+**\* Disclaimer**
+1. <small>Jangan mengirimkan pesan yang bersifat rahasia, karena alamat email tersebut menggunakan <i>email forwarding service</i>.</small>
+1. <small>Saya biasa membaca email setiap hari, apabila saya tidak membalas email anda dalam 1 pekan, artinya saya tidak bersedia untuk menanggapi email anda.<br>Mohon maaf dan terima kasih yaa.</small>
