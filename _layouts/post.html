@@ -51,9 +51,7 @@ layout: baseof
           <!-- wip -->
           {% if page.wip == true %}
             <br>
-            <p class='font-latin' style='padding-top:20px;text-align:left;'>
-              Sedang dalam proses penulisan...
-            </p>
+            {% text_latin Sedang dalam proses penulisan... %}
           {% else %}
             <br>
           {% endif %}
