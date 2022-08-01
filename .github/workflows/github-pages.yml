@@ -18,4 +18,4 @@ jobs:
             ${{ runner.os }}-gems-
       - uses: helaili/jekyll-action@2.0.5
         with:
-          github-token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN }}
