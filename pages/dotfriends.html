@@ -6,7 +6,7 @@ permalink: '/dotfriends/'
 toc: true
 ---
 
-{% for friend in site.data.dotfriends.dotfriends-detail.friends %}
+{% for friend in site.data.dotfriends.dotfriends.friends %}
 {% unless friend.nama contains 'Rizqi Nur Assyaufi' %}
   <div class="dotfriends-page noselect">
 
@@ -16,7 +16,7 @@ toc: true
     </div><!-- dotfriends-box-img -->
 
     <div class="dotfriends-page-detail">
-      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="{{ friend.nama | downcase }}">{{ friend.nama }}</h3>
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="{{ friend.name | downcase }}">{{ friend.name }}</h3>
       <p>{{ friend.detail }}</p>
       {% if friend.url2 == nil %}
         <p><a href="{{ friend.url1 }}" target="_blank">{{ friend.url1 }}</a></p>

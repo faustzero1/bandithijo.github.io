@@ -5,7 +5,7 @@
   <!-- untuk random dotfriends list sebanyak 8 -->
   {% assign friends = site.data.dotfriends.dotfriends.friends | sample: 5 %}
   {% for friend in friends limit: 5 %}
-    <p>+&nbsp;<a href="https://{{ friend.url }}/" target="_blank">{{ friend.nama }}</a></p>
+    <p>+&nbsp;<a href="{{ friend.url1 }}" target="_blank">{{ friend.display_name }}</a></p>
   {% endfor %}
   <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
   <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
