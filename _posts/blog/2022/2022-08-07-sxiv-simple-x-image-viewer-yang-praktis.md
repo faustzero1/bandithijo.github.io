@@ -119,9 +119,8 @@ Contoh,
 
 ```
 Nsxiv.bar.font:          JetBrainsMono Nerd Font Bandit:pixelsize=17
-Nsxiv.bar.background:    #1E1E1E
+Nsxiv.bar.background:    #005F87
 Nsxiv.bar.foreground:    #D4D4D4
-Nsxiv.mark.foreground:   #005F87
 ```
 
 ## 2. Open all images inside directory on Ranger
