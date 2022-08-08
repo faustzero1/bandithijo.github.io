@@ -84,7 +84,7 @@ Berikut ini adalah spesifikasi mesin maupun aplikasi yang pernah atau hingga saa
 | Text Editor           | **neovim**                            |
 | Raster Image Editor   | **gimp** & **gthumb**                 |
 | Vector Image Editor   | **inkscape**                          |
-| Image Preview         | **sxiv**                              |
+| Image Preview         | **nsxiv**                             |
 | Office                | **libreoffice**                       |
 | Get Things Done       | **taskell** & **notion**              |
 | ScreenShoter          | **scrot** & **flameshot**             |
