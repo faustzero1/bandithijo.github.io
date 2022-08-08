@@ -50,24 +50,24 @@ Kalau kekurangan dari sxiv (subjektif menurut saya):
 # Screenshots
 
 ![gambar_1]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/3NZg3CYc/gambar-01.png" onerror="imgerror(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 1 - sxiv with single mode</p>
+<p class="img-caption">Gambar 1 - sxiv with image mode</p>
 
 ![gambar_2]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/y6hhhBcy/gambar-02.png" onerror="imgerror(this);"}{:class="myImg"}
-<p class="img-caption">Gambar 2 - sxiv with thumbnails mode</p>
+<p class="img-caption">Gambar 2 - sxiv with thumbnail mode</p>
 
 # Demo
 
-## Rotate
+## Rotation
 
 ![gambar_3]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/SK0jtYp2/gambar-03.gif" onerror="imgerror(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 3 - sxiv with rotate left & right</p>
 
-## Flip
+## Flipping
 
 ![gambar_4]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/5twjc9xP/gambar-04.gif" onerror="imgerror(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 4 - sxiv with flip vertical & horizontal</p>
 
-## Zoom
+## Zooming & Panning
 
 ![gambar_5]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/gjrY0GWb/gambar-05.gif" onerror="imgerror(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 5 - sxiv with zoom in & out</p>
@@ -88,6 +88,43 @@ Kalau kekurangan dari sxiv (subjektif menurut saya):
 Karena **sxiv** sudah tidak lagi dilanjutkan proses maintain and developing nya, maka saya rekomendasikan teman-teman untuk bermigrasi ke **nsxiv** yang merupakan fork project dari sxiv.
 
 # Tips & Tricks
+
+## 1. Modifikasi color & font dengan X resources
+
+Dari `man nsxiv` pada section **configuration**, ada beberapa color & font properties yang dapat kita gunakan.
+
+{% pre_url %}
+window.background
+       Color of the window background
+
+window.foreground
+       Color of the window foreground
+
+bar.font
+       Name of Xft bar font
+
+bar.background
+       Color of the bar background. Defaults to window.background
+
+bar.foreground
+       Color of the bar foreground. Defaults to window.foreground
+
+mark.foreground
+       Color of the mark foreground. Defaults to window.foreground
+{% endpre_url %}
+
+Untuk dapat menggunakannya pada Xresources, tambahkan awalan `Nsxiv.` (window class name).
+
+Contoh,
+
+```
+Nsxiv.bar.font:          JetBrainsMono Nerd Font Bandit:pixelsize=17
+Nsxiv.bar.background:    #1E1E1E
+Nsxiv.bar.foreground:    #D4D4D4
+Nsxiv.mark.foreground:   #005F87
+```
+
+## 2. Open all images inside directory on Ranger
 
 *Sedang dalam proses penulisan...*
 
