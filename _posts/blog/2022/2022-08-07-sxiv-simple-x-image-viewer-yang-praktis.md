@@ -83,6 +83,9 @@ Kalau kekurangan dari sxiv (subjektif menurut saya):
 ![gambar_8]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/7Lxr6q3t/gambar-08.gif" onerror="imgerror(this);"}{:class="myImg"}
 <p class="img-caption">Gambar 8 - sxiv with navigation on thumbnails mode</p>
 
+![gambar_9]({{ site.lazyload.logo_blank }}){:data-echo="https://i.postimg.cc/HkBm4FKB/gambar-09.gif" onerror="imgerror(this);"}{:class="myImg"}
+<p class="img-caption">Gambar 9 - sxiv with zoom in/out thumbnails</p>
+
 # Rekomendasi
 
 Karena **sxiv** sudah tidak lagi dilanjutkan proses maintain and developing nya, maka saya rekomendasikan teman-teman untuk bermigrasi ke **nsxiv** yang merupakan fork project dari sxiv.
