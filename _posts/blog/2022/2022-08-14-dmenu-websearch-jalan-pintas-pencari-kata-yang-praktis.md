@@ -21,7 +21,7 @@ dmenu-websearch ini saya buat karena kemalasan saya dalam melakukan pencarian ka
 
 # Fitur-fitur
 
-dmenu-webseearch ini memiliki fitur:
+dmenu-websearch ini memiliki fitur:
 1. mencari kata/frasa dari target website yang sudah didefinisikan di dalam file urlquery
 1. menambahkan target urlquery baru
 1. menghapus target urlquery yang ada (konfirmasi sebelum dihapus)
