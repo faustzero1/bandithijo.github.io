@@ -134,13 +134,23 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 # Dahulu
 
+## Perjalanan mengenal komputer
+
 Sejak duduk dibangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
 Belajar secara mandiri dengan cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini.
 
 Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar baru maupun modifikasi dari gambar sebelumnya.
 
+## Perjalanan mengenal GNU/Linux
+
+**Yudo Drajat Baskoro**, seorang sahabat, teman seangkatan, sekaligus teman bertukar pikiran mengenai komputer. Beliaulah yang menjadi orang pertama yang mengenalkan saya dengan GNU/Linux dibangku sekolah.
+
+## Perjalanan mengenal OSX
+
 2009, mulai merasakan sistem operasi OSX, menggunakan aplikasi multimedia pada sistem operasi ini memang tidak ada bandingnya. Namun, semua kesan itu berubah sejak negara api menyerang.
+
+## Perjalanan menetap ke GNU/Linux
 
 Desember 2014, saya memutuskan untuk migrasi penuh menggunakan sistem operasi GNU/Linux, saat itu Fedora. Berusaha mencoba belajar, mencari-cari dan memaksakan diri saya untuk menggunakan aplikasi multimedia FOSS. Ternyata, saya benar-benar jatuh cinta dan tenggelam.
 
@@ -150,19 +160,27 @@ Benar-benar tidak ada jalan lagi untuk berbalik dan kembali menggunakan OSX.
 
 # Sekarang
 
+## Berpisah dengan Apple
+
 Saat ini sudah tidak lagi menggunakan MacBook Pro sejak Januari 2017. Saya sudah cukup lama berada di Apple Environment. Di mulai sekitar tahun 2009 dengan MacBook White. Dan berakhir dengan MacBook Pro pada tahun 2012.
 
 Dengan waktu yang cukup lama tersebut, tidak menjadikan saya sebagai Apple FanBoy yang fanatik. Mungkin, karena rasa ingin tahu yang sangat besar akan dunia GNU/Linux yang masih asing buat saya, maka saya pun mulai beralih menggunakan sistem operasi GNU/Linux pada tahun 2014 yang berjalan di atas mesin Apple. Wkwkwk.
 
 Setelah MacBook Pro yang saya gunakan mengalami kendala pada akhir Desember 2016, saya pun memilih untuk mencoba brand dan tipe yang sudah saya incar sejak SMA, yes, ThinkPad! Kebetulan saya memang sangat mengincar ThinkPad, kalau tidak T series, X series. Menggunakan ThinkPad + Linux, adalah sebuah kombinasi yang hakiki.
 
+## Pertemuan dengan ThinkPad pertama saya
+
 Di awali dengan ThinkPad X260 pada awal tahun 2017, mesin ini benar-benar membuat saya semakin produktif. Tidak ada kendala resource yang berarti, yang menghalangi saya untuk berkreasi membuat sesuatu dengan mesin ini.
+
+## Menantang diri menggunakan ThinkPad jadul
 
 Pada Maret 2019, karena istri saya memerlukan laptop, maka saya pun bertukar laptop. Istri saya, menggunakan ThinkPad X260 dan saya pun beralih menggunakan ThinkPad X61. Laptop keluaran tahun 2007 ini, benar-benar membuat saya kagum, karena masih dapat saya gunakan sebagai *daily driver* untuk bekerja. Meskipun terdapat beberapa hal yang harus saya adaptasikan. Seperti terbatasnya Memory resource yang hanya 4 GB. Namun, hal ini tidak begitu menjadi kendala karena saya sudah mempersiapkan lingkungan sistem operasi se-minimal dan se-efektif mungkin.
 
 Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang tidak terbatas oleh vendor, sehingga dapat saya gunakan selama mungkin hingga menemukan batas maksimalnya.
 
-Akhir 2021, saya sudah kembali menggunakan ThinkPad X260.
+## Kembali menggunakan ThinkPad anyar
+
+Akhir 2021, saya sudah kembali menggunakan ThinkPad X260, karena tuntutan pekerjaan saya sebagai Backend Developer di salah satu Startup Fintech di Jakarta secara remote.
 
 # Akhir Kata
 
