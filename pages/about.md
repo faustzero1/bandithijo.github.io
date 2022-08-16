@@ -180,7 +180,7 @@ Hal ini sangat sesuai dengan keinginan saya untuk dapat menggunakan laptop yang 
 
 ## Kembali menggunakan ThinkPad anyar
 
-Akhir 2021, saya sudah kembali menggunakan ThinkPad X260, karena tuntutan pekerjaan saya sebagai Backend Developer di salah satu Startup Fintech di Jakarta secara remote.
+Akhir 2021, saya sudah kembali menggunakan ThinkPad X260, karena tuntutan pekerjaan saya sebagai Backend Engineer di salah satu Startup Fintech di Jakarta secara remote.
 
 # Akhir Kata
 
