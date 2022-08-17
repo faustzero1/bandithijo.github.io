@@ -70,6 +70,8 @@ navigation:
     url: https://www.youtube.com/c/BanditHijo
   - title: Books
     url: /book/
+  - title: Lab
+    url: /lab/
   - title: About
     url: /about/
   - title: Grep

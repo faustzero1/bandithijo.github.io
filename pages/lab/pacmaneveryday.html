@@ -1,0 +1,55 @@
+---
+layout: 'page'
+title: '#PacmanEveryday'
+author: 'BanditHijo'
+permalink: '/lab/pacmaneveryday/'
+---
+
+<div class="post-body noselect">
+
+  {% assign exps = site.data.lab.pacmaneveryday.experiment %}
+  {% for exp in exps %}
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">{{ exp.number }}</span>&nbsp;|&nbsp;
+      {% assign status = exp.status | split: ', ' %}
+      {% for stat in status %}
+        {% if stat == 'OK' %}
+          <span class="status-ok">{{ stat }}</span>
+        {% elsif stat == 'ERROR' %}
+          <span class="status-error">{{ stat }}</span>
+        {% elsif stat == 'FAILED' %}
+          <span class="status-failed">{{ stat }}</span>
+        {% endif %}
+      {% endfor %}
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #{{ exp.number }}<br>
+        Evidence: <a href="{{ exp.url }}" target="_blank">{{ exp.url }}</a><br>
+        Note: {{ exp.note }}
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[{{ exp.date | date: '%Y%m%d' }}]</p>
+  {% endfor %}
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible-title");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>

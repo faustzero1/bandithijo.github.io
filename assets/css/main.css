@@ -472,6 +472,13 @@ p.post-title-index a:hover {
   border-bottom: none;
 }
 
+.mono {
+  font-family: 'Fira Code';
+  font-size: 16px;
+  color: #000;
+  text-align: left;
+}
+
 .post-title-tags {
   padding-left: 12px;
   line-height: 0;
@@ -1441,6 +1448,42 @@ button.active {
 .tags a {
   color: var(--WHITE);
   border-bottom: none !important;
+}
+
+.status-ok {
+  background: #008352;
+  border-radius: 2px;
+  padding: 1px 2px;
+  margin-left: 1px;
+  color: var(--WHITE);
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  top: -1px;
+}
+
+.status-error {
+  background: #FAA124;
+  border-radius: 2px;
+  padding: 1px 2px;
+  margin-left: 1px;
+  color: var(--WHITE);
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  top: -1px;
+}
+
+.status-failed {
+  background: #FA0101;
+  border-radius: 2px;
+  padding: 1px 2px;
+  margin-left: 1px;
+  color: var(--WHITE);
+  font-size: 16px;
+  font-weight: bold;
+  position: relative;
+  top: -1px;
 }
 
 @keyframes blink {

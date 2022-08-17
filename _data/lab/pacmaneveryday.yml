@@ -1,0 +1,12 @@
+experiment:
+# sample:
+# - date:   '2022-08-17'
+#   number: '000'
+#   status: 'OK, ERROR, FAILED'
+#   url:    'https://www.youtube.com/watch?v=abcdefgh'
+
+  - date:   '2022-08-17'
+    number: '001'
+    status: 'OK'
+    url:    'https://youtu.be/QAOXZOsxuyI'
+    note:   '-'
