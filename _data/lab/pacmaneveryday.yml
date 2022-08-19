@@ -16,3 +16,9 @@ experiment:
     status: 'OK'
     url:    'https://youtu.be/z4WwI1grsuU'
     note:   '-'
+
+  - date:   '2022-08-19'
+    number: '003'
+    status: 'OK'
+    url:    'https://youtu.be/PHsv_zydwm4'
+    note:   '-'
