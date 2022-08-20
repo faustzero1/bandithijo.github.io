@@ -183,6 +183,28 @@ gpg --decrypt tabel_users.md.gpg | less
 gpg --output tabel_users.md --decrypt tabel_users.md.gpg
 {% endshell_user %}
 
+# Tips & Trick
+
+## Mudah mengintip file terenkripsi dari Ranger
+
+Tambahkan baris di bawah ini pada salah satu file configurasi ranger `~/.config/ranger/rifle.conf`.
+
+{% highlight_caption ~/.config/ranger/rifle.conf %}
+{% highlight conf linenos %}
+# gnupg
+ext gpg, has gpg = gpg --decrypt "$1" | less
+{% endhighlight %}
+
+Arti dari baris di atas:
+
+1. Untuk file dengan extension `.gpg`
+1. Apabila sudah terpasang GnuPG dengan command `gpg`
+1. Execute file terpilih dengan command `gpg --decrypt "$1" | less`
+1. Dimana `$1` adalah file yang terseleksi
+
+<br>
+Saya menggunakan `less` untuk mengintip file terenkripsi tersebut.
+
 
 # Pesan Penulis
 
