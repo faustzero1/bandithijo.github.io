@@ -136,7 +136,7 @@ Tema gelap dapat berganti sesuai kebutuhan saya menjadi tema terang (*light*). B
 
 ## Perjalanan mengenal komputer
 
-Sejak duduk dibangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
+Sejak duduk di bangku SMP, saya sudah bermain-main menggunakan aplikasi multimedia seperti Adobe Photoshop dan Adobe Premiere Pro pada sistem operasi Microsoft Windows.
 
 Belajar secara mandiri dengan cara mencoba-coba menggunakan tiap-tiap menu *tools* yang ada pada Adobe Photoshop dan Adobe Premiere Pro. Boro-boro melihat YouTube seperti sekarang. Internet sangat mahal pada jaman ini. Sekolah pun tidak memfasilitasi hobi seperti ini.
 
@@ -144,7 +144,7 @@ Kalau diingat-ingat, hampir setiap hari saya memproduksi gambar. Baik gambar bar
 
 ## Perjalanan mengenal GNU/Linux
 
-**Yudo Drajat Baskoro**, seorang sahabat, teman seangkatan, sekaligus teman bertukar pikiran mengenai komputer. Beliaulah yang menjadi orang pertama yang mengenalkan saya dengan GNU/Linux dibangku sekolah.
+**Yudo Drajat Baskoro**, seorang sahabat, teman seangkatan, sekaligus teman bertukar pikiran mengenai komputer. Beliaulah yang menjadi orang pertama yang mengenalkan saya dengan GNU/Linux di bangku sekolah.
 
 ## Perjalanan mengenal OSX
 
