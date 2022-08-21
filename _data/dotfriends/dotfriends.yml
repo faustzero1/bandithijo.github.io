@@ -5,7 +5,7 @@ friends:
   photo: "https://github.com/bandithijo.png?size=200"
   url1:  "https://bandithijo.github.io"
   url2:  "https://github.com/bandithijo"
-  detail: |
+  detail: >-
     <p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p>
 
 
@@ -15,7 +15,7 @@ friends:
   photo: "https://github.com/suciptoid.png?size=200"
   url1:  "https://sucipto.id"
   url2:  "https://github.com/suciptoid"
-  detail: |
+  detail: >-
       <p>Hello, I am a Web Developer. Writes about tech and my stories in my blog and Medium.</p>
 
 
@@ -25,7 +25,7 @@ friends:
   photo: "https://github.com/agungsetiawan.png?size=200"
   url1:  "https://agung-setiawan.com"
   url2:  "https://www.idrails.com"
-  detail: |
+  detail: >-
       <p>Saya bekerja sebagai software developer di BukaLapak.</p>
       <p>Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.</p>
       <p>Sedangkan untuk teknologi pemrograman yang saya gunakan adalah utamanya bahasa Ruby dan framework Ruby on Rails.</p>
@@ -37,7 +37,7 @@ friends:
   photo: "https://github.com/epsi-rns.png?size=200"
   url1:  "https://epsi-rns.github.io"
   url2:  "https://epsi-rns.gitlab.io"
-  detail: |
+  detail: >-
       <p>Hello, my name is Epsi. I’m an open source enthusiast. Although I like command line, I’m not a hacker.</p>
       <p>You can read a glance about my journey on my Blog.</p>
       <p>I know nothing. Nothing at all.</p>
@@ -49,7 +49,7 @@ friends:
   photo: "https://github.com/fikriomar16.png?size=200"
   url1:  "https://github.com/fikriomar16"
   url2:  "https://www.deviantart.com/fikriomar16"
-  detail: |
+  detail: >-
       <p>Hi all…My name is Fikri, also u can call me Omar.</p>
       <p>I came from Indonesia, and i use Ubuntu as my favorite OS.</p>
       <p>In this blog, i’ll post my Linux Daily Shot.</p>
@@ -62,7 +62,7 @@ friends:
   photo: "https://github.com/okitavera.png?size=200"
   url1:  "https://okitavera.me"
   url2:  "https://github.com/okitavera"
-  detail: |
+  detail: >-
       <p>I am an Indonesian UX Designer and Kotlin-Android Developer.</p>
       <p>Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.</p>
       <p>Primarily use Kotlin for Android development, but also do a bash and python for scripting.</p>
@@ -86,7 +86,7 @@ friends:
   photo: "https://github.com/addy-dclxvi.png?size=200"
   url1:  "https://addy-dclxvi.github.io"
   url2:  "https://github.com/addy-dclxvi"
-  detail: |
+  detail: >-
       <p>Hi! I’m Addy.</p>
       <p>Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.</p>
 
@@ -97,7 +97,7 @@ friends:
   photo: "https://github.com/raniaamina.png?size=200"
   url1:  "https://raniaamina.id"
   url2:  "https://github.com/raniaamina"
-  detail: |
+  detail: >-
       <p>Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.</p>
       <p>Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.</p>
 
@@ -108,7 +108,7 @@ friends:
   photo: "https://3.bp.blogspot.com/-irLdkJt9Yr4/WcJ3EJDCq6I/AAAAAAAABGA/K4fNuF64WdIEI6GKmEkI49whnuuWhekkwCPcBGAYYCw/s200/fathurhoho.png"
   url1:  "https://www.fathurhoho.id"
   url2:  "https://ngonfig.net"
-  detail: |
+  detail: >-
       <p>Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.</p>
       <p>Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.</p>
 
@@ -119,7 +119,7 @@ friends:
   photo: "https://github.com/reorr.png?size=200"
   url1:  "https://muktazam.me"
   url2:  "https://github.com/reorr"
-  detail: |
+  detail: >-
       <p>Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.</p>
       <p>Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.</p>
 
@@ -130,7 +130,7 @@ friends:
   photo: "https://github.com/myugan.png?size=200"
   url1:  "https://github.com/myugan"
   url2:
-  detail: |
+  detail: >-
       <p>I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.</p>
       <p>Have an experience in UNIX/Linux system, a researcher in the field of security especially Infrastructure and skilled as DevOps engineer and System Administrator with hands on experience supporting, automation and optimizing a server.</p>
 
@@ -141,7 +141,7 @@ friends:
   photo: "https://github.com/ypraw.png?size=200"
   url1:  "https://ypraw.github.io/"
   url2:  "https://github.com/ypraw"
-  detail: |
+  detail: >-
       <p>Noob Programmer , always getting errors everywhere when typing the codes.</p>
       <p>Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.</p>
 
@@ -152,7 +152,7 @@ friends:
   photo: "https://github.com/habibmustofa.png?size=200"
   url1:  "https://www.habib-mustofa.com"
   url2:  "https://github.com/habibmustofa"
-  detail: |
+  detail: >-
       <p>Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript.</p>
       <p>Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.</p>
 
@@ -163,7 +163,7 @@ friends:
   photo: "https://github.com/se7entime.png?size=200"
   url1:  "https://se7entime.wordpress.com"
   url2:
-  detail: |
+  detail: >-
       <p>“Tak perlu menjelaskan tentang dirimu pada siapapun. Karena yang menyukaimu tidak membutuhkannya. Dan yang membencimu tidak akan mempercayainya.”<br>(Ali bin Abi Thalib)</p>
       <p>Mau Stalking saya? <a href="https://lmddgtfy.net/?q=%22se7entime%22" target="_blank">Silahkan</a>.</p>
 
@@ -174,7 +174,7 @@ friends:
   photo: "https://github.com/firewalker06.png?size=200"
   url1:  "https://didik.id"
   url2:  "https://github.com/firewalker06"
-  detail: |
+  detail: >-
       <p>Makanan, kodingan, dan kehidupan.</p>
       <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p>
 
@@ -185,7 +185,7 @@ friends:
   photo: "https://github.com/tsara27.png?size=200"
   url1:  "https://tsarafatma.com/"
   url2:  "https://github.com/tsara27"
-  detail: |
+  detail: >-
       <p>I am a mom, a wife, and also a programmer who is trying to improve and spread good things for others.</p>
       <p>I am a full stack Ruby on Rails developer with more than 4 years experience and have contributed/developed various web application and RESTful API. I have worked with many clients around the world and helped building and maintaining various products.</p>
 
@@ -196,7 +196,7 @@ friends:
   photo: "https://github.com/galihx11.png?size=200"
   url1:  "https://www.linuxisekai.site"
   url2:  "https://github.com/galihx11"
-  detail: |
+  detail: >-
     <p>Saya sangat tertaik dengan linux dan programming. Saya masih fresh gradiate walaupun begitu tapi yakin bisa belajar dengan cepat karena saya sudah terbiasa belajar otodidak. Saat ini saya menggunakan linux (manjaro) sebagai sistem operasi utama saya dalam belajar programming dan membuat web (https://linuxisekai.site) sebagai tempat untuk menulis catatan dari apa yang saya pelajari.</p>
 
 
@@ -206,7 +206,7 @@ friends:
   photo: "https://github.com/elianiva.png?size=200"
   url1:  "https://elianiva.my.id/"
   url2:  "https://github.com/elianiva"
-  detail: |
+  detail: >-
     <p>Hello internet people! My real name is Dicha Zelianivan Arkana. I'm a self taught front end web developer and Linux enthusiast. I do some random project just for a hobby for now.</p>
 
 
@@ -216,5 +216,5 @@ friends:
   photo: "https://github.com/owl4ce.png?size=200"
   url1:  "https://violet-ia.github.io/id"
   url2:  "https://github.com/owl4ce"
-  detail: |
+  detail: >-
     <p>It's right for me, but not for you. Either way, the concept of "right" means no more than that.</p>
