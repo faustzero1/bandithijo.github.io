@@ -46,3 +46,10 @@ experiment:
     url:    'https://youtu.be/Fzr575SjZII'
     note:   >-
       -
+
+  - date:   '2022-08-23'
+    number: '007'
+    status: 'OK'
+    url:    'https://youtu.be/EdWRykgSV_4'
+    note:   >-
+      -
