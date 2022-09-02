@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: BanditHijo (R)-Chive
-email: rizqi@bandithijo.dev
+email: bandithijo@duck.com
 description: Here's where I started writing some notes that someday I will call it, a book
 baseurl: '' # the subpath of your site, e.g. /blog
 url: https://bandithijo.dev
