@@ -8,7 +8,7 @@ permalink: '/contact/'
 <img class="post-body-img" src="{{ site.lazyload.logo_blank_banner }}" data-echo="/assets/img/banner/about.png" alt="banner">
 
 <br>
-Kamu dapat menghubungi saya via email: [**bandithijo@duck.com**](mailto:bandithijo@duct.com)*
+Kamu dapat menghubungi saya via email: [**{{ site.email }}**](mailto:{{ site.email }})*
 
 <br>
 **\* Disclaimer**
