@@ -1,7 +1,7 @@
 <div class="noselect">
   <h1 style="font-size:2em;">Penulis</h1>
   {% assign page_author = page.author | downcase %}
-  {% for author in site.data.dotfriends.dotfriends-detail.friends %}
+  {% for author in site.data.dotfriends.dotfriends.friends %}
     {% if page_author == author.github_username %}
       <div class="penulis-img">
         <img style="margin:0 auto;border-radius:50%;" src="{{ author.photo }}" alt="{{ author.github_username }}" onerror="imgError(this);">
@@ -9,7 +9,7 @@
 
       <div class="penulis-text">
         <p>{{ author.detail }}</p>
-        <p style="text-align:right;">- <b>{{ author.nama }}</b></p>
+        <p style="text-align:right;">- <b>{{ author.name }}</b></p>
       </div><!-- penulis-text -->
     {% endif %}
   {% endfor %}
