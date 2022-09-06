@@ -776,6 +776,12 @@ img.footer-img-jekyll {
   width: 120px;
 }
 
+img.footer-img-ruby {
+  float: right;
+  margin: -128px 160px 0 0;
+  width: 120px;
+}
+
 img.footer-img-github {
   float: right;
   margin: -123px 165px 0 0;
@@ -2663,6 +2669,36 @@ ul#results-container > li {
     top: -40px;
     left: 0;
     filter: grayscale(100%) opacity(80%);
+  }
+
+  img.footer-img-jekyll-mobile {
+    width: 35px;
+    float: none;
+    margin: auto;
+    position: relative;
+    top: -88px;
+    left: 60px;
+    filter: grayscale(100%) opacity(80%);
+  }
+
+  img.footer-img-ruby-mobile {
+    width: 50px;
+    float: none;
+    margin: auto;
+    position: relative;
+    top: -35px;
+    left: 0;
+    filter: grayscale(100%) opacity(80%);
+  }
+
+  img.footer-img-netlify-mobile {
+    width: 60px;
+    float: none;
+    margin: auto;
+    position: relative;
+    top: 20px;
+    right: 73px;
+    filter: grayscale(80%) opacity(70%);
   }
 
   .tech-i-used-desktop {
