@@ -165,7 +165,7 @@
         sortMiddleware: function () {
           return 0;
         },
-        noResultsText: "Tidak ditemukan",
+        noResultsText: "Tidak ditemukan...",
         limit: 10,
         fuzzy: !1,
         debounceTime: null,

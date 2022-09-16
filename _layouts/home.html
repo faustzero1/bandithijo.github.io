@@ -5,36 +5,52 @@ permalink: :title
 
 <section id="main">
   <div class="container noselect">
-
-    <article class="homepage">
-      <!-- Judul Article Terupdate -->
-      <article class="box-container"><!-- box-container (3 buku 1 box-container) -->
-      <div class="notif-home" style="border:none;">
-        {% assign posts = site.posts | where_exp: 'page', "page.category == 'blog'" | sort: 'date','last' | reverse %}
-        {% for post in posts limit: 1 %}
-          <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Blog Terbaru</span>
-          <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
-        {% endfor %}
-        <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
-        {% assign posts = site.posts | where_exp: 'page', "page.category == 'note'" | sort: 'date','last' | reverse %}
-        {% for post in posts limit: 1 %}
-          <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Note Terbaru</span>
-          <p> <a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
-        {% endfor %}
-      </div>
-      <div class="notif-home" style="border:none;">
-        <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Diupdate</span>
-        {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_date' | sort: 'post.last_modified_date' %}
-        {% for post in posts limit: 5 %}
-          {% assign post_date = post.date | date: '%Y/%m/%d' %}
-          {% assign post_last_modified_date = post.last_modified_date | date: '%Y/%m/%d' %}
-          {% unless post_date == post_last_modified_date %}
-            <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
-          {% endunless %}
-        {% endfor %}
-      </div>
+    <div class="container-edge-border">
+      <article class="post" style="padding-bottom:0;">
+        <div class="post-body" style="margin-bottom:0;">
+          <h1 class="post-title noselect">
+            Grep
+          </h1>
+        </div>
       </article>
-    </article>
+      <article class="post" style="padding-bottom:0;padding-left:20px;padding-right:20px;">
+        <div class="post-body">
+          {% include search.html %}
+        </div>
+      </article>
+
+      <article class="homepage" style="padding-top:0;">
+        <!-- Judul Article Terupdate -->
+        <article class="box-container"><!-- box-container (3 buku 1 box-container) -->
+          <div class="notif-home" style="border:none;">
+            {% assign posts = site.posts | where_exp: 'page', "page.category == 'blog'" | sort: 'date','last' | reverse %}
+            {% for post in posts limit: 1 %}
+              <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Blog Terbaru</span>
+              <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
+            {% endfor %}
+            <div style="margin:10px 0 10px 0;border-bottom:1px dashed #000;"></div>
+            {% assign posts = site.posts | where_exp: 'page', "page.category == 'note'" | sort: 'date','last' | reverse %}
+            {% for post in posts limit: 1 %}
+              <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Note Terbaru</span>
+              <p> <a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
+
+            {% endfor %}
+          </div>
+          <div class="notif-home" style="border:none;">
+            <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Diupdate</span>
+            {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_date' | sort: 'post.last_modified_date' %}
+            {% for post in posts limit: 5 %}
+              {% assign post_date = post.date | date: '%Y/%m/%d' %}
+              {% assign post_last_modified_date = post.last_modified_date | date: '%Y/%m/%d' %}
+              {% unless post_date == post_last_modified_date %}
+                <p><a href="{{ post.url }}">&plus; {{ post.title }}</a></p>
+              {% endunless %}
+            {% endfor %}
+          </div>
+        </article>
+      </article>
+    </div>
+
 
     {% comment %}
     {% assign posts = site.posts | where_exp: 'post', 'post.last_modified_date' | sort: 'post.last_modified_date', 'last'%}
@@ -166,3 +182,16 @@ permalink: :title
     {% endcomment %}
   </div><!-- main container -->
 </section><!-- main -->
+
+<!-- Script pointing to search-script.js -->
+<script src="/assets/js/search.js" type="text/javascript"></script>
+
+<!-- Configuration -->
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  json: '/search.json'
+})
+</script>
+
