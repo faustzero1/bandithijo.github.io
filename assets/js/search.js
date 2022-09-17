@@ -160,12 +160,12 @@
         json: [],
         success: Function.prototype,
         searchResultTemplate:
-          '<li style="list-style-type:none;"><span class="tag">{category}</span><a href="{url}"><b><span class="col" style="padding-left:4px;padding-right:0;"><span class="col-md-6 text-left" style="padding-left:0;padding-right:0;"><span style="font-family:monospace;">{date}</span> </span><span class="col-md-6 text-left" style="padding-left:6px;padding-right:0;"><span class="text-dark">{title}</span></span></span></b></a></li>',
+          '<li style="list-style-type:none;"><a href="{url}"><b><span class="col" style="padding-left:0;padding-right:0;"><span class="col-md-6 text-left" style="padding-left:0;padding-right:0;"><span style="font-family:monospace;">{date}</span></span><span class="col-md-6 text-left" style="padding-left:6px;padding-right:0;"><span class="tag">{category}</span>&nbsp;<span class="text-dark">{title}</span></span></span></b></a></li>',
         templateMiddleware: Function.prototype,
         sortMiddleware: function () {
           return 0;
         },
-        noResultsText: "Tidak ditemukan...",
+        noResultsText: "<b>Tidak ditemukan...</b>",
         limit: 10,
         fuzzy: !1,
         debounceTime: null,

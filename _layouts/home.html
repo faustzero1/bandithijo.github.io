@@ -6,14 +6,7 @@ permalink: :title
 <section id="main">
   <div class="container noselect">
     <div class="container-edge-border">
-      <article class="post" style="padding-bottom:0;">
-        <div class="post-body" style="margin-bottom:0;">
-          <h1 class="post-title noselect">
-            Grep
-          </h1>
-        </div>
-      </article>
-      <article class="post" style="padding-bottom:0;padding-left:20px;padding-right:20px;">
+      <article class="post" style="padding-top:3em;padding-bottom:0">
         <div class="post-body">
           {% include search.html %}
         </div>
@@ -22,7 +15,7 @@ permalink: :title
       <article class="homepage" style="padding-top:0;">
         <!-- Judul Article Terupdate -->
         <article class="box-container"><!-- box-container (3 buku 1 box-container) -->
-          <div class="notif-home" style="border:none;">
+          <div class="notif-home" style="padding:20px;border:none;">
             {% assign posts = site.posts | where_exp: 'page', "page.category == 'blog'" | sort: 'date','last' | reverse %}
             {% for post in posts limit: 1 %}
               <span style="font-size:14px;font-family:'Fira Sans Condensed','Ubuntu Condensed';font-weight:bold;">Blog Terbaru</span>

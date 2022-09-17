@@ -2175,6 +2175,9 @@ input#search-input:focus {
   border: 1px solid #fff;
   outline: none;
 }
+input[type="text" i] {
+  padding: 0;
+}
 ul#results-container > li {
   padding: 0;
 }
