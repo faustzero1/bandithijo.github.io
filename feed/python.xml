@@ -1,0 +1,1305 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="id"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://bandithijo.dev/feed/python.xml" rel="self" type="application/atom+xml" /><link href="https://bandithijo.dev/" rel="alternate" type="text/html" hreflang="id" /><updated>2022-09-23T01:02:29+08:00</updated><id>https://bandithijo.dev/feed/python.xml</id><title type="html">BanditHijo (R)-Chive | Python</title><subtitle>Here's where I started writing some notes that someday I will call it, a book</subtitle><author><name>Rizqi Nur Assyaufi</name></author><entry><title type="html">06 Perulangan Menggunakan For</title><link href="https://bandithijo.dev/python/06-perulangan-for" rel="alternate" type="text/html" title="06 Perulangan Menggunakan For" /><published>2018-03-31T02:00:00+08:00</published><updated>2018-03-31T02:00:00+08:00</updated><id>https://bandithijo.dev/python/06-perulangan-for</id><content type="html" xml:base="https://bandithijo.dev/python/06-perulangan-for">&lt;!-- BANNER OF THE POST --&gt;
+&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Setelah sebelunya kita membahas perulangan menggunakan &lt;strong&gt;while&lt;/strong&gt; (&lt;em&gt;while loop&lt;/em&gt;), perulangan selanjutnya yang akan kita bahas adalah perulangan menggunakan &lt;strong&gt;for&lt;/strong&gt; (&lt;em&gt;for loop&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Prinsip dari pengulangan menggunakan &lt;em&gt;for loop&lt;/em&gt; adalah perulangan yang berdasarkan sesuatu.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;setiapHal&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;halIni&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# kondisi
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;jalankanPernyataanIni&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# pernyataan
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;penerapan&quot;&gt;Penerapan&lt;/h1&gt;
+
+&lt;p&gt;Misalkan, di dalam sebuah tim basket terdapat 5 anggota. Kita akan memberikan setiap anggotanya botol air. Kira-kira bentuk kodenya akan seperti ini.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;timBasket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Irvan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ichsan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Wisnu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cebe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bly'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anggota&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timBasket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Berikan botol air ke'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anggota&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Berikan botol air ke Irvan    &lt;span class=&quot;c&quot;&gt;# timBasket[0]&lt;/span&gt;
+Berikan botol air ke Ichsan   &lt;span class=&quot;c&quot;&gt;# timBasket[1]&lt;/span&gt;
+Berikan botol air ke Wisnu    &lt;span class=&quot;c&quot;&gt;# timBasket[2]&lt;/span&gt;
+Berikan botol air ke Cebe     &lt;span class=&quot;c&quot;&gt;# timBasket[3]&lt;/span&gt;
+Berikan botol air ke Bly      &lt;span class=&quot;c&quot;&gt;# timBasket[4]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;bongkar-kode&quot;&gt;Bongkar Kode&lt;/h2&gt;
+
+&lt;p&gt;Saya rasa, temen-temen pasti sudah paham mengenai konsep dari perulangan, seperti yang sudah dibahas pada materi &lt;em&gt;while loop&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;for loop&lt;/em&gt; pun juga digunakan untuk menyelesaikan permasalahan yang membutuhkan perulangan agar lebih efisien. &lt;em&gt;for loop&lt;/em&gt; biasanya digunakan untuk melakukan perulangan yang banyaknya telah diketahui sebelumnya.&lt;/p&gt;
+
+&lt;p&gt;Seperti contoh di atas. Kita telah mengetahui banyaknya indeks pada variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timBasket&lt;/code&gt; berjumlah lima. Sehingga, kita sudah mengetahui bahwa perulangan akan bermula dari indeks ke 0 dan berhenti pada indeks ke 4.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Contoh lain&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Terdapat contoh lain dari penggunaan &lt;em&gt;for loop&lt;/em&gt; yang pernah saya temui. Seperti ini.&lt;/p&gt;
+
+&lt;p&gt;Misalkan, kita ingin membuat perualngan sebanyak 10 kali, sambil menampilkan &lt;em&gt;output&lt;/em&gt; dari urutan perulangan yang sudah terjadi ke dalam &lt;em&gt;console&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;range() adalah sebuah &lt;em&gt;built-in function&lt;/em&gt; dalam Python yang berguna untuk menghasilkan sebuah &lt;em&gt;object&lt;/em&gt; dalam tipe data integer yang berurutan dari &lt;em&gt;start&lt;/em&gt; sampai &lt;em&gt;stop&lt;/em&gt; dengan &lt;em&gt;step&lt;/em&gt; tertentu.&lt;/p&gt;
+
+&lt;p&gt;Rumus dari fungsi &lt;em&gt;range&lt;/em&gt; adalah,&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;step&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dapat kita lihat bahwa fungsi range() memiliki 3 buah &lt;em&gt;parameter&lt;/em&gt;. &lt;em&gt;Parameter&lt;/em&gt; adalah syarat yang diperlukan oleh sebuah fungsi agar dapat melakukan tugasnya. Pembahasan lebih lanjut mengenai &lt;em&gt;parameter&lt;/em&gt; akan kita bahas pada materi yang lain.&lt;/p&gt;
+
+&lt;p&gt;Secara &lt;em&gt;default&lt;/em&gt;, range() memiliki nilai &lt;em&gt;parameter start&lt;/em&gt; = 0. Dan memiliki minimal 1 &lt;em&gt;parameter&lt;/em&gt; yang harus kita penuhi. Hal ini membuat kita dapat menuliskan fungsi range() seperti ini.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Artinya, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;range(start=0, stop=4, step=0)&lt;/code&gt;. Sehingga akan menghasilkan output berupa.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0
+1
+2
+3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Atau,&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Atau,&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+3
+5
+7
+9
+11
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Atau,&lt;/p&gt;
+
+&lt;p&gt;Misalkan kita ingin menghitung berapakah total hasil penjumlahan yang ada pada sebuah list.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;daftarHarga&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hargaSatuan&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;daftarHarga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hargaSatuan&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;16600
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Mudah kan ?&lt;/p&gt;
+
+&lt;p&gt;Lebih asik lagi, kalo soal matematika, Python gak kalah deh. &lt;em&gt;For youth info&lt;/em&gt;, ada cara yang lebih cepat untuk menghitung total dari suatu list seperti di atas. Yaitu dengan menggunakan &lt;em&gt;built-in function&lt;/em&gt; yang bernama &lt;strong&gt;sum()&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;daftarHarga&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;daftarHarga&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;16600
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Meskipun &lt;em&gt;out of topic&lt;/em&gt; pada &lt;em&gt;post&lt;/em&gt; ini, yang seharusnya kita hanya membahasa &lt;em&gt;for loop&lt;/em&gt;, tetapi gak papa, sekedar informasi saja.&lt;/p&gt;
+
+&lt;p&gt;Jadi, mas Bro. Jangan khawatir kalo nilai matematika kamu jelek. Biar Python yang mengerjakan urusan matematika kamu. Hohoho.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Saya rasa, cukup seperti ini dulu, pembahasan kita mengenai &lt;em&gt;for loop&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Masih ada pembahasan mengenai &lt;em&gt;for loop&lt;/em&gt; yang belum ter- &lt;em&gt;cover&lt;/em&gt; oleh &lt;em&gt;post&lt;/em&gt; ini. Seperti: &lt;em&gt;nested for&lt;/em&gt;, bagaimana melakukan &lt;em&gt;for loop&lt;/em&gt; dengan banyak variable, dll.&lt;/p&gt;
+
+&lt;p&gt;Mungkin akan saya tambahkan lain waktu.&lt;/p&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/05-perulangan-while&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">05 Perulangan Menggunakan While</title><link href="https://bandithijo.dev/python/05-perulangan-while" rel="alternate" type="text/html" title="05 Perulangan Menggunakan While" /><published>2018-03-31T01:00:00+08:00</published><updated>2018-03-31T01:00:00+08:00</updated><id>https://bandithijo.dev/python/05-perulangan-while</id><content type="html" xml:base="https://bandithijo.dev/python/05-perulangan-while">&lt;!-- BANNER OF THE POST --&gt;
+&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Kamu pernah merasa jenuh untuk melakukan pekerjaan yang berulang-ulang ? Untungnya dalam bahasa pemrograman kita dapat membuat proses perulangan itu berjalan secara otomatis. Pada dasarnya, kita hanya perlu mengatur dan menentukan kapan perulangan itu dimulai dan kapan harus berhenti berulang, bahkan kita bisa menentukan pola perulangannya.&lt;/p&gt;
+
+&lt;h1 id=&quot;penerapan&quot;&gt;Penerapan&lt;/h1&gt;
+
+&lt;p&gt;Misalnya kita ingin menampilkan nama-nama pemain basket yang ada di dalam tim inti.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Irvan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ichsan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Wisnu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Cebe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bly'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Irvan
+Ichsan
+Winsu
+Cebe
+Bly
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ini adalah cara menampilkan isi dari variable Python list dengan cara manual. Dapat kita lihat bersama, bahwa kita melakukan print() &lt;em&gt;function&lt;/em&gt; sebanyak lima kali.&lt;/p&gt;
+
+&lt;p&gt;Dalam bahasa pemrograman Python, teradapat dua cara perulangan (&lt;em&gt;loop&lt;/em&gt;) yang dapat kita gunakan untuk menyelesaikan masalah mengenai perulangan. &lt;strong&gt;while&lt;/strong&gt; dan &lt;strong&gt;for&lt;/strong&gt;. Kedua-duanya memiliki tujuan akhir yang sama, yaitu untuk menyelesaikan masalah perulangan. Keduanya juga dapat dipakai secara bergantian. Tergantung pada preferensi masing-masing dari programmer atau efisiensi. Pada umumnya &lt;em&gt;for loop&lt;/em&gt; selalu lebih efisien dibandingkan dengan &lt;em&gt;while loop&lt;/em&gt;, namun tidak selalu.&lt;/p&gt;
+
+&lt;p&gt;Pada topik ini, kita akan terlebih dahulu membahas mengenai &lt;em&gt;while loop&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ide dari &lt;em&gt;while loop&lt;/em&gt; adalah, ketika sesuatu kondisi sesuai dengan fakta yang ada, lakukan sesuatu sesuai dengan yang telah ditentukan.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                             &lt;span class=&quot;c1&quot;&gt;# fakta
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                     &lt;span class=&quot;c1&quot;&gt;# kondisi
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Umur Balita ='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# pernyataan 1
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                        &lt;span class=&quot;c1&quot;&gt;# pernyataan 2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Umur Balita = 1
+Umur Balita = 2
+Umur Balita = 3
+Umur Balita = 4
+Umur Balita = 5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;bongkar-kode&quot;&gt;Bongkar Kode&lt;/h2&gt;
+
+&lt;p&gt;Ayo kita &lt;em&gt;breakdown&lt;/em&gt; kode di atas sama-sama.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Untuk baris pertama,&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;umurBalita = 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Pasti kamu sudah paham maksud dari baris ini adalah kita mendeklarasikan / memberikan nilai sebesar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; (tipe data: integer) kepada variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Untuk baris kedua,&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;while umurBalita &amp;lt;= 5:
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Ini adalah bentuk sebuah kondisi perbandingan. Mungkin, kita dapat membacanya seperti ini, &lt;strong&gt;saat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; kurang dari sama dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;, maka ?&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kemudian, kita sudah mempunya variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; yang bernilai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; yang akan dibandingkan dengan kondisi pada baris kedua &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita &amp;lt;= 5&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Apakah 1 &amp;lt;= 5 ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apakah perbandingan ini bernilai benar ?&lt;/p&gt;
+
+&lt;p&gt;Benar! 1 lebih kecil daripada 5.&lt;/p&gt;
+
+&lt;p&gt;Apabila kondisi yang menjadi syarat bernilai &lt;strong&gt;benar&lt;/strong&gt; / &lt;strong&gt;True&lt;/strong&gt;, maka pernyataan yang ada di dalam kondisi tersebut akan di jalankan.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Untuk baris ketiga dan keempat,&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Umur Balita ='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Nah, ini adalah dua buah pernyataan yang ada di dalam blok &lt;em&gt;while loop&lt;/em&gt; pada baris kedua. Pada baris sebelumnya sudah menghasilkan kondisi yang bernilai &lt;strong&gt;True&lt;/strong&gt;, maka kedua baris ini akan di jalankan secara berurutan dimulai dari atas.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Umur Balita ='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Teman-teman pasti sudah paham baris ini digunakan untuk apa dan akan menghasilkan &lt;em&gt;output&lt;/em&gt; seperti apa. Ya, print() digunakan untuk menampilkan &lt;em&gt;output&lt;/em&gt; ke dalam &lt;em&gt;console&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kemudian, pernyataan kedua,&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Ini adalah bentuk pendeklarasian variable yang mengandung proses di dalamnya. Seperti yang sudah disinggung pada materi tentang variable pada &lt;em&gt;post&lt;/em&gt; sebelumnya. Bentuk operasi penjumlahan seperti di atas, dapat kita uraikan menjadi bentuk seperti ini.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Pada awal dari kode, variabel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; sudah di deklarasikan bernilai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;. Yang berarti variable ini adalah variable dengna tipe data integer. Sehingga dapat kita baca seperti ini.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Maka setelah melewati pernyataan ini, variabel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; akan berubah nilainya, dari semula bernilai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;, akan berubah menjadi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kemudian, setelah semua pernyataan yang ada di dalam blok kode_ while loop_ telah habis di baca oleh Python &lt;em&gt;interpreter&lt;/em&gt;, maka pembacaan akan di mulai kembali ke baris yang menyatakan perulangan, yaitu baris yang mengandung sintaks &lt;em&gt;while loop&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pada saat ini, variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; sudah berubah nilainya menjadi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;. Kemudian, akan dibandingkan dengan kondisi yang telah ditentukan, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita &amp;lt;= 5&lt;/code&gt;, hasil dari perbandingna ini adalah &lt;strong&gt;True&lt;/strong&gt;, maka pernyataan di dalam blok kode &lt;em&gt;while loop&lt;/em&gt; akan di jalankan persis sama seperti sebelumnya.&lt;/p&gt;
+
+&lt;p&gt;Proses yang berulang ini akan berhenti sampai, kondisi yang sudah ditentukan oleh &lt;em&gt;while loop&lt;/em&gt; mendapatkan nilai &lt;strong&gt;False&lt;/strong&gt;. Yaitu, dimana variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;umurBalita&lt;/code&gt; sudah mencapai nilai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;. Maka tahap ini, kondisi akan bernilai False. Apabila telah mencapai kondisi yang salah, maka pernyataan di dalam blok kode &lt;em&gt;while loop&lt;/em&gt;, tidak akan dijalankan.&lt;/p&gt;
+
+&lt;p&gt;Untuk memudahkan kita melihat apa yang dilakukan oleh Python &lt;em&gt;interpreter&lt;/em&gt; dalam melakukan proses perulangan, mungkin kita bisa buatkan tabel perulangannya.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Tabel Perulangan&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;umurBalita&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;print(‘Umur Balita =’,umurBalita)&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;umurBalita += 1&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Umur Balita = 1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Umur Balita = 2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Umur Balita = 3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Umur Balita = 4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Umur Balita = 5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Nah, gimana kalo dengan tabel perulangan seperti di atas ?&lt;/p&gt;
+
+&lt;p&gt;Dengan menggunakan tabel perulangan seperti ini akan lebih mudah untuk kita mendapatkan gambaran bagaimana proses perulangan dari kode perulangan seperti &lt;em&gt;while loop&lt;/em&gt; dan &lt;em&gt;for loop&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Contoh kasus lain&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;While loop&lt;/em&gt; juga akan dapat membantu dalam kasus-kasus seperti ini, misalkan, kalian memiliki sebuah alat, robot, atau mesin yang dapat mendeteksi sesuatu, misalkan hujan.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diluarHujan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Di luar hujan! Segera angkat Jemuran !'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Jadi, rumus dari &lt;em&gt;while loop&lt;/em&gt;, dapat kita tuliskan secara sederhana seperti ini.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kode di atas akan menghasilkan perulangan tanpa batas (&lt;em&gt;infinite loop&lt;/em&gt;). Kalo kamu terjebak dalam kondisi seperti ini di &lt;em&gt;console&lt;/em&gt;, kamu dapat menghentikan proses perulangan ini dengan menekan kombinasi tombol &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kita juga dapat mengatur kapan perulangan harus dimulai, berhenti, dan bagaimana cara berulangnya. Saya akan mengambil contoh kode perulangan umur balita di atas.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                          &lt;span class=&quot;c1&quot;&gt;# awalan
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;                  &lt;span class=&quot;c1&quot;&gt;# akhiran (kondisi)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Umur Balita ='&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;umurBalita&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;                     &lt;span class=&quot;c1&quot;&gt;# langkah
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Apabila kita tidak menentukan awalan, maka perulangan tidak akan berjalan.&lt;/p&gt;
+
+&lt;p&gt;Apabila kita tidak menentukan kondisi, maka perulangan tidak akan berjalan.&lt;/p&gt;
+
+&lt;p&gt;Apabila kita tidak mengatur langkah dari perulangan, maka perulangan tidak akan pernah berhenti karena kondisi selalu bernilai &lt;strong&gt;True&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ketentuan di atas sangat tergantun dari kebutuhan perulangan yang akan kita buat. Jadi tidak harus selalu seperti contoh di atas.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Saya rasa, untuk saat ini, pembahasa perulangan menggunakan &lt;strong&gt;while&lt;/strong&gt; cukup seperti ini dulu.&lt;/p&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/04-variabel-dan-tipe-data&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/06-perulangan-for&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">04 Variabel dan Tipe Data</title><link href="https://bandithijo.dev/python/04-variabel-dan-tipe-data" rel="alternate" type="text/html" title="04 Variabel dan Tipe Data" /><published>2018-03-30T02:00:00+08:00</published><updated>2018-03-30T02:00:00+08:00</updated><id>https://bandithijo.dev/python/04-variabel-dan-tipe-data</id><content type="html" xml:base="https://bandithijo.dev/python/04-variabel-dan-tipe-data">&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Hampir di setiap program Python yang nanti kamu tulis, kamu akan menggunakan &lt;strong&gt;variable&lt;/strong&gt;. Variable dapat diibaratkan sebuah ember yang digunakan untuk menampung data. Variable dalam Python dapat menampun bermacam-macam data. Data yang ditampung dapat berupa string, integer, float, boolean, array, function, dan mungkin masih banyak lagi.&lt;/p&gt;
+
+&lt;p&gt;Variable membantu program dapat lebih dinamis dan dapat membantu programmer mereferensikan sebuah nilai yang panjang di dalam sebuah wadah, ketimbang harus mengetik nilai yang panjang berulang kali.&lt;/p&gt;
+
+&lt;p&gt;Kamu dapat membuat variable dengan nama apapun kecuali nama yang sama dengan nama sintaks dan function pada Python. Hal ini dapat menyebabkan sebuah konflik. Variable juga tidak dapat ditulis dengan awalan angka dan simbol, kecuali simbol &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt; (baca: &lt;em&gt;underscore&lt;/em&gt;).&lt;/p&gt;
+
+&lt;p&gt;Sebagai contoh, kamu tidak dapat memberikan nama sebuah variable dengan nama &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print&lt;/code&gt; karena akan terjadi konflik dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print()&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ini tidak dapat dilakukan !'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apabila ini dilakukan, maka hasil dari &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print('Ini tidak dapat dilakukan !')&lt;/code&gt; tetap akan tampil pada &lt;em&gt;console&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ini tidak dapat dilakukan !
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Namun, saat kita akan memanggil atau menggunakan variable yang bernama &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;print&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Traceback (most recent call last):
+  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;gt;
+TypeError: 'NoneType' object is not callable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Akan terjadi kegagalan.&lt;/p&gt;
+
+&lt;h1 id=&quot;variable-dengan-1-nilai&quot;&gt;Variable dengan 1 Nilai&lt;/h1&gt;
+
+&lt;h2 id=&quot;string&quot;&gt;String&lt;/h2&gt;
+&lt;p&gt;Nah sekarang yang benernya. Kita sudah mempelajari print() function pada materi pertama. Sekarang, Yuk! Kita coba kombinasikan print() function dengan variable.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaDepan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;namaDepan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Devika
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kamu juga tidak dapat mengisi nilai dari sebuah variable seperti di bawah ini.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaLengkap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Devika&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Marina&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1
+    namaLengkap = Devika Marina
+                              ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Devika Marina&lt;/code&gt; bukan merupakan tipe data yang tepat. Apabila kamu bermaksud membuat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Devika Marina&lt;/code&gt; menjadi sebuah string, maka kamu harus menuliskannya dengan mengawali dan mengakhiri dengan tanda petik (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'...'&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;...&quot;&lt;/code&gt;).&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaLengkap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika Marina'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;namaLengkap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Devika Marina
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Atau, kamu dapat menerapkan &lt;em&gt;concatenation&lt;/em&gt; yang sudah kita pelajari pada materi pertama.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaLengkap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika Marina'&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# string
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umur&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'18'&lt;/span&gt;              &lt;span class=&quot;c1&quot;&gt;# string
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama Lengkap :'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;namaLengkap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Umur         :'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;umur&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nama Lengkap : Devika Marina
+Umur         : 18
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;integer-atau-float&quot;&gt;Integer atau Float&lt;/h2&gt;
+&lt;p&gt;Selain bernilai string, variable juga dapat bernilai integer maupun float.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;jmlhRoda&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# integer
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jmlhSolar&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;100.0&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# float
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Banyak Roda     : '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jmlhRoda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Kapasitas Solar : '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jmlhSolar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Banyak Roda     : 10
+Kapasitas Solar : 100.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;boolean&quot;&gt;Boolean&lt;/h2&gt;
+&lt;p&gt;Variable dapat pula bertipe data boolean, yaitu &lt;strong&gt;True&lt;/strong&gt; atau &lt;strong&gt;False&lt;/strong&gt;. Penulisan nilai boolean harus di awali dengan huruf besar.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sudahMenikah&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# boolean
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jomblo&lt;/span&gt;       &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# boolean
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sudahMenikah&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;jomblo&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;True
+False
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;variable-dengan-banyak-nilai&quot;&gt;Variable dengan Banyak Nilai&lt;/h1&gt;
+
+&lt;h2 id=&quot;tuples&quot;&gt;Tuples&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Tuple&lt;/strong&gt; adalah variable yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan oleh tanda koma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt; yang membuatnya mirip dengan &lt;strong&gt;list&lt;/strong&gt; (list, dalam bahasa pemrograman lain disebut array). Namun, yang menjadikan tuple berbeda dengan list adalah tuple memiliki sifat &lt;strong&gt;immutable&lt;/strong&gt; yang artinya kekal atau tidak dapat diubah-ubah.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;perangkatKeras&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Keyboard'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Mouse'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Monitor'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perangkatKeras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perangkatKeras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perangkatKeras&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Keyboard
+Mouse Monitor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Pada contoh di atas, saya menggunakan contoh pemanggilan isi dari variable tuple dengan menggunakan urutan dari indeksnya. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[0]&lt;/code&gt; dibaca &lt;strong&gt;indeks ke nol&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Indeks pada bahasa pemrograman Python dimulai dari 0, selanjutnya diikuti 1, 2, 3, 4, 5, dst…&lt;/p&gt;
+
+&lt;p&gt;Contoh lain,&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;mobil1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Kijang'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Avanza'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Innova'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mobil1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mobil2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Kijang Avanza Innova
+Avanza
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Contoh lain,&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;120&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;90&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;120
+120 90 45
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Contoh lain, kamu dapat melihat isi dari sebuah tuple dengan cara seperti ini.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4)
+22
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kamu dapat menuliskan sebuah variable tuple dengan mengawali dengan tanda kurung &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt; dan menutupnya dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Seperti ini &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(..., ..., ...)&lt;/code&gt;. Namun, tidak menggunakan tanda kurung &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(...)&lt;/code&gt; juga tidak masalah. Seperti ini &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;..., ..., ...&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Sehingga secara &lt;em&gt;default&lt;/em&gt;, apabila kamu mendeklarasikan sebuah variable yang memiliki banyak nilai dan dipisahkan dengan tanda koma, maka Python akan mengenalinya sebagai variable dengan tipe data tuple.&lt;/p&gt;
+
+&lt;h2 id=&quot;python-lists&quot;&gt;Python Lists&lt;/h2&gt;
+&lt;p&gt;Selanjutnya kita memiliki variable yang lebih populer dibandingkan tuple, yaitu Python list.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Lists&lt;/strong&gt; adalah variable struktur data yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan dengan tanda koma &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt; yang membuatnya mirip dengan &lt;strong&gt;tuple&lt;/strong&gt;. Namun, yang membedakannya denga tuple adalah kita mendeklarasikan sebuah variable bertipe data list dengan mengapit data tersebut menggunakan tanda kurung kotak &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[..., ..., ...]&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Anggota Tim Inti : '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Penjaga Gawang   : '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timInti&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Anggota Tim Inti : [15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4]
+Penjaga Gawang   : 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Python list ini &lt;strong&gt;tidak bersifat immutable&lt;/strong&gt; sehingga memungkinkan kita untuk dapat memodifikasinya, seperti: &lt;em&gt;append&lt;/em&gt;, &lt;em&gt;extend&lt;/em&gt;, &lt;em&gt;insert&lt;/em&gt;, &lt;em&gt;count&lt;/em&gt;, &lt;em&gt;remove&lt;/em&gt;, &lt;em&gt;reverse&lt;/em&gt;, &lt;em&gt;sort&lt;/em&gt;, dll.&lt;/p&gt;
+
+&lt;p&gt;Nanti akan ada pembahasan tersendiri untuk modifikasi Python list.&lt;/p&gt;
+
+&lt;h2 id=&quot;dictionary&quot;&gt;Dictionary&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Python Dictionary&lt;/strong&gt; adalah sebuah variable struktur data yang hampir mirip dengan array. &lt;em&gt;Dictionary&lt;/em&gt; kalo diartikan secara bahasa akan bermakna &lt;strong&gt;kamus&lt;/strong&gt;. Ya! Persis selayaknya kamus, yang isinya terdapat kata kunci dan setiap kata kunci memiliki arti yang dapat lebih dari satu arti.&lt;/p&gt;
+
+&lt;p&gt;Dictionary tidak diurutkan berdasarkan sesuatu. Karakteristik yang khas dari Python dictionary adalah memiliki &lt;strong&gt;kunci&lt;/strong&gt; dan &lt;strong&gt;nilai&lt;/strong&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kunci:nilai&lt;/code&gt;). Setiap kunci berbentuk unik dan hanya satu. Sedangkan nilainya dapat mengandung lebih dari satu data / tipe data, baik dalam bentuk tipe data apapun seperti: string, integer, float, tuple, list, bahkan dictionary juga.&lt;/p&gt;
+
+&lt;p&gt;Untuk mendeklarasikan sebuah variable dengan tipe struktur data dictionary, kita perlu mengawalinya dengan menggunakan tanda kurung kurawal&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{&lt;/code&gt; dan menutupnya dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;nomorPunggung&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Cebe'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Bly'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Davy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Haris'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nomorPunggung&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{'Cebe': 10, 'Bly': 11, 'Davy': 4, 'Haris': 9}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Apabila kita ingin mengetahui berapakah nomor punggung dari Davy, maka kita cukup memanggil kuncinya saja.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nomorPunggung&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Davy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Berapakah nomor punggung Davy ?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nomorPunggung&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Davy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;4
+Berapakah nomor punggung Andi ? 4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Perlu diperhatikan, pemanggilan kunci berupa string, haruslah sama persis dengan kunci yang sudah di deklarasikan di dalam variable dictionary. Namanya saja kunci, kalo kuncinya tidak sama, maka pintu tidak akan dapat dibuka.&lt;/p&gt;
+
+&lt;p&gt;Selain kunci yang berbentuk string, kunci dapat pula berupa integer.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;juaraLomba&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Irvan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ichsan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Wisnu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Gigon'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Dika'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;juaraLomba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Pemenang&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Kejuaraan&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Lari&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;',juaraLomba[3])&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Wisnu
+Pemenang Kejuaraan Lari : Wisnu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Contoh di atas, adalah contoh dictionary yang memiliki satu nilai. Berikut ini adalah dictionary yang dapat meiliki nilai (&lt;em&gt;value&lt;/em&gt;) lebih dari satu.&lt;/p&gt;
+
+&lt;p&gt;Misalkan, kita memiliki daftar identitas yang berisi nama, tinggi badan, warna kulit. Kemudian kita akan membuat nama sebagai kunci.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;identitas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Irvan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;172&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Putih'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Ichsan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;170&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Cokelat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Wisnu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Kuning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identitas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Irvan'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;identitas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Wisnu'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[172, 'Putih']
+168
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Dalam contoh di atas, saya menggunakan Python list sebagai nilai. Seperti yang sudah saya sebutkan di atas, nilai dapat berupa apa saja. Asik sekali bukan ?&lt;/p&gt;
+
+&lt;p&gt;Untuk modifikasi dictionary akan saya tulis pada pembahasan yang lain.&lt;/p&gt;
+
+&lt;h1 id=&quot;variable-yang-mengandung-proses&quot;&gt;Variable yang Mengandung Proses&lt;/h1&gt;
+&lt;p&gt;Variable tidak melulu mengandung nilai-nilai. Variable juga dapat kita manfaatkan untuk menyimpan proses.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;penjumlahan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;45&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# int + int
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pengurangan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;32.6&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;13.8&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# float - float
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perkalian&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.5&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# int * float
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;penjumlahan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pengurangan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perkalian&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;70          &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+18.8        &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+73.5        &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sepertinya, pembahasan mengenai variable kita cukupkan sampai disini dulu.&lt;/p&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/03-matematika-dasar&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/05-perulangan-while&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">03 Matematika Dasar</title><link href="https://bandithijo.dev/python/03-matematika-dasar" rel="alternate" type="text/html" title="03 Matematika Dasar" /><published>2018-03-30T01:00:00+08:00</published><updated>2018-03-30T01:00:00+08:00</updated><id>https://bandithijo.dev/python/03-matematika-dasar</id><content type="html" xml:base="https://bandithijo.dev/python/03-matematika-dasar">&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;intro&quot;&gt;Intro&lt;/h1&gt;
+&lt;p&gt;Matematika adalah topik yang cukup populer, sehingga kita perlu juga untuk mempelajari operasi matematika dasar dengan menggunakan Python. Beruntungnya, kita mempelajari bahasa pemrograman Python, dimana bahasan matematika sangat populer, khususnya ilmu terapan dari matematika seperti statistik, metode numerik, aljabar linier, dll. Sehingga membuat matematika dalam bahasa pemrograman Python menjadi sangat sederhana.&lt;/p&gt;
+
+&lt;p&gt;Namun, karena topik pembicaraan kita adalah operasi matematika dasar di dalam bahasa pemrograman Python, tentu saja kita tidak akan membahas tentang hal-hal tersebut saat ini.&lt;/p&gt;
+
+&lt;p&gt;Oke, langsung saja kita mulai.&lt;/p&gt;
+
+&lt;h1 id=&quot;penjumlahan&quot;&gt;Penjumlahan&lt;/h1&gt;
+&lt;p&gt;Kamu dapat melakukan operasi penjumlahan dengan menggunakan operator matematika berupa tanda tambah &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;. Operasi matematika dapat dilakukan dengan menjumlahkan integer dengan integer, float dengan float, maupun integer dengan float.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# int + int
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# int + (float + float)
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.3&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;# int + float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;4                   &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+6.3                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+3.3                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pengurangan&quot;&gt;Pengurangan&lt;/h1&gt;
+&lt;p&gt;Untuk dapat melakukan operasi matematika berupa pengurangan, kamu dapat menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# int - int
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# int - (float - float)
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.5&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;# int - float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;-7&lt;/span&gt;                  &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+6.9                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+3.5                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;perkalian&quot;&gt;Perkalian&lt;/h1&gt;
+&lt;p&gt;Untuk dapat melakukan operasi matamatika berupa perkalian, kamu dapat menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# int * int
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;5.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;         &lt;span class=&quot;c1&quot;&gt;# int * (float * float)
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.5&lt;/span&gt;              &lt;span class=&quot;c1&quot;&gt;# int * float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;136                 &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+118.56              &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+40                  &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pembagian&quot;&gt;Pembagian&lt;/h1&gt;
+&lt;p&gt;Untuk dapat melakukan operasi matematika berupa pembagian, kamu dapat menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/&lt;/code&gt;. Hasil keluaran (&lt;em&gt;output&lt;/em&gt;) dari operasi pembagian berupa tipe data float.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# int / int
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# int / (float / float)
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.5&lt;/span&gt;              &lt;span class=&quot;c1&quot;&gt;# int / float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3.0                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+10.0                &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+5.076923076923077   &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;pemangkatan&quot;&gt;Pemangkatan&lt;/h1&gt;
+&lt;p&gt;Untuk dapat melakukan operasi matematika berupa pemangkatan atau exponen dalam aljabar, kamu dapat menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;**&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# int ** int
+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.3&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# float ** float
+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;              &lt;span class=&quot;c1&quot;&gt;# int ** float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;256                 &lt;span class=&quot;c&quot;&gt;# int&lt;/span&gt;
+14.515932837559118  &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+84.44850628946526   &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;akar-kuadrat&quot;&gt;Akar Kuadrat&lt;/h1&gt;
+&lt;p&gt;Untuk dapat melakukan operasi matematika berupa akar kuadrat (&lt;em&gt;square root&lt;/em&gt;), terlebih dahulu kamu harus melakukan &lt;em&gt;import&lt;/em&gt; terhadap &lt;em&gt;module&lt;/em&gt; bernama &lt;strong&gt;math&lt;/strong&gt;. Kemudian, cara menggunakannya dengan memasukkan nilai yang akan di akar kuadratkan ke dalam tanda kurung &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;math.sqrt(...)&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;math&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# int
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;144&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# int
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# int
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;9.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3.0                 &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+12.0                &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+15.968719422671311  &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+3.0495901363953815  &lt;span class=&quot;c&quot;&gt;# float&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Saya rasa cukup sampai di sini dulu pembahasan mengenai operasi matematika dasar.&lt;/p&gt;
+
+&lt;p&gt;Benar-benar sangat sederhana bukan ?&lt;/p&gt;
+
+&lt;p&gt;Matematika sangat diperlukan ketika kita membuat program yang memerlukan perhitungan, maka akan sangat memudahkan kita apabila untuk melakukan operasi matematika kita dapat menuliskan sintaks kodenya secara sederhana seperti yang ada dalam bahasa pemrograman Python.&lt;/p&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/02-print-function-dan-strings&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/04-variabel-dan-tipe-data&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">02 Print Function dan Strings</title><link href="https://bandithijo.dev/python/02-print-function-dan-strings" rel="alternate" type="text/html" title="02 Print Function dan Strings" /><published>2018-03-28T00:00:00+08:00</published><updated>2018-03-28T00:00:00+08:00</updated><id>https://bandithijo.dev/python/02-print-function-dan-strings</id><content type="html" xml:base="https://bandithijo.dev/python/02-print-function-dan-strings">&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;print-function&quot;&gt;Print() Function&lt;/h1&gt;
+&lt;p&gt;Seperti yang sudah saya &lt;em&gt;mention&lt;/em&gt; sedikit di &lt;em&gt;post&lt;/em&gt; sebelumnya, &lt;strong&gt;print()&lt;/strong&gt; &lt;em&gt;function&lt;/em&gt; ini digunakan utnuk menampilkan &lt;em&gt;output&lt;/em&gt; ke dalam &lt;em&gt;console&lt;/em&gt;. &lt;em&gt;Console&lt;/em&gt; disini tergantung dari sistem operasi yang kita gunakan. Dalam sistem operasi Windows dikenal dengan sebutan Command Prompt (CMD.exe) sedangkan dalam sistem operasi GNU/Linux dikenal dengan sebutan Terminal.&lt;/p&gt;
+
+&lt;p&gt;Saat kita belajar tentang suatu bahasa pemrograman, biasanya kita diajarkan untuk menampilkan &lt;em&gt;output&lt;/em&gt; dari &lt;em&gt;program&lt;/em&gt; sederhana yang kita buat pada &lt;em&gt;console&lt;/em&gt;. Maka dari itu dalam proses belajar Python ini kita akan banyak menggunakan fungsi print().&lt;/p&gt;
+
+&lt;p&gt;print() function juga dapat kita gunakan sebagai “&lt;em&gt;debugging tool&lt;/em&gt;” sederhana, yang dapat membantu kita mengetahui apakah &lt;em&gt;program&lt;/em&gt; yang kita buat telah sesuai dengan hasil yang kita harapkan atau tidak.&lt;/p&gt;
+
+&lt;p&gt;“&lt;em&gt;Debugging&lt;/em&gt;” adalah istilah khusus dalam topik pemrograman yang merujuk pada kegiatan mencari, menghapus, dan memperbaiki &lt;em&gt;error&lt;/em&gt; dan kesalahan yang ada pada &lt;em&gt;program&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Untuk menggunakan fungsi print(), kita akan gunakan pada pembahasan kali ini bersama dengan tipe data &lt;strong&gt;Strings&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;strings&quot;&gt;Strings&lt;/h1&gt;
+&lt;p&gt;String adalah salah satu dari jenis &lt;strong&gt;tipe data&lt;/strong&gt; yang berarti &lt;em&gt;text&lt;/em&gt; atau tulisan. Beberapa jenis tipe data yang lain seperti: Integer, Boolean, Float, Double, Constant, dll. akan kita pelajari pada materi &lt;strong&gt;variable&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sebuah tipe data string, memiliki ciri-ciri sebuah kata atau kalimat yang di awali dan di akhiri dengan dengan tanda petik. Baik itu petik satu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'...'&lt;/code&gt; maupun petik dua &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;...&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;penerapan&quot;&gt;Penerapan&lt;/h1&gt;
+
+&lt;h2 id=&quot;print-single-line-print&quot;&gt;Print: Single Line Print&lt;/h2&gt;
+&lt;p&gt;Sekarang kita akan menampilkan sebuah &lt;strong&gt;Strings&lt;/strong&gt; dengan nilai “Saya adalah Python Developer.” ke dalam &lt;em&gt;console&lt;/em&gt; dengan bantuan fungsi &lt;strong&gt;print()&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Contoh string dengan satu petik.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Saya adalah Python Developer.'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Saya adalah Python Developer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Contoh string dengan dua petik&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Saya adalah Python Developer.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Saya adalah Python Developer.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kedua bentuk string di atas tidak menghasilkan &lt;em&gt;output&lt;/em&gt; yang berbeda. Kamu dapat menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hal yang harus diperhatikan adalah &lt;strong&gt;tanda petik tersebut harus digunakan secara berpasangan&lt;/strong&gt;. Maksudnya adalah, apabila kamu mengawali sebuah string dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; maka kamu harus menutup string tersebut dengan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; juga. Begitu juga untuk tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bagaimana cara menampilkan tanda petik di dalam sebuah string ?&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Ibu berkata, 'Budi adalah seorang Python Developer'&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ibu berkata, &quot;Budi adalah seorang Python Developer&quot;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Sekarang adalah hari Jum'at&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Sekarang adalah hari Jum&quot;at'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ibu berkata, 'Budi adalah seorang Python Developer'
+Ibu berkata, &quot;Budi adalah seorang Python Developer&quot;
+
+Sekarang adalah hari Jum'at
+Sekarang adalah hari Jum&quot;at
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;escape-character&quot;&gt;Escape Character&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Escape character&lt;/em&gt; adalah karakter yang di awali dengan tanda \ (baca: &lt;em&gt;backslash&lt;/em&gt;), dimana untuk masing-masing &lt;em&gt;escape character&lt;/em&gt; memiliki makna sendiri-sendiri.&lt;/p&gt;
+
+&lt;p&gt;Misalnya kita ingin menulis sebuah kalimat yang di dalamnya terdapat kata yang menggunakan tanda apostrof (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt;), seperti: Jum’at, AlQur’an, dll.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Sekarang adalah hari Jum'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;at&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;')&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1
+    print('Sekarang adalah hari Jum'at')
+                                     ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Terjadi kesalahan berupa &lt;strong&gt;&lt;em&gt;invalid syntax&lt;/em&gt;&lt;/strong&gt; dengan pointer menunjuk pada huruf &lt;strong&gt;t&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Kita dapat memperbaiki kesalah ini dengan mengganti satu petik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; yang mengapit kalimat tersebut dengan dua petik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Sekarang adalah hari Jum'at&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sekarang adalah hari Jum'at
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Namun, ini bukan penyelesaian dengan menggunakan &lt;em&gt;escape character&lt;/em&gt;, karena bahasan kita adalah &lt;em&gt;escape character&lt;/em&gt; maka kita akan menggunakan cara yang sesuai dengan topik ini. Seperti ini cara memperbikinya.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Sekarang adalah hari Jum&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;at'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Sekarang adalah hari Jum'at
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Yaitu dengan menambahkan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt; tepat sebelum tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt;, sehingga menjadi seperti ini &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\'&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dapat diartikan bahwa tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt; akan membuat tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; yang seharusnya merupakan sintaks untuk membuka dan menutup sebuah string, menjadi terabaikan dan hanya akan ditampilkan berupa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Contoh lain,&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Ibu berkata, &quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Budi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adalah&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seorang&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Python&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Developer&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1
+    print(&quot;Ibu berkata, &quot;Budi adalah seorang Python Developer&quot;&quot;)
+                            ^
+SyntaxError: invalid syntax
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Cara memperbaiki dengan menggunakan &lt;em&gt;escape character&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Ibu berkata, &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Budi adalah seorang Python Developer&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ibu berkata, &quot;Budi adalah seorang Python Developer&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Tabel &lt;em&gt;Escape Character&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Karakter&lt;/th&gt;
+      &lt;th&gt;Kegunaan&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\newline&lt;/td&gt;
+      &lt;td&gt;Ignored&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\\&lt;/td&gt;
+      &lt;td&gt;Backslash (\)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\’&lt;/td&gt;
+      &lt;td&gt;Single quote (‘)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\”&lt;/td&gt;
+      &lt;td&gt;Double quote (“)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\a&lt;/td&gt;
+      &lt;td&gt;ASCII Bell (BEL)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\b&lt;/td&gt;
+      &lt;td&gt;ASCII Backspace (BS)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\f&lt;/td&gt;
+      &lt;td&gt;ASCII Formfeed (FF)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\n&lt;/td&gt;
+      &lt;td&gt;ASCII Linefeed (LF)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\r&lt;/td&gt;
+      &lt;td&gt;ASCII Carriage Return (CR)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\t&lt;/td&gt;
+      &lt;td&gt;ASCII Horizontal Tab (TAB)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\v&lt;/td&gt;
+      &lt;td&gt;ASCII Vertical Tab (VT)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\ooo&lt;/td&gt;
+      &lt;td&gt;ASCII character with octal value ooo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;\xhh…&lt;/td&gt;
+      &lt;td&gt;ASCII character with hex value hh…&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;concatenation&quot;&gt;Concatenation&lt;/h3&gt;
+
+&lt;p&gt;Ketika ketia berbicara tentang string dan print function, akan sangat bermanfaat apabila kita juga mengetahui tentang &lt;strong&gt;concatenation&lt;/strong&gt;. &lt;em&gt;Concatenation&lt;/em&gt; apabila diartikan secara bahasa adalah &lt;strong&gt;rangkaian&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Concatenation pada String&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Kamu dapat menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt; atau tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; untuk merangkai dua buah string atau lebih, menjadi satu buah string yang utuh. Apabila kamu mengunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt;, kamu akan mendapatkan satu buah spasi di antara keduanya.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama :'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nama : Devika
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sebaliknya, apabila menggunakan tanda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;, string tersebut akan dirangkai tanpa disertakan spasi di antara keduanya.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama :'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nama :Devika
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Concatenation pada Integer atau Float&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Jika kamu menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; untuk merangkai/menggabungkan &lt;strong&gt;integer &amp;amp; integer&lt;/strong&gt;, &lt;strong&gt;float &amp;amp; float&lt;/strong&gt; atau &lt;strong&gt;integer &amp;amp; float&lt;/strong&gt;, maka yang terjadi adalah &lt;strong&gt;operasi aritmatika&lt;/strong&gt; berupa &lt;strong&gt;penjumlahan&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        &lt;span class=&quot;c1&quot;&gt;# int + int
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;5.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# float + float
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# int + float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;                 &lt;span class=&quot;c1&quot;&gt;# int
+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;9.3&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;# float
+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;16.5&lt;/span&gt;               &lt;span class=&quot;c1&quot;&gt;# float
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Concatenation Tingkat Lanjut&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Kamu &lt;strong&gt;dapat&lt;/strong&gt; merangkai &lt;strong&gt;string&lt;/strong&gt; dengan &lt;strong&gt;integer&lt;/strong&gt; maupun &lt;strong&gt;float&lt;/strong&gt; menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Jumlah item yang dibeli : '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Jumlah item yang dibeli : 10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Kamu &lt;strong&gt;tidak dapat&lt;/strong&gt; merangkai &lt;strong&gt;string&lt;/strong&gt; dengan &lt;strong&gt;integer&lt;/strong&gt; atau &lt;strong&gt;float&lt;/strong&gt; menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Jumlah item yang dibeli : '&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Traceback (most recent call last):
+  File &quot;&amp;lt;stdin&amp;gt;&quot;, line 1, in &amp;lt;module&amp;gt;
+TypeError: must be str, not int
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Terjadi kesalahan (&lt;em&gt;error&lt;/em&gt;) yang mengatakan &lt;strong&gt;TypeError: must be str not int&lt;/strong&gt;. Karena nilai paling depan berupa string, sehingga apabila menggunakan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; untuk merangkai dengan nilai kedua yang berupa integer, akan mengalami kegagalan. Dalam Matematika, operasi penjumlahan, integer dapat dijumlahkan dengan integer atau float, namun tidak dapat dijumlahkan dengan string.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Kamu juga dapat menggunakan &lt;em&gt;concatenation&lt;/em&gt; untuk dapat dirangkaikan dengan variabel.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;nama&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama :'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nama&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama : '&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nama&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nama : Devika
+Nama : Devika
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;jmlh_kucing&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jmlh_kucing&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jmlh_kucing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;15
+5 10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Masih banyak lagi contoh kasus yang tidak dapat saya tuliskan di sini. Pokoknya kalo mau merangkai sesuatu, gunakan &lt;em&gt;concatenation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;catatan: merangkai tidak sama dengan menggabungkan&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;print-multi-line-print&quot;&gt;Print: Multi Line Print&lt;/h2&gt;
+
+&lt;p&gt;Untuk melakukan print() pada banyak baris, kita dapat melakukannya dengan sangat mudah. Kita cukup mengapitnya dengan tanda petik tiga &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'''...'''&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&quot;&quot;...&quot;&quot;&quot;&lt;/code&gt;. Hal ini sama seperti saat kita memberikan komentar pada banyak baris. Aturan mengenai cara pemberian komentar pada baris kode, akan kita bahas pada materi selanjutnya.&lt;/p&gt;
+
+&lt;p&gt;Berikut ini adalah cara menampilkan print() pada banyak baris.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'''baris ke-1
+baris ke-2
+baris ke-3
+
+baris ke-5
+baris ke-6
+baris ke-7'''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;baris ke-1
+baris ke-2
+baris ke-3
+
+baris ke-5
+baris ke-6
+baris ke-7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Atau,&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'''
+|-------------------------------------|
+|         --- PYTHON MOTEL ----       |
+|-------------------------------------|
+|  TIPE KAMAR  | KAMAR |    HARGA     |
+|-------------------------------------|
+| (1) VIP      |   1   | Rp 1.000.000 |
+| (2) Menengah |   1   | Rp   700.000 |
+| (3) Ekonomi  |   1   | Rp   500.000 |
+|-------------------------------------|
+'''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+|-------------------------------------|
+|         --- PYTHON MOTEL ----       |
+|-------------------------------------|
+|  TIPE KAMAR  | KAMAR |    HARGA     |
+|-------------------------------------|
+| (1) VIP      |   1   | Rp 1.000.000 |
+| (2) Menengah |   1   | Rp   700.000 |
+| (3) Ekonomi  |   1   | Rp   500.000 |
+|-------------------------------------|
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Saya lebih sering menggunakan tanda petik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; daripada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;. Kapan menggunakan petik satu dan kapan harus petik dua, tergantung dari konten pada string. Apakah mengandung karakter petik (apostrof) seperti: Jum’at, AlQur’an, dsb. Seperti yang sudah dicontohkan pada pembahasan di awal.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;strings-f-strings&quot;&gt;Strings: f-strings&lt;/h2&gt;
+
+&lt;p&gt;Python mendukung banyak cara untuk melakukan &lt;em&gt;formatted strings&lt;/em&gt;. &lt;em&gt;Formatted strings&lt;/em&gt; di sini artinya, “membentuk strings”. Jadi kita dapat membentuk &lt;em&gt;output&lt;/em&gt; strings sesuai dengan yang kita inginkan. Metode-metode tersebut antara lain seperti menggunakan &lt;a href=&quot;https://docs.python.org/3.4/library/string.html#format-examples&quot;&gt;&lt;strong&gt;%-formatting&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://docs.python.org/3.4/library/string.html#format-string-syntax&quot;&gt;&lt;strong&gt;str.format&lt;/strong&gt;&lt;/a&gt;, dan &lt;a href=&quot;https://docs.python.org/3.4/library/string.html#template-strings&quot;&gt;&lt;strong&gt;string.Template&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Penggunaan print() dengan %-format&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;kata1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;kata2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Keren'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s memang &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s !'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kata1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kata2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Python memang Keren !
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Penggunaan print() dengan str.format&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;kata1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;kata2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Keren'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{0} memang {1} !'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kata1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kata2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Python memang Keren !
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Penggunaan string.Template&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Template&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;kalimat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'$siapa memang $kenapa !'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;kalimat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;substitute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;siapa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kenapa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Keren'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Python memang Keren !
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Setiap metode memiliki kelebihan masing-masing. Tetapi, juga memiliki kelemahan yang membuat metode-metode tersebut rumit untuk digunakan dalam prakteknya.&lt;/p&gt;
+
+&lt;p&gt;Kemudian pada Python 3, pada &lt;a href=&quot;https://www.python.org/dev/peps/pep-0498&quot;&gt;&lt;strong&gt;PEP 498&lt;/strong&gt;&lt;/a&gt; (&lt;em&gt;Python Enhancement Proposals&lt;/em&gt;), mengusulkan mekanisme performatan string yang baru, yang bernama: &lt;em&gt;Literal String Interpolation&lt;/em&gt;. Yang nantinya, format string ini akan disebut sebagai &lt;strong&gt;f-string&lt;/strong&gt;, penamaan ini diambil dari karakter awalan yang digunakan untuk mengaktifkan format string ini, atau dapat juga disebut sebagai &lt;strong&gt;formatted strings&lt;/strong&gt;. &lt;strong&gt;f-strings&lt;/strong&gt; menyediakan cara untuk menanamkan ekspresi di dalam string dengan menggunakan sintaks yang minimal.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Penggunaan f-strings pada single line print()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaDepan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;namaBelakang&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Marina '&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama lengkap, {namaDepan} {namaBelakang}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nama lengkap, Devika Marina
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kalo kita bongkar kodenya, untuk f-strings pada single line print sendiri penulisannya sama seperti string biasa, namun dengan penambahan huruf &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;f&lt;/code&gt; sebelum tanda petik pada string, baik petik satu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'&lt;/code&gt; atau petik dua &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;&lt;/code&gt;. Kemudian, variable dapat kita sisipkan ke dalam string, dengan mengapit variable tersebut menggunakan tanda kurung kurawal &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{namaVariable}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Nama lengkap, {namaDepan} {namaBelakang}'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Nama lengkap, {namaDepan} {namaBelakang}&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;strong&gt;Penggunaan f-strings pada multi line print()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;namaDepan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Devika'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;namaBelakang&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Marina'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bahasa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Python'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;textEditor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Vim'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sistemOperasi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'GNU/Linux'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'''
+Hi, perkenalkan nama saya adalah {namaDepan} {namaBelakang}.
+Saya adalah seorang WEB Developer yang menggunakan bahasa pemrograman {bahasa} untuk menyelesaikan proyek-proyek yang saya kerjakan.
+Tentu saja, sebagai seorang programmer tidak lepas dari aplikasi yang selalu menemani saya setiap saat, yaitu text editor.
+Saya menggunakan text editor yang tidak umum digunakan oleh kebanyakan developer wanita, yaitu {textEditor}.
+Yang berjalan di atas sistem operasi {sistemOperasi}.
+Alasan saya memilih {textEditor} adalah karena efisiensi.
+Menurut saya, mempelajari {textEditor} adalah sebuah investasi yang berharga.
+
+Hormat saya,
+{namaDepan} {namaBelakang}
+'''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Hi, perkenalkan nama saya adalah Devika Marina.
+Saya adalah seorang WEB Developer yang menggunakan bahasa pemrograman Python untuk menyelesaikan proyek-proyek yang saya kerjakan.
+Tentu saja, sebagai seorang programmer tidak lepas dari aplikasi yang selalu menemani saya setiap saat, yaitu text editor.
+Saya menggunakan text editor yang tidak umum digunakan oleh kebanyakan developer wanita, yaitu Vim.
+Yang berjalan di atas sistem operasi GNU/Linux.
+Alasan saya memilih Vim adalah karena efisiensi.
+Menurut saya, mempelajari Vim adalah sebuah investasi yang berharga.
+
+Hormat saya,
+Devika Marina
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Bagaimana, sangat mudah sekali bukan penggunaan &lt;strong&gt;f-strings&lt;/strong&gt; ini?&lt;/p&gt;
+
+&lt;p&gt;Sintaksnya &lt;em&gt;minimal&lt;/em&gt;, tidak sulit untuk diketik, tidak sulit untuk dibaca. Dengan kemudahan sintaks seperti ini tentu saja memudahkan kita dalam berekspresi dengan kode program.&lt;/p&gt;
+
+&lt;p&gt;Saya rasa, untuk saat ini, pembahasan mengenai &lt;em&gt;strings&lt;/em&gt; cukup seperti ini dulu. Mari kita lanjutkan ke topik yang lain yaa.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;referensi&quot;&gt;Referensi&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://docs.python.org/3.4/library/string.html&quot;&gt;https://docs.python.org/3.4/library/string.html&lt;/a&gt;
+&lt;br /&gt;Diakses tanggal: 2018/03/28&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0498&quot;&gt;https://www.python.org/dev/peps/pep-0498&lt;/a&gt;
+&lt;br /&gt;Diakses tanggal: 2018/03/28&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/01-hal-yang-harus-dipersiapkan&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/03-matematika-dasar&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">01 Hal yang Perlu Dipersiapkan</title><link href="https://bandithijo.dev/python/01-hal-yang-harus-dipersiapkan" rel="alternate" type="text/html" title="01 Hal yang Perlu Dipersiapkan" /><published>2018-03-27T02:00:00+08:00</published><updated>2018-03-27T02:00:00+08:00</updated><id>https://bandithijo.dev/python/01-hal-yang-harus-dipersiapkan</id><content type="html" xml:base="https://bandithijo.dev/python/01-hal-yang-harus-dipersiapkan">&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;font-latin&quot;&gt;Sedang dalam proses penulisan...&lt;/p&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l&quot; href=&quot;/python/00-pengenalan-python&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/02-print-function-dan-strings&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry><entry><title type="html">00 Berkenalan dengan Python</title><link href="https://bandithijo.dev/python/00-pengenalan-python" rel="alternate" type="text/html" title="00 Berkenalan dengan Python" /><published>2018-03-27T01:00:00+08:00</published><updated>2018-03-27T01:00:00+08:00</updated><id>https://bandithijo.dev/python/00-pengenalan-python</id><content type="html" xml:base="https://bandithijo.dev/python/00-pengenalan-python">&lt;p&gt;&lt;img class=&quot;post-body-img&quot; src=&quot;/assets/img/logo/logo_blank_banner.svg&quot; data-echo=&quot;https://s20.postimg.cc/rjj46uizh/banner_python_00.png&quot; alt=&quot;banner&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;pre-class&quot;&gt;Pre-Class&lt;/h1&gt;
+
+&lt;p&gt;Hello, mas Bro!&lt;/p&gt;
+
+&lt;p&gt;Selamat datang di kelas &lt;strong&gt;Belajar Python Dasar&lt;/strong&gt;. Pada kelas ini, kita akan berkenalan dengan hal-hal dasar yang perlu kamu ketahui tentang bahasa pemrograman Python.&lt;/p&gt;
+
+&lt;p&gt;Selayaknya orang yang sedang belajar sebuah bahasa, kita memerlukan pengetahuan tentang kata-kata, struktur kata agar menjadi sebuah kalimat, bentuk-bentuk kalimat, dll. Dalam mempelajari bahasa pemrograman pun demikian. Kita akan mengenal apa itu &lt;em&gt;variable&lt;/em&gt;, tipe data, kondisi, perulangan, &lt;em&gt;function&lt;/em&gt;, dll.&lt;/p&gt;
+
+&lt;p&gt;Saya menulis &lt;em&gt;post&lt;/em&gt; ini juga sembari belajar bahasa pemrograman Python. Saya belajar dari banyak sekali literatur dalam bahasa Inggris. Tapi saya menuliskan dokumentasi belajar bahasa pemrograman Python dasar berbahasa Indonesia ini khusus untuk kamu.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Post&lt;/em&gt; ini pun adalah tulisan pertama saya bertema bahasa pemrograman. Sebelumnya, saya sama sekali tidak pernah menulis tentang topik bahasa pemrograman, karena tidak percaya diri. Namun, ini adalah langkah kecil saya untuk memberanikan diri menulis topik bahasa pemrograman. Jadi, apapun latar belakang kamu, berapapun umur kamu, tidak ada kata terlambat untuk belajar mengetahui hal yang baru.&lt;/p&gt;
+
+&lt;p&gt;Yuk ! kita belajar sama-sama.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;apa-yang-dapat-dilakukan-python&quot;&gt;Apa yang Dapat Dilakukan Python?&lt;/h1&gt;
+
+&lt;p&gt;Saya akan menampilkan daftar-daftar &lt;em&gt;success stories&lt;/em&gt; yang saya ambil dari &lt;a href=&quot;https://www.python.org/about/success/&quot;&gt;Python.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre style=&quot;width:100%; height:200px; border-radius:4px; resize:none; white-space:wrap;&quot;&gt;
+Software Development
+    * Accessibility
+    * Assistive Technologies
+    * Code Generation
+    * Computer Graphics
+    * Configuration
+    * Cross-platform Development
+    * Databases
+    * Data Mining
+    * Documentation Development
+    * Email
+    * Embedded Systems
+    * Functional Testing
+    * Game Development
+    * Groupware
+    * High Availability
+    * Java and Python
+    * Legacy System Integration
+    * Network Development
+    * Product Development
+    * Python on Windows
+    * Rapid Application Development
+    * Real Time
+    * Reuse
+    * RSS aggregator
+    * Scalability
+    * Systems Administration
+    * Testing
+    * Unit Testing
+    * Unix/Linux Developers
+    * User Interface
+    * Visual Effects
+    * Web Development
+    * Web2.0
+    * XML
+
+Arts
+    * Film
+
+Business
+    * Apparel Industry
+    * Aviation
+    * Business Information
+    * Customer Relationship Management (CRM)
+    * Collaboration Support
+    * Content Management
+    * Document Management
+    * Energy Efficiency
+    * E-Commerce
+    * Enterprise Resource Planning (ERP)
+    * Financial Services
+    * Fortune 500
+    * GIS and Mapping
+    * Hosting
+    * Human Resources
+    * Knowledge Management
+    * Manufacturing
+    * Product Development
+    * Project Management
+    * Quality Control, Six Sigma, Lean Manufacturing
+    * Relational Online Analytical Processing (ROLAP)
+    * Risk Management
+    * ROI Case Study
+
+Education
+    * Post Secondary
+
+Government
+    * Administration
+    * Homeland Security
+    * Public Safety
+    * Traffic Control, Urban Infrastructure
+
+Scientific
+    * Biology
+    * Bioinformatics
+    * Computational Chemistry
+    * Data Visualization
+    * Drug Discovery
+    * GIS and Mapping
+    * Scientific Programming
+    * Simulation
+    * Weather
+
+Engineering
+    * Energy Efficiency
+    * GIS and Mapping
+    * Lighting
+    * Marine
+    * Simulation
+&lt;/pre&gt;
+
+&lt;p&gt;Dapat kita lihat, Python hampir ada pada semua bidang yang sudah berkaitan dengan teknologi.&lt;/p&gt;
+
+&lt;p&gt;Python adalah bahasa pemrograman yang memiliki banyak sekali kegunaan. Hampir semua yang dapat dilakukan bahasa pemrograman lain, Python dapat melakukannya.&lt;/p&gt;
+
+&lt;p&gt;Python mampu mengolah dan memproses GPU sama seperti bahasa pemrograman yang lain. Sebagian besar &lt;strong&gt;modul&lt;/strong&gt; pengolahan data, sebenarnya adalah sebuah &lt;strong&gt;Python wrapper&lt;/strong&gt; yang dibuat untuk berinteraksi dengan bahasa C/C++.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Module&lt;/strong&gt; adalah sekumpulan Python &lt;em&gt;scripts&lt;/em&gt; yang memiliki kegunaan spesifik yang dapat kita manfaatkan dengan cara melakukan &lt;em&gt;import&lt;/em&gt; ke dalam program Python yang kita buat.&lt;/p&gt;
+
+&lt;p&gt;Cara melakukan &lt;em&gt;import&lt;/em&gt; terhadap suatu &lt;em&gt;module&lt;/em&gt; seperti ini.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Math&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Kegunaannya untuk apa ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Karena biasanya seorang &lt;em&gt;programmer&lt;/em&gt; dalam menyelesaikan sebuah masalah memiliki banyak sekali hal yang harus dipikirkan, dengan menggunakan modul maka tidak perlu lagi menulis ulang sebuah &lt;em&gt;function&lt;/em&gt; untuk melakukan suatu hal. Kita cukup memanggil dan menggunakan modul yang sudah tersedia ke dalam program Python yang kita kerjakan.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Python wrapper&lt;/strong&gt; adalah sebuah pembungkus kode Python di atas bahasa pemrograman lain. Misalnya, apabila kamu memiliki Python &lt;em&gt;wrapper&lt;/em&gt; untuk C++ artinya seseorang telah menulis beberapa kode Python yang dapat berinteraksi dengan bahasa C++, sehingga kamu dapat menggunakannya selayaknya menggunakan kemampuan bahasa C++ tanpa benar-benar perlu mengetahui atau memahami bahasa C++.&lt;/p&gt;
+
+&lt;p&gt;Karena hal tersebut, Python dapat digunakan untuk membuat berbagai macam hal, seperti: membuat game, melakukan analisis data, mengontrol robot dan perangkat keras, mengautomatisasi sebuah pekerjaan,  membuat aplikasi &lt;em&gt;desktop&lt;/em&gt; dengan &lt;em&gt;console&lt;/em&gt; maupun GUI, atau bahkan membuat sebuat website. Asik bukan ?&lt;/p&gt;
+
+&lt;p&gt;Masih banyak lagi contoh-contoh penerapan Python yang tentunya apabila saya menuliskanya di sini, akan menjadi sebuah perkenalan yang panjang. Teman-teman bisa mencarinya sendiri di &lt;em&gt;search engine&lt;/em&gt; dan artikel maupun video-video terkait dengan penerapan Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;apakah-python-sulit-dipelajari&quot;&gt;Apakah Python Sulit Dipelajari?&lt;/h1&gt;
+
+&lt;p&gt;Menurut saya, Python adalah bahasa pemrograman yang mudah dan ramah untuk dipelajari. Kenapa ? karena sintaks (kata dan struktur penulisan) yang sangat sederhana dan &lt;em&gt;simple&lt;/em&gt; untuk dapat dibaca dan dimengerti, hampir semua sintaksnya dapat dipahami bahkan apabila kamu belum mengerti satupun bahasa pemrograman.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Masa sih ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mari saya tunjukkan buktinya.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;garasi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Toyota&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Honda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Suzuki&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Daihatsu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Ford&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;garasi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mobil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;akan menghasilkan Output:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Toyota
+Honda
+Suzuki
+Daihatsu
+Ford
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Gimana ? Kira-kira sudah kebayang cara baca kodenya ?&lt;/p&gt;
+
+&lt;p&gt;Mari kita bongkar kodenya.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;garasi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Toyota&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Honda&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Suzuki&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Daihatsu&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Ford&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;garasi&lt;/code&gt; adalah sebuah variabel, &lt;strong&gt;variabel adalah tempat untuk menampung data&lt;/strong&gt;, nanti akan kita pelajari pada materi khusus tentang variable.&lt;/p&gt;
+
+&lt;p&gt;Nah, dalam program sederhana ini, nama variabelnya adalah &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;garasi&lt;/code&gt;, yang menampung merek-merek mobil bernama: Toyota, Honda, Suzuki, Daihatsu, Ford.&lt;/p&gt;
+
+&lt;p&gt;Lalu kita begerak menuju baris selanjutnya.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mobil&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;garasi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Sudah dapat ditebak, bahwa baris ini menyatakan sebuah &lt;strong&gt;kondisi&lt;/strong&gt;, lebih tepatnya kondisi perulangan. Dapat dibaca seperti ini, &lt;strong&gt;untuk setiap mobil yang ada di garasi&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Apabila kondisi tersebut sesuai dengan data yang ada (nama &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mobil&lt;/code&gt; yang ada dalam variabel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;garasi&lt;/code&gt;), maka&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mobil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Kita akan menampilkan setiap &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mobil&lt;/code&gt; yang ada pada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;garasi&lt;/code&gt; ke &lt;em&gt;console&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;print()&lt;/strong&gt; adalah sebuah &lt;em&gt;built-in function&lt;/em&gt; atau fungsi bawaan dari Python yang berguna untuk menampilkan &lt;em&gt;output&lt;/em&gt; berupa &lt;em&gt;text&lt;/em&gt; ke dalam &lt;em&gt;console&lt;/em&gt;, &lt;em&gt;console&lt;/em&gt; disini dapat diartikan &lt;em&gt;command prompt&lt;/em&gt; (CMD.exe) pada Windows, atau Terminal pada Linux.&lt;/p&gt;
+
+&lt;p&gt;Gimana ? Jawaban kalian mirip-mirip dengan ini ?&lt;/p&gt;
+
+&lt;p&gt;Saya bisa mengartikan bahwa sintaks dan struktur dari bahasa Python ini mudah untuk dipahami karena mudah untuk dibaca.&lt;/p&gt;
+
+&lt;p&gt;Apabila teman-teman tertarik untuk belajar dasar-dasar bahasa pemrograman Python, yuk ! kita belajar bersama-sama.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;referensi&quot;&gt;Referensi&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.python.org/about/success/&quot;&gt;https://www.python.org/about/success/&lt;/a&gt;
+&lt;br /&gt;Diakses tanggal: 2018/03/27&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- NEXT PREV BUTTON --&gt;
+
+&lt;div class=&quot;post-nav&quot;&gt;
+&lt;a class=&quot;btn-blue-l disabled&quot; href=&quot;&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_ap.png&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-c&quot; href=&quot;/python/&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_menu.svg&quot; /&gt;&lt;/a&gt;
+&lt;a class=&quot;btn-blue-r&quot; href=&quot;/python/01-hal-yang-harus-dipersiapkan&quot;&gt;&lt;img class=&quot;btn-img&quot; src=&quot;/assets/img/logo/logo_an.png&quot; /&gt;&lt;/a&gt;
+&lt;/div&gt;</content><author><name>BanditHijo</name></author><category term="python" /><summary type="html"></summary></entry></feed>

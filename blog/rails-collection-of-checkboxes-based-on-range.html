@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, rails, jquery">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Membuat Collection of Checkbox yang Berbasis Rentang pada Rails | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Membuat Collection of Checkbox yang Berbasis Rentang pada Rails" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan kali ini mengenai cara membuat daftar checkbox yang berbasis rentang (range) pada web aplikasi yang dibabgun dengan Ruby on Rails." />
+<meta property="og:description" content="Catatan kali ini mengenai cara membuat daftar checkbox yang berbasis rentang (range) pada web aplikasi yang dibabgun dengan Ruby on Rails." />
+<link rel="canonical" href="https://bandithijo.dev/blog/rails-collection-of-checkboxes-based-on-range" />
+<meta property="og:url" content="https://bandithijo.dev/blog/rails-collection-of-checkboxes-based-on-range" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-05T06:09:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/rails-collection-of-checkboxes-based-on-range"},"description":"Catatan kali ini mengenai cara membuat daftar checkbox yang berbasis rentang (range) pada web aplikasi yang dibabgun dengan Ruby on Rails.","url":"https://bandithijo.dev/blog/rails-collection-of-checkboxes-based-on-range","@type":"BlogPosting","headline":"Membuat Collection of Checkbox yang Berbasis Rentang pada Rails","dateModified":"2020-02-05T06:09:00+08:00","datePublished":"2020-02-05T06:09:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Membuat Collection of Checkbox yang Berbasis Rentang pada Rails"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/rails-collection-of-checkboxes-based-on-range">Membuat Collection of Checkbox yang Berbasis Rentang pada Rails</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/02/05</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Rails collection of checkboxes based on range
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rails">Rails</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jquery">jQuery</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#controller">Controller</a></li>
+      <li><a href="#routes">Routes</a></li>
+      <li><a href="#view-template">View Template</a>
+        <ul>
+          <li><a href="#jquery-disable-multiple-check">jQuery disable multiple check</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.3</code> <code class="language-plaintext highlighter-rouge">Rails 5.2.3</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 11.5</code></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Catatan kali ini, saya akan kembali mendokumentasikan tentang search filter yang menggunakan Ransack sebagai backend dengan tampilan frontend berupa checkbox.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/gjrXFksr/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Rails view helper collection_check_boxes</p>
+
+<p>Seperti ilustrasi di atas, dapat teman-teman lihat, bahwa collection checkbox pada search filter panel tersebut memiliki rentang tertentu pada setiap listnya.</p>
+
+<p>Hampir sama dengan tulisan saya sebelumnya, mengenai <a href="/blog/rails-input-select-based-on-range" target="_blank">“Membuat Input Select yang Berbasis Rentang pada Rails”</a>, yang mana pada tulisan tersebut, saya menggunakan view helper berupa <code class="language-plaintext highlighter-rouge">select</code>, kali ini saya akan menggunakan view helper berupa <code class="language-plaintext highlighter-rouge">collection_check_boxes</code>.</p>
+
+<p>Secara default, <code class="language-plaintext highlighter-rouge">collection_check_boxes</code> ini dapat menampung multiple value yang akan disimpan dalam bentuk array. Namun, untuk menyederhanakan proses pencarian, saya membuat <code class="language-plaintext highlighter-rouge">collection_check_boxes</code> hanya dapat dipilih satu saja dengan bantuan jQuery.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Masih sama seperti post sebelum ini.</p>
+
+<p>Saya memanfaatkan <strong>Ransack</strong> sebagai search filter.</p>
+
+<p>Ransack memiliki option pencarian untuk menghandle rentang, yaitu <code class="language-plaintext highlighter-rouge">_in</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">_in</code>, <em>match any values in array</em>.</p>
+
+<p>Selain array, dapat juga berupa tipe data range <code class="language-plaintext highlighter-rouge">x..y</code>.</p>
+
+<p>Misal, seperti ilustrasi di atas.</p>
+
+<p>Saya memiliki field bernama <code class="language-plaintext highlighter-rouge">price</code> (budget) dan <code class="language-plaintext highlighter-rouge">duration_id</code>.</p>
+
+<p>Nah, sekarang saya akan mencoba bermain dengan Active Record.</p>
+
+<div class="language-irb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">irb(main):001:0&gt;</span><span class="w"> </span><span class="no">Experience</span><span class="p">.</span><span class="nf">ransack</span><span class="p">(</span><span class="ss">price_in: </span><span class="mi">100</span><span class="o">..</span><span class="mi">300</span><span class="p">).</span><span class="nf">result</span><span class="p">.</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:price</span><span class="p">).</span><span class="nf">uniq</span>
+</code></pre></div></div>
+<div class="language-irb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">   (5.5ms)  SELECT "experiences"."price" FROM "experiences" LEFT OUTER JOIN "ratings" ON "ratings"."experience_id" = "experiences"."id" WHERE "experiences"."deleted_at" IS NULL AND "experiences"."price" IN ('100', '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148', '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160', '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184', '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200', '201', '202', '203', '204', '205', '206', '207', '208', '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247', '248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260', '261', '262', '263', '264', '265', '266', '267', '268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280', '281', '282', '283', '284', '285', '286', '287', '288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300')
+</span><span class="err">
+</span><span class="p">=&gt;</span> <span class="p">[</span><span class="s2">"250"</span><span class="p">,</span> <span class="s2">"150"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-irb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">irb(main):002:0&gt;</span><span class="w"> </span><span class="no">Experience</span><span class="p">.</span><span class="nf">ransack</span><span class="p">(</span><span class="ss">duration_id_in: </span><span class="mi">1</span><span class="o">..</span><span class="mi">8</span><span class="p">).</span><span class="nf">result</span><span class="p">.</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:duration_id</span><span class="p">).</span><span class="nf">uniq</span>
+</code></pre></div></div>
+<div class="language-irb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">   (2.1ms)  SELECT "experiences"."duration_id" FROM "experiences" LEFT OUTER JOIN "ratings" ON "ratings"."experience_id" = "experiences"."id" WHERE "experiences"."deleted_at" IS NULL AND "experiences"."duration_id" IN (1, 2, 3, 4, 5, 6, 7, 8)
+</span><span class="err">
+</span><span class="p">=&gt;</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Kira-kira seperti itu.</p>
+
+<p>Tinggal dibuatkan frontend nya.</p>
+
+<h2 id="controller">Controller</h2>
+
+<p>Search filter ini akan tampil pada halaman Experience index.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/experiences_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">ExperiencesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@search</span> <span class="o">=</span> <span class="no">Experience</span><span class="p">.</span><span class="nf">ransack</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">])</span>
+    <span class="vi">@experiences</span> <span class="o">=</span> <span class="vi">@search</span><span class="p">.</span><span class="nf">result</span><span class="p">(</span><span class="ss">distinct: </span><span class="kp">true</span><span class="p">).</span><span class="nf">order</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="routes">Routes</h2>
+
+<p>Seperti biasa, saya memberikan route untuk action index.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/routes.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">resources</span> <span class="ss">:experiences</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%w[index ... ...]</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="view-template">View Template</h2>
+
+<p>Contoh blok html di bawha ini hanya sebagai dummy.</p>
+
+<p>Hanya blok kode ERB saja yang perlu diperhatikan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/experiences/index.html</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+</pre></td><td class="code"><pre><span class="cp">&lt;%=</span> <span class="n">search_form_for</span> <span class="vi">@search</span><span class="p">,</span> <span class="ss">url: </span><span class="n">experiences_path</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"position-relative"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row column-search"</span><span class="nt">&gt;</span>
+      ...
+      ...
+      ...
+
+      <span class="c">&lt;!-- Budget Range Collection Check Boxes --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"border-bottom"</span> <span class="na">id=</span><span class="s">"filter-tour-budget"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex justify-content-between "</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span&gt;</span>Tour Budget<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"font-size-12 clear-all"</span> <span class="na">data-clear=</span><span class="s">"filter-tour-budget"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"clearAllBudget"</span><span class="nt">&gt;</span>clear all<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox-box"</span> <span class="na">id=</span><span class="s">"budget-checkbox"</span><span class="nt">&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">collection_check_boxes</span> <span class="ss">:price_in</span><span class="p">,</span>
+                                       <span class="p">[[</span><span class="s1">'Below RM100'</span><span class="p">,</span>     <span class="mi">1</span><span class="o">..</span><span class="mi">100</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="s1">'RM101 - RM300'</span><span class="p">,</span>   <span class="mi">101</span><span class="o">..</span><span class="mi">300</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="s1">'RM301 - RM500'</span><span class="p">,</span>   <span class="mi">301</span><span class="o">..</span><span class="mi">500</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="s1">'RM501 and above'</span><span class="p">,</span> <span class="mi">501</span><span class="o">..</span><span class="mi">1000</span><span class="p">]],</span>
+                                        <span class="ss">:second</span><span class="p">,</span> <span class="ss">:first</span><span class="p">,</span>
+                                        <span class="ss">checked: </span><span class="s2">"</span><span class="si">#{</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:price_in</span><span class="p">]</span> <span class="k">rescue</span> <span class="kp">nil</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-check d-flex"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">b</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">class: </span><span class="s1">'custom-control-input budget'</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'q[price_in]'</span> <span class="cp">%&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">b</span><span class="p">.</span><span class="nf">label</span> <span class="ss">class: </span><span class="s1">'custom-control-label'</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!-- END Budget Range Collection Check Boxes --&gt;</span>
+
+      <span class="c">&lt;!-- Duration Collection Check Boxes --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"border-bottom"</span> <span class="na">id=</span><span class="s">"filter-tour-duration"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex justify-content-between "</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span&gt;</span>Tour Duration<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"font-size-12 clear-all"</span> <span class="na">data-clear=</span><span class="s">"filter-tour-duration"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"clearAllDuration"</span><span class="nt">&gt;</span>clear all<span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox-box"</span> <span class="na">id=</span><span class="s">"duration-checkbox"</span><span class="nt">&gt;</span>
+          <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">collection_check_boxes</span> <span class="ss">:duration_id_in</span><span class="p">,</span>
+                                       <span class="p">[[</span><span class="s1">'&lt; 4 hours'</span><span class="p">,</span>   <span class="mi">1</span><span class="o">..</span><span class="mi">8</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="s1">'4 - 6 hours'</span><span class="p">,</span> <span class="mi">8</span><span class="o">..</span><span class="mi">12</span><span class="p">],</span>
+                                        <span class="p">[</span><span class="s1">'&gt; 6 hours'</span><span class="p">,</span>   <span class="mi">12</span><span class="o">..</span><span class="mi">24</span><span class="p">]],</span>
+                                        <span class="ss">:second</span><span class="p">,</span> <span class="ss">:first</span><span class="p">,</span>
+                                        <span class="ss">checked: </span><span class="s2">"</span><span class="si">#{</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:duration_id_in</span><span class="p">]</span> <span class="k">rescue</span> <span class="kp">nil</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-check d-flex"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">b</span><span class="p">.</span><span class="nf">check_box</span> <span class="ss">class: </span><span class="s1">'custom-control-input duration'</span><span class="p">,</span> <span class="ss">name: </span><span class="s1">'q[duration_id_in]'</span> <span class="cp">%&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">b</span><span class="p">.</span><span class="nf">label</span> <span class="ss">class: </span><span class="s1">'custom-control-label'</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="c">&lt;!-- END Duration Collection Check Boxes --&gt;</span>
+
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Check Availability"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perhatikan pada masing-masing check box, saya memberikan nama,</p>
+
+<div class="language-eruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: 'q[price_in]'
+</code></pre></div></div>
+<div class="language-eruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: 'q[duration_id_in]'
+</code></pre></div></div>
+
+<p>Agar output dari params tersebut menghasilkan string.</p>
+
+<p>Karena, apabila saya tidak saya memberikan nama, check box ini secara default akan memiliki nama,</p>
+
+<div class="language-eruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: 'q[price_in][]'
+</code></pre></div></div>
+<div class="language-eruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: 'q[duration_id_in][]'
+</code></pre></div></div>
+
+<p>Yang akan menghasilkan params dengan value berupa array.</p>
+
+<p>Maka dari itu, pada controller, saya perlu membuat sebuah method yang akan mengkonversi dari string menjadi range.</p>
+
+<p>Karena nanti hasil output dari <code class="language-plaintext highlighter-rouge">params[:q][:price_in]</code> dan <code class="language-plaintext highlighter-rouge">params[:q][:duration_id_in]</code> dari view helper <code class="language-plaintext highlighter-rouge">collection_check_boxes</code> berupa string, maka saya perlu merubah tipe datanya menjadi range pada experiences_controller.</p>
+
+<p>Tambahkan kode di bawah ini pada <strong>experiences_controller.rb</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/experiences_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">ExperiencesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:convert_string_into_range</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:index</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+
+  <span class="kp">private</span>
+
+  <span class="c1"># For converting string of value params into range</span>
+  <span class="k">def</span> <span class="nf">string_to_range</span><span class="p">(</span><span class="n">rangestr</span><span class="p">)</span>
+    <span class="n">rangestr</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">'..'</span><span class="p">)</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">inject</span> <span class="p">{</span> <span class="o">|</span><span class="n">s</span><span class="p">,</span><span class="n">e</span><span class="o">|</span> <span class="n">s</span><span class="p">.</span><span class="nf">to_i</span><span class="o">..</span><span class="n">e</span><span class="p">.</span><span class="nf">to_i</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">convert_string_into_range</span>
+    <span class="c1"># For Experiences, search filter by budget range. Convert string into range</span>
+    <span class="k">unless</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:price_in</span><span class="p">]</span> <span class="k">rescue</span> <span class="kp">nil</span><span class="p">).</span><span class="nf">blank?</span>
+      <span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:price_in</span><span class="p">]</span> <span class="o">=</span> <span class="n">string_to_range</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="nf">dig</span><span class="p">(</span><span class="ss">:q</span><span class="p">,</span> <span class="ss">:price_in</span><span class="p">))</span>
+    <span class="k">end</span>
+
+    <span class="c1"># For Experiences, search filter by duration range. Convert string into range</span>
+    <span class="k">unless</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:duration_id_in</span><span class="p">]</span> <span class="k">rescue</span> <span class="kp">nil</span><span class="p">).</span><span class="nf">blank?</span>
+      <span class="n">params</span><span class="p">[</span><span class="ss">:q</span><span class="p">][</span><span class="ss">:duration_id_in</span><span class="p">]</span> <span class="o">=</span> <span class="n">string_to_range</span><span class="p">(</span><span class="n">params</span><span class="p">.</span><span class="nf">dig</span><span class="p">(</span><span class="ss">:q</span><span class="p">,</span> <span class="ss">:duration_id_in</span><span class="p">))</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="jquery-disable-multiple-check">jQuery disable multiple check</h3>
+
+<p>Secara default, view helper <code class="language-plaintext highlighter-rouge">collection_check_boxes</code> ini dapat menampung multiple value yang disimpan dalam array, sehingga frontend, kita dapat memilih banyak pilihan pada check box. Namun, karena alasan tertentu, saya memilih untuk menyederhanakan dan membuat <code class="language-plaintext highlighter-rouge">collection_check_boxes</code> ini hanya dapat menampung nilai string dan hanya dapat memilih satu saja.</p>
+
+<p>Saya menggunakan bantuan jQuery untuk dapat melakukan hal tersebut di atas.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/experiences/index.html</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="code"><pre>...
+...
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="c1">// ...</span>
+  <span class="c1">// ...</span>
+
+  <span class="c1">// For clear all checkboxes on Duration</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#clearAllDuration</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">clearCheckBox</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[class="custom-control-input duration"]</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">clearCheckBox</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="dl">"</span><span class="s2">checked</span><span class="dl">"</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// For clear all checkboxes on Budget</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#clearAllBudget</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">clearCheckBox</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input[class="custom-control-input budget"]</span><span class="dl">'</span><span class="p">);</span>
+    <span class="nx">clearCheckBox</span><span class="p">.</span><span class="nx">prop</span><span class="p">(</span><span class="dl">"</span><span class="s2">checked</span><span class="dl">"</span><span class="p">,</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// For Duration only able to select on checkbox and uncheck other</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input.custom-control-input.duration</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input.custom-control-input.duration</span><span class="dl">'</span><span class="p">).</span><span class="nx">not</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="dl">'</span><span class="s1">checked</span><span class="dl">'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// For Budget only able to select on checkbox and uncheck other</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input.custom-control-input.budget</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">change</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">input.custom-control-input.budget</span><span class="dl">'</span><span class="p">).</span><span class="nx">not</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="dl">'</span><span class="s1">checked</span><span class="dl">'</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+  <span class="p">});</span>
+
+  <span class="c1">// ...</span>
+  <span class="c1">// ...</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, dengan begini tahapan demi tahapan sudah selesai.</p>
+
+<p>Mudah-mudahan dapat bermanfaat buat teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://apidock.com/rails/v4.0.2/ActionView/Helpers/FormOptionsHelper/collection_check_boxes" target="_blank">apidock.com/rails/v4.0.2/ActionView/Helpers/FormOptionsHelper/collection_check_boxes</a>
+<br />Diakses tanggal: 2020/02/05</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/activerecord-hackery/ransack/wiki/Basic-Searching#in" target="_blank">github.com/activerecord-hackery/ransack/wiki/Basic-Searching#in</a>
+<br />Diakses tanggal: 2020/02/05</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

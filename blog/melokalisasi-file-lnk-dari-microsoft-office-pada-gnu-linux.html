@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, wine, arch linux">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar." />
+<meta property="og:description" content="File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar." />
+<link rel="canonical" href="https://bandithijo.dev/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-28T08:33:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux"},"description":"File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar.","url":"https://bandithijo.dev/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux","@type":"BlogPosting","headline":"Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux","dateModified":"2019-03-28T08:33:00+08:00","datePublished":"2019-03-28T08:33:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux">Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/03/28</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Melokalisasi file lnk dari microsoft office pada gnu linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#wine">Wine</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#permasalahan">Permasalahan</a></li>
+  <li><a href="#penyelesaian">Penyelesaian</a></li>
+  <li><a href="#pengujian">Pengujian</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Beberapa waktu yang lalu, saya mencoba memasang <strong>Microsoft Office 2010</strong> pada distribusi sistem operasi <strong>Arch Linux</strong> menggunakan <strong>Wine 4.4-1</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/yWqzSvDJ/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Hasilnya lumayan memuaskan, meskipun beberapa aplikasi yang dibawa oleh Microsoft Office ini belum dapat dijalankan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/sXSKwrKg/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Microsoft Word 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/SxjzTwBC/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Microsoft Excel 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/sDKmnKP7/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Microsoft Access 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/PfW2DdP6/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - Microsoft Outlook 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/prJCMJwN/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 6 - Microsoft Clip Organizer</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/WbsS6xZs/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 7 - Microsoft Publisher 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/x14RQC4d/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 8 - Microsoft Office Picture Manager</p>
+
+<p><br />
+Beberapa aplikasi Microsoft Office yang belum dapat dijalankan, diantaranya :</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/Wzv8yHf6/gambar-09.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 9 - Microsoft OneNote 2010</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/LsgV8pc3/gambar-10.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 10 - Microsoft PowerPoint 2010</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p> Ternyata, untuk dapat menjalankan Microsoft PowerPoint, kita perlu menambahkan library pada <code>winecfg</code> bernama <code>riched20</code>.</p>
+  </div></div>
+
+<p>Meski begitu saat ini saya tidak benar-benar menggunakan aplikasi Microsoft Office.</p>
+
+<p>Saya hanya menggunakan Microsoft Word untuk melihat template dokumen-dokumen dari tugas akhir yang disediakan oleh kampus dalam format <code class="language-plaintext highlighter-rouge">.doc</code> dan <code class="language-plaintext highlighter-rouge">.docx</code> kemudian secara manual saya buat ulang untuk format <code class="language-plaintext highlighter-rouge">.odt</code> (LibreOffice Word Document).</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Kenapa tidak menggunakan Microsoft Word saja? Kan sudah berhasil dipasang?</b></p>
+    <ol>
+<li>Saya tidak takut untuk menjadi berbeda.</li>
+<li>Saya tidak takut untuk menggunakan LibreOffice.</li>
+<li>Saya menggunakan format <code>.fodt</code> (<i>Flat XML Open Document Text</i>) yang dapat digunakan di dalam <b>Git</b> sehingga memudahkan saya dalam mengerjakan tugas akhir (<i>Version Control System</i>).</li>
+</ol>
+    <p>Poin ketiga adalah yang menjadi alasan terbesar saya. Mengapa saya bersikeras untuk menggunakan LibreOffice dalam mengerjakan tugas akhir.</p>
+    <p>Mengenai file berekstensi <code>.fodt</code> akan saya ulas pada tulisan yang lain.</p>
+  </div></div>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Pada tulisan ini, saya hanya mengkhususkan pada <strong>Microsoft Word</strong> saja. Karena aplikasi ini yang sedang saya pergunakan.</p>
+
+<p>Permasalahan yang muncul dari penggunaan aplikasi Microsoft Word di atas sistem operasi Arch Linux dengan menggunakan Wine adalah:</p>
+
+<p><mark><b>Muncul file berekstensi '.lnk' dengan diawali oleh nama dari dokumen yang sedang kita buka pada Microsoft Word</b>.</mark></p>
+
+<p>File ini seperti file <em>shortcut</em>. Letaknya pun random. Kadang berada di direktori yang sama dengan file dokumen. Kadang berada di Home, kadang berada di direktori Documents.</p>
+
+<p>Contohnya seperti ini.</p>
+
+<p><strong>.lnk pada direktori yang sama</strong>.</p>
+
+<pre>
+/home/bandithijo
+├── Desktop
+├── Documents
+│   └── Tugas_akhir
+│       ├── Template-PROPOSAL.doc
+│       ├── <mark>Template-PROPOSAL.lnk</mark>
+│       ├── Template-SKRIPSI.doc
+│       └── <mark>Template-SKRIPSI.lnk</mark>
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+</pre>
+
+<p><strong>.lnk pada direktori Documents</strong>.</p>
+
+<pre>
+/home/bandithijo
+├── Desktop
+├── Documents
+│   ├── <mark>Template-PROPOSAL.lnk</mark>
+│   ├── <mark>Template-SKRIPSI.lnk</mark>
+│   └── Tugas_akhir
+│       ├── Template-PROPOSAL.doc
+│       └── Template-SKRIPSI.doc
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+</pre>
+
+<p><strong>.lnk pada direktori Home</strong>.</p>
+
+<pre>
+/home/bandithijo
+├── Desktop
+├── Documents
+│   └── Tugas_akhir
+│       ├── Template-PROPOSAL.doc
+│       └── Template-SKRIPSI.doc
+├── Downloads
+├── Music
+├── Pictures
+├── Public
+├── <mark>Template-PROPOSAL.lnk</mark>
+├── <mark>Template-SKRIPSI.lnk</mark>
+├── Templates
+└── Videos
+</pre>
+
+<p>Kira-kira, ilustrasinya seperti di atas.</p>
+
+<p>Awalnya, saya tidak begitu menghiraukan. Namun, lama-kelamaan menjadi tidak sedap dipandang juga.</p>
+
+<h1 id="penyelesaian">Penyelesaian</h1>
+
+<p>Untuk mengatasi permasalahan ini, ternyata sangat mudah sekali.</p>
+
+<p>Kita hanya perlu membuatkan direktori di dalam direktori Wine yang akan berguna sebagai tempat penyimpanan <em>Recent Documents</em>.</p>
+
+<p>Asumsi saya, permasalahan ini terjadi karena Microsoft Office, dalam hal ini Microsoft Word yang sedang saya pergunakan, selalu membuat daftar <em>Recent Documents</em> agar dapat dengan mudah kita panggil kembali di dalam Microsoft Word, sedangkan pada direktori Home di GNU/Linux, tidak terdapat direktori yang dapat dipergunakan oleh Microsoft Word untuk menyimpan file <em>Recent Documents</em> ini.</p>
+
+<p>Memang, tidak semua aplikasi Windws yang berjalan di atas Wine memiliki polah dan tingkah laku seperti Microsoft Office ini. Contohnya saya, saya sudah menggunakan Macromedia Flash, Naver Line, dan Balsamiq Mockups 3. Ketiga aplikasi ini tidak memiliki perilaku yang sama seperti Microsoft Office.</p>
+
+<p>Nah, sekarang kita akan sediakan direktori <em>Recent</em> untuk mengatasi permasalahan ini.</p>
+
+<ol>
+  <li>
+    <p>Masuk ke dalam direktori <strong>WINEPREFIX</strong>.</p>
+
+    <p>Secara <em>default</em> berada pada <code class="language-plaintext highlighter-rouge">~/.wine/</code>.</p>
+
+    <p>Kemudian, lanjutkan ke dalam direktori <em>users</em> yang kita miliki di dalam WINEPREFIX.</p>
+
+    <p>Contohnya seperti punya saya.</p>
+
+    <pre><span class="cmd">$ </span><b>cd ~/.wine/drive_c/users/bandithijo</b><br /></pre>
+  </li>
+  <li>
+    <p>Kemudian , lihat isi di dalam direktori ini. Apakah sudah terdapat direktori yang bernama <code class="language-plaintext highlighter-rouge">Recent</code> atau tidak.</p>
+
+    <pre><span class="cmd">$ </span><b>ls -la</b><br /></pre>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drwxr-xr-x  AppData
+drwxr-xr-x 'Application Data'
+drwxr-xr-x  Contacts
+drwxr-xr-x  Cookies
+lrwxrwxrwx  Desktop -&gt; /home/bandithijo/dex
+drwxr-xr-x  Downloads
+drwxr-xr-x  Favorites
+drwxr-xr-x  .LINE
+drwxr-xr-x  Links
+drwxr-xr-x 'Local Settings'
+lrwxrwxrwx 'My Documents' -&gt; /home/bandithijo/doc
+lrwxrwxrwx 'My Music' -&gt; /home/bandithijo/snd
+lrwxrwxrwx 'My Pictures' -&gt; /home/bandithijo/pix
+lrwxrwxrwx 'My Videos' -&gt; /home/bandithijo/vid
+drwxr-xr-x 'Saved Games'
+drwxr-xr-x  Searches
+drwxr-xr-x 'Start Menu'
+drwxr-xr-x  Temp
+</code></pre></div>    </div>
+
+    <p>Dapat dilihat, tidak ada direktori yang bernama <code class="language-plaintext highlighter-rouge">Recent</code>.</p>
+
+    <p>Maka, kita akan buatkan.</p>
+  </li>
+  <li>
+    <p>Ketik perintah di bawah untuk membuat direktori <code class="language-plaintext highlighter-rouge">Recent</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>mkdir Recent</b><br /></pre>
+
+    <p>Lalu, periksa kembali keberadaan direktori ini, apakah sudah berhasil dibuat atau tidak.</p>
+
+    <pre>
+drwxr-xr-x  AppData
+drwxr-xr-x 'Application Data'
+drwxr-xr-x  Contacts
+drwxr-xr-x  Cookies
+lrwxrwxrwx  Desktop -&gt; /home/bandithijo/dex
+drwxr-xr-x  Downloads
+drwxr-xr-x  Favorites
+drwxr-xr-x  .LINE
+drwxr-xr-x  Links
+drwxr-xr-x 'Local Settings'
+lrwxrwxrwx 'My Documents' -&gt; /home/bandithijo/doc
+lrwxrwxrwx 'My Music' -&gt; /home/bandithijo/snd
+lrwxrwxrwx 'My Pictures' -&gt; /home/bandithijo/pix
+lrwxrwxrwx 'My Videos' -&gt; /home/bandithijo/vid
+<mark>drwxr-xr-x  Recent</mark>
+drwxr-xr-x 'Saved Games'
+drwxr-xr-x  Searches
+drwxr-xr-x 'Start Menu'
+drwxr-xr-x  Temp</pre>
+
+    <p>Buat juga, direktori <strong>Recent</strong> pada <em>users</em> Public.</p>
+
+    <p>Yang beralamat di <code class="language-plaintext highlighter-rouge">~/.wine/drive_c/users/Public</code>.</p>
+
+    <p>Selesai.</p>
+  </li>
+</ol>
+
+<h1 id="pengujian">Pengujian</h1>
+
+<p>Sekarang coba buka kembali file dokumen yang berekstensi <code class="language-plaintext highlighter-rouge">.doc</code> atau <code class="language-plaintext highlighter-rouge">.docx</code> dari dalam Microsoft Word.</p>
+
+<p>Lalu, periksa direktori Home, Documents, dan direktori tempat file dokumen berada, apakah masih terdapat file berkestensi <code class="language-plaintext highlighter-rouge">.lnk</code> atau tidak.</p>
+
+<p>Apabila tidak, sekarang coba periksa pada direktori <strong>Recent</strong> yang baru saja kita buat.</p>
+
+<pre><span class="cmd">$ </span><b>ls -l ~/.wine/drive_c/users/bandithijo/Recent</b><br /></pre>
+
+<p>Hasilnya,</p>
+
+<pre>
+total 12
+<mark>-rw-r--r-- Template-PROPOSAL.doc.lnk</mark>
+<mark>-rw-r--r-- Template-SKRIPSI.doc.lnk</mark>
+</pre>
+
+<p>Sekarang file berekstensi <code class="language-plaintext highlighter-rouge">.lnk</code> yang dihasilkan oleh Microsoft Office sudah tidak lagi berhamburan pada struktur direktori GNU/Linux, karena sudah kita lokalisasi pada direktori <strong>Recent</strong> sebagaimana pada habitat asalnya. Hehe.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://www.codeweavers.com/support/forums/general/?t=26;msg=128936" target="_blank">Office 2010 and .lnk files </a>
+<br />Diakses tanggal: 2019/03/27</p>
+  </li>
+  <li>
+    <p><a href="http://www.efficientsoftware.co.nz/microsoft-office-linux-lnk-wine/" target="_blank">Microsoft Office under Linux: .lnk files, WINE, Crossover, and you</a>
+<br />Diakses tanggal: 2019/03/27</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

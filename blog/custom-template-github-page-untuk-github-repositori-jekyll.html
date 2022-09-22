@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, jekyll">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari repositori tersebut. Sayangnya theme yang disediakan mungkin tidak cocok dengan kemauan kita. Dan sejauh yang saya tahu, belum ada fitur untuk membuat theme sendiri. Catatan kali ini mungkin dapat membantu teman-teman untuk merancang GitHub Pages themes sendiri." />
+<meta property="og:description" content="Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari repositori tersebut. Sayangnya theme yang disediakan mungkin tidak cocok dengan kemauan kita. Dan sejauh yang saya tahu, belum ada fitur untuk membuat theme sendiri. Catatan kali ini mungkin dapat membantu teman-teman untuk merancang GitHub Pages themes sendiri." />
+<link rel="canonical" href="https://bandithijo.dev/blog/custom-template-github-page-untuk-github-repositori-jekyll" />
+<meta property="og:url" content="https://bandithijo.dev/blog/custom-template-github-page-untuk-github-repositori-jekyll" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-12T17:37:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/custom-template-github-page-untuk-github-repositori-jekyll"},"description":"Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari repositori tersebut. Sayangnya theme yang disediakan mungkin tidak cocok dengan kemauan kita. Dan sejauh yang saya tahu, belum ada fitur untuk membuat theme sendiri. Catatan kali ini mungkin dapat membantu teman-teman untuk merancang GitHub Pages themes sendiri.","url":"https://bandithijo.dev/blog/custom-template-github-page-untuk-github-repositori-jekyll","@type":"BlogPosting","headline":"Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll","dateModified":"2020-09-12T17:37:00+08:00","datePublished":"2020-09-12T17:37:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/custom-template-github-page-untuk-github-repositori-jekyll">Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/09/12</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Custom template github page untuk github repositori jekyll
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jekyll">Jekyll</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#solusinya">Solusinya</a>
+    <ul>
+      <li><a href="#1-inisialisasi-gemfile">1. Inisialisasi Gemfile</a></li>
+      <li><a href="#2-definisikan-gem-yang-diperlukan">2. Definisikan Gem yang Diperlukan</a></li>
+      <li><a href="#3-definisikan-_configyml">3. Definisikan _config.yml</a></li>
+      <li><a href="#4-buat-default-template">4. Buat Default Template</a></li>
+      <li><a href="#5-buat-direktori-assets">5. Buat Direktori Assets</a></li>
+      <li><a href="#6-inisialisasi-gitignore">6. Inisialisasi Gitignore</a></li>
+    </ul>
+  </li>
+  <li><a href="#lets-run">Let’s Run!</a></li>
+  <li><a href="#lets-push">Let’s Push</a></li>
+  <li><a href="#tips">Tips</a>
+    <ul>
+      <li><a href="#membuat-collapsible">Membuat Collapsible</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Kalau teman-teman berkunjung ke <a href="https://bandithijo.github.io/hellodev_ruby_meetup/">“HelloDev Online Meetup: 💎 Ruby for Beginner”</a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/PrCmDq3W/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kemudian, memperhatikan URL-nya.</p>
+
+<pre class="url">https://bandithijo.github.io/hellodev_ruby_meetup<br /></pre>
+
+<p>Saya menggunakan domain yang saya dengan blog ini. Namun, halaman tersebut tidak berada pada repositori yang sama dengan repositori blog ini. Source dari halaman tersebut berada pada repositori yang berbeda.</p>
+
+<p>Blog ini ada pada repo ini:</p>
+
+<pre class="url">github.com/bandithijo/bandithijo.github.io<br /></pre>
+
+<p>Sedangkan, halaman pengumuman tersebut, berada pada repositori ini:</p>
+
+<pre class="url">github.com/bandithijo/hellodev_ruby_meetup<br /></pre>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/dV81Qds3/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><br />
+Sebenarnya, GitHub Page sudah menyediakan beberapa template default apabila kita mengaktifkan memilih “Theme” pada pengaturan yang ada pada masing-masing repositori –lihat gambar di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/d3LTGWBs/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Namun, terkadang, theme yang disediakan kurang sesuai “feel”-nya dengan konten yang ingin kita tampilkan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/BZXN0sWV/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="solusinya">Solusinya</h1>
+
+<p>Kita dapat membuat custom template sendiri untuk GitHub Page dari repositori project.</p>
+
+<p>Kali ini saya akan memanfaatkan Jekyll dengan cara yang minimalis sebagai framework yang akan membantu saya untuk membuat GitHub Page dari repositori tersebut.</p>
+
+<p>Kenapa saya bisa menyebut “minimalis”? Karena, kita hanya menggunakan komponen-komponen yang sedikit.</p>
+
+<p>Seperti ini saja yang kita perlukan untuk membuat custom theme dengan Jekyll untuk GitHub Page dari project kita.</p>
+
+<pre>
+📁 project_repositori/
+├── 📁 assets/
+│   ├── 📁 css/
+│   │   └── 📄 style.css
+│   └── 📁 javascript/
+├── 📄 _config.yml
+├── 📄 .gitignore
+├── 📄 Gemfile
+├── 📄 Gemfile.lock
+├── 📁 _layouts/
+│   └── 📄 default.html
+└── 📄 README.md
+</pre>
+
+<p>Saya akan menjelaskan langkah demi langkah di bawah ini.</p>
+
+<p>Nah, GitHub Page dengan Jekyll yang akan kita buat ini akan membaca konten dari file <strong>README.md</strong>.</p>
+
+<p>Sehingga, isi yang ada pada GitHub repo README dengan single page yang kita buat akan sama.</p>
+
+<h2 id="1-inisialisasi-gemfile">1. Inisialisasi Gemfile</h2>
+
+<p>Buat file bernama <strong>Gemfile</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>touch Gemfile</b><br /></pre>
+
+<p>File Gemfile ini yang akan kita gunakan untuk memberikan spesifikasi gem apa saja yang akan kita gunakan. Kita akan mendefinisikan gem Jekyll pada file Gemfile ini.</p>
+
+<h2 id="2-definisikan-gem-yang-diperlukan">2. Definisikan Gem yang Diperlukan</h2>
+
+<p>Buka <strong>Gemfile</strong> dan isikan seperti di bawah ini saja.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+<span class="n">gem</span> <span class="s1">'jekyll'</span><span class="p">,</span> <span class="s1">'~&gt; 4.1.1'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Penting!</strong> Pastikan teman-teman sudah menginstall gem <strong>bundler</strong> sebelumnya.</p>
+
+<p>Kemudian, install dengan menjalankan perintah.</p>
+
+<pre><span class="cmd">$ </span><b>bundle install</b><br /></pre>
+
+<h2 id="3-definisikan-_configyml">3. Definisikan _config.yml</h2>
+
+<p>Selanjutnya adalah mendifinisikan isi dari file <strong>_config.yml</strong>.</p>
+
+<p>Buat file bernama <strong>_config.yml</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>touch _config.yml</b><br /></pre>
+
+<p>Kemudian, isi dan modifikasi seperti di bawah ini, sesuai dengan kepentingan kalian.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>_config.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="c1"># PENGGUNAAN:</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+<span class="c1"># - Instalasi gem yang diperlukan</span>
+<span class="c1">#   $ bundle</span>
+<span class="c1">#</span>
+<span class="c1"># - Jalankan Jekyll server</span>
+<span class="c1">#   $ bundle exec jekyll s</span>
+<span class="c1"># -----------------------------------------------------------------------------</span>
+
+<span class="na">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">HelloDev</span><span class="nv"> </span><span class="s">Online</span><span class="nv"> </span><span class="s">Meetup:</span><span class="nv"> </span><span class="s">💎</span><span class="nv"> </span><span class="s">Ruby</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Beginner'</span>
+
+<span class="na">defaults</span><span class="pi">:</span>
+  <span class="pi">-</span>
+    <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s1">'</span><span class="s">README.md'</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">permalink</span><span class="pi">:</span> <span class="s1">'</span><span class="s">index.html'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Isikan <code class="language-plaintext highlighter-rouge">title:</code> sesuai kepentingan kalian.</p>
+
+<p>Scope <code class="language-plaintext highlighter-rouge">defaults:</code> adalah bagian yang penting, yang akan membaca file <strong>README.md</strong> kita dan akan dikenali sebagai file <strong>index.html</strong>. Sehingga kita tidak perlu membuat file <strong>index.html</strong> di project repositori kita. Cukup file <strong>README.md</strong> saja yang juga akan dibaca oleh GitHub.</p>
+
+<h2 id="4-buat-default-template">4. Buat Default Template</h2>
+
+<p><strong>_layouts</strong> direktori ini akan berisi template <strong>default.html</strong>. Template yang akan kita gunakan sebagai tampilan dari single page yang akan kita buat.</p>
+
+<pre>
+project_repositori/
+...
+...
+├── ...
+├── ...
+├── 📁 _layouts/
+│   └── 📄 default.html
+└─ ...
+</pre>
+
+<p>Buat <strong>_layouts</strong> direktori.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir _layouts</b><br /></pre>
+
+<p>Kemudian, masuk ke dalam direktori <strong>layouts</strong> dan buat file <strong>default.html</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>cd _layouts</b><br /><span class="cmd">$ </span><b>touch default.html</b><br /></pre>
+
+<p>Kemudian isikan file <strong>default.html</strong> seperti di bawah ini. Sesuaikan dengan kebutuhan kalian.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>_layouts/default.html</code></div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#ffffff"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"apple-mobile-web-app-status-bar-style"</span> <span class="na">content=</span><span class="s">"black-translucent"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>{{ site.title }}<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"page-ctn"</span> <span class="na">contenteditable=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;main</span> <span class="na">id=</span><span class="s">"content"</span> <span class="na">class=</span><span class="s">"markdown-body"</span> <span class="na">role=</span><span class="s">"main"</span><span class="nt">&gt;</span>
+        {{ content }}
+      <span class="nt">&lt;/main&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Bagian <code class="language-plaintext highlighter-rouge">{{ content }}</code>, adalah bagian yang akan dijadikan tempat untuk merender isi dari file <strong>README.md</strong> di repositori project kita.</p>
+
+<p>Bagian <code class="language-plaintext highlighter-rouge">{{ site.title }}</code>, nilainya akan diambil dari <code class="language-plaintext highlighter-rouge">title</code> yang kita isikan pada file <strong>_config.yml</strong>.</p>
+
+<h2 id="5-buat-direktori-assets">5. Buat Direktori Assets</h2>
+
+<p>Direktori <strong>assets</strong> akan kita gunakan untuk menyimpan stylesheet dan javascript.</p>
+
+<pre>
+📁 project_repositori/
+├── 📁 assets/
+│   ├── 📁 css/
+│   │   └── 📄 style.css
+│   └── 📁 javascript/
+...
+...
+└── ...
+</pre>
+
+<p>Saya memberikan nama stylesheet dengan <strong>style.css</strong>.</p>
+
+<p>Nah, sekarang mau seperti apa tampilan dari single page, tinggal kita atur di dalam stylesheet ini.</p>
+
+<p>Kalau ingin mengikuti style seperti yang yang saya buat, pada gambar di atas, teman-teman dapat mendownload <strong>style.css</strong> tersebut <a href="https://raw.githubusercontent.com/bandithijo/hellodev_ruby_meetup/master/assets/css/style.css" target="_blank"><strong>di sini</strong></a>.</p>
+
+<h2 id="6-inisialisasi-gitignore">6. Inisialisasi Gitignore</h2>
+
+<p>Jangan lupa untuk membuat file <strong>.gitignore</strong>.</p>
+
+<p>Ada beberapa file dan direktori yang tentunya tidak kita inginkan ikut ke dalam GitHub repositori kita.</p>
+
+<p>Isinya seperti di bawah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.jekyll-cache/
+.jekyll-metadata
+_site/
+.~lock.main.fodp#
+.~lock.*
+</code></pre></div></div>
+
+<p>Silahkan tambahkan sesuai kebutuhan kalian.</p>
+
+<h1 id="lets-run">Let’s Run!</h1>
+
+<p>Semua kebutuhan di atas sudah dibuat dan dipenuhi, selanjutnya tinggal menjalankan Jekyll server.</p>
+
+<pre><span class="cmd">$ </span><b>bundle exec jekyll s -l</b><br /></pre>
+
+<p>Saya menambahkan <code class="language-plaintext highlighter-rouge">-l</code> agar halaman akan “auto reload” tanpa perlu kita refresh kalau ada perubahan.</p>
+
+<p>Hasilnya, dapat kita lihat pada browser di alamat.</p>
+
+<pre class="url">http://localhost:4000<br /></pre>
+
+<p>Kalau konfigurasinya sudah benar, maka akan menampilkan isi dari halaman <strong>README.md</strong> yang ada di project direktori kita.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/NfGdzTsR/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="lets-push">Let’s Push</h1>
+
+<p>Setelah semua sudah dikonfigurasi di lokal, saatnya kita deploy ke GitHub repositori.</p>
+
+<pre><span class="cmd">$ </span><b>git push -u origin master</b><br /></pre>
+
+<p>Kemudian, pergi ke tab <strong>⚙️ Settings</strong>.</p>
+
+<p>Pada section <strong>GitHub Pages</strong>, pilih branch <strong>master</strong> sebagai source yang akan ditampilkan sebagai GitHub Pages.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/pVzGWwQw/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kalau sudah dirubah, notifkasi dengan pita hijau akan muncul bertuliskan,</p>
+
+<pre class="whiteboard">Your site is <b>published</b> at ...<br /></pre>
+
+<p>Nah, selesai!</p>
+
+<h1 id="tips">Tips</h1>
+
+<h2 id="membuat-collapsible">Membuat Collapsible</h2>
+
+<p>Kalau teman-teman ke bagian TOPICS, akan melihat bagian yang dapat “collapsible”, seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/RFRc7sny/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kemudian, saat di klik, maka akan terbuka, seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/0jy7cYYQ/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Bagaimana cara membuatnya?</strong></p>
+
+<p>Mudah sekali, tinggal ikuti format seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;summary</span> <span class="na">style=</span><span class="s">"cursor:pointer;"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/summary&gt;</span>
+<span class="nt">&lt;/details&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <code class="language-plaintext highlighter-rouge">markdown="1"</code> agar Markdown sintaks yang ada di dalam HTML dapat dirender.</p>
+
+<p>Contohnya seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="nt">&lt;details</span> <span class="na">markdown=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;summary</span> <span class="na">style=</span><span class="s">"cursor:pointer;"</span><span class="nt">&gt;</span>Topik yang akan dibicarakan meliputi: *<span class="nt">&lt;i&gt;</span>click to open<span class="nt">&lt;/i&gt;&lt;/summary&gt;</span>
+
+01. **Introduction to Ruby Lang**
+    - [x] Sedikit tentang Ruby?
+    - [x] Is Ruby dead programming language?
+    - [x] Kenapa memilih Ruby?
+    - [x] Apa yang baru dari Ruby 2.7?
+    - [x] Tips memasang Ruby untuk developer?
+    - [x] Bagaimana menulis kode <span class="err">&amp;</span> menjalankannya?<span class="nt">&lt;br&gt;</span>
+          (dengan Text Editor <span class="err">&amp;</span> IRB: comment, variable, puts, p, <span class="err">&amp;</span> print)
+...
+...
+
+<span class="nt">&lt;/details&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Penting!</strong> Untuk memberikan 1 baris kosong tepat di atas <code class="language-plaintext highlighter-rouge">&lt;/details&gt;</code>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sebagai catatan, Jekyll menggunakan bahasa template yang bernama <strong>Liquid</strong>.</p>
+
+<p>Kira-kira seperti ini ciri-ciri tag dari Liquid.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre>{% if jekyll.environment == 'production' %}
+  <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"google-site-verification"</span> <span class="na">content=</span><span class="s">"{{ site.google_verify }}"</span><span class="nt">&gt;</span>
+{% endif %}
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Apabila teman-teman ingin memodifikasi lebih jauh, silahkan merujuk kepada dokumentasi bahasa Liquid atau Dokumentasi dari Jekyll untuk melihat bagaimana cara menggunakan Liquid tag.</p>
+
+<p>Sepertinya, segini dulu yang saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

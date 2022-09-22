@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl) | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl)" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl." />
+<meta property="og:description" content="iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-iwd" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-iwd" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-01T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-iwd"},"description":"iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl.","url":"https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-iwd","@type":"BlogPosting","headline":"Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl)","dateModified":"2021-01-01T00:00:00+08:00","datePublished":"2021-01-01T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl)"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mudah-mengkonfigurasi-wifi-dengan-iwd">Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl)</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/01/01</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mudah mengkonfigurasi wifi dengan iwd
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#sekilas-tentang-iwd">Sekilas Tentang iwd</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#cara-penggunaan">Cara Penggunaan</a>
+    <ul>
+      <li><a href="#iwctl-shell">iwctl Shell</a></li>
+      <li><a href="#iwctl-help">iwctl Help</a></li>
+      <li><a href="#iwctl-device-list">iwctl Device List</a></li>
+      <li><a href="#iwctl-station-scan">iwctl Station Scan</a></li>
+      <li><a href="#iwctl-station-get-networks">iwctl Station Get Networks</a></li>
+      <li><a href="#iwctl-station-connect">iwctl Station Connect</a></li>
+      <li><a href="#iwctl-station-disconnect">iwctl Station Disconnect</a></li>
+    </ul>
+  </li>
+  <li><a href="#lokasi-file-config">Lokasi File Config</a>
+    <ul>
+      <li><a href="#general-main-file-config">General (Main) File Config</a>
+        <ul>
+          <li><a href="#enable-built-in-dhcp">Enable Built-in DHCP</a></li>
+        </ul>
+      </li>
+      <li><a href="#file-config-network-spesifik">File Config Network Spesifik</a></li>
+      <li><a href="#konfigurasi-auto-connect-ke-network-tertentu">Konfigurasi Auto Connect ke Network Tertentu</a></li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi-lanjut">Konfigurasi Lanjut</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#terima-kasih">Terima Kasih</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Setelah pada catatan sebelumnya, saya menulis tentang <a href="/blog/mudah-mengkonfigurasi-wifi-dengan-wpa_supplicant" target="_blank"><strong>Mudah Mengkonfigurasi Wi-Fi dengan wpa_supplicant</strong></a>.</p>
+
+<p>Catatan kali ini, saya akan menulis calon penerus dari <strong>wpa_supplicant</strong>, yaitu <strong>iwd</strong>.</p>
+
+<h1 id="sekilas-tentang-iwd">Sekilas Tentang iwd</h1>
+
+<p><strong>iwd</strong> adalah kependekan dari <strong>iNet wireless daemon</strong>, adalah wireless daemon tool untuk Linux yang dikembangkan oleh Intel.</p>
+
+<p>Tujuan inti dari proyek ini adalah untuk mengoptimalkan pemanfaatan sumber daya agar tidak tergantung dengan banyak external library dan <strong>hanya memanfaatkan fitur yang disediakan oleh Kernel Linux semaksimal mungkin</strong>.</p>
+
+<p>Seperti halnya <strong>wpa_supplicant</strong>, <strong>iwd</strong> pun dapat digunakan secara standalone maupun dikombinasikan dengan comprehensive network manager seperti <strong>ConnMan</strong>, <strong>NetworkManager</strong>, dan <strong>systemd-networkd</strong>.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Pasang <strong>iwd</strong> sangat mudah di Arch Linux.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S iwd</b><br /></pre>
+
+<p>Untuk Artix Linux,</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S iwd iwd-openrc</b><br /></pre>
+
+<p>Pada iwd package ini kita juga akan mendapatkan:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">iwctl</code>, shell interface</li>
+  <li><code class="language-plaintext highlighter-rouge">iwd</code>, daemon</li>
+  <li><code class="language-plaintext highlighter-rouge">iwmon</code>, Wi-Fi monitoring tool</li>
+</ol>
+
+<h1 id="cara-penggunaan">Cara Penggunaan</h1>
+
+<p>Cara penggunaan yang akan saya catat adalah cara yang saya pergunakan. Pasti akan banyak sekali cara dalam menggunakan iwd. Jadi jangan kaku. Kita harus fleksibel agar tidak patah. 😄</p>
+
+<h2 id="iwctl-shell">iwctl Shell</h2>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>2020 ini, Arch merubah tools untuk terhubung ke jaringan Wi-Fi yang sebelumnya menggunakan <strong>wifi-menu</strong>, sekarang sudah diganti dengan menggunakan <strong>iwd</strong> – <strong>iwd</strong> adalah replacement untuk <strong>wpa_supplicant</strong>.</p>
+    <p>Pada menu startup archiso pertama kali, teman-teman akan disuguhkan tampilan sepertin ini.</p>
+
+    <pre>
+Arch Linux 5.9.11-arch2-1 (tty1)
+
+archiso login: root (automatic lgin)
+
+To install Arch Linux follow the installation guide:
+https://wiki.archlinux.org/index.php/Installation_guide
+
+For Wi-Fi, authenticate to the wireless network using the iwctl utility.
+Ethernet and Wi-Fi connections using DHCP should work automatically.
+
+After connecting to the internet, the installation guide can be accessed
+via the convenience script Installation_guide.
+
+root@archiso ~ # _
+</pre>
+
+    <p>Teman-teman dapat melihat, terdapat informasi yang memberikan kita petunjuk untuk authenticate Wi-Fi, kita diminta untuk menggunakan <code class="language-plaintext highlighter-rouge">iwctl</code> – <strong>iwctl</strong> adalah interface dari <strong>iwd</strong>.</p>
+  </div></div>
+
+<pre><span class="cmd">$ </span><b>iwctl</b><br /></pre>
+
+<p>Kita akan dibawa masuk ke dalam iwd shell yang berpenampilan seperti di bawah ini.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>_</b>
+</pre>
+
+<p>Artinya kita sudah berada di dalam iwd shell.</p>
+
+<h2 id="iwctl-help">iwctl Help</h2>
+
+<p>Jangan panik dan mundur, karena tidak ada petunjuk apa-apa, kamu dapat memasukkan perintah <code class="language-plaintext highlighter-rouge">help</code> untk mendapatkan petuah yang berguna.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>help</b>
+</pre>
+
+<pre>
+                               iwctl version 1.10
+--------------------------------------------------------------------------------
+  Usage
+--------------------------------------------------------------------------------
+  iwctl [--options] [commands]
+
+                               Available options
+--------------------------------------------------------------------------------
+  Options                                           Description
+--------------------------------------------------------------------------------
+  --username                                        Provide username
+  --password                                        Provide password
+  --passphrase                                      Provide passphrase
+  --dont-ask                                        Don't ask for missing
+                                                    credentials
+  --help                                            Display help
+
+                               Available commands
+--------------------------------------------------------------------------------
+  Commands                                          Description
+--------------------------------------------------------------------------------
+
+Adapters:
+  adapter list                                      List adapters
+  adapter &lt;phy&gt; show                                Show adapter info
+  adapter &lt;phy&gt; set-property &lt;name&gt; &lt;value&gt;         Set property
+
+Ad-Hoc:
+  ad-hoc list                                       List devices in Ad-hoc mode
+  ad-hoc &lt;wlan&gt; start &lt;"network name"&gt; &lt;passphrase&gt; Start or join an existing
+                                                    Ad-Hoc network called
+                                                    "network name" with a
+                                                    passphrase
+  ad-hoc &lt;wlan&gt; start_open &lt;"network name"&gt;         Start or join an existing
+                                                    open Ad-Hoc network called
+                                                    "network name"
+  ad-hoc &lt;wlan&gt; stop                                Leave an Ad-Hoc network
+
+Access Point:
+  ap list                                           List devices in AP mode
+  ap &lt;wlan&gt; start &lt;"network name"&gt; &lt;passphrase&gt;     Start an access point
+                                                    called "network name" with
+                                                    a passphrase
+  ap &lt;wlan&gt; stop                                    Stop a started access
+                                                    point
+
+Devices:
+  device list                                       List devices
+  device &lt;wlan&gt; show                                Show device info
+  device &lt;wlan&gt; set-property &lt;name&gt; &lt;value&gt;         Set property
+
+Known Networks:
+  known-networks list                               List known networks
+  known-networks &lt;"network name"&gt; forget            Forget known network
+  known-networks &lt;"network name"&gt; show              Show known network
+  known-networks &lt;"network name"&gt; set-property &lt;name&gt; &lt;value&gt;Set property
+
+WiFi Simple Configuration:
+  wsc list                                          List WSC-capable devices
+  wsc &lt;wlan&gt; push-button                            PushButton mode
+  wsc &lt;wlan&gt; start-user-pin &lt;8 digit PIN&gt;           PIN mode
+  wsc &lt;wlan&gt; start-pin                              PIN mode with generated
+                                                    8 digit PIN
+  wsc &lt;wlan&gt; cancel                                 Aborts WSC operations
+
+Station:
+  station list                                      List devices in Station mode
+  station &lt;wlan&gt; connect &lt;"network name"&gt; [security]Connect to network
+  station &lt;wlan&gt; connect-hidden &lt;"network name"&gt;    Connect to hidden network
+  station &lt;wlan&gt; disconnect                         Disconnect
+  station &lt;wlan&gt; get-networks [rssi-dbms/rssi-bars] Get networks
+  station &lt;wlan&gt; get-hidden-access-points [rssi-dbms]Get hidden APs
+  station &lt;wlan&gt; scan                               Scan for networks
+  station &lt;wlan&gt; show                               Show station info
+
+
+Miscellaneous:
+  version                                           Display version
+  quit                                              Quit program
+</pre>
+
+<h2 id="iwctl-device-list">iwctl Device List</h2>
+
+<p>Kita perlu mengetahui nama interface yang tersedia di sistem kita. Dengan kata lain adalah wireless interface yang tersedia.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>device list</b>
+</pre>
+
+<pre>
+                                    Devices
+--------------------------------------------------------------------------------
+  Name                Address             Powered   Adapter   Mode
+--------------------------------------------------------------------------------
+  wlan0               08:11:96:00:00:00   on        phy0      station
+</pre>
+
+<p><strong>wlan0</strong>, adalah name wireless interface yang tersedia di sistem saya. Kita juga dapat informasi berupa address, powered status, adapter name, dan mode.</p>
+
+<p>Namun, yang akan kita ingat menjadi perhatian adalah nama dari interface, yaitu <strong>wlan0</strong>. Karena akan banyak kita gunakan di dalam command-command selanjutnya.</p>
+
+<p>Teman-teman juga dapat melihat keterangan tentang wireless interface tersebut lebih detail dengan menggunakan perintah,</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>device wlan0 show</b>
+</pre>
+
+<pre>
+                                 Device: wlan0                                *
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Name                wlan0
+         *  Mode                station
+         *  Powered             on
+            Address             08:11:96:00:00:00
+            Adapter             phy0
+</pre>
+
+<h2 id="iwctl-station-scan">iwctl Station Scan</h2>
+
+<p>Sekarang, kita masuk ke blok <strong>Station</strong>.</p>
+
+<p>Kita perlu terlebih dahulu melakukan scanning untuk mencari SSID yang tersedia.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 scan</b>
+</pre>
+
+<p>Jangan bingung, karena memang tidak akan keluar apa-apa.</p>
+
+<p>Namun, kalau teman-teman menjalankan option <code class="language-plaintext highlighter-rouge">show</code>, terlebih dahulu sebelum <code class="language-plaintext highlighter-rouge">scan</code>.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
+</pre>
+
+<pre>
+                                 Station: wlan0
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Scanning            no
+            State               disconnected
+</pre>
+
+<p>Saat, menjalankan <code class="language-plaintext highlighter-rouge">scan</code>, value dari Scanning yang berisi <strong>no</strong> akan teganti menjadi <strong>yes</strong>.</p>
+
+<p>Lalu setelah proses scanning selesai, akan berubah kembali menjadi <strong>no</strong>.</p>
+
+<p>Untuk melihat hasil scan, kita gunakan option <strong>get-networks</strong>.</p>
+
+<h2 id="iwctl-station-get-networks">iwctl Station Get Networks</h2>
+
+<p>Setelah kita melakukan scanning, saatnya melihat hasilnya dengan menggunakan perintah,</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 get-networks</b>
+</pre>
+
+<pre>
+                               Available networks                             *
+--------------------------------------------------------------------------------
+    Network name                    Security  Signal
+--------------------------------------------------------------------------------
+    bandithijo                      psk       ***
+    KIKEL                           psk       ****
+    Yumi2268                        psk       *
+    SIHOMBING                       psk       *
+    MDR001                          psk       *
+    Hertop                          psk       *
+    SURYA                           psk       *
+    SALSHA                          psk       *
+
+</pre>
+
+<p>Temukan <strong>Network name</strong> atau SSID yang teman-teman miliki.</p>
+
+<p>Kalau sudah, kita akan gunakan option <strong>connect</strong> untuk terhubung.</p>
+
+<h2 id="iwctl-station-connect">iwctl Station Connect</h2>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 connect bandithijo</b>
+</pre>
+
+<p>Kemudian, kalian akan diminta untuk memasukkan passphrase.</p>
+
+<pre>
+station wlan0 connect bandithijo
+Type the network passphrase for bandithijo psk.
+Passphrase: **************
+</pre>
+
+<p>Masukkan password dari SSID. Password akan disensor dengan tanda bintang *.</p>
+
+<p>Untuk melihat apakah kita sudah terkoneksi atau belum, gunakna option <strong>show</strong>.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 show</b>
+</pre>
+
+<pre>
+                                 Station: wlan0
+--------------------------------------------------------------------------------
+  Settable  Property            Value
+--------------------------------------------------------------------------------
+            Scanning            no
+            State               connected
+            Connected network   bandithijo
+
+</pre>
+
+<p>Kalau <strong>State</strong> nya sudah bernilai <strong>connected</strong>, artinya kita sudah berhasil terhubung dengan network.</p>
+
+<p>Untuk keluar dari iwctl, bisa ketik <code class="language-plaintext highlighter-rouge">exit</code>.</p>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>exit</b>
+</pre>
+
+<p>Lakukan pengujian.</p>
+
+<p>Lihat network interface list, apakah wireless interface yang kita gunakan sudah mendapatkan IP address atau belum.</p>
+
+<pre><span class="cmd">$ </span><b>ip a s wlan0</b><br /></pre>
+
+<pre>
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 08:11:96:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet <mark>192.168.1.7/24</mark> brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+       valid_lft 86050sec preferred_lft 75250sec
+    inet6 fe80::9373:975b:0000:0000/64 scope link
+       valid_lft forever preferred_lft forever
+</pre>
+
+<p>Nah, dapat dilihat, saya sudah mendapatkan IP address.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saya menggunakan <strong>dhcpcd</strong> service.</p>
+  </div></div>
+
+<p>Sekarang coba tes koneksi internet dengan ping.</p>
+
+<pre><span class="cmd">$ </span><b>ping archlinux.org</b><br /></pre>
+
+<pre>
+PING archlinux.org (95.217.163.246) 56(84) bytes of data.
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=1 ttl=52 time=226 ms
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=2 ttl=52 time=215 ms
+64 bytes from archlinux.org (95.217.163.246): icmp_seq=3 ttl=52 time=246 ms
+
+--- archlinux.org ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2000ms
+rtt min/avg/max/mdev = 215.292/228.954/245.752/12.631 ms
+</pre>
+
+<p>Mantap! Kita telah berhasil terhubung ke internet.</p>
+
+<h2 id="iwctl-station-disconnect">iwctl Station Disconnect</h2>
+
+<pre>
+<span class="cmd">[iwd]# </span><b>station wlan0 disconnect</b>
+</pre>
+
+<h1 id="lokasi-file-config">Lokasi File Config</h1>
+
+<h2 id="general-main-file-config">General (Main) File Config</h2>
+
+<p>Berlokasi di <strong>/etc/iwd/main.conf</strong>.</p>
+
+<p>Kalau tidak ada teman-teman bisa buat sendiri –saya juga buat sendiri.</p>
+
+<p>Apabila kita mendefinisikan option di dalam file config ini, terntu akan berdampak general.</p>
+
+<p>Misal,</p>
+
+<h3 id="enable-built-in-dhcp">Enable Built-in DHCP</h3>
+
+<p>Saya ingin semua file konfigurasi network SSID yang tersimpan, menggunakan <em>buil-it</em> DHCP client bawaan dari iwd.</p>
+
+<p>Saya tidak perlu, mengeset satu-persatu di setiap file config network yang tersimpan di <code class="language-plaintext highlighter-rouge">/var/lib/iwd/&lt;nama_network&gt;.psk</code>. Tapi cukup pada file main.conf saja.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/iwd/main.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="o">[</span>General]
+<span class="nv">EnableNetworkConfiguration</span><span class="o">=</span><span class="nb">true</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="file-config-network-spesifik">File Config Network Spesifik</h2>
+
+<p>Berbeda dengan <strong>wpa_supplicant</strong> yang menyimpan file configurasi pada direktori <strong>/etc/wpa_supplicant/</strong>, sehingga dapat diakses oleh semua user. <strong>iwd</strong> menyimpan file configurasi atau <em>stored data file</em> pada direktori <strong>/var/lib/iwd/</strong>. Sehingga hanya root yang dapat mengakses direktori ini.</p>
+
+<pre>
+<mark>/var/lib/iwd/</mark>
+├── bandithijo.psk
+├── OF-LT2.psk
+└── hotspot
+
+1 directory, 1 file
+</pre>
+
+<p>Isi dari file <code class="language-plaintext highlighter-rouge">.psk</code> (presharedkey) tersebut adalah credential dari SSID yang merupakan nama file.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/var/lib/iwd/bandithijo.psk</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span>Security]
+<span class="nv">PreSharedKey</span><span class="o">=</span>de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
+<span class="nv">Passphrase</span><span class="o">=</span>iniadalahpassword</code></pre></figure>
+
+<h2 id="konfigurasi-auto-connect-ke-network-tertentu">Konfigurasi Auto Connect ke Network Tertentu</h2>
+
+<p>Tambahkan saja option <code class="language-plaintext highlighter-rouge">AutoConnect=true</code> pada group <code class="language-plaintext highlighter-rouge">[Settings]</code>, di dalam file config dari network yang kita inginkan.</p>
+
+<p>Misal,</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/var/lib/iwd/bandithijo.psk</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="o">[</span>Security]
+<span class="nv">PreSharedKey</span><span class="o">=</span>de91478f405cc6685267c972844591e1adfde34e5e74c525c44b0b5e3e16a968
+<span class="nv">Passphrase</span><span class="o">=</span>iniadalahpassword
+
+<span class="o">[</span>Settings]
+<span class="nv">AutoConnect</span><span class="o">=</span><span class="nb">true</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Atau, kalau ingin lebih general, tambahkan pada file <strong>/etc/iwd/main.conf</strong>.</p>
+
+<h1 id="konfigurasi-lanjut">Konfigurasi Lanjut</h1>
+
+<p>Untuk konfigurasi lebih lanjut, atau cara-cara lain dalam mengkonfigurasi iwd, teman-teman dapat melihat pada Arch Wiki.</p>
+
+<p><a href="https://wiki.archlinux.org/index.php/Iwd" target="_blank"><strong>Arch Wiki: iwd</strong></a>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="terima-kasih">Terima Kasih</h1>
+
+<ol>
+  <li>Herman Thaw</li>
+  <li>Suka Isnaini</li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Iwd" target="_blank">wiki.archlinux.org/index.php/Iwd</a>
+<br />Diakses tanggal: 2021/01/01</p>
+  </li>
+  <li>
+    <p><a href="https://iwd.wiki.kernel.org/gettingstarted" target="_blank">iwd.wiki.kernel.org/gettingstarted</a>
+<br />Diakses tanggal: 2021/01/01</p>
+  </li>
+  <li>
+    <p><a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/iwd.config.5" target="_blank">jlk.fjfi.cvut.cz/arch/manpages/man/iwd.config.5</a>
+<br />Diakses tanggal: 2021/01/01</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

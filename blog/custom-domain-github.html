@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!" />
+<meta property="og:description" content="Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!" />
+<link rel="canonical" href="https://bandithijo.dev/blog/custom-domain-github" />
+<meta property="og:url" content="https://bandithijo.dev/blog/custom-domain-github" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-03T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/custom-domain-github"},"description":"Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!","url":"https://bandithijo.dev/blog/custom-domain-github","@type":"BlogPosting","headline":"Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb","dateModified":"2018-04-03T00:00:00+08:00","datePublished":"2018-04-03T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/custom-domain-github">Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/04/03</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Custom domain github
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#pelaksanaan">Pelaksanaan</a>
+    <ul>
+      <li><a href="#pemilihan-layanan">Pemilihan Layanan</a></li>
+      <li><a href="#order-custom-domain">Order Custom Domain</a></li>
+      <li><a href="#konfigurasi-github">Konfigurasi GitHub</a></li>
+      <li><a href="#konfigurasi-nameserver-cloudflare">Konfigurasi Nameserver Cloudflare</a></li>
+      <li><a href="#konfigurasi-https">Konfigurasi HTTPS</a>
+        <ul>
+          <li><a href="#ssl">SSL</a></li>
+          <li><a href="#page-rules">Page Rules</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#akhir-kata">Akhir Kata</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/6w9qd7o2l/banner_post_01.png" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Tepat tiga minggu yang lalu, <a href="http://bandithijo.com/blog/migrasi-blog-2-0" target="_blank">saya memigrasikan blog ini dari .blogspot.com ke .github.io</a>. Saya pikir, saya tidak akan tertarik untuk membeli <em>custom domain</em> .com untuk blog ini, karena menurut saya .github.io sudah sangat keren.</p>
+
+<p>Beberapa alasan yang mendorong saya akhirnya membeli <em>custom domain</em> untuk blog ini salah satunya berangkat dari belum familiarnya .github.io dikalangan teman-teman saya. Sedangkan target pembaca dari blog ini adalah mereka, karena blog ini sekaligus akan saya jadikan tempat untuk mengambil bahan-bahan perkuliahan yang sebelumnya harus susah-susah diambil di Google Drive kelas.</p>
+
+<h1 id="pelaksanaan">Pelaksanaan</h1>
+
+<h2 id="pemilihan-layanan">Pemilihan Layanan</h2>
+
+<p>Langkah awal yang perlu dilakukan adalah mencari penyedia layanan <em>custom domain</em>. Sebenarnya, saya pernah beberapa kali membeli <em>custom domain</em> di owned-host, namun untuk kali ini saya memutuskan mencoba layanan dari penyedia <em>custom domain</em> yang lain. Sekalian mencari suasana baru.</p>
+
+<p>Saya pikir akan lebih baik apabila saya memilih penyedia layanan <em>custom domain</em> yang juga dipakai oleh teman sesama blogger. Saya ingat beberapa waktu lalu <a href="https://kabarlinux.web.id/" target="_blank">kabarlinux.web.id</a> milik om <a href="https://ramdziana.wordpress.com/" target="_blank">Ramdziana</a> pernah menuliskan artikel terkait membutuhkan dukungan finansial, namun saya tidak dapat menemukan link terkait perihal ini, mungkin telah diganti dengan artikel lain. Seingat saya terdapat link afiliasi yang merujuk pada nama salah satu penyedia jasa layanan <em>custom domain</em> yang digunakan oleh kabarlinux.web.id. Yaitu, <a href="https://client.dewaweb.com/aff.php?aff=22096" target="_blank">dewaweb.com</a>. Saya pun mencoba mendaftar melalui link afiliasi dewaweb.com yang terdapat pada kabarlinux.web.id.</p>
+
+<p>Selanjutnya saya akan melakukan order.</p>
+
+<h2 id="order-custom-domain">Order Custom Domain</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://s20.postimg.cc/zfnikq5t9/gambar_01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Pilih menu <strong>Order &gt; Domain &gt; Beli Domain Baru</strong>.</p>
+
+<p>Nanti akan terbuka halaman seperti di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://s20.postimg.cc/ostpf907x/gambar_02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Isikan nama <em>domain</em> dan ekstensi <em>domain</em> yang kamu inginkan. Pada contoh di atas, saya menggunakan nama <em>domain</em> <code class="language-plaintext highlighter-rouge">devikamarina</code> dengan ekstensi <em>domain</em> <code class="language-plaintext highlighter-rouge">.com</code>. Kemudian tekan tombol <strong>Cek Domain</strong>.</p>
+
+<p>Apabila tersedia, pilih jangka waktu penagihan pembayaran. 1 tahun, 2 tahun, atau 3 tahun. Kemudian tekan tombol <strong>Order</strong>.</p>
+
+<p>Nanti akan diarahkan pada halaman <strong>Konfigurasi Domain</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar 3" data-echo="https://s20.postimg.cc/97cdvbbf1/gambar_03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Yang perlu diperhatikan pada halaman ini adalah apakah kamu ingin memberikan <strong>Whois Privacy Protection</strong> terhadap domain kamu. Layanan ini bersifat <em>optional</em>.</p>
+
+<p>Maksudnya apa sih bang ?</p>
+
+<p>Maksud dari <em>Whois Privacy Protection</em> ini adalah untuk mengkamuflasekan data-data kamu seperti nama, alamat, nomor telepon yang kamu daftarkan pada dewaweb.com yang tidak ingin kamu bagikan kepada publik. Jadi, setiap kita membeli domain, wajib untuk menyertakan identitas domain tersebut milik siapa. Namun, karena satu dan lain hal terutama masalah <em>privacy</em> data pribadi, saya tidak ingin menampilkan nama, alamat, dan nomor telepon saya kepada publik. Infromasi ini dapat kamu coba cek dengan melakukan perintah <code class="language-plaintext highlighter-rouge">whois namadomain.ekstensidomain</code> kepada salah satu website yang ingin kamu lihat pemiliknya.</p>
+
+<p>Saya akan mencontohkan melakukan pengecekan <code class="language-plaintext highlighter-rouge">whois</code> kepada kaskus.co.id.</p>
+
+<pre><span class="cmd">$ </span><b>whois kaskus.co.id</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Domain ID:PANDI-DO253792
+Domain Name:KASKUS.CO.ID
+Created On:17-Jul-2008 13:33:41 UTC
+Last Updated On:11-Jun-2017 09:27:06 UTC
+Expiration Date:19-Jul-2019 23:59:59 UTC
+Status:ok
+Registrant ID:08domai47
+Registrant Name:Andrew Darwis
+Registrant Organization:PT Darta Media Indonesia
+Registrant Street1:Menara Palma, Annex Building P11
+Registrant Street2:Jl. HR Rasuna said Blok X2 Kav. 6
+Registrant City:Jakarta
+Registrant State/Province:DKI Jakarta
+Registrant Postal Code:12950
+Registrant Country:ID
+Registrant Phone:+62.2129223600
+Registrant Email:domain@kaskusnetworks.com
+...
+...
+</code></pre></div></div>
+
+<p>Kemudian saya akan melakukan pengecekan informasi domain dengan menggunakan <code class="language-plaintext highlighter-rouge">whois</code> kepada domain yang saya beli di dewaweb.com dengan menggunakan tambahana layanan <em>Whois Privacy Protection</em>.</p>
+
+<pre><span class="cmd">$ </span><b>whois bandithijo.com</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Domain Name: BANDITHIJO.COM
+Registry Domain ID: 2247257697_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.tucows.com
+Registrar URL: http://www.tucowsdomains.com
+Updated Date: 2018-04-03T05:55:28Z
+Creation Date: 2018-04-02T20:53:56Z
+Registry Expiry Date: 2019-04-02T20:53:56Z
+Registrar: Tucows Domains Inc.
+Registrar IANA ID: 69
+Registrar Abuse Contact Email:
+Registrar Abuse Contact Phone:
+Domain Status: ok https://icann.org/epp#ok
+Name Server: ELLE.NS.CLOUDFLARE.COM
+Name Server: WESLEY.NS.CLOUDFLARE.COM
+DNSSEC: unsigned
+URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+...
+...
+</code></pre></div></div>
+
+<p>Gimana? Sudah dapet gambaran kan, apa yang dimaksud dengan layanan <em>Whois Privacy Protection</em>. Setahu saya, hampir setiap penyedia layanan <em>custom domain</em> menyediakan fasilitas ini. Jadi apapun layanan penyedia <em>custom domain</em> yang kamu pilih, apabila kamu ingin melindungi informasi pribadi kamu dari publik, kamu dapat mencari layanan ini. Layanan ini seharga Rp 40.000, di dewaweb.com</p>
+
+<p>Untuk pengaturan <strong>Nameserver</strong> akan kita ubah nanti saja. Saya berencana menggunakan nameserver dari <strong>Cloudflare</strong>, mengikuti rekomendasi yang diberikan oleh sahabat saya kang <a href="https://sucipto.net/" target="_blank">Sucipto.net</a>.</p>
+
+<p>Kemudian tekan tombol <strong>Update Keranjang Belanja</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://s20.postimg.cc/48ovgrzwd/gambar_04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Setelah dipastikan kembali tidak ada yang kurang atau yang lebih dari daftar item yang kita pesan di atas. Selanjutnya tekan tombol <strong>Checkout dan Bayar</strong>.</p>
+
+<p>Setelah kita menyelesaikan pembayaran dan <em>custom domain</em> yang kita inginkan sudah di tangan kita. Langkah selanjutnya adalah konfigurasi <em>custom domain</em> pada GitHub.</p>
+
+<h2 id="konfigurasi-github">Konfigurasi GitHub</h2>
+
+<p>Untuk membuat GitHub dapat menerima <em>traffic</em> dari <em>custom domain</em> yang sudah kita buat, kita perlu membuat <code class="language-plaintext highlighter-rouge">CNAME</code> records di dalam repositori milik kita.</p>
+
+<p>Buat file bernama <code class="language-plaintext highlighter-rouge">CNAME</code> pada direktori root dari website kita.</p>
+
+<pre>
+├── _drafts
+├── _includes
+├── _layouts
+├── _plugins
+├── _posts
+├── _site
+├── assets
+├── pages
+├── 404.html
+├── _config.yml
+├── <mark>CNAME</mark>  &lt;----- Tambahkan file ini
+├── favicon.ico
+├── Gemfile
+├── Gemfile.lock
+├── index.html
+└── LICENSE
+</pre>
+
+<p>Kemudian, isi dengan nama domain yang ingin kita tampilkan.</p>
+
+<p>Misalkan, kita ingin menampilkan domain berupa nama dan ekstensi domain, seperti halnya blog ini <code class="language-plaintext highlighter-rouge">bandithijo.com</code> (APEX domain) atau <code class="language-plaintext highlighter-rouge">www.bandithijo.com</code> (WWW Sub Domain).</p>
+
+<p>Isikan sebagaimana kalian ingin menampilkan nama blog kalian pada <em>address bar</em>.</p>
+
+<pre class="url">https://bandithijo.com<br /></pre>
+
+<p>*Perhatikan! Isi dari CNAME ini hanya 1 baris.</p>
+
+<p>Langkah selanjutnya commit file CNAME yang baru saja kita buat ke dalam repositori GitHub kita.</p>
+
+<pre><span class="cmd">$ </span><b>git add -A</b><br /><span class="cmd">$ </span><b>git commit -m “Added CNAME file.”</b><br /><span class="cmd">$ </span><b>git push origin master</b><br /></pre>
+
+<p>Kemudian, buka repositori GitHub tempat dimana kamu menyimpan repositori dari .github.io. Lakukan pengecekan apakah file CNAME yang kita buat sudah berada pada repositori GitHub kita.</p>
+
+<p>Kemudian selanjutnya pilih menu <strong>Settings</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://s20.postimg.cc/rzo8yvcy5/gambar_05.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><br />
+Selanjutnya, <em>scrolling page</em> ke bagian <strong>GitHub Pages</strong> dan isikan nama domain yang baru saja kamu beli pada kolom <strong>Custom domain</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://s20.postimg.cc/irw0i78gt/gambar_06.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Pilih <strong>Save</strong>.</p>
+
+<p>Pada tahap ini konfigurasi GitHub hanya seperti ini saja. Namun, <em>custom domain</em> yang kita konfigurasi belum selesai dan belum dapat kita panggil di <em>browser</em>. Kita perlu melakukan konfigurasi <strong>nameserver</strong> pada <strong>Cloudflare</strong>.</p>
+
+<h2 id="konfigurasi-nameserver-cloudflare">Konfigurasi Nameserver Cloudflare</h2>
+
+<p>Buka <a href="https://www.cloudflare.com/" target="_blank">cloudflare.com</a>. Apabila belum memiliki akun, sebaiknya buat akun terlebih dahulu. Kemudian Login dan tambahkan website kamu. <strong>+ Add site</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://s20.postimg.cc/sp71b8sx9/gambar_07.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Setelah itu, pergi ke tab <strong>DNS</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://s20.postimg.cc/dtma8qvwt/gambar_08.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Isi dan ikuti seperti gambar di atas.</p>
+
+<p>IP pada <code class="language-plaintext highlighter-rouge">A</code> records tersebut saya dapatkan dari <a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">help.github.com</a>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>192.30.252.153
+192.30.252.154
+</code></pre></div></div>
+
+<p>Selanjutnya, kita perlu merubah <strong>nameserver</strong> pada dewaweb.com menjadi nameserver yang sudah diberikan oleh Cloudflare. Seperti pada Gambar di atas.</p>
+
+<p>Untuk kasus saya, nameserver yang diberikan oleh Cloudflare adalah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>elle.ns.cloudflare.com
+wesley.ns.cloudflare.com
+</code></pre></div></div>
+
+<p>Saya lupa urutan detail konfigurasi nameserver pada Cloudflare ini seperti apa, yang jelas, nanti akan diberikan contoh bagaimana cara melakukan pengisian nameserver pada dewaweb.com menjadi nameserver Cloudflare. Seperti contoh di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://s20.postimg.cc/mo9ce78vx/gambar_09.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Secara <em>default</em>, dewaweb.com sudah memberikan 3 alamat nameserver bawaan dewaweb.com. Kita perlu mengganti Nameserver 1 dan 2 dengan nameserver yang sudah diberikan oleh Cloudflare, kemudian menghapus Nameserver 3.</p>
+
+<p>Buka kembali dewaweb.com, dan pergi ke bagian <a href="https://client.dewaweb.com/clientarea.php" target="_blank"><strong>Login ke Client Area</strong></a>. Setelah login, pilih menu <strong>Domain &gt; Domain Saya</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://s20.postimg.cc/i2d85ufn1/gambar_10.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Selanjutnya, pada domain yang akan kita konfigurasi, pilih tanda panah pada tombol <strong>Edit</strong>. Dan pilih <strong>Pengaturan Nameserver</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_11" data-echo="https://s20.postimg.cc/boo52lq6l/gambar_11.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Masukkan nameserver yang kita dapat dari Cloudflare.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_12" data-echo="https://s20.postimg.cc/mo9ce83r1/gambar_12.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kosongkan Nameserver 3.</p>
+
+<p>Kemudian, pilih tombol <strong>Ubah Nameserver</strong>.</p>
+
+<p>Sekarang coba lakukan pemanggilan domain kita pada Browser. Apabila belum dapat dipanggil, mungkin <del>perlu menunggu 5-30 menit</del>, sampai konfigurasi yang kita atur dapat diterapkan.</p>
+
+<h2 id="konfigurasi-https">Konfigurasi HTTPS</h2>
+
+<p>Karena kita menggunakan <em>custom domain</em>, maka pengaturan HTTPS pada GitHub Pages tidak dapat kita gunakan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_13" data-echo="https://s20.postimg.cc/k7bdc6ga5/gambar_13.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Untuk mengakali ini kita perlu melakukan pengaturan HTTPS pada Cloudflare.</p>
+
+<h3 id="ssl">SSL</h3>
+
+<p>Buka tab <strong>Crypto</strong> dan pada bagian SSL, pilih <strong>Full</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_14" data-echo="https://s20.postimg.cc/62am7cg3h/gambar_14.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Setelah mengaktifkan SSL ini kita perlu menunggu 24 jam setelah situs aktif di Cloudflare untuk menerbitkan sertifikat baru.</p>
+
+<p>Sampai nanti status <strong>Active Certificate</strong> sudah tersedia, seperti pada gambar di atas.</p>
+
+<h3 id="page-rules">Page Rules</h3>
+
+<p>Selanjutnya, buka tab <strong>Page Rules</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_19" data-echo="https://s20.postimg.cc/bezglg1f1/gambar_19.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kita akan menambahkan 3 <em>rules</em> baru untuk <em>domain</em> kita.</p>
+
+<ol>
+  <li>Always Use HTTPS</li>
+  <li>Forwarding URL</li>
+  <li>Cache Everything</li>
+</ol>
+
+<p><br />
+<strong>Always Use HTTPS</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_15" data-echo="https://s20.postimg.cc/q9o1zr8gt/gambar_15.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Saya memilih menggunakan APEX domain, dengan nama <strong>bandithijo.com</strong>, sehingga url yang harus saya masukkan adalah <code class="language-plaintext highlighter-rouge">https://bandithijo.com/*</code>. Penggunaan tanda <code class="language-plaintext highlighter-rouge">*</code> dimaksudkan untuk membuat <em>dynamic patterns</em> yang dapat mencocokkan banyak URL.</p>
+
+<p><br />
+<strong>Forwarding URL</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_16" data-echo="https://s20.postimg.cc/d5ihn2o4t/gambar_16.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Dikarenakan saya menggunakan nama domain <strong>bandithijo.com</strong>, maka saya perlu melakukan <em>forwarding URL</em>. Tujuannya, apabila terdapat pengunjung yang mengetikkan <strong>www.bandithijo.com</strong> akan langsung diarahkan ke URL <strong>https://bandithijo.com</strong>.</p>
+
+<p><br />
+<strong>Cache Level</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_17" data-echo="https://i.postimg.cc/wMxbT1Xw/gambar-17.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Mungkin teman-teman ingin menggunakan fitur cache level yang diberikan oleh CloudFlare.</p>
+
+<p>Berikut ini adalah kutipan yang saya ambil dari halaman <a href="https://support.cloudflare.com/hc/en-us/articles/200172266" target="_blank">support.cloudflare.com</a> yang akan menjelaskan setiap properties dari Cache Level.</p>
+<pre>
+<b>No overrides</b>
+Defaults to the caching level option you have in your Cloudflare performance settings for the domain.
+
+<b>Bypass cache</b>
+Will not cache at all
+
+<b>Standard / Aggressive caching</b>
+Caches all static content that has a query string in it
+
+<b>Ignore query string</b>
+Caches static content that has a query string and treats it as one file
+
+<b>Cache everything</b>
+Caches all file types on your site, including static content and HTML. Cloudflare Cache Everything will automatically respect any default cache headers set by the web server or CMS software like WordPress. See this article for more details on how headers affect this setting.
+
+**NOTE: When using "Cache everything" you might have trouble with login forms on your site. A common one is WordPress. To correct this you'll need to add another rule as the first rule for the wp-login.php  file that is set to "bypass cache"**
+</pre>
+
+<p>Konfigurasi cache level ini akan memungkinkan website kita di-cache dan ditampilkan langsung dari CDN Cloudflare. Tentu saja hal ini akan membuat <em>page load</em> dari website kita menjadi lebih cepat lagi.</p>
+
+<p>Sebagai contoh di atas, saya menggunakan “No Query String”.</p>
+
+<p>Sebelumnya saya menggunakan “Cache Everything”, namun kekurangannya, setiap kita melakukan perubahan pada website kita, hasilya tidak langsung dapat terlihat dalam beberapa saat. Untuk memaksanya, <del>mungkin</del> kita dapat melakukan pembersihan cache dengan <strong>Purge Everything</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_20" data-echo="https://s20.postimg.cc/h4fp62kjh/gambar_20.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><br />
+Nah! setelah selesai melakukan 3 konfigurasi <strong>Page Rules</strong> di atas, maka, tampilan akhir dari konfigurasi <strong>Page Rules</strong> akan seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_18" data-echo="https://i.postimg.cc/J0TYyRKM/gambar-18.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>*Perhatikan! <strong>Always Use HTTPS</strong>, harus berada di layer paling atas.</p>
+
+<p>Dikarenakan kita menggunakan <strong>Free Plan</strong>, maka kita hanya dapat membuat 3 <em>page rules</em>. Tapi ini bukan masalah, karena sudah mencakup apa yang kita butuhkan.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Saya menggunakan <strong>SSH</strong> untuk melakukan <code class="language-plaintext highlighter-rouge">push</code> ke dalam repositori GitHub, bukan menggunakan <strong>HTTPS</strong>.</p>
+    <p>Saya mencurigai adanya indikasi kegagalan melakukan push ke dalam repositori GitHub, setelah melakukan konfigurasi di atas.</p>
+    <p>Apabila hal ini terjadi, maka teman-teman perlu merubah jalur push ke repositori GitHub melalui SSH.</p>
+    <p><strong>Caranya :</strong></p>
+    <p>Buka folder <code class="language-plaintext highlighter-rouge">.git</code>, kemudian cari file <code class="language-plaintext highlighter-rouge">config</code>.</p>
+    <p>Cari bagian,</p>
+    <pre>
+    [remote "origin"]
+        url = https://github.com/bandithijo/bandithijo.github.io.git
+</pre>
+    <p>Diganti menjadi,</p>
+    <pre>
+    [remote "origin"]
+        url = git@github.com:bandithijo/bandithijo.github.io.git
+</pre>
+    <p><strong>Tentunya teman-teman harus melakukan konfigurasi SSH dengan GitHub terlebih dahulu</strong> (<a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">Connecting to GitHub with SSH</a>)</p>
+  </div></div>
+
+<h1 id="akhir-kata">Akhir Kata</h1>
+
+<p>Demikian, pengalaman saya melakukan konfigurasi terhadap <em>custom domain</em> untuk GitHub Page, Cloudflare dan DewaWeb yang dapat saya dokumentasikan pada tulisan ini.</p>
+
+<p>Terima kasih saya ucapkan kepada kang <a href="https://sucipto.net/" target="_blank">Sucipto</a> yang telah meluangkan waktunya untuk dapat membantu saya dalam menjawab pertanyaan-pertanyaan seputar konfigurasi ini.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Pertanggal 28 Januari 2019, saya sudah bermigrasi dari layanan CloudFlare ke Netlify.</p>
+    <p>Ceritanya, dapat teman-teman baca di sini, "<a href="https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify" target="_blank">BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify</a>".</p>
+  </div></div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider" target="_blank">help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider</a>
+<br />DiaksesTanggal: 2018/04/08</p>
+  </li>
+  <li>
+    <p><a href="https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/" target="_blank">blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/</a>
+<br />DiaksesTanggal: 2018/04/08</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

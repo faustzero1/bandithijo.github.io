@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mengenkripsi Home Direktori pada GNU/Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mengenkripsi Home Direktori pada GNU/Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka." />
+<meta property="og:description" content="Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mengenkripsi-home-direktori-pada-gnu-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mengenkripsi-home-direktori-pada-gnu-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-14T15:41:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mengenkripsi-home-direktori-pada-gnu-linux"},"description":"Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka.","url":"https://bandithijo.dev/blog/mengenkripsi-home-direktori-pada-gnu-linux","@type":"BlogPosting","headline":"Mengenkripsi Home Direktori pada GNU/Linux","dateModified":"2019-06-14T15:41:00+08:00","datePublished":"2019-06-14T15:41:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mengenkripsi Home Direktori pada GNU/Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mengenkripsi-home-direktori-pada-gnu-linux">Mengenkripsi Home Direktori pada GNU/Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/06/14</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mengenkripsi home direktori pada gnu linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#mengenkripsi-home-direktori">Mengenkripsi Home Direktori</a>
+    <ul>
+      <li><a href="#instalasi-paket-paket-yang-diperlukan">Instalasi Paket-paket yang Diperlukan</a></li>
+      <li><a href="#login-root-dengan-tty-shell">Login Root dengan TTY Shell</a></li>
+      <li><a href="#migrasi-home-dengan-enkripsi">Migrasi Home dengan Enkripsi</a></li>
+      <li><a href="#pengetesan-dekrip-home-direktori">Pengetesan Dekrip Home Direktori</a></li>
+      <li><a href="#memberikan-ecryptfs-akses-pam">Memberikan eCryptfs Akses PAM</a></li>
+      <li><a href="#menghapus-direktori-home-backup">Menghapus Direktori Home Backup</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Lakukan <i>backup</i> data sebelum melakukan proses di bawah.</p>
+    <p>Segala bentuk kerugian, seperti kehilangan data maupun rusaknya perangkat yang kalian gunakan, <strong>bukan merupakan tanggung jawab penulis</strong>.</p>
+    <p><i>Do with Your Own Risk!</i></p>
+  </div></div>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Saya tidak akan berbasa-basi mengenai <em>privacy</em> di sini.</p>
+
+<p>Saya yakin teman-teman yang tertarik dengan topik ini memiliki alasan dan kepentingan masing-masing.</p>
+
+<p>Sebenarnya, saya sudah pernah menuliskan mengenai topik ini, namun terletak pada sub bab dari ebook proses instalasi Arch Linux pada UEFI firmware yang saya tulis <a href="https://bandithijo.dev/arch/step-7-install-gnome-and-complete-installation#710-encrypt-home-directory" target="_blank">di sini</a>.</p>
+
+<p>Karena tidak aksesible banget, jadi saya memutuskan untuk membuat post tersendiri.</p>
+
+<h1 id="mengenkripsi-home-direktori">Mengenkripsi Home Direktori</h1>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>
+Saya sangat merekomendasikan untuk tidak menerapkan proses enkripsi ini pada Home direktori yang sudah terisi penuh dengan banyak file.</p>
+    <p>Karena, proses pengenkripsian file-file yang ada didalam direktori Home akan memakan waktu yang sangat lama dan akan menambah kapasitas hardisk menjadi 2x Home (direktori Home lama + direktori Home baru).</p>
+    <p><br /></p>
+    <p>Saya menyarankan untuk membuat user baru saja.</p>
+    <p>Best practicenya memang biasa saya terapkan pada saat awal instalasi sistem operasi.</p>
+  </div></div>
+
+<p>Proses mengenkripsi Home direktori ini akan saya bagi dalam beberapa tahapan, agar teman-teman mudah untuk memahami dan mudah memetakan apabila nanti akan mengajukan pertanyaan atau pembahasan saat berdiskusi.</p>
+
+<p>Oke, berikut ini adalah sekenarionya.</p>
+
+<h2 id="instalasi-paket-paket-yang-diperlukan">Instalasi Paket-paket yang Diperlukan</h2>
+
+<p>Kita memerlukan paket tambahan yang wajib dipasang untk melakukan proses enkripsi.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S ecryptfs-utils lsof</b><br /></pre>
+
+<p>Yak! Sudah bisa ditebak, paket yang saya gunakan untuk mengenkripsi Home direktori adalah <strong>eCryptfs</strong>.</p>
+
+<p><strong>Kenapa menggunkan eCryptfs?</strong></p>
+
+<p>Karena praktis. Tidak memerlukan partisi yang berbeda untuk memasang (<em>mounting</em>) direktori yang kita enkripsi. Proses dekripsi file-file yang ada pada direktori yang terenkripsi akan dimounting ke dalam satu direktori yang sudah kita tentukan.</p>
+
+<p>Saya memerlukan paket <code class="language-plaintext highlighter-rouge">lsof</code> untuk mendeteksi apakah masih terdapat proses yang berjalan (<em>running</em>) pada user tertentu pada saat berada di TTY.</p>
+
+<p>Setelah kedua paket yang kita perlukan telah selesai dipasang, langkah selanjutnya adalah menambahkannya pada kernel module.</p>
+
+<pre><span class="cmd">$ </span><b>sudo modprobe ecryptfs</b><br /></pre>
+
+<p>Apabila tidak menampilkan <em>error</em>, artinya perintah di atas telah berhasil.</p>
+
+<p>Tahap selanjutnya kita akan masuk ke dalam TTY shell.</p>
+
+<p>Oke, langsung saja kita eksekusi.</p>
+
+<h2 id="login-root-dengan-tty-shell">Login Root dengan TTY Shell</h2>
+
+<ol>
+  <li>
+    <p>Langkah pertama, kita perlu <strong>logout</strong> dari sistem.</p>
+
+    <p>Jadi, teman-teman yang berniat mengenkripsi Home direktorinya, perlu membuka post blog ini menggunakan <em>smartphone</em>.</p>
+  </li>
+  <li>
+    <p>Masuk ke TTY shell, bisa TTY2 - TTY6, pilih saja mana yang menampilkan login shell seperti di bawah ini.</p>
+
+    <p>Cara masuk dan berpindah antar TTY, gunakan <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>F2</kbd> untuk TTY2. <kbd>F3</kbd> untuk TTY3, dan begitu seterusnya.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Arch Linux 5.1.9-arch1-1-ARCH (tty6)
+
+BANDITHIJO-X61 login: root
+Password: _
+</code></pre></div>    </div>
+    <p>Apabila sudah masuk ke TTY, login dengan akun <strong>root</strong>.</p>
+  </li>
+  <li>
+    <p>Setelah berhasil login dengan akun root, lakukan pengecekan apakah user yang kamu gunakan tadi masih memiliki proses yang berjalan (<em>running process</em>).</p>
+
+    <pre><span class="cmd"># </span><b>ps -U <mark>bandithijo</mark></b><br /></pre>
+
+    <p>Ganti <mark>bandithijo</mark> dengan username yang kamu gunakan, yang ingin dienkripsi Home direktorinya.</p>
+
+    <p>Apabila perintah di atas menampilkan <em>output</em> seperti di bawah ini.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PID  TTY      TIME  CMD
+
+</code></pre></div>    </div>
+    <p>Artinya, sudah tidak lagi terdapat proses yang <em>running</em> pada user tersebut.</p>
+
+    <p>Dengan begini, kita dapat lanjut ke tahap berikutnya.</p>
+  </li>
+</ol>
+
+<h2 id="migrasi-home-dengan-enkripsi">Migrasi Home dengan Enkripsi</h2>
+
+<ol>
+  <li>
+    <p>Perintah di bawah ini akan memigrasikan atau membuat salinan (<em>cloning</em>) dari Home direktori kalian namun dalam bentuk yang sudah terenkripsi.</p>
+
+    <pre><span class="cmd"># </span><b>ecryptfs-migrate-home -u <mark>bandithijo</mark></b><br /></pre>
+
+    <p>Jangan lupa untuk mengganti <mark>bandithijo</mark> dengan nama username dari user yang Home direktorinya ingin teman-teman enkripsi.</p>
+
+    <p>Perintah di atas, akan menghasilkan <em>output</em> seperti di bawah ini.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO: Checking disk space, this may take a few minutes. Please be patient.
+INFO: Checking for open files in /home/bandithijo
+
+Enter your login passphrase [bandithijo]: _
+</code></pre></div>    </div>
+
+    <!-- PERHATIAN -->
+    <div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+        <p>Masukkan <b>password</b> yang sama dengan <b>login password username</b> kalian.</p>
+      </div></div>
+
+    <p>Perhatikan dengan seksama <em>output</em> tersebut.</p>
+
+    <p>Kita diminta memasukkan <strong><em>passphrase</em></strong> atau <strong><em>password</em></strong> yang sama seperti password username kita.</p>
+
+    <p>Tujuannya agar saat kita login menggunakan username kita, secara otomatis <strong>eCryptfs</strong> akan mendekripsi direktori <code class="language-plaintext highlighter-rouge">/home/username</code> yang terenkripsi.</p>
+
+    <p>Proses ini akan memakan <del>sedikit</del> waktu, tergantung dari banyaknya file yang terdapat di dalam Home direktori yang dienkripsi.</p>
+  </li>
+  <li>
+    <p>Setelah proses enkripsi selesai, kita dapat <em>logout</em> (<strong>jangan *reboot</strong>).</p>
+
+    <pre><span class="cmd">$ </span><b>exit</b><br /></pre>
+  </li>
+</ol>
+
+<h2 id="pengetesan-dekrip-home-direktori">Pengetesan Dekrip Home Direktori</h2>
+
+<p>Setelah kita melakukan enkripsi Home direktori, tentunya kita ingin melakukan pengetesan apakah proses enkripsi terhadap Home direktori yang kita lakukan telah berhasil.</p>
+
+<ol>
+  <li>
+    <p><em>Login</em> kembali menggunakan user yang Home direktorinya baru saja kita enkripsi.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Arch Linux 5.1.9-arch1-1-ARCH (tty6)
+
+BANDITHIJO-X61 login: &amp;lt;mark&amp;gt;bandithijo&amp;lt;/mark&amp;gt;
+Password: _
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Jalankan perintah di bawah untuk mendekripsi Home direktori (sekaligus me-<em>mounting</em>-nya).</p>
+
+    <pre><span class="cmd">$ </span><b>ecryptfs-mount-private</b><br /></pre>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter your login passphrase: _
+</code></pre></div>    </div>
+
+    <p>Masukkan <em>password</em> yang sudah kita buat sama dengan <em>login password user</em> kita.</p>
+
+    <p>Perintah di atas akan mendekripsi Home direktori.</p>
+  </li>
+  <li>
+    <p>Sekarang coba lakukan pengetesan dengan perintas <code class="language-plaintext highlighter-rouge">ls</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>ls -la /home/<mark>bandithijo</mark></b><br /></pre>
+
+    <p>Jangan lupa mengganti <mark>bandithijo</mark> dengan nama username kalian.</p>
+
+    <p>Nama username juga berarti nama direktori dari Home user tersebut.</p>
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+        <p>Kita perlu mencatat kunci simetris 128-bit value yang kita gunakan untuk mengenkripsi/dekripsi. </p>
+        <pre><span class="cmd">$ </span><b>ecryptfs-unwrap-passphrase</b><br /></pre>
+        <pre>
+ Pas phrase: _</pre>
+        <p>Masukkan <i>login password</i> yang juga menjadi <i>password dekripsi</i> dari Home direktori.</p>
+        <p>Apabila benar, kira-kira hasilnya akan seperti ini.</p>
+        <pre>
+ c17 10cc56hj093gj7930lkfip3vn24g</pre>
+        <p>Bentuknya mirip MD5 hash, tapi bukan.
+ <br /></p>
+        <p>Catat pada secarik kertas dan simpan baik-baik.</p>
+        <p>Kita akan gunakan kembali untuk me-<i>recovery</i> Home direktori yang terenkripsi pada kasus misalkan <code>wrapped-passphrase</code> tidak sengaja terhapus atau <i>corrupted</i> atau bahkan kalian lupa <i>login password</i>.</p>
+      </div></div>
+  </li>
+  <li>
+    <p>Selanjutnya lakukan pengecekan keberadaan dari file-file berikut ini.</p>
+
+    <pre><span class="cmd">$ </span><b>ls .ecryptfs</b><br /></pre>
+
+    <pre>
+<mark>auto-mount</mark> <mark>auto-unmount</mark> Private.mnt Private.sig <mark>wrapped-passphrase</mark></pre>
+
+    <p>Pastikan file-file yang saya marking kuning.</p>
+
+    <p>File-file tersebut harus ada pada direktori <code class="language-plaintext highlighter-rouge">.ecryptfs</code></p>
+
+    <p>Direktori ini merupakan <em>symbolic link</em> dari <code class="language-plaintext highlighter-rouge">/home/.ecryptfs/bandithijo/.ecryptfs/</code></p>
+  </li>
+</ol>
+
+<h2 id="memberikan-ecryptfs-akses-pam">Memberikan eCryptfs Akses PAM</h2>
+
+<p>Pada langkah sebelumnya kita sudah berhasil men-dekripsi Home direktori kita.</p>
+
+<p>Namun, kalau diperhatikan, proses dekripsi tersebut tidak otomatis dilakukan bersamaan dengan saat kita <em>login</em>.</p>
+
+<p>Sedangkan, pasti kita mau proses yang praktis.</p>
+
+<p>Untuk mengatasi masalah ini sangat mudah. Tinggal kita tambahkan beberapa baris aturan (<em>rules</em>) pada file konfigurasi PAM.</p>
+
+<ol>
+  <li>
+    <p>Gunakan <em>text editor</em> favorit kalian untuk mengedit file di bawah ini.</p>
+
+    <pre><span class="cmd">$ </span><b>sudo vim /etc/pam.d/system-auth</b><br /></pre>
+
+    <div class="highlight-caption"><span class="label">FILE</span><code>/etc/pam.d/system-auth</code></div>
+    <pre class="caption">#%PAM-1.0<br /><br />auth      required  pam_unix.so     try_first_pass nullok<br /><mark>auth      required  pam_ecryptfs.so unwrap</mark><br />auth      optional  pam_permit.so<br />auth      required  pam_env.so<br /><br />account   required  pam_unix.so<br />account   optional  pam_permit.so<br />account   required  pam_time.so<br /><br /><mark>password  optional  pam_ecryptfs.so</mark><br />password  required  pam_unix.so     try_first_pass nullok sha512 shadow<br />password  optional  pam_permit.so<br /><br />session   required  pam_limits.so<br />session   required  pam_unix.so<br /><mark>session   optional  pam_ecryptfs.so unwrap</mark><br />session   optional  pam_permit.so<br /></pre>
+
+    <p>Tambahkan tiga baris yang saya <em>marking</em> kuning sesuai posisinya.</p>
+
+    <p><strong>Pastikan benar-benar tidak ada yang <em>typo</em>!</strong></p>
+  </li>
+  <li>
+    <p>Simpan dan keluar dari <em>text editor</em>.</p>
+  </li>
+  <li>
+    <p><em>Reboot</em> dan <em>login</em>.</p>
+
+    <p>Pastikan kalian dapat masuk ke dalam desktop kalian.</p>
+  </li>
+  <li>
+    <p>Apabila berhasil, tinggal periksa, apakah isi dari Home direktori kita berhasil di-<em>mouting</em> atau tidak.</p>
+  </li>
+</ol>
+
+<h2 id="menghapus-direktori-home-backup">Menghapus Direktori Home Backup</h2>
+
+<p>Saat kita melakukan tahap pertama, yaitu tahap migrasi atau mengenkripsi Home direktori, proses yang terjadi adalah Home direktori kita akan disalin dalam bentuk terenkripsi ke dalam direktori <code class="language-plaintext highlighter-rouge">/home/.ecryptfs/bandithijo/.Private</code> dan Home direktori lama kita akan di-<em>rename</em> menjadi <code>/home/bandithijo.<mark>p7o6p7R2</mark></code>. Sedangkan direktori <code class="language-plaintext highlighter-rouge">/home/bandithijo</code> akan menjadi direktori kosong sebagai tempat untuk <em>mounting</em> pada saat proses dekripsi.</p>
+
+<p>Bagian yang saya <em>marking</em> kuning adalah deretan karakter random yang di-<em>generate</em> oleh eCryptfs pada saat proses migrasi Home direktori.</p>
+
+<p>Coba lakukan pemeriksaan isi dari Home direktori kita.</p>
+
+<pre><span class="cmd">$ </span><b>ls -a /home</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bandithijo bandithijo.p7o6p7R2 .ecryptfs
+</code></pre></div></div>
+
+<p>Nah, kita perlu menghapus direktori <code class="language-plaintext highlighter-rouge">bandithijo.p7o6p7R2</code> tersebut.</p>
+
+<p>Karena sudah tidak lagi kita gunakan.</p>
+
+<p>Penjelasan mudahnya, direktroi ini adalah Home direktori lama kita yang sudah di-<em>rename</em> oleh eCryptfs pada saat proses Home migrasi.</p>
+
+<p>Kita dapat menghapusnya dengan aman.</p>
+
+<pre><span class="cmd">$ </span><b>sudo rm -rvf bandithijo.p7o6p7R2</b><br /></pre>
+
+<p>Tunggu proses penghapusan sampai selesai.</p>
+
+<p>Dengan begini, proses enkripsi Home direktori kita telah selesai.</p>
+
+<p>Apabila teman-teman ingin mengganti <em>password</em> dari user yang berarti juga harus mengganti <em>passphrase</em> dari Home direktori yang terenkripsi, silahkan mengunjungi tulisan saya yang ini, “<a href="https://bandithijo.dev/blog/mengganti-password-user-dari-home-direktori-yang-terenkripsi" target="_blank">Mengganti Password User dari Home Direktori yang Terenkripsi</a>”.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Tulisan ini bukan merupakan tandingan dari dokumentasi eCryptfs. Silahkan merujuk pada dokumentasi eCryptfs resmi yang sudah saya sertakan pada bagian referensi di bawah.</p>
+
+<p>Dapat pula teman-teman yang menggunakan Arch Linux, merujuk pada Arch Wiki eCryptfs yang sudah saya sertakan di bawah.</p>
+
+<p>Sepertinya seperti ini saja.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://bandithijo.com/arch/step-7-install-gnome-and-complete-installation#710-encrypt-home-directory" target="_blank">bandithijo.com/arch/step-7-install-gnome-and-complete-installation#710-encrypt-home-directory</a>
+<br />Diakses tanggal: 2019/06/14</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/ECryptfs" target="_blank">wiki.archlinux.org/index.php/ECryptfs</a>
+<br />Diakses tanggal: 2019/06/14</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

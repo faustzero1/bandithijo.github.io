@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, rails">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan kali ini tentang cara membuat user dan admin yang memiliki tabel terpisah pada Rails yang menggunakan Devise gem." />
+<meta property="og:description" content="Catatan kali ini tentang cara membuat user dan admin yang memiliki tabel terpisah pada Rails yang menggunakan Devise gem." />
+<link rel="canonical" href="https://bandithijo.dev/blog/user-dan-admin-terpisah-pada-rails" />
+<meta property="og:url" content="https://bandithijo.dev/blog/user-dan-admin-terpisah-pada-rails" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-15T20:18:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/user-dan-admin-terpisah-pada-rails"},"description":"Catatan kali ini tentang cara membuat user dan admin yang memiliki tabel terpisah pada Rails yang menggunakan Devise gem.","url":"https://bandithijo.dev/blog/user-dan-admin-terpisah-pada-rails","@type":"BlogPosting","headline":"Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise","dateModified":"2019-12-15T20:18:00+08:00","datePublished":"2019-12-15T20:18:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/user-dan-admin-terpisah-pada-rails">Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/12/15</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / User dan admin terpisah pada rails
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rails">Rails</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#eksekusi">Eksekusi</a>
+    <ul>
+      <li><a href="#inisiasi-project">Inisiasi Project</a></li>
+      <li><a href="#devise-gem">Devise Gem</a></li>
+      <li><a href="#controller">Controller</a></li>
+      <li><a href="#route">Route</a></li>
+      <li><a href="#view">View</a></li>
+      <li><a href="#javascript-assets">Javascript Assets</a></li>
+      <li><a href="#stylesheet-assets">Stylesheet Assets</a></li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.3</code> <code class="language-plaintext highlighter-rouge">Rails 5.2.4</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 11.5</code></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Kali ini saya ingin mencatat mengenai web aplikasi yang memiliki tampilan frontend terpisah antara user dan admin. Tentu saja dengan menggunakan Rails.</p>
+
+<p>Contoh mudahnya seperti aplikasi blog, Wordpress atau Blogspot.</p>
+
+<p>Kedua aplikasi ini disebut CMS (<em>Content Management System</em>). Di mana web aplikasi ini mempunyai dua buah tampilan yang berbeda antara tampilan untuk pengunjung dan tampilan untuk author (penulis) atau admin.</p>
+
+<p>Nah, kegunaan pemisahan User dengan Admin pada catatan kali ini, nantinya dapat dimanfaatkan untuk membuat web aplikasi seperti CMS.</p>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<p>Kali ini saya sedikit rajin.</p>
+
+<p>Saya akan mencatat prosesnya dari awal project dibuat. Hehehe.</p>
+
+<h2 id="inisiasi-project">Inisiasi Project</h2>
+
+<p>Saya akan membuat project baru menggunakan Rails 5.2.4 dengan PostgreSQL sebagai database engine.</p>
+
+<pre><span class="cmd">$ </span><b>rails _5.2.4_ new blog_spot -d postgresql</b><br /></pre>
+
+<p>Kalau proses pembuatan sudah selesai, masuk ke dalam project.</p>
+
+<pre><span class="cmd">$ </span><b>cd blog_spot</b><br /></pre>
+
+<p>Periksa spesifikasi versi Rails dan Ruby.</p>
+
+<pre><span class="cmd">$ </span><b>ruby -v</b><br /></pre>
+
+<pre>
+ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux]
+</pre>
+
+<pre><span class="cmd">$ </span><b>rails -v</b><br /></pre>
+
+<pre>
+Rails 5.2.4
+</pre>
+
+<p>Selanjutnya create database dengan perintah berikut ini.</p>
+
+<pre><span class="cmd">$ </span><b>rails db:create</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created database 'blog_spot_development'
+Created database 'blog_spot_test'
+</code></pre></div></div>
+
+<p>Lalu, jalankan Rails server untuk sekedar melihat apakah project berhasil dijalankan atau tidak.</p>
+
+<pre><span class="cmd">$ </span><b>rails s</b><br /></pre>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/QdHVbnLy/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Default Welcome Page pada Rails Project</p>
+
+<p>Yay! Berhasil.</p>
+
+<p>Entah mengapa saya suka melihat Default Rails Welcome Page ini. Dari sedikit web framework yang sudah saya coba seperti Codeigniter, Laravel, Django dan React. Rails memiliki tampilan Default Welcome Page yang menurut saya paling menarik.</p>
+
+<h2 id="devise-gem">Devise Gem</h2>
+
+<p>Devise adalah gem yang akan saya gunakan untuk menghandle authentication system.</p>
+
+<p>Pasang pada <code class="language-plaintext highlighter-rouge">Gemfile</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c1"># ...</span>
+<span class="c1"># ...</span>
+<span class="n">gem</span> <span class="s1">'devise'</span><span class="p">,</span> <span class="s1">'~&gt; 4.7'</span><span class="p">,</span> <span class="s1">'&gt;= 4.7.1'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Install Devise gem yang baru saja kita pasang.</p>
+
+<pre><span class="cmd">$ </span><b>bundle install</b><br /></pre>
+
+<p>Jalankan generator yang disediakan oleh Devise untuk menginisiasi file config yang disediakan oleh Devise.</p>
+
+<pre><span class="cmd">$ </span><b>rails generate devise:install</b><br /></pre>
+
+<pre>
+Running via Spring preloader in process 349251
+     <span class="is-success">create</span>  config/initializers/devise.rb
+     <span class="is-success">create</span>  config/locales/devise.en.yml
+===============================================================================
+
+Some setup you must do manually if you haven't yet:
+
+  1. Ensure you have defined default url options in your environments files. Here
+     is an example of default_url_options appropriate for a development environment
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+     In production, :host should be set to the actual host of your application.
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       &lt;p class="notice"&gt;&lt;%= notice %&gt;&lt;/p&gt;
+       &lt;p class="alert"&gt;&lt;%= alert %&gt;&lt;/p&gt;
+
+  4. You can copy Devise views (for customization) to your app by running:
+
+       rails g devise:views
+
+===============================================================================
+</pre>
+
+<p>Hasil generate tersebut akan menghasilkan dua buah file yang dapat kita lihat pada output di atas.</p>
+
+<p>Selanjutnya saya membuat model user dan admin dengan memanfaatkan generator yang disediakan oleh Devise.</p>
+
+<p>Saya akan membuat untuk model admin terlebih dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>rails g devise admin</b><br /></pre>
+
+<pre>
+Running via Spring preloader in process 368446
+      <span class="is-white">invoke</span>  active_record
+      <span class="is-success">create</span>    db/migrate/20191216044109_devise_create_admins.rb
+      <span class="is-success">create</span>    app/models/admin.rb
+      <span class="is-white">invoke</span>    test_unit
+      <span class="is-success">create</span>      test/models/admin_test.rb
+      <span class="is-success">create</span>      test/fixtures/admins.yml
+      <span class="is-success">insert</span>    app/models/admin.rb
+       <span class="is-success">route</span>  devise_for :admins
+</pre>
+
+<p>Kemudian untuk model user.</p>
+
+<pre><span class="cmd">$ </span><b>rails g devise user</b><br /></pre>
+
+<pre>
+Running via Spring preloader in process 368446
+      <span class="is-white">invoke</span>  active_record
+      <span class="is-success">create</span>    db/migrate/20191216044641_devise_create_users.rb
+      <span class="is-success">create</span>    app/models/user.rb
+      <span class="is-white">invoke</span>    test_unit
+      <span class="is-success">create</span>      test/models/user_test.rb
+      <span class="is-success">create</span>      test/fixtures/users.yml
+      <span class="is-success">insert</span>    app/models/user.rb
+       <span class="is-success">route</span>  devise_for :users
+</pre>
+
+<p>Lalu jalankan migration-nya.</p>
+
+<pre><span class="cmd">$ </span><b>rails db:migrate</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>== 20191216044109 DeviseCreateAdmins: migrating ===============================
+-- create_table(:admins)
+   -&gt; 0.0167s
+-- add_index(:admins, :email, {:unique=&gt;true})
+   -&gt; 0.0134s
+-- add_index(:admins, :reset_password_token, {:unique=&gt;true})
+   -&gt; 0.0056s
+== 20191216044109 DeviseCreateAdmins: migrated (0.0360s) ======================
+
+== 20191216044641 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -&gt; 0.0102s
+-- add_index(:users, :email, {:unique=&gt;true})
+   -&gt; 0.0077s
+-- add_index(:users, :reset_password_token, {:unique=&gt;true})
+   -&gt; 0.0064s
+== 20191216044641 DeviseCreateUsers: migrated (0.0246s) =======================
+</code></pre></div></div>
+
+<p>Cek status dengan.</p>
+
+<pre><span class="cmd">$ </span><b>rails db:migrate:status</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>database: blog_spot_development
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20191216044109  Devise create admins
+   up     20191216044641  Devise create users
+</code></pre></div></div>
+
+<p>Oke, migration untuk user dan model telah berhasil dimigrasikan ke skema database.</p>
+
+<p>Dengan begini, sekarang saya sudah memiliki beberapa fitur yang disediakan oleh Devise, seperti:</p>
+
+<ol>
+  <li>Authentikasi</li>
+  <li>Registrasi</li>
+  <li>Edit</li>
+  <li>dll.</li>
+</ol>
+
+<p>Devise juga mengenerate route untuk model admin dan user.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/routes.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">devise_for</span> <span class="ss">:admins</span>
+  <span class="n">devise_for</span> <span class="ss">:users</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cek route yang tersedia pada Browser.</p>
+
+<pre class="url">
+http://localhost:3000/rails/info/routes
+</pre>
+
+<p>Selanjutnya, saya akan mulai dari controller.</p>
+
+<h2 id="controller">Controller</h2>
+
+<p>Saya akan menggunakan <strong>Controller Namespaces and Routing</strong>.<a href="https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing" target="_blank"><sup>2</sup></a>. Untuk memisahkan antara admin dan user dengan struktur direktori seperti ini.</p>
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  ├─ channels/
+│  ├─ controllers/
+│  │  ├─ <mark>admins/</mark>
+│  │  │  └─ <mark>dashboard_controller.rb</mark>
+│  │  ├─ concerns/
+│  │  ├─ <mark>public/</mark>
+│  │  │  ├─ <mark>about_controller.rb</mark>
+│  │  │  ├─ <mark>contact_controller.rb</mark>
+│  │  │  └─ <mark>homepage_controller.rb</mark>
+│  │  ├─ <mark>users/</mark>
+│  │  │  └─ <mark>dashboard_controller.rb</mark>
+│  │  ├─ <mark>admins_controller.rb</mark>
+│  │  ├─ application_controller.rb
+│  │  └─ <mark>users_controller.rb</mark>
+│  ├─ ...
+│  ...
+├─ ...
+...
+</pre>
+
+<p>Kemudian isi dari file-file controller tersebut akan seperti ini.</p>
+
+<p>Untuk Controller Namespaces pada Admins.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/admins_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AdminsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">layout</span> <span class="ss">:admins</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/admins/dashboard_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Admins</span><span class="o">::</span><span class="no">DashboardController</span> <span class="o">&lt;</span> <span class="no">AdminsController</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk Controller Namespaces pada Users.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/users_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/users/dashboard_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">DashboardController</span> <span class="o">&lt;</span> <span class="no">UsersController</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya ingin membuat tampilan login yang berbeda antara Admin dengan User. Saya perlu mengaturnya pada <code class="language-plaintext highlighter-rouge">application_controller.rb</code>.<a href="https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts" target="_blank"><sup>3</sup></a></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/application_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">layout</span> <span class="ss">:layout_by_resource</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">layout_by_resource</span>
+    <span class="k">if</span> <span class="n">devise_controller?</span> <span class="o">&amp;&amp;</span> <span class="n">resource_name</span> <span class="o">==</span> <span class="ss">:admin</span>
+      <span class="s1">'admins_devise'</span>
+    <span class="k">else</span>
+      <span class="s1">'users'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya juga membuat <code class="language-plaintext highlighter-rouge">homepage_controller.rb</code> untuk menghandle halaman Homepage yang saya letakkan pada direktori <code class="language-plaintext highlighter-rouge">public/</code></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/public/homepage_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Public</span><span class="o">::</span><span class="no">HomepageController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Serta halaman About dan Contact.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/public/about_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Public</span><span class="o">::</span><span class="no">AboutController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/public/contact_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Public</span><span class="o">::</span><span class="no">ContactController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Langsung saja membuat action <code class="language-plaintext highlighter-rouge">:index</code>, yang nantinya akan digunakan untuk menampilkan text sederhana pada view template.</p>
+
+<h2 id="route">Route</h2>
+
+<p>Kemudian, untuk routingnya akan seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/routes.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="c1"># Root</span>
+  <span class="n">root</span> <span class="ss">to: </span><span class="s2">"public/homepage#index"</span>
+
+  <span class="c1"># Public</span>
+  <span class="n">scope</span> <span class="ss">module: :public</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:about</span>
+    <span class="n">resources</span> <span class="ss">:contact</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Admins</span>
+  <span class="n">devise_for</span> <span class="ss">:admins</span>
+  <span class="n">namespace</span> <span class="ss">:admins</span> <span class="k">do</span>
+    <span class="n">root</span> <span class="ss">to: </span><span class="s2">"dashboard#index"</span>
+    <span class="n">resources</span> <span class="ss">:dashboard</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%w[index]</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Users</span>
+  <span class="n">devise_for</span> <span class="ss">:users</span>
+  <span class="n">namespace</span> <span class="ss">:users</span> <span class="k">do</span>
+    <span class="n">root</span> <span class="ss">to: </span><span class="s2">"dashboard#index"</span>
+    <span class="n">resources</span> <span class="ss">:dashboard</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%w[index]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pada block Public, saya menggunakan <code class="language-plaintext highlighter-rouge">scope</code> karena ingin membuat url yang singkat, seperti ini.</p>
+
+<pre class="url">
+http://localhost:3000/about
+</pre>
+
+<p>Kalau menggunakan <code class="language-plaintext highlighter-rouge">namespace</code> maka url yang dihasilkan akan seperti ini.</p>
+
+<pre class="url">
+http://localhost:3000/public/about
+</pre>
+
+<p>Maka dari itu, saya menggunakan <code class="language-plaintext highlighter-rouge">scope</code> untuk controller yang berada pada module Public</p>
+
+<p>Selanjutnya ke view template.</p>
+
+<h2 id="view">View</h2>
+
+<p>Berikut ini struktur direktorinya.</p>
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  ├─ channels/
+│  ├─ controllers/
+│  ├─ helpers/
+│  ├─ jobs/
+│  ├─ mailers/
+│  ├─ models/
+│  └─ views/
+│     ├─ <mark>admins/</mark>
+│     │  └─ <mark>dashboard/</mark>
+│     │     └─ <mark>index.html.erb</mark>
+│     ├─ layouts/
+│     │  ├─ <mark>admins/</mark>
+│     │  │  └─ <mark>_nav.html.erb</mark>
+│     │  ├─ <mark>users/</mark>
+│     │  │  └─ <mark>_nav.html.erb</mark>
+│     │  ├─ <mark>admins.html.erb</mark>
+│     │  ├─ <mark>admins_devise.html.erb</mark>
+│     │  ├─ application.html.erb
+│     │  ├─ mailer.html.erb
+│     │  ├─ mailer.text.erb
+│     │  └─ <mark>users.html.erb</mark>
+│     ├─ <mark>public/</mark>
+│     │  ├─ <mark>about/</mark>
+│     │  │  └─ <mark>index.html.erb</mark>
+│     │  ├─ <mark>contact/</mark>
+│     │  │  └─ <mark>index.html.erb</mark>
+│     │  └─ <mark>homepage/</mark>
+│     │     └─ <mark>index.html.erb</mark>
+│     └─ <mark>users/</mark>
+│        └─ <mark>dashboard/</mark>
+│           └─ <mark>index.html.erb</mark>
+│
+├─ ...
+...
+</pre>
+
+<p>Berikut ini isi dari file-file view tersebut.</p>
+
+<p>Kita mulai dari <code class="language-plaintext highlighter-rouge">layouts/</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/application.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>BlogSpot<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csrf_meta_tags</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+
+    <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span>    <span class="s1">'application'</span><span class="p">,</span> <span class="ss">media: </span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s1">'application'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/nav'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/admins.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Admin - BlogSpot<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csrf_meta_tags</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+
+    <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span>    <span class="s1">'admins'</span><span class="p">,</span> <span class="ss">media: </span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s1">'admins'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/admins/nav'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>User - BlogSpot<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csrf_meta_tags</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+
+    <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span>    <span class="s1">'users'</span><span class="p">,</span> <span class="ss">media: </span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s1">'users'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/nav'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya membuat halaman login yang berbeda antara Admin dengan User.</p>
+
+<p>Halamn login untuk User akan menggunakan template dari Devise, sedangkan Admin, akan saya custom sendiri. Seperti di bawah ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/admins_devise.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Admin - BlogSpot<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csrf_meta_tags</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+
+    <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span>    <span class="s1">'admins'</span><span class="p">,</span> <span class="ss">media: </span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s1">'admins'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/admins/nav'</span> <span class="cp">%&gt;</span>
+
+    <span class="c">&lt;!-- Admin Custom Sign In --&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'sessions'</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Hello, Admin<span class="nt">&lt;/h2&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'registrations'</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>Become an Admin<span class="nt">&lt;/h2&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'sessions'</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="ss">as: </span><span class="n">resource_name</span><span class="p">,</span> <span class="ss">url: </span><span class="n">session_path</span><span class="p">(</span><span class="n">resource_name</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">email_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">autofocus: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">autocomplete: </span><span class="s2">"email"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Email"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">password_field</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">autocomplete: </span><span class="s2">"current-password"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Password"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Sign In"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'registrations'</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="n">resource</span><span class="p">,</span> <span class="ss">as: </span><span class="n">resource_name</span><span class="p">,</span> <span class="ss">url: </span><span class="n">registration_path</span><span class="p">(</span><span class="n">resource_name</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">email_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">autofocus: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">autocomplete: </span><span class="s2">"email"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Email"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">password_field</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">autocomplete: </span><span class="s2">"current-password"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Password"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">submit</span> <span class="s2">"Sign Up"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'registrations'</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Become an Admin"</span><span class="p">,</span> <span class="n">new_admin_registration_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">""</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="c">&lt;!-- END Admin Custom Sign In --&gt;</span>
+
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pada keempat file view template di atas, saya menambahkan render partial untuk menu navigasi.</p>
+
+<p>Saya juga mengarahkan <code class="language-plaintext highlighter-rouge">stylesheet_link_tag</code> dan <code class="language-plaintext highlighter-rouge">javascript_include_tag</code> pada masing-masing direktori asset (<code class="language-plaintext highlighter-rouge">application</code>, <code class="language-plaintext highlighter-rouge">users</code>, <code class="language-plaintext highlighter-rouge">admins</code>) yang nantinya akan saya tambahkan setelah selesai dengan strukturl html.</p>
+
+<p>Oke, selanjutnya file render partial untuk menu navigasi.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/admins/_nav.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="nt">&lt;nav&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'homepage'</span> <span class="o">&amp;&amp;</span> <span class="n">action_name</span> <span class="o">==</span> <span class="s1">'index'</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Homepage"</span><span class="p">,</span> <span class="n">root_path</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"About"</span><span class="p">,</span> <span class="n">about_index_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'about'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Contact"</span><span class="p">,</span> <span class="n">contact_index_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'contact'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">admin_signed_in?</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Admin Dashboard"</span><span class="p">,</span> <span class="n">admins_root_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'dashboard'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Log Out"</span><span class="p">,</span> <span class="n">destroy_admin_session_path</span><span class="p">,</span> <span class="ss">method: :delete</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Log In"</span><span class="p">,</span> <span class="n">admin_session_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'sessions'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span>
+    | <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"User?"</span><span class="p">,</span> <span class="n">user_session_path</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users/_nav.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="nt">&lt;nav&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'homepage'</span> <span class="o">&amp;&amp;</span> <span class="n">action_name</span> <span class="o">==</span> <span class="s1">'index'</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Homepage"</span><span class="p">,</span> <span class="n">root_path</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"About"</span><span class="p">,</span> <span class="n">about_index_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'about'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Contact"</span><span class="p">,</span> <span class="n">contact_index_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'contact'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+  <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">user_signed_in?</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"User Dashboard"</span><span class="p">,</span> <span class="n">users_root_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'dashboard'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Log Out"</span><span class="p">,</span> <span class="n">destroy_user_session_path</span><span class="p">,</span> <span class="ss">method: :delete</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">elsif</span> <span class="n">admin_signed_in?</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Admin Dashboard"</span><span class="p">,</span> <span class="n">admins_root_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'dashboard'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span> |
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Log Out"</span><span class="p">,</span> <span class="n">destroy_admin_session_path</span><span class="p">,</span> <span class="ss">method: :delete</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Log In"</span><span class="p">,</span> <span class="n">user_session_path</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"</span><span class="si">#{</span><span class="s1">'active'</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s1">'sessions'</span><span class="si">}</span><span class="s2">"</span> <span class="cp">%&gt;</span>
+    | <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Admin?"</span><span class="p">,</span> <span class="n">admin_session_path</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya Homepage.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/public/homepage/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Homepage<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    =&gt; <span class="cp">&lt;%=</span> <span class="n">controller_name</span> <span class="cp">%&gt;</span>#<span class="cp">&lt;%=</span> <span class="n">action_name</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Halaman About dan Contact.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/public/about/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>About<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    =&gt; <span class="cp">&lt;%=</span> <span class="n">controller_name</span> <span class="cp">%&gt;</span>#<span class="cp">&lt;%=</span> <span class="n">action_name</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/public/contact/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Contact<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    =&gt; <span class="cp">&lt;%=</span> <span class="n">controller_name</span> <span class="cp">%&gt;</span>#<span class="cp">&lt;%=</span> <span class="n">action_name</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kemudian, halan Dashboard untuk Admin dan User.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/admins/dashboard/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>DashBoard Admin<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+  Admin: <span class="cp">&lt;%=</span> <span class="n">current_admin</span><span class="p">.</span><span class="nf">email</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/users/dashboard/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>DashBoard User<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+  User: <span class="cp">&lt;%=</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">email</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sekarang tinggal Stylesheet dan Javascript.</p>
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  │  ├─ config/
+│  │  ├─ images/
+│  │  ├─ javascripts/
+│  │  │  ├─ <mark>admins/</mark>
+│  │  │  │  └─ <mark>custom.js</mark>
+│  │  │  ├─ channels/
+│  │  │  ├─ <mark>users/</mark>
+│  │  │  │  └─ <mark>custom.js</mark>
+│  │  │  ├─ <mark>admins.js</mark>
+│  │  │  ├─ application.js
+│  │  │  ├─ cable.js
+│  │  │  └─ <mark>users.js</mark>
+│  │  └─ stylesheets/
+│  │     ├─ <mark>admins/</mark>
+│  │     │  └─ <mark>custom.css</mark>
+│  │     ├─ <mark>users/</mark>
+│  │     │  └─ <mark>custom.css</mark>
+│  │     ├─ <mark>admins.css</mark>
+│  │     ├─ application.css
+│  │     └─ <mark>users.css</mark>
+│  ├─ ...
+│  ├─ ...
+...
+</pre>
+
+<p>Mengikuti struktur direktori di atas.</p>
+
+<h2 id="javascript-assets">Javascript Assets</h2>
+
+<p>Pada <code class="language-plaintext highlighter-rouge">javascripts/application.js</code> tambahkan <code class="language-plaintext highlighter-rouge">user.js</code>. Karena saya akan menggunakan sebagai satu kesatuan assets.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/javascripts/application.js</code></div>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c1">//= require rails-ujs</span>
+<span class="c1">//= require activestorage</span>
+<span class="c1">//= require turbolinks</span>
+<span class="c1">//= require users</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lalu pada masing-masing file Javascript untuk Admin dan User, tambahkan <code class="language-plaintext highlighter-rouge">rails-ujs</code> agar Devise dapat Logout.</p>
+
+<p>Kalau tidak menambahkan ini, Devise akan mengalami routing error saat melakukan Logout.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/javascripts/admins.js</code></div>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="c1">//= require rails-ujs</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/javascripts/users.js</code></div>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="c1">//= require rails-ujs</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk <code class="language-plaintext highlighter-rouge">admins/custom.js</code> dan <code class="language-plaintext highlighter-rouge">users/custom.js</code> digunakan untuk Javascript buatan kita sendiri. Namun karena masih kosong, jadi tidak saya contohkan.</p>
+
+<h2 id="stylesheet-assets">Stylesheet Assets</h2>
+
+<p>Pada <code class="language-plaintext highlighter-rouge">stylesheets/application.css</code> tambahkan <code class="language-plaintext highlighter-rouge">user.css</code>. Karena saya akan menggunakan sebagai satu kesatuan assets.</p>
+
+<p>Saya menghapus <code class="language-plaintext highlighter-rouge">*=require </code> file yang lain agar file stylesheet tidak saling tumpang tindih dan dipanggil dimana-mana.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/stylesheets/application.css</code></div>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c">/*
+ *= require users
+ */</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kemudian pada <code class="language-plaintext highlighter-rouge">admins.css</code> dan <code class="language-plaintext highlighter-rouge">users.css</code> saya akan mengarahkan asset pada <code class="language-plaintext highlighter-rouge">custom.css</code> di masing-masing direktori.</p>
+
+<p>File <code class="language-plaintext highlighter-rouge">custom.css</code> inilah yang nantinya akan digunakan apabila ingin mengkostumisasi style pada Admin atau User view.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/stylesheets/admins.css</code></div>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="k">@import</span> <span class="s2">'admins/custom.css'</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/stylesheets/users.css</code></div>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="k">@import</span> <span class="s2">'users/custom.css'</span><span class="p">;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, isi dari <code class="language-plaintext highlighter-rouge">../admins/custom.css</code> dan <code class="language-plaintext highlighter-rouge">../users/custom.css</code>.</p>
+
+<p>Untuk contoh kali ini, saya membuat style antar Admin dan User menjadi terlihat serupa.</p>
+
+<p>Namun, pada project yang sesungguhnya, kedua file ini akan memiliki isi yang berbeda, sesuai dengan keperluan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/stylesheets/admins/custom.css</code></div>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#c52f24</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">div</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#c52f24</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">dotted</span> <span class="m">#c52f24</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.active</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/assets/stylesheets/users/custom.css</code></div>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#c52f24</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">div</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#c52f24</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+  <span class="nl">border-bottom</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">dotted</span> <span class="m">#c52f24</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.active</span> <span class="p">{</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, saya perlu untuk menambahkan konfigurasi tambahan untuk <strong>Precompile Additional Assets</strong>, karena saya sudah membuat custom assets untuk admins dan users.</p>
+
+<p>Buka file <code class="language-plaintext highlighter-rouge">config/initializers/assets.rb</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/initializers/assets.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c1"># Precompile additional assets.</span>
+<span class="c1"># application.js, application.css, and all non-JS/CSS in the app/assets</span>
+<span class="c1"># folder are already added.</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">config</span><span class="p">.</span><span class="nf">assets</span><span class="p">.</span><span class="nf">precompile</span> <span class="o">+=</span> <span class="sx">%w( admins.js admins.css users.js users.css )</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><em>Uncomment</em> dan tambahkan <code class="language-plaintext highlighter-rouge">users.js</code> dan <code class="language-plaintext highlighter-rouge">users.css</code>.</p>
+
+<p>Oke, saya rasa, sudah semuanya.</p>
+
+<p>Sekarang web aplikasi siap untuk di jalankan.</p>
+
+<pre>
+$ <b>rails s</b>
+</pre>
+
+<p>Kira-kira, seperti inilah hasilnya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/15mvFB1T/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Public Page</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/NjLbJ0Mk/gambar-03.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - User Login, Register Dashboard</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/pXsqJj2d/gambar-04.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Admin Login dan Register</p>
+
+<p>Selesai!</p>
+
+<p>Kerangka untuk membuat Web Aplikasi yang memiliki Halaman Public, Admin Dashboard dan User Dashboard sudah selesai.</p>
+
+<p>Teman-teman dapat melihat source codenya pada halaman GitHub <a href="https://github.com/bandithijo/blog_spot" target="_blank">di sini</a>.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/plataformatec/devise" target="_blank">github.com/plataformatec/devise</a>
+<br />Diakses tanggal: 2019/12/15</p>
+  </li>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing" target="_blank">guides.rubyonrails.org/routing.html#controller-namespaces-and-routing</a>
+<br />Diakses tanggal: 2019/12/15</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts" target="_blank">github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts</a>
+<br />Diakses tanggal: 2019/12/15</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

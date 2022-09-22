@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="ulasan, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Translate-shell, Translator CLI Online yang Praktis | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Translate-shell, Translator CLI Online yang Praktis" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat." />
+<meta property="og:description" content="Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat." />
+<link rel="canonical" href="https://bandithijo.dev/blog/translate-shell-translator-cli-mudah" />
+<meta property="og:url" content="https://bandithijo.dev/blog/translate-shell-translator-cli-mudah" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-16T22:05:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/translate-shell-translator-cli-mudah"},"description":"Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat.","url":"https://bandithijo.dev/blog/translate-shell-translator-cli-mudah","@type":"BlogPosting","headline":"Translate-shell, Translator CLI Online yang Praktis","dateModified":"2020-10-16T22:05:00+08:00","datePublished":"2020-10-16T22:05:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Translate-shell, Translator CLI Online yang Praktis"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/translate-shell-translator-cli-mudah">Translate-shell, Translator CLI Online yang Praktis</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/10/16</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Translate shell translator cli mudah
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#tentang-translate-shell">Tentang translate-shell</a>
+    <ul>
+      <li><a href="#kebutuhan-sistem">Kebutuhan Sistem</a></li>
+      <li><a href="#dependensi">Dependensi</a></li>
+      <li><a href="#dependensi-yang-direkomendasikan">Dependensi yang Direkomendasikan</a></li>
+      <li><a href="#instalasi">Instalasi</a>
+        <ul>
+          <li><a href="#nyicip-dulu-tanpa-install">Nyicip dulu (tanpa install)</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi">Konfigurasi</a></li>
+  <li><a href="#cara-penggunaan">Cara Penggunaan</a>
+    <ul>
+      <li><a href="#menerjemahkan-kata">Menerjemahkan kata</a>
+        <ul>
+          <li><a href="#mendefinisikan-bahasa-target">Mendefinisikan bahasa target</a></li>
+          <li><a href="#mendefinisikan-bahasa-sumber">Mendefinisikan bahasa sumber</a></li>
+          <li><a href="#menerjemahkan-banyak-kata-atau-sebuah-frase">Menerjemahkan banyak kata atau sebuah frase</a></li>
+          <li><a href="#menerjemahkan-sebuah-kalimat">Menerjemahkan sebuah kalimat</a></li>
+        </ul>
+      </li>
+      <li><a href="#brief-mode">Brief Mode</a></li>
+    </ul>
+  </li>
+  <li><a href="#tambahan">Tambahan</a>
+    <ul>
+      <li><a href="#membuat-interaktif-menu-translate-dengan-dmenu">Membuat Interaktif Menu Translate dengan Dmenu</a></li>
+      <li><a href="#mengintegrasikan-translate-shell-dengan-vimneovim">Mengintegrasikan Translate Shell dengan Vim/Neovim</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Kamus atau <em>dictionary</em>, bagi yang beraktifitas dalam dua bahasa, pasti memerlukannya.</p>
+
+<p>Meskipun tidak setiap waktu, namun cukup merepotkan apabila akses untuk mencari kamus cukup ribet.</p>
+
+<p>Misal,</p>
+
+<p><strong>Orang A</strong></p>
+<ol>
+  <li>Membuka browser dan mengakses halaman Google Translate</li>
+  <li>Mengetikkan kata/kalimat yang akan ditranslate</li>
+  <li>Menunggu hasil</li>
+</ol>
+
+<p><strong>Orang B</strong></p>
+<ol>
+  <li>Membuka terminal dan masuk ke dalam translate-shell</li>
+  <li>Mengetikkan kata/kalimat yang akan ditranslate</li>
+  <li>Menunggu hasil</li>
+</ol>
+
+<p>Sekilas, tidak ada yang terlalu berbeda dari perilaku antara <strong>Orang A</strong> atau <strong>B</strong>.</p>
+
+<p>Namun, pada kenyataannya, proses nomor <strong>1.</strong> bisa jadi cukup panjang bagi <strong>Orang A</strong>, karena perlu untuk menggerakkan mouse ke sana dan kemari.</p>
+
+<p>Belum lagi apabila resource RAM yang tidak memadai sehingga membuka browser saja menjadi pekerjaan yang cukup menyita waktu.</p>
+
+<p>Saya adalah gambaran dari <strong>Orang A</strong> sebelum akhirnya mengenal <strong>translate-shell</strong> dan menjadi <strong>Orang B</strong> saat ini.</p>
+
+<h1 id="tentang-translate-shell">Tentang translate-shell</h1>
+
+<p><strong>Translate Shell</strong> adalah <em>command-line translator</em> yang dapat menggunakan Google Translate, Bing Translator, Yandex Translate, Apertium, dll. sebagai engine translator untuk menerjemahkan kata/frase/kalimat. Sebelumnya, dikenal dengan nama Google Tranaslate CLI.</p>
+
+<h2 id="kebutuhan-sistem">Kebutuhan Sistem</h2>
+
+<p>Translate Shell dapat bekerja pada banyak sistem yang sesuai dengan POSIX seperti:</p>
+
+<ol>
+  <li>GNU/Linux</li>
+  <li>macOS</li>
+  <li>*BSD</li>
+  <li>Android (menggunakan Termux)</li>
+  <li>Windows (menggunakan WSL, Cygwin, atau MSYS2)</li>
+</ol>
+
+<h2 id="dependensi">Dependensi</h2>
+
+<p>Dependensi yang diperlukan:</p>
+
+<ol>
+  <li>GNU Awk (Gawk)</li>
+  <li>GNU Bash atau Zsh, namun dapat pula menggunakan unix shell apapun seperti ksh, tcsh, fish, dan lain-lain.</li>
+</ol>
+
+<h2 id="dependensi-yang-direkomendasikan">Dependensi yang Direkomendasikan</h2>
+
+<p>Beberapa daftar dependensi di bawah ini bersifat <em>optional</em> namun sangat direkomendasikan untuk dipasang.</p>
+
+<ol>
+  <li>curl</li>
+  <li>GNU FriBidi</li>
+  <li>mplayer, mpv, mpg123, eSpeak</li>
+  <li>less, more, most</li>
+  <li>rlwrap</li>
+  <li>aspell, hunspell</li>
+</ol>
+
+<h2 id="instalasi">Instalasi</h2>
+
+<p>Translate Shell pada halaman “GitHub readme” mereka, menjelaskan berbagai macam cara untuk memasang Translate Shell, tautannnya dapat teman-teman lihat <a href="https://github.com/soimort/translate-shell#installation" target="_blank">di sini</a>.</p>
+
+<h3 id="nyicip-dulu-tanpa-install">Nyicip dulu (tanpa install)</h3>
+
+<p>Kita dapat sekedar “nyicipin” dahulu tanpa perlu melakukan instalasi.</p>
+
+<p>Buka Terminal, (khusus <strong>bash</strong> &amp; <strong>zsh</strong>)</p>
+
+<pre><span class="cmd">$ </span><b>gawk -f &lt;(curl -Ls git.io/translate) -- -shell</b><br /></pre>
+
+<p>Apabila berhasil outputnya akan seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translate Shell
+(:q to quit)
+&gt; _
+</code></pre></div></div>
+
+<p>Tinggal mengetikkan kata yang akan kita translate, maka translate-shell akan secara otomatis mendeteksi kata/kalimat yang diinputkan dan secara default akan ditranslate ke bahasa inggris.</p>
+
+<p>Untuk proses instalasi, teman-teman dapat menggunakan package manager dari distro masing-masing.</p>
+
+<p>Misal, seperti saya yang menggunakan Arch Linux.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S translate-shell</b><br /></pre>
+
+<p>Untuk distirbusi yang lain, dapat dilihat <a href="https://github.com/soimort/translate-shell/wiki/Distros" target="_blank">di sini</a>.</p>
+
+<p>Untuk cara instalasi yang lain, dapat dilihat <a href="https://github.com/soimort/translate-shell#installation" target="_blank">di sini</a>.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>File konfigurasi dapat kalian letakkan pada lokasi-lokasi beirikut ini:</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">.trans</code> di <em>current working directory</em> – direktori kerja saat ini</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">~/.translate-shell/init.trans</code> di HOME direktori</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">$XDG_CONFIG_HOME/translate-shell/init.trans</code><br />(defaultnya ada di <code class="language-plaintext highlighter-rouge">~/.config/translate-shell/init.trans</code>)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">/etc/translate-shell</code> untuk <em>system wide</em></p>
+  </li>
+</ol>
+
+<p>Saya memilih lokasi nomor 3, untuk menyimpan file <code class="language-plaintext highlighter-rouge">init.trans</code>.</p>
+
+<p>Dan ini adalah contoh dari file <code class="language-plaintext highlighter-rouge">init.trans</code> yang saya gunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/translate-shell/init.trans</code></div>
+
+<figure class="highlight"><pre><code class="language-trans" data-lang="trans"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>{
+ :translate-shell "0.9.6"
+ :verbose         true
+ :hl              "id"
+ :tl              "en"
+ :show-original   false
+ :view            true
+ :engine          "google"
+ :user-agent      "Mozilla/5.0 (X11; Linux x86_64; rv:81.0) Gecko/20100101 Firefox/81.0"
+}
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Parameter-parameter tersebut dapat kalian lihat pada option <code class="language-plaintext highlighter-rouge">-h</code> atau <code class="language-plaintext highlighter-rouge">$ manual trans</code>.</p>
+
+<p>Silahkan modifikasi sendiri sesaui dengan kebutuhan kalian.</p>
+
+<h1 id="cara-penggunaan">Cara Penggunaan</h1>
+
+<p>Saya hanya akan menunjukkan beberapa contoh saja, karena pada halaman GitHub readme dari Translate Shell sudah mendemonstrasikan dengan sangat lengkap.</p>
+
+<h2 id="menerjemahkan-kata">Menerjemahkan kata</h2>
+
+<h3 id="mendefinisikan-bahasa-target">Mendefinisikan bahasa target</h3>
+
+<p><strong>Dari bahasa apapun, ke bahasa kita</strong></p>
+
+<p>Target bahasa yang digunakan adalah bahasa yang kita definisikan pada <code class="language-plaintext highlighter-rouge">locale</code> sistem kita.</p>
+
+<pre><span class="cmd">$ </span><b>trans impersonate</b><br /></pre>
+
+<p><strong>Dari bahasa apapun, ke bahasa yang kita definisikan</strong></p>
+
+<pre><span class="cmd">$ </span><b>trans :id impersonate</b><br /></pre>
+
+<p><strong>Dari bahasa apapun, ke 2 bahasa yang kita definisikan</strong></p>
+
+<pre><span class="cmd">$ </span><b>trans :id+ja impersonate</b><br /></pre>
+
+<p>Selain mendefinisikan bahasa target setelah tanda <code class="language-plaintext highlighter-rouge">:</code>, kita juga dapat menggunakan option <code class="language-plaintext highlighter-rouge">-t</code>.</p>
+
+<pre><span class="cmd">$ </span><b>trans -t id impersonate</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>trans -t id+ja impersonate</b><br /></pre>
+
+<p>Keuntungan menggunakan option <code class="language-plaintext highlighter-rouge">-t</code>, kita dapat menuliskan bahasa target dengan nama bahasanya.</p>
+
+<pre><span class="cmd">$ </span><b>trans -t japanese impersonate</b><br /><span class="cmd">$ </span><b>trans -t 日本語 impersonate</b><br /></pre>
+
+<h3 id="mendefinisikan-bahasa-sumber">Mendefinisikan bahasa sumber</h3>
+
+<p>Sekarang sebaliknya, untuk mendefinisikan bahasa sumber.</p>
+
+<pre><span class="cmd">$ </span><b>trans id: menirukan</b><br /></pre>
+
+<p>Karena kita tidak mendefinisikan bahasa target (hanya bahasa sumber), maka kata ‘meniru’ akan diterjemahkan ke bahasa yang didefinisikan di <code class="language-plaintext highlighter-rouge">locale</code>.</p>
+
+<p>Untuk option bahasa sumber, kita gunakan <code class="language-plaintext highlighter-rouge">-s</code>.</p>
+
+<pre><span class="cmd">$ </span><b>trans -s id menirukan</b><br /></pre>
+
+<h3 id="menerjemahkan-banyak-kata-atau-sebuah-frase">Menerjemahkan banyak kata atau sebuah frase</h3>
+
+<p>Kalau kalian menulis seperti ini.</p>
+
+<pre><span class="cmd">$ </span><b>trans :id impersonate character</b><br /></pre>
+
+<p>Maka, akan diterjemakan masing-masing kata.</p>
+
+<p>Apabila, ingin diterjemahkan sebagai satu frase, harus diapit dengan tanda petik satu <code class="language-plaintext highlighter-rouge">'...'</code> atau dua <code class="language-plaintext highlighter-rouge">"..."</code>.</p>
+
+<pre>
+</pre>
+<pre><span class="cmd">$ </span><b>trans :id 'impersonate character'</b><br /><span class="cmd">$ </span><b>trans :id "impersonate character"</b><br /></pre>
+
+<h3 id="menerjemahkan-sebuah-kalimat">Menerjemahkan sebuah kalimat</h3>
+
+<p>Kurang lebih formnya sama dengan frase, yaitu menggunakan tanda petik satu <code class="language-plaintext highlighter-rouge">'...'</code> atau dua <code class="language-plaintext highlighter-rouge">"..."</code>.</p>
+
+<pre><span class="cmd">$ </span><b>trans :id 'Impersonator is someone who imitates the behavior or actions of another.'</b><br /><span class="cmd">$ </span><b>trans :id "Impersonator is someone who imitates the behavior or actions of another."</b><br /></pre>
+
+<p>Dapat pula untuk multiline (banyak baris).</p>
+
+<pre>
+<span class="cmd">$ </span><b>trans :zh "Creeps in this petty pace from day to day,
+&gt; To the last syllable of recorded time;
+&gt; And all our yesterdays have lighted fools
+&gt; The way to dusty death."</b>
+</pre>
+
+<p>Untuk menghindari karakter tertentu seperti tanda <code class="language-plaintext highlighter-rouge">!</code> diintrepertasikan oleh shell sebagai “special characters”, gunakan petik satu.</p>
+
+<pre><span class="cmd">$ </span><b>trans :id 'Out, out, brief candle!'</b><br /></pre>
+
+<p>Atau, kalau ingin teteap menggunakan petik dua, dapat menggunakan backslash tepat sebelum spesial karakter tersebut <code class="language-plaintext highlighter-rouge">\</code> (<em>escaping character</em>).</p>
+
+<pre><span class="cmd">$ </span><b>trans :id "Out, out, brief candle\!"</b><br /></pre>
+
+<p>Apabila terdapat kata yang menggunakan tanda petik satu, seperti <code class="language-plaintext highlighter-rouge">jum'at</code>, maka kalimat sebaiknya diapit oleh tanda petik dua <code class="language-plaintext highlighter-rouge">"..."</code>.</p>
+
+<pre><span class="cmd">$ </span><b>trans :id "Life's but a walking shadow, a poor player."</b><br /></pre>
+
+<p>Alternatif lain, selain menggunakan tanda petik, kita dapat menggunakan option <code class="language-plaintext highlighter-rouge">-j</code> (<code class="language-plaintext highlighter-rouge">-join-sentence</code>).</p>
+
+<pre><span class="cmd">$ </span><b>trans :id -j Impersonator is someone who imitates the behavior of another.</b><br /></pre>
+
+<p>Atau, apabila terdapat kata yang mengandung tanda petik sati, gunakan backslash tepat sebelum tanda petik.</p>
+
+<pre><span class="cmd">$ </span><b>trans :id -j  Life\'s but a walking shadow, a poor player.</b><br /></pre>
+
+<h2 id="brief-mode">Brief Mode</h2>
+
+<p>Secara default, Translate Shell akan menunjukkan hasil terjemahan yang banyak sekali.</p>
+
+<p>Apabila kita lebih suka untuk melihat terjemahan yang paling relevan saja, terdapat mode yang disebut “brief mode”.</p>
+
+<p>Untuk dapat menggunakannya, tambahkan option <code class="language-plaintext highlighter-rouge">-b</code> (<code class="language-plaintext highlighter-rouge">-brief</code>).</p>
+
+<pre><span class="cmd">$ </span><b>trans -b :ja 'Hello, World'</b><br /></pre>
+
+<p>Hasilnya</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>こんにちは世界
+</code></pre></div></div>
+
+<p>Contoh di atas, secara default akan ditampilkan dalam tulisah jepang. Untuk hasil yang menampilkan “phonetic notation” (notasi penyebutan), kita dapat menambahkan tanda <code class="language-plaintext highlighter-rouge">@</code> tepat sebelum bahasa target.</p>
+
+<pre><span class="cmd">$ </span><b>trans -b :@ja 'Hello, World'</b><br /></pre>
+
+<p>Hasilnya,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kon'nichiwa sekai
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>Dan masih banyak, contoh-contoh penggunaan dari options yang disediakan oleh Translate Shell.</p>
+
+<p>Teman-teman dapat mengunjungi halaman GitHub readme dari Tranaslate Shell, <a href="https://github.com/soimort/translate-shell#getting-started-by-examples" target="_blank">di sini</a>.</p>
+
+<p>Salah satu fitur yang saya suka adalah REPL (Interactive Translate Shell).</p>
+
+<p>Kita dapat masuk ke dalam REPL shell dengan menggunakan options <code class="language-plaintext highlighter-rouge">-I</code>, <code class="language-plaintext highlighter-rouge">-interactive</code>, atau <code class="language-plaintext highlighter-rouge">-shell</code>.</p>
+
+<pre><span class="cmd">$ </span><b>trans -shell</b><br /></pre>
+
+<p>Hasilnya,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Translate Shell
+(:q to quit)
+&gt; _
+</code></pre></div></div>
+
+<p>REPL mode ini mengikuti konfigurasi file <code class="language-plaintext highlighter-rouge">init.trans</code> yang sudah kita definisikan.</p>
+
+<h1 id="tambahan">Tambahan</h1>
+
+<h2 id="membuat-interaktif-menu-translate-dengan-dmenu">Membuat Interaktif Menu Translate dengan Dmenu</h2>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/dmenu-trans</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">DMENU</span><span class="o">=</span><span class="s2">"/usr/local/bin/dmenu"</span>
+
+en_id<span class="o">()</span> <span class="o">{</span>
+    st <span class="nt">-t</span> <span class="s1">'st+:Translate Shell [EN:ID]'</span> <span class="se">\</span>
+    <span class="nt">-g</span> 60x8-0-0 <span class="se">\</span>
+    <span class="nt">-e</span> trans <span class="nt">-no-view</span> <span class="nt">-no-pager</span> <span class="nt">-indent</span> 0 <span class="nt">-j</span> <span class="se">\</span>
+    <span class="nt">-hl</span> en <span class="se">\</span>
+    <span class="nt">-shell</span> <span class="se">\</span>
+    <span class="nt">-show-original-phonetics</span> n <span class="se">\</span>
+    <span class="nt">-show-translation</span> y <span class="se">\</span>
+    <span class="nt">-show-translation-phonetics</span> n <span class="se">\</span>
+    <span class="nt">-show-prompt-message</span> n <span class="se">\</span>
+    <span class="nt">-show-languages</span> n <span class="se">\</span>
+    <span class="nt">-show-original-dictionary</span> n <span class="se">\</span>
+    <span class="nt">-show-dictionary</span> n <span class="se">\</span>
+    <span class="nt">-show-alternatives</span> n <span class="se">\</span>
+    en:id
+<span class="o">}</span>
+
+id_en<span class="o">()</span> <span class="o">{</span>
+    st <span class="nt">-t</span> <span class="s1">'st+:Translate Shell [ID:EN]'</span> <span class="se">\</span>
+    <span class="nt">-g</span> 60x8-0-0 <span class="se">\</span>
+    <span class="nt">-e</span> trans <span class="nt">-no-view</span> <span class="nt">-no-pager</span> <span class="nt">-indent</span> 0 <span class="nt">-j</span> <span class="se">\</span>
+    <span class="nt">-hl</span> en <span class="se">\</span>
+    <span class="nt">-shell</span> <span class="se">\</span>
+    <span class="nt">-show-original-phonetics</span> n <span class="se">\</span>
+    <span class="nt">-show-translation</span> y <span class="se">\</span>
+    <span class="nt">-show-translation-phonetics</span> n <span class="se">\</span>
+    <span class="nt">-show-prompt-message</span> n <span class="se">\</span>
+    <span class="nt">-show-languages</span> n <span class="se">\</span>
+    <span class="nt">-show-original-dictionary</span> n <span class="se">\</span>
+    <span class="nt">-show-dictionary</span> n <span class="se">\</span>
+    <span class="nt">-show-alternatives</span> n <span class="se">\</span>
+    <span class="nb">id</span>:en
+<span class="o">}</span>
+
+vim_translate<span class="o">()</span> <span class="o">{</span>
+    st <span class="nt">-t</span> <span class="s1">'st+:Translate Playground'</span> <span class="nt">-g</span> 85x20-0-0 <span class="nt">-e</span> vim ~/.translate
+<span class="o">}</span>
+
+<span class="nv">OPTIONS</span><span class="o">=</span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"EN-ID</span><span class="se">\n</span><span class="s2">ID-EN</span><span class="se">\n</span><span class="s2">Playground"</span> | <span class="nv">$DMENU</span> <span class="nt">-i</span> <span class="nt">-p</span> <span class="s2">" Translate:"</span><span class="si">)</span>
+
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$OPTIONS</span><span class="s2">"</span> <span class="k">in</span>
+    <span class="s2">"EN-ID"</span><span class="p">)</span> en_id<span class="p">;;</span>
+    <span class="s2">"ID-EN"</span><span class="p">)</span> id_en<span class="p">;;</span>
+    <span class="s2">"Playground"</span><span class="p">)</span> vim_translate<span class="p">;;</span>
+<span class="k">esac</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hasilnya akan seperti ini,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/jjtp9bdv/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Saya biasa gunakan untuk mentranslate beberapa kata/frase/atau kalimat yang saya tidak paham maksudnya.</p>
+
+<h2 id="mengintegrasikan-translate-shell-dengan-vimneovim">Mengintegrasikan Translate Shell dengan Vim/Neovim</h2>
+
+<p>Ada beberapa plugin yang dapat kita gunakan untuk mengintegrasikan Translate Shell dengan Vim.</p>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/VincentCordobes/vim-translate" target="_blank"><strong>VincentCordobes/vim-translate</strong></a>, a tiny translate-shell wrapper for Vim.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/echuraev/translate-shell.vim" target="_blank"><strong>echuraev/translate-shell.vim</strong></a>, a power and flexible plugin for translating text without leaving Vim. It provides a window that displays the translate of word under cursor, selected text or you can use “on fly” translation and translate inserted text.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/voldikss/vim-translator" target="_blank"><strong>voldikss/vim-translator</strong></a>, an asynchronous translating plugin for Vim/Neovim, it allows users to use multiple engines including trans.</p>
+  </li>
+</ol>
+
+<p><br />
+Saat tulisan ini dibuat, saya baru mencoba <strong>VincentCordobes/vim-translate</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/ncMB4j4G/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Mencoba <code class="language-plaintext highlighter-rouge">:translate</code> dan <code class="language-plaintext highlighter-rouge">:TranslateReplave</code></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/v805xLVm/gambar-03.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Perbandingan kecepatan Translate Shell dengan vim-translate</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/soimort/translate-shell" target="_blank">github.com/soimort/translate-shell</a>
+<br />Diakses tanggal: 2020/10/16</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/soimort/translate-shell/wiki/Configuration" target="_blank">github.com/soimort/translate-shell/wiki/Configuration</a>
+<br />Diakses tanggal: 2020/10/16</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/soimort/translate-shell/wiki/REPL" target="_blank">github.com/soimort/translate-shell/wiki/REPL</a>
+<br />Diakses tanggal: 2020/10/16</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/VincentCordobes/vim-translate" target="_blank">github.com/VincentCordobes/vim-translate</a>
+<br />Diakses tanggal: 2020/10/16</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, tools, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>MPV, Bukan Pemutar Video Biasa | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="MPV, Bukan Pemutar Video Biasa" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV." />
+<meta property="og:description" content="Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mpv-bukan-video-player-biasa" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mpv-bukan-video-player-biasa" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-11T17:45:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mpv-bukan-video-player-biasa"},"description":"Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV.","url":"https://bandithijo.dev/blog/mpv-bukan-video-player-biasa","@type":"BlogPosting","headline":"MPV, Bukan Pemutar Video Biasa","dateModified":"2019-01-11T17:45:00+08:00","datePublished":"2019-01-11T17:45:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="MPV, Bukan Pemutar Video Biasa"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mpv-bukan-video-player-biasa">MPV, Bukan Pemutar Video Biasa</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/01/11</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mpv bukan video player biasa
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#sekilas-tentang-mpv">Sekilas Tentang MPV</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#konfigurasi-mpvconf">Konfigurasi mpv.conf</a>
+        <ul>
+          <li><a href="#save-position-on-quit">Save Position on Quit</a></li>
+          <li><a href="#display-progress-bar-on-terminal">Display Progress Bar on Terminal</a></li>
+          <li><a href="#keep-open-after-video-end">Keep Open After Video End</a></li>
+          <li><a href="#default-window-size">Default Window Size</a></li>
+          <li><a href="#screenshot-format">ScreenShot Format</a></li>
+          <li><a href="#youtube-dl-format">youtube-dl Format</a></li>
+        </ul>
+      </li>
+      <li><a href="#konfigurasi-inputconf">Konfigurasi input.conf</a></li>
+    </ul>
+  </li>
+  <li><a href="#contoh-pemanfaatan-mpv">Contoh Pemanfaatan MPV</a>
+    <ul>
+      <li><a href="#menonton-youtube">Menonton YouTube</a></li>
+      <li><a href="#webcam-viewer">WebCam Viewer</a></li>
+      <li><a href="#subtitle">Subtitle</a></li>
+      <li><a href="#dual-subtitle">Dual Subtitle</a></li>
+    </ul>
+  </li>
+  <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" onerror="imgError(this);" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Teman-teman pasti memiliki pemutar video favorit masing-masing. Begitupun saya, <strong>MPV</strong> adalah pemutar video favorit sepanjang 2016 sampai saat tulisan ini dibuat. (2016 - 2019).</p>
+
+<p>Selama menggunakan MPV tidak habis-habisnya saya menemukan fitur-fitur yang berguna untuk memudahkan urusan-urusan saya dalam hal video. Awalnya saya hanya ingin pemutar video yang memiliki <em>user interface</em> yang minimalis (karena hanya ingin fokus pada video), ringan, dan cepat saat dipanggil.</p>
+
+<p>Namun, seiring berjalannya waktu, ternyata banyak sekali fitur-fitur yang dimiliki oleh MPV, dengan fitur yang hampir menyerupai VLC. Malah beberapa fitur pada MPV, saya belum pernah menggunakannya pada saat menggunakan VLC, karena belum adanya kebutuhan akan hal tersebut saat masih menggunakan VLC.</p>
+
+<h1 id="sekilas-tentang-mpv">Sekilas Tentang MPV</h1>
+
+<p>MPV adalah fork dari MPlayer dan mplayer2. Memiliki banyak dukungan terhadap hampir semua format file video dan audio codecs dan subtitle.</p>
+
+<p>Kelebihan-kelebihan yang dimiliki oleh MPV:</p>
+
+<ol>
+  <li><strong>Memiliki banyak <em>command option</em></strong> layaknya MPLayer. Namun, sudah lebih diperbaiki dalam hal susunan sintaksis agar lebih mudah digunakan dan diingat</li>
+  <li><strong>MPV tidak memiliki official GUI</strong>, namun begitu, dapat dengan mudah kita operasikan dengan menggunakan <em>keyboard shortcuts</em> atau gerakan mouse</li>
+  <li><strong>MPV memiliki video output berbasis OpenGL</strong> yang memiliki banyak sekali fitur-fitur yang digemari oleh penggemar video, seperti video scaling, color correction, frame timing, interpolation, HDR, dan masih banyak lagi</li>
+  <li><strong>MPV memanfaatkan API FFmpeg hwaccel</strong> untuk mendukung format VDPAU, VAAPI, DXVA2, VDA dan akselerasi decoding video VideoToolbox</li>
+  <li>Tentu saja <strong>MPV masih aktif dikembangkan</strong>, berfokus pada refactoring dan pembersihan kode serta menambahkan fitur</li>
+  <li><strong>Free, open source dan multi platform</strong></li>
+</ol>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk distribusi Arch Linux, langsung saja pasang dari repository.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S mpv</b><br /></pre>
+
+<p>Untuk distribusi lain, silahkan menyesuaikan.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Secara <em>default</em>, MPV akan membaca file konfigurasi yang terdapat pada direktori <code class="language-plaintext highlighter-rouge">/etc/mpv</code> (untuk <em>system wide</em>) atau <code class="language-plaintext highlighter-rouge">~/.config/mpv/</code> (untuk <em>user</em>).</p>
+
+<p>Untuk membantu konfigurasi awal, kita dapat mengambil sampel konfigurasi default settings, dengan cara sebagai berikut.</p>
+
+<pre><span class="cmd">$ </span><b>cp -r /usr/share/doc/mpv/ ~/.config/</b><br /></pre>
+
+<p>Saat ini saya hanya menggunakan 2 file yang ada pada direktori config ini, yaitu:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">input.conf</code> - Untuk <em>keyboard shortcuts</em></li>
+  <li><code class="language-plaintext highlighter-rouge">mpv.conf</code> - Untuk konfigurasi mpv itu sendiri</li>
+</ol>
+
+<p>Saya akan mulai dari file <code class="language-plaintext highlighter-rouge">mpv.conf</code> terlebih dahulu.</p>
+
+<h2 id="konfigurasi-mpvconf">Konfigurasi mpv.conf</h2>
+
+<p>Buka Terminal dan edit file <code class="language-plaintext highlighter-rouge">mpv.conf</code>.</p>
+
+<p>Saya menambahkan pada baris paling akhir setelah bagian/blok <code class="language-plaintext highlighter-rouge">profiles</code>, option-option di bawah.</p>
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/mpv/mpv.conf</code></div>
+<pre class="caption">###########<br /># General #<br />###########<br /><br />input-ipc-server=/tmp/mpvsocket           # listen for IPC on this socket<br /><mark>save-position-on-quit=no</mark>                  # handled by a script<br /><br />#no-border                                # no window title bar<br />msg-module                                # prepend module name to log messages<br />msg-color                                 # color log messages on terminal<br /><mark>term-osd-bar</mark>                              # display a progress bar on the terminal<br />use-filedir-conf                          # look for additional config files in the directory of the opened file<br />#pause                                    # no autoplay<br /><mark>keep-open</mark>                                 # keep the player open when a file's end is reached<br /><mark>autofit-larger=90%x90%</mark>                    # resize window in case it's larger than W%xH% of the screen<br />cursor-autohide-fs-only                   # don't autohide the cursor in window mode, only fullscreen<br />input-media-keys=no                       # enable/disable OSX media keys<br />cursor-autohide=1000                      # autohide the curser after 1s<br />prefetch-playlist=yes<br />force-seekable=yes<br /><br /><mark>screenshot-format=png<br />screenshot-png-compression=8<br />screenshot-template='~/pix/ScreenShot/%F (%P) %n'</mark><br /><br />hls-bitrate=max                           # use max quality for HLS streams<br /><br /><mark>[ytdl-desktop]<br />profile-desc=cond:is_desktop()<br />ytdl-format=bestvideo[height&lt;=?720]+bestaudio/best</mark><br /><br /><mark>[ytdl-laptop]<br />profile-desc=cond:is_laptop()<br />ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9][protocol!=http_dash_segments]+bestaudio/best</mark><br /><br />[default]<br /><br /><br />#########<br /># Cache #<br />#########<br /><br /># Configure the cache to be really big (multiple GBs)<br /># We have a lot of memory, so why not use it for something<br /><br />cache=no<br />#cache-default=4000000                    # size in KB<br />#cache-backbuffer=250000                  # size in KB<br />#demuxer-max-bytes=1147483647             # ~1 GiB in bytes<br /><br /><br />#############<br /># OSD / OSC #<br />#############<br /><br />osd-level=1                               # enable osd and display --osd-status-msg on interaction<br />osd-duration=2500                         # hide the osd after x ms<br />osd-status-msg='${time-pos} / ${duration}${?percent-pos:　(${percent-pos}%)}${?frame-drop-count:${!frame-drop-count==0:　Dropped: ${frame-drop-count}}}\n${?chapter:Chapter: ${chapter}}'<br /><br />osd-font='Source Sans Pro'<br />osd-font-size=32<br />osd-color='#CCFFFFFF'                     # ARGB format<br />osd-border-color='#DD322640'              # ARGB format<br />#osd-shadow-offset=1                      # pixel width for osd text and progress bar<br />osd-bar-align-y=0                         # progress bar y alignment (-1 top, 0 centered, 1 bottom)<br />osd-border-size=2                         # size for osd text and progress bar<br />osd-bar-h=2                               # height of osd bar as a fractional percentage of your screen height<br />osd-bar-w=60                              # width of " " "<br /><br /><br />#############<br /># Subtitles #<br />#############<br /><br />sub-auto=all                              # membuat mpv tetap mendeteksi file subtitle<br />no-sub-visibility                         # namun dalam keadaan terhidden<br />#sub-auto=fuzzy                           # external subs don't have to match the file name exactly to autoload<br />sub-file-paths-append=ass                 # search for external subs in these relative subdirectories<br />sub-file-paths-append=srt<br />sub-file-paths-append=sub<br />sub-file-paths-append=subs<br />sub-file-paths-append=subtitles<br /><br />demuxer-mkv-subtitle-preroll              # try to correctly show embedded subs when seeking<br />embeddedfonts=yes                         # use embedded fonts for SSA/ASS subs<br />sub-fix-timing=no                         # do not try to fix gaps (which might make it worse in some cases)<br />sub-ass-force-style=Kerning=yes           # allows you to override style parameters of ASS scripts<br />sub-use-margins<br />sub-ass-force-margins<br /><br /># the following options only apply to subtitles without own styling (i.e. not ASS but e.g. SRT)<br />sub-font="Source Sans Pro Semibold"<br />sub-font-size=36<br />sub-color="#FFFFFFFF"<br />sub-border-color="#FF262626"<br />sub-border-size=3.2<br />sub-shadow-offset=1<br />sub-shadow-color="#33000000"<br />sub-spacing=0.5<br /><br /><br />#############<br /># Languages #<br />#############<br /><br />slang=enm,en,eng,de,deu,ger               # automatically select these subtitles (decreasing priority)<br />alang=ja,jp,jpn,en,eng,de,deu,ger         # automatically select these audio tracks (decreasing priority)<br /><br /><br />#########<br /># Audio #<br />#########<br /><br />audio-file-auto=fuzzy                     # external audio doesn't has to match the file name exactly to autoload<br />audio-pitch-correction=yes                # automatically insert scaletempo when playing with higher speed<br />volume-max=200                            # maximum volume in %, everything above 100 results in amplification<br />volume=100                                # default volume, 100 = unchanged<br /></pre>
+
+<p>Berikut ini adalah penjelasan dari beberapa option yang saya gunakan. Saya tidak dapat menjelaskan semuanya secara detail.</p>
+
+<h3 id="save-position-on-quit">Save Position on Quit</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>save-position-on-quit=no
+</code></pre></div></div>
+
+<p>Option di atas digunakan untuk menyimpan posisi terakhir dari <em>seek bar</em>. Sehingga memungkinkan kita saat membuka file video yang sama, akan kembali dimulai pada menit sebelum mpv di-<em>quit</em>.</p>
+
+<h3 id="display-progress-bar-on-terminal">Display Progress Bar on Terminal</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>term-osd-bar
+</code></pre></div></div>
+
+<p>Karena terkadang saya menjalankan mpv juga dari Terminal, misalkan menonton video melalui url youtube, saya membutuhkan progress bar untuk memberikan saya referensi di mana posisi saya saat ini (sudah berapa menit).</p>
+
+<h3 id="keep-open-after-video-end">Keep Open After Video End</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>keep-open
+</code></pre></div></div>
+
+<p>Option ini digunakan agar mpv tidak otomatis keluar saat selesai menjalankan video/audio.</p>
+
+<h3 id="default-window-size">Default Window Size</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autofit-larger=90%x90%
+</code></pre></div></div>
+
+<p>Option ini saya pergunakan agar saat membuka mpv, video tidak lebih besar dari resolusi layar yang saya gunakan.</p>
+
+<h3 id="screenshot-format">ScreenShot Format</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screenshot-format=png
+screenshot-png-compression=8
+screenshot-template='~/pix/ScreenShot/%F (%P) %n'
+</code></pre></div></div>
+
+<p>Option ini saya pergunakan untuk mengatur screenshot file type dan lokasi dimana hasil screenshot disimpan beserta format namanya.</p>
+
+<h3 id="youtube-dl-format">youtube-dl Format</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ytdl-desktop]
+profile-desc=cond:is_desktop()
+ytdl-format=bestvideo[height&lt;=?720]+bestaudio/best
+
+[ytdl-laptop]
+profile-desc=cond:is_laptop()
+ytdl-format=bestvideo[height&lt;=?720][fps&lt;=?30][vcodec!=?vp9][protocol!=http_dash_segments]+bestaudio/best
+</code></pre></div></div>
+
+<p>Option di atas saya pergunakan untuk mengatur format video yang akan dipilih pada saat menonton streaming YouTube. Saya menggunakan fiber optik internet, sehingga tidak ada masalah untuk mengeset pada resoulsi 720.</p>
+
+<h2 id="konfigurasi-inputconf">Konfigurasi input.conf</h2>
+
+<p>Untuk file konfigurasi <code class="language-plaintext highlighter-rouge">input.conf</code> saya tidak menambahkan banyak pengaturan <em>keyboard shortcuts</em>.</p>
+
+<p>Saya hanya menambahkan untuk pengaturan <strong>horizontal flip</strong> dan <strong>rotate</strong> video.</p>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">input.conf</code> dan tambahkan di paling bawah.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/mpv/input.conf</code></div>
+<pre class="caption">- cycle-values video-rotate "90" "180" "270" "0"<br />= vf toggle hflip                       # toggle for flip video horizontal<br />\ vf toggle negate                      # toggle for invert video color<br /></pre>
+
+<p>Option di atas bertujuan untuk:</p>
+
+<ol>
+  <li>Tombol <kbd> - </kbd> untuk melakukan rotate ke kanan</li>
+  <li>Tombol <kbd> = </kbd> untuk membuat video menjadi horizontal flip</li>
+  <li>Tombol <kbd> \ </kbd> untuk membuat color dari video menjadi negatif (inverted/reversed)</li>
+</ol>
+
+<h1 id="contoh-pemanfaatan-mpv">Contoh Pemanfaatan MPV</h1>
+
+<h2 id="menonton-youtube">Menonton YouTube</h2>
+<p>Sangat praktis sekali untuk dapat menonton video YouTube di MPV.</p>
+
+<p>Caranya pun sangat mudah. Hanya perlu mengcopy paste url video YouTube setelah perintah mpv.</p>
+
+<pre><span class="cmd">$ </span><b>mpv https://www.youtube.com/watch?v=Jju_lt5f0Zo</b><br /></pre>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Mengapa Menonton YouTube Menggunakan MPV?</b></p>
+    <p>Berikut ini adalah beberapa alasan saya:</p>
+    <ol>
+<li><b>Praktis</b> dan <b>simpel</b></li>
+<li><b>Minim distraksi</b> dari user interface YouTube</li>
+<li><b>Bebas dari iklan</b></li>
+<li><b>Volume</b> dapat kita push hingga <b>lebih dari 100%</b> untuk video yang memiliki suara yang kecil</li>
+<li><b>Brightness, Contrast</b> serta <b>Saturation</b> yang <b>dapat kita atur</b> sendiri. Karena terkadang ada video yang terlalu gelap</li>
+<li><b>Video dapat dikontrol</b>, seperti: fast, slow, maju satu frame, maju 10 frame, dll</li>
+<li>dll.</li>
+</ol>
+  </div></div>
+
+<h2 id="webcam-viewer">WebCam Viewer</h2>
+<p>Selain dapat memutar video, MPV juga saya pergunakan untuk menampilkan output dari kamera WebCam.</p>
+
+<p>Tidak seperti aplikasi WebCam pada umumnya yang harus bergantian dalam menampilkan output dari kamera. MPV dapat melakukannya secara bersamaan. Yaa jelas, karena mpv memanggil alamat dari masing-masing WebCam.</p>
+
+<p>Sepertinya untuk menggunakan fitur ini, kita memerlukan paket <code class="language-plaintext highlighter-rouge">v4l-utils</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S v4l-utils</b><br /></pre>
+
+<p>Namun, saya belum yakin apakah fitur ini membutuhkan paket <code class="language-plaintext highlighter-rouge">v4l-utils</code> atau tidak.</p>
+
+<p>Sebelumnya cek dulu apakah terdapat webcam yang aktif.</p>
+
+<pre><span class="cmd">$ </span><b>ls -l /dev/video*</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crw-rw----+ 1 root video 81, 0 Jan 11 21:39 /dev/video0
+crw-rw----+ 1 root video 81, 1 Jan 11 21:39 /dev/video1
+</code></pre></div></div>
+
+<p>Setelah itu baru kita panggil WebCam yang aktif.</p>
+
+<p>Dalam kasus ini hanya <code class="language-plaintext highlighter-rouge">/dev/video0/</code> saja yang saya gunakan.</p>
+
+<pre><span class="cmd">$ </span><b>mpv <mark>av://v4l2:/dev/video0</mark></b><br /></pre>
+
+<p>Apabila ingin menambahkan propertis lain seperti hitam putih dan horizontal flip, kira-kira seperti ini contohnya.</p>
+
+<p>Horizontal flip.</p>
+
+<pre><span class="cmd">$ </span><b>mpv av://v4l2:/dev/video0 <mark>--vf=hflip</mark></b><br /></pre>
+
+<p>Atau hitam putih.</p>
+
+<pre><span class="cmd">$ </span><b>mpv av://v4l2:/dev/video0 <mark>--saturation=-100</mark></b><br /></pre>
+
+<p>Hasilnya,</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Mengapa Mengunakan MPV sebagai WebCam viewer?</b></p>
+    <p>Berikut ini adalah beberapa alasan saya:</p>
+    <ol>
+<li><b>Praktis</b> dan <b>simpel</b></li>
+<li><b>Minim distraksi</b> dari user interface YouTube</li>
+<li><b>Brightness, Contrast</b> serta <b>Saturation</b> yang <b>dapat kita atur</b> sendiri.</li>
+<li> Dapat <b>Multi Cam</b></li>
+<li>Cenderung <b>ringan</b> dan tidak membuat laptop menjadi panas</li>
+</ol>
+  </div></div>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/LXK2R865/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - MPV menampilkan output dari banyak WebCam</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/KYrxGyK5/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Demonstrasi Horizontal Flip dan Rotate menggunakan keyboard Shortcut</p>
+
+<h2 id="subtitle">Subtitle</h2>
+
+<p>Pada konfigurasi yang saya buat, saya menghidden visibility dari subtitle.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/mpv/mpv.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c">#############</span>
+<span class="c"># Subtitles #</span>
+<span class="c">#############</span>
+
+no-sub-visibility                       <span class="c"># namun dalam keadaan terhidden</span>
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tujuannya, agar subtitle tidak langsung ditampilkan pada semua video.</p>
+
+<p>Cara menggunakannya,</p>
+<ol>
+  <li>Tekan <kbd>V</kbd> untuk meng-<em>enable</em> dan <em>disable</em> visibility dari subtitle.</li>
+  <li>Apabila terdapat lebih dari 1 subtitle, kita dapat berpindah antar subtitle menggunakan <kbd>J</kbd> untuk Next Subtitle dan <kbd>SHIFT</kbd> + <kbd>J</kbd> untuk Previous Subtitle.</li>
+</ol>
+
+<h2 id="dual-subtitle">Dual Subtitle</h2>
+
+<p>MPV juga dapat menampilkan dual subtitle.</p>
+
+<pre><span class="cmd">$ </span><b>mpv video.mp4 --sub-file=subtitle1.srt --sub-file=subtitle2.srt --secondary-sid=2</b><br /></pre>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/tTtgmqnz/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="keyboard-shortcuts">Keyboard Shortcuts</h1>
+
+<p>Default Keyboard Shortcuts berdasarkan file <code class="language-plaintext highlighter-rouge">input.conf</code>.</p>
+
+<p><strong>Play/Pause</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd>SPACE</kbd></td>
+      <td>toggle play/pause</td>
+    </tr>
+    <tr>
+      <td><kbd> p </kbd></td>
+      <td>toggle play/pause</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Show Progress</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> o </kbd></td>
+      <td>show progress</td>
+    </tr>
+    <tr>
+      <td><kbd> P </kbd></td>
+      <td>show progress</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Skip 5 atau 60 detik</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> → </kbd></td>
+      <td>seek 5</td>
+    </tr>
+    <tr>
+      <td><kbd> ← </kbd></td>
+      <td>seek -5</td>
+    </tr>
+    <tr>
+      <td><kbd> ↑ </kbd></td>
+      <td>seek 60</td>
+    </tr>
+    <tr>
+      <td><kbd> ↓ </kbd></td>
+      <td>seek -60</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Kecepatan Play Video</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> [ </kbd></td>
+      <td>multiply speed 0.9091</td>
+    </tr>
+    <tr>
+      <td><kbd> ] </kbd></td>
+      <td>multiply speed 1.1</td>
+    </tr>
+    <tr>
+      <td><kbd> { </kbd></td>
+      <td>multiply speed 0.5</td>
+    </tr>
+    <tr>
+      <td><kbd> } </kbd></td>
+      <td>multiply speed 2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Keluar</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> q </kbd></td>
+      <td>quit</td>
+    </tr>
+    <tr>
+      <td><kbd> Q </kbd></td>
+      <td>quit-watch-later</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Subtitle</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> v </kbd></td>
+      <td>toggle subtitle visibility</td>
+    </tr>
+    <tr>
+      <td><kbd> j </kbd></td>
+      <td>toggle next subtitle</td>
+    </tr>
+    <tr>
+      <td><kbd> J </kbd></td>
+      <td>toggle previous subtitle</td>
+    </tr>
+    <tr>
+      <td><kbd> z </kbd></td>
+      <td>add sub-delay -0.1</td>
+    </tr>
+    <tr>
+      <td><kbd> x </kbd></td>
+      <td>add sub-delay +0.1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Volume</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> 0 </kbd></td>
+      <td>add volume +2</td>
+    </tr>
+    <tr>
+      <td><kbd> 9 </kbd></td>
+      <td>add volume -2</td>
+    </tr>
+    <tr>
+      <td><kbd> m </kbd></td>
+      <td>toggle mute</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Color Correction</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> 1 </kbd></td>
+      <td>add contrast -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 2 </kbd></td>
+      <td>add contrast +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 3 </kbd></td>
+      <td>add brightness -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 4 </kbd></td>
+      <td>add brightness +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 5 </kbd></td>
+      <td>add gamma -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 6 </kbd></td>
+      <td>add gamma +1</td>
+    </tr>
+    <tr>
+      <td><kbd> 7 </kbd></td>
+      <td>add saturation -1</td>
+    </tr>
+    <tr>
+      <td><kbd> 8 </kbd></td>
+      <td>add saturation +1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fullscreen</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> f </kbd></td>
+      <td>fullscreen</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Looping</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> l </kbd></td>
+      <td>A-B loop</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Keyboard Shortcuts yang saya tambahkan.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd> - </kbd></td>
+      <td>rotate left 90 180 270 0</td>
+    </tr>
+    <tr>
+      <td><kbd> = </kbd></td>
+      <td>horizontal flip</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Masih banyak fitur-fitur keren dari MPV yang mungkin belum tercover oleh tulisan ini. Mudah-mudahan dapat saya tambahkan lagi dilain waktu apabila menemukan penerapan lain dari penggunaan MPV.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://mpv.io/" target="_blank">mpv.io</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/mpv-player/mpv" target="_blank">github.com/mpv-player/mpv</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/mpv" target="_blank">wiki.archlinux.org/index.php/mpv</a>
+<br />Diakses tanggal: 2019/01/11</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, rails, rspec">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Pertama Kali Mencoba RSpec | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Pertama Kali Mencoba RSpec" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan kali ini mengenai pertama kalinya mencoba RSpec." />
+<meta property="og:description" content="Catatan kali ini mengenai pertama kalinya mencoba RSpec." />
+<link rel="canonical" href="https://bandithijo.dev/blog/pertama-kali-mencoba-rspec" />
+<meta property="og:url" content="https://bandithijo.dev/blog/pertama-kali-mencoba-rspec" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-05T07:10:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/pertama-kali-mencoba-rspec"},"description":"Catatan kali ini mengenai pertama kalinya mencoba RSpec.","url":"https://bandithijo.dev/blog/pertama-kali-mencoba-rspec","@type":"BlogPosting","headline":"Pertama Kali Mencoba RSpec","dateModified":"2019-12-05T07:10:00+08:00","datePublished":"2019-12-05T07:10:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Pertama Kali Mencoba RSpec"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/pertama-kali-mencoba-rspec">Pertama Kali Mencoba RSpec</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/12/05</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Pertama kali mencoba rspec
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rspec">RSpec</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rails">Rails</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#kenapa-rspec">Kenapa RSpec?</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#model-specs">Model Specs</a></li>
+  <li><a href="#controller-spec">Controller Spec</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.3</code> <code class="language-plaintext highlighter-rouge">Rails 6.0.1</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 11.5</code> <code class="language-plaintext highlighter-rouge">RSpec 4.0.0.beta3</code></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sekitar seminggu yang lalu,  di saat badan sedang meriang dan meler hebat namun kadang tersumbat, saya mencoba untuk mempelajari salah satu test atau pengujian untuk membantu kita menguji web aplikasi yang kita bangun.</p>
+
+<p>RSpec, adalah salah satu test tersebut.</p>
+
+<p>Selain RSpec, Ruby on Rails sendiri, sudah memiliki <em>built-in test</em>.</p>
+
+<p>Keren bukan!</p>
+
+<p>Test tersebut bernama MiniTest.</p>
+
+<p>MiniTest ini sudah menjadi test bawaan dari Rails sejak versi 5.1.</p>
+
+<p>Ini adalah bukti yang sangat bagus sekali, untuk menjelaskan bahwa dalam membuat sebuah web aplikasi, kita <strong>sangat perlu untuk melakukan testing</strong>.</p>
+
+<p>Kalau saya tidak ngawur, konsep ngoding sambil melakukan testing itu dikenal dengan <strong>Test Driven Development</strong> (TDD).</p>
+
+<h1 id="kenapa-rspec">Kenapa RSpec?</h1>
+
+<p>Kalau Ruby on Rails sudah membawa MiniTest secara default, lantas mengapa memilih menggunakan RSpec?</p>
+
+<p>Ini pendapat pribadi saya.</p>
+
+<p>Menurut saya, dalam menulis spesifikasi-spesifikasi test, RSpec memiliki sintaks yang mudah untuk dibaca. Karena mudah dibaca tentunya akan mudah untuk dipahami. Bahkan untuk orang <em>non-technical</em> akan sangat mudah memahami spesifikasi test yang ditulis menggunakan RSpec.</p>
+
+<p>Coba perhatikan contoh dibawah ini.</p>
+
+<p>Berikut ini adalah beberapa spesifikasi list pada model Author.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>spec/models/author_spec.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Author</span><span class="p">,</span> <span class="ss">type: :model</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s1">'Validation Presence Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name presence'</span>
+    <span class="n">it</span> <span class="s1">'Ensures email presence'</span>
+    <span class="n">it</span> <span class="s1">'Ensures password presence'</span>
+    <span class="n">it</span> <span class="s1">'Should save successfully'</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Validation Length Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name character length, more than 5'</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name character length, less than 30'</span>
+    <span class="n">it</span> <span class="s1">'Ensures email character length, less than 50'</span>
+    <span class="n">it</span> <span class="s1">'Ensures password character length, same or more than 8'</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Email Format Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures email format not valid'</span>
+    <span class="n">it</span> <span class="s1">'Ensures email format valid'</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Email Uniqueness Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures email has uniqueness'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setiap list tersebut, nantinya akan saya <em>breakdown</em> sesuai dengan konteksnya dan judulnya.</p>
+
+<p>Gimana?</p>
+
+<p>Cukup dapat dimengerti kan, maksud dari list tersebut.</p>
+
+<p>Nah, sekarang saya lanjutkan untuk proses memasang RSpec pada project Rails kita.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Pada project baru, saya menjalankan perintah ini.</p>
+
+<pre><span class="cmd">$ </span><b>rails new blog_rspec_test -d postgresql -T</b><br /></pre>
+
+<p>Penambahan option <code class="language-plaintext highlighter-rouge">-T</code>, adalah untuk men-<em>disable</em> <em>built-in test</em> pada project yang baru kita buat.</p>
+
+<p>Tujuannya tentu saja, karena saya akan menggunakan RSpec untuk melakukan testing, bukan menggunakan MiniTest.</p>
+
+<p>Pada project yang sudah ada, langsung saja mengikuti langkah selanjutnya.</p>
+
+<p>Kemudian, pasang gem <strong>rspec-rails</strong> pada block <code class="language-plaintext highlighter-rouge">:development</code> dan <code class="language-plaintext highlighter-rouge">:text</code> di <code class="language-plaintext highlighter-rouge">Gemfile</code> project.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c1"># ...</span>
+<span class="c1"># ...</span>
+
+<span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="c1"># ...</span>
+  <span class="n">gem</span> <span class="s1">'rspec-rails'</span><span class="p">,</span> <span class="s1">'~&gt; 4.0.0.beta3'</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tujuan memasukkan gem ini pada group <code class="language-plaintext highlighter-rouge">:development</code> agar lebih mudah. Karen, kalau hanya pada group <code class="language-plaintext highlighter-rouge">:test</code>, kita hanya dapat mendapatkan gem ini <em>evinmonment test</em> (<code class="language-plaintext highlighter-rouge">RAILS_ENV=test</code>).</p>
+
+<p>Saya menggunakan versi <strong>4.0.0.beta3</strong> karena terdapat test yang sudah deprecated pada versi sebelumnya, yaitu pada controller test. Karena belum begitu memahami lebih jauh tentang RSpec, saya mengikuti saja saran dari teman-teman yang sudah lebih dulumencoba versi beta ini.</p>
+
+<p>Selanjutnya, seperti biasa, setiap setelah menambahkan gem baru pada <code class="language-plaintext highlighter-rouge">Gemfile</code>, kita perlu menjalankan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>bundle install</b><br /></pre>
+
+<p>Setelah proses instalasi selesai, kita juga perlu meng-<em>generate</em> <em>boilerplate</em> dari konfigurasi yang sudah disediakan oleh rspec-rails.</p>
+
+<pre><span class="cmd">$ </span><b>rails generate rspec:install</b><br /></pre>
+
+<p>Hasil generate tersebut, akan membuat beberapa file konfigurasi pada direktori <code class="language-plaintext highlighter-rouge">rspec/</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Running via Spring preloader in process 28211
+      create  .rspec
+      create  spec
+      create  spec/spec_helper.rb
+      create  spec/rails_helper.rb
+</code></pre></div></div>
+
+<p>Langkah selanjutnya ini bersifat <em>optional</em>, tapi saya memilih untuk melakukannya.</p>
+
+<p>Tambahkan <code class="language-plaintext highlighter-rouge">--format documentation</code>, pada file <code class="language-plaintext highlighter-rouge">.rspec</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--require spec_helper
+--format documentation
+</code></pre></div></div>
+
+<p>Penambahan ini bertujuan untuk mengganti format default output yang ditampilkan oleh RSpec menjadi lebih mudah untuk dibaca.</p>
+
+<p>Kalau tidak ingin menambahkannya sekarang, kita juga dapat menambahkannya dilain waktu.</p>
+
+<p>Nah, sekarang kita dapat lanjut pada tahapan membuat spesifikasi test.</p>
+
+<h1 id="model-specs">Model Specs</h1>
+
+<p>Saya sependapat dengan pernyataan bahwa, “Untuk memahami apa itu test, paling mudah kita mulai dari model test.”</p>
+
+<p>Nah, karena alasan itu saya memulai dari spesifikasi model terlebih dahulu.</p>
+
+<p>Kenapa, karena kita dapat memanfaatkan validation yang terdapat di dalam model. Hihihi.</p>
+
+<p>RSpec juga sudah menyediakan <em>spec file generator</em>. Tinggal kita pergunakan saja. Enak sekali kan.</p>
+
+<pre><span class="cmd">$ </span><b>rails generate rspec:model nama_model</b><br /></pre>
+
+<p>Pada, kasus ini, saya memiliki nama model <code class="language-plaintext highlighter-rouge">author</code>.</p>
+
+<pre><span class="cmd">$ </span><b>rails generate rspec:model author</b><br /></pre>
+
+<p>Maka, rspec akan men-<em>generate</em> satu file spec untuk kita.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      create  spec/models/author_spec.rb
+</code></pre></div></div>
+
+<p>Untuk melihat daftar dari generator apa saja yang disediakan oleh RSpec, dapat menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>rails generate --help | grep rspec</b><br /></pre>
+
+<p>Sebelum saya menjabarkan spesifikasi model test untuk model author, saya akan menunjukkan isi dari model author yang di dalamnya terdapat daftar validation dari model author.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/models/author.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Author</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:articles</span>
+
+  <span class="c1"># Validations</span>
+  <span class="n">validates</span> <span class="ss">:full_name</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span>
+                        <span class="ss">length: </span><span class="p">{</span><span class="ss">minimum: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">maximum: </span><span class="mi">30</span><span class="p">}</span>
+
+  <span class="no">VALID_EMAIL_REGEX</span> <span class="o">=</span> <span class="sr">/\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span>
+                    <span class="ss">uniqueness: </span><span class="p">{</span><span class="ss">case_sensitive: </span><span class="kp">false</span><span class="p">},</span>
+                    <span class="ss">length: </span><span class="p">{</span><span class="ss">maximum: </span><span class="mi">50</span><span class="p">},</span>
+                    <span class="ss">format: </span><span class="p">{</span><span class="ss">with: </span><span class="no">VALID_EMAIL_REGEX</span> <span class="p">}</span>
+
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span>
+                       <span class="ss">length: </span><span class="p">{</span><span class="ss">minimum: </span><span class="mi">8</span><span class="p">}</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, sekarang pasti sudah mengerti kan, kenapa untuk belajar, sangat mudah kita mulai dari model test.</p>
+
+<p>Karena kita akan menguji fungsi dari validation yang sudah kita definisikan pada model author.</p>
+
+<p>Oke sekarang langsung saja, saya akan menjabarkan spesifikasi untuk menguji validation untuk <code class="language-plaintext highlighter-rouge">presence: true</code> pada setiap field.</p>
+
+<p>Kita dapat melihat pada validation model author tersebut, setiap field memiliki presence validation.</p>
+
+<p>Saya akan mulai dari filed <code class="language-plaintext highlighter-rouge">full_name</code> terlebih dahulu.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>spec/models/author_spec.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Author</span><span class="p">,</span> <span class="ss">type: :model</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s1">'Validation Presence Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name presence'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="kp">nil</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pada spesifikasi ini, saya hanya membuat filed <code class="language-plaintext highlighter-rouge">full_name</code> bernilai <code class="language-plaintext highlighter-rouge">nil</code>. Dengan maksud membuat field tersebut kosong. Dan test dianggap benar, apabila hasil dari spesifikasi tersebut bernilai salah ` eq(false)`.</p>
+
+<p>Mudah kan!</p>
+
+<p>Nah, coba perhatikan, terdapat blok yang bernama <code class="language-plaintext highlighter-rouge">context</code>. Ini dapat kita gunakan untuk membuat konteks pada setiap spesifikasi testing yang akan kita lakukan.</p>
+
+<p>Langkah selanjutnya adalah presence validation untuk field <code class="language-plaintext highlighter-rouge">email</code>, maka saya masukkan di dalam context yang sama, dan berada di di bawah spesifikasi untuk field <code class="language-plaintext highlighter-rouge">full_name</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">...</span>
+    <span class="o">...</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures email presence'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="kp">nil</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="o">...</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>Begitu seterusnya untuk presence validation pada field <code class="language-plaintext highlighter-rouge">password</code>.</p>
+
+<p>Coba teman-teman buat spesifikasinya untuk presence validation pada field <code class="language-plaintext highlighter-rouge">password</code> ini.</p>
+
+<p>Oh ya!</p>
+
+<p>Saya menggunakan bantuan gem <code class="language-plaintext highlighter-rouge">faker</code> untuk meng-<em>generate</em> data <em>dummy</em>. Agar lebih mudah, dan tidak perlu menghabiskan waktu untuk memikirkan data secara manual.</p>
+
+<p>Nah, dengan begitu, saya langsung dapat menuliskan spesifikasi untuk menguji semua spesifikasi validation yang ada pada model author.</p>
+
+<p>Kira-kira seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>spec/models/author_spec.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Author</span><span class="p">,</span> <span class="ss">type: :model</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s1">'Validation Presence Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name presence'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="kp">nil</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures email presence'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="kp">nil</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures password presence'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="kp">nil</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Should save successfully'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Validation Length Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures full name character length, more than 5'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="s1">'ban'</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures full name character length, less than 30'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="s1">'bandithijobandithijobandithijobandithijo'</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures email character length, less than 50'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="s1">'bandithijobandithijobandithijobandithijobandithijo@gmail.com'</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures password character length, same or more than 8'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="s1">'bandit'</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Email Format Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Ensures email format not valid'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="s1">'bandithijo@bandithijo'</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures email format valid'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Email Uniqueness Tests'</span> <span class="k">do</span>
+    <span class="n">before</span> <span class="k">do</span>
+      <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="s1">'bandithijo@gmail.com'</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Ensures email has uniqueness'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="s1">'bandithijo@gmail.com'</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">).</span><span class="nf">save</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">author</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, gimana?</p>
+
+<p>Mudah dipahami kan?</p>
+
+<p>Nah, untuk menalankan test-nya gunakan perintah ini,</p>
+
+<pre><span class="cmd">$ </span><b>bundle exec rspec</b><br /></pre>
+
+<p>Nanti akan keluar output seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Author
+  Validation Presence Tests
+    Ensures full name presence
+    Ensures email presence
+    Ensures password presence
+    Should save successfully
+  Validation Length Tests
+    Ensures full name character length, more than 5
+    Ensures full name character length, less than 30
+    Ensures email character length, less than 50
+    Ensures password character length, same or more than 8
+  Email Format Tests
+    Ensures email format not valid
+    Ensures email format valid
+  Email Uniqueness Tests
+    Ensures email has uniqueness
+
+Finished in 2.1 seconds (files took 8.29 seconds to load)
+11 examples, 0 failures
+</code></pre></div></div>
+
+<p>Sesuai dengan jumlah spesifikasi yang kita tulis, ada 11 buah. Dan kesemuanya berhasil.</p>
+
+<p>Selanjutnya untuk controller spec.</p>
+
+<h1 id="controller-spec">Controller Spec</h1>
+
+<p>Kita gunakan lagi <em>spec file generator</em> yang sudah disediakan oleh RSpec.</p>
+
+<pre><span class="cmd">$ </span><b>rails generate rspec:controller authors</b><br /></pre>
+
+<p>Karena kita akan menguji controller, tentu saja kita mengikuti <em>naming convention</em> dari Rails, yang mengharuskan menggunakan penamaan plural pada controller. Berbeda dengan model yang menggunakan penamaan singular.</p>
+
+<p>Kalau berhasil, maka akan dibuatkan file specnya seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      create  spec/controllers/authors_controller_spec.rb
+</code></pre></div></div>
+
+<p>Belum banyak yang saya pahami mengenai controller spec ini, jadi langsung saja saya tulisakan sedikit contohnya mengenai pengujian untuk response dan route.</p>
+
+<p>Kira-kira seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>spec/controllers/authors_controller_spec.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">AuthorsController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s1">'Get #index'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Returns a success response'</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_ok</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Get #show'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Returns a success response'</span> <span class="k">do</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">create!</span><span class="p">(</span>
+        <span class="ss">full_name: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">titlecase</span><span class="p">,</span>
+        <span class="ss">email: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Internet</span><span class="p">.</span><span class="nf">free_email</span><span class="p">,</span>
+        <span class="ss">password: </span><span class="no">Faker</span><span class="o">::</span><span class="no">Team</span><span class="p">.</span><span class="nf">name</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+      <span class="p">)</span>
+      <span class="n">get</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">params: </span><span class="p">{</span> <span class="ss">id: </span><span class="n">author</span><span class="p">.</span><span class="nf">to_param</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_ok</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'Proper Routes Tests'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'Should has proper index route'</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="ss">get: </span><span class="s1">'/authors'</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_routable</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Should has proper show route'</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="ss">get: </span><span class="s1">'/authors/1'</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_routable</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Should has proper new route'</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="ss">get: </span><span class="s1">'/authors/new'</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_routable</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Should has proper edit route'</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="ss">get: </span><span class="s1">'/authors/1/edit'</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_routable</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s1">'Should has proper destroy route'</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="ss">delete: </span><span class="s1">'/authors/1'</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_routable</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Wkwkwkwk.</p>
+
+<p>Pengen ketawa, karena seadanya banget.</p>
+
+<p>Tapi tidak mengapa, saya tetap harus menuliskan catatan mengenai proses belajar ini.</p>
+
+<p>Sebagai jejak belajar yang menunjukkan bahwa saya dulu juga berawal dari belum bisa.</p>
+
+<p>Okeh!</p>
+
+<p>Sepertinya hanya ini saja yang ingin saya tuliskan.</p>
+
+<p>Untuk referensi yang lebih lengkap seputar RSpec pada Rails, dapat dimulai dari membaca dokumentasi pada gem <code class="language-plaintext highlighter-rouge">rspec-rails</code> yang saya sertakan pada referensi di bawah.<a href="#referensi"><sup>1</sup></a></p>
+
+<p>Untuk referensi seputar RSpec dapat membaca pada dokumentasi RSpec yang disediakan di Relishapp.<a href="#referensi"><sup>3</sup></a></p>
+
+<p>Mudah-mudahan dapat sedikit banyak bermanfaat buat teman-teman yaa.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)v</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/rspec/rspec-rails" target="_blank">github.com/rspec/rspec-rails</a>
+<br />Diakses tanggal: 2019/12/05</p>
+  </li>
+  <li>
+    <p><a href="http://leanpub.com/everydayrailsrspec" target="_blank">Everyday Rails Testing with RSpec : A practical approach to test-driven development by Aaron Sumner</a>
+<br />Diakses tanggal: 2019/12/05</p>
+  </li>
+  <li>
+    <p><a href="https://relishapp.com/rspec/rspec-rails/docs" target="_blank">relishapp.com/rspec/rspec-rails/docs</a>
+<br />Diakses tanggal: 2019/12/05</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

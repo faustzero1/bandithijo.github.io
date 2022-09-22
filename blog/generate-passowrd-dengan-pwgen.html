@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="security, tips, terminal, tools, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Generate Random Password menggunakan PWGEN | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Generate Random Password menggunakan PWGEN" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="pwgen adalah perkakas command line interface yang praktis digunakan untuk mengenerate password." />
+<meta property="og:description" content="pwgen adalah perkakas command line interface yang praktis digunakan untuk mengenerate password." />
+<link rel="canonical" href="https://bandithijo.dev/blog/generate-passowrd-dengan-pwgen" />
+<meta property="og:url" content="https://bandithijo.dev/blog/generate-passowrd-dengan-pwgen" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-27T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/generate-passowrd-dengan-pwgen"},"description":"pwgen adalah perkakas command line interface yang praktis digunakan untuk mengenerate password.","url":"https://bandithijo.dev/blog/generate-passowrd-dengan-pwgen","@type":"BlogPosting","headline":"Generate Random Password menggunakan PWGEN","dateModified":"2018-03-27T00:00:00+08:00","datePublished":"2018-03-27T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Generate Random Password menggunakan PWGEN"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/generate-passowrd-dengan-pwgen">Generate Random Password menggunakan PWGEN</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/27</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Generate passowrd dengan pwgen
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#security">Security</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#terminal">Terminal</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#membuat-password-yang-kuat">Membuat <em>Password</em> yang Kuat</a></li>
+  <li><a href="#alat-bantu-generate-password">Alat Bantu <em>Generate Password</em></a>
+    <ul>
+      <li><a href="#pwgen">Pwgen</a>
+        <ul>
+          <li><a href="#instalasi">Instalasi</a></li>
+          <li><a href="#melihat-help">Melihat Help</a></li>
+          <li><a href="#penggunaan">Penggunaan</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#tips">Tips</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/t810ca5cd/banner_post_00.png" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p><em>Password</em> atau dalam bahasa Indonesia disebut kata sandi, merupakan hal yang penting untuk menjaga kerahasiaan sesuatu yang kita simpan di balik <em>password</em> tersebut. Namun <em>password</em> itu sendiri juga merupakan hal yang rahasia. Sebuah kunci rahasia untuk membuka sesuatu yang rahasia. Yang artinya, selain sesuatu yang dilindungin oleh <em>password</em> tersebut harus aman, <em>password</em> itu sendiri pun harus diamankan.</p>
+
+<p>Bisa saya katakan, tidak semua orang sudah menerapkan cara membuat <em>password</em> yang baik. Karena memang bukan perkara yang mudah. Apakah kalian cukup yakin dengan <em>password</em> yang telah kalian buat ?</p>
+
+<p>Sedikit saya akan membahas mengenai pengamanan <em>password</em>. Saya bisa mengambil satu contoh, dari <a href="https://support.google.com/accounts/answer/32040?hl=en" target="_blank"><strong>Google Account Help</strong></a>, di sana dikatakan bahwa,</p>
+
+<h1 id="membuat-password-yang-kuat">Membuat <em>Password</em> yang Kuat</h1>
+
+<p>Membuat <em>password</em> yang kuat akan membantu kalian :</p>
+<ol>
+  <li>Menjaga informasi pribadi tetap aman</li>
+  <li>Melindungi email, files, dan konten-konten lain</li>
+  <li>mencegah seseorang membobol akun kalian.</li>
+</ol>
+
+<p>Pada halaman yang berjudul <strong>Create a strong password</strong> tersebut juga tertulis langkah-langkah untuk mengamankan <em>password</em>. Dibagi dalam 3 langkah.</p>
+
+<p><br />
+<strong>Langkah 1, Penuhi persyaratan pembuatan <em>password</em></strong></p>
+
+<p>Buatlah <em>password</em> kalian dengan menggunakan <strong>minimal 8 karakter</strong> atau lebih. Bisa menggunakan kombinasi huruf, angka, atau simbol.</p>
+
+<ol>
+  <li>Sebaiknya hindari penggunaan <em>password</em> yang sama untuk digunakan oleh banyak akun yang lain</li>
+  <li>Hindari pula menggunakan <em>password</em> yang kalian pernah gunakan sebelumnya</li>
+</ol>
+
+<p><br />
+<strong>Langkah 2, Ikuti Saran untuk Membuat <em>Password</em></strong></p>
+
+<p><em>Password</em> yang kuat hampir tidak mungkin dapat ditebak oleh orang lain. Untuk itu, kalian dapat menggunakan kiat-kiat di bawah ini dalam membuat <em>password</em>.</p>
+
+<ol>
+  <li>Gunakan huruf, angka, dan simbol</li>
+  <li>Hindari menggunakan informasi pribadi dan kata-kata yang sudah umum</li>
+  <li>Jangan menggunakan kembali <em>password</em> yang sudah pernah digunakan sebelumnya</li>
+</ol>
+
+<p><br />
+<strong>Langkah 3, Menjaga Keamanan <em>Password</em></strong></p>
+
+<p>Setelah kalian membuat <em>password</em> yang kuat, selanjutnya kalian perlu mengamankannya.</p>
+
+<ol>
+  <li>Jangan tampilkan <em>password</em> kalian</li>
+  <li>Gunakan alat bantu untuk mengelola <em>password</em> kalian</li>
+</ol>
+
+<p><br />
+<strong>Plan B</strong></p>
+
+<p>Buat rencana cadangan apabila kalian lupa dengan <em>password</em> yang telah kalian buat. Namun hati-hati jangan sampai malah orang yang tidak berhak dapat memanfaatkan kelemahan yang kalian buat pada rencana cadangan kalian ini.</p>
+
+<h1 id="alat-bantu-generate-password">Alat Bantu <em>Generate Password</em></h1>
+<p>Pada dokumentasi ini saya akan membahas salah satu alat bantu yang saya gunakan untuk membuat <em>password</em> yang sangat <em>random</em>.</p>
+
+<h2 id="pwgen">Pwgen</h2>
+<p>Dari manual yang ditulis, pwgen dirancang untuk menghasilkan <em>password</em> yang mudah diingaat oleh manusia namun tetap seaman mungkin.</p>
+
+<h3 id="instalasi">Instalasi</h3>
+<p>Untuk distribusi Arch Linux</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S pwgen</b><br /></pre>
+
+<p>Untuk distribusi sistem operasi yang lain, dapat menyesuaikan dan mencari paket yang bernama <code class="language-plaintext highlighter-rouge">pwgen</code>.</p>
+
+<h3 id="melihat-help">Melihat Help</h3>
+<p>Kita perlu mengetahui opsi apa saja yang disediakan oleh pwgen sebelum kita dapat mengenerate <em>password</em>. <em>Help</em> dari pwgen ini sangat sederhana dan mudah dipahami.</p>
+
+<pre><span class="cmd">$ </span><b>pwgen -h</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: pwgen [ OPTIONS ] [ pw_length ] [ num_pw ]
+
+Options supported by pwgen:
+  -c or --capitalize
+	Include at least one capital letter in the password
+  -A or --no-capitalize
+	Don't include capital letters in the password
+  -n or --numerals
+	Include at least one number in the password
+  -0 or --no-numerals
+	Don't include numbers in the password
+  -y or --symbols
+	Include at least one special symbol in the password
+  -r &lt;chars&gt; or --remove-chars=&lt;chars&gt;
+	Remove characters from the set of characters to generate passwords
+  -s or --secure
+	Generate completely random passwords
+  -B or --ambiguous
+	Don't include ambiguous characters in the password
+  -h or --help
+	Print a help message
+  -H or --sha1=path/to/file[#seed]
+	Use sha1 hash of given file as a (not so) random generator
+  -C
+	Print the generated passwords in columns
+  -1
+	Don't print the generated passwords in columns
+  -v or --no-vowels
+	Do not use any vowels so as to avoid accidental nasty words
+</code></pre></div></div>
+
+<h3 id="penggunaan">Penggunaan</h3>
+<p>Seperti yang kalian lihat, pwgen menyediakan banyak sekali opsi untuk kita dapat meracik <em>password</em>. Kalian dapat memilih <em>preferensi</em> opsi yang kalian perlukan. Saya biasa menggunakan opsi <code class="language-plaintext highlighter-rouge">-sy</code> dengan panjang karakter sebanyak 15.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-s</code> : untuk mengacak <em>password</em> yang benar-benar <em>random</em>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-y</code> : untuk menambahkan setidaknya satu simbol spesial di dalam <em>password</em>.</p>
+
+<p>Hasilnya akan seperti ini.</p>
+
+<pre><span class="cmd">$ </span><b>pwgen -sy 15</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I##3DKHZCA\[S:w (3::;s2P1!ABm7' !WS2LL)Jp[/].ob !1Z%K/E=Rt?1-TC /_,p}73!k|h&amp;pDS
+BmP:Xq#5P[(]BdW "%V1HoH?iR8V#PW wQTJXe6?Xe9$3H- *9{DLU3e-'!~shx I&gt;@{`,[h]R)?h2\
+t["(&gt;OQ`h&amp;hBE0} -Na"0+qOu\{Iotx /}a^x{!o@x{X#\3 8e\zd3[$VM^Hw}! ERGHx?3^60OidVu
+rW9bg8P(D(4.dx} k|v':YaEr]9f/OR xc1gUf$A)FBX|JS 5zw7HZ6P/uD#:Eo %Q~o7'n(NGmH0&amp;H
+d9%e:zUeURz[(9Z Lm~3R2-U2gC.BLd `'Xy5e(k(gg'z,m kW\5NXROyg-Y14s ).I.Oh0AH3Bn\nB
+W}w&lt;CD8C{tQ;ea&amp; EbLhVQtdtX8A[e# :ZROZ0)9kppC`|E {CQu")i!A[H}HA3 W"'IAX9L,3VH;IM
+%3h)aG`SoG71h}&gt; a.h-Ys&gt;ii5=FUd( =&amp;Lq(PPP]9?::3L $3eJZeig{ua2^u% W_E^gD;#":[S'9p
+Wlj}?aNON;ZIK5R `b',vAOJ?2!mfgK *^z1yVhVS~[&amp;2$B Me/WJy8f:o*0_?7 0s|Z1IggAKqpTC6
+YPv@97Q1`3!~J8m =X9d0E;1\;p.)*4 @ytPu:jQ'8MN)9% }S4D._TbfN:@UY, dZ&gt;_`8Gi*hWOaIX
+60r,^r~xn&gt;Cb3W( tdyxgF6])rIjTr\ Xx}+9B}8Xa-Bp:H Fq=~sT2svWr/O9q F:-7]'EOmtfB_ia
+Si6Y*)ci$f;(Wwh kw{#"3iTR\Bxm,~ r&amp;u-(,&amp;@~6qDP.$ pU:&gt;_S3]N'b(v16 l0;K0}.&amp;YuCv/%S
+k%Zm3Z'Wa7Nt~7J N&gt;f4mhc1#]EDIil 9tcF~uE6stt]D.. /8}ZfUiu6xc@y4B &amp;O-*_G8PY9Af$q&gt;
+)rNYOqh[k`74z^&gt; c4iJlJ%\Klh;v0k 9Aoest6Z%^iIN?I R@}`3JW9Bfro+uU jD1J/w4"F$9[P\2
+onhsS}cBLMD_5]+ 1Y7-%LMi#*wp;\k %_Zn5@.;B61Z3Zp j/L)nooB_Q+1s." QQ1cv1B=e@ZGVU=
+3`[liL7D@4rkiLS 1g2Mw|RIdG!vf4\ Ewk,nH0L2Zx.QkM .S+B72!&gt;ak*fFN% n{kh6]KwVu"z3jX
+)7'QWW@qf:I)v&amp;o 7.Y?'#lBzV\A;[k I{CkA;iM*eiH7+T 7e8W(|h*:a/60?k jj/=yg1]*/`xZtd
+n!H{q@}[!+zgz4K 8ZBC6cPK2rLW|G5 L-,&lt;@:&lt;if8A,@YE L7!\Z5j'DnL6(Lx 4SByt!1=:S44?XG
+?HU\LF)9W1nZ@&amp;] /('fY@SX&gt;bT#gn4 Mh%M]j'HFtY&amp;3[h A@iB*9:$.X@eA&amp;/ yX}n/,)q#0f/$cE
+ip0|bE+&amp;\S`-XvA fv8eRE&gt;@.BVd/v) 09TFUyqyFnHqZH/ Y&gt;`u*O^2WfHd"[7 XPus5[&amp;mEb0y3Oz
+[~qzByf#|/K4=g~ Lx@KlJ1&amp;L4\5vKH lvjHx&gt;\vq[r4WHl -GiVZ#Yio-c$8US OKFn"3QQ^L$jr(T
+</code></pre></div></div>
+
+<p>Kemudian, saya akan pilih satu dari 100 <em>random password</em> yang sudah berhasil di <em>generate</em>. Setelah itu saya akan simpan pada alat yang saya khususkan untuk menyimpan <em>password</em>. Untuk pembahasan alat apa yang saya gunakan untuk menyimpan <em>password</em> (<a href="https://wiki.archlinux.org/index.php/List_of_applications/Security#Password_managers" target="_blank"><em>Password Manager</em></a>) akan saya bahas pada dokumentasi yang lain.</p>
+
+<h1 id="tips">Tips</h1>
+
+<p>Kalau teman-teman ingin hasil generate password langsung otomatis ditangkap oleh clipboard, dapat menggunakan cara ini.</p>
+
+<pre><span class="cmd">$ </span><b>pwgen -sy 15 -1 | tr -d '\n' | xclip -sel clip</b><br /></pre>
+
+<p>Atau buatkan saja shell script nya.</p>
+
+<pre><span class="cmd">$ </span><b>touch $HOME/.local/bin/pwgenskin</b><br /><span class="cmd">$ </span><b>chmod +x $HOME/.local/bin/pwgenskin</b><br /></pre>
+
+<p>Isinya seperti ini,</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/pwgenskin</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+pwgen <span class="nt">-sy</span> 32 <span class="nt">-1</span> | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">'\n'</span> | xclip <span class="nt">-sel</span> clip
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Modifikasi sesuai keinginan kalian.</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li>
+    <p><a href="https://support.google.com/accounts/answer/32040?hl=en" target="_blank">support.google.com/accounts/answer/32040?hl=en</a>
+<br />Diakses tanggal: 2018/03/27</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Security" target="_blank">wiki.archlinux.org/index.php/Security</a>
+<br />Diakses tanggal: 2018/03/27</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

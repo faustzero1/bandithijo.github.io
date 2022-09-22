@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, ruby">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Bagaimana Menulis Rake Task Buatan Sendiri | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bagaimana Menulis Rake Task Buatan Sendiri" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien." />
+<meta property="og:description" content="Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien." />
+<link rel="canonical" href="https://bandithijo.dev/blog/bagaimana-menulis-rake-task-sendiri" />
+<meta property="og:url" content="https://bandithijo.dev/blog/bagaimana-menulis-rake-task-sendiri" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-26T16:38:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/bagaimana-menulis-rake-task-sendiri"},"description":"Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien.","url":"https://bandithijo.dev/blog/bagaimana-menulis-rake-task-sendiri","@type":"BlogPosting","headline":"Bagaimana Menulis Rake Task Buatan Sendiri","dateModified":"2020-06-26T16:38:00+08:00","datePublished":"2020-06-26T16:38:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Bagaimana Menulis Rake Task Buatan Sendiri"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/bagaimana-menulis-rake-task-sendiri">Bagaimana Menulis Rake Task Buatan Sendiri</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/06/26</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Bagaimana menulis rake task sendiri
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ruby">Ruby</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#tujuannya">Tujuannya</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfgurasi">Konfgurasi</a>
+    <ul>
+      <li><a href="#konfigurasi-rakefile-untuk-project-apapun">Konfigurasi Rakefile untuk Project Apapun</a></li>
+      <li><a href="#konfigurasi-rakefile-untuk-standalone-migrations-gem">Konfigurasi Rakefile untuk Standalone Migrations Gem</a></li>
+    </ul>
+  </li>
+  <li><a href="#menulis-rake-task">Menulis Rake Task</a>
+    <ul>
+      <li><a href="#morfologi-rake-task">Morfologi Rake Task</a></li>
+      <li><a href="#tugas-sederhana">Tugas Sederhana</a></li>
+      <li><a href="#tugas-bercabang-bertingkat--namespace">Tugas Bercabang (Bertingkat) / Namespace</a>
+        <ul>
+          <li><a href="#tingkat-satu">Tingkat Satu</a></li>
+          <li><a href="#tingkat-lebih-dari-satu">Tingkat Lebih dari Satu</a></li>
+        </ul>
+      </li>
+      <li><a href="#memasukkan-argument">Memasukkan Argument</a>
+        <ul>
+          <li><a href="#1-the-rake-way">1. The Rake Way</a></li>
+          <li><a href="#2-environment-variables">2. Environment Variables</a></li>
+          <li><a href="#3-menggunakan-argv">3. Menggunakan ARGV</a></li>
+          <li><a href="#4-menggunakan-ruby-optionparser">4. Menggunakan Ruby OptionParser</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#melihat-daftar-rake-task">Melihat Daftar Rake Task</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Beberapa hari ini, saya sedang mengerjakan <em>side project</em> membuat <em>web scraper</em> menggunakan Ruby.</p>
+
+<p>Project ini terus berkembang, hingga saya sampai pada kebutuhan untuk membuat Rake task sendiri.</p>
+
+<h1 id="tujuannya">Tujuannya</h1>
+
+<p>Tujuan yang saya inginkan dalam membuat Rake tasks sendiri adalah untuk merangkum beberapa perintah sekaligus, agar tidak perlu menulis perintah yang panjang secara berulang-ulang. Bahasa kerennya, mungkin disebut “automatisasi”.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Rake benar-benar <em>tool</em> yang sangat <em>powerful</em> untuk melakukan proses automatisasi. Rake juga sangat praktis dan dapat dipasang pada project yang belum secara <em>default</em> memasang Rake. Bahkan juga dapat dipasang pada project yang bukan berbasis Ruby. Keren!</p>
+
+<p>Pertama, pastikan teman-teman sudah memasang <strong>Bundler</strong> gem yaa.</p>
+
+<pre><span class="cmd">$ </span><b>bundler -v</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundler version 2.1.4
+</code></pre></div></div>
+
+<p>Biasanya kalo Ruby project pasti sudah memiliki <code class="language-plaintext highlighter-rouge">Gemfile</code>, tinggal kita tambahkan Rake gem saja.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">gem</span> <span class="s1">'rake'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lalu jalankan instalasi gem baru dengan bantuan Bundler.</p>
+
+<pre>
+$ <b></b>
+</pre>
+<pre><span class="cmd">$ </span><b>bundle install</b><br /></pre>
+
+<h1 id="konfgurasi">Konfgurasi</h1>
+
+<p>Pada catatan ini ada 2 konfigurasi yang akan saya tuliskan.</p>
+
+<ol>
+  <li><a href="#konfigurasi-rakefile-untuk-project-apapun">Konfigurasi Rakefile untuk project apa saja</a>.</li>
+  <li><a href="#konfigurasi-rakefile-untuk-standalone-migrations-gem">Konfigurasi Rakefile untuk project yang menggunakan <strong>Standalone Migrations</strong> gem</a>.</li>
+</ol>
+
+<p>Namun sebelumnya, siapkan dahulu direktori untuk menyimpang file <code class="language-plaintext highlighter-rouge">.rake</code>.</p>
+
+<p>Sebaiknya kita mengikuti <em>convention</em> (aturan) yang sudah disepakati bersama, agar struktur project kita dapat dibaca dan dipahami oleh orang lain.</p>
+
+<p>Untuk itu, kita perlu membuat struktur direktori seperti ini, <code class="language-plaintext highlighter-rouge">lib/tasks</code>.</p>
+
+<pre>
+root-project-dir/
+│
+...
+...
+├── Gemfile
+├── Gemfile.lock
+<mark>├── lib/</mark>
+<mark>│   └── tasks/</mark>
+│       └── *.rake
+│
+└── Rakefile
+</pre>
+
+<p>Nantinya, kita akan meletakkan Rake tasks di dalam direktori tersebut.</p>
+
+<p>Selanjutnya tinggal mengkonfigurasi Rakefile sesuai dengan preferensi project yang digunakan.</p>
+
+<h2 id="konfigurasi-rakefile-untuk-project-apapun">Konfigurasi Rakefile untuk Project Apapun</h2>
+
+<p>Buat <code class="language-plaintext highlighter-rouge">Rakefile</code> pada project root direktori. Kemudian isikan seperti di bawah.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="no">Dir</span><span class="p">.</span><span class="nf">glob</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib/tasks/**/*.rake'</span><span class="p">)).</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span> <span class="nb">load</span> <span class="n">file</span> <span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dibaca, kalau baris di atas akan memerintahkan Rake untuk menjalankan file <code class="language-plaintext highlighter-rouge">.rake</code> yang ada di dalam direktori <code class="language-plaintext highlighter-rouge">lib/tasks/</code>.</p>
+
+<h2 id="konfigurasi-rakefile-untuk-standalone-migrations-gem">Konfigurasi Rakefile untuk Standalone Migrations Gem</h2>
+
+<p>Untuk yang membuat Ruby project menggunakan gem <strong>Standalone Migrations</strong>, biasanya karena ingin memanfaatkan migration dari gem <strong>Active Record</strong> –yang merupakan komponen dari Ruby on Rails– agar dapat menggunakan migration di luar Ruby on Rails project.</p>
+
+<p>Isi dari <code class="language-plaintext highlighter-rouge">Rakefile</code> pada konfigurasi Rake menggunakan gem Standalone Migrations, akan seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'standalone_migrations'</span>
+<span class="no">StandaloneMigrations</span><span class="o">::</span><span class="no">Tasks</span><span class="p">.</span><span class="nf">load_tasks</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perintah di atas juga akan menjalankan Rake task yang kita simpan di dalam direktori <code class="language-plaintext highlighter-rouge">lib/tasks/</code>.</p>
+
+<h1 id="menulis-rake-task">Menulis Rake Task</h1>
+
+<p>Dalam menulis Rake task, sebaiknya kita juga mengikuti <em>convention</em> yang sudah ada.</p>
+
+<h2 id="morfologi-rake-task">Morfologi Rake Task</h2>
+
+<p>Morfologi dari Rake task, adalah seperti ini:</p>
+
+<ol>
+  <li><strong>Description</strong> <code class="language-plaintext highlighter-rouge">desc</code>, akan memberikan deskripsi yang akan ditampilkan pada saat kita menjalankan perintah <code class="language-plaintext highlighter-rouge">$ rake --tasks</code> di Terminal.</li>
+  <li><strong>Task name</strong> <code class="language-plaintext highlighter-rouge">:name</code>, nama dari task yang akan dipanggil pada saat menjalankan Rake.</li>
+  <li><strong>Code block</strong>, adalah code atau perintah yang akan dijalankan ketika task dipanggil.</li>
+</ol>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s1">'Description'</span>
+<span class="n">task</span> <span class="ss">:name</span> <span class="k">do</span>
+  <span class="c1"># task code ...</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Meskipun sintaks dari Rake task ditulis dengan bahasa Ruby, namun ekstensi dalam meberikan nama file tetap menggunakan akhiran <code class="language-plaintext highlighter-rouge">.rake</code> bukan <code class="language-plaintext highlighter-rouge">.rb</code>.</p>
+
+<h2 id="tugas-sederhana">Tugas Sederhana</h2>
+
+<p>Misalnya hanya ada satu jenis tugas, kita dapat mendefiniskan seperti ini.</p>
+
+<p>Buat dulu Rake file pada direktori <code class="language-plaintext highlighter-rouge">lib/tasks/</code>, kasih nama bebas.</p>
+
+<p>Misalkan saya kasih nama sesuai dengan tugas yang akan dikerjakan, yaitu <code class="language-plaintext highlighter-rouge">run.rake</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>lib/tasks/run.rake</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s2">"Menjalankan main script"</span>
+<span class="n">tasks</span> <span class="ss">:run</span> <span class="k">do</span>
+    <span class="nb">system</span> <span class="s2">"ruby app/main.rb"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya punya Ruby script dengan nama <code class="language-plaintext highlighter-rouge">app/main.rb</code> yang ingin saya jalankan.</p>
+
+<p>Kalau kita cek dengan perintah <code class="language-plaintext highlighter-rouge">$ rake --tasks</code>, akan menampilkan output:</p>
+
+<pre>
+rake middleware                      # Prints out your Rack middleware stack
+rake restart                         # Restart app by touching tmp/restart.txt
+<mark>rake run                             # Menjalankan main script</mark>
+rake secret                          # Generate a cryptographically secure secret key (this is typically used to generate a secret for cookie sessions)
+rake stats                           # Report code statistics (KLOCs, etc) from the application or engine
+</pre>
+
+<p>Dengan begini, saya tidak perlu lagi menjalankan command <code class="language-plaintext highlighter-rouge">$ ruby app/main.rb</code> yang cukup panjang, cukup menjalankan dengan <code class="language-plaintext highlighter-rouge">$ rake run</code>, maka hasilnya pun akan sama namun dengan command yang lebih pendek. =P</p>
+
+<h2 id="tugas-bercabang-bertingkat--namespace">Tugas Bercabang (Bertingkat) / Namespace</h2>
+
+<h3 id="tingkat-satu">Tingkat Satu</h3>
+
+<p>Tugas yang bercabang atau bertingkat ini, maksudnya seperti kita punya kategori tugas yang sama, namun detail pekerjaannya yang berbeda. Kalau yang pernah menggunakan Ruby on Rails, pasti pernah menggunakan perintah <code class="language-plaintext highlighter-rouge">$ rake db:create</code>, <code class="language-plaintext highlighter-rouge">$ rake db:migrate</code>, <code class="language-plaintext highlighter-rouge">$ rake db:rollback</code>, dll.</p>
+
+<p>Nah, kira-kira begini cara buatnya (blok codenya hanya ilustrasi yaa, bro).</p>
+
+<p>Karena ada banyak tugas yang merupakan tugas yang mirip, yaitu untuk mengintervensi database, maka saya beri nama <code class="language-plaintext highlighter-rouge">database.rake</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>lib/tasks/database.rake</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:db</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"Create database for current environment"</span>
+  <span class="n">task</span> <span class="ss">:create</span> <span class="k">do</span>
+    <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Tasks</span><span class="o">::</span><span class="no">DatabaseTasks</span><span class="p">.</span><span class="nf">create_all</span>
+  <span class="k">end</span>
+
+  <span class="n">desc</span> <span class="s2">"Drop database for current environment"</span>
+  <span class="n">task</span> <span class="ss">:drop</span> <span class="k">do</span>
+    <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Tasks</span><span class="o">::</span><span class="no">DatabaseTasks</span><span class="p">.</span><span class="nf">drop_all</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perhatikan strukturnya, bahwa masing-masing tasks tetap memiliki morfologi yang sudah menjadi convention seperti yang sudah saya tulis di atas.</p>
+
+<p>Kalau kita cek dengan perintah <code class="language-plaintext highlighter-rouge">$ rake --tasks</code>, akan menampilkan output:</p>
+
+<pre>
+rake app:template                    # Applies the template supplied by LOCATION=(/path/to/template) or URL
+rake app:update                      # Update configs and some other initially generated files (or use just update:configs or update:bin)
+<mark>rake db:create                       # Create database for current environment</mark>
+<mark>rake db:drop                         # Drop database for current environment</mark>
+rake db:environment:set              # Set the environment value for the database
+rake db:fixtures:load                # Loads fixtures into the current environment's database
+</pre>
+
+<p>Secara sederhana <em>namesapce</em> akan mengkategorikan task yang sejenis, dalam hal ini, task yang memiliki tugas untuk berinteraksi dengan database <code class="language-plaintext highlighter-rouge">db</code> akan dimasukkan ke dalam <em>namespace</em> ini agar task list menjadi lebih rapi dan terorganisir.</p>
+
+<h3 id="tingkat-lebih-dari-satu">Tingkat Lebih dari Satu</h3>
+
+<p>Nah, mungkin teman-teman yang menggunakan Ruby on Rails juga pernah melihat perintah <code class="language-plaintext highlighter-rouge">$ rake db:migrate:status</code>, pasti sudah bisa ketebak dong yaa, gimana cara membuatnya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>lib/tasks/database.rake</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="n">namespace</span> <span class="ss">:db</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."</span>
+  <span class="n">task</span> <span class="ss">:migrate</span> <span class="k">do</span>
+    <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Tasks</span><span class="o">::</span><span class="no">DatabaseTasks</span><span class="p">.</span><span class="nf">migrate</span>
+  <span class="k">end</span>
+
+  <span class="n">namespace</span> <span class="ss">:migrate</span> <span class="k">do</span>
+    <span class="n">desc</span> <span class="s2">"Display status of migrations"</span>
+    <span class="n">task</span> <span class="ss">:status</span> <span class="k">do</span>
+        <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Tasks</span><span class="o">::</span><span class="no">DatabaseTasks</span><span class="p">.</span><span class="nf">migrate_status</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kalau kita cek dengan perintah <code class="language-plaintext highlighter-rouge">$ rake --tasks</code>, akan menampilkan output:</p>
+
+<pre>
+rake db:environment:set              # Set the environment value for the database
+rake db:fixtures:load                # Loads fixtures into the current environment's database
+<mark>rake db:migrate                      # Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)</mark>
+<mark>rake db:migrate:status               # Display status of migrations</mark>
+rake db:new_migration[name,options]  # Creates a new migration file with the specified name
+rake db:prepare                      # Runs setup if database does not exist, or runs migrations if it does
+</pre>
+
+<h2 id="memasukkan-argument">Memasukkan Argument</h2>
+
+<p>Terkadang kita membutuhkan argument yang akan diolah di dalam task.</p>
+
+<p>Misalkan kita punya Rake task seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s2">"Menjalankan operasi penjumlahan"</span>
+<span class="n">task</span> <span class="ss">:penjumlahan</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<pre>
+<span class="cmd">$ </span><b>rake penjumlahan</b>
+# =&gt; 3
+</pre>
+
+<p>Nah, kita ingin membuat dua angka yang dijumlahkan tersebut menjadi dinamis, diambil dari argumen yang diberikan.</p>
+
+<p>Berikut ini adalah 4 cara dalam memasukkan argument ke dalam Rake task.</p>
+
+<h3 id="1-the-rake-way">1. The Rake Way</h3>
+
+<p>Rake memiliki built-in function yang dapat menerima argument, caranya seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s2">"Menjalankan operasi penjumlahan"</span>
+<span class="n">task</span> <span class="ss">:penjumlahan</span><span class="p">,</span> <span class="p">[</span><span class="ss">:num1</span><span class="p">,</span> <span class="ss">:num</span><span class="p">]</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">args</span><span class="p">[</span><span class="ss">:num1</span><span class="p">].</span><span class="nf">to_i</span> <span class="o">+</span> <span class="n">args</span><span class="p">[</span><span class="ss">:num</span><span class="p">].</span><span class="nf">to_i</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<pre>
+<span class="cmd">$ </span><b>rake penjumlahan[1,2]</b>
+# =&gt; 3
+</pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Namun, cara ini memiliki kelemahan apabila kita menggunakan ZSH Shell. Biasanya kita akan mendapatkan error berupa,</p>
+    <pre>zsh: no matches found ...</pre>
+    <p>Untuk mengatasi hal ini, kita perlu <b>menambahkan escape charater</b> pada perintahnya. Menjadi seperti ini:</p>
+    <pre>
+$ <b>rake penjumlahan\[1,2\]</b>
+# =&gt; 3
+</pre>
+    <p>Terlihat tidak cantik yaa.</p>
+    <p>Selain itu, kita <b>tidak boleh menggunakan spasi setelah tanda koma "," diantara argument</b>, hal ini akan menyebabkan error yang lain.</p>
+  </div></div>
+
+<h3 id="2-environment-variables">2. Environment Variables</h3>
+
+<p>Kita akan menggunakan cara <em>environment variables</em> seperti yang biasa dijalankan di terminal, misal <code class="language-plaintext highlighter-rouge">RAILS_ENV=</code>.</p>
+
+<p>Nah, kita dapat menggunakan metode yang sama.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s2">"Menjalankan operasi penjumlahan"</span>
+<span class="n">task</span> <span class="ss">:penjumlahan</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'NUM1'</span><span class="p">].</span><span class="nf">to_i</span> <span class="o">+</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'NUM2'</span><span class="p">].</span><span class="nf">to_i</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cara menjalankannya akan seperti ini:</p>
+
+<pre>
+<span class="cmd">$ </span><b>rake penjumlahan NUM1=1 NUM2=2</b>
+# =&gt; 3
+</pre>
+
+<p>Cara ini dapat dilakukan, namun agak sia-sia kalau menjalankan task dengan melakukan pengesetan/pendefinisian <em>environment variables</em>.</p>
+
+<h3 id="3-menggunakan-argv">3. Menggunakan ARGV</h3>
+
+<p>ARGV adalah <em>command line argument</em>. Untuk teman-teman yang pernah membuat Ruby script dan ingin mengambil inputan dari user bersamaan dengan menjalankan command, pasti pernah menggunakannya.</p>
+
+<pre><span class="cmd">$ </span><b>ruby script.rb <mark>nama</mark></b><br /></pre>
+
+<p>Nah, <code class="language-plaintext highlighter-rouge">nama</code> itu adalah <em>command line argument</em> yang akan digunakan di dalam <code class="language-plaintext highlighter-rouge">script.rb</code> tersebut. Inilah yang disebut Ruby ARGV.</p>
+
+<p>Berikut ini adalah contoh task yang memanfaatkan Ruby ARGV.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="n">desc</span> <span class="s2">"Menjalankan operasi penjumlahan"</span>
+<span class="n">task</span> <span class="ss">:penjumlahan</span> <span class="k">do</span>
+  <span class="no">ARGV</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">task</span> <span class="n">a</span><span class="p">.</span><span class="nf">to_sym</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span> <span class="p">}</span>
+  <span class="nb">puts</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">to_i</span> <span class="o">+</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">to_i</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cara menjalankannya akan seperti ini:</p>
+
+<pre>
+<span class="cmd">$ </span><b>rake penjumlahan 1 2</b>
+# =&gt; 3
+</pre>
+
+<h3 id="4-menggunakan-ruby-optionparser">4. Menggunakan Ruby OptionParser</h3>
+
+<p>Cara memberikan argument dengan <strong>OptionParser</strong> ini mirip seperti yang kita lakukan untuk menjalankan commmand dengan penambahan <strong>flag</strong>, misal yang umum kita gunakan untuk mengetahui command help, yaitu dengan menambahkan flag <code class="language-plaintext highlighter-rouge">-h</code>.</p>
+
+<p>Nah, yang akan kita buat, mirip seperti itu.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code></code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'optparse'</span>
+
+<span class="n">desc</span> <span class="s2">"Menjalankan operasi penjumlahan"</span>
+<span class="n">task</span> <span class="ss">:penjumlahan</span> <span class="k">do</span>
+  <span class="n">options</span> <span class="o">=</span> <span class="p">{}</span>
+
+  <span class="no">OptionParser</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">opts</span><span class="o">|</span>
+    <span class="n">opts</span><span class="p">.</span><span class="nf">banner</span> <span class="o">=</span> <span class="s2">"Gunakan: rake penjumlahan [options]"</span>
+    <span class="n">opts</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-o"</span><span class="p">,</span> <span class="s2">"--one ARG"</span><span class="p">,</span> <span class="no">Integer</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">num1</span><span class="o">|</span> <span class="n">options</span><span class="p">[</span><span class="ss">:num1</span><span class="p">]</span> <span class="o">=</span> <span class="n">num1</span> <span class="p">}</span>
+    <span class="n">opts</span><span class="p">.</span><span class="nf">on</span><span class="p">(</span><span class="s2">"-t"</span><span class="p">,</span> <span class="s2">"--two ARG"</span><span class="p">,</span> <span class="no">Integer</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">num2</span><span class="o">|</span> <span class="n">options</span><span class="p">[</span><span class="ss">:num2</span><span class="p">]</span> <span class="o">=</span> <span class="n">num2</span> <span class="p">}</span>
+  <span class="k">end</span><span class="p">.</span><span class="nf">parse!</span>
+
+  <span class="nb">puts</span> <span class="n">options</span><span class="p">[</span><span class="ss">:num1</span><span class="p">].</span><span class="nf">to_i</span> <span class="o">+</span> <span class="n">options</span><span class="p">[</span><span class="ss">:num2</span><span class="p">].</span><span class="nf">to_i</span>
+  <span class="nb">exit</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cara menjalankannya seperti ini:</p>
+
+<pre><span class="cmd">$ </span><b>rake penjumlahan -- -o 1 -t 2</b><br /></pre>
+
+<p>atau,</p>
+
+<pre><span class="cmd">$ </span><b>rake penjumlahan -- --one 1 --two 2</b><br /></pre>
+
+<h1 id="melihat-daftar-rake-task">Melihat Daftar Rake Task</h1>
+
+<p>Untuk melihat daftar task apa saja, sekaligus task yang sudah kita buat, jalankan perintah berikut.</p>
+
+<pre><span class="cmd">$ </span><b>rake --tasks</b><br /></pre>
+
+<p>atau,</p>
+
+<pre><span class="cmd">$ </span><b>rake -T</b><br /></pre>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Yang saya tuliskan pada catatan ini adalah hal sederhana dalam membuat Rake tasks. Apabila teman-teman mendapatkan kasus yang lebih kompleks, dapat menelusuri Google sendiri yaa.</p>
+
+<p>Silahkan mendalami daftar referensi yang saya berikan di bawah.</p>
+
+<p>Mudah-mudahan dapat bermanfaat buat teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://cobwwweb.com/how-to-write-a-custom-rake-task" target="_blank">cobwwweb.com/how-to-write-a-custom-rake-task</a>
+<br />Diakses tanggal: 2020/06/26</p>
+  </li>
+  <li>
+    <p><a href="https://cobwwweb.com/4-ways-to-pass-arguments-to-a-rake-task" target="_blank">cobwwweb.com/4-ways-to-pass-arguments-to-a-rake-task</a>
+<br />Diakses tanggal: 2020/06/26</p>
+  </li>
+  <li>
+    <p><a href="https://www.rubyguides.com/2019/02/ruby-rake/" target="_blank">www.rubyguides.com/2019/02/ruby-rake</a>
+<br />Diakses tanggal: 2020/06/26</p>
+  </li>
+  <li>
+    <p><a href="https://ruby-doc.org/stdlib-2.7.1/libdoc/optparse/rdoc/OptionParser.html" target="_blank">ruby-doc.org/stdlib-2.7.1/libdoc/optparse/rdoc/OptionParser.html</a>
+<br />Diakses tanggal: 2020/06/26</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

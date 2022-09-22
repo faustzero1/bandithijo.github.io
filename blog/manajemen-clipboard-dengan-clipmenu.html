@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, terminal, tools, i3wm, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Manajemen Clipboard dengan Clipmenu pada i3wm | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Manajemen Clipboard dengan Clipmenu pada i3wm" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Clipboard manajemen mungkin merupakan kebutuhan sebagian temen-temen. Saya pun juga menggunakannya. Ternyata sangat praktis sekali, kalau kita menggunakan clipboard manajemen, tidak perlu melakukan copy paste berulang-ulang perihal yang sama. Clipmenu adalah salah satu clipboard manajemen yang simple. Karena kebanyakan kebutuhan clipboard saya adalah text, saya merasa clipmenu sudah lebih dari cukup untuk memenuhi kebutuhan saya." />
+<meta property="og:description" content="Clipboard manajemen mungkin merupakan kebutuhan sebagian temen-temen. Saya pun juga menggunakannya. Ternyata sangat praktis sekali, kalau kita menggunakan clipboard manajemen, tidak perlu melakukan copy paste berulang-ulang perihal yang sama. Clipmenu adalah salah satu clipboard manajemen yang simple. Karena kebanyakan kebutuhan clipboard saya adalah text, saya merasa clipmenu sudah lebih dari cukup untuk memenuhi kebutuhan saya." />
+<link rel="canonical" href="https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu" />
+<meta property="og:url" content="https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-16T11:42:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu"},"description":"Clipboard manajemen mungkin merupakan kebutuhan sebagian temen-temen. Saya pun juga menggunakannya. Ternyata sangat praktis sekali, kalau kita menggunakan clipboard manajemen, tidak perlu melakukan copy paste berulang-ulang perihal yang sama. Clipmenu adalah salah satu clipboard manajemen yang simple. Karena kebanyakan kebutuhan clipboard saya adalah text, saya merasa clipmenu sudah lebih dari cukup untuk memenuhi kebutuhan saya.","url":"https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu","@type":"BlogPosting","headline":"Manajemen Clipboard dengan Clipmenu pada i3wm","dateModified":"2018-12-16T11:42:00+08:00","datePublished":"2018-12-16T11:42:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Manajemen Clipboard dengan Clipmenu pada i3wm"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/manajemen-clipboard-dengan-clipmenu">Manajemen Clipboard dengan Clipmenu pada i3wm</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/12/16</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Manajemen clipboard dengan clipmenu
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#i3wm">I3WM</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#terminal">Terminal</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#solusi">Solusi</a></li>
+  <li><a href="#instalasi">Instalasi</a>
+    <ul>
+      <li><a href="#clipmenu-from-arch-repo">Clipmenu from Arch Repo</a></li>
+      <li><a href="#clipmenu-from-github">Clipmenu from GitHub</a></li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#aktifkan-clipmenu-daemon">Aktifkan Clipmenu Daemon</a></li>
+      <li><a href="#konfigurasi-startup-pada-wm">Konfigurasi Startup pada WM</a></li>
+      <li><a href="#systemd-service">Systemd Service</a></li>
+      <li><a href="#definisikan-default-path">Definisikan Default Path</a></li>
+      <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" onerror="imgError(this);" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Selama ini saya tidak pernah menggunakan aplikasi <em>clipboard manager</em> semacam <strong>Clipman</strong> (<code class="language-plaintext highlighter-rouge">xfce4-clipman-plugin</code>) yang kegunaannya untuk menangkap, mengumpulkan, dan memanajemen hasil inputan copy. Saya merasa belum membutuhkannya. Saya pikir <em>copy</em> dan <em>paste</em> adalah hal yang sangat sederhana, tidak perlu sampai dimanajemen segala.</p>
+
+<p>Sampai beberapa hari lalu, saya membalas pertanyaan di group openSUSE Indonesia, dan salah mention, lalu saya <em>copy</em> jawaban dan hapus. Saat akan saya <em>paste</em> ke bubble yang bertanya, ternyata <em>clipboard</em> saya sudah tertumpuk oleh inputan <em>copy</em> yang lain. Hahaha. Beginilah yaa, usia sudah tidak lagi muda, terdistraksi sedikit dapat menimbulkan kelupaan.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Hal yang saya alami tidak akan terjadi apabila saya menggunakan <em>clipboard manager</em>. Tahun ini sebenarnya sudah pernah juga mencoba <em>clipboard manager</em>, karena melihat video dari <a href="https://youtu.be/2rs1l4YZxRo" target="_blank">Kai Hendry tentang bagaimana dia menghandle clipboard pada sistemnya</a>. Ia mengunakan <a href="https://github.com/cdown/clipmenu" target="_blank"><strong>cdown/clipmenu</strong></a>. Lantas saat saya coba pasang, Hahaha, selama pemakaian <em>resource memory</em> saya terus naik. Karena kurangnya ilmu saat itu dan motivasi yang sekedar ikut-ikutan, lantas niat menggunakan <em>clipboard manager</em> pupus di pinggr jalan.</p>
+
+<p>Clipmenu adalah <em>clipboard manager</em> yang menggunakan dmenu atau Rofi sebagai antar muka.</p>
+
+<p><br />
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/J08d4wSg/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Tampilan Clipmenu menggunakan Rofi sebagai antar muka</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk memasang <strong>clipmenu</strong> pada sistem, terdapat dua cara yang saya ketahui.</p>
+
+<ol>
+  <li>
+    <p><a href="https://www.archlinux.org/packages/community/any/clipmenu/" target="_blank"><code class="language-plaintext highlighter-rouge">community/clipmenu</code></a> (Arch Linux)</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/cdown/clipmenu" target="_blank"><code class="language-plaintext highlighter-rouge">cdown/clipmenu</code></a> (GitHub)</p>
+  </li>
+</ol>
+
+<p>Dalam catatan ini, saya akan mencoba meng-<em>cover</em> kedua cara ini.</p>
+
+<p>Konfigurasi akan saya tulis pada bagian <a href="#konfigurasi">Konfigurasi</a>.</p>
+
+<h2 id="clipmenu-from-arch-repo">Clipmenu from Arch Repo</h2>
+
+<p>Cara pasangnya sangat mudah.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S clipmenu xsel</b><br /></pre>
+
+<p>Clipmenu memerlukan paket <code class="language-plaintext highlighter-rouge">xsel</code> untuk menhandle <em>clipboard</em>.</p>
+
+<h2 id="clipmenu-from-github">Clipmenu from GitHub</h2>
+
+<p>Pertama-tama beri bintang pada repository <a href="https://github.com/cdown/clipmenu" target="_blank">cdown/clipmenu</a>. Sebagai bentuk apresiasi kita terhadap waktu dan pikiran developer.</p>
+
+<ol>
+  <li>
+    <p>Kloning dari GitHub repo dan letakkan pada direkotri tempat kalian mengumpulkan repository dari GitHub. Saya mempunyai direktori <code class="language-plaintext highlighter-rouge">~/app/</code> tempat saya mengumpulkan resource aplikasi.</p>
+
+    <pre><span class="cmd">$ </span><b>cd app</b><br /><span class="cmd">$ </span><b>git clone https://github.com/cdown/clipmenu.git</b><br /></pre>
+  </li>
+  <li>
+    <p>Masuk ke dalam direktori <code class="language-plaintext highlighter-rouge">clipmenu</code> dan buat symbolic link ke direktori <code class="language-plaintext highlighter-rouge">/usr/bin/</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>cd clipmenu</b><br /><span class="cmd">$ </span><b>sudo ln -sf $HOME/app/clipmenu/clipdel /usr/bin/clipdel</b><br /><span class="cmd">$ </span><b>sudo ln -sf $HOME/app/clipmenu/clipmenu /usr/bin/clipmenu</b><br /><span class="cmd">$ </span><b>sudo ln -sf $HOME/app/clipmenu/clipmenud /usr/bin/clipmenud</b><br /></pre>
+
+    <p>Sesuaikan sumber dari link (<code class="language-plaintext highlighter-rouge">$HOME/app/</code>) dengan path tempat kalian menyimpan kloning repo.</p>
+  </li>
+  <li>
+    <p>Periksa apakah semua symbolic link sudah berada di tujuan dan mengarah ke arah yang benar.</p>
+
+    <p><strong>File Binary</strong></p>
+
+    <pre><span class="cmd">$ </span><b>ll /usr/bin | grep -E 'clipdel|clipmenu|clipmenud'</b><br /></pre>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipdel -&gt; /home/bandithijo/app/clipmenu/clipdel
+lrwxrwxrwx 1 root root  38 Dec 16 15:18 clipmenu -&gt; /home/bandithijo/app/clipmenu/clipmenu
+lrwxrwxrwx 1 root root  39 Dec 16 15:18 clipmenud -&gt; /home/bandithijo/app/clipmenu/clipmenud
+</code></pre></div>    </div>
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+        <p>Clipmenu menyediakan <code>init/clipmenud.service</code>, namun saat saya jalankan, clipmenu tidak dapat mengambil clip. Sehingga saya tidak menggunakan cara ini.</p>
+        <p>Apabila teman-teman berhasil, teman-teman dapat menggunakan cara ini.</p>
+        <p>Saya menggunakan cara lain, yaitu dengan menjalankan <code>clipmenud</code> secara manual pada script autorun.</p>
+      </div></div>
+  </li>
+</ol>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Sebagai informasi, konfigurasi yang saya tulis ini adalah konfigurasi untuk <strong>i3wm</strong>/<strong>i3-gaps</strong>. Untuk teman-teman yang tidak menggunakan wm yang sama, dapat menyesuaikan dan memodifikasi dengan wm masing-masing.</p>
+
+<h2 id="aktifkan-clipmenu-daemon">Aktifkan Clipmenu Daemon</h2>
+
+<p>Ada dua cara untuk menggukana mengaktifkan <code class="language-plaintext highlighter-rouge">clipmenud</code> (clipmenu daemon). Dengan menjalankannya saat sistem startup atau saat sistem booting.</p>
+
+<h2 id="konfigurasi-startup-pada-wm">Konfigurasi Startup pada WM</h2>
+
+<p><strong>i3wm</strong></p>
+
+<p>Tambahkan baris berikut pada file config i3wm.</p>
+
+<pre><span class="cmd">$ </span><b>vim .config/i3/config</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c"># clipmenu daemon</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> clipmenud
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>dwm</strong></p>
+
+<p>Tambahkan baris berikut pada script autorun/autostart, atau pada <strong>.xinitrc</strong>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pkill <span class="nt">-f</span> <span class="s2">"bash /usr/bin/clipmenud"</span><span class="p">;</span> pkill <span class="nt">-f</span> <span class="s2">"clipnotify"</span><span class="p">;</span> /usr/bin/clipmenud &amp;
+</code></pre></div></div>
+
+<p>Pada perintah di atas, saya melakukan proses <code class="language-plaintext highlighter-rouge">kill</code> terlebih dahulu kepada <code class="language-plaintext highlighter-rouge">clipmenud</code> &amp; <code class="language-plaintext highlighter-rouge">clipnotify</code>, tujuannya agar tidak terjadi redundancy pada proses yang sedang berjalan apabila dwm direstart.</p>
+
+<p>Kemudian, baru saya memanggil <code class="language-plaintext highlighter-rouge">clipmenud</code> dan membuatnya berjalan di background dengan menambahkan simbol ampersand (&amp;). <code class="language-plaintext highlighter-rouge">clipmenud</code> secara otomatis akan menjalankan <code class="language-plaintext highlighter-rouge">clipnotify</code> yang bertugas untuk menangkap clipboard.</p>
+
+<h2 id="systemd-service">Systemd Service</h2>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Saya tidak berhasil menjalankan <code>clipmenud.service</code>. Sehingga saya tidak menggunakan cara ini.</p>
+  </div></div>
+
+<p>Aktifkan/enable service, agar saat sistem booting, clipmenud akan sekalian di jalankan.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl enable clipmenud.service</b><br /><span class="cmd">$ </span><b>sudo systemctl start clipmenud.service</b><br /></pre>
+
+<h2 id="definisikan-default-path">Definisikan Default Path</h2>
+
+<p>Sebelum mengkonfigurasi, selalu biasakan untuk melihat help atau manual dari clipmenu terlebih dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>clipmenu -h</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clipmenu is a simple clipboard manager using dmenu and xsel. Launch this
+when you want to select a clip.
+
+All arguments are passed through to dmenu itself.
+
+Environment variables:
+
+- $CM_DIR: specify the base directory to store the cache dir in (default: $XDG_RUNTIME_DIR, $TMPDIR, or /tmp)
+- $CM_HISTLENGTH: specify the number of lines to show in dmenu/rofi (default: 8)
+- $CM_LAUNCHER: specify a dmenu-compatible launcher (default: dmenu)
+</code></pre></div></div>
+
+<p>Nah, kita perlu menambahkan <strong>environment variable</strong>.</p>
+
+<p>Secara default, clipmenu menggunakan dmenu sebagai antar muka. Namun bagi yang menggunakan rofi dapat menambahkan <code class="language-plaintext highlighter-rouge">rofi</code> pada <code class="language-plaintext highlighter-rouge">CM_LAUNCHER</code>.</p>
+
+<p>Jangan lupa juga untuk mendefinisikan path dari <code class="language-plaintext highlighter-rouge">CM_DIR</code>. Saya memilih untuk membuat direktori <code class="language-plaintext highlighter-rouge">clipmenu</code> pada <code class="language-plaintext highlighter-rouge">/tmp</code> agar dapat saya manipulasi, seperti menghapus clipboard yang tersimpan.</p>
+
+<p>Untuk teman-teman yang menggunakan Display Manager seperti LightDM dan GDM, silahkan tambahkan baris di bawah ini pada file <code class="language-plaintext highlighter-rouge">~/.profile</code>. Untuk yang menggunakan startx dapat menambahkannya pada <code class="language-plaintext highlighter-rouge">~/.xinitrc</code>.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.profile</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.profile</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c"># Clipmenu Environment Variables</span>
+<span class="nb">export </span><span class="nv">CM_LAUNCHER</span><span class="o">=</span>rofi-clipmenu
+<span class="nb">export </span><span class="nv">CM_DIR</span><span class="o">=</span>/tmp
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Perhatian!</strong> Pada <code class="language-plaintext highlighter-rouge">CM_LAUNCHER=</code> di atas, saya membuat <em>custom</em> bash script yang bernama <code class="language-plaintext highlighter-rouge">rofi-clipmenu</code> untuk memanggil perintah rofi yang sudah saya modif agar menampilkan prompt “CLIPBOARD” dengan baris dan lebar tertentu.</p>
+
+<p>Maka kita akan membuatnya. Kalian bisa membuatnya di lokal <code class="language-plaintext highlighter-rouge">~/.local/bin/</code> (kalau punya), atau langsung saja di <code class="language-plaintext highlighter-rouge">/usr/bin/</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim ~/.local/bin/rofi-clipmenu</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/rofi-clipmenu</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+rofi <span class="nt">-dmenu</span> <span class="nt">-p</span> <span class="s1">'CLIPBOARD'</span> <span class="nt">-lines</span> 8 <span class="nt">-width</span> 500
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sesuaikan dengan preferensi yang kalian inginkan.</p>
+
+<p>Jangan lupa buat menjadi excutable.</p>
+
+<pre><span class="cmd">$ </span><b>chmod +x ~/.local/bin/rofi-clipmenu</b><br /></pre>
+
+<p>Kalau teman-teman yang menggunakan dmenu, tinggal menggantinya menjadi dmenu.</p>
+
+<h2 id="keyboard-shortcuts">Keyboard Shortcuts</h2>
+
+<p>Selanjutnya tinggal mendefiniskan keyboard shortcut.</p>
+
+<p>Karena menggunakan wm, maka caranya sangat mudah sekali, tinggal tambahkan pada konfigurasi masing-masing.</p>
+
+<p><strong>i3wm</strong></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre>bindsym <span class="nv">$mod</span>+p <span class="nb">exec</span> <span class="nt">--no-startup-id</span> clipmenu
+bindsym <span class="nv">$mod</span>+Shift+p <span class="nb">exec</span> <span class="nt">--no-startup-id</span> clipdel <span class="nt">-d</span> <span class="s1">'.'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perhatikan pada baris kedua, saya mempergunakan untuk menghapus seluruh clipboard menggunakan perintah <code class="language-plaintext highlighter-rouge">$ clipdel -d '.'</code>.</p>
+
+<p><strong>dwm</strong></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config.h</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="o">{</span> MODKEY,             XK_p,   spawn,   SHCMD<span class="o">(</span><span class="s2">"/usr/bin/clipmenu"</span><span class="o">)</span> <span class="o">}</span>,
+<span class="o">{</span> MODKEY|ShiftMask,   XK_p,   spawn,   SHCMD<span class="o">(</span><span class="s2">"clipdel -d '.'"</span><span class="o">)</span> <span class="o">}</span>,
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sesuaikan keyboard shortcut sesuai preferensi kalian.</p>
+
+<p>Saya menggunakan :</p>
+
+<p><kbd>SUPER</kbd> + <kbd>P</kbd>, untuk memanggil clipmenu.</p>
+
+<p><kbd>SUPER</kbd> + <kbd>SHIFT</kbd> + <kbd>P</kbd>, untuk menghapus seluruh clipboard yang ada di clipmenu.</p>
+
+<p>Untuk memilih clip mana yang ingin kita pergunakan kembali, tinggal menekan arrow key <kbd> ↓ </kbd> / <kbd> ↑ </kbd> untuk memilih, tekan <kbd>ENTER</kbd> untuk memasukkannya pada PRIMARY. Kemudian, tinggal kita <em>paste</em> di mana saja.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/MTkmShLQ/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Ilustrasi penggunaan Clipmenu dengan Rofi</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Terdapat banyak sekali <em>clipboard management</em> yang dapat kita pergunakan. Saat ini saya sedang mengunakan clipmenu, entah besok akan mencoba yang mana lagi.</p>
+
+<p>Catatan dokumentasi ini masih jauh dari kata sempurna. Sebaik-baik dokumentasi adalah dokumentasi resmi yang ditulis oleh developer pengembang aplikasi. Silahkan bereksplorasi terhadap clipmenu dengan merujuk pada referensi yang saya sertakan di bawah.</p>
+
+<p>Karena keterbatasan pengetahuan, Saya masih mengalami kegagalan dalam menjalankan clipmenud daemon melalui systemd service. Hehehe.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Clipboard" target="_blank">wiki.archlinux.org/index.php/Clipboard</a>
+<br />Diakses tanggal: 2018/12/16</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/cdown/clipmenu" target="_blank">github.com/cdown/clipmenu</a>
+<br />Diakses tanggal: 2018/12/16</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

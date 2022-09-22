@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>DWM, Window Manager yang Gak Pake Ribet | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="DWM, Window Manager yang Gak Pake Ribet" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy." />
+<meta property="og:description" content="Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy." />
+<link rel="canonical" href="https://bandithijo.dev/blog/dwm-window-manager-anti-ribet" />
+<meta property="og:url" content="https://bandithijo.dev/blog/dwm-window-manager-anti-ribet" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-24T14:23:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/dwm-window-manager-anti-ribet"},"description":"Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy.","url":"https://bandithijo.dev/blog/dwm-window-manager-anti-ribet","@type":"BlogPosting","headline":"DWM, Window Manager yang Gak Pake Ribet","dateModified":"2020-04-24T14:23:00+08:00","datePublished":"2020-04-24T14:23:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="DWM, Window Manager yang Gak Pake Ribet"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/dwm-window-manager-anti-ribet">DWM, Window Manager yang Gak Pake Ribet</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/04/24</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Dwm window manager anti ribet
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#salah-satu-filosofi-dari-dwm">Salah Satu Filosofi dari DWM</a></li>
+  <li><a href="#alasan-migrasi-ke-dwm">Alasan Migrasi ke DWM</a></li>
+  <li><a href="#patching">Patching</a>
+    <ul>
+      <li><a href="#bagaimana-cara-patching">Bagaimana Cara Patching?</a></li>
+      <li><a href="#bagaimana-cara-compiling">Bagaimana Cara Compiling?</a></li>
+    </ul>
+  </li>
+  <li><a href="#suckless-script">Suckless Script</a></li>
+  <li><a href="#tambahan">Tambahan</a>
+    <ul>
+      <li><a href="#patch-from-user">Patch from User</a></li>
+      <li><a href="#personal-branch">Personal Branch</a>
+        <ul>
+          <li><a href="#config-branch">config branch</a></li>
+        </ul>
+      </li>
+      <li><a href="#status-bar">Status Bar</a></li>
+      <li><a href="#autorun">Autorun</a></li>
+    </ul>
+  </li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Sejak Oktober 2017, saya mulai masuk ke dunia Window Manager. Diawali dengan i3WM. Hingga April 2019, Saya mulai berpindah menggunakan BSPWM. Dan April 2020, saya kembali melangkahkan kaki ke Window Manger yang lain, yaitu DWM.</p>
+
+<p>i3WM dan BSPWM masuk dalam Window Manager yang berkelas “Manual Tilling”. Dimana penggunanya diberikan kebebasan untuk mengatur dan menempatkan window. Lain hal dengan DWM, yang masuk dalam kelas “Dynamic Tilling”. Dengan mengusung konsep “Master &amp; Stack”, pengguna tidak perlu dipusingkan untuk mengatur sendiri dimana window akan ditampilkan. Namun, Window yang baru, akan secara otomatis menggantikan “Master” sebelumnya (sisi kiri), sedangkan “Master sebelumnya”, akan masuk ke dalam stack “Stack” (sisi kanan).</p>
+
+<p>Inilah alasan, mengapa saya memberi judul catatan ini sebagai “DWM, Window Manager yang Gak Pake Ribet”.</p>
+
+<p>Anti ribet-ribet kleb! lah pokoknya!</p>
+
+<p>Tapi…</p>
+
+<p>Untuk mencapai tahap “gak ribet” ini, kita perlu ribet-ribet dulu di awal, mas Bro.</p>
+
+<p>Seperti pepatah lama, “Berakit-rakit ke hulu, bersenang-senang kemudian.”</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Menurut pendapat saya,</p>
+    <p>"Gak pake ribet" di sini juga saya maksudkan kepada perilaku dari tilling layout yang menganut prinsip "Master &amp; Stack" tadi. Karena apabila dibandingkan berdasarkan kemampuan untuk mengelola window, i3WM dan BSPWM "jauh" lebih mumpuni.</p>
+  </div></div>
+
+<h1 id="salah-satu-filosofi-dari-dwm">Salah Satu Filosofi dari DWM</h1>
+
+<p>DWM merupakan salah satu dari project yang dikembangkan oleh <a href="https://suckless.org/" target="_blank"><strong>suckkless.org</strong></a>. Project-project yang mereka kembangkan ingin lebih berfokus pada <strong>advanced</strong> dan <strong>experienced</strong> computer user. Biasanya propietary software dan kebanyakan project-project open source yang mainstream, lebih berfokus pada pengguna dengan tingkat kemahiran <strong>average</strong> atau <strong>non-technical</strong>. Mereka (suckless) berpikir <strong>experienced</strong> user kebanyakan lebih sering diabaikan.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saya hanya mengambil salah satu paragraf dari filosofi DWM, lebih lengkapnya teman-teman dapat menbacanya sendiri <a href="https://suckless.org/philosophy/" target="_blank"><strong>di sini</strong></a>.</p>
+  </div></div>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Maka dari itu, kalau teman-teman tidak memantaskan diri sebagai <strong>advanced</strong> dan <strong>experienced</strong> computer user, sebaiknya tidak menggunakan DWM atau tools-tools buatan suckless dulu yaa.</p>
+  </div></div>
+
+<h1 id="alasan-migrasi-ke-dwm">Alasan Migrasi ke DWM</h1>
+
+<p><strong>Lah, kalau i3WM dan BPSWM jauh lebih mumpuni untuk mengelola window, kenapa pindah, mas Bro?</strong></p>
+
+<p>Sama halnya seperti saat menggunakan i3WM, seiring berjalannya waktu, perilaku saya dalam mengelola window pun berubah. Tidak lagi banyak memerlukan layout yang <em>complicated</em> seperti pada saat saya mengerjakan soal-soal CCNA (lihat videonya di sini, <a href="https://www.youtube.com/watch?v=Iw2t_k1QqJ8" target="_blank">“Bagaimana i3wm Menghandle Banyak Window”</a>).</p>
+
+<p>Saat berpindah dari i3WM ke BSPWM, saya lebih banyak menggunakan susunan tilling seperti ini.</p>
+
+<pre class="whiteboard">+-----+-----+ +----------+ +-----+-----+ +-----+-----+<br />|     |     | |    1     | |     |  2  | |  1  |  2  |<br />|  1  |  2  | +----------+ +  1  +-----+ |-----+-----+<br />|     |     | |    2     | |     |  3  | |  4  |  3  |<br />+-----+-----+ +----------+ +-----+-----+ +-----+-----+<br /></pre>
+
+<p>Nah, karena itu, saya berpikir, kenapa tidak coba untuk bermigrasi menggunakan window manager yang lebih sederhana dalam perilaku membuat layout? Maka saya pun melakukan riset kecil-kecilan, dan pilihan jatuh pada BSPWM.</p>
+
+<p>Awalnya saya sempat mencoba DWM lebih dahulu, namun ternyata kebutuhan saya masih terlalu tinggi. Dengan ilmu saya saat itu, saya kesulitan mengkonfigurasi DWM agar dapat mengikuti keinginan saya. Maka saya memutuskan untuk menggunakan BSPWM. BSPWM, dapat mengikuti dan memenuhi kebutuhan saya dalam mengatur komposisi window.</p>
+
+<p>Kemudian, sampai pada tahap perubahan perilaku saya dalam menyusun Window. Saya lebih banyak menggunakan tilling layout seperti ini.</p>
+
+<pre class="whiteboard">+-----+-----+ +-----+-----+<br />|     |     | |     |  2  |<br />|  1  |  2  | +  1  +-----+<br />|     |     | |     |  3  |<br />+-----+-----+ +-----+-----+<br /></pre>
+
+<p>Karena kebutuhan yang lebih sederhana, maka saya pun merasa cukup untuk menggunakan DWM tanpa perlu melakukan banyak <em>patching</em>. Karena saya sendiri masih kesulitan apabila memasang terlalu banyak <em>patching</em>.</p>
+
+<p>Saya lebih banyak menggunakan model tilling layout yang mana window ke-1 lebih sering digunakan. Maka ini sangat cocok dengan filosofi “Master &amp; Stack” milik DWM.</p>
+
+<p>Eits! Namun, bukan berarti DWM hanya sesederhana itu. Buat yang menggemari kompleksitas dalam menggunakan Tilling Window Manager, kalian masih dapat meracik DWM sesuai keinginan yang kalian perlukan dengan menambah <em>patch</em>.</p>
+
+<h1 id="patching">Patching</h1>
+
+<p>Ada banyak sekali daftar <em>patch</em> yang tersedia.</p>
+
+<p>Namun, jujur saja, saya tidak sanggup mengujicobanya satu persatu saat ini. Dari sekian banyak <em>patch</em> yang tesedia, saya memilah-milah, kira-kira <em>patch</em> mana saja yang saya benar-benar perlukan. Kenapa saya memilah-milah? Ada beberapa alasan, diantaranya:</p>
+
+<ol>
+  <li>Dengan banyaknya <em>patch</em> yang tersedia, saya tidak ingin dibingungkan dengan fungsi yang sama namun saling tumpang tindih.</li>
+  <li>Mengelola banyak <em>patch</em> sangat melelahkan. Mungkin dikarenakan saya belum memahami, bagaimana <em>best practice</em> dalam mengelola dan mengaplikasikan *patch.</li>
+  <li>Saya tidak ingin menambahkan <em>patch</em> yang saya tidak benar-benar perlukan.</li>
+</ol>
+
+<p><br />
+Dengan beberapa alasan tersebut, selama tulisan ini dibuat saya <del>hanya</del> menggunakan 24 patches.</p>
+
+<p>Tulisan ini saya update 3 Januari 2021, saya sudah memasang 31 pathces.</p>
+
+<ol>
+  <li>actualfullscreen</li>
+  <li>aspectresize</li>
+  <li>autostart</li>
+  <li>center</li>
+  <li>cfacts</li>
+  <li>cfacts-dragcfact</li>
+  <li>fixborders</li>
+  <li>focusmaster</li>
+  <li>focusonclick</li>
+  <li>focusonnetactive</li>
+  <li>moveresize</li>
+  <li>movestack</li>
+  <li>movethrow</li>
+  <li>nmaster-sym</li>
+  <li>noborder</li>
+  <li>pertag</li>
+  <li>resetlayout</li>
+  <li>resizecorners</li>
+  <li>ru-bottomstack</li>
+  <li>ru-centeredmaster</li>
+  <li>ru-fibonacci</li>
+  <li>ru-gaps</li>
+  <li>savefloats</li>
+  <li>scratchpad</li>
+  <li>status2d</li>
+  <li>statusallmons</li>
+  <li>sticky</li>
+  <li>warp</li>
+  <li>wasfocus</li>
+  <li>xrdb</li>
+  <li>zoomswap</li>
+</ol>
+
+<p><br />
+Saya meracik semua <em>patches</em> tersebut menjadi Git branches. Masing-masing <em>patch</em>, memiliki satu branch. Setelah itu, untuk mengcompila mejadi dwm yang utuh, saya menggunakan bantuan beberapa script. Script ini bertugas mengautomatisasi proses yang berulang-ulang. Tujuannya jelas untuk mempermudah saya agar tidak kelelahan berlama-lama depan laptop.</p>
+
+<h2 id="bagaimana-cara-patching">Bagaimana Cara Patching?</h2>
+
+<p>Seperti yang dijelaskan pada website <a href="https://suckless.org/hacking/" target="_blank">suckless.org/hacking</a>. Terdapat 2-3 cara.
+Namun, karena saya menggunakan git, maka, saya akan memanfaatkan cara <em>patching</em> menggunakan git.</p>
+
+<p><strong>Menggunakan Git Apply</strong></p>
+
+<pre><span class="cmd">$ </span><b>git apply path/to/patch.diff</b><br /></pre>
+
+<p>Nah, kalau cara pertama tidak berhasil, lakukan cara manual.</p>
+
+<p><strong>Manual Patching</strong></p>
+
+<p>Biasanya manual patching dilakukan apabila patching tersebut tidak dibuat dengan versi master yang sama dengan master yang kita miliki.</p>
+
+<p>Manula patching adalah melakukan patching dengan meng-copy-kan baris demi baris yang ada di dalam <em>patch</em> ke dalam file-file yang berkaitan di dalam direktori dwm kita.</p>
+
+<h2 id="bagaimana-cara-compiling">Bagaimana Cara Compiling?</h2>
+
+<p>Cara saya membangun DWM mungkin tidak sama seperti kebanyakan orang.</p>
+
+<p>Saya menggunakan model “<em>each branch has its own branch</em>”.</p>
+
+<p>Setiap patch saya buatkan branch tersendiri yang saya create dari master branch. Namun, ada beberapa patch yang akan saya merge karena terdapat conflict satu dengan yang lainnya.</p>
+
+<p>Nah! untuk mempermudah proses <em>merging</em> dan <em>compiling</em>, saya menggunakan bantuan beberapa script.</p>
+
+<p>Berikut ini daftar script yang saya gunakan.</p>
+
+<ol>
+  <li><strong>suckclean</strong> : untuk mereset master</li>
+  <li><strong>suckdiff</strong> : untuk membuat backup branch dalam bentuk <em>patch</em> yang tersimpan di <code class="language-plaintext highlighter-rouge">~/.config/suckless/</code></li>
+  <li><strong>suckmerge2</strong> : untuk me-<em>merge</em>-kan branch-branch terpilih ke master branch, sekaligus mengcompilenya</li>
+</ol>
+
+<p>Nah, berikut ini adalah isi dari script-script tersebut.</p>
+
+<h1 id="suckless-script">Suckless Script</h1>
+
+<p>Created by: HexDSL</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>suckclean</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c">#!/usr/bin/env bash</span>
+
+make clean <span class="o">&amp;&amp;</span>
+<span class="nb">rm</span> <span class="nt">-f</span> config.h <span class="o">&amp;&amp;</span> git reset <span class="nt">--hard</span> origin/master
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Created by: HexDSL</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>suckdiff</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="c">#!/usr/bin/env bash</span>
+
+git checkout master <span class="o">&amp;&amp;</span>
+<span class="nv">dotfiles</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.config/suckless"</span>
+<span class="nv">project</span><span class="o">=</span><span class="si">$(</span><span class="nb">basename</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">))</span>
+<span class="nv">diffdir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">dotfiles</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">project</span><span class="k">}</span><span class="s2">_diffs/"</span>
+<span class="nv">olddiffdir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">dotfiles</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">project</span><span class="k">}</span><span class="s2">_diffs/old/"</span>
+<span class="nb">rm</span> <span class="nt">-rf</span> <span class="s2">"</span><span class="nv">$olddiffdir</span><span class="s2">"</span> <span class="o">&amp;&amp;</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$olddiffdir</span><span class="s2">"</span> <span class="o">&amp;&amp;</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="s2">"</span><span class="nv">$diffdir</span><span class="s2">"</span> <span class="o">&amp;&amp;</span>
+<span class="nb">mv</span> <span class="s2">"</span><span class="nv">$diffdir</span><span class="s2">"</span><span class="k">*</span>.diff <span class="s2">"</span><span class="nv">$olddiffdir</span><span class="s2">"</span> <span class="o">||</span> <span class="nb">true</span> <span class="o">&amp;&amp;</span>
+make clean <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-f</span> config.h <span class="o">&amp;&amp;</span> git reset <span class="nt">--hard</span> origin/master <span class="o">&amp;&amp;</span>
+<span class="k">for </span>branch <span class="k">in</span> <span class="si">$(</span>git <span class="k">for</span><span class="nt">-each-ref</span> <span class="nt">--format</span><span class="o">=</span><span class="s1">'%(refname)'</span> refs/heads/ | <span class="nb">cut</span> <span class="nt">-d</span><span class="s1">'/'</span> <span class="nt">-f3</span><span class="si">)</span><span class="p">;</span> <span class="k">do
+	if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$branch</span><span class="s2">"</span> <span class="o">!=</span> <span class="s2">"master"</span> <span class="o">]</span><span class="p">;</span><span class="k">then
+		</span>git diff master..<span class="nv">$branch</span> <span class="o">&gt;</span> <span class="s2">"</span><span class="k">${</span><span class="nv">diffdir</span><span class="k">}${</span><span class="nv">project</span><span class="k">}</span><span class="s2">_</span><span class="k">${</span><span class="nv">branch</span><span class="k">}</span><span class="s2">.diff"</span>
+	<span class="k">fi
+done</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Created by: BanditHijo, versi terbaru <a href="https://github.com/bandithijo/sucklessthing/blob/master/suckmerge2" target="_blank">di sini</a></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>suckmerge2</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+</pre></td><td class="code"><pre><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="c1"># Suckmerge2 was inspired by suckmerge by HexDSL. This script has functionality</span>
+<span class="c1"># to merge selected branches, make, &amp; make install.</span>
+
+<span class="c1"># Options:</span>
+<span class="c1"># -d for debugging. Merge all selected branches and make only.</span>
+<span class="c1"># -i for installing. Merge all selected branches, make, &amp; make install</span>
+
+<span class="c1"># Usage:</span>
+<span class="c1"># $ suckmerge2 -[i/d]</span>
+
+<span class="c1"># Legend:</span>
+<span class="c1"># n    =&gt; branch without config</span>
+<span class="c1"># n*   =&gt; branch with config on config branch</span>
+<span class="c1"># n :  =&gt; branch has merge with other branch (patch^n : n stack patches)</span>
+<span class="c1"># n &lt;- =&gt; latest branch on the fleet</span>
+
+<span class="c1"># For dwm</span>
+<span class="n">dwm_branches</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s1">'config'</span><span class="p">,</span>            <span class="c1"># 1*  : nodmenu</span>
+  <span class="s1">'sticky'</span><span class="p">,</span>            <span class="c1"># 19*</span>
+  <span class="s1">'wasfocus'</span><span class="p">,</span>          <span class="c1"># 20  : sticky</span>
+  <span class="s1">'ru-gaps'</span><span class="p">,</span>           <span class="c1"># 17* : cfacts, noborder</span>
+  <span class="s1">'cfacts'</span><span class="p">,</span>            <span class="c1"># 15*</span>
+  <span class="s1">'cfacts-dragcfact'</span><span class="p">,</span>  <span class="c1"># 16* : cfacts</span>
+  <span class="s1">'actualfullscreen'</span><span class="p">,</span>  <span class="c1"># 13* : sticky</span>
+  <span class="s1">'xrdb'</span><span class="p">,</span>              <span class="c1"># 3*</span>
+  <span class="s1">'pertag'</span><span class="p">,</span>            <span class="c1"># 2</span>
+  <span class="s1">'noborder'</span><span class="p">,</span>          <span class="c1"># 11</span>
+  <span class="s1">'movestack'</span><span class="p">,</span>         <span class="c1"># 8*</span>
+  <span class="s1">'moveresize'</span><span class="p">,</span>        <span class="c1"># 9*</span>
+  <span class="s1">'resizecorners'</span><span class="p">,</span>     <span class="c1"># 6</span>
+  <span class="s1">'focusonnetactive'</span><span class="p">,</span>  <span class="c1"># 7</span>
+  <span class="s1">'focusonclick'</span><span class="p">,</span>      <span class="c1"># 24* : moveresize</span>
+  <span class="s1">'fixborders'</span><span class="p">,</span>        <span class="c1"># 25</span>
+  <span class="s1">'scratchpad'</span><span class="p">,</span>        <span class="c1"># 13*</span>
+  <span class="s1">'zoomswap'</span><span class="p">,</span>          <span class="c1"># 4</span>
+  <span class="s1">'autostart'</span><span class="p">,</span>         <span class="c1"># 26  : zoomswap</span>
+  <span class="s1">'savefloats'</span><span class="p">,</span>        <span class="c1"># 28</span>
+  <span class="s1">'center'</span><span class="p">,</span>            <span class="c1"># 29  : savefloats, wasfocus^1</span>
+  <span class="s1">'ru-bottomstack'</span><span class="p">,</span>    <span class="c1"># 18*</span>
+  <span class="s1">'statusallmons'</span><span class="p">,</span>     <span class="c1"># 12</span>
+  <span class="s1">'ru-fibonacci'</span><span class="p">,</span>      <span class="c1"># 27*</span>
+  <span class="s1">'warp'</span><span class="p">,</span>              <span class="c1"># 32</span>
+  <span class="s1">'nmaster-sym'</span><span class="p">,</span>       <span class="c1"># 30  : pertag, cfacts-dragcfact^1, warp</span>
+  <span class="s1">'movethrow'</span><span class="p">,</span>         <span class="c1"># 33* : moveresize</span>
+  <span class="s1">'status2d'</span><span class="p">,</span>          <span class="c1"># 34  : autostart, statusallmons, focusonclick</span>
+  <span class="s1">'focusmaster'</span><span class="p">,</span>       <span class="c1"># 35*</span>
+  <span class="s1">'resetlayout'</span><span class="p">,</span>       <span class="c1"># 36* : noborder</span>
+  <span class="s1">'ru-centeredmaster'</span><span class="p">,</span> <span class="c1"># 37*</span>
+  <span class="s1">'aspectresize'</span><span class="p">,</span>      <span class="c1"># 38* &lt;-</span>
+<span class="p">]</span>
+
+<span class="c1"># Define dir_name based on cwd</span>
+<span class="n">dir_name</span> <span class="o">=</span> <span class="sb">`basename $PWD`</span><span class="p">.</span><span class="nf">strip</span>
+<span class="k">if</span> <span class="n">dir_name</span> <span class="o">==</span> <span class="s1">'dwm'</span>
+  <span class="n">branches</span> <span class="o">=</span> <span class="n">dwm_branches</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s1">'You are not in Suckless directory!'</span>
+  <span class="nb">exit</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">clean_reset</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Convert All Branch to Diff'</span>
+  <span class="nb">system</span> <span class="s1">'suckclean &amp;&amp; git reset --hard origin/master'</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Converting COMPLETE!'</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">clean_diff_reset</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Convert All Branch to Diff'</span>
+  <span class="nb">system</span> <span class="s1">'suckclean &amp;&amp; suckdiff &amp;&amp; git reset --hard origin/master'</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Converting COMPLETE!'</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">merge_selected</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">=&gt; Patching All Branch to Master"</span>
+  <span class="n">branches</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">branch</span><span class="o">|</span>
+    <span class="nb">print</span> <span class="s2">"Patching </span><span class="si">#{</span><span class="n">branch</span><span class="si">}</span><span class="s2">... "</span>
+    <span class="nb">system</span> <span class="s2">"git merge </span><span class="si">#{</span><span class="n">branch</span><span class="si">}</span><span class="s2"> -m </span><span class="si">#{</span><span class="n">branch</span><span class="si">}</span><span class="s2">"</span>
+    <span class="nb">print</span> <span class="s2">"DONE</span><span class="se">\n</span><span class="s2">"</span>
+    <span class="nb">puts</span>
+  <span class="k">end</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Patching COMPLETE!'</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">make_only</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">=&gt; Making"</span>
+  <span class="nb">system</span> <span class="s1">'make'</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Making COMPLETE!'</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">make_install</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">=&gt; Installing"</span>
+  <span class="nb">system</span> <span class="s1">'make &amp;&amp; sudo make clean install'</span>
+  <span class="nb">puts</span> <span class="s1">'=&gt; Installation COMPLETE!'</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">option_for_debugging</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"
++-----------------------+
+| SUCKMERGE2: DEBUGGING |
++-----------------------+
+  "</span>
+  <span class="nb">sleep</span> <span class="mi">1</span>
+  <span class="n">clean_reset</span>
+  <span class="n">merge_selected</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="n">make_only</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">option_for_installing</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"
++------------------------+
+| SUCKMERGE2: INSTALLING |
++------------------------+
+  "</span>
+  <span class="nb">sleep</span> <span class="mi">1</span>
+  <span class="n">clean_diff_reset</span>
+  <span class="n">merge_selected</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="n">make_install</span>
+<span class="k">end</span>
+
+<span class="n">option</span> <span class="o">=</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">'-d'</span>
+  <span class="n">option_for_debugging</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+<span class="k">elsif</span> <span class="n">option</span> <span class="o">==</span> <span class="s1">'-i'</span>
+  <span class="n">option_for_installing</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">ERROR: You enter the wrong option!"</span>
+  <span class="nb">puts</span> <span class="s2">"
+Options:
+  -d for debugging  - Merge all selected branches and make only.
+  -i for installing - Merge all selected branches, make, &amp; make install
+
+Usage:
+  $ suckmerge2 -[d/i]
+  "</span>
+  <span class="nb">puts</span> <span class="s1">'  Or,'</span>
+  <span class="nb">puts</span>
+  <span class="nb">puts</span> <span class="s1">'  Press (d) for debugging'</span>
+  <span class="nb">puts</span> <span class="s1">'  Press (i) for installing'</span>
+  <span class="nb">print</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">=&gt; "</span>
+  <span class="n">second_option</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+  <span class="k">if</span> <span class="n">second_option</span> <span class="o">==</span> <span class="s1">'d'</span>
+    <span class="n">option_for_debugging</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="k">elsif</span> <span class="n">second_option</span> <span class="o">==</span> <span class="s1">'i'</span>
+    <span class="n">option_for_installing</span><span class="p">(</span><span class="n">branches</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">ERROR: You enter the wrong option!"</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">dir_name</span> <span class="o">==</span> <span class="s1">'dwm'</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">option</span> <span class="o">==</span> <span class="s1">'-i'</span> <span class="o">||</span> <span class="n">second_option</span> <span class="o">==</span> <span class="s1">'i'</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"
+  +----------------------------------------------------------------------+
+  | STATUSBAR:                                                           |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the status bar.                       |
+  | You should bring your own. My recommendation is dwmblocks.           |
+  | But, I prefer built my own status.                                   |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-dwmbar                               |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | KEYBOARD:                                                            |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the keyboard shortcut for apps.       |
+  | You should bring your own. My personal preferences are use SXHKD.    |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-sxhkdrc-dwm                          |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | AUTOSTART:                                                           |
+  +----------------------------------------------------------------------+
+  | BanditHijo's DWM use autostart patch. But I modified the path.       |
+  | Please, provide the autostart file on:                               |
+  | ~/.local/bin/autostart.sh                                            |
+  |                                                                      |
+  | And the other one:                                                   |
+  | ~/.local/bin/autostart_blocking.sh (just empty file)                 |
+  |                                                                      |
+  | Don't forget to make all of them as executeable file, with:          |
+  | $ chmod +x ~/.local/bin/autostart*.sh                                |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-autostart                            |
+  +----------------------------------------------------------------------+
+  "</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Cara penggunannya gampang. Saya akan tuliskan dalam bentuk runutan.</p>
+
+<ol>
+  <li>Setelah selesai meracik <em>patch</em> di dalam masing-masing branch, kembali ke master branch.</li>
+  <li>Jalankan <a href="https://github.com/bandithijo/sucklessthing/" target="_blank"><code class="language-plaintext highlighter-rouge">suckmerge2</code></a>*</li>
+  <li>Apabila berhasil, restart dwm.</li>
+  <li>Saat ini master branch dalam keadaan “kotor”, jalankan <a href="https://github.com/bandithijo/sucklessthing/" target="_blank"><code class="language-plaintext highlighter-rouge">suckclean</code></a>* untuk mereset dan membersihkannya.</li>
+  <li>Untuk mengedit <em>patch</em> branch dengan cara <code class="language-plaintext highlighter-rouge">git checkout &lt;nama_branch&gt;</code>, wajib menjalankan <code class="language-plaintext highlighter-rouge">suckclean</code> terlebih dahulu.</li>
+</ol>
+
+<p>*Klik untuk download</p>
+
+<p>Apabila terdapat perubahan di dalam branch <em>patch</em>, ulangi lagi dari langkah pertama. Mudah bukan?</p>
+
+<p><br />
+<strong>Apakah akan terdapat conflict?</strong></p>
+
+<p>Jelas! Pasti akan ada kalau kita menggunakan banyak <em>patch</em>.</p>
+
+<p>Biasanya kalau terjadi <em>conflict</em>, saya selesaikan dengan me-<em>merge</em>-kan kedua <em>patch</em> branch yang berkonflik, lalu saya selesaikan baris-baris kode yang <em>conflict</em> dengan cara manual.</p>
+
+<p>Bisa dilihat, beberapa <em>patch</em> branch yang berkonflik pada script <strong>suckmerge2</strong> di atas, saya catat branch apa dan merge dengan branch apa saja.</p>
+
+<p>Nah, berikut ini adalah tangkapan layar dari DWM yang saat ini saya pergunakan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/8kyg5LVJ/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - RicingShow: DeWayEm Project 2020-05</p>
+
+<p>Repositorinya dapat dilihat <a href="https://github.com/bandithijo/dwm" target="_blank">di sini</a>.</p>
+
+<h1 id="tambahan">Tambahan</h1>
+
+<h2 id="patch-from-user">Patch from User</h2>
+
+<p><strong>sracthpad by Gaspar Vardanyan</strong></p>
+
+<p>Sejauh yang saya ingat, ada satu <em>patch</em> yang saya gunakan namun bukan dari halaman website suckless. Yaitu <a href="https://github.com/GasparVardanyan/dwm-scratchpad" target="_blank"><strong>GasparVardanyan/dwm-scratchpad</strong></a>.</p>
+
+<p><em>Patch</em> scratchpad ini berbeda dengan scratchpad yang ada pada website suckless. Perilaku dari scratphad ini mirip dengan yang ada di i3WM. Dimana, window yang dijadikan scratphad akan memiliki kemampuan untuk menghilang dan muncul kembali, layaknya seorang ninja – apasih wkwk.</p>
+
+<p><br />
+<strong>centerkeybinding by fake_larry</strong></p>
+
+<p>Patch ini memungkinkan kita untuk memindahkan floating window ke posisi tengah dari screen.</p>
+
+<p>Saya mendapatkan patch ini dari post Reddit yang berjudul <a href="https://www.reddit.com/r/suckless/comments/cphe3h/dwm_center_floating_window_with_multiple_monitors/" target="_blank">“dwm center floating window with multiple monitors”</a>.</p>
+
+<p>Di dalam post tersebut, terdapat balasan dari user yang bernama <strong>fake_larry</strong>, dan memberikan jawaban berupa blok kode dari sebuah patch.</p>
+
+<p>Kalian dapat menyalin patch tersebut atau dapat mendownload versi yang sudah saya jadikan file <a href="https://github.com/bandithijo/sucklessthing/blob/master/patches/dwm/dwm-centerkeybinding-20190813-4adc917.diff" target="_blank">di sini</a>.</p>
+
+<h2 id="personal-branch">Personal Branch</h2>
+
+<h3 id="config-branch">config branch</h3>
+<p>Saya membuat branch yang isinya kurang lebih seperti personal konfigurasi untuk menampung beberapa pengaturan seperti font, border, gap, window rules, dan keybind.</p>
+
+<p>Jadi, saya menambahkan 1 branch yang bukan termasuk dwm <em>patch</em>, yaitu:</p>
+
+<p>Branch ini berisi konfigurasi global, seperti font, border, gaps, warn, dll yang sebagian besar berada pada file <strong>config.def.h</strong> atau <strong>dwm.c</strong>.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Hanya sekedar saran. Apabila di dalam <i>patch</i> terdapat patch yang mengarahkan ke file <strong>config.def.h</strong>, sebaiknya tidak perlu diikutkan dan langsung dipindahkan ke <strong>branch config</strong> pada file <strong>config.def.h</strong>.</p>
+  </div></div>
+
+<p>Berikut ini adalah ilustrasi isi dari branch <strong>config</strong>.</p>
+
+<p>File <strong>config.mk</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config.mk</code></div>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c1">// ...</span>
+<span class="c1">// ...</span>
+<span class="n">X11INC</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+<span class="n">X11LIB</span> <span class="o">=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>File <strong>config.def.h</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config.def.h</code></div>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+</pre></td><td class="code"><pre><span class="c1">// ...</span>
+<span class="c1">// ...</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">snap</span>      <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>        <span class="cm">/* snap pixel */</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">systraypinning</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="cm">/* 0: sloppy systray follows selected monitor, &gt;0: pin systray to monitor X */</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">systrayspacing</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   <span class="cm">/* systray spacing */</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">systraypinningfailfirst</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>   <span class="cm">/* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">showsystray</span>                   <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>   <span class="cm">/* 0 means no systray */</span>
+
+<span class="c1">// ...</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fonts</span><span class="p">[]</span>          <span class="o">=</span> <span class="p">{</span> <span class="s">"FuraCode Nerd Font:style=Medium:size=8"</span> <span class="p">};</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">dmenufont</span><span class="p">[]</span>       <span class="o">=</span> <span class="s">"FuraCode Nerd Font:style=Medium:size=8"</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_i</span><span class="p">,</span>      <span class="n">incnmaster</span><span class="p">,</span>     <span class="p">{.</span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">},</span>
+
+<span class="c1">// ...</span>
+<span class="c1">// ...</span>
+
+<span class="k">static</span> <span class="k">const</span> <span class="n">Rule</span> <span class="n">rules</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="cm">/* xprop(1):
+     *	WM_CLASS(STRING) = instance, class
+     *	WM_NAME(STRING) = title
+     */</span>
+    <span class="cm">/* class                  instance              title                         tags mask     iscentered     isfloating      monitor */</span>
+    <span class="c1">// Non FLoating</span>
+    <span class="p">{</span> <span class="s">"Gimp-2.10"</span><span class="p">,</span>            <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"firefox"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">2</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Chromium-browser"</span><span class="p">,</span>     <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">2</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"TelegramDesktop"</span><span class="p">,</span>      <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Thunderbird"</span><span class="p">,</span>          <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Hexchat"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"mpv"</span><span class="p">,</span>                  <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nb">NULL</span><span class="p">,</span>                   <span class="s">"libreoffice"</span><span class="p">,</span>        <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Thunar"</span><span class="p">,</span>               <span class="s">"thunar"</span><span class="p">,</span>             <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"St"</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"neomutt"</span><span class="p">,</span>                    <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"St"</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"ranger"</span><span class="p">,</span>                     <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"St"</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"newsboat"</span><span class="p">,</span>                   <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"St"</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"WeeChat"</span><span class="p">,</span>                    <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Transmission-gtk"</span><span class="p">,</span>     <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Postbird"</span><span class="p">,</span>             <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="c1">// Floating</span>
+    <span class="p">{</span> <span class="s">"St"</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"st+"</span><span class="p">,</span>                        <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"copyq"</span><span class="p">,</span>                <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Arandr"</span><span class="p">,</span>               <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Gcolor3"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Color picker"</span><span class="p">,</span>               <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Gnome-calculator"</span><span class="p">,</span>     <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Calculator"</span><span class="p">,</span>                 <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Hexchat"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Network List - HexChat"</span><span class="p">,</span>     <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span><span class="p">,</span>       <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"SimpleScreenRecorder"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Soffice"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Print"</span><span class="p">,</span>                      <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Chrome"</span><span class="p">,</span>               <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Save File"</span><span class="p">,</span>                  <span class="mi">2</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Barrier"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Soffice"</span><span class="p">,</span>              <span class="s">"soffice"</span><span class="p">,</span>            <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">0</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Thunar"</span><span class="p">,</span>               <span class="s">"thunar"</span><span class="p">,</span>             <span class="s">"File Operation Progress"</span><span class="p">,</span>    <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"System-config-printer.py"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span>             <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Nm-connection-editor"</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Network Connections"</span><span class="p">,</span>        <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Pavucontrol"</span><span class="p">,</span>          <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Gpick"</span><span class="p">,</span>                <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"vokoscreen"</span><span class="p">,</span>           <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Blueman-manager"</span><span class="p">,</span>      <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"Xsane"</span><span class="p">,</span>                <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"No devices available"</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"scrcpy"</span><span class="p">,</span>               <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"GParted"</span><span class="p">,</span>              <span class="nb">NULL</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                         <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"zoom"</span><span class="p">,</span>                 <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Question and Answer"</span><span class="p">,</span>        <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s">"guvcview"</span><span class="p">,</span>             <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"Guvcview  (8.32 fps)"</span><span class="p">,</span>       <span class="mi">0</span><span class="p">,</span>            <span class="mi">1</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+    <span class="c1">// Scratchpad</span>
+    <span class="p">{</span> <span class="nb">NULL</span><span class="p">,</span>                   <span class="nb">NULL</span><span class="p">,</span>                 <span class="s">"hidden"</span><span class="p">,</span>       <span class="n">scratchpad_mask</span><span class="p">,</span>            <span class="mi">0</span><span class="p">,</span>             <span class="mi">1</span><span class="p">,</span>              <span class="o">-</span><span class="mi">1</span> <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="c1">// ...</span>
+<span class="c1">// ...</span>
+
+<span class="k">static</span> <span class="n">Key</span> <span class="n">keys</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="cm">/* modifier                     key        function        argument */</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// ...</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_b</span><span class="p">,</span>      <span class="n">togglesystray</span><span class="p">,</span>  <span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// ...</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_s</span><span class="p">,</span>      <span class="n">togglesticky</span><span class="p">,</span>   <span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_0</span><span class="p">,</span>      <span class="n">view</span><span class="p">,</span>           <span class="p">{.</span><span class="n">ui</span> <span class="o">=</span> <span class="o">~</span><span class="n">scratchpad_mask</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_0</span><span class="p">,</span>      <span class="n">tag</span><span class="p">,</span>            <span class="p">{.</span><span class="n">ui</span> <span class="o">=</span> <span class="o">~</span><span class="n">scratchpad_mask</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// ...</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_minus</span><span class="p">,</span> <span class="n">scratchpad_show</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_minus</span><span class="p">,</span> <span class="n">scratchpad_hide</span><span class="p">,</span> <span class="p">{</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ControlMask</span><span class="p">,</span>           <span class="n">XK_minus</span><span class="p">,</span><span class="n">scratchpad_remove</span><span class="p">,{</span><span class="mi">0</span><span class="p">}</span> <span class="p">},</span>
+
+    <span class="c1">// Custom Keys</span>
+    <span class="cm">/* modifier                     key                        function        argument */</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ControlMask</span><span class="p">,</span>           <span class="n">XK_Return</span><span class="p">,</span>                 <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"st -T 'st+'"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_End</span><span class="p">,</span>                    <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/rofi-power 'killall dwm'"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_e</span><span class="p">,</span>                      <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/rofi-emoji"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_Print</span><span class="p">,</span>                  <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"scrot 'Screenshot_%Y-%m-%d_%H-%M-%S.png' -e 'mv *.png ~/pic/ScreenShots/'; notify-send 'Scrot' 'Screen has been captured!'"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ControlMask</span><span class="p">,</span>           <span class="n">XK_Print</span><span class="p">,</span>                  <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"scrot -d 5 'Screenshot_%Y-%m-%d_%H-%M-%S.png' -e 'mv *.png ~/pic/ScreenShots/'; notify-send 'Scrot' 'Screen has been captured!'"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_Print</span><span class="p">,</span>                  <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/flameshot gui"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_x</span><span class="p">,</span>                      <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/lock-dark"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_F7</span><span class="p">,</span>                     <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/arandr"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_F10</span><span class="p">,</span>                    <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/keybind-helper"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_p</span><span class="p">,</span>                      <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/clipmenu"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_p</span><span class="p">,</span>                      <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"rm -f /tmp/clipmenu*/*"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="o">|</span><span class="n">ShiftMask</span><span class="p">,</span>             <span class="n">XK_backslash</span><span class="p">,</span>              <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/dmenu-pass"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="n">MODKEY</span><span class="p">,</span>                       <span class="n">XK_backslash</span><span class="p">,</span>              <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"/usr/bin/passtore 0"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>                            <span class="mh">0x1008ff13</span><span class="p">,</span>                <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"pamixer --increase 5"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>                            <span class="mh">0x1008ff11</span><span class="p">,</span>                <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"pamixer --decrease 5"</span><span class="p">)</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="mi">0</span><span class="p">,</span>                            <span class="mh">0x1008ff12</span><span class="p">,</span>                <span class="n">spawn</span><span class="p">,</span>          <span class="n">SHCMD</span><span class="p">(</span><span class="s">"pamixer --toggle-mute"</span><span class="p">)</span> <span class="p">},</span>
+<span class="p">};</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saat ini (2020/09/17), saya sudah tidak lagi mendefinisikan <strong>Custom Keys</strong> di config.def.h yang ada di branch config.</p>
+    <p>Saya memindahkan, semua <em>custom keys</em> tersebut ke <strong>SXHKD</strong>.</p>
+    <p>Tujuannya, agar saat ingin dimodifikasi, tidak perlu mengcompile ulang dwm.</p>
+    <p>Selain itu, juga lebih mudah untuk pengaturan fungsi toggling.</p>
+    <p>Catatan saya dalam menggunakan SXHKD, <a href="https://bandithijo.github.io/blog/sxhkd-simple-x-hotkey-daemon" target="_blank"><strong>SXHKD, Simple X Hotkey Daemon</strong></a></p>
+  </div></div>
+
+<h2 id="status-bar">Status Bar</h2>
+
+<p>Seperti yang teman-teman ketahui, sebelumnya saya menggunakan Polybar. Namun, setelah migrasi menggunakan DWM, saya memutuskan untuk putus dengan Polybar dan memilih untuk meracik bar sendiri, tujuannya agar lebih sederhana.</p>
+
+<p>Saya juga hanya menggunakan top bar saja, yang sebelumnya saya menggunakan top dan bottom bar. Dengan alasan, lagi-lagi untuk meminimalisir proses yang berlangsung. Karena saya hanya menggunakan top bar, artinya terdapat beberapa module yang saya tidak gunakan, seperti module CPU dan Brightness. Module CPU tidak saya pergunakan lagi karena saya sudah merujuk pada indikator suhu.</p>
+
+<p>Nah, seperti ini tampilan bar yang saya pergunakan sekarang.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/4NNsVpvT/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - dwmsatus (custom made)</p>
+
+<p>Saya membuat file bernama <code class="language-plaintext highlighter-rouge">~/.local/bin/dwmstatus</code>. Dan tambahkan <em>execute permission</em> <code class="language-plaintext highlighter-rouge">$ chmod +x dwmstatus</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/dwmstatus</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c">#!/usr/bin/env bash</span>
+
+<span class="c"># For dwmstatus</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do
+    </span>xsetroot <span class="nt">-name</span> <span class="s2">" </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/network-wlan-tfc.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/cpu-temp.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/memory.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/filesystem.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/volume.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nb">date</span> +<span class="s2">" 0%u%y%m%d%H%M"</span><span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/bat-state.sh<span class="si">)</span><span class="s2"> </span><span class="si">$(</span><span class="nv">$HOME</span>/bin/bat-capacity.sh<span class="si">)</span><span class="s2">  BANDITHIJO "</span>
+    <span class="nb">sleep </span>1
+<span class="k">done</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Seperti yang teman-teman lihat, isinya adalah pemanggilan terhadap script lain atau saya sebut saja sebagai module. Saya akan jabarkan di sini masing-masing module tersebut.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Kode-kode di bawah ini, karena keterbatasan dari Blog, sehingga tidak dapat menampilkan simbol-simbol seperti yang ada pada screenshot Gambar 2.</p>
+  </div></div>
+
+<p><br />
+<strong>network-wlan-tfc.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>network-wlan-tfc.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">wlan_card</span><span class="o">=</span><span class="s1">'wlan0'</span>
+
+<span class="nv">wlanmon_card</span><span class="o">=</span><span class="si">$(</span>ip a s | <span class="nb">grep</span> <span class="nv">$wlan_card</span><span class="s1">'mon'</span> | <span class="nb">awk</span> <span class="s1">'NR%1==0 {print $2}'</span> | <span class="nb">sed</span> <span class="s1">'s/://g'</span><span class="si">)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$wlanmon_card</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">" MONITOR"</span>
+<span class="k">fi
+
+</span><span class="nv">wlan_online</span><span class="o">=</span><span class="si">$(</span>iw <span class="nv">$wlan_card</span> <span class="nb">link</span> | <span class="nb">grep</span> <span class="s1">'Connected'</span> | <span class="nb">awk</span> <span class="s1">'NR%1==0 {print $1}'</span><span class="si">)</span>
+<span class="nv">wlan_offline</span><span class="o">=</span><span class="si">$(</span>iw <span class="nv">$wlan_card</span> <span class="nb">link</span> | <span class="nb">grep</span> <span class="s1">'Not'</span> | <span class="nb">awk</span> <span class="s1">'NR%1==0 {print $1}'</span><span class="si">)</span>
+<span class="nv">internet</span><span class="o">=</span><span class="si">$(</span>wget <span class="nt">-qO-</span> ifconfig.co<span class="si">)</span>
+<span class="nv">internet_logo</span><span class="o">=</span><span class="s2">""</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$internet</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">internet_logo</span><span class="o">=</span><span class="s2">" "</span>
+<span class="k">else
+    </span><span class="nv">internet_logo</span><span class="o">=</span><span class="s2">" "</span>
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="nv">$wlan_online</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">wlan_do</span><span class="o">=</span><span class="si">$(</span>ifstat2 <span class="nt">-i</span> <span class="nv">$wlan_card</span> 1 1 | <span class="nb">awk</span> <span class="s1">'NR%3==0 {print $1}'</span><span class="si">)</span>
+    <span class="nv">wlan_up</span><span class="o">=</span><span class="si">$(</span>ifstat2 <span class="nt">-i</span> <span class="nv">$wlan_card</span> 1 1 | <span class="nb">awk</span> <span class="s1">'NR%3==0 {print $2}'</span><span class="si">)</span>
+    <span class="nb">printf</span> <span class="s2">"</span><span class="nv">$internet_logo</span><span class="s2"> %5s  %5s</span><span class="se">\\</span><span class="s2">n"</span> <span class="se">\</span>
+    <span class="si">$(</span><span class="nb">numfmt</span> <span class="nt">--to</span><span class="o">=</span>none <span class="nv">$wlan_do</span><span class="si">)</span> <span class="se">\</span>
+    <span class="si">$(</span><span class="nb">numfmt</span> <span class="nt">--to</span><span class="o">=</span>none <span class="nv">$wlan_up</span><span class="si">)</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$wlan_offline</span> <span class="o">]</span><span class="p">;</span><span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">" OFFLINE"</span>
+<span class="k">else
+    </span><span class="nb">printf</span> <span class="s2">" NOADPTR"</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <a href="https://aur.archlinux.org/packages/ifstat/" target="_blank"><strong>aur/ifstat</strong></a>.</p>
+
+<p><br />
+<strong>cpu-temp.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>cpu-temp.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">icon</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">get_temp_cpu0</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> /sys/class/thermal/thermal_zone0/temp<span class="si">)</span>
+<span class="nv">temp_cpu0</span><span class="o">=</span><span class="k">$((</span><span class="nv">$get_temp_cpu0</span><span class="o">/</span><span class="m">1000</span><span class="k">))</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$temp_cpu0</span> <span class="nt">-ge</span> 90 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon</span><span class="s2"> </span><span class="nv">$temp_cpu0</span><span class="s2">°C!"</span>
+<span class="k">else
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon</span><span class="s2"> </span><span class="nv">$temp_cpu0</span><span class="s2">°C"</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>memory.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>memory.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">icon</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">mem_total</span><span class="o">=</span><span class="si">$(</span>free <span class="nt">-m</span> | <span class="nb">awk</span> <span class="s1">'NR%2==0 {print $2}'</span><span class="si">)</span>
+<span class="nv">mem_avail</span><span class="o">=</span><span class="si">$(</span>free <span class="nt">-m</span> | <span class="nb">awk</span> <span class="s1">'NR%2==0 {print $7}'</span><span class="si">)</span>
+<span class="nv">mem_used</span><span class="o">=</span><span class="k">$((</span> <span class="nv">$mem_total</span> <span class="o">-</span> <span class="nv">$mem_avail</span> <span class="k">))</span>
+<span class="nv">mem_usage</span><span class="o">=</span><span class="k">$((</span> <span class="nv">$mem_used</span> <span class="o">*</span> <span class="m">100</span> <span class="o">/</span> <span class="nv">$mem_total</span> <span class="k">))</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$mem_usage</span> <span class="nt">-ge</span> 80 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon</span><span class="s2"> </span><span class="k">${</span><span class="nv">mem_usage</span><span class="p">//%</span><span class="k">}</span><span class="s2">!"</span>
+<span class="k">else
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon</span><span class="s2"> </span><span class="k">${</span><span class="nv">mem_usage</span><span class="p">//%</span><span class="k">}</span><span class="s2">"</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>filesystem.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>filesystem.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">icon</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">cap_percentage</span><span class="o">=</span><span class="si">$(</span><span class="nb">df</span> <span class="nt">-h</span> <span class="nt">--output</span><span class="o">=</span>pcent / | <span class="nb">awk</span> <span class="s1">'NR%2==0 {print $0}'</span>  | <span class="nb">cut</span> <span class="nt">-f</span> 1 <span class="nt">-d</span> <span class="s1">'%'</span>  | xargs<span class="si">)</span>
+<span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon</span><span class="s2"> </span><span class="nv">$cap_percentage</span><span class="s2">"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>volume.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>volume.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="c"># PulseAudio</span>
+<span class="nv">ou_mute</span><span class="o">=</span><span class="si">$(</span>pamixer <span class="nt">--get-mute</span><span class="si">)</span>
+<span class="nv">in_mute</span><span class="o">=</span><span class="si">$(</span>pamixer <span class="nt">--source</span> 1 <span class="nt">--get-mute</span><span class="si">)</span>
+<span class="nv">ou_vol</span><span class="o">=</span><span class="si">$(</span>pamixer <span class="nt">--get-volume</span><span class="si">)</span>
+<span class="nv">in_vol</span><span class="o">=</span><span class="si">$(</span>pamixer <span class="nt">--source</span> 1 <span class="nt">--get-volume</span><span class="si">)</span>
+<span class="nv">jack_stat</span><span class="o">=</span><span class="si">$(</span><span class="nv">$HOME</span>/.local/bin/has_headphone<span class="si">)</span>
+
+<span class="k">if</span>   <span class="o">[</span> <span class="nv">$jack_stat</span> <span class="o">=</span> <span class="s2">"yes"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">icon_ou_on</span><span class="o">=</span><span class="s2">""</span>
+    <span class="nv">icon_ou_off</span><span class="o">=</span><span class="s2">""</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$jack_stat</span> <span class="o">=</span> <span class="s2">"no"</span>  <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">icon_ou_on</span><span class="o">=</span><span class="s2">""</span>
+    <span class="nv">icon_ou_off</span><span class="o">=</span><span class="s2">""</span>
+<span class="k">fi
+</span><span class="nv">icon_in_on</span><span class="o">=</span><span class="s2">""</span>
+<span class="nv">icon_in_off</span><span class="o">=</span><span class="s2">""</span>
+
+<span class="k">if</span>   <span class="o">([</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"true"</span>  <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"off"</span> <span class="o">])</span> <span class="o">&amp;&amp;</span> <span class="o">([</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"true"</span>  <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"off"</span> <span class="o">])</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon_ou_off</span><span class="s2"> Ø </span><span class="nv">$icon_in_off</span><span class="s2"> Ø"</span>
+<span class="k">elif</span> <span class="o">([</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"true"</span>  <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"off"</span> <span class="o">])</span> <span class="o">&amp;&amp;</span> <span class="o">([</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"on"</span>  <span class="o">])</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon_ou_off</span><span class="s2"> Ø </span><span class="nv">$icon_in_on</span><span class="s2"> </span><span class="nv">$in_vol</span><span class="s2">"</span>
+<span class="k">elif</span> <span class="o">([</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"on"</span>  <span class="o">])</span> <span class="o">&amp;&amp;</span> <span class="o">([</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"true"</span>  <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"off"</span> <span class="o">])</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon_ou_on</span><span class="s2"> </span><span class="nv">$ou_vol</span><span class="s2"> </span><span class="nv">$icon_in_off</span><span class="s2"> Ø"</span>
+<span class="k">elif</span> <span class="o">([</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$ou_mute</span> <span class="o">=</span> <span class="s2">"on"</span>  <span class="o">])</span> <span class="o">&amp;&amp;</span> <span class="o">([</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"false"</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="nv">$in_mute</span> <span class="o">=</span> <span class="s2">"on"</span>  <span class="o">])</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon_ou_on</span><span class="s2"> </span><span class="nv">$ou_vol</span><span class="s2"> </span><span class="nv">$icon_in_on</span><span class="s2"> </span><span class="nv">$in_vol</span><span class="s2">"</span>
+<span class="k">else
+    </span><span class="nb">printf</span> <span class="s2">"</span><span class="nv">$icon_ou_off</span><span class="s2"> ERROR"</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/has_headphone</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="c"># PulseAudio</span>
+pacmd list-sinks | <span class="nb">grep</span> <span class="s1">'Headphones'</span> | <span class="nb">awk</span> <span class="s1">'{print $10}'</span> | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">')'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>bat-state.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>bat-state.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">state</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> /sys/devices/platform/smapi/BAT0/state<span class="si">)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$state</span> <span class="o">=</span> <span class="s2">"charging"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">" "</span> <span class="c"># charging</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$state</span> <span class="o">=</span> <span class="s2">"discharging"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">" "</span> <span class="c"># discharging</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$state</span> <span class="o">=</span> <span class="s2">"idle"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">" "</span> <span class="c"># idle</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">" "</span> <span class="c"># unknown</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+<strong>bat-capacity.sh</strong> - Created by: BanditHijo</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>bat-capacity.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">cap</span><span class="o">=</span><span class="si">$(</span><span class="nb">cat</span> /sys/devices/platform/smapi/BAT0/remaining_percent<span class="si">)</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-ge</span> 0 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-le</span> 20 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">""</span> <span class="nv">$cap</span><span class="s2">"%"</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-ge</span> 21 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-le</span> 40 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">""</span> <span class="nv">$cap</span><span class="s2">"%"</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-ge</span> 41 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-le</span> 60 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">""</span> <span class="nv">$cap</span><span class="s2">"%"</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-ge</span> 61 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-le</span> 90 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">""</span> <span class="nv">$cap</span><span class="s2">"%"</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-ge</span> 91 <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="nv">$cap</span> <span class="nt">-le</span> 100 <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">""</span> <span class="nv">$cap</span><span class="s2">"%"</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s2">"UNKNWN"</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="autorun">Autorun</h2>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p><strong>2020/09/20</strong>, menggunakan autostart patch 20200610-cb3f58a.diff.</p>
+    <p>Dan juga menggunakan .xinitrc untuk menjalankan beberapa program yang saya perlukan saat startup.</p>
+  </div></div>
+
+<p>Saya menggunakan <em>patch</em> autostart untuk menghandle program-program autorun yang dinamis. Yang saya maksudkan sebagai dinamis adalah konfigurasi program mungkin akan mengalami modifikasi sehingga memungkinkan untuk direload ulang ditengah-tengah session.</p>
+
+<p>Kalau hanya menggunakan .xinitrc, tentunya perlu restart session (logout). Namun, dengan patch autostart, kita hanya perlu reload dwm saja.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>dwm.c</code></div>
+
+<figure class="highlight"><pre><code class="language-c" data-lang="c"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="c1">// ...</span>
+<span class="c1">// ...</span>
+
+<span class="cm">/* variables */</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">autostartblocksh</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"autostart_blocking.sh"</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">autostartsh</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"autostart.sh"</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">broken</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"broken"</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">dwmdir</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"dwm"</span><span class="p">;</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="n">localshare</span><span class="p">[]</span> <span class="o">=</span> <span class="s">".local/share"</span><span class="p">;</span>
+<span class="k">static</span> <span class="kt">char</span> <span class="n">stext</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">screen</span><span class="p">;</span>
+<span class="c1">// ...</span>
+<span class="c1">// ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perhatikan baris 8 dan 9, disanalah tempat kita akan meletakkan file <strong>autostart.sh</strong> dan <strong>autostart_blocking.sh</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir -p ~/.local/share/dwm</b><br /><span class="cmd">$ </span><b>touch ~/.local/share/dwm/autostart_blocking.sh</b><br /><span class="cmd">$ </span><b>touch ~/.local/share/dwm/autostart.sh</b><br /></pre>
+
+<p>Dan ini adalah isi dari file <code class="language-plaintext highlighter-rouge">autostart.sh</code> yang saya pergunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/dwm/autostart.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+pkill <span class="nt">-f</span> <span class="s2">"slstatus"</span><span class="p">;</span> slstatus &amp;
+pkill <span class="nt">-f</span> <span class="s2">"sxhkd"</span><span class="p">;</span> sxhkd <span class="nt">-c</span> ~/.config/sxhkd/sxhkdrc-dwm &amp;
+pkill <span class="nt">-f</span> <span class="s2">"dunst"</span><span class="p">;</span> dunst <span class="nt">-config</span> ~/.config/dunst/dunstrc &amp;
+pkill <span class="nt">-f</span> <span class="s2">"unclutter"</span><span class="p">;</span> unclutter <span class="nt">--timeout</span> 3 &amp;
+pkill <span class="nt">-f</span> <span class="s2">"notify-hightemp"</span><span class="p">;</span> notify-hightemp &amp;
+pkill <span class="nt">-f</span> <span class="s2">"bash /usr/bin/clipmenud"</span><span class="p">;</span> pkill <span class="nt">-f</span> <span class="s2">"clipnotify"</span><span class="p">;</span> clipmenud &amp;
+pkill <span class="nt">-f</span> <span class="s2">"flameshot"</span><span class="p">;</span> flameshot &amp;
+pkill <span class="nt">-f</span> <span class="s2">"xcompmgr"</span><span class="p">;</span> xcompmgr &amp;
+pkill <span class="nt">-f</span> <span class="s2">"lxpolkit"</span><span class="p">;</span> lxpolkit &amp;
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>autostart_blocking.sh</strong> saya kosongin.</p>
+
+<p>Kemudian, ini adalah isi dari <strong>xinitrc</strong> yang berhubungan dengan dwm.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.xinitrc</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="c">## Start GNOME Keyring</span>
+<span class="nb">eval</span> <span class="si">$(</span>/usr/bin/gnome-keyring-daemon <span class="nt">--start</span> <span class="nt">--components</span><span class="o">=</span>pkcs11,secrets,ssh,gpg<span class="si">)</span>
+<span class="nb">export </span>SSH_AUTH_SOCK
+
+<span class="c"># Autostart (STAIC)</span>
+xsetroot <span class="nt">-solid</span> <span class="s2">"#1E1E1E"</span>
+feh <span class="nt">--bg-fill</span> <span class="nt">-Z</span> <span class="nv">$WALLPAPER2</span>
+xinput set-button-map <span class="s2">"TPPS/2 IBM TrackPoint"</span> 1 0 3
+
+<span class="c"># Autostart (DYNAMIC)</span>
+sanitizer
+slstatus &amp;
+sxhkd <span class="nt">-c</span> ~/.config/sxhkd/sxhkdrc-dwm &amp;
+dunst <span class="nt">-config</span> ~/.config/dunst/dunstrc &amp;
+unclutter <span class="nt">--timeout</span> 3 &amp;
+notify-hightemp &amp;
+clipmenud &amp;
+flameshot &amp;
+clipmenud &amp;
+xcompmgr &amp;
+lxpolkit &amp;
+
+<span class="c"># For dwm</span>
+<span class="k">while </span><span class="nb">true</span><span class="p">;</span> <span class="k">do</span>
+   <span class="c"># Log stderror to a file</span>
+   /usr/local/bin/dwm 2&gt; ~/.dwm.log
+<span class="k">done</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Saya menyimpan konfigurasi yang sudah saya buat dalam bentuk branch kemudian saya simpan di GitHub.</p>
+
+<p>Bisa teman-teman lihat <a href="https://github.com/bandithijo/dwm" target="_blank">di sini</a>.</p>
+
+<p>Cara pasangnya sangat mudah.</p>
+
+<p>Saya meletakkan source code dari dwm ke direktori <strong>~/.local/src/</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>git clone https://github.com/bandithijo/dwm.git $HOME/.local/src/dwm</b><br /><span class="cmd">$ </span><b>cd $HOME/.local/src/dwm</b><br /></pre>
+
+<p>Kalau kita menjalankan,</p>
+
+<pre><span class="cmd">$ </span><b>git branch</b><br /></pre>
+
+<p>Maka yang ada hanya branch Master.</p>
+
+<p>Kita perlu melakukan <code class="language-plaintext highlighter-rouge">git checkout</code> ke setiap branch. Karena saya adalah orang yang malas, maka saya memilih untuk membuat script automatis saja. Hehe.</p>
+
+<p>Saya beri nama <strong>suckchkout</strong>.</p>
+
+<p>Versi terbaru dari <strong>suckchkout</strong> dapat teman-teman temukan <a href="https://github.com/bandithijo/sucklessthing/blob/master/suckchkout" target="_blank">di sini</a></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>suckchkout</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="n">branch_list</span> <span class="o">=</span> <span class="sb">`git branch -a`</span>
+<span class="n">rejected_items</span> <span class="o">=</span> <span class="sx">%w[* master remotes/origin/HEAD remotes/origin/master origin/master -&gt;]</span>
+<span class="n">branches</span> <span class="o">=</span> <span class="n">branch_list</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">).</span><span class="nf">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">rejected_items</span><span class="p">.</span><span class="nf">include?</span> <span class="n">n</span> <span class="p">}.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">n</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s1">'remotes/origin/'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">=&gt; Checkout each branch to Local"</span>
+<span class="n">branches</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">branch</span><span class="o">|</span>
+  <span class="nb">print</span> <span class="s2">"Checkout </span><span class="si">#{</span><span class="n">branch</span><span class="si">}</span><span class="s2">..."</span>
+  <span class="sx">%x(`git checkout </span><span class="si">#{</span><span class="n">branch</span><span class="si">}</span><span class="sx"> &gt; /dev/null 2&gt;&amp;1`)</span>
+  <span class="nb">print</span> <span class="s2">"DONE</span><span class="se">\n</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="sx">%x(`git checkout master &gt; /dev/null 2&gt;&amp;1`)</span>
+<span class="nb">puts</span> <span class="s1">'=&gt; All Checkout COMPLETE!'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Jangan lupa buat menjadi executeable.</p>
+
+<pre><span class="cmd">$ </span><b>chmod +x suckchkout</b><br /></pre>
+
+<p>Lalu jalankan.</p>
+
+<p>Kalau berhasil, hasilnya akan seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=&gt; Check Out each branch to Local
+Checkout actualfullscreen... DONE
+Checkout autostart... DONE
+Checkout center... DONE
+Checkout cfacts... DONE
+Checkout config... DONE
+Checkout deck... DONE
+Checkout focusonnetactive... DONE
+Checkout movestack... DONE
+Checkout pertag... DONE
+Checkout resizecorners... DONE
+Checkout rmaster... DONE
+Checkout savefloats... DONE
+Checkout scratchpad-gaspar... DONE
+Checkout sticky... DONE
+Checkout systray... DONE
+Checkout zoomswap... DONE
+=&gt; All Check Out COMPLETE!
+</code></pre></div></div>
+
+<p>Nah, kalo sudah bisa check menggunakan <code class="language-plaintext highlighter-rouge">git branch</code>.</p>
+
+<p>Apabila sudah keluar semua daftar branch, tinggal jalankan script <strong>suckmerge2</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=&gt; Convert All Branch to Patch
+Already on 'master'
+Your branch is up to date with 'bandithijo/master'.
+rm -f dwm drw.o dwm.o util.o dwm-6.2.tar.gz
+HEAD is now at 61bb8b2 Fix x coordinate calculation in buttonpress.
+HEAD is now at 61bb8b2 Fix x coordinate calculation in buttonpress.
+=&gt; Converting COMPLETE!
+
+=&gt; Patching All Branch to Master
+Patching config... Updating 61bb8b2..b821139
+Fast-forward (no commit created; -m option ignored)
+ config.def.h | 191 ++++++++++++++++++++++++++++++++++++++++++++++++++--------------
+ 1 file changed, 151 insertions(+), 40 deletions(-)
+DONE
+Patching sticky... Merge made by the 'recursive' strategy.
+ dwm.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+DONE
+...
+...
+=&gt; Installation COMPLETE!
+
+  +----------------------------------------------------------------------+
+  | STATUSBAR:                                                           |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the status bar.                       |
+  | You should bring your own. My recommendation is dwmblocks.           |
+  | But, I prefer built my own status.                                   |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-dwmbar                               |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | KEYBOARD:                                                            |
+  +----------------------------------------------------------------------+
+  | Bandithijo's DWM doesn't bring the keyboard shortcut for apps.       |
+  | You should bring your own. My personal preferences are use SXHKD.    |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-sxhkdrc-dwm                          |
+  +----------------------------------------------------------------------+
+  +----------------------------------------------------------------------+
+  | AUTOSTART:                                                           |
+  +----------------------------------------------------------------------+
+  | BanditHijo's DWM use autostart patch. But I modified the path.       |
+  | Please, provide the autostart file on:                               |
+  | ~/.local/bin/autostart.sh                                            |
+  |                                                                      |
+  | And the other one:                                                   |
+  | ~/.local/bin/autostart_blocking.sh (just empty file)                 |
+  |                                                                      |
+  | Don't forget to make all of them as executeable file, with:          |
+  | $ chmod +x ~/.local/bin/autostart*.sh                                |
+  |                                                                      |
+  | Sample: https://s.id/bandithijo-autostart                            |
+  +----------------------------------------------------------------------+
+</code></pre></div></div>
+
+<p>Perhatikan pesan yang sudah saya berikan mengenai statusbar, keyboard, dan autostart.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Pasti tulisan ini akan kadaluarsa dan ketinggalan update terabru dari yang saya lakukan.</p>
+
+<p>Untuk mendapatkan versi update terbaru, kalian dapat langsung mengunjungi beberapa GitHub repo yang saya pergunakan.</p>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/bandithijo/dwm" target="_blank"><strong>dwm</strong></a></p>
+
+    <p>Repo ini adalah repo master dari dwm namun berisi branch-branch yang sudah dipatch. Gunakan <strong>suckmerge2</strong> untuk melakukan compile agar proses membangun dwm menjadi lebih mudah.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/bandithijo/sucklessthing/" target="_blank"><strong>sucklessthing</strong></a></p>
+
+    <p>Repo ini berisi script-script yang saya pergunakan untuk membangun/membuild/mengcompile suckless tools seperti dwm, dmenu, slstatus, dll.</p>
+
+    <p>Repo ini juga berisi daftar patch yang saya pergunakan.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/bandithijo/dmenu" target="_blank"><strong>dmenu</strong></a></p>
+
+    <p>Repo ini berisi master dmenu dengan branch config yang sudah saya modifikasi.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/bandithijo/slstatus" target="_blank"><strong>slstatus</strong></a></p>
+
+    <p>Repo ini berisi master slstatus dengan branch config yang sudah saya modifikasi.</p>
+  </li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://suckless.org/" target="_blank">suckless.org/</a>
+<br />Diakses tanggal: 2020/04/24</p>
+  </li>
+  <li>
+    <p><a href="https://dwm.suckless.org/" target="_blank">dwm.suckless.org/</a>
+<br />Diakses tanggal: 2020/04/24</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

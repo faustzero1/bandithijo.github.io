@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="ulasan, tips, arch linux">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>SLiM, Display Manager yang Sudah Lama Ditinggalkan | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="SLiM, Display Manager yang Sudah Lama Ditinggalkan" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM." />
+<meta property="og:description" content="SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM." />
+<link rel="canonical" href="https://bandithijo.dev/blog/slim-display-manager-yang-sudah-ditinggalkan" />
+<meta property="og:url" content="https://bandithijo.dev/blog/slim-display-manager-yang-sudah-ditinggalkan" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-28T17:47:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/slim-display-manager-yang-sudah-ditinggalkan"},"description":"SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM.","url":"https://bandithijo.dev/blog/slim-display-manager-yang-sudah-ditinggalkan","@type":"BlogPosting","headline":"SLiM, Display Manager yang Sudah Lama Ditinggalkan","dateModified":"2019-02-28T17:47:00+08:00","datePublished":"2019-02-28T17:47:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="SLiM, Display Manager yang Sudah Lama Ditinggalkan"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/slim-display-manager-yang-sudah-ditinggalkan">SLiM, Display Manager yang Sudah Lama Ditinggalkan</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/02/28</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Slim display manager yang sudah ditinggalkan
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#mengapa-tertarik-dengan-slim">Mengapa Tertarik dengan SLiM?</a>
+    <ul>
+      <li><a href="#kelebihan-dan-kekurangan-slim">Kelebihan dan Kekurangan SLiM</a></li>
+    </ul>
+  </li>
+  <li><a href="#pengecekan-paket">Pengecekan Paket</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#jalankan-service-slim">Jalankan Service SLiM</a></li>
+      <li><a href="#sessions">Sessions</a>
+        <ul>
+          <li><a href="#menampilkan-pilihan-session-pada-saat-login">Menampilkan Pilihan Session pada saat Login</a></li>
+          <li><a href="#tidak-dapat-memilih-session-pada-saat-login">Tidak Dapat Memilih Session pada saat Login</a>
+            <ul>
+              <li><a href="#cara-sederhana">Cara Sederhana</a></li>
+              <li><a href="#cara-keren">Cara Keren</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#system-sessions">System Sessions</a>
+    <ul>
+      <li><a href="#instalasi-themes">Instalasi Themes</a>
+        <ul>
+          <li><a href="#copy-direktori-themes">Copy Direktori Themes</a></li>
+          <li><a href="#menginisialisasi-nama-themes">Menginisialisasi Nama Themes</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#terima-kasih">Terima Kasih</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Mungkin sebagian dari teman-teman ada yang sudah pernah mencicipi distribusi sistem operasi GNU/Linux yang menggunakan SLiM display manager.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/JzS4m67p/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - SLiM display manager dengan default theme</p>
+
+<p>Dari informasi yang saya baca pada halaman <a href="https://wiki.archlinux.org/index.php/SLiM#Match_SLiM_and_Desktop_Wallpaper" target="_blank">Arch Wiki/SLiM</a>. Proyek ini sudah ditinggalkan. Rilis paling akhir pada tahun 2013. Website dari proyek inipun sudah tidak ada lagi.</p>
+
+<p>Pada halaman Arch Wiki tersebut juga kita disarankan untuk mempertimbangkan menggunakan Display Manager yang lain. Karena SLiM tidak secara penuh <em>support</em> dengan systemd, termasuk logind sessions.</p>
+
+<h1 id="mengapa-tertarik-dengan-slim">Mengapa Tertarik dengan SLiM?</h1>
+
+<p>Sebenarnya sudah lama mencari-cari pengganti dari LightDM display manager. Saya merasa kurang fleksibel dalam mengkostumisasi sesuai preferensi sendiri. Belum lagi transisi antara verbose mode dari journalctl ke tampilan LightDM tidak begitu <em>smooth</em>.</p>
+
+<p>Sampai beberapa waktu lalu, menemukan halaman pada Slant.co yang membahas <a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">What is the best Linux Display Manager?</a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/SRfqskGy/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Saya agak heran, karena bukan LightDM yang menduduki peringkat no. 1 saat ini (2019/02/28), melainkan SLiM dengan perolehan point sebanyak 92, disusul LightDM sebesar 84.</p>
+
+<p>Dengan selisih yang tidak terlampau jauh, tidak menutup kemungkinan LightDM akan segera menyusul ke peringkat pertama.</p>
+
+<p>Namun, saya tetap ingin mencoba SLiM. Karena rasa penasaran saya atas apa yang membuat SLiM masih menduduki peringkat pertama, padahal telah 5 tahun ditinggalkan.</p>
+
+<h2 id="kelebihan-dan-kekurangan-slim">Kelebihan dan Kekurangan SLiM</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/C1N5Z5SM/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 8 - Sumber: <a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">Slant.co - SLiM Pros and Cons</a></p>
+
+<h1 id="pengecekan-paket">Pengecekan Paket</h1>
+
+<p>Karena paket SLiM display manager ini termasuk paket yang sudah tidak lagi dimaintain oleh upstream developer, tentunya akan sangat penting untuk mengetahui apakah paket yang akan kita gunakan memiliki <em>bug reports</em>, <em>security reposts</em>, dll.</p>
+
+<p>Pada distribusi Arch Linux, untuk menelusuri sebuah paket sangatlah mudah. Kita hanya perlu mengunjungi <a href="https://www.archlinux.org/packages/" target="_blank">archlinux.org/packages</a>. Kemudian, mencari paket bernama <code class="language-plaintext highlighter-rouge">slim</code>.</p>
+
+<p>Beberapa hal yang saya perhatikan adalah:</p>
+
+<ol>
+  <li><strong>Last Updated</strong></li>
+  <li><strong>View Changes</strong></li>
+  <li><strong>Bug Reports</strong></li>
+</ol>
+
+<p>Berikut ini tampilan dari ketiga hal di atas.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/T2NPtdTS/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - <a href="https://www.archlinux.org/packages/extra/x86_64/slim/" target="_blank">last Updated</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/fT3RFGLb/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - <a href="https://git.archlinux.org/svntogit/packages.git/log/trunk?h=packages/slim" target="_blank">View Changes</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/5NZ2MsYS/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - <a href="https://bugs.archlinux.org/?project=1&amp;string=slim" target="_blank">Bug Reports</a></p>
+
+<p>Nah, dengan begini, kita dapat memantau, apakah paket SLiM ini <strong>tidak lagi dimaintain</strong> di Arch Linux atau <strong>memiliki bug</strong>.</p>
+
+<p>Kita juga dapat sekalian mengecek apakah paket <code class="language-plaintext highlighter-rouge">slim</code> ini memiliki <em>security issue</em> atau tidak, pada halaman <a href="https://security.archlinux.org/" target="_blank">security.archlinux.org</a>.</p>
+
+<p>Untuk teman-teman yang menggunakan distribusi selain Arch atau turunan Arch, silahkan menyesuaikan saja yaa.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p><b>Saya tidak merekomendasikan untuk menggunakan SLiM Display Manager</b>.</p>
+    <p>Apabila terjadi sesuatu yang merugikan teman-teman di kemudian hari, bukan merupakan tanggung jawab saya sebagai penulis.</p>
+    <p>Tanggung jawab sepenuhnya ada di tangan teman-teman.</p>
+    <p>Kalau setuju, yuk kita kemon!</p>
+  </div></div>
+
+<p>Untuk distribusi Arch Linux, sangat saya sarankan memasang paket SLiM menggunakan <em>package manager</em>, dikarenakan alasan di atas. Agar paket yang kita gunakan, adalah paket yang sudah jelas ter-<em>maintained</em> dengan baik.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S slim</b><br /></pre>
+
+<p>Untuk distribusi yang lain, silahkan menyesuaikan.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<h2 id="jalankan-service-slim">Jalankan Service SLiM</h2>
+
+<p>Setelah memasang paket SLiM, kita perlu menjalankan <code class="language-plaintext highlighter-rouge">slim.service</code>.</p>
+
+<p>Dikarenakan kita harus memilih salah satu Display Manager yang digunakan, karena sebelumnya saya menggunakan LightDM Display Manager, saya akan men-<em>disable</em> service dari LightDM terlebih dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl disable lightdm.service</b><br /></pre>
+
+<p>Selanjutnya, baru meng-<em>enable</em>-kan service dari SLiM.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl enable slim.service</b><br /></pre>
+
+<h2 id="sessions">Sessions</h2>
+
+<p>SLiM dapat secara otomatis mendeteksi daftar sessions yang terdapat pada direktori <code class="language-plaintext highlighter-rouge">/usr/share/xsessions/</code>.</p>
+
+<p>Contohnya seperti milik saya. Saya memiliki 3 sessions.</p>
+
+<ol>
+  <li>i3</li>
+  <li>dwm</li>
+  <li>qtile</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/share/xsessions/
+.
+├── dwm.desktop
+├── i3.desktop
+└── qtile.desktop
+</code></pre></div></div>
+
+<p>Sejak versi 1.3.6-2, SLiM sudah menyediakan fitur ini.</p>
+
+<p>Untuk konfigurasi “pemilihan session”, saya akan menuliskan dua cara.</p>
+
+<ol>
+  <li>Dapat memilih session pada saat login</li>
+  <li>Tidak dapat memilih session pada saat login</li>
+</ol>
+
+<p>Kedua cara di atas, pada dasarnya, kita akan berurusan dengan 2 file.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">/etc/slim.conf</code></li>
+  <li><code class="language-plaintext highlighter-rouge">~/.xinitrc</code></li>
+</ol>
+
+<p>Saya mulai dari cara pertama.</p>
+
+<h3 id="menampilkan-pilihan-session-pada-saat-login">Menampilkan Pilihan Session pada saat Login</h3>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">/etc/slim.conf</code> dengan <em>text editor</em> favorit kalian.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/slim.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/slim.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Set directory that contains the xsessions.</span>
+<span class="c"># slim reads xsesion from this directory, and be able to select.</span>
+sessiondir            /usr/share/xsessions/
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perhatikan baris ke-6, pastikan sudah <em>enable</em> (tidak ada tanda # dibagian paling depan).</p>
+
+<p>Bagian inilah yang akan mengaktifkan pilihan session pada saat login.</p>
+
+<p>(Perbaikan dari: <strong>Harry Kurn</strong>)</p>
+
+<p><strong>Penting!</strong> untuk menambahkan baris di bawah ini pada file <code class="language-plaintext highlighter-rouge">~/.xinitrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.xinitrc</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="nb">exec</span> <span class="nv">$1</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tujuannya agar inputan yang dipilih menggunakan <kbd>F1</kbd> akan dieksekusi.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/d35FFTvd/gambar-06.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kita dapat memilih session dengan menekan tombol <kbd>F1</kbd>.</p>
+
+<h3 id="tidak-dapat-memilih-session-pada-saat-login">Tidak Dapat Memilih Session pada saat Login</h3>
+
+<p>Untuk Cara kedua ini, dapat pula kita sebut sebagai <em>automatic session</em>, karena kita tidak memilih session sendiri dengan menekan tombol <kbd>F1</kbd> seperti di atas. Melainkan, kita sudah terlebih dahulu mendefinisikan <em>default session</em> yang akan kita pergunakan.</p>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">/etc/slim.conf</code> dengan <em>text editor</em> favorit teman-teman.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/slim.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/slim.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Set directory that contains the xsessions.</span>
+<span class="c"># slim reads xsesion from this directory, and be able to select.</span>
+<span class="c">#sessiondir            /usr/share/xsessions/</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Perhatikan!</strong> pada baris ke-6. Tambahkan tanda pagar <code class="language-plaintext highlighter-rouge">#</code>, untuk mendisable konfigurasi pada baris ini.</p>
+
+<p>Selanjutnya, definisikan <em>default session</em> yang akan kita pergunakan.</p>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">~/.xinitrc</code> dengan <em>text editor</em> favorit kalian.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.xinitrc</b><br /></pre>
+
+<p>Ada dua cara yang saya tawarkan.</p>
+
+<h4 id="cara-sederhana">Cara Sederhana</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.xinitrc</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+<span class="nb">exec </span>i3
+<span class="c">#exec dwm</span>
+<span class="c">#exec qtile</span>
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya menggunakan i3wm sebagai <em>default session</em> saya, maka saya meng-<em>enable</em>-kan dengan menghapus tanda pagar <code class="language-plaintext highlighter-rouge">#</code>, seperti contoh di atas.</p>
+
+<h4 id="cara-keren">Cara Keren</h4>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>(Perbaikan dari: <strong>Harry Kurn</strong>)</p>
+    <p>Cara keren ini sudah <strong>tidak direkomendasikan</strong> lagi.</p>
+  </div></div>
+
+<s>
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.xinitrc</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Untuk SLiM Session</span>
+<span class="nv">DEFAULTSESSION</span><span class="o">=</span>i3
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+    </span>i3<span class="p">)</span> <span class="nb">exec </span>i3 <span class="p">;;</span>
+    sway<span class="p">)</span> <span class="nb">exec </span>sway <span class="p">;;</span>
+    dwm<span class="p">)</span> <span class="nb">exec </span>dwm <span class="p">;;</span>
+    qtile<span class="p">)</span> <span class="nb">exec </span>qtile <span class="p">;;</span>
+    bspwm<span class="p">)</span> <span class="nb">exec </span>bspwm <span class="p">;;</span>
+    <span class="k">*</span><span class="p">)</span> <span class="nb">exec</span> <span class="nv">$DEFAULTSESSION</span> <span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+
+Untuk mengganti <i>default session</i> yang ingin digunakan, ubah nilai dari <i>variabel</i> <code>DEFAULTSESSION=</code>.
+</s>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/yxs6sHRq/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="system-sessions">System Sessions</h1>
+
+<p>SLiM juga dapat mengakses <em>system sessions</em> seperti: reboot, shutdown, suspend, exit dan console.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><center>System Sessions</center></th>
+      <th style="text-align: left"><center>Username</center></th>
+      <th style="text-align: left"><center>Password</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><strong>REBOOT</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">reboot</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;root_password&gt;</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>SHUTDOWN</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">halt</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;root_password&gt;</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>SUSPEND</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">suspend</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;root_password&gt;</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>EXIT</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">exit</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;root_password&gt;</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><strong>CONSOLE</strong></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">consle</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">&lt;root_password&gt;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Untuk mengaktifkan dan menonaktifkan fitur ini, teman-teman dapat melihat pada file <code class="language-plaintext highlighter-rouge">/etc/slim.conf</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/slim.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># Commands for halt, login, etc.</span>
+halt_cmd            /sbin/shutdown <span class="nt">-h</span> now
+reboot_cmd          /sbin/shutdown <span class="nt">-r</span> now
+console_cmd         /usr/bin/xterm <span class="nt">-C</span> <span class="nt">-fg</span> white <span class="nt">-bg</span> black +sb <span class="nt">-T</span> <span class="s2">"Console login"</span> <span class="nt">-e</span> /bin/sh <span class="nt">-c</span> <span class="s2">"/bin/cat /etc/issue; exec /bin/login"</span>
+<span class="c">#suspend_cmd        /usr/sbin/suspend</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>suspend</strong>, secara default dalam keadaan tidak aktif.</p>
+
+<h2 id="instalasi-themes">Instalasi Themes</h2>
+
+<p>Instalasi themes pada SLiM display manager termasuk sangat mudah.</p>
+
+<p>Hanya perlu memindahkan atau mengcopy paste direktori themes ke direktori <code class="language-plaintext highlighter-rouge">/usr/share/slim/themes</code>.</p>
+
+<p>Salah satu contoh direktori SLiM themes, biasanya mengandung sedikitnya 3 file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>darky_solarized_dark_yellow
+.
+├── background.png
+├── panel.png
+└── slim.theme
+</code></pre></div></div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saya menggunakan theme <b>darky_solarized_dark_yellow</b> yang merupakan hasil modifikasi dari <b>darky_pink</b> milik <a href="https://github.com/adi1090x/slim_themes" target="_blank">GitHub/adi1090x/slim_themes</a></p>
+  </div></div>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/4x6g4MJs/gambar-09.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 9 - Themes: darky_pink</p>
+<p class="img-caption"></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/MGz8nDTR/gambar-10.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 10 - Themes: darky_solarized_dark_yellow</p>
+
+<p>Cara instalasi themes sangat mudah.</p>
+
+<p>Secara garis besar proses instalasi dibagi dalam 2 tahap.</p>
+
+<ol>
+  <li>Copy direktori themes ke dalam direktori <code class="language-plaintext highlighter-rouge">/usr/share/slim/themes/</code></li>
+  <li>Merubah nilai dari variabel <code class="language-plaintext highlighter-rouge">current_theme</code> pada file <code class="language-plaintext highlighter-rouge">/etc/slim.conf</code></li>
+</ol>
+
+<h3 id="copy-direktori-themes">Copy Direktori Themes</h3>
+
+<pre><span class="cmd">$ </span><b>sudo cp -rvf &lt;dir_themes&gt; /usr/share/slim/themes</b><br /></pre>
+
+<p>Sebagai contoh, saya memiliki themes bernama <code class="language-plaintext highlighter-rouge">darky_solarized_dark_yellow</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo cp -rvf darky_solarized_dark_yellow /usr/share/slim/themes</b><br /></pre>
+
+<p>Kemudian lakukan pengecekan pada direktori <code class="language-plaintext highlighter-rouge">/usr/share/slim/themes/</code> apakah sudah berhasil dicopy.</p>
+
+<pre><span class="cmd">$ </span><b>ll /usr/share/slim/themes</b><br /></pre>
+
+<pre>
+<mark>drwxr-xr-x root root darky_solarized_dark_yellow</mark>
+drwxr-xr-x root root default
+</pre>
+
+<p>Nah, kalau sudah ada, berarti sudah terinstall.</p>
+
+<h3 id="menginisialisasi-nama-themes">Menginisialisasi Nama Themes</h3>
+
+<p>Apabila langkah copy direktori themes sudah dilakukan, selanjutnya tinggal mengganti nilai dari variabel <code class="language-plaintext highlighter-rouge">current_theme</code> pada file <code class="language-plaintext highlighter-rouge">/etc/slim.conf</code> yang tadinya bernilai <code class="language-plaintext highlighter-rouge">default</code> menjadi <code class="language-plaintext highlighter-rouge">&lt;nama_theme&gt;</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/slim.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/slim.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># current theme, use comma separated list to specify a set to</span>
+<span class="c"># randomly choose from</span>
+current_theme        darky_solarized_dark_yellow
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Untuk diperhatikan, SLiM display manager tidak menggunakan <code class="language-plaintext highlighter-rouge">~/.profile</code> untuk mengambil data-data aplikasi atau PATH apa saja yang harus dijalankan saat sistem startup, melainkan menggunakan <code class="language-plaintext highlighter-rouge">~/.xinitrc</code>.</p>
+
+<p>Hal tersebut di atas sangat berbeda dengan Display Manager seperti GDM dan LightDM yang mengambil data-data startup applications dan PATH pada <code class="language-plaintext highlighter-rouge">~/.profile</code>.</p>
+
+<p>Apabila hal ini tidak dikonfigurasi dengan benar, maka akan ada beberapa hal yang tidak berjalan sebagaimana mestinya.</p>
+
+<p>Silahkan merujuk pada <a href="https://github.com/bandithijo/dotfiles/blob/master/.xinitrc" target="_blank">.xinitrc</a> milik saya yang berada di GitHub/dotfiles, apabila memang diperlukan.</p>
+
+<p>Sepertinya seperti ini dulu.</p>
+
+<p>Mudah-mudahan dapat bermanfaat buat teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<h1 id="terima-kasih">Terima Kasih</h1>
+
+<p>Terima kasih, Bro <strong>Harry Kurn</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_11" data-echo="https://i.postimg.cc/xdSvWxK2/gambar-11.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/SLiM" target="_blank">wiki.archlinux.org/index.php/SLiM</a>
+<br />Diakses tanggal: 2019/02/28</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/data-modul/slim" target="_blank">github.com/data-modul/slim</a>
+<br />Diakses tanggal: 2019/02/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.slant.co/topics/2053/~best-linux-display-manager" target="_blank">www.slant.co/topics/2053/~best-linux-display-manager</a>
+<br />Diakses tanggal: 2019/02/28</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME" target="_blank">wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME</a>
+<br />Diakses tanggal: 2019/02/28</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

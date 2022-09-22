@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Bonus: Backup, Restore, and Recovery | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Bonus: Backup, Restore, and Recovery" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Bonus: Backup, Restore &amp; Recovery" />
+<meta property="og:description" content="Bonus: Backup, Restore &amp; Recovery" />
+<link rel="canonical" href="https://bandithijo.dev/arch/bonus-backup-restore-and-recovery" />
+<meta property="og:url" content="https://bandithijo.dev/arch/bonus-backup-restore-and-recovery" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-02-09T09:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/arch/bonus-backup-restore-and-recovery"},"description":"Bonus: Backup, Restore &amp; Recovery","url":"https://bandithijo.dev/arch/bonus-backup-restore-and-recovery","@type":"BlogPosting","headline":"Bonus: Backup, Restore, and Recovery","dateModified":"2018-02-09T09:00:00+08:00","datePublished":"2018-02-09T09:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Bonus: Backup, Restore, and Recovery"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/arch/bonus-backup-restore-and-recovery">Bonus: Backup, Restore, and Recovery</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/02/09</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/arch/">Arch</a>
+  
+
+  
+    / Bonus backup restore and recovery
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tahapan.svg">Tahapan
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-0-introduction" class="">Step 0: Introduction</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-1-connecting-to-the-internet" class="">Step 1: Connecting to the Internet</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-2-disk-partitioning" class="">Step 2: Disk Partitioning</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-3-installing-arch-linux-base-packages" class="">Step 3: Installing Arch Linux Base Packages</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-4-set-up-bootloader" class="">Step 4: Set up Bootloader</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-5-set-language-and-time-zone" class="">Step 5: Set Language and Time Zone</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-6-create-user-password-and-hostname" class="">Step 6: Create User, Password and Hostname</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/step-7-install-gnome-and-complete-installation" class="">Step 7: Install Gnome and Complete Installation</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/bonus-backup-restore-and-recovery" class="current">Bonus: Backup, Restore, and Recovery</a></li>
+  
+  
+  
+  <li style="list-style:none;margin-left:-20px;"><a href="/arch/references" class="">References</a></li>
+  
+  </ul>
+  </div>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#bonus-backup-restore--recovery">Bonus: Backup, Restore &amp; Recovery</a>
+    <ul>
+      <li><a href="#backup">Backup</a></li>
+      <li><a href="#restore">Restore</a></li>
+      <li><a href="#recovery">Recovery</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="bonus-backup-restore--recovery">Bonus: Backup, Restore &amp; Recovery</h1>
+
+<h2 id="backup">Backup</h2>
+
+<p>Mungkin sebagian dari teman-teman sudah sangat familiar dan mempunyai cara sendiri dalam melakukan backup terhadap data-data yang dimiliki.</p>
+
+<p>Pada part ini saya akan berbagi informasi bagaimana cara saya melakukan backup. Saya sangat menyadari bahwa mungkin cara yang saya dalam melakukan backup, bukan merupakan cara yang baik dan benar. Dengan keterbatasan ilmu saya saat menulis dokumentasi ini, maka cara ini yang masih saya pergunakan.</p>
+
+<p><strong>Pertama</strong>, kita membutuhkan partisi backup dengan kapasitas sebesar partisi root.</p>
+
+<p>Bagaimana caranya ?</p>
+
+<ol>
+  <li>Siapkan satu buah hard disk minimal berkapasitas yg sama dengan partisi root, atau dapat juga berkapasitas lebih besar.</li>
+  <li>Apabila ingin menggunakan hard disk external yang sudah ada, maka siapkan satu buah partisi backup sebesar partisi root atau lebih besar.</li>
+</ol>
+
+<p><strong>Kedua</strong>, format partisi sekaligus memberikan memproteksi dengan LUKS enkripsi agar data-data backup kita tidak dapat dibuka oleh orang lain dengan mudah.</p>
+
+<p>Bagaimana caranya ?</p>
+
+<p>Buka aplikasi <strong>GNOME Disks</strong> (<code class="language-plaintext highlighter-rouge">gnome-disk-utility</code> – Disk management utility for GNOME).</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 2.png" /></p>
+
+<p>Gambar 2 - GNOME Disks</p>
+
+<p>Seperti yang kalian lihat pada Gambar 2, saya mempunyai hard disk berkapasitas 1 TB, dengan tiga buah partisi.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 540 GB | /dev/sdb1 | Partition 1         | LUKS Encryption
+2. 250 GB | /dev/sdb2 | Partition 2         | LUKS Encryption
+3. 215 GB | /dev/sdb3 | BANDITHIJO-NTFS    | NTFS
+</code></pre></div></div>
+
+<p>Terdapat dua partisi dengan LUKS Encryption, yaitu <strong>Partition 1</strong> dan <strong>Partition 2</strong>. Ini adalah contoh dari bentuk partisi yang telah dipasang LUKS. Bisa dilihat pada <strong>Contents :</strong> (paling bawah), terdapat status <strong>Locked</strong>. Maksudnya, apabila partisi ini di_mounting_, kita diminta untuk memasukkan password.</p>
+
+<p>Cara mengesetnya sangat mudah. Saya berasumsi bahwa kalian sudah mempartisi hard disk yang akan kalian gunakan sebagai media backup. Saya telah menyiapkan <strong>Partition 1</strong>, yang akan saya gunakan. Kemudian ikutin langkah-langkah di bawah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.1.png" /></p>
+
+<p>Gambar 3.1 - Format Partition</p>
+
+<p>Pilih <strong>Partition 1</strong> → <strong>klik Gear icon</strong> → pilih <strong>Formation Partition</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.2.png" /></p>
+
+<p>Gambar 3.2 - Format Volume Window (1)</p>
+
+<p>Pilih <strong>Type : Encrypted, compatible with Linux systems (LUKS + Ext4</strong>).</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.3.png" /></p>
+
+<p>Gambar 3.3 - Format Volume Window (1)</p>
+
+<p>Maka akan menampilkan form seperti di atas. Isi <strong>Name</strong> dan <strong>Passphrase</strong>. Lalu, pilih <strong>Format</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.4.png" /></p>
+
+<p>Gambar 3.4 - Format Volume Window (3)</p>
+
+<p>Muncul Pop Up Window yang menanyakan apakah kamu yakin ? Kalau yakin, pilih <strong>Format</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.5.png" /></p>
+
+<p>Gambar 3.5 - Partition 1 dalam kondisi Unlocked</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="" data-echo="/assets/Gambar 3.6.png" /></p>
+
+<p>Gambar 3.6 - Partition 1 dalam kondisi Locked</p>
+
+<p>Sampai tahap ini, maka partisi kita telah siap untuk menjadi target media tempat kita menyimpan backup partisi root.</p>
+
+<p>Sekarang kita akan melakukan backup. Terlebih dahulu, buka status Locked pada partisi yang sudah kita persiapkan. Dengan cara klik icon gembok yang terbuka. Apabila berhasil, Partition 1 akan terbagi menjadi 2 bagian, atas (Partition 1 LUKS) dan bawah (BACKUP-ROOT Ext4).</p>
+
+<p>Kita akan menggunakan <code class="language-plaintext highlighter-rouge">rsync</code> untuk melakukan backup. Dengan beberapa parameter dan properties. Lihat contoh command di bawah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo rsync -aAXvP --delete --exclude=dev --exclude=proc --exclude=sys --exclude=tmp --exclude=run --exclude=mnt --exclude=home/.ecryptfs / /run/media/archer/BACKUP-ROOT/
+</code></pre></div></div>
+
+<p>Perintah di atas dapat diartikan, kita akan menjalankan perintah <code class="language-plaintext highlighter-rouge">rsync</code> dengan <strong>tidak mengikutsertakan</strong> direktori-direktori berikut ini : <code class="language-plaintext highlighter-rouge">dev</code>, <code class="language-plaintext highlighter-rouge">proc</code>, <code class="language-plaintext highlighter-rouge">sys</code>, <code class="language-plaintext highlighter-rouge">tmp</code>, <code class="language-plaintext highlighter-rouge">run</code>, <code class="language-plaintext highlighter-rouge">mnt</code>, <code class="language-plaintext highlighter-rouge">home/.ecryptfs</code> dari <code class="language-plaintext highlighter-rouge">/</code> ke <code class="language-plaintext highlighter-rouge">/run/media/archer/BACKUP-ROOT/</code>.</p>
+
+<p>Untuk details dari option <code class="language-plaintext highlighter-rouge">-aAXvP</code> dan <code class="language-plaintext highlighter-rouge">--delete</code>, dapat dibaca pada <code class="language-plaintext highlighter-rouge">man rsync</code>.</p>
+
+<p>Proses ini akan memindahkan semua isi yang ada pada direktori <code class="language-plaintext highlighter-rouge">/</code> menuju direktori yang ada pada hard disk external kita yaitu <code class="language-plaintext highlighter-rouge">/run/media/archer/BACKUP-ROOT/</code>, tidak termasuk directory yang sudah kita tuliskan di atas.</p>
+
+<p>Proses ini memakan waktu lama, bergantung pada seberapa banyak file yang ada pada direktori root <code class="language-plaintext highlighter-rouge">/</code> kalian. Sebaiknya pilih hard disk yang sudah menggakan teknologi USB 3.0 agar proses transfer data lebih cepat.</p>
+
+<blockquote>
+  <p><strong>Mengapa tidak mem-backup /home directory ?</strong></p>
+
+  <p>Karena <code class="language-plaintext highlighter-rouge">/home</code> directory sudah terdapat di dalam directory <code class="language-plaintext highlighter-rouge">/</code>.</p>
+
+  <p><strong>Mengapa mem-backup semua direktori pada /, tidak /home saja ?</strong></p>
+
+  <p>Karena beberapa preferensi pribadi saya terdapat pada direktori <code class="language-plaintext highlighter-rouge">/etc</code> dan <code class="language-plaintext highlighter-rouge">/usr</code>.</p>
+</blockquote>
+
+<p>Kalian dapat menentukan direktoi-direktori apa saja yang tidak ingin ikut dibackup, tambahkan dengan cara <code class="language-plaintext highlighter-rouge">--exclude=namaDirektori</code>. Atau bahkan kalian ingin merubah source dan destination. Sangat bisa. Saya tidak mengharuskan untuk mengikuti preferensi saya.</p>
+
+<p>Sampai pada tahap ini, langkah-langkah membuat backup telah selesai.</p>
+
+<p>Kalian dapat membuat alias dari command di atas, agar tidak perlu menulis kembali command backup yang sangat panjang dan beresiko untuk typo.</p>
+
+<p>Caranya tambahkan sebaris command alias pada <code class="language-plaintext highlighter-rouge">.bashrc</code> atau <code class="language-plaintext highlighter-rouge">.zshrc</code> (tergantung kalian pakai <code class="language-plaintext highlighter-rouge">shell</code> yang mana).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nano .bashrc
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+...
+
+# BACKUP ENTIRE SYSTEM
+alias backup-root=”sudo rsync -aAXvP --delete --exclude=dev --exclude=proc --exclude=sys --exclude=tmp --exclude=run --exclude=mnt --exclude=home/.ecryptfs / /run/media/archer/BACKUP-ROOT/”
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">backup-root</code> dapat kalian ganti sesuai keinginan. Maka, saat ingin melakukan backup, kalian tinggal menghubungkan hard disk dengan komputer/laptop → masukkan password enkripsi → buka Terminal → ketikan backup-root.</p>
+
+<h2 id="restore">Restore</h2>
+
+<p>Setelah kita melakukan backup, langkah selanjutnya adalah mengerti bagaimana proses <em>restore</em>. Secara sederhana, dan memang sederhana, proses <em>restore</em> yang saya lakukan adalah meng-_copy_ direktori-direktori yang saya perlukan, satu persatu. Karena apabila saya melakukan instalasi ulang, sebisa mungkin saya menjaga bagaimana sistem tetap dalam keadaan <em>fresh</em> and <em>clean</em>. Hanya data-data tertentu dan saya inginkan saja yang saya <em>restore</em>. Sangat “rambo” dan manual sekali bukan. Hehehe</p>
+
+<p>Mungkin kalian perlu melakukan <em>testing</em> terhadap file hasil backup sebelum <em>system</em> <em>failure</em> yang sebenarnya terjadi.</p>
+
+<blockquote>
+  <p>“<em><strong>An untested backup is NOT backup !</strong></em>” – Average Linux User.</p>
+</blockquote>
+
+<h2 id="recovery">Recovery</h2>
+
+<p>Apabila terjadi <em>system failure</em>, yang saya lakukan adalah mengambil flash drive bootable berisi Arch Installer, dan melakukan seperti yang ada pada <strong>Step 3.1</strong> sampai <code class="language-plaintext highlighter-rouge">pacstrap</code> script saja. Kemudian <code class="language-plaintext highlighter-rouge">arch-chroot</code>, dan melakukan update. Atau sambil menunggu maintainer memperbaiki package yang <em>error</em> tersebut.</p>
+
+<blockquote>
+  <p>Sebuah keharusan untuk menyiapkan sendiri sebuah flash drive bootable berisi Arch Installer. Agar sewaktu-waktu apabila terjadi kegagalam sistem, kita dapat melakukan tindakan recovery.</p>
+</blockquote>
+
+<p>4 dari 5 system failure yang pernah saya alami selama 2 tahun menggunakan Arch Linux adalah karena terlalu sering melakukan update. Sedangkan package satu dengan package lain saling berketergantungan. Misal, package A dan B saling ketergantungan, namun package A sudah lebih dulu diupdate, sedangkan package B belum. Hal-hal seperti ini dapat saja dapat menyebabkan system failure saat kita melakukan reboot. Pas lagi apes-apesnya. Biasanya saya tunggu beberapa jam atau satu hari. Lalu saya lakukan <strong>Step 3.1 → pacstrap → arch-chroot → update</strong>. Dan kebanyakan problem terselesaikan.</p>
+
+<p>Banyak lagi hal-hal lain yang dapat menyebabkan <em>system failure</em>. Contoh dan metode di atas dapat saya katakan sebagai <strong>P3K</strong> (Pertolongan Pertama Pada Ke-error-an) yang terjadi pada sistem kita.</p>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l" href="/arch/step-7-install-gnome-and-complete-installation"><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/arch/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/arch/references"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

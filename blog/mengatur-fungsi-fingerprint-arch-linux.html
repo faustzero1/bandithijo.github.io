@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="thinkpad, arch linux, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mengatur Fungsi dari Fingerprint pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mengatur Fungsi dari Fingerprint pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock." />
+<meta property="og:description" content="Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mengatur-fungsi-fingerprint-arch-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mengatur-fungsi-fingerprint-arch-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-18T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mengatur-fungsi-fingerprint-arch-linux"},"description":"Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock.","url":"https://bandithijo.dev/blog/mengatur-fungsi-fingerprint-arch-linux","@type":"BlogPosting","headline":"Mengatur Fungsi dari Fingerprint pada Arch Linux","dateModified":"2018-01-18T00:00:00+08:00","datePublished":"2018-01-18T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mengatur Fungsi dari Fingerprint pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mengatur-fungsi-fingerprint-arch-linux">Mengatur Fungsi dari Fingerprint pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/01/18</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mengatur fungsi fingerprint arch linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#thinkpad">ThinkPad</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#prasyarat">Prasyarat</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#login">Login</a></li>
+      <li><a href="#membuat-fingerprint-signature-secara-manual">Membuat Fingerprint Signature secara Manual</a>
+        <ul>
+          <li><a href="#satu-jari-satu-jari-tertentu">Satu Jari (satu jari tertentu)</a></li>
+          <li><a href="#semua-jari-10-jari">Semua Jari (10 jari)</a></li>
+        </ul>
+      </li>
+      <li><a href="#konfirmasi-fingerprint">Konfirmasi Fingerprint</a></li>
+      <li><a href="#mengamankan-fingerprint-signature">Mengamankan FingerPrint Signature</a>
+        <ul>
+          <li><a href="#pam">PAM</a></li>
+          <li><a href="#sudo">Sudo</a></li>
+          <li><a href="#polkit">Polkit</a></li>
+          <li><a href="#i3lock">i3lock</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://2.bp.blogspot.com/-ivgbZvKVSI4/WmBTWBAqElI/AAAAAAAAG4g/QKm653CH2nQ89IabEC5hkfDd8kF1QFbtQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Untuk dapat menggunakan <em>fingerprint scanner</em>, terlebih dahulu kalian harus memastikan apakah tipe dari <em>fingerprint scanner</em> yang kalian miliki telah didukung atau tidak. Kalian dapat melakukan pengecekan dengan mengunjungi link berikut ini: <a href="https://www.freedesktop.org/wiki/Software/fprint/libfprint/Supported_devices/" target="_blank">libfprint_supported_devices</a>.</p>
+
+<p><em>FingerPrint scanner</em> dapat digunakan secara <em>plug and play</em> pada Arch Linux (dan beberapa distro tertentu yang saya sudah coba seperti Fedora) diatur oleh <em>fprint project</em>. Idenya adalah untuk membuat <em>built-in fingerprint scanner</em> pada beberapa jenis laptop dapat melakukan <em>login</em> dengan memanfaatkan <a href="https://wiki.archlinux.org/index.php/PAM" target="_blank">PAM</a> (<em>Pluggable Authentication Modules</em>).</p>
+
+<h1 id="prasyarat">Prasyarat</h1>
+
+<p>Untuk mengetahui tipe dan <em>brand</em> dari <em>fingerprint scanner</em> yang kalian miliki, gunakan <em>command</em> berikut ini,</p>
+
+<pre><span class="cmd">$ </span><b>lsusb</b><br /></pre>
+
+<pre>
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+<mark>Bus 001 Device 004: ID 138a:0017 Validity Sensors, Inc. VFS 5011 fingerprint sensor</mark>
+Bus 001 Device 003: ID 04f2:b52c Chicony Electronics Co., Ltd
+Bus 001 Device 005: ID 046d:c52b Logitech, Inc. Unifying Receiver
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</pre>
+
+<p>Dari keterangan di atas dapat terlihat bahwa <em>fingerprint</em> saya ada pada baris kedua.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk dapat menggunakan <em>fingerprint scanner</em>, kalian membutuhkan paket bernama <a href="https://www.archlinux.org/packages/?name=fprintd" target="_blank">fprintd</a>. Mungkin beberapa paket lain seperti <a href="https://www.archlinux.org/packages/?name=imagemagick" target="_blank">imagemagick</a> juga akan diperlukan sebagai dependensi.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S fprintd libfprint</b><br /></pre>
+
+<p>*<strong>libfprint</strong> adalah dependensi sari <strong>fprintd</strong>.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Setelah melakukan instalasi paket fprintd, lantas kita perlu melakukan beberapa konfigurasi. Kalian dapat memilih konfigurasi-konfigurasi apa saja yang kalian perlukan dari beberapa konfigurasi yang saya lakukan di bawah ini. Tidak harus semua dilakukan, pilih saja yang kalian butuhkan.</p>
+
+<h2 id="login">Login</h2>
+
+<p>Untuk kalian yang menggunakan Gnome 3.26, <em>login manager</em> diatur oleh GDM. Apabila kalian ingin menggunakan <em>fingerprint scanner</em> untuk <em>login</em> pada GDM, kalian dapat mengikuti langkah ini. Gnome sudah menyediakan <em>fingerprint option</em> yang dapat kalian atur pada <strong>Settings &gt; Details &gt; Users</strong>. Kalian akan melihat window seperti di bawah ini,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://2.bp.blogspot.com/-QCKqPEIkctA/WmBdqy0o-kI/AAAAAAAAG4w/39ie3sVWaCA7Cn5U0Mkmwbk2lhNE3TiHwCLcBGAs/s1600/gambar_1.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Settings &gt; Details &gt; Users</p>
+
+<p>Kalian dapat melihat pada Gambar 1, terdapat <em>Fingerprint Login option</em> dengan nilai “<em>Enabled</em>”. Bagi teman-teman yang belum melakukan konfigurasi maka akan tertulis “<em>Disabled</em>”.</p>
+
+<p>Untuk dapat mengaktifkan <em>fingerprint login</em>, kalian perlu membuka kunci dari Settings dengan meng-klik tombol “<em>Unlock</em>” yang terdapat pada <em>top bar window Settings</em> terlebih dahulu. Kemudian pilih <em>Fingerprint Login</em>, dan ikuti petunjuk untuk melakukan <em>enroll</em> terhadap sidik jari kalian.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Apabila fingerprint option tidak terdapat pada menu Settings, kalian dapat menambahkan username kalian ke dalam input group.</p>
+    <p>Dengan cara,</p>
+    <pre><span class="cmd">$ </span><b>sudo usermod -aG input <mark>username</mark></b><br /></pre>
+    <p>Ganti username dengan nama username kalian.</p>
+  </div></div>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Apakah penulis juga menggunakan fingerprint scanner saat login?</b></p>
+    <p>Saya sendiri, menggunakan LightDM untuk login kedalam i3wm, dan saya tidak mengatur option fingerprint scanner untuk login ke dalam sistem. Karena alasan tertentu yang berhubungan dengan dekripsi direktori tertentu pada sistem, saya memilih untuk memasukkan password secara manual.</p>
+    <p>Lagipula memasukkan password pada login manager juga tidak sering kita lakukan seperti halnya memasukkan password sudo atau permission yang lainnnya. Maka dari itu saya teteap memilih untuk memasukkan password login secara manual. Hehehe 😁</p>
+  </div></div>
+
+<h2 id="membuat-fingerprint-signature-secara-manual">Membuat Fingerprint Signature secara Manual</h2>
+<p>Bagi teman-teman yang tidak menggunakan Gnome seperti di atas, Ada 2 cara untuk membuat <em>signature</em> sidik jari kalian, yaitu dengan <em>signature</em> hanya 1 jari dan <em>signature</em> dengan semua jari (banyak jari).</p>
+
+<p><br /></p>
+<h3 id="satu-jari-satu-jari-tertentu">Satu Jari (satu jari tertentu)</h3>
+
+<p>Untuk menambahkan <em>signature</em> 1 jari, defaultnya adalah telunjuk kanan.</p>
+
+<pre><span class="cmd">$ </span><b>fprintd-enroll <mark>username</mark></b><br /></pre>
+
+<p>*Ganti <code class="language-plaintext highlighter-rouge">username</code> dengan nama <em>username</em> kamu.</p>
+
+<p>Untuk jari tertentu, gunakan flag <code class="language-plaintext highlighter-rouge">-f</code> dikuti nama jarinya.</p>
+
+<p>Berikut ini daftar nama jari.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Left Fingers</th>
+      <th style="text-align: left">Right Fingers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">left-thumb</td>
+      <td style="text-align: left">right-thumb</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">left-index-finger</td>
+      <td style="text-align: left">right-index-finger</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">left-middle-finger</td>
+      <td style="text-align: left">right-middle-finger</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">left-ring-finger</td>
+      <td style="text-align: left">right-ring-finger</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">left-little-finger</td>
+      <td style="text-align: left">right-little-finger</td>
+    </tr>
+  </tbody>
+</table>
+
+<pre><span class="cmd">$ </span><b>fprintd-enroll <mark>username</mark> -f <mark>nama_jari</mark></b><br /></pre>
+
+<p><br /></p>
+<h3 id="semua-jari-10-jari">Semua Jari (10 jari)</h3>
+
+<p>Atau, dengan membuat baru <em>signature</em> untuk semua jari, namun terlebih dahulu kita perlu menghapus <em>signature</em> yang sudah kita buat sebelumnya,</p>
+
+<pre><span class="cmd">$ </span><b>fprintd-delete <mark>username</mark></b><br /></pre>
+
+<p>*Ganti <code class="language-plaintext highlighter-rouge">username</code> dengan nama <em>username</em> kamu.</p>
+
+<p>Selanjutnya, langkah memasukkan <em>signature</em> untuk semua jari,</p>
+
+<pre><span class="cmd">$ </span><b>for finger in {left,right}-{thumb,{index,middle,ring,little}-finger}; do fprintd-enroll -f $finger <mark>username</mark>; done</b><br /></pre>
+
+<p>*Ganti <code class="language-plaintext highlighter-rouge">username</code> dengan nama username kamu.</p>
+
+<p>Kemudian, kalian akan diminta memasukkan 10 sidik jari dengan masing-masing 3x scan setiap jari.</p>
+
+<h2 id="konfirmasi-fingerprint">Konfirmasi Fingerprint</h2>
+
+<p>Setelah kita mendaftarkan sidik jari, kita perlu melakukan konfirmasi, apakah sidik jari yang usdah kita inputkan dapat digunakan atau tidak.</p>
+
+<pre><span class="cmd">$ </span><b>fprintd-verify <mark>username</mark></b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Using device /net/reactivated/Fprint/Device/0
+Listing enrolled fingers:
+ - #0: right-index-finger
+</code></pre></div></div>
+
+<p>Nah, kita diminta untuk melakukan scanning terhadap jari yang dimaksud.</p>
+
+<p>Apabila benar, akan keluar tampilan seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Verify result: verify-match (done)
+</code></pre></div></div>
+
+<h2 id="mengamankan-fingerprint-signature">Mengamankan FingerPrint Signature</h2>
+<p>Secara <em>default</em>, hasil <em>enroll</em> dari <em>fingerprint scanner</em> yang sudah kita buat dapat dengan mudah ditimpa dengan yang baru atau dihapus dengan perintah <code class="language-plaintext highlighter-rouge">$ fprintd-delete</code>, tanpa perlu terlebih dahulu menggunakan <code class="language-plaintext highlighter-rouge">sudo</code> <em>permission</em>. Kalian dapat mengubah aturan ini dengan memanfaatkan pengaturan pada <em>Polkit rules</em>.</p>
+
+<p>Kita akan membuat file baru pada <code class="language-plaintext highlighter-rouge">/etc/polkit-1/rules.d/</code> dengan isi hanya <em>superuser</em> yang dapat melakukan perubahan pada <em>fingerprint signature</em>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/polkit-1/rules.d/50-net.reactivated.fprint.device.enroll.rules</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre>polkit.addRule<span class="o">(</span><span class="k">function</span> <span class="o">(</span>action, subject<span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span>action.id <span class="o">==</span> <span class="s2">"net.reactivated.fprint.device.enroll"</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return </span>subject.user <span class="o">==</span> <span class="s2">"root"</span> ? polkit.Result.YES : polkit.result.NO
+    <span class="o">}</span>
+<span class="o">})</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sekarang, untuk melakukan <em>enroll fingerprint</em> harus <strong>membutuhkan <em>sudo permission</em> terlebih dahulu</strong>.</p>
+
+<h3 id="pam">PAM</h3>
+
+<p>Untuk menggunakan <em>fingerprint scanner</em> pada saat Terminal meminta kita memasukan <em>password sudo</em>, atau saat sistem meminta kita memasukkan <em>password Polkit</em>, kita perlu mengedit dan melakukan penambahan beberapa baris perintah pada isi dari file-file yang terdapat pada direktori <code class="language-plaintext highlighter-rouge">/etc/pam.d/</code> berikut ini.</p>
+
+<h3 id="sudo">Sudo</h3>
+<p>Untuk menggunakan <em>fingerprint</em> pada saat menggunakan <code class="language-plaintext highlighter-rouge">sudo</code>,</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/pam.d/sudo</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/pam.d/sudo</code></div>
+<pre class="caption">
+#%PAM-1.0
+
+<mark>auth  	 sufficient  pam_unix.so try_first_pass likeauth nullok
+auth     sufficient  pam_fprintd.so</mark>
+
+auth     include    system-auth
+account  include    system-auth
+session  include    system-auth
+</pre>
+
+<p>Letakkan pada bagian atas dari aturan (<em>rules</em>) yang sudah ada sebelumnya.</p>
+
+<p>Tujuannya agar kita diminta untuk memasukkan password terlebih dahulu, apabila gagal, baru kita akan diminta fingerprint.</p>
+
+<p>Kalau tidak ingin menginputkan password, langsung saja tekan <kbd>Enter</kbd> untuk melewati inputan password dan langsung ke permintaan fingerprint.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/Gmfjqt7x/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h3 id="polkit">Polkit</h3>
+
+<p>Untuk menggunakan <em>fingerprint</em> pada saat ada aplikasi GUI yang membutuhkan akses <em>superuser</em> dengan bantuan <em>Polkit</em>,</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/pam.d/polkit-1</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/pam.d/polkit-1</code></div>
+<pre class="caption">
+#%PAM-1.0
+
+<mark>auth      sufficient  pam_fprintd.so</mark>
+auth      include     system-auth
+account   include     system-auth
+password  include     system-auth
+session   include     system-auth
+</pre>
+
+<p>Demonya begini,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/XJbQ0c1L/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h3 id="i3lock">i3lock</h3>
+
+<p>Untuk membuka i3lock dengan menggunakan <em>fingerprint scanner</em>,</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim /etc/pam.d/i3lock</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/pam.d/i3lock</code></div>
+<pre class="caption">#<br /># PAM configuration file for the i3lock-color screen locker. By default, it includes<br /># the 'system-auth' configuration file (see /etc/pam.d/system-auth) for Arch and Gentoo<br /># and 'login' for Debian. Note that vanilla i3lock upstream uses 'login' instead.<br />#<br /><br />#auth   include      system-auth     # For Arch/Gentoo<br />#auth   include      login           # For Debian<br /><br /><mark>auth   sufficient   pam_unix.so    try_first_pass likeauth nullok</mark><br /><mark>auth   sufficient   pam_fprintd.so</mark><br /></pre>
+
+<p>*Disable isi sebelumnya dengan menambahkan tanda <code class="language-plaintext highlighter-rouge">#</code> pada awal baris, kemudian tambahkan 3 baris di bawahnya, seperti contoh di atas.</p>
+
+<p>Untuk dapat menggunakannya, saat i3lock sudah aktif, terlebih dahulu kita harus menekan tombol <kbd>Enter</kbd>, maka <em>fingerprint scanner</em> akan aktif, kemudian <em>unlock</em> i3lock dengan melakukan <em>enroll fingerprint</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/tJD3P4nP/gambar-03.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="https://wiki.archlinux.org/index.php/Fprint">wiki.archlinux.org/index.php/Fprint</a>
+<br />Diakses tanggal: 2018/01/18</li>
+  <li><a href="https://bbs.archlinux.org/viewtopic.php?id=176181">bbs.archlinux.org/viewtopic.php?id=176181</a>
+<br />Diakses tanggal: 2018/01/18</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, freebsd">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Konfigurasi DNSCrypt-proxy di FreeBSD | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Konfigurasi DNSCrypt-proxy di FreeBSD" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Kali ini adalah catatan mengenai konfigurasi dnscrypt-proxy pada lingkungan FreeBSD." />
+<meta property="og:description" content="Kali ini adalah catatan mengenai konfigurasi dnscrypt-proxy pada lingkungan FreeBSD." />
+<link rel="canonical" href="https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-freebsd" />
+<meta property="og:url" content="https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-freebsd" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-22T20:29:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-freebsd"},"description":"Kali ini adalah catatan mengenai konfigurasi dnscrypt-proxy pada lingkungan FreeBSD.","url":"https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-freebsd","@type":"BlogPosting","headline":"Konfigurasi DNSCrypt-proxy di FreeBSD","dateModified":"2020-03-22T20:29:00+08:00","datePublished":"2020-03-22T20:29:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Konfigurasi DNSCrypt-proxy di FreeBSD"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/konfigurasi-dnscrypt-proxy-freebsd">Konfigurasi DNSCrypt-proxy di FreeBSD</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/03/22</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Konfigurasi dnscrypt proxy freebsd
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#freebsd">FreeBSD</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Kalau sebelumnya, saya sudah pernah menuliskan mengenai <a href="/blog/konfigurasi-dnscrypt-proxy" target="_blank">“Konfigurasi DNSCrypt di Arch Linux”</a>, maka kali ini masih mengenai konfigurasi DNSCrypt juga namun pada sistem operasi FreeBSD. Woho!</p>
+
+<p>Kira-kira awal Maret 2020, saya sudah resmi bermigrasi menggunakan FreeBSD. Sebenarnya beberapa hari setelahnya saya sudah mengkonfigurasi DNSCrypt-proxy agar dapat berjalan di FreeBSD. Namun, gagal. Ahaha.</p>
+
+<p>Konfigurasi DNSCrypt-proxy pada FreeBSD pasti akan berbeda dengan Arch Linux, karena service dijalankan dengan cara yang berbeda. Arch Linux menggunakan systemd sedangkan FreeBSD menggunakan BSD init.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Sebenarnya saya tidak tahu, bagaimana cara yang benar dalam mengkonfigurasi DNSCypt-proxy di FreeBSD. Yang saya lakukan berikut ini adalah hasil buah pemikiran sendiri.</p>
+    <p>Maka dari itu, apabila cara yang saya lakukan ternyata tidak tepat, <b>mohon kesediannya untuk memberikan rekomendasi cara yang benar</b>.</p>
+    <p>Terima kasih. (^_^)</p>
+  </div></div>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Pasang dahulu paket <code class="language-plaintext highlighter-rouge">dnscrypt-proxy2</code>. Saat tulisan ini dibuat, paket ini sudah mencapai versi 2.0.39. Sedangkan pada repositori GitHubnya sudah mencapai versi 2.0.40</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Name           : dnscrypt-proxy2
+Version        : 2.0.39
+Installed on   : Sun Mar 22 14:34:59 2020 WITA
+Origin         : dns/dnscrypt-proxy2
+Architecture   : FreeBSD:12:amd64
+Prefix         : /usr/local
+Categories     : security dns
+Licenses       : ISCL
+Maintainer     : egypcio@FreeBSD.org
+WWW            : https://github.com/jedisct1/dnscrypt-proxy
+Comment        : Flexible DNS proxy with support for encrypted protocols
+Options        :
+DOCS           : on
+EXAMPLES       : on
+Annotations    :
+FreeBSD_version: 1201000
+repo_type      : binary
+repository     : FreeBSD
+Flat size      : 8.00MiB
+Description    :
+A flexible DNS proxy with support for modern encrypted DNS protocols such as
+DNSCrypt v2 and DNS-over-HTTP/2.
+
+WWW: https://github.com/jedisct1/dnscrypt-proxy
+</code></pre></div></div>
+
+<p>Saya akan menggunakan pkg.</p>
+
+<pre><span class="cmd">$ </span><b>doas pkg install dnscrypt-proxy2</b><br /></pre>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Biasanya, setelah proses instalasi selesai, akan keluar <em>message</em>. Saat tulisan ini dibuat, <em>message</em> yang dikeluarkan adalah seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Message from dnscrypt-proxy2-2.0.39:
+
+--
+Version 2 of dnscrypt-proxy is written in Go and therefore isn't capable
+of dropping privileges after binding to a low port on FreeBSD.
+
+By default, this port's daemon will listen on port 5353 (TCP/UDP) as the
+_dnscrypt-proxy user.
+
+It's possible to bind it and listen on port 53 (TCP/UDP) with mac_portacl(4)
+kernel module (network port access control policy). For this add
+dnscrypt_proxy_mac_portacl_enable=YES in your rc.conf. The dnscrypt-proxy
+startup script will load mac_portacl and add a rule where _dnscrypt-proxy user will
+be able to bind on port 53 (TCP/UDP). This port can be changed by
+dnscrypt_proxy_mac_portacl_port variable in your rc.conf. You also need to
+change dnscrypt-proxy config file to use port 53.
+
+Below are a few examples on how to redirect local connections from port
+5353 to 53.
+
+[ipfw]
+
+  ipfw nat 1 config if lo0 reset same_ports \
+    redirect_port tcp 127.0.0.1:5353 53 \
+    redirect_port udp 127.0.0.1:5353 53
+  ipfw add nat 1 ip from any to 127.0.0.1 via lo0
+
+  /etc/rc.conf:
+    firewall_enable="YES"
+    firewall_nat_enable="YES"
+
+  /etc/sysctl.conf:
+    net.inet.ip.fw.one_pass=0
+
+[pf]
+
+  set skip on lo0
+  rdr pass on lo0 proto { tcp udp } from any to port 53 -&gt; 127.0.0.1 port 5353
+
+  /etc/rc.conf:
+    pf_enable="YES"
+
+[unbound]
+
+  /etc/rc.conf:
+    local_unbound_enable="YES"
+
+  /var/unbound/unbound.conf:
+    server:
+      interface: 127.0.0.1
+      do-not-query-localhost: no
+
+  /var/unbound/forward.conf:
+    forward-zone:
+      name: "."
+      forward-addr: 127.0.0.1@5353
+
+  If you are using local_unbound, DNSSEC is enabled by default. You should
+  comment the "auto-trust-anchor-file" line or change dnscrypt-proxy to use
+  servers with DNSSEC support only.
+</code></pre></div></div>
+
+<p>Nah, keren yaa, hehe. Ada rekomendasi konfigurasi yang diberikan oleh maintainer.</p>
+
+<p>Biasanya, saya tinggal mengikuti pesan rekomendasi ini, dan konfigurasi sudah siap digunakan.</p>
+
+<p>Namun, untuk kali ini, mungkin saya kurang bisa memahami pesan rekomendasi untuk pengaturan DNSCrypt-proxy.</p>
+
+<p>Baik, langsung saja saya mulai dengan menambahkan satu baris konfigurasi pada <code class="language-plaintext highlighter-rouge">/etc/rc.conf</code>.</p>
+
+<pre><span class="cmd">$ </span><b>doas vim /etc/rc.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...
+# ...
+</span>
+<span class="c"># dnscrypt-proxy2
+</span><span class="n">dnscrypt_proxy_mac_portacl_enable</span>=<span class="s2">"YES"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tujuan dari penambahan ini adalah untuk merubah default port yang akan di-listen dari <em>default</em> port 5353 (TCP/UDP) ke port 53 (TCP/UDP) dengan bantuan <code class="language-plaintext highlighter-rouge">mac_portacl</code> (<em>network port access control policy</em>).</p>
+
+<p>Selanjutnya cek file konfigurasi untuk DNSCrypt-proxy.</p>
+
+<pre><span class="cmd">$ </span><b>doas vim /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml</b><br /></pre>
+
+<p>Periksa apakah port yang digunakan sudah menggunakan port <strong>53</strong>, kira-kira pada baris 37.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml</code></div>
+
+<figure class="highlight"><pre><code class="language-toml" data-lang="toml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c">## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.</span>
+<span class="c">## Example with both IPv4 and IPv6:</span>
+<span class="c">## listen_addresses = ['127.0.0.1:5353']</span>
+
+<span class="py">listen_addresses</span> <span class="p">=</span> <span class="nn">['127.0.0.1:53']</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, sejauh yang saya pahami pada pesan rekomendasi pasca proses instalasi, kita diminta untuk menambahkan beberapa pengaturan seperti untuk <code class="language-plaintext highlighter-rouge">[ipfw]</code>, <code class="language-plaintext highlighter-rouge">[pf]</code>, dan <code class="language-plaintext highlighter-rouge">[unbound]</code>.</p>
+
+<p>Selanjutnya, kita perlu membuat dns nameserver memiliki alamat <code class="language-plaintext highlighter-rouge">127.0.0.1</code>. Kalau saat ini, dns resolver saya masih memiliki nameserver yang digenerate otomatis oleh ISP.</p>
+
+<p>Cek dengan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>cat /etc/resolv.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/resolv.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="n">nameserver</span> <span class="m">118</span>.<span class="m">98</span>.<span class="m">44</span>.<span class="m">10</span>
+<span class="n">nameserver</span> <span class="m">118</span>.<span class="m">98</span>.<span class="m">44</span>.<span class="m">100</span>
+<span class="n">nameserver</span> <span class="n">fe80</span>::<span class="m">1</span>%<span class="n">wlan0</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk membuat perubahan yang permanen, saya menggunakan <code class="language-plaintext highlighter-rouge">/etc/dhclient.conf</code>.</p>
+
+<pre><span class="cmd">$ </span><b>doas vim /etc/dhclient.conf</b><br /></pre>
+
+<p>Tambahkan baris ini,</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/dhclient.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">supersede</span> <span class="n">domain</span>-<span class="n">name</span>-<span class="n">servers</span> <span class="m">127</span>.<span class="m">0</span>.<span class="m">0</span>.<span class="m">1</span>;
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, untuk dapat menerapkan konfigurasi ini, kita perlu merestart network.</p>
+
+<pre><span class="cmd">$ </span><b>doas service netif restart</b><br /></pre>
+
+<p>Nah, sekarang coba <strong>restart</strong> terlebih dahulu. Agar konfigurasi yang kita pasang pada file <code class="language-plaintext highlighter-rouge">/etc/rc.conf</code> dapat dijalankan.</p>
+
+<p>Setelah itu, saat ini kita tidak dapat melakukan ping keluar. Tapi jangan khawatir, karena kita belum menjalankan DNSCrypt-proxy service.</p>
+
+<p>Coba periksa status dari service DNSCrypt-proxy.</p>
+
+<pre><span class="cmd">$ </span><b>doas service dnscrypt-proxy onestatus</b><br /></pre>
+
+<p>Hasilnya akan,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnscrypt_proxy is not running.
+</code></pre></div></div>
+
+<p>Kalau kita coba untuk menjalankannya.</p>
+
+<pre><span class="cmd">$ </span><b>doas service dnscrypt-proxy onestart</b><br /></pre>
+
+<p>Hasilnya akan tetap sama.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnscrypt_proxy is not running.
+</code></pre></div></div>
+
+<p><strong>Kalau gagal seperti ini, bagaimana cara menjalankan DNSCrypt-proxy?</strong></p>
+
+<p>Lantas saya mencoba menjalankan DNSCrypt-proxy via Terminal dengan mengkaitkan dengan file config.</p>
+
+<pre><span class="cmd">$ </span><b>doas dnscrypt-proxy -config /usr/local/etc/dnscrypt-proxy/dnscrypt-proxy.toml</b><br /></pre>
+
+<p>Nah, outputnya akan seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2020-03-22 22:43:48] [NOTICE] dnscrypt-proxy 2.0.39
+[2020-03-22 22:43:48] [NOTICE] Network connectivity detected
+[2020-03-22 22:43:48] [NOTICE] Source [public-resolvers] loaded
+[2020-03-22 22:43:48] [NOTICE] Source [relays] loaded
+[2020-03-22 22:43:48] [NOTICE] Firefox workaround initialized
+[2020-03-22 22:43:48] [NOTICE] Now listening to 127.0.0.1:53 [UDP]
+[2020-03-22 22:43:48] [NOTICE] Now listening to 127.0.0.1:53 [TCP]
+[2020-03-22 22:43:49] [NOTICE] [ibksturm] OK (DNSCrypt) - rtt: 278ms
+[2020-03-22 22:43:49] [NOTICE] [dnscrypt.one] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:43:49] [NOTICE] [opennic-luggs] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:43:49] [NOTICE] [skyfighter-dns] OK (DNSCrypt) - rtt: 252ms
+[2020-03-22 22:43:50] [NOTICE] [quad9-doh-ip4-nofilter-pri] OK (DoH) - rtt: 36ms
+[2020-03-22 22:43:51] [NOTICE] [cloudflare] OK (DoH) - rtt: 42ms
+[2020-03-22 22:43:52] [NOTICE] [lelux.fi] OK (DoH) - rtt: 307ms
+[2020-03-22 22:43:56] [NOTICE] [jp.tiarap.org] OK (DoH) - rtt: 1652ms
+[2020-03-22 22:43:57] [NOTICE] [opennic-R4SAS] OK (DNSCrypt) - rtt: 408ms
+[2020-03-22 22:44:00] [NOTICE] [powerdns-doh] OK (DoH) - rtt: 1095ms
+[2020-03-22 22:44:02] [NOTICE] [doh.appliedprivacy.net] OK (DoH) - rtt: 250ms
+[2020-03-22 22:44:02] [NOTICE] [quad9-dnscrypt-ip4-nofilter-alt] OK (DNSCrypt) - rtt: 41ms
+[2020-03-22 22:44:02] [NOTICE] [quad9-dnscrypt-ip4-nofilter-alt] OK (DNSCrypt) - rtt: 41ms - additional certificate
+[2020-03-22 22:44:02] [NOTICE] [ev-va] OK (DNSCrypt) - rtt: 366ms
+[2020-03-22 22:44:03] [NOTICE] [arvind-io] OK (DNSCrypt) - rtt: 305ms
+[2020-03-22 22:44:03] [NOTICE] [scaleway-fr] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:44:05] [NOTICE] [dns.digitale-gesellschaft.ch] OK (DoH) - rtt: 309ms
+[2020-03-22 22:44:05] [NOTICE] [opennic-rico4514] OK (DNSCrypt) - rtt: 303ms
+[2020-03-22 22:44:05] [NOTICE] [v.dnscrypt.uk-ipv4] OK (DNSCrypt) - rtt: 245ms
+[2020-03-22 22:44:06] [NOTICE] [dnscrypt.ca-1] OK (DNSCrypt) - rtt: 366ms
+[2020-03-22 22:44:08] [NOTICE] [libredns] OK (DoH) - rtt: 205ms
+[2020-03-22 22:44:09] [NOTICE] [sea-doh-us] OK (DoH) - rtt: 335ms
+[2020-03-22 22:44:10] [NOTICE] [jp.tiar.app] OK (DNSCrypt) - rtt: 503ms
+[2020-03-22 22:44:12] [NOTICE] [doh-crypto-sx] OK (DoH) - rtt: 369ms
+[2020-03-22 22:44:15] [NOTICE] [ffmuc.net] OK (DNSCrypt) - rtt: 231ms
+[2020-03-22 22:44:17] [NOTICE] [doh.ffmuc.net] OK (DoH) - rtt: 716ms
+[2020-03-22 22:44:17] [NOTICE] [securedns] OK (DNSCrypt) - rtt: 308ms
+[2020-03-22 22:44:18] [NOTICE] [opennic-luggs2] OK (DNSCrypt) - rtt: 304ms
+[2020-03-22 22:44:19] [NOTICE] [publicarray-au2-doh] OK (DoH) - rtt: 175ms
+[2020-03-22 22:44:20] [NOTICE] [a-and-a] OK (DoH) - rtt: 306ms
+[2020-03-22 22:44:31] [NOTICE] [dnscrypt.eu-dk] OK (DNSCrypt) - rtt: 288ms
+[2020-03-22 22:44:32] [NOTICE] [publicarray-au-doh] OK (DoH) - rtt: 699ms
+[2020-03-22 22:44:33] [NOTICE] [d0wn-is-ns2] OK (DNSCrypt) - rtt: 409ms
+[2020-03-22 22:44:34] [NOTICE] [gridns-jp] OK (DoH) - rtt: 334ms
+[2020-03-22 22:44:36] [NOTICE] [sth-dnscrypt-se] OK (DNSCrypt) - rtt: 333ms
+[2020-03-22 22:44:37] [NOTICE] [d0wn-tz-ns1] OK (DNSCrypt) - rtt: 468ms
+[2020-03-22 22:44:37] [NOTICE] [ams-dnscrypt-nl] OK (DNSCrypt) - rtt: 248ms
+[2020-03-22 22:44:49] [NOTICE] [jp.tiar.app-doh] OK (DoH) - rtt: 305ms
+[2020-03-22 22:44:50] [NOTICE] [nextdns] OK (DoH) - rtt: 225ms
+[2020-03-22 22:44:50] [NOTICE] [soltysiak] OK (DNSCrypt) - rtt: 294ms
+[2020-03-22 22:44:54] [NOTICE] [faelix] OK (DoH) - rtt: 1432ms
+[2020-03-22 22:44:59] [NOTICE] [dnscrypt.nl-ns0] TIMEOUT
+[2020-03-22 22:44:59] [NOTICE] [qualityology.com] OK (DNSCrypt) - rtt: 224ms
+[2020-03-22 22:45:00] [NOTICE] [dnscrypt.ca-2] OK (DNSCrypt) - rtt: 295ms
+[2020-03-22 22:45:00] [NOTICE] [dnscrypt.uk-ipv4] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:45:00] [NOTICE] [publicarray-au] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:45:01] [NOTICE] [quad9-doh-ip4-nofilter-alt] OK (DoH) - rtt: 38ms
+[2020-03-22 22:45:01] [NOTICE] [ev-to] OK (DNSCrypt) - rtt: 375ms
+[2020-03-22 22:45:02] [NOTICE] [scaleway-ams] OK (DNSCrypt) - rtt: 301ms
+[2020-03-22 22:45:03] [NOTICE] [doh-fi-snopyta] OK (DoH) - rtt: 308ms
+[2020-03-22 22:45:03] [NOTICE] [publicarray-au2] OK (DNSCrypt) - rtt: 203ms
+[2020-03-22 22:45:04] [NOTICE] [freetsa.org] OK (DNSCrypt) - rtt: 306ms
+[2020-03-22 22:45:05] [NOTICE] [securedns-doh] OK (DoH) - rtt: 295ms
+[2020-03-22 22:45:05] [NOTICE] [quad9-dnscrypt-ip4-nofilter-pri] OK (DNSCrypt) - rtt: 53ms
+[2020-03-22 22:45:05] [NOTICE] [quad9-dnscrypt-ip4-nofilter-pri] OK (DNSCrypt) - rtt: 53ms - additional certificate
+[2020-03-22 22:45:07] [NOTICE] [rumpelsepp.org] OK (DoH) - rtt: 260ms
+[2020-03-22 22:45:08] [NOTICE] [ams-doh-nl] OK (DoH) - rtt: 307ms
+[2020-03-22 22:45:10] [NOTICE] [dnscrypt.ca-1-doh] OK (DoH) - rtt: 324ms
+[2020-03-22 22:45:11] [NOTICE] [opennic-bongobow] OK (DNSCrypt) - rtt: 280ms
+[2020-03-22 22:45:13] [NOTICE] [sth-doh-se] OK (DoH) - rtt: 333ms
+[2020-03-22 22:45:18] [NOTICE] [dnscrypt.eu-nl] OK (DNSCrypt) - rtt: 409ms
+[2020-03-22 22:45:18] [NOTICE] Sorted latencies:
+[2020-03-22 22:45:18] [NOTICE] -    36ms quad9-doh-ip4-nofilter-pri
+[2020-03-22 22:45:18] [NOTICE] -    38ms quad9-doh-ip4-nofilter-alt
+[2020-03-22 22:45:18] [NOTICE] -    41ms quad9-dnscrypt-ip4-nofilter-alt
+[2020-03-22 22:45:18] [NOTICE] -    42ms cloudflare
+[2020-03-22 22:45:18] [NOTICE] -    53ms quad9-dnscrypt-ip4-nofilter-pri
+[2020-03-22 22:45:18] [NOTICE] -   175ms publicarray-au2-doh
+[2020-03-22 22:45:18] [NOTICE] -   203ms publicarray-au2
+[2020-03-22 22:45:18] [NOTICE] -   205ms libredns
+[2020-03-22 22:45:18] [NOTICE] -   224ms qualityology.com
+[2020-03-22 22:45:18] [NOTICE] -   225ms nextdns
+[2020-03-22 22:45:18] [NOTICE] -   231ms ffmuc.net
+[2020-03-22 22:45:18] [NOTICE] -   245ms v.dnscrypt.uk-ipv4
+[2020-03-22 22:45:18] [NOTICE] -   248ms ams-dnscrypt-nl
+[2020-03-22 22:45:18] [NOTICE] -   250ms doh.appliedprivacy.net
+[2020-03-22 22:45:18] [NOTICE] -   252ms skyfighter-dns
+[2020-03-22 22:45:18] [NOTICE] -   260ms rumpelsepp.org
+[2020-03-22 22:45:18] [NOTICE] -   278ms ibksturm
+[2020-03-22 22:45:18] [NOTICE] -   280ms opennic-bongobow
+[2020-03-22 22:45:18] [NOTICE] -   288ms dnscrypt.eu-dk
+[2020-03-22 22:45:18] [NOTICE] -   294ms soltysiak
+[2020-03-22 22:45:18] [NOTICE] -   295ms dnscrypt.ca-2
+[2020-03-22 22:45:18] [NOTICE] -   295ms securedns-doh
+[2020-03-22 22:45:18] [NOTICE] -   301ms scaleway-ams
+[2020-03-22 22:45:18] [NOTICE] -   303ms opennic-rico4514
+[2020-03-22 22:45:18] [NOTICE] -   304ms opennic-luggs2
+[2020-03-22 22:45:18] [NOTICE] -   305ms arvind-io
+[2020-03-22 22:45:18] [NOTICE] -   305ms jp.tiar.app-doh
+[2020-03-22 22:45:18] [NOTICE] -   306ms dnscrypt.one
+[2020-03-22 22:45:18] [NOTICE] -   306ms opennic-luggs
+[2020-03-22 22:45:18] [NOTICE] -   306ms scaleway-fr
+[2020-03-22 22:45:18] [NOTICE] -   306ms a-and-a
+[2020-03-22 22:45:18] [NOTICE] -   306ms dnscrypt.uk-ipv4
+[2020-03-22 22:45:18] [NOTICE] -   306ms publicarray-au
+[2020-03-22 22:45:18] [NOTICE] -   306ms freetsa.org
+[2020-03-22 22:45:18] [NOTICE] -   307ms lelux.fi
+[2020-03-22 22:45:18] [NOTICE] -   307ms ams-doh-nl
+[2020-03-22 22:45:18] [NOTICE] -   308ms securedns
+[2020-03-22 22:45:18] [NOTICE] -   308ms doh-fi-snopyta
+[2020-03-22 22:45:18] [NOTICE] -   309ms dns.digitale-gesellschaft.ch
+[2020-03-22 22:45:18] [NOTICE] -   324ms dnscrypt.ca-1-doh
+[2020-03-22 22:45:18] [NOTICE] -   333ms sth-dnscrypt-se
+[2020-03-22 22:45:18] [NOTICE] -   333ms sth-doh-se
+[2020-03-22 22:45:18] [NOTICE] -   334ms gridns-jp
+[2020-03-22 22:45:18] [NOTICE] -   335ms sea-doh-us
+[2020-03-22 22:45:18] [NOTICE] -   366ms ev-va
+[2020-03-22 22:45:18] [NOTICE] -   366ms dnscrypt.ca-1
+[2020-03-22 22:45:18] [NOTICE] -   369ms doh-crypto-sx
+[2020-03-22 22:45:18] [NOTICE] -   375ms ev-to
+[2020-03-22 22:45:18] [NOTICE] -   408ms opennic-R4SAS
+[2020-03-22 22:45:18] [NOTICE] -   409ms d0wn-is-ns2
+[2020-03-22 22:45:18] [NOTICE] -   409ms dnscrypt.eu-nl
+[2020-03-22 22:45:18] [NOTICE] -   468ms d0wn-tz-ns1
+[2020-03-22 22:45:18] [NOTICE] -   503ms jp.tiar.app
+[2020-03-22 22:45:18] [NOTICE] -   699ms publicarray-au-doh
+[2020-03-22 22:45:18] [NOTICE] -   716ms doh.ffmuc.net
+[2020-03-22 22:45:18] [NOTICE] -  1095ms powerdns-doh
+[2020-03-22 22:45:18] [NOTICE] -  1432ms faelix
+[2020-03-22 22:45:18] [NOTICE] -  1652ms jp.tiarap.org
+[2020-03-22 22:45:18] [NOTICE] Server with the lowest initial latency: quad9-doh-ip4-nofilter-pri (rtt: 36ms)
+[2020-03-22 22:45:18] [NOTICE] dnscrypt-proxy is ready - live servers: 58
+</code></pre></div></div>
+<p>Lihat, akan ada penilaian besar latency.</p>
+
+<p>Dapat dilihat bahwa server bernama <code class="language-plaintext highlighter-rouge">quad9-doh-ip4-nofilter-pri</code> memiliki rtt (<em>round-trip delay time</em>) paling kecil diantara server lainnya, sebesar 36ms.</p>
+
+<p>Dan pada akhirnya akan ada output,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[2020-03-22 22:45:18] [NOTICE] dnscrypt-proxy is ready - live servers: 58
+</code></pre></div></div>
+
+<p>Kalau sudah begini, langsung bisa kita gunakan.</p>
+
+<p>Coba lakukan pengetesan dengan <a href="https://www.dnsleaktest.com/" target="_blank"><strong>dnsleaktest.com</strong></a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/zvPYSxkr/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Hasil pengetesan dengan dnsleaktest.com<br />(<i>gambar menyusul server postimages sedang maintenance</i>)</p>
+
+<p>Selanjutnya, saya perlu untuk membuat proses pemanggilan DNSCrypt-proxy ini menjadi otomatis saat sistem pertama kali di jalankan. Agar tidak perlu repot-repot.</p>
+
+<p>Karena saya menggunakan BSPWM, saya hanya perlu menambahkan perintah pemanggilan DNSCrypt-proxy pada BSPWM config.</p>
+
+<p>Contohnya begini kira-kira untuk punya saya.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/bspwm/bspwmrc</b><br /></pre>
+
+<p>Dan tambahkan command untuk menjalankan DNSCrypt-proxy seperti saat kita menjalankan di atas Terminal.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/bspwm/bspwmrc</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c"># ...
+# ...
+</span><span class="n">sudo</span> <span class="n">dnscrypt</span>-<span class="n">proxy</span> -<span class="n">config</span> /<span class="n">usr</span>/<span class="n">local</span>/<span class="n">etc</span>/<span class="n">dnscrypt</span>-<span class="n">proxy</span>/<span class="n">dnscrypt</span>-<span class="n">proxy</span>.<span class="n">toml</span> &amp;
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk teman-teman yang menggunakan Desktop Environment atau Window Manager yang lain, silahkan menyesuaikan sendiri yaa. (^_^)</p>
+
+<p><br />
+Nah, permasalahannya, adalah saya memerlukan <strong>sudo</strong>.</p>
+
+<p>Sementara, saya akan izinkan user saya, agar menjalankan DNSCrypt-proxy tanpa perlu memasukkan password.</p>
+
+<p>Caranya, tambahkan pada <code class="language-plaintext highlighter-rouge">visudo</code>.</p>
+
+<pre><span class="cmd">$ </span><b>doas visudo</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>visudo</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c"># ...
+# ...
+</span>
+<span class="n">bandithijo</span> <span class="n">ALL</span>=(<span class="n">ALL</span>) <span class="n">NOPASSWD</span>: /<span class="n">usr</span>/<span class="n">bin</span>/<span class="n">killall</span>,/<span class="n">usr</span>/<span class="n">local</span>/<span class="n">sbin</span>/<span class="n">dnscrypt</span>-<span class="n">proxy</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, saya juga sekalian menambahkan untuk <code class="language-plaintext highlighter-rouge">killall</code> agar dapat dijalankan tanpa perlu memasukkan password.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p><b>visudo</b> hanya akan terdapat pada teman-teman yang menggunakan paket <b>sudo</b> pada FreeBSD.</p>
+    <p>Untuk yang menggunakan <b>doas</b>, silahkan menyesuaikan sendiri untuk pengaturannya yaa. (^_^)</p>
+  </div></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Oke sementara segini dulu.</p>
+
+<p>Mungkin beberapa hari lagi akan saya update hasil ekperimen menjalankan DNSCrypt-proxy tanpa menggunakan <strong>sudo</strong>.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://dnscrypt.info/" target="_blank">dnscrypt.info/</a>
+<br />Diakses tanggal: 2020/03/22</p>
+  </li>
+  <li>
+    <p><a href="https://www.dnscrypt.org/" target="_blank">dnscrypt.org/</a>
+<br />Diakses tanggal: 2020/03/22</p>
+  </li>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/DNSCrypt" target="_blank">en.wikipedia.org/wiki/DNSCrypt</a>
+<br />Diakses tanggal: 2020/03/22</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/DNSCrypt/dnscrypt-proxy" target="_blank">github.com/DNSCrypt/dnscrypt-proxy</a>
+<br />Diakses tanggal: 2020/03/22</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

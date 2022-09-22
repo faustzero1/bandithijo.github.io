@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="terminal, tools, tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Ranger adalah TUI (Terminal User Interface) file manager yang ditulis dengan bahasa pemrograman Python. Kalau yang pernah tahu MC (Midnight Commander), nah serupa, sama-sama file manager. Menggunakian ranger sangat mendongkrak efektifitas saya dalam melakukan eksplorasi terhadap file-file yang terdapat di sistem saya." />
+<meta property="og:description" content="Ranger adalah TUI (Terminal User Interface) file manager yang ditulis dengan bahasa pemrograman Python. Kalau yang pernah tahu MC (Midnight Commander), nah serupa, sama-sama file manager. Menggunakian ranger sangat mendongkrak efektifitas saya dalam melakukan eksplorasi terhadap file-file yang terdapat di sistem saya." />
+<link rel="canonical" href="https://bandithijo.dev/blog/ranger-file-manager" />
+<meta property="og:url" content="https://bandithijo.dev/blog/ranger-file-manager" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-17T09:18:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/ranger-file-manager"},"description":"Ranger adalah TUI (Terminal User Interface) file manager yang ditulis dengan bahasa pemrograman Python. Kalau yang pernah tahu MC (Midnight Commander), nah serupa, sama-sama file manager. Menggunakian ranger sangat mendongkrak efektifitas saya dalam melakukan eksplorasi terhadap file-file yang terdapat di sistem saya.","url":"https://bandithijo.dev/blog/ranger-file-manager","@type":"BlogPosting","headline":"Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan","dateModified":"2018-12-17T09:18:00+08:00","datePublished":"2018-12-17T09:18:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/ranger-file-manager">Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/12/17</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Ranger file manager
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#terminal">Terminal</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#instalasi">Instalasi</a>
+    <ul>
+      <li><a href="#membuat-app-launcher">Membuat App Launcher</a></li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#rcconf---konfigurasi-options">rc.conf - Konfigurasi Options</a>
+        <ul>
+          <li><a href="#konfirmasi-saat-delete">Konfirmasi Saat Delete</a></li>
+          <li><a href="#aktifkan-preview-script">Aktifkan Preview Script</a></li>
+          <li><a href="#menampilkan-gambar">Menampilkan Gambar</a></li>
+          <li><a href="#togglig-antar-image-preview--file-info">Togglig Antar Image Preview &amp; File Info</a></li>
+          <li><a href="#memilih-colorscheme">Memilih Colorscheme</a></li>
+          <li><a href="#mengaktifkan-border">Mengaktifkan Border</a></li>
+          <li><a href="#mengaktifkan-line-number">Mengaktifkan Line Number</a></li>
+          <li><a href="#scroll-wrapping">Scroll Wrapping</a></li>
+        </ul>
+      </li>
+      <li><a href="#rcconf---konfigurasi-key-bindings">rc.conf - Konfigurasi Key Bindings</a></li>
+      <li><a href="#rifleconf---konfigurasi-file-executoropener">rifle.conf - Konfigurasi File Executor/Opener</a></li>
+      <li><a href="#konfigurasi-plugins">Konfigurasi Plugins</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#update-berikutnya">Update Berikutnya</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" onerror="imgError(this);" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Ranger adalah <em>Terminal User Interface file manager</em> (aplikasi untuk memanajemen file yang menggunakan antarmuka Terminal) yang ditulis dengan bahasa Python.</p>
+
+<p>Ranger menampilkan konten dalam bentuk kolom per kolom. Terdapat tiga buah kolom, yaitu: kolom direktori sebelumnya, direktori sekarang, dan file preview atau direktori selanjutnya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/TY3F2Fbw/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Antar muka Ranger. (1) Direktori sebelumnya, (2) Direktori Sekarang, (3) Direktori Selanjutnya atau file preview</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/02X3znGC/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Kolom ke-3 menampilkan konten dari file teks</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/y8wbPNbg/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Kolom ke-3 menampilkan preview dari gambar</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/rwdHx4Q2/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Kolom ke-3 menampilkan detail dari audio atau video file</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/J4CwqqDn/gambar-06.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - Kolom ke-3 menampilkan detail dari file teks dengan highlight dan dapat di-<i>scrolldown</i></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/28QsXZhx/gambar-07.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 6 - Kolom ke-3 menampilkan detail dari file Open Document Format (.odt, .ods, .odp)</p>
+
+<p><br />
+<strong>Gimana keren yaa?</strong></p>
+
+<p>Menurut saya sih keren. Kekerenan nomor satu, karena <em>file manager</em> ini sudah dapat menampilkan <em>preview</em> dari file yang sedang kita seleksi - bahasa kitanya, mengintip. Yang paling berguna dan sering saya manfaatkan adalah <em>preview</em> untuk file gambar dan teks. Jujur saja, kalau pada <em>file manager</em> GUI, saya harus membuka file teks dan gambar tersebut terlebih dahulu untuk melihat isinya.</p>
+
+<p>Kekerenan nomor dua adalah, <em>Vim-style key bindings</em>, pencet-pencetan yang mirip dengan Vim. Dengan begini, tidak perlu lama beradaptasi. Setidaknya dalam hal navigasi, tinggal <kbd>H</kbd> <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd>. Tinggal mempelajari fitur-fitur lain yang dimiliki oleh Ranger yang biasa saya gunakan pada <em>file manager</em> lain.</p>
+
+<p>Sejauh ini, fitur-fitur yang saya pergunakan adalah:</p>
+<ol>
+  <li>Navigasi yang super efektif dengan pencet-pencetan ala Vim.</li>
+  <li>Selections</li>
+  <li>Copy dan paste dengan pencet-pencetan yang super.</li>
+  <li>Termasuk juga kemampuan membuat <em>symbolic link</em> dengan super mudah</li>
+  <li>Bookmarks</li>
+  <li>Tagging</li>
+  <li>Tabs</li>
+  <li>dll.</li>
+</ol>
+
+<p>Kekerenan nomor tiga adalah, nama Ranger itu sendiri. Ini subjektif saya memang. Hahahaha. Tapi iya bukan? Keren kan? Ranger. Ndak malu-maluin lah kalo ditanya sama temen, “Kamu pake apa itu, Bro?” Dengan bangga kita persembahkan jawaban, “Ranger.”</p>
+
+<p>Masih banyak fitur-fitur dari Ranger yang belum saya manfaatkan. Tapi saya tidak khawatir dan terburu-buru, biarlah proses belajar yang akan menuntun saya mencoba fitur-fitur lain yang dimiliki oleh Ranger.</p>
+
+<p>Jadi, apa kalian mau ikut?</p>
+
+<p>Tiga bulan, enam bulan, satu tahun dari sekarang mungkin kemampuan saya dalam menggunakan Ranger akan bertambah. Siapa yang tahu.</p>
+
+<p>Tentukan pilihanmu, Bro.</p>
+
+<p><em>I hate to say,”I told you so.”</em></p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Ranger bukan merupakan <i>Terminal based file manager</i> yang paling cepat dan terbaik. Sebagian orang menyebutnya sangat <i>bloated</i> (buncit) maksudnya, banyak fitur-fitur yang sebenarnya tidak kita perlukan. Karena kebutuhan setiap orang berbeda-beda.</p>
+    <p>Sebagaian orang juga mengatakan Ranger lambat karena ditulis dengan bahasa pemrograman Python.</p>
+    <p>Namun bagi saya, itu pendapat mereka, dan ini pilihan saya. Pasti ada alasan dan tujuan yang baik, mengapa Ranger sudah membawa banyak fitur secara <i>default</i>.</p>
+  </div></div>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Proses instalasi Ranger, saya rasa sudah pasti sangat mudah. Hanya tinggal menggunakan paket manajer dari distribusi sistem operasi teman-teman.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S ranger</b><br /></pre>
+
+<p>Instalasi juga paket-paket tambahan yang diperlukan untuk membuat Ranger lebih “wow”.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S highlight odt2txt pdftotext mediainfo</b><br /></pre>
+
+<p>Lalu untuk image preview.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S w3m</b><br /></pre>
+
+<h2 id="membuat-app-launcher">Membuat App Launcher</h2>
+
+<p>Seperti biasa kita perlu membuat <code class="language-plaintext highlighter-rouge">.desktop</code> agar mudah dipaggil dengan <em>application launcher</em> seperti dmenu dan rofi sehingga tidak perlu membuka Terminal terlebih dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.local/share/applications/ranger.desktop</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/applications/ranger.desktop</code></div>
+<pre class="caption">[Desktop Entry]<br />Type=Application<br />Name=ranger<br />Comment=Launches the ranger file manager<br />Icon=ranger<br />Terminal=false<br /><mark>Exec=st -e ranger</mark><br />Categories=ConsoleOnly;System;FileTools;FileManager<br />MimeType=inode/directory;<br /></pre>
+
+<p>Pada bagian <code class="language-plaintext highlighter-rouge">Exec=</code>, sesuaikan dengan Terminal emulator yang teman-teman pergunakan</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Apabila kita langsung menjalankan Ranger saat ini, maka Ranger akan menggunakan <em>default config</em>. Saya lebih <em>prefer</em> untuk menggunakan konfigurasi saya sendiri, karena lebih bebas untuk dimodifikasi dalam hal <em>colorscheme</em>, <em>key bindings</em>, dll.</p>
+
+<p>Saat kita menjalankan ranger pertama kali, Ranger akan secara otomatis membuatkan direktori config untuk kita yang terdapat pada <code class="language-plaintext highlighter-rouge">~/.config/ranger/</code>. Namun, belum terdapat file apapun di dalamnya.</p>
+
+<p>Untuk mengcopy <em>default configuration files</em>, kita perlu menjalankan perintah di bawah.</p>
+
+<pre><span class="cmd">$ </span><b>cd ~/.config/ranger</b><br /><span class="cmd">$ </span><b>ranger --copy-config=all</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>creating: /home/bandithijo/.config/ranger/rifle.conf
+creating: /home/bandithijo/.config/ranger/commands.py
+creating: /home/bandithijo/.config/ranger/commands_full.py
+creating: /home/bandithijo/.config/ranger/rc.conf
+creating: /home/bandithijo/.config/ranger/scope.sh
+
+&gt; Please note that configuration files may change as ranger evolves.
+  It's completely up to you to keep them up to date.
+
+&gt; To stop ranger from loading both the default and your custom rc.conf,
+  please set the environment variable RANGER_LOAD_DEFAULT_RC to FALSE.
+</code></pre></div></div>
+
+<p>Sekarang coba lihat isi dari direktori <code class="language-plaintext highlighter-rouge">~/.config/ranger/</code> saat ini.</p>
+
+<pre><span class="cmd">$ </span><b>ls -al</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drwxr-xr-x .
+drwxr-xr-x ..
+-rw-r--r-- commands_full.py
+-rw-r--r-- commands.py
+-rw-r--r-- rc.conf
+-rw-r--r-- rifle.conf
+-rwxr-xr-x scope.sh
+</code></pre></div></div>
+<p>Langkah selanjutnya, kita akan mengkonfigurasi file <code class="language-plaintext highlighter-rouge">rc.conf</code>.</p>
+
+<h2 id="rcconf---konfigurasi-options">rc.conf - Konfigurasi Options</h2>
+
+<p>Oke, sekarang kita sudah memiliki file configurasi dasar. Selanjutnya coba periksa terlebih dahulu bagaimana bentuk dari isi file <code class="language-plaintext highlighter-rouge">rc.conf</code>.</p>
+
+<pre><span class="cmd">$ </span><b>vim rc.conf</b><br /></pre>
+
+<p>Dapat teman-teman lihat, isi dari file <code class="language-plaintext highlighter-rouge">rc.conf</code>. Sangat mudah dipahami bukan?</p>
+
+<p>Kita langsung dapat memahami arti dari baris perintah karena terdapat komentar yang ditulis dengan jelas.</p>
+
+<p>Seperti besar perbandingan lebar dari kolom den berapa banyak kolom.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c"># How many columns are there, and what are their relative widths?</span>
+<span class="nb">set </span>column_ratios 1,3,4
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Tidak banyak yang harus saya rubah. Tapi saya akan bahas, apa saja yang saya modifikasi.</p>
+
+<p>Tentunya teman-teman tidak harus mengikuti konfigurasi saya. Silahkan bereksplorasi sendiri.</p>
+
+<h3 id="konfirmasi-saat-delete">Konfirmasi Saat Delete</h3>
+
+<p>Terdapat <em>key bindings</em> untuk melakukan <em>recursive delete</em> seperti <code class="language-plaintext highlighter-rouge">rm</code>. Tentunya kita perlu hati-hati terhadap hal ini. Kita menghindari apabila suatu waktu kita mengalami <em>human error</em>. Untuk itu perlu sekali membuat langkah antisipasi. Salah satunya dengan mmberikan konfirmasi saat akan melakukan <em>recursive delete/remove</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c"># Ask for a confirmation when running the "delete" command?</span>
+<span class="c"># Valid values are "always", "never", "multiple" (default)</span>
+<span class="c"># With "multiple", ranger will ask only if you delete multiple files at once.</span>
+<span class="nb">set </span>confirm_on_delete always
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Secara <em>default</em> bernilai <code class="language-plaintext highlighter-rouge">multiple</code>, hanya menampilkan konfirmasi saat menghapus banyak file/direktori. Namun, saya lebih <em>prefer</em> untuk menggunakan value <code class="language-plaintext highlighter-rouge">always</code>. Agar setiap file/direktori yang akan saya <em>recursive delete</em> selalu ditampilkan konfirmasi untuk saya tinjau kembali. Dengan begini dapat meminimalisir dampak dari <em>human error</em>. Hehehe.</p>
+
+<h3 id="aktifkan-preview-script">Aktifkan Preview Script</h3>
+
+<p>Saya merekeomendasikan untuk mengaktifkan variabel ini <code class="language-plaintext highlighter-rouge">preview_script</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="c"># Use non-default path for file preview script?</span>
+<span class="c"># ranger ships with scope.sh, a script that calls external programs (see</span>
+<span class="c"># README.md for dependencies) to preview images, archives, etc.</span>
+<span class="nb">set </span>preview_script ~/.config/ranger/scope.sh
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hilangkan tanda pagar pada <code class="language-plaintext highlighter-rouge">set preview_script ...</code>.</p>
+
+<p>Kegunaanya untuk memberikan kemapuan preview pada Ranger untuk menjadi lebih super. Hahaha.</p>
+
+<p>Sekarang buka dan edit file <code class="language-plaintext highlighter-rouge">~/.config/ranger/scope.sh</code>.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/ranger/scope.sh</b><br /></pre>
+
+<p>Nah, sekarang tinggal teman-teman cari dan pilih ekstensi dari file apa yang akan diaktifkan.</p>
+
+<p>Sebagai gambaran saya mengaktifkan fitur untuk menampilkan file dengan ekstensi <code class="language-plaintext highlighter-rouge">SVG</code> dan <code class="language-plaintext highlighter-rouge">PDF</code>. Secara <em>default</em> masih dalam keadaan ter-<em>comment</em>. Kita perlu meng-<em>enable</em>-kannya.</p>
+
+<p>Lihat saja contoh di bawah untuk mengetahui bagian mana saja yang perlu di-<em>uncomment</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/scope.sh</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># SVG</span>
+image/svg+xml<span class="o">)</span>
+    convert <span class="s2">"</span><span class="k">${</span><span class="nv">FILE_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">IMAGE_CACHE_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="o">&amp;&amp;</span> <span class="nb">exit </span>6
+    <span class="nb">exit </span>1<span class="p">;;</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># PDF</span>
+application/pdf<span class="o">)</span>
+    pdftoppm <span class="nt">-f</span> 1 <span class="nt">-l</span> 1 <span class="se">\</span>
+                <span class="nt">-scale-to-x</span> 1920 <span class="se">\</span>
+                <span class="nt">-scale-to-y</span> <span class="nt">-1</span> <span class="se">\</span>
+                <span class="nt">-singlefile</span> <span class="se">\</span>
+                <span class="nt">-jpeg</span> <span class="nt">-tiffcompression</span> jpeg <span class="se">\</span>
+                <span class="nt">--</span> <span class="s2">"</span><span class="k">${</span><span class="nv">FILE_PATH</span><span class="k">}</span><span class="s2">"</span> <span class="s2">"</span><span class="k">${</span><span class="nv">IMAGE_CACHE_PATH</span><span class="p">%.*</span><span class="k">}</span><span class="s2">"</span> <span class="se">\</span>
+                <span class="o">&amp;&amp;</span> <span class="nb">exit </span>6 <span class="o">||</span> <span class="nb">exit </span>1<span class="p">;;</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dengan mengaktifkan kedua <em>section</em> di atas, yaitu <code class="language-plaintext highlighter-rouge">SVG</code> dan <code class="language-plaintext highlighter-rouge">PDF</code>, Ranger akan memiliki kemampuan untuk menampilkan <em>preview</em> dalam bentuk gambar dari file <code class="language-plaintext highlighter-rouge">.png</code> dan <code class="language-plaintext highlighter-rouge">.pdf</code>. Sehinggal kita tidak perlu untuk membukanya terlebih dahulu. Sangat <em>convenient</em> sekali bukan?</p>
+
+<p>Sengaja saya tidak mengaktifkan <code class="language-plaintext highlighter-rouge">VIDEO</code>. Tidak ada alasan apa-apa, hanya masalah selera saja.</p>
+
+<h3 id="menampilkan-gambar">Menampilkan Gambar</h3>
+
+<p>Untuk menampilkan gambar, Ranger memerlukan paket bernama <code class="language-plaintext highlighter-rouge">w3m</code>. Silahkan dipasang terlebih dahulu apabila belum.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S w3m</b><br /></pre>
+
+<p>Selanjutnya, tinggal meng-<em>enable</em>-kan konfignya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c"># Use one of the supported image preview protocols</span>
+<span class="nb">set </span>preview_images <span class="nb">true</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+<span class="nb">set </span>preview_images_method w3m
+
+<span class="c"># Delay in seconds before displaying an image with the w3m method.</span>
+<span class="c"># Increase it in case of experiencing display corruption.</span>
+<span class="nb">set </span>w3m_delay 0.01
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br />
+Saya tidak lagi menggunakan w3m. Namun saat ini, saya sudah menggunakan <strong>ueberzug</strong> untuk menampilkan gambar.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S ueberzug</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nb">set </span>preview_images_method uqberzug
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="togglig-antar-image-preview--file-info">Togglig Antar Image Preview &amp; File Info</h3>
+
+<p>Untuk menampilkan file info dari file gambar, caranya sagat mudah. Ranger sudah menyediakan fitur ini secara default, kita hanya perlu memasang paket dependensi yang diperlukan saja.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S perl-image-exiftool</b><br /></pre>
+
+<p>Kemudian, untuk melakukan toggling antar image preview dengan file info, kita dapat menggunakan keybind <kbd>z</kbd>+<kbd>i</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_08" data-echo="https://i.postimg.cc/mrjLpLC3/gambar-08.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h3 id="memilih-colorscheme">Memilih Colorscheme</h3>
+
+<p>Secara <em>default</em>, Ranger sudah menyertakan <em>colorscheme</em> bawaan, yaitu: default, jungle, snow, solarized. Saat ini kita masih menggunakan <em>colorscheme</em> default. Coba ganti dengan <em>colorscheme</em> lain yang disediakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c"># Which colorscheme to use?  These colorschemes are available by default:</span>
+<span class="c"># default, jungle, snow, solarized</span>
+<span class="nb">set </span>colorscheme solarized
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Teman-teman juga dapat memodifikasi atau membuat sendiri <em>colorscheme</em> sesuai yang teman-teman inginkan.</p>
+
+<p>Caranya, dengan mendownload <em>coloscheme</em> dasar dari repositori GitHub.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir -p ~/.config/ranger/colorschemes</b><br /><span class="cmd">$ </span><b>cd ~/.config/ranger/colorschemes</b><br /><span class="cmd">$ </span><b>wget https://raw.githubusercontent.com/ranger/ranger/master/ranger/colorschemes/{default,jungle,snow,solarized}.py</b><br /></pre>
+
+<p>Sekarang tinggal bereksplorasi dengan warna.</p>
+
+<p>Jangan lupa untuk megeset <em>colorscheme</em> yang teman-teman modif pada file <code class="language-plaintext highlighter-rouge">rc.conf</code>.</p>
+
+<p>Saya sendiri menggunakan <em>colorscheme</em> solarized hasil modifan sendiri. Karena terdapat beberapa bagian warna yang saya kurang begitu suka. Hehehe.</p>
+
+<p>Mengenai memodifikasi warna dalam <em>colorscheme</em>, sepertinya tidak ingin saya tulis dulu saat ini. Terlalu panjang.</p>
+
+<h3 id="mengaktifkan-border">Mengaktifkan Border</h3>
+
+<p>Kalian juga dapat mengaktifkan border, karena secara <em>default</em>, variable ini dalan keadaan <code class="language-plaintext highlighter-rouge">none</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># Draw borders around columns? (separators, outline, both, or none)</span>
+<span class="c"># Separators are vertical lines between columns.</span>
+<span class="c"># Outline draws a box around all the columns.</span>
+<span class="c"># Both combines the two.</span>
+<span class="nb">set </span>draw_borders none
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya sendiri termasuk yang tidak begitu senang menggunakan border.</p>
+
+<h3 id="mengaktifkan-line-number">Mengaktifkan Line Number</h3>
+
+<p>Untuk dapat memudahkan kita dalam bernavigasi antar baris, berlompat-lompat antar baris seperti pada Vim, Ranger memberikan kita fitur untuk menampilkan <em>line numbers</em>. Terdapat tiga pilihan: <em>false</em>, <em>absolute</em>, dan <em>relative</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c"># Disable displaying line numbers in main column.</span>
+<span class="c"># Possible values: false, absolute, relative.</span>
+<span class="nb">set </span>line_numbers relative
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya lebih senang menggunakan <code class="language-plaintext highlighter-rouge">relative</code> karena lebih memudahkan untuk navigasi.</p>
+
+<h3 id="scroll-wrapping">Scroll Wrapping</h3>
+
+<p>Untuk memudahkan navigasi juga, saya lebih senang mengaktifkan fitur <em>scroll wrapping</em>, agar ketika saya sudah melakukan <em>scrolling</em> sampai bawah, saya dapat dengan mudah menuju ke atas.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="c"># Enable scroll wrapping - moving down while on the last item will wrap around to</span>
+<span class="c"># the top and vice versa.</span>
+<span class="nb">set </span>wrap_scroll <span class="nb">true</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="rcconf---konfigurasi-key-bindings">rc.conf - Konfigurasi Key Bindings</h2>
+
+<p>Tidak banyak modifikasi <em>key bindings</em> yang saya modifikasi. Karena saya berusaha untuk membiasakan dengan <em>key bindings</em> yang sudah ada. Toh dalam hal navigasi dasar mirip-mirip dengan Vim.</p>
+
+<p>Saya hanya merubah dua buah <em>keyborad shortcut</em>.</p>
+
+<p>Untuk membuka Terminal pada direktori yang sedang aktif. Karena secara <em>default</em> apabila kita menekan tombol <kbd>S</kbd>, maka interface Ranger akan berubah menjadi Shell pada direktori yang aktif. Sedangkan saya ingin sambil membuka Terminal tetap dapat menggunakan Ranger.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+<pre class="caption">...<br />...<br />map w taskview_open<br />#map S shell $SHELL<br /><mark>map S terminal</mark><br /><br />map :  console<br />..<br />..<br /></pre>
+
+<p>Modifikasi <em>keyboard</em> yang lain adalah saya merubah fungsi tombol <kbd>DELETE</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rc.conf</code></div>
+<pre class="caption"># In case you work on a keyboard with dvorak layout<br />...<br />...<br />...<br />map &lt;CR&gt;       move right=1<br />#map &lt;DELETE&gt;   console delete<br /><mark>map &lt;DELETE&gt;   shell -s trash-put %s</mark><br />map $lt;INSERT&gt;   console touch%space<br />...<br />...<br /></pre>
+
+<p>Saya menggunakan aplikasi <code class="language-plaintext highlighter-rouge">trash-cli</code>, agar file/direktori yang saya hapus dengan tombol <kbd>DELETE</kbd> tidak langsung lenyap, tetapi masuk ke Trash. Sayangnya saya belum dapat membuatnya menampilkan konfirmasi terlebih dahulu.</p>
+
+<p>Untuk memasang aplikasi <code class="language-plaintext highlighter-rouge">trash-cli</code> cukup psaang dengan paket manager masing-masing.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S trash-cli</b><br /></pre>
+
+<p>Untuk penggunaan <code class="language-plaintext highlighter-rouge">trash-cli</code>, seperti: <em>restore</em>, <em>empty-trash</em>, dll. dapat dieksplorasi sendiri yaa.</p>
+
+<h2 id="rifleconf---konfigurasi-file-executoropener">rifle.conf - Konfigurasi File Executor/Opener</h2>
+
+<p>File <code class="language-plaintext highlighter-rouge">rifle.conf</code> ini adalah file konfigurasi yang digunakan untuk mendaftarkan file tipe apa saja dan akan dieksekusi oleh aplikasi/prgram apa file tersebut.</p>
+
+<p>Saya akan berikan satu saja contoh, saya yakin teman-teman langsung akan mengerti fungsi dari file <code class="language-plaintext highlighter-rouge">rifle.conf</code> ini.</p>
+
+<p>Misal, terdapat file <code class="language-plaintext highlighter-rouge">.pdf</code>, nah, teman-teman ingin membuka file ini secara <em>default</em> dengan apa? atau dapat juga kita buatkan pilihan seperti <em>open with</em> pada <em>file manager</em> GUI.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/ranger/rifle.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c">#-------------------------------------------</span>
+<span class="c"># Documents</span>
+<span class="c">#-------------------------------------------</span>
+ext pdf, has evince,    X, flag f <span class="o">=</span> evince <span class="nt">--</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+ext pdf, has calibre,   X, flag f <span class="o">=</span> calibre <span class="nt">--</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dari konfigurasi di atas, sederhananya, saya membuat file <code class="language-plaintext highlighter-rouge">.pdf</code> akan terbuka dengan <code class="language-plaintext highlighter-rouge">evince</code> secara <em>default</em> apabila saya menekan tombol <kbd>L</kbd> atau <kbd>ENTER</kbd>.</p>
+
+<p>Nah, apabila saya ingin membukanya dengan <code class="language-plaintext highlighter-rouge">calibre</code>, kita dapat menekan tombol <kbd>R</kbd>. Ranger akan menampilkan pilihan yang mirip sseperti menu <em>Open with…</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/QC91qj2M/gambar-05.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 7 - Ilustrasi penggunaan tombol R, seperti menu <i>Open with…</i></p>
+
+<p>Jika ingin memilih <code class="language-plaintext highlighter-rouge">calibre</code>, pilih <code class="language-plaintext highlighter-rouge">1</code>, lalu tekan <kbd>ENTER</kbd>. Maka, file <code class="language-plaintext highlighter-rouge">.pdf</code> tersebut akan terbuka dengan <code class="language-plaintext highlighter-rouge">calibre</code>.</p>
+
+<p>Pilihan <code class="language-plaintext highlighter-rouge">0</code> adalah <em>default program</em> yang akan dibuka apabila kita langsung menekan <kbd>ENTER</kbd> / <kbd>L</kbd>.</p>
+
+<p>Nah, sekarang silahkan bereksplorasi dengan file <code class="language-plaintext highlighter-rouge">rifle.conf</code> ini.</p>
+
+<p>Apabila ingin membandingkan file <code class="language-plaintext highlighter-rouge">rifle.conf</code> dengan milik saya, teman-teman dapat berkunjung <a href="https://github.com/bandithijo/dotfiles/blob/master/.config/ranger/rifle.conf" target="_blank">ke sini</a>.</p>
+
+<h2 id="konfigurasi-plugins">Konfigurasi Plugins</h2>
+
+<p>Sejauh ini saya belum banyak menggunakan plugins. Plugins yang baru saya gunakan hanya <a href="https://github.com/alexanderjeurissen/ranger_devicons" target="_blank"><strong>alexanderjeurissen/ranger_devicons</strong></a>.</p>
+
+<p>Proses instalasinya juga terbilang mudah. Hanya tinggal <em>clone</em> repo GitHubnya di mana saja. Letakkan di tempat terbaik. Lalu jalankan <code class="language-plaintext highlighter-rouge">$ make install</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ranger_devicons</code> akan membuat direktori <code class="language-plaintext highlighter-rouge">/plugins/</code> secara otomatis.</p>
+
+<p>Sekarang buka Ranger dan lihat, sudah terdapat icon disamping name file/direktori.</p>
+
+<p>Untuk unintsall juga mudah, tinggal <code class="language-plaintext highlighter-rouge">$ make uninstall</code>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya seperti ini dahulu. Mungkin tulisan ini akan mengalami update, tapi saya tidak bisa janji. Silahkan diekplorasi sendiri lebih jauh.</p>
+
+<p>Apabila membutuhkan bantuan, dapat membaca <code class="language-plaintext highlighter-rouge">man ranger</code>.</p>
+
+<p>Apabila sedang di dalam Ranger dapat memanggil pilihan bantuan dengan menekan tombol <kbd>?</kbd>. Nanti akan keluar pilihan:</p>
+<ol>
+  <li><kbd>M</kbd> untuk <em>manual page</em></li>
+  <li><kbd>K</kbd> untuk melihat <em>Key Bindings</em> yang tersedia</li>
+  <li><kbd>C</kbd> untuk melihat daftar <em>commands</em></li>
+  <li><kbd>S</kbd> untuk melihat variabel-variabel <em>settings</em></li>
+  <li><kbd>Q</kbd> untuk keluar</li>
+</ol>
+
+<p>Sekian catatan ini saya tulis. Mudah-mudahan catatan yang masih belum sempurna ini dapat sedikit membantu memberikan gambaran, seperti apa <em>Terminal based file manager</em> yang bernama Ranger.</p>
+
+<h1 id="update-berikutnya">Update Berikutnya</h1>
+
+<p>Masih terdapat beberapa hal yang belum sempat saya tuliskan. Seperti:</p>
+<ol>
+  <li>Permasalahan menampilkan gambar pada Terminal emulator tertentu</li>
+  <li>Fungsi-fungsi yang sama dengan GUI <em>file manager</em>, seperti: <em>copy paste</em>, <em>selected</em>, <em>tab</em>, <em>symbolic link</em>, dll.</li>
+  <li>dll.</li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/ranger/ranger" target="_blank">github.com/ranger/ranger</a>
+<br />Diakses tanggal: 2018/12/17</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Ranger" target="_blank">wiki.archlinux.org/index.php/Ranger</a>
+<br />Diakses tanggal: 2018/12/17</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

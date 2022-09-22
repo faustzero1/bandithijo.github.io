@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tools, tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Siapa yang tidak kagum dengan remote control? Menggerakkan benda jarak jauh? Keren sekali yaa! Catatan kali ini saya akan membahasa dan mengulas tentang sebuah perkakas untuk mengontrol mouse cursor GNU/Linux dari Smartphone Android." />
+<meta property="og:description" content="Siapa yang tidak kagum dengan remote control? Menggerakkan benda jarak jauh? Keren sekali yaa! Catatan kali ini saya akan membahasa dan mengulas tentang sebuah perkakas untuk mengontrol mouse cursor GNU/Linux dari Smartphone Android." />
+<link rel="canonical" href="https://bandithijo.dev/blog/unified-remote-mengontrol-cursor-linux-dari-android" />
+<meta property="og:url" content="https://bandithijo.dev/blog/unified-remote-mengontrol-cursor-linux-dari-android" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-14T19:35:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/unified-remote-mengontrol-cursor-linux-dari-android"},"description":"Siapa yang tidak kagum dengan remote control? Menggerakkan benda jarak jauh? Keren sekali yaa! Catatan kali ini saya akan membahasa dan mengulas tentang sebuah perkakas untuk mengontrol mouse cursor GNU/Linux dari Smartphone Android.","url":"https://bandithijo.dev/blog/unified-remote-mengontrol-cursor-linux-dari-android","@type":"BlogPosting","headline":"Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android","dateModified":"2019-01-14T19:35:00+08:00","datePublished":"2019-01-14T19:35:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/unified-remote-mengontrol-cursor-linux-dari-android">Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/01/14</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Unified remote mengontrol cursor linux dari android
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#instalasi">Instalasi</a>
+    <ul>
+      <li><a href="#instalasi-unified-remote-server">Instalasi Unified Remote Server</a></li>
+      <li><a href="#konfigurasi-koneksi">Konfigurasi Koneksi</a>
+        <ul>
+          <li><a href="#koneksi-dengan-wifidata">Koneksi dengan Wifi/Data</a></li>
+          <li><a href="#koneksi-dengan-bluetooth">Koneksi dengan Bluetooth</a></li>
+        </ul>
+      </li>
+      <li><a href="#jalankan-unified-remote-server">Jalankan Unified Remote Server</a></li>
+      <li><a href="#instalasi-unified-remote-client">Instalasi Unified Remote Client</a></li>
+      <li><a href="#konfigurasi-unified-remote-client">Konfigurasi Unified Remote Client</a></li>
+    </ul>
+  </li>
+  <li><a href="#preview-video">Preview Video</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="#" onerror="imgError(this);" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Setelah pada postingan sebelumnya, saya menuliskan tentang “<a href="https://bandithijo.dev/blog/scrcpy-menampilkan-dan-mengontrol-android-dari-komputer" target="_blank">Bagaimana Mengrontrol Android Device dari Komputer</a>”. Sekarang saya akan mereview aplikasi yang mempunyai fungsi kebalikan dari <strong>scrcpy</strong>, yaitu mengontrol komputer dari Android.</p>
+
+<p><strong>Unified Remote</strong>, adalah aplikasi yang saya gunakan untuk membuat Android <em>smartphone</em> saya menjadi <em>remote control</em>. Seperti tagline dari Unified Remote, “<em>Turn your smartphone into a universal remote control</em>”.</p>
+
+<p>Unified Remote pada Google PlayStore memiliki dua versi, yaitu:</p>
+<ol>
+  <li><strong>Free</strong> - dengan fungsi-fungsi yang terbatas</li>
+  <li><strong>Full</strong> - dengan fungsi-fungsi yang sudah sudah dibuka. Untuk mendapatkan versi Full, kita hanya perlu melakukan pembayaran sekali saja (bukan sistem <em>subscribe</em> per bulan atau per tahun)</li>
+</ol>
+
+<p>Untuk perbedaan fungsi-fungsi (fitur) antara versi Free dan Full, dapat di lihat <a href="https://www.unifiedremote.com/features" target="_blank">di sini - Features</a>.</p>
+
+<p>Hal lain yang perlu diperhatikan dari aplikasi remote seperti ini adalah “<strong>konektifitas</strong>”. Unified Remote mendukung 2 tipe konektifitas, <strong>Wifi/Data</strong> dan <strong>Bluetooth</strong>.</p>
+
+<p>Apabila di rumah, saya menggunakan konektifitas wifi karena berada dalam satu network. Sedangkan di luar rumah, saya menggunakan konektifitas bluetooth. Nah karena konektifitas bluetooth inilah yang menyebabkan saya sebaiknya menuliskan dokumentasi pribadi, karena cara untuk menghubungkannya terbilang tidak biasa (baca: <del>ribet</del>).</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Sebelum memasuki proses instalasi, ada hal yang harus saya jelaskan terlebih dahulu.</p>
+
+<p>Karena aplikasi ini bersifat <em>remote</em>, tentunya akan ada 2 hal yang akan kita bahas, yaitu: <em>client</em> dan <em>server</em>.</p>
+
+<p>Dalam hal ini,</p>
+<ol>
+  <li>Komputer/laptop akan bertindak sebagai server, yang nanti akan kita jalankan aplikasi <strong>Unified Remote Server</strong> yang kita unduh dari website.</li>
+  <li>Android <em>smartphone</em> akan bertindak sebagai client, yang akan kita pasangkan aplikasi <strong>Unified Remote</strong> dari Google PlayStore.</li>
+</ol>
+
+<p>Oke, sekarang proses instalasi.</p>
+
+<h2 id="instalasi-unified-remote-server">Instalasi Unified Remote Server</h2>
+
+<ol>
+  <li>Dari komputer/laptop, buka browser favorit dan pergi ke <em>official</em> website Unified Remote pada halaman ini: <a href="https://www.unifiedremote.com/download" target="_blank">unifiedremote.com/download</a></li>
+  <li>Pilih untuk Desktop GNU/Linux</li>
+  <li>Pilih <strong>Other distros</strong>, pilih yang <strong>Portable Archive (64-bit)</strong>, atau langsung saja saya berikan link nya: <a href="https://www.unifiedremote.com/download/linux-x64-portable" target="_blank">Portable Archive (64-bit)</a></li>
+  <li>Pindahkan ke direktori khusus tempat kalian menyimpan aplikasi-aplikasi. Misalnya seperti saya, selalu mengumpulkan aplikasi yang saya build sendiri pada direktori <code class="language-plaintext highlighter-rouge">~/app/</code> dan buat direktori khusus untuk Unified Remote.
+ Contohnya seperti ini,
+    <pre>
+~/app/
+ └── unifiedremote
+     └── <mark>urserver-3.6.0.745.tar.gz</mark></pre>
+  </li>
+  <li>Selanjutnya ekstraksi isi dari paket <code class="language-plaintext highlighter-rouge">urserver-x.x.x.xxx.tar.gz</code> tersebut
+    <pre>
+$ <b>tar -xvf urserver-3.6.0.745.tar.gz</b></pre>
+
+    <p>Nanti akan terbuat sebuah direktori dengan nama <code class="language-plaintext highlighter-rouge">urserver-3.6.0.745</code></p>
+    <pre>
+~/app/
+└── unifiedremote
+    ├── <mark>urserver-3.6.0.745</mark>
+    └── urserver-3.6.0.745.tar.gz</pre>
+    <p>Nah, Unified Remote server sudah ada di dalam direktori <code class="language-plaintext highlighter-rouge">urserver-3.6.0.745</code> tersebut dengan nama <code class="language-plaintext highlighter-rouge">urserver</code>, namun jangan dulu dijalankan, karena kita perlu melakukan beberapa konfigurasi koneksi untuk Wifi dan Bluetooth.</p>
+
+    <!-- PERTANYAAN -->
+    <div class="blockquote-yellow">
+<div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div>
+<p><b>Distro saya ada di dalam tipe paket yang di sediakan. Sebaiknya saya pilih yang mana?</b></p>
+<p>Kalau saya, tentu saja akan tetap memilih <b>Portable Archive</b>.</p>
+</div>
+  </li>
+</ol>
+
+<h2 id="konfigurasi-koneksi">Konfigurasi Koneksi</h2>
+
+<p>Konfigurasi Koneksi akan terbagi menjadi 2 bagian, Wifi/Data dan Bluetooth.</p>
+
+<h3 id="koneksi-dengan-wifidata">Koneksi dengan Wifi/Data</h3>
+
+<p>Untuk konfigurasi menggunakan Wifi/Data pada komputer/laptop kita tidak diperlukan konfigurasi apapun. Asalkan komputer/laptop dan Android <em>smartphone</em> kita berada pada satu network yang sama (LAN), maka tidak akan terjadi masalah.</p>
+
+<p>Saya mencurigai bahwa Unified Remote ini juga dapat digunakan jarak jauh di luar LAN, namun belum saya pelajari lebih lanjut.</p>
+
+<h3 id="koneksi-dengan-bluetooth">Koneksi dengan Bluetooth</h3>
+
+<p>Bagian konektifitas menggunakan bluetooth adalah bagian yang menjadi alasan saya menuliskan dokumentasi ini.</p>
+
+<p>Ada beberapa hal yang perlu dipersiapkan sebelum kita dapat menggunakan konektifitas bluetooth dengan Unified Remote.</p>
+
+<ol>
+  <li>Edit file <code class="language-plaintext highlighter-rouge">/etc/systemd/system/dbus-org.bluez.service</code>
+    <pre>
+$ <b>sudo vim /etc/systemd/system/dbus-org.bluez.service</b></pre>
+
+    <pre>
+[Unit]
+...
+...
+[Service]
+Type=dbus
+BusName=org.bluez
+ExecStart=/usr/lib/bluetooth/bluetoothd <mark>--compat</mark>
+...
+...
+[Install]
+...
+...</pre>
+
+    <p>Pada <code class="language-plaintext highlighter-rouge">ExecStart=</code> tambahkan <code class="language-plaintext highlighter-rouge">--compat</code> seperti contoh di atas.</p>
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue">
+<div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div>
+<p>Menambahkan <code>--compat</code> diperlukan karena kebanyakan distribusi sistem operasi GNU/Linux saat ini sudah menggunakan Bluez5 sedangkan Unified Remote Server masih memerlukan fungsi yang sudah deprecated pada Bluez4.</p>
+<p>Tujuan penambahaan ini untuk membuat Bluetooth Daemon berjalan pada <i>compatibility mode</i>.</p>
+</div>
+
+    <p>Simpan dan keluar dari text editor.</p>
+  </li>
+  <li>
+    <p>Selanjutnya kita perlu me-<em>reload</em> ulang daemon dan bluetooth service</p>
+
+    <pre>
+$ <b>sudo systemctl daemon-reload</b>
+$ <b>sudo systemctl restart bluetooth</b></pre>
+
+    <p>Proses di atas akan membuat file baru <code class="language-plaintext highlighter-rouge">/var/run/sdp</code>. Apabila langkah 1 di atas tidak di lakukan, maka kita tidak akan menemukan file <code class="language-plaintext highlighter-rouge">sdp</code> ini.</p>
+  </li>
+  <li>Ubah kepemilikan file <code class="language-plaintext highlighter-rouge">/var/run/sdp</code> yang awalnya milik <strong>root</strong> menjadi milik kita
+    <pre>
+$ <b>sudo chown <mark>bandithijo</mark>:users /var/run/sdp</b></pre>
+
+    <p>Ganti <code class="language-plaintext highlighter-rouge">bandithijo</code> dengan nama username kalian.</p>
+
+    <p>Kemudian cek apakah file <code class="language-plaintext highlighter-rouge">/var/run/sdp</code> sudah berpindah kepemilikan.</p>
+
+    <pre>
+$ <b>ls -l /var/run/sdp</b></pre>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>srw-rw---- 1 bandithijo users 0 Jan 15 00:52 /var/run/sdp
+</code></pre></div>    </div>
+    <p>Apabila menunjukkan <em>output</em> seperti di atas, berarti file <code class="language-plaintext highlighter-rouge">sdp</code> sudah berhasil berpindah tangan.
+ Dengan begini, Unified Remote Server sudah dapat kita jalankan.</p>
+
+    <!-- INFORMATION -->
+    <div class="blockquote-blue">
+<div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div>
+<p>Ketiga langkah di atas, dapat kita sederhanakan dengan menjalankan Python script sederhana yang sudah saya buat.</p>
+<p>Download: <a href="https://raw.githubusercontent.com/bandithijo/scriptbox/master/preconfig_urserver.py" target="_blank"><b>preconfigure_urserver.py</b></a>*</p>
+<p style="font-size:10pt;"><i>*Download dengan menggunakan klik kanan "<b>Save Link As...</b>"</i></p>
+<p>Contohnya akan seperti ini.</p>
+<pre>
+$ python preconfig_urserver.py '<mark>bandithijo</mark>'
+</pre>
+<pre>
+[ DONE ] Adding compatibility mode to Bluez5
+[ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+[ DONE ] User: bandithijo has owned the SDP files
+</pre>
+<p>Atau kalau kalian lupa memasukkan username, akan seperti di bawah ini.</p>
+<pre>
+$ python preconfig_urserver.py
+</pre>
+<pre>
+Masukkan username kamu: <mark>bandithijo</mark>
+&nbsp;
+[ DONE ] Adding compatibility mode to Bluez5
+[ DONE ] Daemon Reloaded and Bluetooth Service Restarted
+[ DONE ] User: bandithijo has owned the SDP files
+</pre>
+<p>Ganti <code>bandithijo</code> dengan username kalian.</p>
+<br />
+<!-- PERHATIAN -->
+<div class="blockquote-red">
+<div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div>
+<p>Menjalankan script di atas akan memerlukan password <b>sudo</b>.</p>
+<p>Hal ini diperlukan untuk mengubah file <b>bluez.service</b> dan melakukan reload serta restart pada <b>bluetooth.service</b>.</p>
+</div><!-- PERHATIAN -->
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow">
+<div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div>
+<p><b>Kapan saatnya kita perlu menjalankan script ini kembali sebelum menjalankan urserver ?</b></p>
+<p>Tergantung dua kondisi:</p>
+<ul style="list-style-type:disk;">
+<li>file <code>/var/run/sdp</code>, apabila ownernya kembali menjadi milik <b>root</b> (biasanya setelah restart)</li>
+<li>Setelah paket <code>bluez</code> update, biasanya <code>--compat</code> akan menghilang</li>
+</ul>
+</div><!-- PERTANYAAN -->
+</div>
+    <!-- INFORMASI -->
+  </li>
+</ol>
+
+<h2 id="jalankan-unified-remote-server">Jalankan Unified Remote Server</h2>
+
+<p>Untuk menjalankan server, sangat mudah sekali.</p>
+
+<ol>
+  <li>Masuk ke direktori <code class="language-plaintext highlighter-rouge">urserver-3.6.0.745/</code>
+    <pre>
+$ <b>cd urserver-3.6.0.745</b></pre>
+  </li>
+  <li>Lalu jalankan <code class="language-plaintext highlighter-rouge">urserver</code>
+    <pre>
+$ <b>./urserver</b></pre>
+
+    <pre>
+Unified Remote Server (3.6.0.745)
+Copyright (c) 2010-2015 Unified Intents AB.  All rights reserved.
+&nbsp;
+starting...
+loading remotes...
+skipped: Beamer.Beamer
+skipped: Beamer.BeamerFilePicker
+-------------- dipotong ----------------
+starting server...
+tcp interface started
+udp interface started
+bluetooth interface started
+http interface started
+discovery interface started
+&nbsp;
+*** Access Manager ***
+<mark>http://192.168.1.4:9510/web</mark>
+ready (waiting for connection or debug command)
+enter 'help' to see a list of available commands
+enter 'exit' to terminate server
+&gt;</pre>
+
+    <p>Kalau server sudah berjalan seperti ini, kita biarkan saja. Karena jarang sekali kita berurusan dengan server kecuali untuk menjalankan perintah <strong>restart</strong>. Itupun juga bisa dilakukan di web interfacenya.</p>
+  </li>
+  <li>Buka ip address yang diberikan dengan browser.
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/yxM1qzjK/gambar-01.png" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 1 - Status Bluetooth Interface</p>
+<p>Apaila status <strong>Bluetooth: Interface is Listening</strong> berwarna hijau, artinya kita telah berhasil mengkonfigurasi server untuk menerima konektifitas dengan Bluetooth.</p>
+
+<p>Langkah selanjutnya tinggal memasangkan Unified Remote pada Android.</p>
+
+<h2 id="instalasi-unified-remote-client">Instalasi Unified Remote Client</h2>
+
+<ol>
+  <li>Buka Google PlayStore dan cari “<strong>Unified Remote</strong>”
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/7ZWNFHJd/gambar-02.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 2 - Unified Remote di Google PlayStore</p>
+<p>Pasang dan tunggu prosesnya hingga selesai.</p>
+
+<h2 id="konfigurasi-unified-remote-client">Konfigurasi Unified Remote Client</h2>
+
+<ol>
+  <li>Hubungkan komputer/laptop dengan Android menggunakan Bluetooth. Saya menggunakan aplikasi <code class="language-plaintext highlighter-rouge">blueman-manager</code>
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/wBD9CBbj/gambar-03.png" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 3 - Interface dari Blueman Manager</p>
+<p><!-- IMAGE CAPTION -->
+   <img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/YqWGrQ0p/gambar-04.jpg" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Tampilan Bluetooth Settings Android</p>
+
+<p>Kita dapat melihat dari kedua gambar di atas bahwa komputer/laptop dan Android sudah saling terhubung.</p>
+<ol>
+  <li>Setelah laptop dan Android saling terhubung, buka aplikasi Unified Remote di Android.
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/fyYzNRbK/gambar-05.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 5 - Hamburger menu</p>
+<p>Pilih menu di pojok kiri atas.</p>
+<ol>
+  <li>Kita perlu untuk menambahkan server
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/Qt45TSgP/gambar-06.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 6 - Tambahkan server</p>
+<p>Bisa dilihat pada Status server di kotak hijau, “No servers added”, karena kita belum membuat konektifitas dengan server.</p>
+<ol>
+  <li>Pada bagian <strong>Servers</strong> ini lah kita akan memilih konektifitas.
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/13WZbjS4/gambar-07.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 7 - Tempat untuk memilih, membuat, mengubah, atau menghapus konektifitas dengan server</p>
+<p>Pilh nama dari Bluetooth Android <em>smartphone</em> kita.
+   <!-- IMAGE CAPTION -->
+   <img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/MpnsKPRn/gambar-08.jpg" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 8 - Android kita sudah masuk dalam daftar “saved Servers”</p>
+<ol>
+  <li>Selanjutnya kembali ke menu, dan pilih Remotes
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/HnCxjhVd/gambar-09.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 9 - Dapat dilihat status server yang kota hijau, kita sudah terhubung dengan Bluetooth Android</p>
+<p>Pilih <strong>Remotes</strong></p>
+<ol>
+  <li>Pada bagian ini, kita dapat memilih berbagai macam jenis fungsi remote
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/HkSV3zP9/gambar-10.jpg" onerror="imgError(this);" class="myImg" /></li>
+</ol>
+<p class="img-caption">Gambar 10 - Tekan tanda ( + ) untuk menambahkan fungsi remote baru</p>
+<p>Silhkan bereksplorasi sendiri, karena di dalamnya terdapat banyak sekali fungsi remote yang berbeda-beda. Saya hanya menggunakan 2 fungsi remote, yaitu : <strong>Basic Input</strong> dan <strong>Slide Show</strong>
+   <!-- IMAGE CAPTION -->
+   <img src="/assets/img/logo/logo_blank.svg" alt="gambar_11" data-echo="https://i.postimg.cc/N05LnX3q/gambar-11.jpg" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 11 - Tampilan Basic Input remote</p>
+<p><!-- IMAGE CAPTION -->
+   <img src="/assets/img/logo/logo_blank.svg" alt="gambar_12" data-echo="https://i.postimg.cc/KYw4hzbK/gambar-12.jpg" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 12 - Tampilan Slide Show remote</p>
+
+<h1 id="preview-video">Preview Video</h1>
+
+<div class="embed-container"><iframe style="display:block;margin:0 auto;" src="/assets/img/logo/logo_blank_banner.svg" data-echo="//www.youtube.com/embed/7QACnojH5Ks" onerror="imgError(this);" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Unified Remote ini memiliki dua versi, yaitu Free dan Full. Kalian dapat mencoba terlebih dahulu, apakah Unified Remote ini cocok untuk kebutuhan kalian atau tidak. Saya pun awalnya seperti itu, hingga akhirnya saya berani memutuskan untuk membeli versi yang Full di Google PlayStore.</p>
+
+<p>Kenali baik-baik kebutuhan kalian, agar tidak ada penyesalan diantara kita.</p>
+
+<p>Sedap!</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://www.unifiedremote.com/tutorials" target="_blank">unifiedremote.com/tutorials</a>
+<br />Diakses tanggal: 2019/01/14</p>
+  </li>
+  <li>
+    <p><a href="https://www.unifiedremote.com/features" target="_blank">unifiedremote.com/features</a>
+<br />Diakses tanggal: 2019/01/14</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, jekyll">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mendeploy Jekyll ke GitHub Pages dengan Travis CI | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mendeploy Jekyll ke GitHub Pages dengan Travis CI" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel." />
+<meta property="og:description" content="Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel." />
+<link rel="canonical" href="https://bandithijo.dev/blog/deploy-gh-page-dengan-travis-ci" />
+<meta property="og:url" content="https://bandithijo.dev/blog/deploy-gh-page-dengan-travis-ci" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-10T11:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/deploy-gh-page-dengan-travis-ci"},"description":"Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel.","url":"https://bandithijo.dev/blog/deploy-gh-page-dengan-travis-ci","@type":"BlogPosting","headline":"Mendeploy Jekyll ke GitHub Pages dengan Travis CI","dateModified":"2020-07-10T11:00:00+08:00","datePublished":"2020-07-10T11:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mendeploy Jekyll ke GitHub Pages dengan Travis CI"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/deploy-gh-page-dengan-travis-ci">Mendeploy Jekyll ke GitHub Pages dengan Travis CI</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/07/10</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Deploy gh page dengan travis ci
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jekyll">Jekyll</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#sekenario-masalah">Sekenario Masalah</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#gambaran-umum-proses-travis-ci">Gambaran Umum Proses Travis CI</a></li>
+      <li><a href="#membagi-branch">Membagi Branch</a></li>
+      <li><a href="#konfigurasi-branch-source">Konfigurasi Branch: Source</a>
+        <ul>
+          <li><a href="#memasang-gem-yang-dibutuhkan">Memasang Gem yang Dibutuhkan</a></li>
+          <li><a href="#pendefinisian-plugin--exclude-filedirektori">Pendefinisian Plugin &amp; Exclude File/Direktori</a></li>
+          <li><a href="#gitignore-_site-direktori">Gitignore _site/ Direktori</a></li>
+          <li><a href="#konfigurasi-travisyml">Konfigurasi travis.yml</a></li>
+          <li><a href="#membuat-build-task-di-rakefile">Membuat Build Task di Rakefile</a></li>
+        </ul>
+      </li>
+      <li><a href="#konfigurasi-github-pat-personal-access-token">Konfigurasi GitHub PAT (Personal Access Token)</a></li>
+      <li><a href="#konfigurasi-travis-ci">Konfigurasi Travis CI</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://i.postimg.cc/9MKp2vsR/banner-2020-07-10-deploy-gh-page-dengan-travis-ci.png" onerror="imgError(this);" alt="banner" /></p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Saya yakin, terdapat banyak sekali cara untuk mencapai kota Roma (kiasan), namun tidak mungkin hanya dalam sekali waktu, kita dapat secara bersamaan menjalani semuanya. Pasti kita akan mulai dengan mencoba satu-persatu. Dan cara yang saya lakukan ini adalah hanya salah satu jalan untuk menuju kota Roma.</p>
+    <p>Bisa jadi ini jalan yang panjang dan berliku, bisa jadi ini jalan tercepat dan tanpa rintangan.</p>
+    <p>Ini adalah jalan yang saya pilih untuk memulai. Silahkan teman-teman untuk menentukan pilihan.</p>
+  </div></div>
+
+<h1 id="sekenario-masalah">Sekenario Masalah</h1>
+
+<p>Kenapa kok sudah pakai Jekyll tapi malah pakai Travis CI untuk mendeploy ke GitHub Pages. Bukankan GitHub Pages sangat support dengan Jekll?</p>
+
+<p>Benar. Namun, kita tidak fleksibel karena akan terbatasi oleh environment yang sudah dibentuk oleh GitHub Pages.</p>
+
+<p>Batasan-batasan tersebut diantaranya:</p>
+
+<ol>
+  <li>
+    <p><strong>Belum menggunakan versi Jekyll paling Baru</strong>. Saat tulisan ini dibuat, GitHub Pages masih di versi 3.8.7. Sedangkan Saat ini Jekyll sudah mencapai versi 4.1.1. Tentunya, GitHub Pages memiliki pertimbangan tersendiri mengapa masih menetap pada Jekyll versi 3.8.x. Meskipun demikian, kita jadi tidak dapat menikmati fitur-fitur dan perbaikan yang dibawa oleh Jekyll versi terbaru.</p>
+  </li>
+  <li>
+    <p><strong>Terdapat Whitelist Plugins</strong>. Hanya plugin-plugin yang sudah masuk ke dalam GitHub Organization Repository yang dapat digunakan pada GitHub Pages. Hal ini menyebabkan kita tidak dapat menggunakan plugin selain yang ada pada daftar putih dari GitHub Pages.</p>
+  </li>
+</ol>
+
+<p>Secara default, Jekyll sudah mengaktifkan –tidak dapat di-non-aktifkan– plugin-plugin berikut ini:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- jekyll-coffeescript
+- jekyll-gist
+- jekyll-github-metadata
+- jekyll-paginate
+- jekyll-relative-links
+- jekyll-optional-front-matter
+- jekyll-readme-index
+- jekyll-default-layout
+- jekyll-titles-from-headings
+</code></pre></div></div>
+
+<p>Dan, plugin-plugin yang termasuk dalam daftar putih, namun belum terpasang secara default (optional), adalah:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> - jekyll-feed *
+ - jekyll-redirect-from *
+ - jekyll-seo-tag *
+ - jekyll-sitemap *
+ - jekyll-avatar
+ - jemoji
+ - jekyll-mentions
+ - jekyll-include-cache
+</code></pre></div></div>
+
+<p>Di blog ini saja (sejak tulisan ini dibuat), saya baru mencoba 4 plugin teratas (*).</p>
+
+<p>Sumber: <a href="https://docs.github.com/en/enterprise/2.14/user/articles/configuring-jekyll-plugins" target="_blank">Configuring Jekyll plugins</a></p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Sesuai judul catatan kali ini, permasalahan di atas akan kita selesaikan dengan menggunakan Travis CI.</p>
+
+<p><strong>Apa itu Travis CI?</strong></p>
+
+<blockquote>
+  <p><strong>Travis CI</strong> <em>is a hosted continuous integration service used to build and test software projects hosted at GitHub and Bitbucket</em>.</p>
+</blockquote>
+
+<p>Dengan begitu, kita mengintegrasikan GitHub repository kita dengan Travis CI, agar proses Jekyll build untuk merender static file (public file) akan ditangani oleh Travis CI, bukan oleh GitHub Pages.</p>
+
+<h2 id="gambaran-umum-proses-travis-ci">Gambaran Umum Proses Travis CI</h2>
+
+<p>Kita akan mengkonfigurasi Travis CI untuk aktif melakukan proses <code class="language-plaintext highlighter-rouge">jekyll build</code> pada saat terdapat commit terbaru yang masuk ke GitHub repositori.</p>
+
+<p>Setelah proses build selesai dan berhasil, hasilnya berupa static site (public file/direktori) <code class="language-plaintext highlighter-rouge">_site/</code>. Nah, isi dari file-file yang ada di public direktori <code class="language-plaintext highlighter-rouge">_site/</code> ini lah yang akan di push ke GitHub.</p>
+
+<p>Ini adalah proses yang mudah, namun akan menjadi sangat membosankan apabila kita melakukannya berulang-ulang setiap kali kita membuat post baru. Maka dari itu, kita buat proses ini berjalan otomatis dengan memanfaatkan Travis CI.</p>
+
+<h2 id="membagi-branch">Membagi Branch</h2>
+
+<p>Seperti yang saya jelaskan pada ilustrasi di atas, saya akan membagi project repository menjadi 2.</p>
+
+<ol>
+  <li>Branch <code class="language-plaintext highlighter-rouge">source</code>, berisi <em>source code</em>, aset-aset dan template dari Jekyll blog.</li>
+  <li>Branch <code class="language-plaintext highlighter-rouge">master</code>, berisi <em>static files</em> hasil proses build yang siap untuk dipublish oleh GitHub Pages.</li>
+</ol>
+
+<p>Jadi, mulai sekarang, kita tidak lagi menulis (bekerja) di dalam branch <strong>master</strong>, melainkan kita akan menulis post dan melakukan modifikasi-modifikasi di dalam branch <strong>source</strong>.</p>
+
+<p>Untuk membuat branch <strong>source</strong>, jalankan perintah di bawah.</p>
+
+<pre>
+(master)
+<span class="cmd">$ </span><b>git checkout -b source</b>
+</pre>
+
+<pre>
+(source)
+<span class="cmd">$ </span><b>_</b>
+</pre>
+
+<h2 id="konfigurasi-branch-source">Konfigurasi Branch: Source</h2>
+
+<p>Setelah kita berada pada branch source, kita akan melakukan beberapa pemasangan gem dan konfigurasi untuk terhubung dengan Travis CI.</p>
+
+<h3 id="memasang-gem-yang-dibutuhkan">Memasang Gem yang Dibutuhkan</h3>
+
+<p>Buka <code class="language-plaintext highlighter-rouge">Gemfile</code> dan pasang gem-gem yang teman-teman perlukan.</p>
+
+<p><strong>Penting!</strong> Untuk Travis CI, gem yang diperlukan untuk proses build adalah <code class="language-plaintext highlighter-rouge">rake</code> gem.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">gem</span> <span class="s1">'jekyll'</span><span class="p">,</span>                                  <span class="s1">'~&gt; 4.1.1'</span>
+<span class="n">gem</span> <span class="s1">'rake'</span><span class="p">,</span>                                    <span class="s1">'~&gt; 13.0'</span><span class="p">,</span> <span class="s1">'&gt;= 13.0.1'</span>
+
+<span class="c1"># Optional: Tambahkan jekyll plugin yang teman-teman inginkan</span>
+<span class="n">group</span> <span class="ss">:jekyll_plugins</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'rouge'</span><span class="p">,</span>                                 <span class="s1">'~&gt; 3.13.0'</span>
+  <span class="n">gem</span> <span class="s1">'jekyll-feed'</span><span class="p">,</span>                           <span class="s1">'~&gt; 0.13.0'</span>
+  <span class="n">gem</span> <span class="s1">'jekyll-sitemap'</span><span class="p">,</span>                        <span class="s1">'~&gt; 1.4.0'</span>
+  <span class="n">gem</span> <span class="s1">'jekyll-seo-tag'</span><span class="p">,</span>                        <span class="s1">'~&gt; 2.6.1'</span>
+  <span class="n">gem</span> <span class="s1">'jekyll-redirect-from'</span><span class="p">,</span>                  <span class="s1">'~&gt; 0.16.0'</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sesuaikan versi gem dengan yang teman-teman perlukan.</p>
+
+<h3 id="pendefinisian-plugin--exclude-filedirektori">Pendefinisian Plugin &amp; Exclude File/Direktori</h3>
+
+<p>Untuk plugin gem yang didaftakan pada <code class="language-plaintext highlighter-rouge">:jekyll_plugins</code>, kita juga perlu mendifinisikan pada file <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+<p>Di file <code class="language-plaintext highlighter-rouge">_config.yml</code>, kita juga akan mendefinisikan beberapa file yang akan kita masukkan ke dalam daftar <strong>exclude</strong>, agar saat proses build telah selesai, tidak terikut ke dalam branch <strong>master</strong>.</p>
+
+<p>Buka file <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>_config.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="code"><pre><span class="c1"># ...</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># Daftarkan plugin yang ada di :jekyll_plugins group di dalam Gemfile</span>
+<span class="na">plugins</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">rouge</span>
+  <span class="pi">-</span> <span class="s">jekyll-feed</span>
+  <span class="pi">-</span> <span class="s">jekyll-sitemap</span>
+  <span class="pi">-</span> <span class="s">jekyll-seo-tag</span>
+  <span class="pi">-</span> <span class="s">jekyll-redirect-from</span>
+
+
+<span class="c1"># Membuat pengecualian file-file di bawah ini terhadap proses jekyll build</span>
+<span class="c1"># Agar tidak ditampilkan di master branch</span>
+<span class="na">exclude</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">vendor</span>
+  <span class="pi">-</span> <span class="s">lazyhandling.rb</span>
+  <span class="pi">-</span> <span class="s">Gemfile</span>
+  <span class="pi">-</span> <span class="s">Gemfile.lock</span>
+  <span class="pi">-</span> <span class="s">LICENSE</span>
+  <span class="pi">-</span> <span class="s">README.md</span>
+  <span class="pi">-</span> <span class="s">Rakefile</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="gitignore-_site-direktori">Gitignore _site/ Direktori</h3>
+
+<p>Karena kita menggunakan branch <strong>master</strong> untuk menampung file-file static site yang sudah di-generate, kita akan membuat pengecualian terhadap direktori <code class="language-plaintext highlighter-rouge">_site/</code> –yang ada di branch <strong>source</strong>– ke dalam file <code class="language-plaintext highlighter-rouge">.gitignore</code> agar tidak masuk ke dalam git tracking.</p>
+
+<pre>
+.jekyll-metadata
+.jekyll-cache
+.sass-cache
+<mark>_site</mark>
+</pre>
+
+<h3 id="konfigurasi-travisyml">Konfigurasi travis.yml</h3>
+
+<p>Kita perlu membuat file bernama <code class="language-plaintext highlighter-rouge">.tavis.yml</code> di root project direktori kita.</p>
+
+<p>Travis CI akan menjalankan proses build berdasarkan konfigurasi yang kita tulis pada file ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>.travis.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
+<span class="na">os</span><span class="pi">:</span> <span class="s">linux</span>
+<span class="na">dist</span><span class="pi">:</span> <span class="s">xenial</span>
+
+<span class="na">install</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">bundle install</span>
+
+<span class="na">deploy</span><span class="pi">:</span>
+  <span class="na">provider</span><span class="pi">:</span> <span class="s">pages</span>
+  <span class="na">strategy</span><span class="pi">:</span> <span class="s">git</span>
+  <span class="na">token</span><span class="pi">:</span> <span class="s">$GITHUB_TOKEN</span>  <span class="c1"># Set in the settings page of your repository, as a secure variable</span>
+  <span class="na">skip_cleanup</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">keep_history</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">verbose</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">local_dir</span><span class="pi">:</span> <span class="s">_site</span>
+  <span class="na">target_branch</span><span class="pi">:</span> <span class="s">master</span>
+  <span class="na">on</span><span class="pi">:</span>
+    <span class="na">branch</span><span class="pi">:</span> <span class="s">source</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Penjelasannya</strong>,</p>
+
+<p><code><b>language: ruby</b></code>, Jekyll adalah Static Site Generator yang dibagun dengan bahasa Ruby, kita akan memberitahukan kepada Travis CI bahwa kita akan membuat Ruby environment.</p>
+
+<p><code><b>rvm: </b></code>, <strong>saya tidak mendifinisikan</strong>, karena pada root project direktori saya, sudah terdapat file <code class="language-plaintext highlighter-rouge">.ruby-version</code> yang berisi versi dari Ruby yang digunakan. Travis CI secara pintar akan menjalankan <code class="language-plaintext highlighter-rouge">rvm use $(&lt; .ruby-version)</code> saat proses deploy berlangsung.</p>
+
+<p><code><b>install: - bundle install</b></code>, Kita memerintahkan Travis CI untuk menjalankan perintah <code class="language-plaintext highlighter-rouge">$ bundle install</code> agar gem yang kita pasang pada Gemfile dapat diinstal di lingkungan deploy.</p>
+
+<p><code><b>provider: pages</b></code>, Travis CI sudah menyediakan GitHub Pages provider.</p>
+
+<p><code><b>github_token: $GITHUB_TOKEN</b></code>, <em>personal access token</em> yang akan kita dapatkan pada pengaturan GitHub. Kita juga akan mendifinisikan <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code> ini pada environment variable di pengaturan Travis CI untuk repo kita.</p>
+
+<p><code><b>skip_cleanup: true</b></code>, pastikan kalau nilainya <strong>true</strong>, karena kita ingin menyimpan file-file yang telah di-generate selama proses build. Karena pada akhir proses build, kita akan mendeploy file-file static site tersebut ke branch <strong>master</strong>.</p>
+
+<p><code><b>local_dir: _site</b></code>, Travis CI akan mendeploy semua file yang ada di dalam direktori ini ke brnach <strong>master</strong>.</p>
+
+<p><code><b>target_branch: master</b></code>, setelah proses build selesai, Travis CI akan mendeploy dengan tujuan branch <strong>master</strong>.</p>
+
+<p><code><b>on: branch: source</b></code>, Travis CI hanya akan dijalankan pada branch <strong>source</strong>.</p>
+
+<p>Sumber: <a href="https://docs.travis-ci.com/user/deployment/pages/" target="_blank">GitHub Pages Deployment</a></p>
+
+<h3 id="membuat-build-task-di-rakefile">Membuat Build Task di Rakefile</h3>
+
+<p>Proses build yang berlangsung di Travis CI akan memerlukan <strong>rake</strong>.</p>
+
+<p>Agar perintah <code class="language-plaintext highlighter-rouge">$ bundle exec rake</code> dapat digunakan, kita perlu mendefinisikan tasks yang akan digunakan rake untuk menjalankan proses Jekyll build.</p>
+
+<p>Untuk itu, kita perlu membuat file <code class="language-plaintext highlighter-rouge">Rakefile</code> di root project direktori.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="n">task</span> <span class="ss">:default</span> <span class="k">do</span>
+  <span class="nb">puts</span> <span class="s2">"Running CI tasks..."</span>
+
+  <span class="c1"># Dengan menjalankan perintah jekyll build di production environment</span>
+  <span class="c1"># Travis CI akan membuat _site/ direktori yang berisi</span>
+  <span class="c1"># file static site yang siap untuk di publish</span>
+  <span class="n">sh</span><span class="p">(</span><span class="s2">"JEKYLL_ENV=production bundle exec jekyll build"</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Jekyll successfully built!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>File <code class="language-plaintext highlighter-rouge">Rakefile</code> tersebut akan dijalankan setiap build.</p>
+
+<p>Proses konfigurasi di branch <strong>source</strong> telah selesai.</p>
+
+<h2 id="konfigurasi-github-pat-personal-access-token">Konfigurasi GitHub PAT (Personal Access Token)</h2>
+
+<p>Kita memerlukan GitHub PAT (<em>Personal Access Token</em>) yang akan kita letakkan pada Travis CI environment.</p>
+
+<p>Untuk mendapatkanya, teman-teman perlu membuka <strong>GitHub Settings &gt; Developer Settings &gt; Personal Access Tokens</strong> (sidebar kiri, di bawah).</p>
+
+<p>Atau klik link ini <a href="https://github.com/settings/tokens" target="_blank">Settings/Developer settings</a>.</p>
+
+<p>Setelah itu, klik tombol <kbd>Generate new tokens</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/4y4yz80x/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Berikan nama yang mudah untuk dikenali.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/66zy9X72/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Checklist semua <em>permission</em> yang ada pada scope <strong>repo</strong>.</p>
+
+<p>Sip mantap!</p>
+
+<p>Jangan lupa disimpan dengan menekan tombol <kbd>Generate token</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/qMRgq5nm/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Kita akan mendapatkan token. Copy dan simpan dulu di tempat yang aman.</p>
+
+<p>Token tersebut akan kita daftarkan ke environment variable GITHUB_TOKEN di Travis CI.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/rFKFMtX3/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Dengan begini, konfigurasi pada GitHub sudah selesai.</p>
+
+<h2 id="konfigurasi-travis-ci">Konfigurasi Travis CI</h2>
+
+<p>Buka situs <a href="https://travis-ci.org/" target="_blank">Travis-CI.Org</a> dan login dan nanti akan muncul repositori yang akan kita gunakan. Pilih repository dari Jekyll blog yang teman-teman miliki.</p>
+
+<p>Atau, bisa ke halaman <a href="https://travis-ci.org/account/repositories" target="_blank">travis-ci.org/account/repositories</a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/brMsRYP6/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Setelah di <strong>enable</strong>, klik tombol <kbd>Settings</kbd>, untuk pergi ke pengaturan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/KzpSHJzz/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Isikan environment variable seperti contoh di atas.</p>
+
+<p><strong>Name</strong>: <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code></p>
+
+<p><strong>Value</strong>: <code class="language-plaintext highlighter-rouge">1d172d8243bab24c197305604887b4a428a1914</code></p>
+
+<p><strong>Display value in build log</strong>: <code class="language-plaintext highlighter-rouge">OFF</code></p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Jangan meng-<b>ON</b>-kan "<b>Display value in build log</b>", karena akan ditampilkan pada verbose proses build.</p>
+    <p>Apabila kita set <b>OFF</b>, maka akan ditampilkan seperti ini</p>
+    <pre>$ export GITHUB_TOKEN=[secure]</pre>
+    <p>Tentunya hal ini lebih <i>secure</i>.</p>
+  </div></div>
+
+<p>Setelah itu, tekan tombol <kbd>Add</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/QNBdrTrP/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Nah, kalau tampilannya seperti di atas, artinya kita sudah berhasil mengeset environment variable GITHUB_TOKEN.</p>
+
+<p>Sekedar info, saya tidak mengutak atik pengaturan <strong>General</strong> &amp; <strong>Auto Cancellation</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/nrf55gxn/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Mantap! Konfigurasi pada Travis CI sudah selesai.</p>
+
+<p><br />
+Sekarang, kalau teman-teman membuat commit baru dan melakukan push ke branch <strong>source</strong>,</p>
+
+<pre><span class="cmd">$ </span><b>git push -u origin source</b><br /></pre>
+
+<p>Kita akan melihat Travis CI akan menjalankan proses build.</p>
+
+<p>Kalau berhasil akan sepeti ini tampilannya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/sxfPv49p/gambar-09.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/9f3GGhYX/gambar-10.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Perhatikan pada baris ke-320, kita dapat melihat pada akhir proses build, akan mendeploy hasil generate static site <code class="language-plaintext highlighter-rouge">_site/</code> di branch <strong>master</strong> ke GitHub Pages.</p>
+
+<p>Selesai!</p>
+
+<p>Selamat nge-Jekyll!!!</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Catatan ini bukan merupakan tutorial, saya hanya ingin sharing tentang informasi yang saya dapat dan saya pergunakan selama membangun dan menulis Blog menggunakan Jekyll.</p>
+
+<p>Maka dari itu, apabila teman-teman ingin mendapatkan penjelasan yang lebih baik, silahkan mengunjungin dokumentasi dari Jekyll, GitHub Pages dan Travis CI. Tentunya akan lebih <em>up to date</em> dari yang saya tulis di sini.</p>
+
+<p>Saya rasa hanya ini yang dapat saya tuliskan saat ini.</p>
+
+<p>Mudah-mudahan dapat bermanfaat untuk teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://joshfrankel.me/blog/deploying-a-jekyll-blog-to-github-pages-with-custom-plugins-and-travisci/" target="_blank">joshfrankel.me/blog/deploying-a-jekyll-blog-to-github-pages-with-custom-plugins-and-travisci</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+  <li>
+    <p><a href="https://docs.github.com/en/enterprise/2.14/user/articles/configuring-jekyll-plugins" target="_blank">docs.github.com/en/enterprise/2.14/user/articles/configuring-jekyll-plugins</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+  <li>
+    <p><a href="https://docs.travis-ci.com/user/deployment/pages/" target="_blank">Travis CI - GitHub Pages Deployment</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+  <li>
+    <p><a href="https://docs.travis-ci.com/user/languages/ruby/" target="_blank">Travis CI - Building a Ruby Project</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+  <li>
+    <p><a href="https://pages.github.com/" target="_blank">pages.github.com</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+  <li>
+    <p><a href="https://jekyllrb.com/" target="_blank">jekyllrb.com</a>
+<br />Diakses tanggal: 2020/07/10</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

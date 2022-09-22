@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, jekyll">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Membedakan Jekyll Gemfile antar Level Environment (Production atau Development) | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Membedakan Jekyll Gemfile antar Level Environment (Production atau Development)" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Semakin bertambahnya jumlah artikel di BanditHijo blog, mungkin akan memperlambat proses generate static blog ini. Maka dari itu, saya memilih untuk memisahkan beberapa gem yang hanya akan saya gunakan saat di local development, sebagiannya saya jalankan hanya di level production." />
+<meta property="og:description" content="Semakin bertambahnya jumlah artikel di BanditHijo blog, mungkin akan memperlambat proses generate static blog ini. Maka dari itu, saya memilih untuk memisahkan beberapa gem yang hanya akan saya gunakan saat di local development, sebagiannya saya jalankan hanya di level production." />
+<link rel="canonical" href="https://bandithijo.dev/blog/membedakan-jekyll-gemfile-antar-environment" />
+<meta property="og:url" content="https://bandithijo.dev/blog/membedakan-jekyll-gemfile-antar-environment" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-07T19:54:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/membedakan-jekyll-gemfile-antar-environment"},"description":"Semakin bertambahnya jumlah artikel di BanditHijo blog, mungkin akan memperlambat proses generate static blog ini. Maka dari itu, saya memilih untuk memisahkan beberapa gem yang hanya akan saya gunakan saat di local development, sebagiannya saya jalankan hanya di level production.","url":"https://bandithijo.dev/blog/membedakan-jekyll-gemfile-antar-environment","@type":"BlogPosting","headline":"Membedakan Jekyll Gemfile antar Level Environment (Production atau Development)","dateModified":"2021-01-07T19:54:00+08:00","datePublished":"2021-01-07T19:54:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Membedakan Jekyll Gemfile antar Level Environment (Production atau Development)"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/membedakan-jekyll-gemfile-antar-environment">Membedakan Jekyll Gemfile antar Level Environment (Production atau Development)</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/01/07</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Membedakan jekyll gemfile antar environment
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jekyll">Jekyll</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang-masalah">Latar Belakang Masalah</a></li>
+  <li><a href="#apa-penyebabnya">Apa Penyebabnya?</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#gemfile-plugins">Gemfile Plugins</a></li>
+    </ul>
+  </li>
+  <li><a href="#hasilnya">Hasilnya</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Saat memindahkan proses build blog ini dari Netlify ke GitHub Pages, saya menyadari bahwa ada beberapa plugin yang membuat proses build blog ini sangat molor. Sekitar 40-60 detik.</p>
+
+<p>Dengan waktu build yang selama itu, mungkin tidak akan terasa mengganggu apabila terjadi pada level production.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/zBFKZGjM/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Proses build di production dengan Travis-CI</p>
+
+<p>Namun, akan sangat mengganggu bagi saya sebagai developer apabila terjadi pada level development.</p>
+
+<p>Waktu yang diperlukan untuk mengenerate blog menjadi static file menjadi sangat molor.</p>
+
+<p>Bayangkan kalau kita harus menunggu 40-60 detik hanya karena menambah 1 huruf saja.</p>
+
+<pre>
+Regenerating: 1 file(s) changed at 2021-01-07 21:15:48
+              _posts/blog/2021/2021-01-07-membedakan-jekyll-gemfile-antar-environment.md
+ Jekyll Feed: Generating feed for posts
+              ...done in 37.638836748 seconds.
+</pre>
+
+<p>Proses build yang molor ini juga dikarenakan prosesor saya sudah cukup tua, namun menolak untuk menyerah.</p>
+
+<h1 id="apa-penyebabnya">Apa Penyebabnya?</h1>
+
+<p>Kalau saya menjalankan build dengan option <code class="language-plaintext highlighter-rouge">--profile</code>.</p>
+
+<pre><span class="cmd">$ </span><b>bundle exec jekyll build --profile</b><br /></pre>
+
+<pre>
+Build Process Summary:
+
+| PHASE      |    TIME |
++------------+---------+
+| RESET      |  0.0003 |
+| READ       |  0.6375 |
+| GENERATE   |  0.0299 |
+| RENDER     | 37.7396 |
+| CLEANUP    |  0.0516 |
+| WRITE      |  0.4089 |
++------------+---------+
+| TOTAL TIME | 38.8678 |
+
+
+Site Render Stats:
+
+| Filename                                                                           | Count |     Bytes |   Time |
++------------------------------------------------------------------------------------+-------+-----------+--------+
+| <span class="is-warning">sitemap.xml</span>                                                                        |     1 |    49.78K | <span class="is-warning">18.826</span> |
+| _layouts/post.html                                                                 |   353 |  7231.44K |  6.140 |
+| _includes/sidebar_tail.html                                                        |   364 |  1608.70K |  2.849 |
+| _includes/sidebar_head.html                                                        |   364 |   230.18K |  2.405 |
+------------------------------------------------- dipotong --------------------------------------------------------
+| _posts/blog/2020/2020-12-01-membuat-output-dari-form-dengan-ajax.md                |     1 |    21.98K |  0.045 |
+| _posts/blog/2019/2019-12-08-search-dengan-ransack-dan-easyautocomplete-rails.md    |     1 |    22.73K |  0.045 |
+| _posts/blog/2020/2020-10-29-defx-alternatif-file-explorer-selain-nerdtree.md       |     1 |    28.47K |  0.044 |
+| _posts/blog/2020/2020-06-18-membuat-web-scraper-dengan-ruby-with-activerecord.md   |     1 |    29.93K |  0.043 |
++------------------------------------------------------------------------------------+-------+-----------+--------+
+| TOTAL (for 50 files)                                                               |  4743 | 27739.29K | 42.704 |
+
+                    done in 38.927 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+</pre>
+
+<p>Nah! Saya dapat satu tersangkanya, yaitu plugin <strong>jekyll-sitemap</strong>.</p>
+
+<p>Setelah saya mencoba mendisable plugin jekyll-sitemap, saya juga mencoba untuk mendisable beberapa plugin yang lain.</p>
+
+<p>Saya mendapatkan plugin <strong>jekyll-last-modified-at</strong> juga memberikan sebab molornya waktu build blog ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+<pre class="caption">
+group :jekyll_plugins do
+  gem 'rouge',                                 '~&gt; 3.13.0'
+  gem 'jekyll-feed',                           '~&gt; 0.13.0'
+  gem 'jekyll-seo-tag',                        '~&gt; 2.6.1'
+  gem 'jekyll-redirect-from',                  '~&gt; 0.16.0'
+  <mark>gem 'jekyll-sitemap',                        '~&gt; 1.4.0'</mark>
+  <mark>gem 'jekyll-last-modified-at',               '~&gt; 1.3'</mark>
+end
+</pre>
+
+<p>Setelah mengetahui bahwa kedua plugin tersebut yang paling memberikan dampak terhadap sebab molornya proses generate blog ini, saya harus melakukan sesuatu terhadap kedua game tersebut.</p>
+
+<p>Kalau saya tidak gunakan, rasanya tidak bisa. 😄</p>
+
+<p>Saya perlukan plugin sitemap untuk mendhandle ketentuan SEO dan saya perlukan plugin last-modified-at untuk memberikan keterangan bahwa saya telah melakukan pembaharuan terhadap post tertentu.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Kalau di Ruby on Rails, pada Gemfile, kita dapat menempatkan gem pada group tertentu.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="n">gem</span> <span class="s1">'rails'</span><span class="p">,</span>                    <span class="s1">'~&gt; 5.2.3'</span>
+<span class="n">gem</span> <span class="s1">'pg'</span><span class="p">,</span>                       <span class="s1">'&gt;= 0.18'</span><span class="p">,</span> <span class="s1">'&lt; 2.0'</span>
+<span class="n">gem</span> <span class="s1">'puma'</span><span class="p">,</span>                     <span class="s1">'~&gt; 3.11'</span>
+
+<span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'rails-controller-testing'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span><span class="p">,</span> <span class="s1">'&gt;= 1.0.4'</span>
+<span class="k">end</span>
+
+<span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'spring'</span>
+  <span class="n">gem</span> <span class="s1">'spring-watcher-listen'</span><span class="p">,</span>    <span class="s1">'~&gt; 2.0.0'</span>
+<span class="k">end</span>
+
+<span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+  <span class="n">gem</span> <span class="s1">'capybara'</span><span class="p">,</span>                 <span class="s1">'&gt;= 2.15'</span>
+  <span class="n">gem</span> <span class="s1">'selenium-webdriver'</span>
+  <span class="n">gem</span> <span class="s1">'chromedriver-helper'</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dilihat, kalau terdapat 2 group, <code class="language-plaintext highlighter-rouge">:development</code> dan <code class="language-plaintext highlighter-rouge">:test</code>.</p>
+
+<p>Sedangkan gem yang berada di luar, akan dijalankan disemua environment termasuk di <code class="language-plaintext highlighter-rouge">:production</code>.</p>
+
+<p>Kalau di Ruby on Rails, apabila kita ingin membuat gem tertentu hanya dijalankan pada level production, kita hanya perlu membuat group <code class="language-plaintext highlighter-rouge">:production</code> dan memasukkan gem di dalamnya. Dengan begitu, gem tersebut hanya akan dijalankan apabila berada pada level production.</p>
+
+<p>Kalau saya perhatikan file <strong>Gemfile</strong> yang dimiliki Jekyll hanya memiliki group <code class="language-plaintext highlighter-rouge">:jekyll_plugins</code>.</p>
+
+<p>Saat tulisan ini dibuat, saya sudah mencari-cari solusi bagaimana agar Jekyll Gemfile dapat memiliki group pada masing-masing level environment. Hasilnya masih nihil.</p>
+
+<p>Namun saya mendapatkan cara alternatif untuk mengakali harl tersebut.</p>
+
+<p>Setidaknya ada 3 cara yang dapat kita lakukan.</p>
+
+<ol>
+  <li>
+    <p><strong>Local Plugin</strong><br /> Pendefinisian local plugin path pada <strong>plugin_dir</strong> di file <strong>_config.yml</strong> &amp; <strong>_config-dev.yml</strong>.<br />Namun, menggunakan option <strong>plugin_dir</strong> sepertinya sudah deprecated sejak Jekyll 3.5.0.<br /> Karena sudah diganti dengan <strong>plugins</strong>. Lihat <a href="https://github.com/jekyll/jekyll/issues/6195#issuecomment-312499884" target="_blank">issue #6195</a>.</p>
+  </li>
+  <li>
+    <p><strong>Gemfile Plugins</strong><br /> Pendefisian plugin yang berbeda antar dua file Gemfile: <strong>Gemfile</strong> (production) &amp; <strong>Gemfile-dev</strong> (development).</p>
+  </li>
+  <li>
+    <p><strong>Limit Number of Post Rendering</strong><br /> Apabila kalian memiliki jumlah post yang banyak, kita dapat membatasi jumlah post yang dapat di-generate.<br /> Dengan menggunakan option <code class="language-plaintext highlighter-rouge">--limit_posts</code>.</p>
+  </li>
+</ol>
+
+<p><br />
+Dari ketiga cara di atas, saya menggunakan cara nomor 2 &amp; 3.</p>
+
+<h2 id="gemfile-plugins">Gemfile Plugins</h2>
+
+<p>Karena saya tidak menemukan cara untuk membuat scope dalam Gemfile guna memberikan batasan plugin pada masing-masing level environment, maka kita akali dengan memisahkan Gemfile (membuat dua Gemfile) antar level environment.</p>
+
+<p><strong>Gemfile</strong></p>
+
+<p>Gemfile ini merupakan Gemfile default, yang akan dijalankan di level production.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-language" data-lang="language"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>group :jekyll_plugins do
+  gem 'rouge',                                 '~&gt; 3.13.0'
+  gem 'jekyll-feed',                           '~&gt; 0.13.0'
+  gem 'jekyll-seo-tag',                        '~&gt; 2.6.1'
+  gem 'jekyll-redirect-from',                  '~&gt; 0.16.0'
+  gem 'jekyll-sitemap',                        '~&gt; 1.4.0'
+  gem 'jekyll-last-modified-at',               '~&gt; 1.3'
+end
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dua plugin terbawah, adalah plugin yang membuat proses build menjadi molor. Kedua plugin ini tentu saja tetap berada pada Gemfile yang akan dijalankan di level production.</p>
+
+<p><strong>Gemfile-dev</strong></p>
+
+<p>Gemfile ini akan kita panggil pada level development.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-language" data-lang="language"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>group :jekyll_plugins do
+  gem 'rouge',                                 '~&gt; 3.13.0'
+  gem 'jekyll-feed',                           '~&gt; 0.13.0'
+  gem 'jekyll-seo-tag',                        '~&gt; 2.6.1'
+  gem 'jekyll-redirect-from',                  '~&gt; 0.16.0'
+end
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menghilangkan dua plugin terbawah yang ada pada file Gemfile.</p>
+
+<p>Cara untuk memanggil Gemfile-dev pada level development, kita dapat menggunakan variabel <code class="language-plaintext highlighter-rouge">BUNDLE_GEMFILE</code>, seperti ini.</p>
+
+<pre><span class="cmd">$ </span><b>BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll server</b><br /></pre>
+
+<p>Kepanjangan yaa.</p>
+
+<p>Untuk mempersingkat command yang panjang, dapat menggunakan alias shell.</p>
+
+<p>Kalau saya, karena blog ini menggunakan <strong>rake</strong>, maka saya tinggal meracik task pada <strong>Rakefile</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="c1"># ...</span>
+<span class="c1"># ...</span>
+
+<span class="c1"># For Development Evironment</span>
+<span class="n">namespace</span> <span class="ss">:jekyll</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s1">'Menjalankan Jekyll pada Environment Development'</span>
+  <span class="n">task</span> <span class="ss">:server</span> <span class="k">do</span>
+    <span class="n">sh</span><span class="p">(</span><span class="s1">'BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0'</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">namespace</span> <span class="ss">:server</span> <span class="k">do</span>
+    <span class="n">desc</span> <span class="s1">'Menjalankan Jekyll pada Environment Development dengan --incremental'</span>
+    <span class="n">task</span> <span class="ss">:inc</span> <span class="k">do</span>
+      <span class="n">sh</span><span class="p">(</span><span class="s1">'BUNDLE_GEMFILE=Gemfile-dev bundle exec jekyll s -l -H 0.0.0.0 --incremental --watch'</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<pre><span class="cmd">$ </span><b>rake -T</b><br /></pre>
+
+<pre>
+rake jekyll:server        # Menjalankan Jekyll pada Environment Development
+rake jekyll:server:inc    # Menjalankan Jekyll pada Environment Development dengan --incremental --watch
+</pre>
+
+<p>Nah, dengan begini command yang saya gunakan menjadi lebih singkat.</p>
+
+<p><strong>Ketika baru pertama kali membuat post baru, saya menjalankan</strong>:</p>
+
+<pre><span class="cmd">$ </span><b>rake jekyll:server</b><br /></pre>
+
+<p><strong>Ketika, proses build post baru telah selesai, saya menjalankan</strong>:</p>
+
+<pre><span class="cmd">$ </span><b>rake jekyll:server:inc</b><br /></pre>
+
+<h1 id="hasilnya">Hasilnya</h1>
+
+<pre>
+Regenerating: 1 file(s) changed at 2021-01-07 20:19:30
+              _posts/blog/2021/2021-01-07-membedakan-jekyll-gemfile-antar-environment.md
+ Jekyll Feed: Generating feed for posts
+              ...done in 9.767419585 seconds.
+</pre>
+
+<p>Akan lebih cepat lagi kalau saya menggunakan <code class="language-plaintext highlighter-rouge">--incremental</code> dan <code class="language-plaintext highlighter-rouge">--watch</code>.</p>
+
+<pre>
+Regenerating: 1 file(s) changed at 2021-01-07 20:25:39
+              _posts/blog/2021/2021-01-07-membedakan-jekyll-gemfile-antar-environment.md
+ Jekyll Feed: Generating feed for posts
+              ...done in 1.772672945 seconds.
+</pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p><strong>Incremental regeneration</strong> adalah option yang dapat kita gunakan untuk mempercepat proses generate dengan hanya mengenerate file-file yang berubah sejak build versi sebelumnya.</p>
+    <p>Teman-teman dapat membaca lebih jauh tentang <strong>incremental regeneration</strong> pada dokumentasi yang ada di Jekyllrb.com.</p>
+    <p><a href="https://jekyllrb.com/docs/configuration/incremental-regeneration/" target="_blank"><strong>Default Configuration - Incremental Regeneration</strong></a>.</p>
+    <p>*Fitur ini masih merupakan experimental feature.</p>
+  </div></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://stackoverflow.com/a/59762252/4862516" target="_blank">stackoverflow.com/a/59762252/4862516</a>
+<br />Diakses tanggal: 2021/01/07</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

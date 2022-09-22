@@ -1,0 +1,3348 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunakan." />
+<meta property="og:description" content="Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunakan." />
+<link rel="canonical" href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis" />
+<meta property="og:url" content="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-05-05T11:18:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis"},"description":"Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunakan.","url":"https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis","@type":"BlogPosting","headline":"Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi","dateModified":"2019-05-05T11:18:00+08:00","datePublished":"2019-05-05T11:18:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/polybar-mudah-dikonfig-dan-praktis">Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/05/05</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Polybar mudah dikonfig dan praktis
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#apa-itu-polybar">Apa itu Polybar?</a></li>
+  <li><a href="#gimana-cara-pasangnya">Gimana Cara Pasangnya?</a>
+    <ul>
+      <li><a href="#1-konfigurasi-menjalankan-polybar">1. Konfigurasi Menjalankan Polybar</a>
+        <ul>
+          <li><a href="#instalasi-dari-repositori">Instalasi dari Repositori</a></li>
+          <li><a href="#instalasi-dengan-meng-compile-sendiri">Instalasi dengan Meng-<em>compile</em> Sendiri</a></li>
+          <li><a href="#menjalankan-polybar">Menjalankan Polybar</a>
+            <ul>
+              <li><a href="#1-langsung">1. Langsung</a></li>
+              <li><a href="#2-tidak-langsung">2. Tidak Langsung</a>
+                <ul>
+                  <li><a href="#i3wm">i3WM</a></li>
+                  <li><a href="#bspwm">BSPWM</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#2-konfigurasi-memodifikasi-polybar">2. Konfigurasi Memodifikasi Polybar</a>
+        <ul>
+          <li><a href="#blok-colors">Blok [colors]</a></li>
+          <li><a href="#blok-barnama_bar">Blok [bar/nama_bar]</a></li>
+          <li><a href="#blok-modulenama_modul">Blok [module/nama_modul]</a>
+            <ul>
+              <li><a href="#modul-bspwm">Modul BSPWM</a></li>
+              <li><a href="#modul-xwindow">Modul xwindow</a></li>
+              <li><a href="#modul-xkeyboard">Modul xkeyboard</a></li>
+              <li><a href="#modul-xbacklight">Modul xbacklight</a></li>
+              <li><a href="#modul-pulseaudio">Modul PulseAudio</a></li>
+              <li><a href="#modul-memory">Modul Memory</a></li>
+              <li><a href="#modul-cpu">Modul CPU</a></li>
+              <li><a href="#modul-filesystem">Modul FileSystem</a></li>
+              <li><a href="#modul-temperature">Modul Temperature</a></li>
+              <li><a href="#moudul-date">Moudul Date</a></li>
+              <li><a href="#modul-network">Modul Network</a></li>
+              <li><a href="#modul-battery">Modul Battery</a></li>
+              <li><a href="#modul-text">Modul Text</a></li>
+            </ul>
+          </li>
+          <li><a href="#blok-settings">Blok [settings]</a></li>
+          <li><a href="#blok-globalwm">Blok [global/wm]</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#tips">Tips</a>
+    <ul>
+      <li><a href="#showhide-bar-untuk-trayicon">Show/Hide Bar untuk Trayicon</a></li>
+    </ul>
+  </li>
+  <li><a href="#contoh-file-konfigurasi">Contoh File Konfigurasi</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="apa-itu-polybar">Apa itu Polybar?</h1>
+
+<p>Polybar. untuk teman-teman yang menggunakan Window Manager, pasti sudah tidak asing lagi mendengar aplikasi ini.</p>
+
+<p>Polybar adalah <em>standalone</em> taskbar/panel yang dapat kita gunakan sebagai wadah untuk meletakkan berbagai macam status indikator yang kita perlukan.</p>
+
+<p>Biasanya pengguna Desktop Environment menyebutnya dengan istilah “Panel”.</p>
+
+<p>Saya juga pernah menyinggung sedikit tentang Polybar pada tulisan sebelumnya, mengenai “<a href="https://bandithijo.dev/i3wm-window-manager-yang-taktis-namun-praktis" target="_blank">i3wm, Window Manager yang Taktis namun Praktis</a>”.</p>
+
+<p>Taskbar/panel adalah salah satu aplikasi pendukung agar kita dapat menggunakan sistem kita dengan mudah.</p>
+
+<p>Secara pribadi, status indikator yang saya perlukan, meliputi:</p>
+
+<ol>
+  <li>Workspace indikator</li>
+  <li>Focused Window Title Name</li>
+  <li>Tanggal dan Jam</li>
+  <li>Battery status</li>
+  <li>CPU temperatur</li>
+  <li>RAM usage indikator</li>
+  <li>Volume indikator</li>
+  <li>Brightness screen indikator</li>
+  <li>Network status</li>
+  <li>Network speed indikator</li>
+</ol>
+
+<p>Status indikator yang <em>optional</em> seperti:</p>
+
+<ol>
+  <li>HDD capacity indikator</li>
+  <li>CPU usage indikator</li>
+</ol>
+
+<p>Di bawah ini adalah contoh Polybar yang saya pergunakan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/NfwPVNhT/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/ZYNMVGQ4/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Jangan bingung, tampilan Polybar saya memang sederhana seperti ini saja.</p>
+
+<p>Di forum-forum online seperti <a href="https://www.reddit.com/r/unixporn/">/r/unixporn</a>, <a href="https://t.me/dotfiles_id" target="_blank">Telegram: dotfiles Indonesia</a>, dll, cukup banyak teman-teman yang menggunakan Polybar dengan bentuk dan warna yang beraneka ragam. Keren-keren sekali.</p>
+
+<p>Sekedar pengetahuan saja, selain Polybar, masih ada lagi <em>standalone</em> taskbar/panel yang sering terdengar di telinga saya, seperti:</p>
+
+<ol>
+  <li><a href="https://github.com/LemonBoy/bar" target="_blank">lemonbar</a></li>
+  <li><a href="https://gitlab.com/o9000/tint2" target="_blank">tint2</a></li>
+  <li><a href="http://robm.github.io/dzen/" target="_blank">dzen</a></li>
+  <li><a href="https://github.com/tobi-wan-kenobi/bumblebee-status" target="_blank">bumblebee-status</a></li>
+  <li><a href="https://wiki.archlinux.org/index.php/List_of_applications#Taskbars" target="_blank">dll.</a></li>
+</ol>
+
+<h1 id="gimana-cara-pasangnya">Gimana Cara Pasangnya?</h1>
+
+<p>Mumpung sedang pembahasan taskbar/panel, saya sekalian memberi informasi bahwa masing-masing taskbar/panel tersebut, memiliki proses konfigurasinya yang berbeda satu dengan yang lainnya – pastinya.</p>
+
+<p>Dalam proses konfigurasi Polybar, saya akan membagi menjadi 2 sesi, yaitu:</p>
+
+<ol>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#1-konfigurasi-menjalankan-polybar" target="_blank">Konfigurasi Menjalankan Polybar</a></li>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#2-konfigurasi-memodifikasi-polybar" target="_blank">Konfigurasi Memodifikasi Polybar</a></li>
+</ol>
+
+<p>Tujuannya untuk memudahkan saat ada pertanyaan mengenai “konfigurasi Polybar”.</p>
+
+<h2 id="1-konfigurasi-menjalankan-polybar">1. Konfigurasi Menjalankan Polybar</h2>
+
+<p>Tentu saja kita perlu melakukan instalasi terlebih dahulu.</p>
+
+<h3 id="instalasi-dari-repositori">Instalasi dari Repositori</h3>
+
+<p>Karena saya menggunakan Arch Linux, saya akan mencontohkan dengan cara Arch.</p>
+
+<p>Gunakan AUR Helper favorit kalian karena paket Polybar masih terdapat di AUR.</p>
+
+<pre><span class="cmd">$ </span><b>yay polybar</b><br /></pre>
+
+<p>Untuk yang menggunakan distribusi lain, silahkan menyesuaikan. Hehe.</p>
+
+<h3 id="instalasi-dengan-meng-compile-sendiri">Instalasi dengan Meng-<em>compile</em> Sendiri</h3>
+
+<p>Perhatikan terlebih dahulu paket-paket dependensi yang diperlukan sebelum mengkompile Polybar.</p>
+
+<p>Silahkan melihat daftarnya <a href="https://github.com/jaagr/polybar#dependencies" target="_blank">di sini</a>.</p>
+
+<p>Setelah dipastikan semua kebutuhan dependensi, baik yang utama maupun yang optional sudah terpenuhi.</p>
+
+<p>Selanjutnya, Download versi Polybar <a href="https://github.com/jaagr/polybar/releases" target="_blank">di sini</a>.</p>
+
+<p>Download <code class="language-plaintext highlighter-rouge">polybar-{version}.tar</code></p>
+
+<p>Pilih versi yang paling baru saja.</p>
+
+<p>Kemudian ekstrak dengan,</p>
+
+<pre><span class="cmd">$ </span><b>tar xvf polybar-{version}.tar</b><br /></pre>
+
+<p>Kemudian, masuk ke dalam direktori yang baru saja di ekstrak tadi.</p>
+
+<p>Lalu, jalankan perintah di bawah ini untuk mem-<em>compile</em> Polybar.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir build</b><br /><span class="cmd">$ </span><b>cd build</b><br /><span class="cmd">$ </span><b>cmake ..</b><br /><span class="cmd">$ </span><b>make -j$(nproc)</b><br /><span class="cmd">$ </span><b>sudo make install</b><br /></pre>
+
+<p>Tunggu sampai proses <em>compile</em> selesai.</p>
+
+<hr />
+
+<p>Setelah dipastikan proses instalasi selesai, baik dari repositori maupun meng-<em>compile</em> langsung dari source, coba jalankan Polybar terlebih dahulu dengan menambahkan option <code class="language-plaintext highlighter-rouge">-h</code>.</p>
+
+<pre><span class="cmd">$ </span><b>polybar -h</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Usage: polybar [OPTION]... BAR
+
+  -h, --help               Display this help and exit
+  -v, --version            Display build details and exit
+  -l, --log=LEVEL          Set the logging verbosity (default: WARNING)
+                           LEVEL is one of: error, warning, info, trace
+  -q, --quiet              Be quiet (will override -l)
+  -c, --config=FILE        Path to the configuration file
+  -r, --reload             Reload when the configuration has been modified
+  -d, --dump=PARAM         Print value of PARAM in bar section and exit
+  -m, --list-monitors      Print list of available monitors and exit
+  -w, --print-wmname       Print the generated WM_NAME and exit
+  -s, --stdout             Output data to stdout instead of drawing it to the X window
+  -p, --png=FILE           Save png snapshot to FILE after running for 3 seconds
+</code></pre></div></div>
+
+<p>Kalau sudah tampil seperti di atas, berarti Polybar sudah berhasil kita pasang.</p>
+
+<p>Selanjutnya, Kita akan meng-<em>copy</em> file <code class="language-plaintext highlighter-rouge">config</code>.</p>
+
+<p>File config dapat dipasang dengan menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>make userconfig</b><br /></pre>
+
+<p>Jalankan dari dalam direktori <code class="language-plaintext highlighter-rouge">build</code> yang sebelumnya kita buat untuk meng-<em>compile</em>.</p>
+
+<p>atau,</p>
+
+<p><em>Copy</em> dan <em>paste</em> secara manual file <code class="language-plaintext highlighter-rouge">config</code> yang berada pada direktori <code class="language-plaintext highlighter-rouge">/usr/...</code></p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">/usr/share/doc/polybar/config</code></li>
+  <li><code class="language-plaintext highlighter-rouge">/usr/local/share/doc/polybar/config</code></li>
+</ol>
+
+<p>Tergantung parameter yang kalian gunakan saat melakukan instalasi Polybar.</p>
+
+<p>Silahkan di copy ke direktori <code class="language-plaintext highlighter-rouge">~/.config/polybar/</code>. Kalau belum ada direktori ini, silahkan di buat dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir -p ~/.config/polybar</b><br /></pre>
+
+<p>Lalu tinggal jalankan perintah <code class="language-plaintext highlighter-rouge">cp</code>.</p>
+
+<pre><span class="cmd">$ </span><b>cp <mark>/usr/share/doc/polybar/config</mark> ~/.config/polybar/config</b><br /></pre>
+
+<p>Sesuaikan path yang saya marking kuning dengan lokasi file <code class="language-plaintext highlighter-rouge">config</code> yang berada pada direktori <code class="language-plaintext highlighter-rouge">/usr/...</code> di sistem kalian.</p>
+
+<p>Kalau pada Arch Linux, hasil instalasi Polybar yang bersumber dari AUR, akan terdapat pada path seperti yang tertulis pada  nomor 1 di atas.</p>
+
+<h3 id="menjalankan-polybar">Menjalankan Polybar</h3>
+
+<p>Setelah selesai meng-<em>copy</em> file konfig, selanjutnya kita perlu mengkonfigurasi untuk memanggil Polybar.</p>
+
+<p>Memanggil/menjalankan Polybar diperlukan agar Polybar dapat menampakkan diri pada Desktop.</p>
+
+<p>Cara menjalankan Polybar saya bagi menjadi 2, yaitu :</p>
+
+<ol>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#1-langsung">Langsung</a></li>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#2-tidak-langsung">Tidak Langsung</a></li>
+</ol>
+
+<h4 id="1-langsung">1. Langsung</h4>
+
+<p>Dengan menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>polybar example -r</b><br /></pre>
+
+<p>Argument <code class="language-plaintext highlighter-rouge">example</code> yang berada setelah perintah <code class="language-plaintext highlighter-rouge">polybar</code>, dimaksudkan untuk memanggil nama dari bar yang ada di dalam file <code class="language-plaintext highlighter-rouge">config</code>.</p>
+
+<p>Contoh nama dari bar yang dapat kita temukan di dalam file <code class="language-plaintext highlighter-rouge">config</code>, secara <em>default</em> akan seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[bar/example]
+</code></pre></div></div>
+
+<p>Cari saja dengan <em>scrolling</em> ke bawah, baris yang memiliki isi seperti di atas.</p>
+
+<p>Nah, kalau mau, kita dapat merubahnya sesuai keinginan kita.</p>
+
+<p>Misal,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[bar/topbar]
+</code></pre></div></div>
+
+<p>Nah, maka cara memanggilnya pun akan menjadi,</p>
+
+<pre><span class="cmd">$ </span><b>polybar topbar -r</b><br /></pre>
+
+<p>Option <code class="language-plaintext highlighter-rouge">-r</code> di sini berguna untuk,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-r, --reload  Reload when the configuration has been modified
+</code></pre></div></div>
+
+<p>Maksudnya, semacam <em>autoreload</em>, jadi sambil kita mengubah-ubah nilai yang ada di dalam file <code class="language-plaintext highlighter-rouge">config</code>, Polybar akan secara otomatis me-<em>reload</em>-kan untuk kita. Asik bukan?</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Kapan kita gunakan cara langsung seperti ini?</b></p>
+    <p>Selera saja sih.</p>
+    <p>Kalau saya, biasanya menggunakan cara langsung ini untuk <i>debuging</i> Polybar.</p>
+    <p>Karena saat kita menjalankan secara langsung seperti ini. Terminal tempat kita menjalankan Polybar akan menampilkan log-log dari apa yang kita ubah pada file <code>config</code>.</p>
+  </div></div>
+
+<h4 id="2-tidak-langsung">2. Tidak Langsung</h4>
+
+<p>Cara tidak langsung yaitu dengan menggunakan file executable.</p>
+
+<p>Seperti yang di contohkan oleh Wiki Polybar, dengan menggunakan file <code class="language-plaintext highlighter-rouge">launch.sh</code> yang diletakkan di dalam direktori <code class="language-plaintext highlighter-rouge">~/.config/polybar/</code>.</p>
+
+<p>Sekarang kita coba buat dan membuatnya menjadi executable.</p>
+
+<pre><span class="cmd">$ </span><b>touch ~/.config/polybar/launch.sh</b><br /><span class="cmd">$ </span><b>chmod +x ~/.config/polybar/launch.sh</b><br /></pre>
+
+<p>Sekarang saatnya kita mengisikan beberapa baris perintah di dalamnya.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/polybar/launch.shell_user</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/usr/bin/env bash
+
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar &gt;/dev/null; do sleep 1; done
+
+# Launch bar with name example
+polybar example -r &amp;
+
+echo "Bars launched..."
+</code></pre></div></div>
+
+<p>Ingat, argument <code class="language-plaintext highlighter-rouge">example</code> di atas adalah nama dari bar yang kita berikan. Secara <em>default</em> (kalau masih belum berubah) akan bernama <code class="language-plaintext highlighter-rouge">example</code>.</p>
+
+<p>Teman-teman dapat menggantinya dengan nama bar yang teman-teman atur pada file <code class="language-plaintext highlighter-rouge">config</code> seperti contoh pada nomor 1 di atas.</p>
+
+<p>Sekarang, saatnya menjalankan file <code class="language-plaintext highlighter-rouge">launch.sh</code> ini.</p>
+
+<h5 id="i3wm">i3WM</h5>
+
+<p>Kalau yang menggunakan i3wm, tinggal pasang di file <code class="language-plaintext highlighter-rouge">config</code> dari i3wm saja.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+</code></pre></div></div>
+
+<p>Jangan lupa untuk mendisable bar bawaan dari i3WM, kalau sudah tidak diperlukan lagi.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#bar {
+#    status_command ...
+#}
+</code></pre></div></div>
+
+<p>Atau di hapus juga tidak masalah.</p>
+
+<p>Saya pribadi, saya hapus.</p>
+
+<p>Karena jujur saja, lebih suka menggunakan Polybar ketimbang bar bawaan dari i3WM. Hehe.</p>
+
+<p>Kalau sudah, restart i3WM.</p>
+
+<h5 id="bspwm">BSPWM</h5>
+
+<p>Untuk teman-teman yang menggunakan BSPWM, dapat memasang baris perintah pemanggilan Polybar pada file config <code class="language-plaintext highlighter-rouge">~/.config/bspwm/bspwmrc</code> atau yang berkorelasi, seperti saya, saya letakkan pada file <code class="language-plaintext highlighter-rouge">~/.config/bswpm/autorun</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$HOME/.config/polybar/launch.sh
+</code></pre></div></div>
+
+<p>Kalau sudah, restart BSPWM.</p>
+
+<h2 id="2-konfigurasi-memodifikasi-polybar">2. Konfigurasi Memodifikasi Polybar</h2>
+
+<p>Saat pertama kali menjalankan Polybar, secara <em>default</em> akan menampilkan tampilan seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/C5N3j57m/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Gambar di atas adalah contoh dari pemanggilan <code class="language-plaintext highlighter-rouge">[bar/example]</code> dari file <code class="language-plaintext highlighter-rouge">config</code> yang belum kita modifikasi.</p>
+
+<p>Sudah sangat keren yaa? Wkwkwkwk</p>
+
+<p>Nah sekarang kita akan mem-<em>breakdown</em> isi dari file config.</p>
+
+<p>Secara garis besar, di dalam file config, baris-baris kode tersebut terkelompokkan menjadi beberapa blok.</p>
+
+<ol>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#blok-colors"><strong>Blok [colors]</strong></a></li>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#blok-barnama_bar"><strong>Blok [bar/nama_bar]</strong></a></li>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#blok-modulenama_modul"><strong>Blok-blok [module/nama_modul]</strong></a></li>
+  <li><a href="https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis#blok-settings"><strong>Blok [settings]</strong></a></li>
+</ol>
+
+<p>Selanjutnya, akan kita bahas satu-persatu mengenai isi yang ada di dalam blok-blok tersebut.</p>
+
+<p><mark>Tapi yang akan saya akan jadikan contoh adalah isi dari file config milik saya.</mark></p>
+
+<h3 id="blok-colors">Blok [colors]</h3>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="o">[</span>colors]
+foreground <span class="o">=</span> <span class="c">#BCC3C3</span>
+background <span class="o">=</span> <span class="c">#002B36</span>
+foreground-alt <span class="o">=</span> <span class="c">#56696F</span>
+background-alt <span class="o">=</span> <span class="c">#073642</span>
+alert <span class="o">=</span> <span class="c">#CB4B16</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Blok ini berisi variabel-variabel color yang dapat kita definisikan dan memberi nilai warna (Hexacolor).</p>
+
+<p>Kita juga dapat membuat variabel baru selain dari variabel yang sudah ada, tinggal disesuaikan dengan kebutuhan kita akan variabel warna saja. Enak sekali bukan?</p>
+
+<p>Cara penggunaan atau pemanggilan variabel color ini dengan menggunakan cara seperti ini,</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">foreground = ${colors.foreground}</code></li>
+  <li><code class="language-plaintext highlighter-rouge">background = ${colors.background}</code></li>
+  <li><code class="language-plaintext highlighter-rouge">label-urgent-foreground = ${colors.alert}</code></li>
+  <li>dll.</li>
+</ol>
+
+<p>Jangan bingung dulu karena nanti akan teman-teman lihat contoh-contoh lain mengenai cara penggunannya pada blok-blok selanjutnya.</p>
+
+<h3 id="blok-barnama_bar">Blok [bar/nama_bar]</h3>
+
+<p><code class="language-plaintext highlighter-rouge">nama_bar</code> di sini maksudnya nama dari bar yang teman-teman berikan.</p>
+
+<p>Defaultnya masih bernama <code class="language-plaintext highlighter-rouge">example</code> (<code class="language-plaintext highlighter-rouge">[bar/example]</code>).</p>
+
+<p>Kalau saya, karena saya menggunakan BSPWM, untuk alasan automatisasi pemanggilan nama bar pada script <code class="language-plaintext highlighter-rouge">launch.sh</code> saya menggunakan nama <code class="language-plaintext highlighter-rouge">barbspwm</code> (<code class="language-plaintext highlighter-rouge">[bar/barbspwm]</code>).</p>
+
+<p>Berikut ini isi dari blok [bar/nama_bar].</p>
+
+<p>Saya akan bahas bagian perbagian.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="o">[</span>bar/barbspwm]
+monitor <span class="o">=</span> <span class="k">${</span><span class="nv">env</span>:MONITOR:<span class="k">}</span>
+monitor-fallback <span class="o">=</span> eDP1
+width <span class="o">=</span> 100%
+height <span class="o">=</span> 24
+radius <span class="o">=</span> 5.0
+<span class="p">;</span>offset-x <span class="o">=</span> 0
+<span class="p">;</span>offset-y <span class="o">=</span> 0
+fixed-center <span class="o">=</span> <span class="nb">true
+</span>bottom <span class="o">=</span> <span class="nb">false</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">monitor =</code>, untuk mendefinisikan dimana Polybar akan ditampilkan.</p>
+
+    <p>Gunakan perintah di bawah ini untuk mengecek nama dari monitor yang sedang kita pergunakan.</p>
+
+    <pre><span class="cmd">$ </span><b>xrandr -q | grep " connected" | cut -d ' ' -f1</b><br /></pre>
+
+    <p>Saya menggunakan nilai <code class="language-plaintext highlighter-rouge">${env:MONITOR:}</code> karena berkaitan dengan blok code yang saya jalankan pada file <code class="language-plaintext highlighter-rouge">launch.sh</code> untuk mendefinisikan dual monitor.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">monitor-fallback =</code>, sebagai <em>backup</em> apabila variabel <code class="language-plaintext highlighter-rouge">monitor =</code> tidak ditemukan nilainya.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">width =</code> dan <code class="language-plaintext highlighter-rouge">height =</code>, untuk mendefinisikan lebar dan tinggi dari Polybar.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">radius =</code>, untuk membuat sudut-sudut Polybar menjadi rounded.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">offset-x =</code> dan <code class="language-plaintext highlighter-rouge">offset-y =</code>, apabila kalian ingin menggeser letak dari Polybar pada titik koordinat tertentu.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">fixed-center =</code>, untuk membuat Polybar berada di tengah berdasarkan <code class="language-plaintext highlighter-rouge">modules-center</code>.</p>
+
+    <p>Ketika bernilai <code class="language-plaintext highlighter-rouge">false</code>, posisi center akan ukuran dari blok yang lain.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">bottom =</code>, untuk mendefinisikan letak Polybar pada monitor, berada di atas dari layar, atau berada di bawah.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foreground = ${colors.foreground}
+background = ${colors.background}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">foreground =</code>, untuk mendefinisikan warna foreground yang akan digunakan secara global oleh setiap modul yang menggunakan label dan icon.</p>
+
+    <p>Untuk variabel seperti ini, dapat menggunakan pemanggilan variabel <code class="language-plaintext highlighter-rouge">colors</code> dengan cara seperti yang saya pergunakan di atas.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foreground = ${colors.foreground}
+</code></pre></div>    </div>
+
+    <p>Atau dapat pula diisikan dengan hexa color code-nya.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foreground = #002B36
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">background =</code>, untuk mendefinisikan warna background yang akan digunakan secara global oleh setiap modul.</p>
+
+    <p>Variabel ini termasuk variabel warna. Seperti yang dicontohkan pada variabel foreground di atas.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>line-size = 1
+line-color = #dfdfdf
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">line-size =</code>, untuk mendefinisikan nilai dari tebal garis, baik garis bawah maupun garis atas, yang akan digunakan secara global.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">line-color =</code>, untuk mendefinisikan nilai warna dari variabel <code class="language-plaintext highlighter-rouge">line-</code> di atas.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;border-size = 0
+border-top-size = 5
+border-bottom-size = 0
+border-left-size = 5
+border-right-size = 5
+;border-color = ${colors.background}
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">border-size =</code>, untuk mendefinisikan size dari keempat sisi border dari Polybar.</p>
+
+    <p>Contoh di atas menunjukkan bawha saya tidak mengaktifkan variabel ini, dikarenakan saya ingin memiliki nilai border yang berbeda setiap sisinya.</p>
+
+    <p>Untuk itu saya menggunakan variabel border seperti contoh di bawahnya <code class="language-plaintext highlighter-rouge">border-{sisi}-size =</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">border-top-size =</code>, <code class="language-plaintext highlighter-rouge">border-bottom-size =</code>, <code class="language-plaintext highlighter-rouge">border-left-size = </code>, <code class="language-plaintext highlighter-rouge">border-right-size =</code>, untuk mendefinisikan ukuruan border sisi atas, bawa, kiri, dan kanan.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">border-color =</code>, untuk mendefinisikan warna background dari border.</p>
+
+    <p>Namun, saya tidak menggunakan <code class="language-plaintext highlighter-rouge">border-color</code>, agar border menjadi transparan.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>padding-left = 1
+padding-right = 1
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">padding-left =</code> dan <code class="language-plaintext highlighter-rouge">padding-right =</code>, untuk mendefinisikan besar padding yang ada pada sisi kanan dan kiri dari Polybar.</p>
+
+    <p>Ingat, ini <strong>padding</strong> bukan <strong>margin</strong>, sehingga outputnya akan memberikan jarak pada sisi bagian dalam dari Polybar.</p>
+
+    <p>Saya memberikan nilai <code class="language-plaintext highlighter-rouge">1</code>, agar modul tidak terlalu dempet dengan sisi kanan dan kiri dari Polybar.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module-margin-left = 0
+module-margin-right = 0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">module-margin-left =</code> dan <code class="language-plaintext highlighter-rouge">module-margin-right =</code>, untuk mendefinisikan besarnya margin di sisi kanan atau kiri pada tiap modul.</p>
+
+    <p>Saya tidak ingin membuat jarak yang terlalu jauh antar modul sehingga saya membuat nilainya menjadi <code class="language-plaintext highlighter-rouge">0</code>.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>font-0 = Fira Code Retina:pixelsize=9;2
+font-1 = FontAwesome:pixelsize=10;2
+font-2 = Font Awesome 5 Brands:size=10;2
+font-3 = Fira Code Retina:weight=Bold:pixelsize=9;2
+font-4 = Fira Code Retina:weight=Bold:pixelsize=6;-1
+font-5 = FontAwesome:weight=Bold:pixelsize=4;-2
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">font-{n} =</code>, untuk mendefinisikan font beserta ukuran dan tinggi karakternya.</p>
+
+    <p>Saya ambil contoh,</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>font-0 = Fira Code Retina:pixelsize=9;2
+         └──────────────┘ └─────────┘ ╵
+                a              b      c
+</code></pre></div>    </div>
+
+    <ul>
+      <li>
+        <p>(a) Adalah font yang kita akan gunakan.</p>
+      </li>
+      <li>
+        <p>(b) Adalah ukuran dari font yang akan kita gunakan.</p>
+      </li>
+      <li>
+        <p>(c) Adalah tinggi dari karakter font. Dapat bernilai negatif.</p>
+      </li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;separator =
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">separator =</code>, untuk mendefinisikan karakter pemisah antara modul.</p>
+
+    <p>Karena saya tidak ingin ada karakter apapun yang memisahkan antar modul, maka saya disable.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modules-left = bspwm xwindow
+modules-center =
+modules-right = xkeyboard netspdwlan netspdeth sp1 wlan eth sp2 xbacklight sp2 pulseaudio sp2 memory sp1 temperature sp2 battery sp2 date sp2 profile
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">module-left =</code>, <code class="language-plaintext highlighter-rouge">module-center =</code>, <code class="language-plaintext highlighter-rouge">module-right =</code>, untuk mendefinisikan modul-modul yang akan ditampilkan pada bar sesuai dengan blok posisinya masing-masing.</p>
+
+    <p>Modul-modul ini yang akan kita konfigurasikan pada baris-baris selanjutnya di bawah.</p>
+
+    <p>Untuk melihat apa saja modul-modul yang tersedia, dapat melihat pada Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki" target="_blank">di sini</a>.</p>
+
+    <p>Kita akan bahas lebih lanjut pada pembahasan blok [bar/nama_modul].</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;tray-position = right
+;tray-padding = 0
+;tray-detached = false
+;tray-maxsize = 16
+;tray-scale = 1.0
+;tray-foreground = ${colors.foreground}
+;tray-background = ${colors.background}
+;tray-offses-x = 0
+;tray-offset-y = 0
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Deretan baris kode di atas, digunakan untuk mengkonfigurasi <strong>trayicon</strong> yang akan ditampilkan pada Polybar.</p>
+
+    <p>Sebagai catatan, saya tidak mengaktifkan tray icon pada <strong>[bar/nama_bar]</strong>, karena saya akan meletakkan tray icon pada bar yang akan saya letakkan di bawah dan dapat saya buat <em>show/hide</em> dengan menggunakan kombinasi tombol pada keyboard. Bar ini saya beri nama <strong>[bar/traybspwm]</strong>. Kita akan bahas di bawah.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wm-name = bspwm
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">wm-name =</code>, untuk mendefinisikan atom WM_NAME.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wm-restack = bspwm
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">wm-restack =</code>, untuk menyusun kembali window bar dan meletakkannya di atas window manager yang kita pilih. Untuk memperbaiki masalah dimana bar tetap akan muncul pada saat window fullscreen.</p>
+
+    <p>Terdapat dua Window Manager yang disupport, i3WM dan BSPWM.</p>
+
+    <p>i3WM juga harus mengaktifkan <code class="language-plaintext highlighter-rouge">override-redirect = true</code>. Apabila ingin mengaktifkan fitur ini.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>override-redirect = false
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">override-redirect =</code>, untuk mengatur agar Window Manger tidak menghandle window.</p>
+
+    <p>Saya menggunakan nilai <code class="language-plaintext highlighter-rouge">false</code> karena saya tidak ingin window yang tampil akan menutupi Polybar.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cursor-click = pointer
+cursor-scroll = ns-resize
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cursor-click =</code>, untuk mendefinisikan cursor yang digunakan saat berada di atas modul yang memiliki fungsi <code class="language-plaintext highlighter-rouge">click</code>.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">cursor-scroll =</code>, untuk mendefinisikan fungsi dari scroll apabila dilakukan pada modul yang memiliki fungsi <code class="language-plaintext highlighter-rouge">resize</code> seperti modul backlight dan pulseaudio/alsa.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<p>Untuk penjelasan lebih lengkap mengenai topik yang sudah saya bahas di atas, dapat merujuk pada Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Configuration" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h3 id="blok-modulenama_modul">Blok [module/nama_modul]</h3>
+
+<p>Untuk pembahasan modul, saya akan tulis dengan mendahulukan nama-nama modul yang sudah disediakan oleh Polybar.</p>
+
+<p>Untuk beberapa modul yang teman-teman lihat (pada daftar modul di atas) tidak terdapat pada modul bawaan Polybar (custom module), akan saya tulis belakangan.</p>
+
+<h4 id="modul-bspwm">Modul BSPWM</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+</pre></td><td class="code"><pre><span class="o">[</span>module/bspwm]
+<span class="nb">type</span> <span class="o">=</span> internal/bspwm
+
+pin-workspaces <span class="o">=</span> <span class="nb">true
+</span>inline-mode <span class="o">=</span> <span class="nb">false
+</span>enable-click <span class="o">=</span> <span class="nb">false
+</span>enable-scroll <span class="o">=</span> <span class="nb">false
+</span>reverse-scroll <span class="o">=</span> <span class="nb">false
+</span>fuzzy-match <span class="o">=</span> <span class="nb">true
+
+</span>format <span class="o">=</span> &lt;label-state&gt; &lt;label-mode&gt;
+
+label-monitor <span class="o">=</span> <span class="s2">"%name%%{F#56696F} |%{F-}"</span>
+
+label-dimmed-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-dimmed-focused-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-focused <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+label-focused-foreground <span class="o">=</span> <span class="c">#ffffff</span>
+label-focused-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-occupied <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+
+label-urgent <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+label-urgent-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+label-urgent-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-empty <span class="o">=</span> <span class="s2">"%{T6}%{F#002B36}  %{F-}%{T-}%name%%{F#56696F} |%{F-}"</span>
+label-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+
+label-tiled <span class="o">=</span> <span class="o">[]=</span>
+label-monocle <span class="o">=</span> <span class="o">[</span>M]<span class="o">=</span>
+label-floating <span class="o">=</span> &lt;<span class="o">&gt;</span>&lt;
+label-fullscreen <span class="o">=</span> <span class="o">[</span>F]
+label-pseudotiled <span class="o">=</span> <span class="o">[</span>T]
+label-locked <span class="o">=</span> <span class="o">[</span>X]
+label-locked-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-sticky <span class="o">=</span> <span class="o">[</span>Y]
+label-sticky-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-private <span class="o">=</span> <span class="o">[</span>Z]
+label-private-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+label-separator <span class="o">=</span>
+label-separator-padding <span class="o">=</span> 0
+label-separator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul BSPWM di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-bspwm" target="_blank">di sini</a>.</p>
+
+<p>Pada baris kode di atas, teman-teman juga dapat melihat beberapa baris kode yang memiliki <strong>tag formating</strong> seperti ini.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">%{T3}...%{T-}</code>, untuk Label Text Formating. <code class="language-plaintext highlighter-rouge">T3</code> berarti variabel <code class="language-plaintext highlighter-rouge">font-2</code>, karena variabel font dimulai dari <code class="language-plaintext highlighter-rouge">font-0</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">%{F#56696F}...%{F-}</code>, untuk Label Color.</li>
+</ol>
+
+<p>Penjelasan lebih lengkap mengenai Text Formating, tentang apa yang dapat dan tidak dapat dilakukan, silahkan merujuk ke halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Formatting" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-xwindow">Modul xwindow</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="o">[</span>module/xwindow]
+<span class="nb">type</span> <span class="o">=</span> internal/xwindow
+format <span class="o">=</span> &lt;label&gt;
+format-padding <span class="o">=</span> 0
+
+label <span class="o">=</span> <span class="s2">" %title%"</span>
+label-maxlen <span class="o">=</span> 30
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-empty <span class="o">=</span>
+label-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul xwindow di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-xwindow" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-xkeyboard">Modul xkeyboard</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre><span class="o">[</span>module/xkeyboard]
+<span class="nb">type</span> <span class="o">=</span> internal/xkeyboard
+blacklist-0 <span class="o">=</span> num lock
+blacklist-1 <span class="o">=</span> scroll lock
+
+format <span class="o">=</span> &lt;label-indicator&gt;
+format-spacing <span class="o">=</span> 0
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-layout <span class="o">=</span> <span class="s2">"%layout%"</span>
+label-layout-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-layout-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-indicator-padding <span class="o">=</span> 0
+label-indicator-margin <span class="o">=</span> 0
+label-indicator <span class="o">=</span> %<span class="o">{</span>T4<span class="o">}</span> CAPS %<span class="o">{</span>T-<span class="o">}</span>
+label-indicator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+label-indicator-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul xkeyboard di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-xkeyboard" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-xbacklight">Modul xbacklight</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre><span class="o">[</span>module/xbacklight]
+<span class="nb">type</span> <span class="o">=</span> internal/xbacklight
+
+<span class="p">;</span>format <span class="o">=</span> <span class="s2">"&lt;label&gt;&lt;bar&gt;"</span>
+format <span class="o">=</span> <span class="s2">"&lt;label&gt;"</span>
+label <span class="o">=</span> <span class="s2">" %percentage%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+bar-width <span class="o">=</span> 5
+bar-indicator <span class="o">=</span> |
+bar-indicator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-indicator-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+bar-indicator-font <span class="o">=</span> 1
+
+bar-fill <span class="o">=</span> -
+bar-fill-font <span class="o">=</span> 1
+bar-fill-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-fill-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+bar-empty <span class="o">=</span> -
+bar-empty-font <span class="o">=</span> 1
+bar-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-empty-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pada baris <code class="language-plaintext highlighter-rouge">format =</code>, terdapat dua tipe format yang saya gunakan, terkadang saya ingin menggunakan style dengan bar dan bukan dengan persentase. Namun, pada baris <code class="language-plaintext highlighter-rouge">format =</code> di atas, saya sedang menggunakan persentase.</p>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul xkeyboard di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-xkeyboard" target="_blank">di sini</a>.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Sebagai catatan tambahan, beberapa dari teman-teman mungkin sudah tidak lagi menggunakan <code>xbacklight</code> sebagai backend untuk mengatur kecerahan layar.</p>
+    <p>Mungkin, dapat menggunakan <a href="https://github.com/polybar/polybar/wiki/Module:-backlight" target="_blank">modul backlight</a>.</p>
+  </div></div>
+
+<p><br /></p>
+
+<h4 id="modul-pulseaudio">Modul PulseAudio</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="o">[</span>module/pulseaudio]
+<span class="nb">type</span> <span class="o">=</span> internal/pulseaudio
+
+sink <span class="o">=</span> alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max <span class="o">=</span> <span class="nb">true
+
+</span>interval <span class="o">=</span> 5
+
+format-volume <span class="o">=</span> &lt;ramp-volume&gt; &lt;label-volume&gt;
+
+label-muted <span class="o">=</span> 
+label-muted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+
+ramp-volume-0 <span class="o">=</span> 
+ramp-volume-1 <span class="o">=</span> 
+ramp-volume-2 <span class="o">=</span> 
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul pulseaudio di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-pulseaudio" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-memory">Modul Memory</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="o">[</span>module/memory]
+<span class="nb">type</span> <span class="o">=</span> internal/memory
+interval <span class="o">=</span> 1
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label <span class="o">=</span> <span class="s2">"%percentage_used%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul memory di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-memory" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-cpu">Modul CPU</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="o">[</span>module/cpu]
+<span class="nb">type</span> <span class="o">=</span> internal/cpu
+interval <span class="o">=</span> 1
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+<span class="p">;</span>format-underline <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label <span class="o">=</span> <span class="s2">"%percentage:2%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul CPU di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-cpu" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-filesystem">Modul FileSystem</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="o">[</span>module/filesystem]
+<span class="nb">type</span> <span class="o">=</span> internal/fs
+interval <span class="o">=</span> 25
+
+mount-0 <span class="o">=</span> /
+
+label-mounted <span class="o">=</span> <span class="s2">" %percentage_used%%"</span>
+label-mounted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-mounted-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-unmounted <span class="o">=</span> %mountpoint% not mounted
+label-unmounted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul filesystem di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-filesystem" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-temperature">Modul Temperature</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="o">[</span>module/temperature]
+<span class="nb">type</span> <span class="o">=</span> internal/temperature
+thermal-zone <span class="o">=</span> 0
+warn-temperature <span class="o">=</span> 80
+
+format <span class="o">=</span> <span class="s2">"&lt;ramp&gt;&lt;label&gt;"</span>
+format-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+label <span class="o">=</span> <span class="s2">"%temperature-c%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-warn <span class="o">=</span> &lt;ramp&gt;&lt;label-warn&gt;
+label-warn <span class="o">=</span> <span class="s2">"%temperature-c%"</span>
+label-warn-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+
+ramp-0 <span class="o">=</span> <span class="s2">" "</span>
+ramp-1 <span class="o">=</span> <span class="s2">" "</span>
+ramp-2 <span class="o">=</span> <span class="s2">" "</span>
+ramp-3 <span class="o">=</span> <span class="s2">" "</span>
+ramp-4 <span class="o">=</span> <span class="s2">" "</span>
+ramp-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul temperature di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-temperature" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="moudul-date">Moudul Date</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="o">[</span>module/date]
+<span class="nb">type</span> <span class="o">=</span> internal/date
+interval <span class="o">=</span> 1
+
+<span class="nb">date</span> <span class="o">=</span> <span class="s2">"0%u%y%m%d"</span>
+date-alt <span class="o">=</span> <span class="s2">"%a %Y/%m/%d"</span>
+
+<span class="nb">time</span> <span class="o">=</span> <span class="s2">"%H%M"</span>
+time-alt <span class="o">=</span> <span class="s2">" %H:%M"</span>
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label <span class="o">=</span> %date%%time%
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode date network di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-date" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-network">Modul Network</h4>
+
+<p>Untuk Wireless LAN</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+</pre></td><td class="code"><pre><span class="o">[</span>module/netspdwlan]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> wlp4s0
+interval <span class="o">=</span> 1.0
+format-connected <span class="o">=</span> <span class="s2">"&lt;label-connected&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %downspeed:3%  %upspeed:3%"</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="o">[</span>module/wlan]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> wlp4s0
+interval <span class="o">=</span> 1.0
+
+format-connected <span class="o">=</span> <span class="s2">"&lt;ramp-signal&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %essid:0:10:% "</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-disconnected <span class="o">=</span> &lt;label-disconnected&gt;
+label-disconnected <span class="o">=</span> <span class="s2">" OFFLINE "</span>
+label-disconnected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+ramp-signal-0 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>0%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-1 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>1%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-2 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>2%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-3 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>3%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-signal-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk Wired LAN</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="o">[</span>module/netspdeth]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> enp0s31f6
+interval <span class="o">=</span> 1.0
+format-connected <span class="o">=</span> <span class="s2">"&lt;label-connected&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %downspeed:3%  %upspeed:3% |"</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+
+<span class="o">[</span>module/eth]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> enp0s31f6
+interval <span class="o">=</span> 1.0
+
+format-connected-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-connected-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-connected-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+label-connected <span class="o">=</span> <span class="s2">" %local_ip% "</span>
+
+<span class="p">;</span>format-disconnected <span class="o">=</span> &lt;label-disconnected&gt;
+<span class="p">;</span>label-disconnected <span class="o">=</span>  %ifname%
+<span class="p">;</span>label-disconnected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul network di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-network" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-battery">Modul Battery</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+</pre></td><td class="code"><pre><span class="o">[</span>module/battery]
+<span class="nb">type</span> <span class="o">=</span> internal/battery
+battery <span class="o">=</span> BAT0
+adapter <span class="o">=</span> AC
+full-at <span class="o">=</span> 90
+
+format-charging <span class="o">=</span> <span class="s2">"&lt;animation-charging&gt;&lt;label-charging&gt;"</span>
+<span class="p">;</span>format-charging-underline <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-charging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-charging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-discharging <span class="o">=</span> <span class="s2">"&lt;ramp-capacity&gt;&lt;label-discharging&gt;"</span>
+<span class="p">;</span>format-discharging-underline <span class="o">=</span> <span class="k">${</span><span class="nv">self</span><span class="p">.format-charging-underline</span><span class="k">}</span>
+label-discharging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-discharging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-full-prefix <span class="o">=</span> <span class="s2">"  "</span>
+format-full-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-full-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+<span class="p">;</span>format-full-underline <span class="o">=</span> <span class="k">${</span><span class="nv">self</span><span class="p">.format-charging-underline</span><span class="k">}</span>
+
+ramp-capacity-0 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-0-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+ramp-capacity-1 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-2 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-3 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-capacity-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+animation-charging-0 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-1 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-2 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-3 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+animation-charging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+animation-charging-framerate <span class="o">=</span> 750
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya mempunyai dua battery, yaitu Internal (BAT0) dan Eksternal (BAT1), saya memodifikasi nama module menjadi <code class="language-plaintext highlighter-rouge">[module/battery0]</code> dan <code class="language-plaintext highlighter-rouge">[module/battery1]</code>. Saya mengcopy paste [module/battery0] menjadi [module/battery1] dan mengganti value pada variabel <code class="language-plaintext highlighter-rouge">battery =</code> menjadi <code class="language-plaintext highlighter-rouge">BAT0</code>.</p>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul battery di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-battery" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h4 id="modul-text">Modul Text</h4>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="o">[</span>module/profile]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">"%{T3}%{T-} BANDITHIJO"</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="o">[</span>module/sp1]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">" "</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="o">[</span>module/sp2]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">" | "</span>
+<span class="p">;</span>content <span class="o">=</span> <span class="s2">"  "</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunkaan modul text untuk menambahkan beberapa element text pada Polybar. Seperti text bertulisakan  “BANDITHIJO”.</p>
+
+<p>Saya juga menggunakan modul text untuk memberikan jarak atau pun simbol pemisah seperti <code class="language-plaintext highlighter-rouge">|</code>.</p>
+
+<p>Untuk penjelasan lebih lengkap mengenai blok-blok kode modul text di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Module:-text" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h3 id="blok-settings">Blok [settings]</h3>
+
+<p>Pada blok ini tidak banyak yang saya pahami.</p>
+
+<p>Hanya mengikuti konfigurasi dari Wiki Polybar.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="o">[</span>settings]
+throttle-output <span class="o">=</span> 5
+throttle-output-for <span class="o">=</span> 10
+throttle-input-for <span class="o">=</span> 30
+screenchange-reload <span class="o">=</span> <span class="nb">true
+</span>compositing-background <span class="o">=</span> over
+compositing-foreground <span class="o">=</span> over
+compositing-overline <span class="o">=</span> over
+compositing-underline <span class="o">=</span> over
+compositing-border <span class="o">=</span> over
+pseudo-transparency <span class="o">=</span> <span class="nb">false</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai kode blok settings di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Configuration#application-settings" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h3 id="blok-globalwm">Blok [global/wm]</h3>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="o">[</span>global/wm]
+margin-top <span class="o">=</span> 0
+margin-bottom <span class="o">=</span> 0
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Untuk penjelasan lebih lengkap mengenai kode blok global/wm di atas, silahkan mengunjungi halaman Wiki Polybar, <a href="https://github.com/polybar/polybar/wiki/Configuration#global-wm-settings" target="_blank">di sini</a>.</p>
+
+<p><br /></p>
+
+<h1 id="tips">Tips</h1>
+
+<h2 id="showhide-bar-untuk-trayicon">Show/Hide Bar untuk Trayicon</h2>
+
+<p>Karena saya tidak memerlukan trayicon selalu muncul pada tampilan Polybar saya. Karena icon-icon pada trayicon tidak selalu berinteraksi dengan saya. Saya berinteraksi dengan trayicon hanya apabila saya perlukan saja.</p>
+
+<p>Maka dari itu, saya membuat trayicon terpisah pada bar tersendiri yang dapat di panggil apabila diperlukan dan disembunyikan apabila sudah tidak digunakan.</p>
+
+<p>Caranya sangat mudah.</p>
+
+<p>Dengan menambahkan bar kedua.</p>
+
+<p>Saya akan berinama <code class="language-plaintext highlighter-rouge">[bar/traybspwm]</code></p>
+
+<p>Berikut ini isi dari bar ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+</pre></td><td class="code"><pre><span class="o">[</span>bar/traybspwm]
+monitor <span class="o">=</span> eDP1
+width <span class="o">=</span> 5.0%
+height <span class="o">=</span> 22
+radius <span class="o">=</span> 5.0
+offset-x <span class="o">=</span> <span class="nt">-3</span>
+offset-y <span class="o">=</span> 0.6%
+fixed-center <span class="o">=</span> <span class="nb">true
+</span>bottom <span class="o">=</span> <span class="nb">yes
+
+</span>foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+line-size <span class="o">=</span> 1
+line-color <span class="o">=</span> <span class="c">#dfdfdf</span>
+
+border-size <span class="o">=</span> 0
+
+padding-left <span class="o">=</span> 0
+padding-right <span class="o">=</span> 0
+
+module-margin-left <span class="o">=</span> 0
+module-margin-right <span class="o">=</span> 0
+
+font-0 <span class="o">=</span> Fira Code Retina:pixelsize<span class="o">=</span>9<span class="p">;</span>2
+
+<span class="p">;</span>separator <span class="o">=</span>
+
+modules-left <span class="o">=</span> sp1
+modules-center <span class="o">=</span>
+modules-right <span class="o">=</span> sp1
+
+tray-position <span class="o">=</span> left
+tray-padding <span class="o">=</span> 0
+tray-maxsize <span class="o">=</span> 16
+tray-scale <span class="o">=</span> 1.0
+tray-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+tray-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+tray-detached <span class="o">=</span> <span class="nb">true
+</span>tray-offset-x <span class="o">=</span> 3
+tray-offset-y <span class="o">=</span> 0
+
+<span class="p">;</span>wm-restack <span class="o">=</span> bspwm
+
+override-redirect <span class="o">=</span> <span class="nb">true
+
+</span>cursor-click <span class="o">=</span> pointer
+cursor-scroll <span class="o">=</span> ns-resize
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sepintas hampir mirip dengan [bar/barbspwm], namun apabila diperhatikan dengan baik, nilai yang ada di dalam bar ini sangat berbeda.</p>
+
+<p>Selanjutnya tinggal membuat pemicu agar dapat dipanggil dan disembunyikan.</p>
+
+<p>Pertama, buat dahulu script untuk mengaktifkan dan mematikan <code class="language-plaintext highlighter-rouge">traybspwm</code> ini.</p>
+
+<pre><span class="cmd">$ </span><b>touch ~/.local/bin/polybar-tray</b><br /><span class="cmd">$ </span><b>chmod +x ~/.local/bin/polybar-tray</b><br /><span class="cmd">$ </span><b>vim ~/.local/bin/polybar-tray</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/polybar-tray</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+
+<span class="nv">status</span><span class="o">=</span><span class="k">${</span><span class="nv">1</span><span class="k">}</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$status</span> <span class="o">=</span> <span class="s1">'on'</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>polybar traybspwm &amp;
+<span class="k">elif</span> <span class="o">[</span> <span class="nv">$status</span> <span class="o">=</span> <span class="s1">'off'</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">kill</span> <span class="sb">`</span>ps aux | <span class="nb">awk</span> <span class="s1">'/[p]olybar traybspwm/ {print $2}'</span><span class="sb">`</span>
+<span class="k">else
+    </span><span class="nb">echo</span> <span class="s1">'Wrong argument! [on/off]'</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Maksud dari script di atas adalah, apabila kita memanggil <code class="language-plaintext highlighter-rouge">polybar-tray on</code> pada Terminal, maka bar traybspwm akan diaktifkan. Begitupula sebaliknya apabila kita menjalankan <code class="language-plaintext highlighter-rouge">polybar-tray off</code>.</p>
+
+<p>Kedua, tinggal meletakkan pemanggilan ini pada keyboard shortcut pada Window Manager.</p>
+
+<p>Saya akan mencontohkan pada BSPWM. Untuk teman-teman yang menggunakan Window Manager yang lain, silahkan menyesuaikan sendiri yaa. Hehehe.</p>
+
+<p>Untuk BSPWM, konfigurasi keyboard shortcut ada pada file <code class="language-plaintext highlighter-rouge">~/.config/sxhkd/sxhkdrc</code>.</p>
+
+<p>Kita akan tambahkan blok kode untuk memanggil dan menyembunyikan <code class="language-plaintext highlighter-rouge">traybspwm</code>.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/sxhkd/sxhkdrc</b><br /></pre>
+
+<p>Tambahkan saja di baris paling akhir.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/sxhkd/sxhkdrc</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># polybar-tray</span>
+super + ~F12
+    <span class="o">{</span>polybar-tray off<span class="p">;</span> polybar-tray on, polybar-tray off<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan kombinasi keyboard <kbd>SUPER</kbd>+<kbd>F12</kbd> untuk mengaktifkan bar traybspwm dan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>F12</kbd> untuk menyembunyikannya.</p>
+
+<p>Berikut ini adalah demonstrasinya.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/FKKM6wWh/gambar-04.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="contoh-file-konfigurasi">Contoh File Konfigurasi</h1>
+
+<p>Nah, kalo sudah memahami blok demi blok di atas. Saya akan memberikan gambaran full dari baris kode konfigurasi Polybar yang saya miliki.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/polybar/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+</pre></td><td class="code"><pre><span class="p">;</span><span class="o">============================================================================</span><span class="p">;</span>
+<span class="p">;</span>                                                                            <span class="p">;</span>
+<span class="p">;</span>   To learn more about how to configure Polybar                             <span class="p">;</span>
+<span class="p">;</span>   go to https://github.com/jaagr/polybar                                   <span class="p">;</span>
+<span class="p">;</span>                                                                            <span class="p">;</span>
+<span class="p">;</span>   The README contains alot of information                                  <span class="p">;</span>
+<span class="p">;</span>                                                                            <span class="p">;</span>
+<span class="p">;</span><span class="o">============================================================================</span><span class="p">;</span>
+
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------------------COLORS</span>
+
+<span class="o">[</span>colors]
+foreground <span class="o">=</span> <span class="c">#BCC3C3</span>
+background <span class="o">=</span> <span class="c">#002B36</span>
+foreground-alt <span class="o">=</span> <span class="c">#56696F</span>
+background-alt <span class="o">=</span> <span class="c">#073642</span>
+alert <span class="o">=</span> <span class="c">#CB4B16</span>
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------------BAR</span>/BARBSPWM
+
+<span class="o">[</span>bar/barbspwm]
+monitor <span class="o">=</span> <span class="k">${</span><span class="nv">env</span>:MONITOR:<span class="k">}</span>
+monitor-fallback <span class="o">=</span> eDP1
+width <span class="o">=</span> 100%
+height <span class="o">=</span> 24
+radius <span class="o">=</span> 5.0
+<span class="p">;</span>offset-x <span class="o">=</span> 0
+<span class="p">;</span>offset-y <span class="o">=</span> 0
+fixed-center <span class="o">=</span> <span class="nb">true
+</span>bottom <span class="o">=</span> <span class="nb">false
+
+</span>foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+line-size <span class="o">=</span> 1
+line-color <span class="o">=</span> <span class="c">#dfdfdf</span>
+
+<span class="p">;</span>border-size <span class="o">=</span> 0
+border-top-size <span class="o">=</span> 5
+border-bottom-size <span class="o">=</span> 0
+border-left-size <span class="o">=</span> 5
+border-right-size <span class="o">=</span> 5
+<span class="p">;</span>border-color <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+padding-left <span class="o">=</span> 1
+padding-right <span class="o">=</span> 1
+
+module-margin-left <span class="o">=</span> 0
+module-margin-right <span class="o">=</span> 0
+
+font-0 <span class="o">=</span> Fira Code Retina:pixelsize<span class="o">=</span>9<span class="p">;</span>2
+font-1 <span class="o">=</span> FontAwesome:pixelsize<span class="o">=</span>10<span class="p">;</span>2
+font-2 <span class="o">=</span> Font Awesome 5 Brands:size<span class="o">=</span>10<span class="p">;</span>2
+font-3 <span class="o">=</span> Fira Code Retina:weight<span class="o">=</span>Bold:pixelsize<span class="o">=</span>9<span class="p">;</span>2
+font-4 <span class="o">=</span> Fira Code Retina:weight<span class="o">=</span>Bold:pixelsize<span class="o">=</span>6<span class="p">;</span><span class="nt">-1</span>
+font-5 <span class="o">=</span> FontAwesome:weight<span class="o">=</span>Bold:pixelsize<span class="o">=</span>4<span class="p">;</span><span class="nt">-2</span>
+
+<span class="p">;</span>separator <span class="o">=</span>
+
+modules-left <span class="o">=</span> bspwm xwindow
+modules-center <span class="o">=</span>
+modules-right <span class="o">=</span> xkeyboard netspdwlan netspdeth sp1 wlan eth sp2 xbacklight sp2 pulseaudio sp2 memory sp1 temperature sp2 battery1 battery0 sp2 <span class="nb">date </span>sp2 profile
+
+<span class="p">;</span>tray-position <span class="o">=</span> right
+<span class="p">;</span>tray-padding <span class="o">=</span> 0
+<span class="p">;</span>tray-detached <span class="o">=</span> <span class="nb">false</span>
+<span class="p">;</span>tray-maxsize <span class="o">=</span> 16
+<span class="p">;</span>tray-scale <span class="o">=</span> 1.0
+<span class="p">;</span>tray-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+<span class="p">;</span>tray-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+<span class="p">;</span>tray-offses-x <span class="o">=</span> 0
+<span class="p">;</span>tray-offset-y <span class="o">=</span> 0
+
+wm-name <span class="o">=</span> bspwm
+
+wm-restack <span class="o">=</span> bspwm
+
+override-redirect <span class="o">=</span> <span class="nb">false
+
+</span>cursor-click <span class="o">=</span> pointer
+cursor-scroll <span class="o">=</span> ns-resize
+
+<span class="p">;</span><span class="nt">----------------------------------------------------------------BAR</span>/TRAYBSPWM
+
+<span class="o">[</span>bar/traybspwm]
+monitor <span class="o">=</span> eDP1
+width <span class="o">=</span> 5.0%
+height <span class="o">=</span> 22
+radius <span class="o">=</span> 5.0
+offset-x <span class="o">=</span> <span class="nt">-3</span>
+offset-y <span class="o">=</span> 0.6%
+fixed-center <span class="o">=</span> <span class="nb">true
+</span>bottom <span class="o">=</span> <span class="nb">true
+
+</span>foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+line-size <span class="o">=</span> 1
+line-color <span class="o">=</span> <span class="c">#dfdfdf</span>
+
+border-size <span class="o">=</span> 0
+
+padding-left <span class="o">=</span> 0
+padding-right <span class="o">=</span> 0
+
+module-margin-left <span class="o">=</span> 0
+module-margin-right <span class="o">=</span> 0
+
+font-0 <span class="o">=</span> Fira Code Retina:pixelsize<span class="o">=</span>9<span class="p">;</span>2
+
+<span class="p">;</span>separator <span class="o">=</span>
+
+modules-left <span class="o">=</span> sp1
+modules-center <span class="o">=</span>
+modules-right <span class="o">=</span> sp1
+
+tray-position <span class="o">=</span> left
+tray-padding <span class="o">=</span> 0
+tray-maxsize <span class="o">=</span> 16
+tray-scale <span class="o">=</span> 1.0
+tray-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+tray-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+tray-detached <span class="o">=</span> <span class="nb">true
+</span>tray-offset-x <span class="o">=</span> 3
+tray-offset-y <span class="o">=</span> 0
+
+<span class="p">;</span>wm-restack <span class="o">=</span> bspwm
+
+override-redirect <span class="o">=</span> <span class="nb">true
+
+</span>cursor-click <span class="o">=</span> pointer
+cursor-scroll <span class="o">=</span> ns-resize
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------------MODULE</span>:BSPWM
+
+<span class="o">[</span>module/bspwm]
+<span class="nb">type</span> <span class="o">=</span> internal/bspwm
+
+pin-workspaces <span class="o">=</span> <span class="nb">true
+</span>inline-mode <span class="o">=</span> <span class="nb">false
+</span>enable-click <span class="o">=</span> <span class="nb">false
+</span>enable-scroll <span class="o">=</span> <span class="nb">false
+</span>reverse-scroll <span class="o">=</span> <span class="nb">false
+</span>fuzzy-match <span class="o">=</span> <span class="nb">true
+
+</span>format <span class="o">=</span> &lt;label-state&gt; &lt;label-mode&gt;
+
+label-monitor <span class="o">=</span> <span class="s2">"%name%%{F#56696F} |%{F-}"</span>
+
+label-dimmed-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-dimmed-focused-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-focused <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+label-focused-foreground <span class="o">=</span> <span class="c">#ffffff</span>
+label-focused-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-occupied <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+
+label-urgent <span class="o">=</span> <span class="s2">"%{T6}  %{T-}%{T1}%name%%{T-}%{F#56696F} |%{F-}"</span>
+label-urgent-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+label-urgent-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-empty <span class="o">=</span> <span class="s2">"%{T6}%{F#002B36}  %{F-}%{T-}%name%%{F#56696F} |%{F-}"</span>
+label-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+
+label-tiled <span class="o">=</span> <span class="o">[]=</span>
+label-monocle <span class="o">=</span> <span class="o">[</span>M]<span class="o">=</span>
+label-floating <span class="o">=</span> &lt;<span class="o">&gt;</span>&lt;
+label-fullscreen <span class="o">=</span> <span class="o">[</span>F]
+label-pseudotiled <span class="o">=</span> <span class="o">[</span>T]
+label-locked <span class="o">=</span> <span class="o">[</span>X]
+label-locked-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-sticky <span class="o">=</span> <span class="o">[</span>Y]
+label-sticky-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-private <span class="o">=</span> <span class="o">[</span>Z]
+label-private-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+label-separator <span class="o">=</span>
+label-separator-padding <span class="o">=</span> 0
+label-separator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">---------------------------------------------------------------MODULE</span>:XWINDOW
+
+<span class="o">[</span>module/xwindow]
+<span class="nb">type</span> <span class="o">=</span> internal/xwindow
+format <span class="o">=</span> &lt;label&gt;
+format-padding <span class="o">=</span> 0
+
+label <span class="o">=</span> <span class="s2">" %title%"</span>
+label-maxlen <span class="o">=</span> 30
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-empty <span class="o">=</span>
+label-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">--------------------------------------------------------------MODUL</span>:XKEYBOARD
+
+<span class="o">[</span>module/xkeyboard]
+<span class="nb">type</span> <span class="o">=</span> internal/xkeyboard
+blacklist-0 <span class="o">=</span> num lock
+blacklist-1 <span class="o">=</span> scroll lock
+
+format <span class="o">=</span> &lt;label-indicator&gt;
+format-spacing <span class="o">=</span> 0
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-layout <span class="o">=</span> <span class="s2">"%layout%"</span>
+label-layout-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-layout-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-indicator-padding <span class="o">=</span> 0
+label-indicator-margin <span class="o">=</span> 0
+label-indicator <span class="o">=</span> %<span class="o">{</span>T4<span class="o">}</span> CAPS %<span class="o">{</span>T-<span class="o">}</span>
+label-indicator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+label-indicator-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">------------------------------------------------------------MODULE</span>:XBACKLIGHT
+
+<span class="o">[</span>module/xbacklight]
+<span class="nb">type</span> <span class="o">=</span> internal/xbacklight
+
+<span class="p">;</span>format <span class="o">=</span> <span class="s2">"&lt;label&gt;&lt;bar&gt;"</span>
+format <span class="o">=</span> <span class="s2">"&lt;label&gt;"</span>
+label <span class="o">=</span> <span class="s2">" %percentage%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+bar-width <span class="o">=</span> 5
+bar-indicator <span class="o">=</span> |
+bar-indicator-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-indicator-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+bar-indicator-font <span class="o">=</span> 1
+
+bar-fill <span class="o">=</span> -
+bar-fill-font <span class="o">=</span> 1
+bar-fill-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-fill-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+bar-empty <span class="o">=</span> -
+bar-empty-font <span class="o">=</span> 1
+bar-empty-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+bar-empty-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">------------------------------------------------------------MODULE</span>:PULSEAUDIO
+
+<span class="o">[</span>module/pulseaudio]
+<span class="nb">type</span> <span class="o">=</span> internal/pulseaudio
+
+sink <span class="o">=</span> alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max <span class="o">=</span> <span class="nb">true
+
+</span>interval <span class="o">=</span> 5
+
+format-volume <span class="o">=</span> &lt;ramp-volume&gt; &lt;label-volume&gt;
+
+label-muted <span class="o">=</span> 
+label-muted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+
+ramp-volume-0 <span class="o">=</span> 
+ramp-volume-1 <span class="o">=</span> 
+ramp-volume-2 <span class="o">=</span> 
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------------MODUL</span>:MEMORY
+
+<span class="o">[</span>module/memory]
+<span class="nb">type</span> <span class="o">=</span> internal/memory
+interval <span class="o">=</span> 1
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label <span class="o">=</span> <span class="s2">"%percentage_used%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">-------------------------------------------------------------------MODULE</span>:CPU
+
+<span class="o">[</span>module/cpu]
+<span class="nb">type</span> <span class="o">=</span> internal/cpu
+interval <span class="o">=</span> 1
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+<span class="p">;</span>format-underline <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label <span class="o">=</span> <span class="s2">"%percentage:2%%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">------------------------------------------------------------MODULE</span>:FILESYSTEM
+
+<span class="o">[</span>module/filesystem]
+<span class="nb">type</span> <span class="o">=</span> internal/fs
+interval <span class="o">=</span> 25
+
+mount-0 <span class="o">=</span> /
+
+label-mounted <span class="o">=</span> <span class="s2">" %percentage_used%%"</span>
+label-mounted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-mounted-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label-unmounted <span class="o">=</span> %mountpoint% not mounted
+label-unmounted-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------MODULE</span>:TEMPERATURE
+
+<span class="o">[</span>module/temperature]
+<span class="nb">type</span> <span class="o">=</span> internal/temperature
+thermal-zone <span class="o">=</span> 0
+warn-temperature <span class="o">=</span> 80
+
+format <span class="o">=</span> <span class="s2">"&lt;ramp&gt;&lt;label&gt;"</span>
+format-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+label <span class="o">=</span> <span class="s2">"%temperature-c%"</span>
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-warn <span class="o">=</span> &lt;ramp&gt;&lt;label-warn&gt;
+label-warn <span class="o">=</span> <span class="s2">"%temperature-c%"</span>
+label-warn-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+
+ramp-0 <span class="o">=</span> <span class="s2">" "</span>
+ramp-1 <span class="o">=</span> <span class="s2">" "</span>
+ramp-2 <span class="o">=</span> <span class="s2">" "</span>
+ramp-3 <span class="o">=</span> <span class="s2">" "</span>
+ramp-4 <span class="o">=</span> <span class="s2">" "</span>
+ramp-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">------------------------------------------------------------------MODULE</span>:DATE
+
+<span class="o">[</span>module/date]
+<span class="nb">type</span> <span class="o">=</span> internal/date
+interval <span class="o">=</span> 1
+
+<span class="nb">date</span> <span class="o">=</span> <span class="s2">"0%u%y%m%d"</span>
+date-alt <span class="o">=</span> <span class="s2">"%a %Y/%m/%d"</span>
+
+<span class="nb">time</span> <span class="o">=</span> <span class="s2">"%H%M"</span>
+time-alt <span class="o">=</span> <span class="s2">" %H:%M"</span>
+
+format-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+label <span class="o">=</span> %date%%time%
+label-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">---------------------------------------------------------------MODULE</span>:NETWORK
+
+<span class="o">[</span>module/netspdwlan]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> wlp4s0
+interval <span class="o">=</span> 1.0
+format-connected <span class="o">=</span> <span class="s2">"&lt;label-connected&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %downspeed:3%  %upspeed:3%"</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+
+<span class="o">[</span>module/wlan]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> wlp4s0
+interval <span class="o">=</span> 1.0
+
+format-connected <span class="o">=</span> <span class="s2">"&lt;ramp-signal&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %essid:0:10:% "</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-disconnected <span class="o">=</span> &lt;label-disconnected&gt;
+label-disconnected <span class="o">=</span> <span class="s2">" OFFLINE "</span>
+label-disconnected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+ramp-signal-0 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>0%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-1 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>1%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-2 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>2%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-3 <span class="o">=</span> %<span class="o">{</span>T5<span class="o">}</span>3%<span class="o">{</span>T-<span class="o">}</span>
+ramp-signal-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-signal-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">-----------------------------------------------------------------------------</span>
+
+<span class="o">[</span>module/netspdeth]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> enp0s31f6
+interval <span class="o">=</span> 1.0
+format-connected <span class="o">=</span> <span class="s2">"&lt;label-connected&gt;"</span>
+label-connected <span class="o">=</span> <span class="s2">" %downspeed:3%  %upspeed:3% |"</span>
+label-connected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-connected-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+
+<span class="o">[</span>module/eth]
+<span class="nb">type</span> <span class="o">=</span> internal/network
+interface <span class="o">=</span> enp0s31f6
+interval <span class="o">=</span> 1.0
+
+format-connected-prefix <span class="o">=</span> <span class="s2">" "</span>
+format-connected-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-connected-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+label-connected <span class="o">=</span> <span class="s2">" %local_ip% "</span>
+
+<span class="p">;</span>format-disconnected <span class="o">=</span> &lt;label-disconnected&gt;
+<span class="p">;</span>label-disconnected <span class="o">=</span>  %ifname%
+<span class="p">;</span>label-disconnected-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">---------------------------------------------------------------MODULE</span>:BATTERY
+
+<span class="o">[</span>module/battery]
+<span class="nb">type</span> <span class="o">=</span> internal/battery
+battery <span class="o">=</span> BAT0
+adapter <span class="o">=</span> AC
+full-at <span class="o">=</span> 90
+
+format-charging <span class="o">=</span> <span class="s2">"&lt;animation-charging&gt;&lt;label-charging&gt;"</span>
+<span class="p">;</span>format-charging-underline <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-charging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-charging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-discharging <span class="o">=</span> <span class="s2">"&lt;ramp-capacity&gt;&lt;label-discharging&gt;"</span>
+<span class="p">;</span>format-discharging-underline <span class="o">=</span> <span class="k">${</span><span class="nv">self</span><span class="p">.format-charging-underline</span><span class="k">}</span>
+label-discharging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+label-discharging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+format-full-prefix <span class="o">=</span> <span class="s2">"  "</span>
+format-full-prefix-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+format-full-prefix-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+<span class="p">;</span>format-full-underline <span class="o">=</span> <span class="k">${</span><span class="nv">self</span><span class="p">.format-charging-underline</span><span class="k">}</span>
+
+ramp-capacity-0 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-0-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.alert</span><span class="k">}</span>
+ramp-capacity-1 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-2 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-3 <span class="o">=</span> <span class="s2">"  "</span>
+ramp-capacity-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+ramp-capacity-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+animation-charging-0 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-1 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-2 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-3 <span class="o">=</span> <span class="s2">"  "</span>
+animation-charging-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+animation-charging-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+animation-charging-framerate <span class="o">=</span> 750
+
+<span class="p">;</span><span class="nt">------------------------------------------------------------------MODULE</span>:TEXT
+
+<span class="o">[</span>module/profile]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">"%{T3}%{T-} BANDITHIJO"</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="o">[</span>module/sp1]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">" "</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="o">[</span>module/sp2]
+<span class="nb">type</span> <span class="o">=</span> custom/text
+content <span class="o">=</span> <span class="s2">" | "</span>
+<span class="p">;</span>content <span class="o">=</span> <span class="s2">"  "</span>
+content-foreground <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.foreground-alt</span><span class="k">}</span>
+content-background <span class="o">=</span> <span class="k">${</span><span class="nv">colors</span><span class="p">.background</span><span class="k">}</span>
+
+<span class="p">;</span><span class="nt">---------------------------------------------------------------------SETTINGS</span>
+
+<span class="o">[</span>settings]
+throttle-output <span class="o">=</span> 5
+throttle-output-for <span class="o">=</span> 10
+throttle-input-for <span class="o">=</span> 30
+screenchange-reload <span class="o">=</span> <span class="nb">true
+</span>compositing-background <span class="o">=</span> over
+compositing-foreground <span class="o">=</span> over
+compositing-overline <span class="o">=</span> over
+compositing-underline <span class="o">=</span> over
+compositing-border <span class="o">=</span> over
+pseudo-transparency <span class="o">=</span> <span class="nb">false</span>
+
+<span class="p">;</span><span class="nt">--------------------------------------------------------------------GLOBAL</span>/WM
+
+<span class="o">[</span>global/wm]
+margin-top <span class="o">=</span> 0
+margin-bottom <span class="o">=</span> 0
+
+
+<span class="p">;</span> vim:ft<span class="o">=</span>dosini
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Polybar merupakan salah satu taskbar/panel yang mudah untuk dikonfigurasi dan dikustomisasi.</p>
+
+<p>Saya sendiri sudah tak terhitung berapa kali berganti-ganti komposisi module Polybar yang saya gunakan ini. Hehehe.</p>
+
+<p>Oh iya, sebagai gambaran, mungkin bisa meniru atau menggunakan konfigurasi yang sudah diracikkan oleh orang lain. Misalnya seperti, themes yang dicompose oleh <a href="https://github.com/adi1090x/polybar-themes" target="_blank">adi1090x/polybar-themes</a>.</p>
+
+<p>Lumayan untuk bahan referensi.</p>
+
+<p><br /></p>
+
+<p>Sekali lagi saya berpesan, tulisan ini bukan merupakan tandingan dari dokumentasi yang ditulis oleh developer dari aplikasi yang sedang kita gunakan, yaitu Polybar.</p>
+
+<p>Sebaik-baik dokumentasi adalah dokumentasi yang ditulis dan dipelihara oleh si pembuat aplikasi tersebut.</p>
+
+<p>Maka dari itu, apabila mengalami kendala pada proses konfigrasi Polybar, silahkan merujuk pada referensi-referensi yang sudah saya sertakan di bawah.</p>
+
+<p><br /></p>
+
+<p>Sepertinya cukup seperti ini saja.</p>
+
+<p>Terima kasih.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/List_of_applications#Taskbars" target="_blank">wiki.archlinux.org/index.php/List_of_applications#Taskbars</a>
+<br />Diakses tanggal: 2019/05/05</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/jaagr/polybar" target="_blank">github.com/jaagr/polybar</a>
+<br />Diakses tanggal: 2019/05/05</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

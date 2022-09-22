@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="ruby, tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mudah Mount &amp; Unmount File ISO Image dengan Ruby Script (feat. udisksctl) | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mudah Mount &amp; Unmount File ISO Image dengan Ruby Script (feat. udisksctl)" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!" />
+<meta property="og:description" content="Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!" />
+<link rel="canonical" href="https://bandithijo.dev/blog/mudah-mount-iso-dengan-ruby-script" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mudah-mount-iso-dengan-ruby-script" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-22T06:52:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mudah-mount-iso-dengan-ruby-script"},"description":"Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!","url":"https://bandithijo.dev/blog/mudah-mount-iso-dengan-ruby-script","@type":"BlogPosting","headline":"Mudah Mount &amp; Unmount File ISO Image dengan Ruby Script (feat. udisksctl)","dateModified":"2020-10-22T06:52:00+08:00","datePublished":"2020-10-22T06:52:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mudah Mount &amp; Unmount File ISO Image dengan Ruby Script (feat. udisksctl)"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mudah-mount-iso-dengan-ruby-script">Mudah Mount & Unmount File ISO Image dengan Ruby Script (feat. udisksctl)</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/10/22</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mudah mount iso dengan ruby script
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ruby">Ruby</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#masalah">Masalah</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#1-manual-dengan-mount--umount-command">1. Manual dengan mount &amp; umount command</a></li>
+      <li><a href="#2-otomatis-dengan-ruby-script">2. Otomatis dengan Ruby script</a></li>
+    </ul>
+  </li>
+  <li><a href="#kekurangan">Kekurangan</a></li>
+  <li><a href="#alternatif-recommended">Alternatif (Recommended)</a>
+    <ul>
+      <li><a href="#1-memanfaatkan-udisks2">1. Memanfaatkan Udisks2</a>
+        <ul>
+          <li><a href="#mount-file-iso">Mount file ISO</a>
+            <ul>
+              <li><a href="#1-setup-loop-block-device-dengan-loop-setup">1. Setup loop block device dengan loop-setup</a></li>
+              <li><a href="#2-mounting-block-partition-dengan-mount">2. Mounting block partition dengan mount</a></li>
+            </ul>
+          </li>
+          <li><a href="#unmount-file-iso">Unmount File ISO</a>
+            <ul>
+              <li><a href="#1-unmounting-block-partition-dengan-unmount">1. Unmounting block partition dengan unmount</a></li>
+              <li><a href="#2-delete-loop-block-device-dengan-loop-delete">2. Delete loop block device dengan loop-delete</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#2-memanfaatkan-udiskie">2. Memanfaatkan Udiskie</a></li>
+      <li><a href="#3-memanfaatkan-udiskie-dmenu">3. Memanfaatkan udiskie-dmenu</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Sejak 2018 hingga saat ini (2020), saya sudah jarang sekali memanfaatkan file manager GUI, seperti Thunar, PCMANFM, ataupun Nautlius untuk mengurusi pekerjaan manajemen file. Hal-hal seperti explorasi file dokumen, file gambar, video, audio, semuanya dapat saya lakukan di <strong>ranger</strong> –<a href="/blog/ranger-file-manager" target="_blank">baca tentang ranger</a>.</p>
+
+<h1 id="masalah">Masalah</h1>
+
+<p>Namun, ada beberapa hal yang salah satunya masih saya kerjakan menggunakan file manager GUI, yaitu <strong>mount &amp; unmount file ISO image</strong>.</p>
+
+<p>Kadang saya perlu untuk melakukan inspeksi terhadap file ISO yang akan saya jalankan di Virt-Manager. Untuk melihat apakah terdapat hal-hal yang janggal atau tidak.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Pada catatan ini, saya akan menunjukkan 2 cara.</p>
+
+<h2 id="1-manual-dengan-mount--umount-command">1. Manual dengan mount &amp; umount command</h2>
+
+<p>Cara ini adalah cara yang menjadi hal dasar sebagai pengguna sistem operasi GNU/Linux atau Unix like.</p>
+
+<p>Kita perlu mengetahui bagaimana cara menggunakan command <code class="language-plaintext highlighter-rouge">mount</code> &amp; <code class="language-plaintext highlighter-rouge">umount</code>.</p>
+
+<p><strong>Mount ISO image</strong></p>
+
+<pre class="url"><span class="cmd">$ </span>sudo mount -l -o loop /source/path/iso /target/path<br /></pre>
+
+<pre><span class="cmd">$ </span><b>sudo mount -l -o loop archlinux.iso /run/media/bandithijo</b><br /></pre>
+
+<pre>
+$ lsblk
+NAME   FSTYPE    SIZE TYPE LABEL       MOUNTPOINT
+<mark>loop0  iso9660   681M loop ARCH_202010 /run/media/bandithijo</mark>
+sda            447.1G disk
+└─sda1 ext4    447.1G part             /
+</pre>
+
+<p>Maka, isi dari direktori <code class="language-plaintext highlighter-rouge">/run/media/bandithijo/</code> adalah</p>
+
+<pre>
+$ ls -l /run/media/bandithijo
+total 697396
+-rw-r--r-- 1 bandithijo users 714080256 Oct 20 02:11 archlinux-2020.10.01-x86_64.iso
+drwxr-xr-x 2 bandithijo users      4096 May  3 08:54 Backup
+-rw-r--r-- 1 bandithijo users        66 Feb 14  2019 cek_md5
+-rwxr-xr-x 1 bandithijo users       246 Oct  9 18:57 lazymigrate.rb
+drwxr-xr-x 3 bandithijo users     12288 May  3 08:54 Manual
+</pre>
+
+<p>Keterangan perintah:</p>
+
+<p><code class="language-plaintext highlighter-rouge">-l</code>, untuk memberikan label yang disertakan oleh ISO image.</p>
+
+<p><code class="language-plaintext highlighter-rouge">-o loop</code>, untuk option menggunakan <strong>loopback</strong> device.</p>
+
+<p><br />
+<strong>Unmount ISO image</strong></p>
+
+<pre class="url"><span class="cmd">$ </span>sudo umount /target/path<br /></pre>
+
+<pre><span class="cmd">$ </span><b>sudo umount /run/media/bandithijo</b><br /></pre>
+
+<p>Atau, bisa juga menggunakan ISO image yang dimount sebelumnya.</p>
+
+<pre><span class="cmd">$ </span><b>sudo umount archlinux.iso</b><br /></pre>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Perlu diperhatikan, perintah yang digunakan untuk melakukan proses <em>unmount</em>.</p>
+    <p>Bukan <code class="language-plaintext highlighter-rouge">unmount</code> tapi <code class="language-plaintext highlighter-rouge">umount</code>.</p>
+  </div></div>
+
+<h2 id="2-otomatis-dengan-ruby-script">2. Otomatis dengan Ruby script</h2>
+
+<p>Kalau teman-teman perhatikan, proses mount &amp; unmount menggunakan file manager GUI, akan memberikan path dengan nama label sebagai akhirnya.</p>
+
+<p>Misal, file archlinux.iso sebelumnya, maka nama pathnya akan menjadi seperti ini.</p>
+
+<pre class="url">/run/media/bandithijo/ARCH_202010/<br /></pre>
+
+<p>Cantik bukan.</p>
+
+<p>Sedangkan kalau kita mount manual, kita perlu membuat direktori dengan nama label atau nama tertentu terlebih dahulu. Tidak praktis.</p>
+
+<p>Maka dari itu, agar proses tersebut dapat saya tiru, tanpa perlu repot, saya buat Ruby script saja.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/bin/isomounter.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+</pre></td><td class="code"><pre><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="n">target_image</span> <span class="o">=</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">strip</span>
+<span class="n">request</span>      <span class="o">=</span> <span class="no">ARGV</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">strip</span>
+
+<span class="no">ARGV</span><span class="p">.</span><span class="nf">clear</span>
+
+<span class="c1"># mount &amp; unmount method</span>
+<span class="k">def</span> <span class="nf">mount_process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">target_image</span><span class="p">)</span>
+  <span class="n">username</span>     <span class="o">=</span> <span class="sb">`echo $USER`</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">strip</span>
+  <span class="n">target_path</span>  <span class="o">=</span> <span class="s2">"/run/media/</span><span class="si">#{</span><span class="n">username</span><span class="si">}</span><span class="s2">"</span>
+  <span class="n">target_label</span> <span class="o">=</span> <span class="sb">`file '</span><span class="si">#{</span><span class="n">target_image</span><span class="si">}</span><span class="sb">' | cut -d </span><span class="se">\\\'</span><span class="sb"> -f2`</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">strip</span>
+  <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">'m'</span>
+    <span class="nb">system</span> <span class="s2">"
+    if [[ ! -d </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2"> ]]; then
+      sudo mkdir -p </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2">
+      sudo mount -l -o loop '</span><span class="si">#{</span><span class="n">target_image</span><span class="si">}</span><span class="s2">' </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2"> 1&gt; /dev/null 2&gt;&amp;1
+      echo '=&gt; MOUNTED on </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2">'
+    elif [[ -d </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2"> ]]; then
+      sudo mount -l -o loop '</span><span class="si">#{</span><span class="n">target_image</span><span class="si">}</span><span class="s2">' </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2"> 1&gt; /dev/null 2&gt;&amp;1
+      echo '=&gt; MOUNTED on </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2">'
+    else
+      echo '=&gt; WAS MOUNTED'
+    fi
+    "</span>
+  <span class="k">elsif</span> <span class="n">request</span> <span class="o">==</span> <span class="s1">'u'</span>
+    <span class="nb">system</span> <span class="s2">"
+    if [[ -d </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2"> ]];
+    then
+      sudo umount '</span><span class="si">#{</span><span class="n">target_image</span><span class="si">}</span><span class="s2">'
+      sudo rm -rf </span><span class="si">#{</span><span class="n">target_path</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">target_label</span><span class="si">}</span><span class="s2">
+      echo '=&gt; UNMOUNTED'
+    else
+      echo '=&gt; NOT MOUNTED'
+    fi
+    "</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s1">'=&gt; WRONG REQUEST'</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># interface</span>
+<span class="k">begin</span>
+  <span class="k">if</span> <span class="n">request</span>
+    <span class="n">mount_process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">target_image</span><span class="p">)</span>
+  <span class="k">elsif</span> <span class="n">target_image</span>
+    <span class="nb">puts</span> <span class="s2">"
+  Options:
+
+    press m for mount
+    press u for unmount
+    "</span>
+    <span class="nb">print</span> <span class="s1">'=&gt; '</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+    <span class="n">mount_process</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">target_image</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s2">"
+  =&gt; YOU SHOULD ADD IMAGE AS ATTRIBUTE
+
+  Example:
+
+    $ imagemounter &lt;image_name.iso&gt;    (interactive)
+
+    OR
+
+    $ imagemounter &lt;image_name.iso&gt; m  (mounting)
+    $ imagemounter &lt;image_name.iso&gt; u  (unmount)
+    "</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">rescue</span> <span class="no">Interrupt</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\b</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="s1">'Exit...'</span>
+  <span class="nb">exit</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Output</p>
+
+<pre>
+$ isomounter archlinux.iso
+
+Options:
+
+  press m for mount
+  press u for unmount
+
+=&gt; m
+=&gt; MOUNTED on /run/media/bandithijo/ARCH_202010
+</pre>
+
+<pre>
+$ isomounter archlinux.iso
+
+Options:
+
+  press m for mount
+  press u for unmount
+
+=&gt; u
+=&gt; UNMOUNTED
+</pre>
+
+<h1 id="kekurangan">Kekurangan</h1>
+
+<p>Kekurangan terbesar dari Ruby wrapper script ini adalah proses dari script ini memerlukan hak akses root.</p>
+
+<p>Karena terdapat perintah <code class="language-plaintext highlighter-rouge">mkdir</code> untuk membuat direktori di alamat <code class="language-plaintext highlighter-rouge">/run/media/&lt;username&gt;/</code>, serta <code class="language-plaintext highlighter-rouge">mount</code> ke alamat tersebut juga memerlukan hak akses root sehingga mau tidak mau, kita harus menggunakan sudo.</p>
+
+<h1 id="alternatif-recommended">Alternatif (Recommended)</h1>
+
+<h2 id="1-memanfaatkan-udisks2">1. Memanfaatkan Udisks2</h2>
+
+<p>Kalau proses mount memerlukan hak akses root, kita dapat memanfaatkan <strong>udisks2</strong> (<strong>udisksctl</strong>) –<a href="https://bandithijo.github.io/blog/menggunakan-udiskctl" target="_blank">baca tentang <strong>udisks</strong></a>.</p>
+
+<p>Selain untuk Disk/Drive, Udisks juga dapat kita gunakan untuk melakukan mount &amp; unmount file ISO.</p>
+
+<p>Sebelumnya, kita samakan persepsi dulu yaa.</p>
+
+<pre class="whiteboard">NAME<br />loop0        &lt;== disebut, <strong>block_devices</strong><br />├─loop0p1    &lt;== disebut, <strong>block_partition</strong><br />└─loop0p2    &lt;== disebut, <strong>block_partition</strong><br /></pre>
+
+<h3 id="mount-file-iso">Mount file ISO</h3>
+
+<p>Sekenario untuk proses mount dengan udiskctl, adalah:</p>
+
+<ol>
+  <li>Setup loop block device dengan <code class="language-plaintext highlighter-rouge">loop-setup -p</code></li>
+  <li>Mounting block partition dengan <code class="language-plaintext highlighter-rouge">mount -p</code></li>
+</ol>
+
+<h4 id="1-setup-loop-block-device-dengan-loop-setup">1. Setup loop block device dengan loop-setup</h4>
+
+<pre class="url"><span class="cmd">$ </span><b>udisksctl loop-setup -f file_image.iso</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>udisksctl loop-setup -f archlinux.iso</b><br /></pre>
+
+<pre>
+$ lsblk
+NAME      FSTYPE    SIZE TYPE LABEL       MOUNTPOINT
+loop0     iso9660   681M loop ARCH_202010
+├─loop0p1 iso9660   681M part ARCH_202010
+└─loop0p2 vfat       56M part ARCHISO_EFI
+</pre>
+
+<p>Terlihat bahwa hasil yang diberikan berbeda dengan perintah mount biasa.</p>
+
+<p>Pada konidisi ini, label dari <strong>ARCH_202010</strong> sudah muncul di File Manager GUI, namun belum dimount.</p>
+
+<p>Proses ini mirip saat kita melakukan, klik kanan pada ISO image dan memilih menu “<strong>Open With Disk Image Mounter</strong> (Nautilus)”.</p>
+
+<p>Bisa langsung diklik untuk mount.</p>
+
+<h4 id="2-mounting-block-partition-dengan-mount">2. Mounting block partition dengan mount</h4>
+
+<p>Atau, kalau kita tidak ingin membuka file manager, atau tidak memiliki aplikasi file manager GUI, kita juga dapat menggunakan udisksctl saja untuk melakukan proses mounting.</p>
+
+<pre class="url"><span class="cmd">$ </span><b>udisksctl mount -p block_devices/block_partition</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>udisksctl mount -p block_devices/loop0p1</b><br /></pre>
+
+<pre>
+$ lsblk
+NAME      FSTYPE    SIZE TYPE LABEL       MOUNTPOINT
+loop0     iso9660   681M loop ARCH_202010
+<mark>├─loop0p1 iso9660   681M part ARCH_202010 /run/media/bandithijo/ARCH_202010</mark>
+└─loop0p2 vfat       56M part ARCHISO_EFI
+</pre>
+
+<p>Maka, udisks secara otomatis membuat mount point ke path tersebut.</p>
+
+<h3 id="unmount-file-iso">Unmount File ISO</h3>
+
+<p>Sekenario yang sama berlaku untuk proses unount, namun kebalikan dari proses mount.</p>
+
+<ol>
+  <li>Unmounting block partition dengan <code class="language-plaintext highlighter-rouge">unmount -p</code></li>
+  <li>Delete loop block device dengan <code class="language-plaintext highlighter-rouge">loop-delete -b</code></li>
+</ol>
+
+<h4 id="1-unmounting-block-partition-dengan-unmount">1. Unmounting block partition dengan unmount</h4>
+
+<pre class="url"><span class="cmd">$ </span><b>udisksctl unmount -p block_devices/block_partition</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>udisksctl unmount -p block_devices/loop0p1</b><br /></pre>
+
+<p>Pilih block partition yang memiliki mount point.</p>
+
+<pre>
+$ lsblk
+NAME      FSTYPE    SIZE TYPE LABEL       MOUNTPOINT
+loop0     iso9660   681M loop ARCH_202010
+├─loop0p1 iso9660   681M part ARCH_202010
+└─loop0p2 vfat       56M part ARCHISO_EFI
+</pre>
+
+<p>Terlihat bahwa <code class="language-plaintext highlighter-rouge">loop0p1</code> sudah tidak lagi memiliki mount point.</p>
+
+<h4 id="2-delete-loop-block-device-dengan-loop-delete">2. Delete loop block device dengan loop-delete</h4>
+
+<p>Sekarang tinggal melepaskan block device <code class="language-plaintext highlighter-rouge">loop0</code>.</p>
+
+<p>Dengan cara.</p>
+
+<pre class="url"><span class="cmd">$ </span><b>udisksctl loop-delete -b block_devices/block_device</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>udisksctl loop-delete -b block_devices/loop0</b><br /></pre>
+
+<h2 id="2-memanfaatkan-udiskie">2. Memanfaatkan Udiskie</h2>
+
+<p>Udiskie adalah udisks2 front-end yang ditulis dengan bahasa Python.</p>
+
+<p>Tujuan dari dibuatnya udiskie adalah untuk mengautomatisasi proses mount <strong>removable media</strong>, seperti CD atau flash drive.</p>
+
+<p>Saat ini, udiskie belum dapat digunakan untuk memounting file ISO.</p>
+
+<p>Link repo: <a href="https://github.com/coldfix/udiskie" target="_blank"><strong>coldfix/udiskie</strong></a>.</p>
+
+<h2 id="3-memanfaatkan-udiskie-dmenu">3. Memanfaatkan udiskie-dmenu</h2>
+
+<p><strong>Udiskie-dmenu</strong> adalah front-end dari udiskie yang menggunakan dmenu sebagai interfacenya.</p>
+
+<p>Link repo: <a href="https://github.com/fogine/udiskie-dmenu" target="_blank"><strong>fogine/udiskie-dmenu</strong></a>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://linuxize.com/post/how-to-mount-iso-file-on-linux/" target="_blank">linuxize.com/post/how-to-mount-iso-file-on-linux/</a>
+<br />Diakses tanggal: 2020/10/22</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,3176 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="i3wm, ulasan, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>i3WM, Window Manager yang Taktis namun Praktis | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="i3WM, Window Manager yang Taktis namun Praktis" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="i3WM disebut-sebut sebagai Window Manager yang cocok untuk kalian yang baru ingin memulai mengenal dan menggunakan Window Manager. Hal tersebut tidak lain karena i3wm memiliki file configurasi dalam bentuk plain text, sehingga dapat dimengerti meski tanpa pengetahuan tentang bahasa pemrograman. Selain itu, i3wm juga memiliki dokumentasi yang sangat lengkap yang berada di website resminya. Catatan kali ini, saya ingin mencoba membagikan, bagaimana cara saya mengkonfigurasi i3wm." />
+<meta property="og:description" content="i3WM disebut-sebut sebagai Window Manager yang cocok untuk kalian yang baru ingin memulai mengenal dan menggunakan Window Manager. Hal tersebut tidak lain karena i3wm memiliki file configurasi dalam bentuk plain text, sehingga dapat dimengerti meski tanpa pengetahuan tentang bahasa pemrograman. Selain itu, i3wm juga memiliki dokumentasi yang sangat lengkap yang berada di website resminya. Catatan kali ini, saya ingin mencoba membagikan, bagaimana cara saya mengkonfigurasi i3wm." />
+<link rel="canonical" href="https://bandithijo.dev/blog/i3wm-window-manager-yang-taktis-namun-praktis" />
+<meta property="og:url" content="https://bandithijo.dev/blog/i3wm-window-manager-yang-taktis-namun-praktis" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-26T20:45:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/i3wm-window-manager-yang-taktis-namun-praktis"},"description":"i3WM disebut-sebut sebagai Window Manager yang cocok untuk kalian yang baru ingin memulai mengenal dan menggunakan Window Manager. Hal tersebut tidak lain karena i3wm memiliki file configurasi dalam bentuk plain text, sehingga dapat dimengerti meski tanpa pengetahuan tentang bahasa pemrograman. Selain itu, i3wm juga memiliki dokumentasi yang sangat lengkap yang berada di website resminya. Catatan kali ini, saya ingin mencoba membagikan, bagaimana cara saya mengkonfigurasi i3wm.","url":"https://bandithijo.dev/blog/i3wm-window-manager-yang-taktis-namun-praktis","@type":"BlogPosting","headline":"i3WM, Window Manager yang Taktis namun Praktis","dateModified":"2019-02-26T20:45:00+08:00","datePublished":"2019-02-26T20:45:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="i3WM, Window Manager yang Taktis namun Praktis"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/i3wm-window-manager-yang-taktis-namun-praktis">i3WM, Window Manager yang Taktis namun Praktis</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/02/26</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / I3wm window manager yang taktis namun praktis
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#i3wm">I3WM</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#window-manager">Window Manager</a>
+    <ul>
+      <li><a href="#tipe-tipe-window-manager">Tipe-tipe Window Manager</a></li>
+      <li><a href="#tabel-window-manager">Tabel Window Manager</a></li>
+    </ul>
+  </li>
+  <li><a href="#i3-window-manager">i3 Window Manager</a>
+    <ul>
+      <li><a href="#pertemuan-dengan-dwm">Pertemuan dengan dwm</a></li>
+      <li><a href="#mencoba-memahami-i3wm">Mencoba Memahami i3wm</a></li>
+      <li><a href="#mengapa-i3-window-manager">Mengapa i3 Window Manager?</a>
+        <ul>
+          <li><a href="#konfigurasi-menggunakan-plain-text">Konfigurasi Menggunakan Plain Text</a></li>
+          <li><a href="#keyboard-shortcut-adalah-segalanya">Keyboard Shortcut adalah Segalanya</a></li>
+          <li><a href="#menentukan-modifier-key">Menentukan Modifier Key</a></li>
+          <li><a href="#memanggil-terminal">Memanggil Terminal</a></li>
+          <li><a href="#pemanggil-aplikasi">Pemanggil Aplikasi</a></li>
+          <li><a href="#konfigurasi-font">Konfigurasi Font</a></li>
+          <li><a href="#window-container">Window Container</a>
+            <ul>
+              <li><a href="#berpindah-focus-container">Berpindah Focus Container</a></li>
+              <li><a href="#memindahkan-focus-container">Memindahkan Focus Container</a></li>
+              <li><a href="#mengganti-orientasi-container">Mengganti Orientasi Container</a></li>
+              <li><a href="#membuat-fullscreen-container">Membuat Fullscreen Container</a></li>
+              <li><a href="#menggati-layout-container">Menggati Layout Container</a></li>
+              <li><a href="#membuat-floating-container">Membuat Floating Container</a></li>
+              <li><a href="#parent-dan-child-container">Parent dan Child Container</a></li>
+              <li><a href="#memanfaatkan-scratchpad">Memanfaatkan Scratchpad</a></li>
+              <li><a href="#membuat-sticky-container">Membuat Sticky Container</a></li>
+              <li><a href="#membuat-default-floating-container">Membuat Default Floating Container</a></li>
+              <li><a href="#menutupmengakhiri-window-container">Menutup/mengakhiri Window Container</a></li>
+              <li><a href="#mengganti-window-container-border-color">Mengganti Window Container Border Color</a></li>
+              <li><a href="#menentukan-container-border">Menentukan Container Border</a></li>
+              <li><a href="#menentukan-container-border-aplikasi-tertentu">Menentukan Container Border Aplikasi Tertentu</a></li>
+              <li><a href="#merubah-title-container">Merubah Title Container</a></li>
+              <li><a href="#membuka-container-kosong">Membuka Container Kosong</a></li>
+            </ul>
+          </li>
+          <li><a href="#workspaces">Workspaces</a>
+            <ul>
+              <li><a href="#berpindah-antar-workspaces">Berpindah antar Workspaces</a></li>
+              <li><a href="#memindahkan-container-ke-workspace-lain">Memindahkan Container ke Workspace Lain</a></li>
+            </ul>
+          </li>
+          <li><a href="#memuat-ulang-konfigurasi">Memuat Ulang Konfigurasi</a></li>
+          <li><a href="#binding-mode">Binding Mode</a></li>
+          <li><a href="#gaps">Gaps</a></li>
+          <li><a href="#bar">BAR</a></li>
+          <li><a href="#mengeset-wallpaper">Mengeset Wallpaper</a></li>
+          <li><a href="#mengeset-lockscreen">Mengeset LockScreen</a></li>
+          <li><a href="#autostart-application">Autostart Application</a>
+            <ul>
+              <li><a href="#power-manager">Power Manager</a></li>
+              <li><a href="#clipboard">Clipboard</a></li>
+              <li><a href="#disable-touchpad">Disable Touchpad</a></li>
+              <li><a href="#polkit">Polkit</a></li>
+              <li><a href="#window-compositor">Window Compositor</a></li>
+              <li><a href="#notification">Notification</a></li>
+              <li><a href="#conky">Conky</a></li>
+              <li><a href="#polybar">Polybar</a></li>
+            </ul>
+          </li>
+          <li><a href="#keyboard-shortcuts">Keyboard Shortcuts</a>
+            <ul>
+              <li><a href="#system-session">System Session</a></li>
+              <li><a href="#clipmenu">Clipmenu</a></li>
+              <li><a href="#volume-control">Volume Control</a></li>
+              <li><a href="#audio-mixer">Audio Mixer</a></li>
+              <li><a href="#brightness-control">Brightness Control</a></li>
+              <li><a href="#arandr">Arandr</a></li>
+              <li><a href="#network-manager">Network Manager</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#dotfiles">Dotfiles</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Setelah setahun lebih menggunakan <strong>i3</strong> Window Manager (selanjutnya akan saya sebut sebagai i3wm), saya merasa sudah waktunya untuk membagikan pengalaman dalam menggunakan Window Manager yang sekaligus merupakan Window Manager pertama yang saya gunakan sehari-hari.</p>
+
+<p>Berdasarkan daftar log video pada <a href="https://bandithijo.dev/vlog/" target="_blank">bandithijo.com/vlog</a>, saya menggunakan i3wm pada 30 Oktober 2017.</p>
+
+<p>Saya merasa perlu untuk membuat catatan mengenai apa saja yang sudah saya manfaatkan dan pergunakan dengan i3wm. Mungkin dari catatan ini, teman-teman yang membaca mendapatkan informasi yang subjektif dari sudut pandang saya sebagai pengguna. Jujur saja, saya pun sangat menyukai tulisan-tulisan yang mengulas tentang suatu teknologi dari sudut pandang pengguna.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_18" data-echo="https://i.postimg.cc/WpHmyggn/gambar-18.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_19" data-echo="https://i.postimg.cc/ZqHpxdJ6/gambar-19.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_20" data-echo="https://i.postimg.cc/jjtyfXYs/gambar-20.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_21" data-echo="https://i.postimg.cc/50P5bFGf/gambar-21.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_22" data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="window-manager">Window Manager</h1>
+
+<p>Buat temen-temen yang belum mengetahui apa itu Window Manager. Window Manager adalah bagian dari Desktop Environment.</p>
+
+<p>Saya akan coba jelaskan dengan menggunakan tabel, <em>insya Allah</em> dapat langsung dipahami dengan mudah.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right"><center>Desktop Environment</center></th>
+      <th style="text-align: left"><center>Window Manager</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">GNOME2</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/community/x86_64/metacity/" target="_blank">Metacity</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">GNOME3</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/extra/x86_64/mutter/" target="_blank">Mutter</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">KDE Plasma</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/extra/x86_64/kwin/" target="_blank">KWin</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Cinnamon</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/community/x86_64/muffin/" target="_blank">Muffin</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Pantheon</td>
+      <td style="text-align: left"><a href="https://aur.archlinux.org/packages/gala/" target="_blank">Gala</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">Deepin</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/community/x86_64/deepin-mutter/" target="_blank">Deepin-Mutter</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">XFCE</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/extra/x86_64/xfwm4/" target="_blank">xfwm4</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">LXDE</td>
+      <td style="text-align: left"><a href="https://www.archlinux.org/packages/community/x86_64/openbox/" target="_blank">Openbox</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: right">dst…</td>
+      <td style="text-align: left">dst…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Seperti yang saya sebutkan di awal, Window Manager ini adalah komponen, maka beberapa dari Desktop Environment tersebut ada yang mengijinkan user untuk mengganti Window Manager <em>default</em> yang sudah disertakan bersama Desktop Environment. Asik bukan?</p>
+
+<p>Terdapat banyak sekali Window Manager yang dapat kita gunakan, tanpa harus menggunakan Desktop Environment.</p>
+
+<h2 id="tipe-tipe-window-manager">Tipe-tipe Window Manager</h2>
+
+<p>Window Manager secara umum, terbagi dalam 3 tipe.</p>
+
+<ol>
+  <li><strong>Stacking</strong>, atau <em>Floating</em> adalah Window Manager yang seperti Desktop Environment gunakan, yaitu dengan Window yang melayang dan dapat bertumpuk-tumpuk.</li>
+  <li><strong>Tiling</strong>, adalah Window Manager yang tidak menumpuk Window antara satu dengan yang lain, dan tersusun kotak-kotak seperti lantai (<em>tile</em>).</li>
+  <li><strong>Dynamic</strong>, adalah Window Manager yang dapat berganti-ganti diantara kedua tipe di atas menyesuaikan dengan kebutuhan user.</li>
+</ol>
+
+<h2 id="tabel-window-manager">Tabel Window Manager</h2>
+
+<p>Berikut ini adalah tabel dari Window Manager yang akan memberikan gambaran bahwa GNU/Linux tidak hanya GNOME dan KDE.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><center>No.</center></th>
+      <th><center>Stacking</center></th>
+      <th><center>Tiling</center></th>
+      <th><center>Dynamic</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>2bwm</td>
+      <td>Bspwm</td>
+      <td>awesome</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>aewm</td>
+      <td>EXWM</td>
+      <td>catwm</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>AfterStep</td>
+      <td>Herbstluftwm</td>
+      <td>dwm</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>BlackBox</td>
+      <td>howm</td>
+      <td>echinus</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Compiz</td>
+      <td>i3</td>
+      <td>FrankenWM</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>cwm</td>
+      <td>Ion3</td>
+      <td>spectrwm</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>eggwm</td>
+      <td>Notion</td>
+      <td>Qtile</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Enlightenment</td>
+      <td>Ratpoison</td>
+      <td>wmii</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>evilwm</td>
+      <td>Stumpwm</td>
+      <td>xmonad</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Fluxbox</td>
+      <td>subtle</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Flwm</td>
+      <td>sway</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>FVWM</td>
+      <td>way-cooler</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Gala</td>
+      <td>WMFS</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Goomwwm</td>
+      <td>WMFS2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>IceWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>jbwm</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>JWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Karmen</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>KWin</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>lwm</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Marco</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Metacity</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Muffin</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Mutter</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>MWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Openbox</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>pawm</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>PekWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Sawfish</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>TinyWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>twm</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>UWM</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Wind</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>WindowLab</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Window Maker</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>WM2</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Xfwm</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Untuk detail dari masing-masing Window Manager tersebut dapat teman-teman lihat pada Arch Wiki, <a href="https://wiki.archlinux.org/index.php/Window_manager" target="_blank">di sini</a>.</p>
+
+<p>Ada begitu banyak Window Manager, bukan?</p>
+
+<p>i3wm, yang saya gunakan termasuk ke dalam jajaran <em>Tiling</em> Window Manager. Meskipun sebenarnya i3wm juga dapat berganti-ganti <em>layout</em> menjadi <em>tiling</em>, <em>stacking</em>, <em>tabbed</em>, bahkan <em>scratchpad</em>. i3wm juga termasuk dalam <em>tree based</em> Window Manager.</p>
+
+<p><strong>Jadi, mengapa saya menggunakan Window Manager?</strong></p>
+
+<p>Berdasarkan data-data di atas,</p>
+
+<ol>
+  <li>Saya ingin mencoba mengenal hal yang baru, selain Desktop Environment. Window Manager adalah dunia berbeda yang ternyata sangat luas sekali. Meskipun tidak mungkin saya cicipi semuanya.</li>
+  <li>Banyak fitur-fitur yang terdapat di dalam Desktop Environment yang sebenarnya tidak saya perlukan.</li>
+  <li>Kebebasan memilih komponen-komponen aplikasi pendukung sistem operasi yang menurut saya lebih baik dari aplikasi pendukung bawaan Desktop Environment.</li>
+</ol>
+
+<h1 id="i3-window-manager">i3 Window Manager</h1>
+
+<h2 id="pertemuan-dengan-dwm">Pertemuan dengan dwm</h2>
+
+<p>Berawal dari melihat video-video YouTube dari <a href="https://www.youtube.com/user/kaihendry" target="_blank">Kai Hendry <em>channel</em></a>. Saya memperhatikan bagaimana ia menggunakan <strong>dwm</strong> Window Manager. Pengalaman yang baru pertama kali saya dapati.</p>
+
+<p>Saat itu, kira-kira inilah yang saya ada dibenak saya.</p>
+
+<ol>
+  <li>Bagaimana bisa ia terlihat sangat mudah dan nyaman berpindah antar satu Workspace ke Workspace menggunakan <em>keyboard shortcut</em>?</li>
+  <li>Bagaimana bisa ia begitu terlihat nyaman melakukan window resize hanya dengan menggunakan <em>keyboard shortcut</em>?</li>
+  <li>Bagaimana bisa ia tidak direpotkan dengan menyusun Window yang sedang terbuka dalam satu Workspace?</li>
+  <li>Bagaimana bisa window yang terbuka itu tidak saling bertumpuk satu dengan yang lain?</li>
+</ol>
+
+<p>Saya pun mencoba memasang dwm, namun karena belum pernah sama sekali mengerti hal-hal apa saja yang saya perlukan dan saya butuhkan dalam menggunakan Window Manager, saya pun kebingungan memilih <em>patch</em> apa yang hendak saya pergunakan. Lantas, saya pun menyerah pada dwm.</p>
+
+<h2 id="mencoba-memahami-i3wm">Mencoba Memahami i3wm</h2>
+
+<p>Kemudian mengingat-ingat kembali, kalau distribusi Manjaro, beberapa kali selalu memberikan info terbaru seputar Manjaro i3 edition pada blog mereka. Kemudian, saya pun mencoba mencari referensi di YouTube mengenai i3wm.</p>
+
+<p>Setelah beberapa kali melihat video ulasan i3wm dari beberapa user, saya pun memutuskan untuk mempelajarinya terlebih dahulu. Kebetulan terdapat video yang memberikan informasi dasar bagaimana cara menggunakan i3wm.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/jj641YCy/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - <a href="https://www.youtube.com/watch?v=j1I63wGcvU4&amp;list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank">Code Cast - i3wm (Playlist) at YouTube</a></p>
+
+<p>Menurut saya video ini sangat bagus sekali sebagai pondasi awal mengenal i3wm. Video di atas juga termasuk dalam jajaran video yang direkomendasikan oleh website i3wm.org, <a href="https://i3wm.org/screenshots/" target="_blank">di sini</a>.</p>
+
+<p>Saya sarankan untuk dapat mempelajari video-video lain yang direkomendasikan oleh i3wm.org.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/VNGMbfhs/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - <a href="https://youtu.be/Wx0eNaGzAZU" target="_blank">i3 window manager screencast v4.1 at YouTube</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/mDP93xxY/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - <a href="https://youtu.be/AWA8Pl57UBY" target="_blank">i3 screencast: containers and the tree data structure at YouTube</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/8kF3csY5/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - <a href="https://youtu.be/QnYN2CTb1hM" target="_blank">i3 - An Improved Tiling Window Manager at YouTube</a></p>
+
+<p>Sebenarnya, istilah <em>Tiling</em> window manager, bukan pertama kali saya dengar. Saya pernah mendengar dari percakapan beberapa teman-teman di group Telegram BGLI (Belajar GNU/Linux Indonesia). Kang <a href="https://sucipto.net" target="_blank">Sucipto</a> pun sudah pernah menawarkan untuk menggunakan <em>i3wm</em>, namun saat itu saya belum memahami apa kelebihannya dan keuntungan menggunakan <em>Tiling</em> window manager.</p>
+
+<h2 id="mengapa-i3-window-manager">Mengapa i3 Window Manager?</h2>
+
+<p>Saya akan coba merangkum dengan beberapa point, mengapa saya akhirnya memutuskan untuk mantap menggunakan i3wm dan tidak pernah kembali menggunakan Desktop Environment seperti GNOME dan XFCE.</p>
+
+<h3 id="konfigurasi-menggunakan-plain-text">Konfigurasi Menggunakan Plain Text</h3>
+
+<p>Untuk yang sudah pernah menggunakan Vim dan Tmux, pasti sudah familiar dengan file konfigurasi yang berbentuk <em>plain text</em>. Cukup menambahkan option-option di dalam file ini, maka program akan mengalami perubahan seperti yang kita isikan di dalam file konfigurasi. Contoh lain aplikasi yang menggunakan file konfigurasi berupa <em>plain text</em>, seperti: URxvt, Termite, Ranger, mpv, mpd, ncmpcpp, irssi, neomutt, newsboat, dunst, compton, cmus, dll.</p>
+
+<p>Ada pula file konfigurasi yang bukan merupakan <em>plain text</em>, namun berupa file <em>header</em> (salah satu contohnya), seperti yang digunakan oleh dwm window manager dan st terminal yang menggunakan bahasa pemrograman C. Sehingga, untuk mendapatkan hasil perubahan yang sudah kita lakukan, kita perlu meng-<em>compile</em> kembali program tersebut. Mantap kan?</p>
+
+<p>Inilah alasan, mengapa saya katakan file konfigurasi yang menggunakan <em>plain text</em> seperti yang digunakan oleh i3wm termasuk mudah digunakan.</p>
+
+<p>i3wm dapat membaca file konfigurasi yang terdapat pada:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">~/.i3/config</code> atau</li>
+  <li><code class="language-plaintext highlighter-rouge">~/.config/i3/config</code></li>
+</ol>
+
+<p>Namun, untuk alasan kerapian struktur direktori, saya lebih senang mengumpulkan semua file konfigurasi pada direktori <code class="language-plaintext highlighter-rouge">~/.config/</code>.</p>
+
+<h3 id="keyboard-shortcut-adalah-segalanya">Keyboard Shortcut adalah Segalanya</h3>
+
+<p>Untuk menggunakan i3wm, sebenarnya tidak juga <em>keyboard</em> sentris, dapat pula menggunakan <em>mouse</em>, namun, saya memang sengaja memaksakan diri saya untuk mencoba <em>workflow</em> yang baru. Ternyata, memang sangat luar biasa mengoperasikan Window Manager tanpa perlu menggunakan <em>mouse</em>.</p>
+
+<p>Kalau teman-teman yang sudah menggunakan Vim sebagai <em>text editor</em> pasti akan memahami bagaimana kemudahan yang didapat setelah mengoperasikan <em>text editor</em> tanpa menggunakan <em>mouse</em>. Ya, itu lah yang akan teman-teman dapatkan pula saat menggunakan i3wm.</p>
+
+<p>Saya akan menunjukkan apa saja yang dapat dilakukan dengan menggunakan <em>keyboard</em> untuk mengoperasikan i3wm dengan sambil menunjukkan blok-blok kode konfigurasi yang ada di dalam file konfigurasi i3wm saya, <code class="language-plaintext highlighter-rouge">~/.config/i3/config</code>.</p>
+
+<h3 id="menentukan-modifier-key">Menentukan Modifier Key</h3>
+
+<p>Pertama kali kita harus menentukan <strong>modifier key</strong>, seperti <strong>leader key</strong> dalam Vim, atau <strong>Prefix</strong> dalam Tmux.</p>
+
+<p>Bisanya tawarannya antara dua, tombl <kbd>SUPER</kbd> atau  tombol <kbd>ALT</kbd>.</p>
+
+<p>Saya memilih menggunakan tombol <kbd>SUPER</kbd> untuk meminimalisir bentrokan dengan <em>keyboard shortcut</em> aplikasi GUI yang rata-rata banyak menggunakan tombol <kbd>ALT</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nb">set</span> <span class="nv">$mod</span> Mod4
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saya menggunakan <code>$mod</code> berupa <code>Mod4</code> yang merupakan tombol <kbd>SUPER</kbd>. Sebagaian user i3, adapula yang menggunakan <kbd>ALT</kbd>, namun sangat jarang saya temui.</p>
+  </div></div>
+
+<h3 id="memanggil-terminal">Memanggil Terminal</h3>
+
+<p>Untuk memanggil Terminal yang kita gunakan, dalam kasus ini saya menggunakan <strong>st</strong> terminal dari <a href="https://suckless.org/" target="_blank">Suckless</a> project.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Start a Terminal</span>
+bindsym <span class="nv">$mod</span>+Return <span class="nb">exec</span> <span class="nt">--no-startup-id</span> st
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dilihat pada kode di atas bahwa, saya menggunakan <kbd>SUPER</kbd>+<kbd>ENTER</kbd> untuk memanggil <code class="language-plaintext highlighter-rouge">st</code> yang merupakan nama program dari <strong>st</strong> terminal.</p>
+
+<p>Teman-teman dapat mengganti <strong>st</strong> dengan terminal favorit kalian. Seperti <strong>gnome-terminal</strong>, <strong>xfce4-terminal</strong>, <strong>urxvt</strong>, <strong>termite</strong>, dll.</p>
+
+<h3 id="pemanggil-aplikasi">Pemanggil Aplikasi</h3>
+
+<p><em>Application launcher</em>, pemanggil aplikasi. Kalau di GNOME saya biasa menggunakan tombol <kbd>SUPER</kbd> untuk memanggil <em>application launcher</em>, nah pada i3wm, kita bebas untuk menggunakan aplikasi yang berfungsi sebagai <em>application launcher</em> dan bebas pula ingin kita letakkan pada <em>keyboard shortcut</em> yang mana.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Start Rofi (a program launcher)</span>
+bindsym <span class="nv">$mod</span>+d <span class="nb">exec</span> <span class="nt">--no-startup-id</span> j4-dmenu-desktop <span class="nt">--dmenu</span><span class="o">=</span><span class="s1">'rofi -dmenu -lines 6 -width 400 -i -sort -p RUN'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pada contoh di atas, saya menggunakan aplikasi <strong>Rofi</strong> sebagai <em>application launcher</em> yang saya letakkan pada <kbd>SUPER</kbd>+<kbd>D</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/dtttfbtr/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - Rofi+dmenu</p>
+
+<p>Sebenarnya saya memanfaatkan <strong>dmenu</strong> sebagai <em>backend</em> yang berfungsi me-<em>list</em> semua aplikasi saya, kemudian Rofi yang bertugas memberikan tampilan seperti di atas.</p>
+
+<p>Jadi, menggunakan <strong>dmenu</strong> saja, sebenarnya juga bisa.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Sebelumnya, saya menggunakan paket <code>dmenu</code>, namun terasa ada <i>delay</i> yang sangat mengganggu. Kemudian, setelah mencari informasi, saya memutuskan untuk menggunakan paket <code>j4-dmenu-desktop</code> (AUR) karena terasa lebih cepat saat dikombinasikan dengan Rofi.</p>
+  </div></div>
+
+<h3 id="konfigurasi-font">Konfigurasi Font</h3>
+
+<p>Untuk mengatur font pada i3wm, biasaya font akan terlihat pada Title Bar yang ada pada Window Container.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Font for Window Titles. Will also be used by the bar unless a different font</span>
+<span class="c"># is used in the bar {} block below.</span>
+font pango:Fantasque Sans Mono 10
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">10</code>, adalah size dari font.</p>
+
+<h3 id="window-container">Window Container</h3>
+
+<p>Pada i3wm, Window akan saya sebut sebagai Container. Ya, sesuai dengan penamaannya “kontainer” yang berarti tidak hanya dapat menampung 1 buah Window, namun dapat menampung banyak Window dalam 1 Container. Sehingga akan lebih cocok kalau disebut sebagai Container.</p>
+
+<h4 id="berpindah-focus-container">Berpindah Focus Container</h4>
+
+<p>Untuk berpindah-pindah fokus antara satu Container ke Container yang lain, saya menggunakan:</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Change Focus</span>
+bindsym <span class="nv">$mod</span>+h focus left
+bindsym <span class="nv">$mod</span>+j focus down
+bindsym <span class="nv">$mod</span>+k focus up
+bindsym <span class="nv">$mod</span>+l focus right
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>H</kbd></td>
+      <td>Pindah fokus ke kiri</td>
+    </tr>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>J</kbd></td>
+      <td>Pindah fokus ke bawah</td>
+    </tr>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>K</kbd></td>
+      <td>Pindah fokus ke atas</td>
+    </tr>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>L</kbd></td>
+      <td>Pindah fokus ke kanan</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Bagaimana, apakah terlihat familiar dengan navigasi tersebut?</p>
+
+<p>Seperti Vim bukan?</p>
+
+<p>Saya memang sengaja membuatnya agar terasa seperti Vim, untuk memudahkan dalam mengingat.</p>
+
+<p>Secara <em>default</em>, seingat saya kombinasinya tidak menggunakan <kbd>H</kbd>, <kbd>J</kbd>, <kbd>K</kbd>, <kbd>L</kbd>, melainkan menggunakan <kbd>J</kbd>, <kbd>K</kbd>, <kbd>L</kbd>, <kbd>;</kbd>.</p>
+
+<p>Alternatifnya selain menggunakan tombol huruf, saya juga mengaturnya pada tombol <em>arrow</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Alternatively, you Can Use the Arrow Keys</span>
+bindsym <span class="nv">$mod</span>+Left  focus left
+bindsym <span class="nv">$mod</span>+Down  focus down
+bindsym <span class="nv">$mod</span>+Up    focus up
+bindsym <span class="nv">$mod</span>+Right focus right
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="memindahkan-focus-container">Memindahkan Focus Container</h4>
+
+<p>Memindahkan di sini dapat kita gunakan untuk memindahkan (menukar) Container pada <em>tiling</em> layout dari kanan ke kiri, <em>viceversa</em>. Dapat pula digunakan untuk menggerakan Container pada <em>floating</em> layout.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Move Focused Window</span>
+bindsym <span class="nv">$mod</span>+Shift+h move left  1px
+bindsym <span class="nv">$mod</span>+Shift+j move down  1px
+bindsym <span class="nv">$mod</span>+Shift+k move up    1px
+bindsym <span class="nv">$mod</span>+Shift+l move right 1px
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>HJKL</kbd>.</p>
+
+<p>Pada kode di atas, saya menggunakan kombinasi <em>keyboard shortcut</em> tersebut untuk menggerakkan Container sebesar 1 px apabila pada <em>floating</em> layout. Namun, pada <em>tiling</em> layout, tetap seperti fungsi asal, yaitu memindahkan (menukar) Container dari kiri kanan, atas bawah, <em>viceversa</em>.</p>
+
+<p>Saya juga membuatkan alternatif untuk bergerak atau berpindah sebesar 20 px agar lebih cepat.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Alternatively, You Can Use the Arrow Keys</span>
+bindsym <span class="nv">$mod</span>+Shift+Left  move left  20px
+bindsym <span class="nv">$mod</span>+Shift+Down  move down  20px
+bindsym <span class="nv">$mod</span>+Shift+Up    move up    20px
+bindsym <span class="nv">$mod</span>+Shift+Right move right 20px
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="mengganti-orientasi-container">Mengganti Orientasi Container</h4>
+
+<p>Pada i3wm, kita dapat mengganti-ganti orientasi dari Container yang sedang terbuka. Misalkan terdapat 2 buah Container kanan dan kiri, hanya dengan menekan kombinasi <em>keyboard</em> kita dapat membuat menjadi atas dan bawah.</p>
+
+<p>Kira-kira seperti ini ilustrasinya,</p>
+
+<pre class="whiteboard">
+# 2 Container, dengan Vertical orientation
++-----+-----+
+|     |     |
+|  1  |  2  |
+|     |     |
++-----+-----+
+
+# 2 Container, dengan Horizontal orientation
++-----+-----+
+|     1     |
++-----------+
+|     2     |
++-----+-----+
+</pre>
+
+<p>Untuk dapat melakukan ini, saya menggunakan,</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Split in Horizontal Orientation</span>
+bindsym <span class="nv">$mod</span>+b <span class="nb">split </span>h
+
+<span class="c"># Split in Vertical Orientation</span>
+bindsym <span class="nv">$mod</span>+v <span class="nb">split </span>v
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<table>
+  <tbody>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>B</kbd></td>
+      <td>Horizontal orientation</td>
+    </tr>
+    <tr>
+      <td><kbd>SUPER</kbd>+<kbd>V</kbd></td>
+      <td>Vertical orientation</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Hal ini, hanya dapat dilakukan pada <i><b>tiling</b></i> layout atau bisa juga kita sebut dengan <i><b>split</b></i> layout.</p>
+  </div></div>
+
+<p>Kita dapat mengatur <em>default orientation</em> saat menggunakan <em>Tiling</em> layout, apakah ingin Vertical atau Horizontal.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Orientation for New Workspaces</span>
+<span class="c"># New workspaces get a reasonable default orientation: Wide-screen monitors</span>
+<span class="c"># (anything wider than high) get horizontal orientation, rotated monitors</span>
+<span class="c"># (anything higher than wide) get vertical orientation.</span>
+<span class="c"># Syntax: default_orientation horizontal|vertical|auto</span>
+default_orientation horizontal
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="membuat-fullscreen-container">Membuat Fullscreen Container</h4>
+
+<p>Terkadang kita memerlukan untuk membuat sebuah Window menjadi <em>fullscreen</em> karena alasan tertentu. Tentu saja i3wm juga mempunyai fitur ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enter Fullscreen Mode for the Focused Container</span>
+bindsym <span class="nv">$mod</span>+f fullscreen toggle
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>F</kbd>. Untuk membuat Container yang sedang difokuskan menjadi <em>fullscreen</em>.</p>
+
+<p>Perhatikan, terdapat option <code class="language-plaintext highlighter-rouge">toggle</code> yang menandakan <em>keyboard shortcut</em> ini berfungsi selayaknya <em>switch</em> yang dapat kita ON dan OFF kan.</p>
+
+<pre class="whiteboard">
+# Tiling layout yang terfokus pada Container 1
++-----+-----+
+|     |     |
+| [1] |  2  |
+|     |     |
++-----+-----+
+
+# Setelah menekan keyboard shortcut untuk fullscreen pada Container 1
++-----------+
+|           |
+|     1     |
+|           |
++-----------+
+
+# Viceversa, pada Container 2
+</pre>
+
+<h4 id="menggati-layout-container">Menggati Layout Container</h4>
+
+<p>Pada pembahasa di atas, saya beberapa kali menyebutkan tentang <em>tiling</em> layout. i3wm mempunyai 3 macam layout (sepertinya, kalau <em>scratchpad</em> tidak dihitung sebagai layout), yaitu:</p>
+
+<ol>
+  <li><strong>Tiling</strong> layout atau <strong>Split</strong> layout</li>
+  <li><strong>Tabbed</strong> layout</li>
+  <li><strong>Stacking</strong> layout</li>
+</ol>
+
+<p>Tiling atau Split layout ini, sebagaimana sudah dicontohkan pada tulisan-tulisan di atas.</p>
+
+<pre class="whiteboard">
+# Tiling atau Split layout
++-----+-----+ +----------+ +-----+-----+ +-----+-----+
+|     |     | |    1     | |     |  2  | |  1  |  2  |
+|  1  |  2  | +----------+ +  1  +-----+ |-----+-----+
+|     |     | |    2     | |     |  3  | |  4  |  3  |
++-----+-----+ +----------+ +-----+-----+ +-----+-----+
+</pre>
+
+<p>Tabbed layout ini bayangkan seperti sedang menggunakan Browser memiliki Tab.</p>
+
+<pre class="whiteboard">
+# Tabbed layout
++-[1]-+--2--+ +--1--+-[2]-+
+|           | |           |
+|     1     | |     2     |
+|           | |           |
++-----------+ +-----------+
+</pre>
+
+<p>Stacking layout pada i3wm ini tidak seperti stacking pada Desktop Environment dengan Window yang melayang. Stacking layout pada i3wm tetap dengan Container yang memenuhi seluruh layar (<em>maximize</em>).</p>
+
+<pre class="whiteboard">
+# Stacking layout
++----[1]----+ +-----1-----+
++-----2-----+ +----[2]----+
+|           | |           |
+|     1     | |     2     |
+|           | |           |
++-----------+ +-----------+
+</pre>
+
+<p>Kalau masih bingung, saya ambilkan gambar dari i3wm.org.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/mZ3wb5fm/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 6 - Layout yang dimiliki oleh i3wm</p>
+
+<p>Kita dapat mengatur <em>default layout</em> yang akan kita gunakan pada setiap Workspace.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Layout Mode for New Containers</span>
+<span class="c"># This option determines in which mode new containers on workspace level will start</span>
+<span class="c"># Syntax: workspace_layout default|stacking|tabbed</span>
+workspace_layout default
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <strong>default</strong>, yang berarti <em>Tiling</em> atau <em>Split</em> layout.</p>
+
+<h4 id="membuat-floating-container">Membuat Floating Container</h4>
+
+<p>Tidak semua Window harus dalam keadaan <em>maximize</em>. Contohnya seperti: dialog notifikasi window, popup window, open dan save dialog window, password dialog window, dll. i3wm secara cerdas dapat mengenali dialog-dialog seperti ini. Sehingga kita tidak perlu mengkonfigurasi lagi.</p>
+
+<p>Lantas, bagaimana apabila kita ingin membuat Container kita menjadi <em>floating</em>?</p>
+
+<p>Sangat mudah, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>SPACE</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Toggle Tiling / Floating</span>
+bindsym <span class="nv">$mod</span>+Shift+space floating toggle border none
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lagi-lagi saya beritahukan bahwa <em>keyboard shortcut</em> ini saya set menjadi <code class="language-plaintext highlighter-rouge">toggle</code>, sehingga dapat digunakan untuk mengaktif dan disablekan <em>floating</em> pada Container.</p>
+
+<pre class="whiteboard">
+# Container 1 dan Container 2 dalam Tiling/Split layout
++-------+-------+
+|       |       |
+|       |       |
+|  [1]  |   2   |
+|       |       |
+|       |       |
++-------+-------+
+
+# Container 1 saya buat menjadi Floating
++---------------+
+|  2            |
+|   +-------+   |
+|   |  [1]  |   |
+|   +-------+   |
+|               |
++---------------+
+</pre>
+
+<p>Untuk berpindah focus antar Cotainer floating dengan yang tidak, dapat menggunakan <kbd>SUPER</kbd>+<kbd>SPACE</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Change Focus Between Tiling / Floating Windows</span>
+bindsym <span class="nv">$mod</span>+space focus mode_toggle
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Ilustrasinya seperti ini.</p>
+
+<pre class="whiteboard">
+# Fokus pada Container 1 yang sedang dalam bentuk floating
++---------------+
+|  2            |
+|   +-------+   |
+|   |  [1]  |   |
+|   +-------+   |
+|               |
++---------------+
+
+# Fokus pada Container 2 yang sedang dalam bentuk Tiling
++---------------+
+| [2]           |
+|   +-------+   |
+|   |   1   |   |
+|   +-------+   |
+|               |
++---------------+
+</pre>
+
+<h4 id="parent-dan-child-container">Parent dan Child Container</h4>
+
+<p>Saya sudah menyebutkan pada tulisan di atas, bahwa i3wm merupakan <em>tree based</em> window manager. Kita dapat mengasumsikan Container seperti sebuah ranting dan daun.</p>
+
+<pre class="whiteboard">
+# Container 1 dan 2, pada Tiling layout di Workspace 1
+                         +-------------+
++-----+-----+            | WORKSPACE 1 |
+|     |     |            +-------------+
+|  1  |  2  |    =&gt;         /       \
+|     |     |              /         \
++-----+-----+          +-----+     +-----+
+                       |  1  |     |  2  |
+                       +-----+     +-----+
+
+# Saya merubah orientasi pada Container 2 menjadi split Vertical (terbagi atas bawah)
+# dengan menggunakan SUPER+V pada Container 2,
+# kemudian buka Container 3
+                         +-------------+
+                         | WORKSPACE 1 |
+                         +-------------+
+                            /        \
++-----+-----+              /          \
+|     |  2  |          +-----+    +---------+
+|  1  +-----+    =&gt;    |  1  |    | SPLIT V |
+|     |  3  |          +-----+    +---------+
++-----+-----+                        /   \
+                                    /     \
+                                +-----+ +-----+
+                                |  2  | |  3  |
+                                +-----+ +-----+
+</pre>
+
+<p>Seperti pohon faktorial yaa?</p>
+
+<p>Tidak ada batasan sampai berapa cabang ranting dan daun yang ingin kalian buat.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Split Vertical berarti di dalam satu Container akan dibagi kedalam 2 ruang, atas dan bawah. Begitu pula untuk Split Horizontal, berarti Container akan dibagi menjadi 2 ruang, kanan dan kiri.</p>
+  </div></div>
+
+<p>Nah, yang dimaksud dengan <strong>PARENT</strong> di sini adalah <strong>ranting</strong> sedangkan <strong>CHILD</strong> adalah <strong>daun</strong>.</p>
+
+<p>Sehingga, apabila kita ingin melakukan focus terhadap Container 2 dan 3, ibarat <strong>ranting</strong> yang memiliki 2 daun, daun Container 2 dan 3. Ini disebut <strong>Focus Parent</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Focus the Parent Container</span>
+bindsym <span class="nv">$mod</span>+a focus parent
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sebaliknya, untuk focus kepada Container 1, atau Container 2 saja, atau 3 saja, ibarat <strong>daun</strong> pada ujung ranting. Kita sebut dengan <strong>Focus Child</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Focus the Child Container</span>
+bindsym <span class="nv">$mod</span>+Shift+a focus child
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Pembahasan mengenai layout ini sangat kompleks dan seru sekali. Sepertinya, tidak sanggup kalau harus menuliskan semuanya. Mungkin kapan-kapan akan saya buatkan video ulasannya saja.</p>
+
+<h4 id="memanfaatkan-scratchpad">Memanfaatkan Scratchpad</h4>
+
+<p>Pada i3wm, kita tidak mengenal <em>minimize</em>. Dan memang tidak diperlukan fitur ini.</p>
+
+<p>Untuk apa kita memerlukan fitur <em>minimize</em> kalau kita memiliki 10 Workspaces?</p>
+
+<p>Lantas, apabila kita sedang membuka Text Editor pada Workspace 1, lalu ingin menggunakan Browser, tidak diperlukan me-<em>minimize</em> text editor, cukup jalankan Browser pada Workspace selanjutnya.</p>
+
+<p>Apakah ada diantara teman-teman yang berpikiran menggunakan banyak Workspace akan memberatkan memory (RAM)?</p>
+
+<p>Oh, <em>come on</em> geys… Ini Window Manager, bukan Browser. Manfaatkan fitur Workspace semaksimal mungkin untuk memanajemen window kalian. Memanfaatkan banyak Workspace sama sekali tidak ada hubungan langsung dengan memberatkan memory.</p>
+
+<p>Nah, lantas, akan ada kasus dimana kita ingin memanggil aplikasi bantuan saat sedang fokus pada aplikasi utama.</p>
+
+<p>Contohnya:</p>
+
+<ol>
+  <li>
+    <p>Sedang membaca <em>ebook</em> dengan Evince. Kemudian menemukan kata yang belum diketahui artinya, lantas kita ingin membuka gKamus.</p>
+  </li>
+  <li>
+    <p>Sedang melakukan pemilihan warna untuk CSS code kita, lantas kita memerlukan apliaksi GColor3 untuk mengambil sampel warna.</p>
+  </li>
+</ol>
+
+<p><br />
+Dari kedua kasus di atas, apakah kita langsung mengeluarkan atau memindahkan aplikasi pembantu (gKamus dan GColor3) ke tempat lain?</p>
+
+<p>Akan sangat repot untuk memanggilnya kembali karena kita tidak ingin berpindah Workspace karena alasan tertentu.</p>
+
+<p>Solusi dari masalah di atas adalah dengan memanfaatkan <strong>Scratchpad</strong>.</p>
+
+<p>Scratchpad ini ibarat seperti buku coretan, kita dapat panggil dan sembunyikan sesuai kemauan kita.</p>
+
+<p><br />
+Untuk menginisialisasi Container menjadi sebuah Scratchpad, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>-</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Make the Currently Focused Window a Scratchpad</span>
+bindsym <span class="nv">$mod</span>+Shift+minus move scratchpad
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Lalu untuk memanggil dan menyembunyikannya, saya mengguakan <kbd>SUPER</kbd>+<kbd>-</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Show the First Scratchpad Window</span>
+bindsym <span class="nv">$mod</span>+minus scratchpad show
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="membuat-sticky-container">Membuat Sticky Container</h4>
+
+<p>Secara sederhana fitur ini mirip dengan <strong>Always on Top</strong> pada Window yang dimiliki oleh Desktop Environment.</p>
+
+<p>Saya biasa menggunakan fitur ini saat melakukan <em>screencasting</em> dengan menampilkan <em>output</em> dari kamera WebCam agar tetap dapat dilihat saat berpindah-pindah antar Workspace.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Sticky Floating Windows</span>
+<span class="c"># Syntax: sticky enable|disable|toggle</span>
+bindsym <span class="nv">$mod</span>+Shift+plus sticky toggle
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="membuat-default-floating-container">Membuat Default Floating Container</h4>
+
+<p>Pasti akan ada beberapa aplikasi yang memiliki Window yang kecil, namun pada i3wm akan dijalankan secara <em>maximize</em>, dan kita harus melakukan <em>floating</em> terhadap aplikasi tersebut secara manual. Beberapa contoh dari aplikasi tersebut adalah GKamus, GColor3, Gnome Power Statistics, Pavucontrol, Arandr, Blueman Manager, dll.</p>
+
+<p>Untuk menginisialisasi agar aplikasi-aplikasi tersebut saat dijalankan sudah berada pada kondisi <em>floating</em> container, kita dapat mengaturnya pada file konfigurasi. Asik bukan?</p>
+
+<p>Saya akan mencontohkan beberapa bentuk variasi konfigurasi yang saya pergunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Floating Mode for Specific Programs</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gkamus"</span><span class="o">]</span>                           floating <span class="nb">enable </span>border normal 1
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gnome-power-statistics"</span><span class="o">]</span>           floating <span class="nb">enable </span>border normal 1
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Modem-manager-gui"</span><span class="o">]</span>                floating <span class="nb">enable </span>border normal 1
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Gnome-system-monitor"</span><span class="o">]</span>             floating <span class="nb">enable </span>border normal 1
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Nm-connection-editor"</span><span class="o">]</span>             floating <span class="nb">enable </span>border normal 1
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"zoom"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Zoom - Free Account"</span><span class="o">]</span> floating <span class="nb">enable </span>border pixel  1 move right 470px,move down 0px
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"st-256color"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"ncpamixer"</span><span class="o">]</span>    floating <span class="nb">enable </span>border normal 1 resize <span class="nb">set </span>500 600,move right 90px,move up 80px
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"scrcpy"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"Mi-4c"</span><span class="o">]</span>             floating <span class="nb">enable </span>border none     move right 460px,move down 0px
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Sebaliknya pula, kita dapat membuat aplikasi yang secara <em>default</em> berjalan <em>floating</em> menjadi tidak.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Disable Floating Mode for Specific Programs</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"pavucontrol-qt"</span><span class="o">]</span>                    floating disable
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Meskipun sangat jarang saya temui aplikasi yang sejak awal sudah berada pada <em>floating</em> container, namun saya rasa perlu juga untuk memiliki konfigurasi ini apabila sewaktu-waktu diperlukan pada kasus yang lain.</p>
+
+<h4 id="menutupmengakhiri-window-container">Menutup/mengakhiri Window Container</h4>
+
+<p>Di dalam sebuah Window, dapat berupa apa saja. Aplikasi, program, dialog, terminal, pokoknya apa saja yang ada di dalam Window, kita dapat mengakhirinya dengan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Q</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Kill Focused Window</span>
+bindsym <span class="nv">$mod</span>+Shift+q <span class="nb">kill</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hal ini diperlukan mengingat i3wm tidak menyediakan tombol <em>close</em> atau menu <em>exit</em> pada <em>title bar</em>. Tentu saja hal ini malah membuat proses menutup/mengakhiri sebuah window menjadi lebih praktis tanpa perlu menggerakkan <em>mouse</em> ke arah menu atau tombol <em>close</em> pada <em>title bar</em>.</p>
+
+<h4 id="mengganti-window-container-border-color">Mengganti Window Container Border Color</h4>
+
+<p>Kita dapat mengganti warna dari Window Container border.</p>
+
+<p>Dimulai dari mendefinisikan variabel dan mengisikan warnanya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Define Color Variables</span>
+<span class="nb">set</span> <span class="nv">$bg</span><span class="nt">-color</span>               <span class="c">#B58900</span>
+<span class="nb">set</span> <span class="nv">$text</span><span class="nt">-color</span>             <span class="c">#002B36</span>
+<span class="nb">set</span> <span class="nv">$border</span><span class="nt">-color</span>           <span class="c">#B58900</span>
+<span class="nb">set</span> <span class="nv">$inactive</span><span class="nt">-bg-color</span>      <span class="c">#264A53</span>
+<span class="nb">set</span> <span class="nv">$inactive</span><span class="nt">-text-color</span>    <span class="c">#657B83</span>
+<span class="nb">set</span> <span class="nv">$urgent</span><span class="nt">-bg-color</span>        <span class="c">#CB4B16</span>
+<span class="nb">set</span> <span class="nv">$urgent</span><span class="nt">-text-color</span>      <span class="c">#FFFFFF</span>
+<span class="nb">set</span> <span class="nv">$indicator</span>              <span class="c">#FFAF00</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah itu baru masukkan variabel-variabel tersebut dengan fungsinya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c"># Define Color Variables</span>
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Window Colors</span>
+<span class="c"># Opetion Name           # Border            # Background        # Text                # Indicator</span>
+client.focused           <span class="nv">$bg</span><span class="nt">-color</span>           <span class="nv">$bg</span><span class="nt">-color</span>           <span class="nv">$text</span><span class="nt">-color</span>           <span class="nv">$indicator</span>
+client.unfocused         <span class="nv">$inactive</span><span class="nt">-bg-color</span>  <span class="nv">$inactive</span><span class="nt">-bg-color</span>  <span class="nv">$inactive</span><span class="nt">-text-color</span>  <span class="nv">$indicator</span>
+client.focused_inactive  <span class="nv">$inactive</span><span class="nt">-bg-color</span>  <span class="nv">$inactive</span><span class="nt">-bg-color</span>  <span class="nv">$inactive</span><span class="nt">-text-color</span>  <span class="nv">$indicator</span>
+client.urgent            <span class="nv">$urgent</span><span class="nt">-bg-color</span>    <span class="nv">$urgent</span><span class="nt">-bg-color</span>    <span class="nv">$urgent</span><span class="nt">-text-color</span>    <span class="nv">$indicator</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hasilnya akan seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/j5nmsrtC/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 7 - Window Container Aktif (kiri) dan Window Container Tidak Aktf (kanan)</p>
+
+<h4 id="menentukan-container-border">Menentukan Container Border</h4>
+
+<p>Kita dapat menentukan apakah aplikasi yang kita panggil, akan memiliki border seperti apa. Atau tidak memiliki border sama sekali.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Window Container Border Settings</span>
+<span class="c"># syntax: new_window normal|none|pixel</span>
+new_window none
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat pula kita atur, apakah <em>floating</em> container secara <em>default</em> memiliki border atau tidak.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Syntax: new_float normal|none|pixel</span>
+new_float normal 1
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Terdapat 3 option yang dapat kita gunakan.</p>
+    <table>
+<tr>
+<td><code>normal</code></td>
+<td>Border + Title Bar</td>
+</tr>
+<tr>
+<td><code>pixel</code></td>
+<td>Border saja</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Tanpa Border</td>
+</tr>
+</table>
+    <p>Untuk option <code>normal</code> dan <code>pixel</code>, kita dapat menambahkan value dari ketebalan border seperti <code>0</code>, <code>1</code>, atau <code>2</code>.</p>
+  </div></div>
+
+<p>Kita juga dapat memanipulasi Window Container Border secara langsung menggunakan <em>keyboard shortcut</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># For Direct Border Changing with Keyboard Shortcut</span>
+bindsym <span class="nv">$mod</span>+Shift+t border normal 0
+bindsym <span class="nv">$mod</span>+t       border normal 1
+bindsym <span class="nv">$mod</span>+Shift+y border pixel  1
+bindsym <span class="nv">$mod</span>+y       border none
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hasilnya akan seperti ini,</p>
+
+<p><strong>Border Normal 0</strong>, menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>T</kbd>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/xCbfB7Z3/gambar-09.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 8 - Window Container Border Normal 0</p>
+
+<p><strong>Border Normal 1</strong>, menggunakan <kbd>SUPER</kbd>+<kbd>T</kbd>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/QN1Nb21X/gambar-10.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 9 - Window Container Border Normal 1</p>
+
+<p><strong>Border Pixel 1</strong>, menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>Y</kbd>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/vTrQZnb1/gambar-11.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 10 - Window Container Border Pixel 1</p>
+
+<p><strong>Border None</strong>, menggunakan <kbd>SUPER</kbd>+<kbd>Y</kbd>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_11" data-echo="https://i.postimg.cc/905m2b55/gambar-12.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 11 - Window Container Border None</p>
+
+<h4 id="menentukan-container-border-aplikasi-tertentu">Menentukan Container Border Aplikasi Tertentu</h4>
+
+<p>Seperti halnya <em>floating</em> container, kita dapat juga menentukan contianer border pada aplikasi yang kita inginkan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Specific Window Border</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Wine"</span><span class="o">]</span> border normal 1
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Contohnya, seperti di atas. Kalian dapat menambahkan sendiri. Hampir sama seperti <em>floating</em> container, hanya berbeda pada parameter border di bagian buntutnya saja.</p>
+
+<p>Atau, dapat pula sekalian ditambahkan pengaturan border pada saat menentukan <em>floating</em> container, seperti contoh <a href="#membuat-default-floating-container">di sini</a>.</p>
+
+<h4 id="merubah-title-container">Merubah Title Container</h4>
+
+<p>Kita dapat pula merubah-rubah <em>alignment</em> dari Title yang ada pada Title Bar.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Window Title Alignment</span>
+<span class="c"># This option determines the window title’s text alignment.</span>
+<span class="c"># Default is left</span>
+<span class="c"># Syntax: title_align left|center|right</span>
+title_align left
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selain itu, dapat pula merubah format dari tulisan yang ada di Title bar.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># For Adding Space and [] Character on Window Title</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"^.*"</span><span class="o">]</span> title_format <span class="s2">" &gt; %title"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="membuka-container-kosong">Membuka Container Kosong</h4>
+
+<p>Untuk alasan tertentu, mungkin kita ingin membuka Container kosong. Misalkan seperti yang biasa saya lakukan, untuk sekedar melihat Conky yang ada pada desktop. Atau untuk sekedar gaya-gaya saja saat mengambil screenshot.</p>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>O</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Open the Blank Space "i3 open" or "i3-msg open"</span>
+bindsym <span class="nv">$mod</span>+o open
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="workspaces">Workspaces</h3>
+
+<p>Secara <em>default</em> pada file konfigurasi i3wm sudah menyediakan 10 Workspaces.</p>
+
+<p>Kita dapat mendifinisikan Workspace dengan cara seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Define Workspace</span>
+<span class="nb">set</span> <span class="nv">$workspace1</span>  <span class="s2">"1"</span>
+<span class="nb">set</span> <span class="nv">$workspace2</span>  <span class="s2">"2"</span>
+<span class="nb">set</span> <span class="nv">$workspace3</span>  <span class="s2">"3"</span>
+<span class="nb">set</span> <span class="nv">$workspace4</span>  <span class="s2">"4"</span>
+<span class="nb">set</span> <span class="nv">$workspace5</span>  <span class="s2">"5"</span>
+<span class="nb">set</span> <span class="nv">$workspace6</span>  <span class="s2">"6"</span>
+<span class="nb">set</span> <span class="nv">$workspace7</span>  <span class="s2">"7"</span>
+<span class="nb">set</span> <span class="nv">$workspace8</span>  <span class="s2">"8"</span>
+<span class="nb">set</span> <span class="nv">$workspace9</span>  <span class="s2">"9"</span>
+<span class="nb">set</span> <span class="nv">$workspace10</span> <span class="s2">"10"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="berpindah-antar-workspaces">Berpindah antar Workspaces</h4>
+
+<p>Setelah kita mendifinisikan Workspace, kita berikan pengaturan <em>keyboard shortcut</em> untuk dapat berpindah antar Workspace dengan mudah.</p>
+
+<p>Saya meletakkan <em>keyboard shortcut</em> untuk berpindah antar Workspace pada <kbd>SUPER</kbd>+<kbd>1</kbd> sampai <kbd>0</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Switch to Workspace</span>
+bindsym <span class="nv">$mod</span>+1 workspace <span class="nv">$workspace1</span>
+bindsym <span class="nv">$mod</span>+2 workspace <span class="nv">$workspace2</span>
+bindsym <span class="nv">$mod</span>+3 workspace <span class="nv">$workspace3</span>
+bindsym <span class="nv">$mod</span>+4 workspace <span class="nv">$workspace4</span>
+bindsym <span class="nv">$mod</span>+5 workspace <span class="nv">$workspace5</span>
+bindsym <span class="nv">$mod</span>+6 workspace <span class="nv">$workspace6</span>
+bindsym <span class="nv">$mod</span>+7 workspace <span class="nv">$workspace7</span>
+bindsym <span class="nv">$mod</span>+8 workspace <span class="nv">$workspace8</span>
+bindsym <span class="nv">$mod</span>+9 workspace <span class="nv">$workspace9</span>
+bindsym <span class="nv">$mod</span>+0 workspace <span class="nv">$workspace10</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="memindahkan-container-ke-workspace-lain">Memindahkan Container ke Workspace Lain</h4>
+
+<p>Kemudian, Apabila diperlukan, kita juga dapat memindahkan Container dari satu Workspace ke Workspace yang lain.</p>
+
+<p>Untuk melakukan hal ini, saya meletakkan <em>keyboard shortcut</em> pada <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>1</kbd> sampai <kbd>0</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Move Focused Container to Workspace</span>
+bindsym <span class="nv">$mod</span>+Shift+1 move container to workspace <span class="nv">$workspace1</span>
+bindsym <span class="nv">$mod</span>+Shift+2 move container to workspace <span class="nv">$workspace2</span>
+bindsym <span class="nv">$mod</span>+Shift+3 move container to workspace <span class="nv">$workspace3</span>
+bindsym <span class="nv">$mod</span>+Shift+4 move container to workspace <span class="nv">$workspace4</span>
+bindsym <span class="nv">$mod</span>+Shift+5 move container to workspace <span class="nv">$workspace5</span>
+bindsym <span class="nv">$mod</span>+Shift+6 move container to workspace <span class="nv">$workspace6</span>
+bindsym <span class="nv">$mod</span>+Shift+7 move container to workspace <span class="nv">$workspace7</span>
+bindsym <span class="nv">$mod</span>+Shift+8 move container to workspace <span class="nv">$workspace8</span>
+bindsym <span class="nv">$mod</span>+Shift+9 move container to workspace <span class="nv">$workspace9</span>
+bindsym <span class="nv">$mod</span>+Shift+0 move container to workspace <span class="nv">$workspace10</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Menurut saya ini adalah kombinasi <em>keyboard shortcut</em> paling natural untuk berpindah-pindah antar Workspace. Sangat praktis namun taktis. Taktis dalam hal seperti ini contoh kasusnya.</p>
+
+<ol>
+  <li>Saya sedang mengerjakan tulisan untuk Blog. Vim+Tmux saya buka pada <strong>Workspace 1</strong>.</li>
+  <li>Kemudian sambil melihat hasilnya pada Browser yang saya buka pada <strong>Workspace 2</strong>.</li>
+  <li>Untuk urusan editing file-file gambar, saya mengerjakannya pada <strong>Workspace 3</strong> yang berisi File Manager sambil terkadang membuka Inkscape dan GIMP di <em>workspace</em> ini juga.</li>
+  <li><strong>Workspace 4,5,6</strong> jarang sekali saya pergunakan karena letaknya yang agak di posisi tengah, sehingga agak menyulitkan jari-jemari saya untuk menjangkaunya tanpa perlu mengangkat telapak tangan.</li>
+  <li>Terkadang saya sambil mengecek Email Client yang saya buka pada <strong>Workspace 7</strong>.</li>
+  <li>Kalau bosan menulis, biasanya saya mencari bahan bacaan pada daftar blog/website langganan saya, melalui RSS feed reader yang saya letakkan pada <strong>Workspace 8</strong>.</li>
+  <li>Sembari kadang-kadang mengecek apakah terdapat kawan-kawan sesama pengguna GNU/Linux yang memerlukan bantuan di group Telegram, aplikasi Telegram biasanya saya letakkan pada <strong>Workspace 9</strong>.</li>
+  <li>Aktifitas yang memerlukan Terminal, biasanya saya buka pada <strong>Workspace 10</strong>.</li>
+</ol>
+
+<p><br />
+Kira-kira seperti di atas ini sebagian sekenario yang sering saya lakukan. Tidak selalu sama, tergantung dari aktivitas yang sedang saya kerjakan.</p>
+
+<p>Kita dapat membuat aplikasi yang kita ingin jalankan, secara <em>default</em> terbuka pada Workspace tertentu. Misalkan, kita selalu menggunakan browser pada Workspace 2, IRC client pada Workspace 6, email client pada Workspace 7, RSS feed reader pada Workspace 8, Telegram pada Workspace 9, dll.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Assign Startup Application to Specific Workspace</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Firefox"</span><span class="o">]</span>                      <span class="nv">$workspace2</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"st-256color"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"irssi"</span><span class="o">]</span>    <span class="nv">$workspace6</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"st-256color"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"neomutt"</span><span class="o">]</span>  <span class="nv">$workspace7</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"st-256color"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"newsboat"</span><span class="o">]</span> <span class="nv">$workspace8</span>
+assign <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Telegram"</span><span class="o">]</span>                     <span class="nv">$workspace9</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Untuk mendapatkan nilai <b>class=</b> dan nilai <b>title=</b>, saya menggunakan perintah <code>xprop</code> yang langsung saya jalankan dari Terminal. Kemudian, tinggal klik Window Container mana yang ingin diketahui nilai class dan title nya.</p>
+    <p>Hasilnya, akan seperti ini kira-kira. (Contoh: Firefox)</p>
+    <pre>
+_NET_WM_OPAQUE_REGION(CARDINAL) = 2, 0, 596, 2, 0, 2, 600, 498
+_NET_WM_WINDOW_TYPE(ATOM) = _NET_WM_WINDOW_TYPE_NORMAL
+_NET_WM_SYNC_REQUEST_COUNTER(CARDINAL) = 65011721, 65011722
+_NET_WM_USER_TIME_WINDOW(WINDOW): window id # 0x3e00008
+WM_CLIENT_LEADER(WINDOW): window id # 0x3e00001
+_NET_WM_PID(CARDINAL) = 3842
+WM_LOCALE_NAME(STRING) = "en_US.UTF-8"
+WM_CLIENT_MACHINE(STRING) = "BanditHijo-X260"
+WM_NORMAL_HINTS(WM_SIZE_HINTS):
+                program specified minimum size: 138 by 162
+                program specified base size: 0 by 0
+                window gravity: NorthWest
+<mark>WM_CLASS(STRING) = "python3", "Python3"</mark>
+WM_ICON_NAME(STRING) = "SoundConverter"
+_NET_WM_ICON_NAME(UTF8_STRING) = "SoundConverter"
+<mark>WM_NAME(STRING) = "SoundConverter"</mark>
+_NET_WM_NAME(UTF8_STRING) = "SoundConverter"
+</pre>
+    <p>Perhatikan bagian yang saya <i>marking</i> adalah, bagian yang kita perlukan.</p>
+    <table>
+<tr>
+<td><code>class=</code></td>
+<td><code>WM_CLASS(STRING) =</code></td>
+<td>"Python3"</td>
+</tr>
+<tr>
+<td><code>title=</code></td>
+<td><code>WM_NAME(STRING) =</code></td>
+<td>"SoundConverter"</td>
+</tr>
+</table>
+  </div></div>
+
+<p>Memanfaatkan Workspace pada i3wm benar-benar sangat membantu mempermudah hampir setiap pekerjaan yang saya kerjakan di atas Window Manager ini.</p>
+
+<p>Coba teman-teman bandingkan dengan <em>keyboard shortcut</em> yang disediakan oleh Desktop Environment untuk berpindah antar Workspace atau untuk berpindah antar focus Window.</p>
+
+<p>Kira-kira, kalau sudah dapat berpindah antar Workspace dan Container dengan mudah, apakah masih diperlukan perintah seperti <kbd>ALT</kbd>+<kbd>TAB</kbd>?</p>
+
+<p>Apabila memang diperlukan, saya juga menyediakan fitur ini, namun sangat jarang sekali saya pergunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># For List All the Opened Container in Every Workspace</span>
+bindsym <span class="nv">$mod</span>+Tab <span class="nb">exec</span> <span class="nt">--no-startup-id</span> j4-dmenu-desktop <span class="nt">--dmenu</span><span class="o">=</span><span class="s2">"rofi -show window -lines 10 -width 500 -display-window 'WORKSPACE'"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>TAB</kbd>, sebagai ganti dari <kbd>ALT</kbd>+<kbd>TAB</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_12" data-echo="https://i.postimg.cc/8k3jCdGY/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 12 - Mendaftar semua Window Container dengan Rofi</p>
+
+<h3 id="memuat-ulang-konfigurasi">Memuat Ulang Konfigurasi</h3>
+
+<p>Setiap kita selesai mengubah atau mengurangi beberapa konfigurasi pada file <code class="language-plaintext highlighter-rouge">~/.configi/i3/config</code>, tidak serta merta langsung dapat kita lihat hasilnya. Selayaknya aplikasi konfigurasi GUI, kita perlu menekan tombol “Apply” terlebih dahulu. Nah, pada i3wm, setelah kita menyimpan file konfigurasi, kita dapat memuat ulang (<em>reload</em>) konfigurasi i3wm.</p>
+
+<p>Saya menggunakan <em>keyboard shortcut</em>, <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>C</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Reload the Configuration File</span>
+bindsym <span class="nv">$mod</span>+Shift+c reload
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, apabila terjadi keanehan atau kejanggalan pada i3 wm layout, kita dapat pula memuat ulang i3wm tanpa perlu keluar dari X <em>session</em>. Ini dapat pula kita lakukan untuk melihat hasil perubahan konfigurasi apabila menggunakan <em>keyboard shortcut</em> <code class="language-plaintext highlighter-rouge">reload</code> di atas tidak berdampak apa-apa.</p>
+
+<p>Saya menggunakan <em>keyboard shortcut</em>, <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>R</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Restart i3 Inplace (preserves your layout/session, can be used to upgrade i3)</span>
+bindsym <span class="nv">$mod</span>+Shift+r restart
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="binding-mode">Binding Mode</h3>
+
+<p>Ini adalah salah satu fitur dari i3wm yang saya suka, namun belum saya manfaatkan dengan maksimal.</p>
+
+<p>Binding Mode, adalah fitur dimana kita dapat mengumpulkan semua fungsi <em>keyboard shortcut</em> yang memiliki kelas yang sama.</p>
+
+<p>Maksudnya gimana sih?</p>
+
+<p>Jumlah karakter yang ada di atas <em>keyboard</em> memang sangat banyak. Namun, tidak menutup kemungkinan apabila kita memiliki kombinasi <em>keyboard shortcut</em> yang banyak, kita pun akan merasa kekurangan juga.</p>
+
+<p>Untuk mengatasi hal ini, kita dapat mengelompokkan fungsi-fungsi <em>keyboard shortcut</em> yang memiliki tujuan yang sama, dalam satu tempat, dalam hal ini disebutnya <strong>Mode</strong>. Maka dari itu dinamakan <strong>Binding Mode</strong>.</p>
+
+<p>Langsung saja saya berikan contohnya.</p>
+
+<p>Saya ingin membuat pengaturan <em>keyboard shortcut</em> untuk “Resize Window Container” baik dalam <em>tiling</em> layout, maupun <em>floating</em> container. Fitur ini sangat diperlukan mengingat terkadang kita merasa butuh melebarkan atau mengecilkan sebuah Window Container.</p>
+
+<p>Fitur ini setidaknya 8 kombinasi <em>keyboard shortcut</em>. 4 untuk me-<em>resize</em> atas, bawah, kanan kiri sebesar 1 px. 4 yang lain untuk me-<em>resize</em> atas, bawah, kanan, kiri sebesar 1 ppt.</p>
+
+<p>Saya tetap ingin menggunakan tombol <kbd>HJKL</kbd>, namun sudah digunakan untuk fungsi “Window Focus”.</p>
+
+<p>Saya masih tetap dapat menggunakan kombinasi <em>keyboard shortcut</em> yang serupa, dengan membuatnya menjadi <strong>Mode</strong> yang berbeda. Saya beri nama mode <strong>Resize</strong>.</p>
+
+<p>Untuk membuatnya, pertama saya perlu menginisialisasi <em>keyboard shortcut</em> untuk mengaktifkan mode Resize.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Resize Window (you can also use the mouse for that)</span>
+bindsym <span class="nv">$mod</span>+r mode <span class="s2">"resize"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dilihat, saya menggunakan <kbd>SUPER</kbd>+<kbd>R</kbd>, untuk masuk/mengaktifkan mode ini.</p>
+
+<p>Setelah itu saya akan mendefinisikan fungsi dari masing-masing <em>keyboard shortcut</em>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+mode <span class="s2">"resize"</span> <span class="o">{</span>
+  <span class="c"># These bindings trigger as soon as you enter the resize mode</span>
+
+  <span class="c"># Pressing left will shrink the window’s width.</span>
+  <span class="c"># Pressing right will grow the window’s width.</span>
+  <span class="c"># Pressing up will shrink the window’s height.</span>
+  <span class="c"># Pressing down will grow the window’s height.</span>
+  bindsym h resize shrink width  1 px
+  bindsym j resize grow   height 1 px
+  bindsym k resize shrink height 1 px
+  bindsym l resize grow   width  1 px
+
+  <span class="c"># same bindings, but for the arrow keys</span>
+  bindsym Left  resize shrink width  1 px or 1 ppt
+  bindsym Down  resize grow   height 1 px or 1 ppt
+  bindsym Up    resize shrink height 1 px or 1 ppt
+  bindsym Right resize grow   width  1 px or 1 ppt
+
+  <span class="c"># back to normal: Enter or Escape</span>
+  bindsym Return mode <span class="s2">"default"</span>
+  bindsym Escape mode <span class="s2">"default"</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kalau kita lihat, kombinasi <em>keyboard shortcut</em> ini mirip dengan konfigurasi pada “Window Focus”. Ya, benar sekali. Namun bedanya, kita perlu mengaktifkan mode Resize terlebih dahulu, untuk dapat menggunakan kombinasi <em>keyboard shortcut</em> di atas ini.</p>
+
+<p>Sehingga, walaupun memiliki kombinasi <em>keyboard shortcut</em> yang sama, namun berada pada mode yang berbeda.</p>
+
+<p>Pada baris di bawahnya, saya menambahkan <em>keyboard shortcut</em> untuk keluar dari mode Resize ke mode Default.</p>
+
+<p>Keren bukan?</p>
+
+<p>Saya baru menggunakan untuk 1 mode ini saja.</p>
+
+<p>Sekarang teman-teman pasti sudah mempunyai gambaran, berapa banyak kombinasi *keyboard shortcut8 yang dapat kita buat. Tentunya akan sangat cukup dan memenuhi kebutuhan kita.</p>
+
+<h3 id="gaps">Gaps</h3>
+
+<p>Perlu teman-teman ketahui, bahwa i3wm tidak menyediakan fitur <em>gaps</em> atau “jeda” antar Window Container pada <em>tiling</em> layout.</p>
+
+<p>Untuk dapat memiliki fitur <em>gaps</em> kita memerlukan <em>forking project</em> yaitu <a href="https://github.com/Airblader/i3" target="_blank"><strong>i3-gaps</strong></a>.</p>
+
+<p>Bagi yang ingin menggunakan fitur ini. Silahkan merujuk pada dokumentasi i3-gaps, pada halam Github mereka.</p>
+
+<p>Saya sendiri menggunakan i3-gaps juga.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># gaps inner|outer</span>
+<span class="c">#      current|all</span>
+<span class="c">#      set|plus|minus &lt;px&gt;</span>
+gaps inner 0
+gaps outer 0
+smart_gaps on
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya cepat sekali bosan, jadi saya sering berganti-ganti suasana. Terkadang ingin menggunakan <em>gaps</em>, kadang juga tidak.</p>
+
+<h3 id="bar">BAR</h3>
+
+<p>i3wm juga sudah secara <em>default</em> menyediakan atau membawa Bar mereka sendiri. Bar adalah tempat untuk Workspace indicator dan Status indicator.</p>
+
+<p>Secara <em>default</em>, i3 meletakkan di bagian bawah dari layar.</p>
+
+<p>Sejak Juli 2018, saya sudah memigrasikan penggunaan i3 bar menjadi Polybar, sehingga saya tidak lagi menggunakan i3 bar milik i3wm.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># bar {</span>
+<span class="c">#   2018/07 - I had migrated to PolyBar (https://github.com/jaagr/polybar)</span>
+<span class="c"># }</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Mengapa menggunakan Polybar?</strong></p>
+
+<p>Lebih fleksibel untuk membuat bar layout kita sendiri.</p>
+
+<h3 id="mengeset-wallpaper">Mengeset Wallpaper</h3>
+
+<p>Saya menggunakan aplikasi bantuan bernama <code class="language-plaintext highlighter-rouge">feh</code> untuk membuat desktop background saya memiliki wallpaper.</p>
+
+<pre>
+$ <b>sudo pacman -S feh</b>
+</pre>
+
+<p>Kemudian tambahkan konfigurasinya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Background Wallpaper</span>
+exec_always <span class="nt">--no-startup-id</span> feh <span class="nt">--bg-fill</span> <span class="nt">-Z</span> ~/pix/Wallpapers/Arch-Wallpaper-Solarized.png
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="mengeset-lockscreen">Mengeset LockScreen</h3>
+
+<p>Seperti Desktop Environment, pada Window Manager, kita juga dapat mengeset lock screen.</p>
+
+<p>Saya menggunakan aplikasi bantuan, di antaranya:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">i3lock-color</code></li>
+  <li><code class="language-plaintext highlighter-rouge">xautolock</code></li>
+</ol>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># i3lock lockscreen</span>
+<span class="c"># (lock is bash script from nandavera | i3lock-color)</span>
+<span class="c"># Source: https://github.com/okitavera/dotfiles/blob/master/.bin/lock</span>
+bindsym <span class="nv">$mod</span>+Shift+x <span class="nb">exec</span> <span class="nt">--no-startup-id</span> /usr/bin/lock-dark
+exec_always <span class="nt">--no-startup-id</span> xautolock <span class="nt">-time</span> 15 <span class="nt">-locker</span> <span class="s2">"/usr/bin/lock-dark"</span> <span class="o">&amp;&amp;</span> <span class="nb">echo </span>mem ? /sys/power/state
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>X</kbd> untuk mengaktifkan lock screen secara manual. Saya menggunakan aplikasi bantuan yang saya rename menjadi <code class="language-plaintext highlighter-rouge">lock-dark</code> yang awalnya bernama <code class="language-plaintext highlighter-rouge">lock</code> buatan Nanda Okitavera yang juga menggunakan backend <code class="language-plaintext highlighter-rouge">i3lock-color</code>.</p>
+
+<p>Saya juga mengeset agar sistem akan mengaktifkan lock screen secara otomatis pada menit ke 15, menggunakan aplikasi <code class="language-plaintext highlighter-rouge">xautolock</code>.</p>
+
+<p>Atau, apabila terlalu ribet menggunakan script <code class="language-plaintext highlighter-rouge">i3lock-color</code> dan <code class="language-plaintext highlighter-rouge">lock</code>, bisa juga menggunakan <code class="language-plaintext highlighter-rouge">slimlock</code>. Ini adalah aplikasi lock screen yang sudah disediakan oleh <a href="https://wiki.archlinux.org/index.php/SLiM" target="_blank">SLiM Display Manager</a>.</p>
+
+<p>Saya sendiri sudah tidak lagi menggunakan <code class="language-plaintext highlighter-rouge">lightdm</code> sebagai Display Manager. Saat ini sedang menggunakan <code class="language-plaintext highlighter-rouge">slim</code>. Karena lebih mudah untuk dikustomisasi.</p>
+
+<h3 id="autostart-application">Autostart Application</h3>
+
+<p>Untuk membuat aplikasi berjalan secara otomatis saat sistem pertama kali di jalankan, sangat mudah sekali dalam i3wm.</p>
+
+<p>Cukup tambahkan pada file konfigurasi <code class="language-plaintext highlighter-rouge">~/.config/i3/config</code> baris kode seperti ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="nb">exec</span>        &lt;nama_program&gt;
+exec_always &lt;nama_program&gt;
+
+<span class="nb">exec</span>        <span class="nt">--no-startup-id</span> &lt;nama_program&gt;
+exec_always <span class="nt">--no-startup-id</span> &lt;nama_program&gt;
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya akan mem-<em>breakdown</em> apalikasi apa saja yang saya jalankan saat sistem startup.</p>
+
+<h4 id="power-manager">Power Manager</h4>
+
+<p>Saya menggunakan XFCE4-POWER-MANAGER.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># XFCE4-power-manager</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> xfce4-power-manager
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan aplikasi ini karena mudah digunakan, secara dulunya saya adalah XFCE user.</p>
+
+<p>Beberapa pemanfaatan aplikasi xfce-power-manager yang pernah saya tuliskan ada <a href="https://bandithijo.dev/blog/mengaktifkan-presentasion-mode-xfce4-dari-terminal" target="_blank">di sini</a>.</p>
+
+<h4 id="clipboard">Clipboard</h4>
+
+<p>Saya menggunakan Clipmenu.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Clipmenu</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> clipmenud
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Konfigurasi ini sudah pernah saya bahas pada postingan, <a href="https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu" target="_blank">di sini</a>.</p>
+
+<h4 id="disable-touchpad">Disable Touchpad</h4>
+
+<p>Karena saya pengguna TrackPoint pada ThinkPad, saya kurang suka menggunakan Touchpad. Saya perlu untuk menonaktifkannya sejak sistem startup.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Disable TouchPad</span>
+exec_always <span class="nt">--no-startup-id</span> xinput <span class="nt">--disable</span> <span class="s2">"SynPS/2 Synaptics TouchPad"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya juga perlu menjaga agar Touchpad tetap dapat melakukan “Tap to Click”.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Tap to Click</span>
+exec_always <span class="nt">--no-startup-id</span> xinput <span class="nt">--set-prop</span> <span class="s2">"SynPS/2 Synaptics TouchPad"</span> <span class="s2">"libinput Tapping Enabled"</span> 1
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="polkit">Polkit</h4>
+
+<p>Saya menggunakan memilih menggunakan <code class="language-plaintext highlighter-rouge">lxpolkit</code> karena lebih independen dan dapat dipasang tanpa membawa dependensi lain seperti polkit yang dimiliki oleh GNOME.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Polkit-lxsession</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> /usr/bin/lxpolkit
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="window-compositor">Window Compositor</h4>
+
+<p>Saya menggunakan <code class="language-plaintext highlighter-rouge">compton</code> sebagai window compositor. Secara sederhaa window compositor adalah aplikasi yang memberikan efek-efek pada Window Manager kita. Seperti shadow, blur, fade, opacity, dll.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Compton for compositor</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> compton <span class="nt">--config</span> ~/.config/compton/compton.conf
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="notification">Notification</h4>
+
+<p>Sebelumnya saya menggunakan <code class="language-plaintext highlighter-rouge">notify-osd</code>, namun setelah mengenal <code class="language-plaintext highlighter-rouge">dunst</code> saya malah jatuh cinta sama kesederhanannya. Sangat simpel dan tentu saja dapat dikonfigurasi menggunakan plain text.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Dunst Notifications</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> dunst <span class="nt">-config</span> ~/.config/dunst/dunstrc
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="conky">Conky</h4>
+
+<p>Window Manager masih memerlukan Compton?</p>
+
+<p>Ini soal selera dan kebutuhan. Saya perlu dan butuh, jadi mengapa tidak.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Start Conky</span>
+<span class="nb">exec</span> <span class="nt">--no-startup-id</span> conky <span class="nt">-c</span> ~/.config/conky/conkyrc
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h4 id="polybar">Polybar</h4>
+
+<p>Polybar termasuk aplikasi pengganti bar yang dapat kita gunakan. i3wm tentu saja mengijinkan usernya untuk mengganti <em>default</em> bar milik mereka dengan pihak ketiga, seperti: lemonbar, tint2, dzen, polybar, dll.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Enable Polybar</span>
+exec_always <span class="nt">--no-startup-id</span> ~/.config/polybar/launch.sh
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+
+<p>Kita juga dapat menambahkan pengaturan <em>keyboard shortcut</em> sendiri untuk memanggil apalikasi yang kita inginkan.</p>
+
+<h4 id="system-session">System Session</h4>
+
+<p>Saya menggunakan script <code class="language-plaintext highlighter-rouge">rofi-power</code> untuk menampilkan dialog System Session seperti Logout, Restart, dan Shut Down.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Restart, Suspend, Shutdown, Logout Dialog</span>
+bindsym <span class="nv">$mod</span>+Shift+End <span class="nb">exec</span> <span class="nt">--no-startup-id</span> ~/.local/bin/rofi-power <span class="s2">"i3-msg exit"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya memanggil script ini dengan menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>END</kbd></p>
+
+<p>Script ini dapat teman-teman dapatkan pada dotfiles milik saya, <a href="https://github.com/bandithijo/dotfiles/blob/master/.local/bin/rofi-power" target="_blank">di sini</a>.</p>
+
+<h4 id="clipmenu">Clipmenu</h4>
+
+<p>Sebelumnya saya sudah menuliskan cara menjalankan <em>backend service</em> dari <code class="language-plaintext highlighter-rouge">clipmenud</code> pada bagian <em>autostart</em>. Pada bagian ini saya akan menunjukkan pengaturan <em>keyboard shortcut</em> yang saya gunakan untuk memanggil Rofi yang berisi Clipboard.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+bindsym <span class="nv">$mod</span>+p <span class="nb">exec</span> <span class="nt">--no-startup-id</span> clipmenu
+bindsym <span class="nv">$mod</span>+Shift+p <span class="nb">exec</span> <span class="nt">--no-startup-id</span> <span class="nb">rm</span> <span class="nt">-rf</span> /tmp/clipmenu/<span class="k">*</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dilihat, saya menggunakan <kbd>SUPER</kbd>+<kbd>P</kbd> untuk memanggil Rofi yang menampilkan isi dari clipboard.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_13" data-echo="https://i.postimg.cc/vBPLT0Lj/gambar-13.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 13 - Clipboard dalam keadaan terisi</p>
+
+<p>Sedangkan untuk menghapus seluruh isi clipboard, saya menggunakan <kbd>SUPER</kbd>+<kbd>SHIFT</kbd>+<kbd>P</kbd>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_14" data-echo="https://i.postimg.cc/4ymv9pW3/gambar-14.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 14 - Clipboard dalam keadaan kosong</p>
+
+<h4 id="volume-control">Volume Control</h4>
+
+<p>Sudah merupakan keharusan untuk memiliki sebuah <em>keyboard shortcut</em> yang dapat mengatur besar dan kecilnya volume suara.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Pulse Audio controls</span>
+bindsym XF86AudioRaiseVolume <span class="nb">exec</span> <span class="nt">--no-startup-id</span> pamixer <span class="nt">--increase</span> 2
+bindsym XF86AudioLowerVolume <span class="nb">exec</span> <span class="nt">--no-startup-id</span> pamixer <span class="nt">--decrease</span> 2
+bindsym XF86AudioMute        <span class="nb">exec</span> <span class="nt">--no-startup-id</span> pamixer <span class="nt">--toggle-mute</span>
+bindsym XF86AudioMicMute     <span class="nb">exec</span> <span class="nt">--no-startup-id</span> pactl   set-source-mute 1 toggle
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dapat dilihat, kode dari <em>keyboard</em> di atas sangat aneh. Itu adalah penamaan dari function keyboard. Setiap laptop biasanya memiliki function keyboard seperti ini.</p>
+
+<p>Di sini saya menggunakan paket <code class="language-plaintext highlighter-rouge">pamixer</code>.</p>
+
+<h4 id="audio-mixer">Audio Mixer</h4>
+
+<p>Audio mixer adalah aplikasi yang saya perlukan. Sebenarnya teman-teman juga memerlukan ini dan perlu mengetahui akan hal ini.</p>
+
+<p>Karena tidak jarang saya mendapati pertanyaan seputar audio pada group Telegram Belajar GNU/Linux Indonesia, yang mempersoalkan tentang audio.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Pavucontrol</span>
+bindsym <span class="nv">$mod</span>+F3 <span class="nb">exec</span> <span class="nt">--no-startup-id</span> pavucontrol
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>F3</kbd> untuk memanggil <code class="language-plaintext highlighter-rouge">pavucontrol</code> karena tombol <kbd>F3</kbd> pada ThinkPad saya memiliki gambar Speaker. Untuk mempermudah dalam mengingat jadi saya manfaatkan.</p>
+
+<p>Namun, belakangan ini sudah sangat jarang saya menggunakan <code class="language-plaintext highlighter-rouge">pavucontrol</code>, lebih sering menggunakan <code class="language-plaintext highlighter-rouge">ncpamixer</code>, tapi enah mengapa, aplikasi ini tidak dapat dijalankan dengan <em>keybinding</em>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/8PnP19JW/gambar-15.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - Tampilan TUI dari ncpamixer</p>
+
+<h4 id="brightness-control">Brightness Control</h4>
+
+<p>Kita juga memerlukan pengaturan pencahayaan pada layar agar tetap nyaman menggunakan laptop dalam waktu lama dan dapat menyesuaikan dengan kondisi cahaya dari lingkungan sekitar.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Screen Brightness controls</span>
+bindsym XF86MonBrightnessUp   <span class="nb">exec</span> <span class="nt">--no-startup-id</span> xbacklight <span class="nt">-inc</span> 2
+bindsym XF86MonBrightnessDown <span class="nb">exec</span> <span class="nt">--no-startup-id</span> xbacklight <span class="nt">-dec</span> 2
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saya mendapati informasi, bahwa beberapa distribusi sistem operasi sudah tidak dapat menggunakan perintah <code>xbacklight</code>.</p>
+    <p>Apabila ini terjadi pada teman-teman, mungkin bisa mencari solusinya sendiri. Karena saya belum mengalaminya. Akan sangat sulit bagi saya melakukan perbaikan apabila saya belum mengalami pada sistem saya. Hehe.</p>
+  </div></div>
+
+<h4 id="arandr">Arandr</h4>
+
+<p>Arandr adalah aplikasi GUI untuk Xrandr. Sederhananya aplikasi ini saya gunakan untuk mengatur monitor apabila sedang menggunakan dual monitor.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Arandr</span>
+bindsym <span class="nv">$mod</span>+F7 <span class="nb">exec</span> <span class="nt">--no-startup-id</span> arandr
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menggunakan <kbd>SUPER</kbd>+<kbd>F7</kbd>.</p>
+
+<p>Lagi-lagi, karena tombol <kbd>F7</kbd> saya bergambar projector, maka saya letakkan kombinasi untuk memanggil Arandr pada tombol ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/1XXh2RKd/gambar-16.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 6 - Tampilan GUI dari Arandr</p>
+
+<h4 id="network-manager">Network Manager</h4>
+
+<p>Saya tidak menggunakan trayicon untuk memilih network dan memanggil Network Manager Settings. Saya lebih senang tidak menggunakan trayicon agar tampilan desktop tetap clean dan tidak terlalu banyak icon yang tidak konvergen dengan theme.</p>
+
+<p>Sebelumnya, saya menggunakan aplikasi <code class="language-plaintext highlighter-rouge">nmtui</code> untuk melakukan konfigurasi jaringan, seperti: memilih-milih SSID. Namun, baru-baru saja saya menggunakan <code class="language-plaintext highlighter-rouge">networkmanager_dmenu</code>.</p>
+
+<p>Untuk memanggilnya, saya menggunakan <kbd>SUPER</kbd>+<kbd>F8</kbd>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/i3/config</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Network Manager Dmenu</span>
+bindsym <span class="nv">$mod</span>+F8 <span class="nb">exec</span> <span class="nt">--no-startup-id</span> networkmanager_dmenu
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Aplikasi ini dapat kita gunakan untuk memilih-mili jaringan dan beberapa menu jaringan. Dapat menggunakan <code class="language-plaintext highlighter-rouge">dmenu</code> atau <code class="language-plaintext highlighter-rouge">rofi</code> sebagai frontend nya. Tentu saja saya memilih menggunakan <code class="language-plaintext highlighter-rouge">rofi</code> agar seragam dengan theme. Hehehe.</p>
+
+<p><strong>Instalasi</strong></p>
+
+<pre>
+$ <b>mkdir -p ~/.config/networkmanager-dmenu</b>
+</pre>
+
+<pre>
+$ <b>git clone https://github.com/firecat53/networkmanager-dmenu.git ~/.config/networkmanager-dmenu</b>
+</pre>
+
+<p><strong>Konfigurasi</strong></p>
+
+<pre>
+$ <b>cd ~/.config/networkmanager-dmenu</b>
+</pre>
+
+<pre>
+$ <b>cp config.ini.example config.ini</b>
+</pre>
+
+<p>Edit file <code class="language-plaintext highlighter-rouge">config.ini</code> untuk konfigurasi sesuai preferensi pribadi.</p>
+
+<p>Contohnya seprti saya, yang ingin menggunakan Rofi sebagai <em>user interface</em>.</p>
+
+<pre>
+$ <b>vim ~/.config/rofi/config.ini</b>
+</pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/rofi/config.ini</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="o">[</span>dmenu]
+fn <span class="o">=</span> Fantasque Sans Mono
+dmenu_command <span class="o">=</span> /usr/bin/rofi <span class="nt">-width</span> 25
+<span class="c"># # Note that dmenu_command can contain arguments as well like `rofi -width 30`</span>
+<span class="c"># # Rofi and dmenu are set to case insensitive by default `-i`</span>
+<span class="c"># l = number of lines to display, defaults to number of total network options</span>
+<span class="c"># fn = font string</span>
+<span class="c"># nb = normal background (name, #RGB, or #RRGGBB)</span>
+<span class="c"># nf = normal foreground</span>
+<span class="c"># sb = selected background</span>
+<span class="c"># sf = selected foreground</span>
+<span class="c"># b =  (just set to empty value and menu will appear at the bottom</span>
+<span class="c"># m = number of monitor to display on</span>
+<span class="c"># p = Custom Prompt for the networks menu</span>
+p <span class="o">=</span> NETWORKS
+<span class="c"># pinentry = Pinentry command</span>
+<span class="c"># rofi_highlight = &amp;lt;True or False&amp;gt; # (Default: False) use rofi highlighting instead of '**'</span>
+
+<span class="c"># # override normal foreground and background colors (dmenu) or use the</span>
+<span class="c"># # -password option (rofi) to obscure passphrase entry</span>
+<span class="c"># [dmenu_passphrase]</span>
+<span class="c"># nf = #222222</span>
+<span class="c"># nb = #222222</span>
+<span class="c"># rofi_obscure = True</span>
+
+<span class="o">[</span>editor]
+terminal <span class="o">=</span> st
+gui_if_available <span class="o">=</span> True
+<span class="c"># terminal = &amp;lt;name of terminal program&amp;gt;</span>
+<span class="c"># gui_if_available = &amp;lt;True or False&amp;gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Hasilnya, akan seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/LsHPsDVN/gambar-17.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 7 - Tampilan NetworkManager_dmenu dengan Rofi</p>
+
+<h1 id="dotfiles">Dotfiles</h1>
+
+<p>Bagi yang memerlukan contoh file konfig secara lengkap, dapat melihat pada dotfiles milik saya, <a href="https://github.com/bandithijo/dotfiles/blob/master/.config/i3/config" target="_blank">di sini</a>. (Sedang Diperbaiki)</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>i3wm dapat dikatakan Window Manager yang cukup kaya fitur, ada beberapa orang yang tidak menyukai hal ini, karena dianggap terlalu <em>bloated</em>.</p>
+
+<p>Bagi yang sudah mengenal banyak Window Manager mungkin dapat secara mandiri menanamkan fitur-fitur yang mereka perlukan, namun bagi saya yang baru pertama kali belajar menggunakan Window Manager, adanya fitur-fitur ini dapat menjadi jembatan belajar untuk mengerti apa saja fitur-fitur yang diperlukan oleh sebuah Window Manager.</p>
+
+<p>Bagi teman-teman yang membutuhkan <em>workflow</em> yang efisien dan efektif. <mark>Saya sangat merekomendasikan untuk menggunakan i3wm</mark>.</p>
+
+<p>Selama setahun terakhir, saya sudah merasakan manfaatnya. Tentu saja akan terasa sulit pada awalnya. Semua hal juga seperti itu. Jadi, paksakan dan biasakan saja, karena nikmatnya akan kamu petik tidak akan lama lagi.</p>
+
+<p>Tulisan ini bukan merupakan tandingan dari dokumentasi resmi yang sudah ada. i3wm disebut sebagai Window Manager yang memiliki dokumentasi yang baik, lengkap dan <em>up to date</em>. Jadi, sangat saya rekomendasikan untuk berekplorasi menggunakan dokumentasi resmi.</p>
+
+<p>Banyak sekali hal-hal teknis yang tidak atau belum sempat saya tuliskan. Seperti halnya aplikasi-aplikasi pendukung yang perlu dijalankan saat startup session, seperti: keyring, ssh-agent, gpg-agent, dll.</p>
+
+<p>Tapi tidak mengapa. Saya yakin teman-teman dapat mencarinya sendiri pada referensi yang lain.</p>
+
+<p>Sekiranya seperti ini saja.</p>
+
+<p>Mudah-mudahan dapat bermanfaat bagi teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Per-April 2019, saya sudah berpindah menggunakan BSPWM (<em>Binary Space Partition Window Manager</em>)</p>
+  </div></div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Per-April 2020, <a href="/blog/dwm-window-manager-anti-ribet" target="_blank">saya sudah beralih menggunakan DWM (<em>Dynamic Window Manager</em>)</a></p>
+  </div></div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Window_manager" target="_blank">wiki.archlinux.org/index.php/Window_manager</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Desktop_environment" target="_blank">wiki.archlinux.org/index.php/Desktop_environment</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+  <li>
+    <p><a href="https://www.youtube.com/watch?v=j1I63wGcvU4&amp;list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf" target="_blank">www.youtube.com/watch?v=j1I63wGcvU4&amp;list=PL5ze0DjYv5DbCv9vNEzFmP6sU7ZmkGzcf</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+  <li>
+    <p><a href="https://i3wm.org/docs/" target="_blank">i3wm.org/docs/</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+  <li>
+    <p><a href="https://i3wm.org/docs/userguide.html" target="_blank">i3wm.org/docs/userguide.html</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/Airblader/i3" target="_blank">github.com/Airblader/i3</a>
+<br />Diakses tanggal: 2019/02/26</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, rails">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Rails time_select dengan Integer | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Rails time_select dengan Integer" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan kali ini mengenai cara menggunakan input time_select namun dengan tupe data integer pada Ruby on Rails." />
+<meta property="og:description" content="Catatan kali ini mengenai cara menggunakan input time_select namun dengan tupe data integer pada Ruby on Rails." />
+<link rel="canonical" href="https://bandithijo.dev/blog/rails-time-select-dengan-integer" />
+<meta property="og:url" content="https://bandithijo.dev/blog/rails-time-select-dengan-integer" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-04T08:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/rails-time-select-dengan-integer"},"description":"Catatan kali ini mengenai cara menggunakan input time_select namun dengan tupe data integer pada Ruby on Rails.","url":"https://bandithijo.dev/blog/rails-time-select-dengan-integer","@type":"BlogPosting","headline":"Rails time_select dengan Integer","dateModified":"2019-12-04T08:00:00+08:00","datePublished":"2019-12-04T08:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Rails time_select dengan Integer"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/rails-time-select-dengan-integer">Rails time_select dengan Integer</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/12/04</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Rails time select dengan integer
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rails">Rails</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#target">Target</a></li>
+  <li><a href="#permasalahan">Permasalahan</a></li>
+  <li><a href="#solusi">Solusi</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.3</code> <code class="language-plaintext highlighter-rouge">Rails 5.2.3</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 11.5</code></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Saya mendapatkan kasus dimana saya harus membuat “duration” field dengan tipe data integer. Yang mana sebelumnya duration field ini saya set dengan tipe data time.</p>
+
+<p>Tujuan dari penggunaan tipe data integer pada duration field agar nantinya dapat dengan mudah diolah, seperti difilter berdasarkan jumlah menit tertentu, dan lain sebagainya.</p>
+
+<h1 id="target">Target</h1>
+
+<p>Target yang ingin dicapai adalah, saya perlu <strong>menyimpan data di dalam kolom duration dalam satuan menit</strong>.</p>
+
+<p>Contoh, untuk durasi selama <strong>8 jam 30 menit</strong>, berarti data akan disimpan sebesar <strong>510 menit</strong>.</p>
+
+<p>Tampilannya kira-kira seperti ini, untuk pemilihan jam dan menit.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/j5s63RNM/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - time_select untuk jam dan menit</p>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p><code class="language-plaintext highlighter-rouge">time_select</code> adalah salah satu method yang dimiliki oleh <code class="language-plaintext highlighter-rouge">ActionView::Helpers::DateHelper</code>. Beberapa method lain diantaranya seperti, <code class="language-plaintext highlighter-rouge">date_select</code>, <code class="language-plaintext highlighter-rouge">datetime_select</code>, dll.<a href="#referensi"><sup>1</sup></a></p>
+
+<p>Secara normal, <code class="language-plaintext highlighter-rouge">time_select</code> ini akan bekerja dengan baik pada field dengan tipe data time. Namun, karena kebutuhan project, saya perlu memodifikasi agar <code class="language-plaintext highlighter-rouge">time_select</code> dapat menyimpan data ke dalam field dengan tipe data integer.</p>
+
+<h1 id="solusi">Solusi</h1>
+
+<p>Sebagai catatan, cara yang saya lakukan ini mungkin bukan merupakan cara yang baik. Mengingat masih minimnya pengalaman dan jam terbang saya dalam membangun web aplikasi, terkhusus dengan Ruby on Rails.</p>
+
+<p>Oke, kembali ke pokok perbincangan utama.</p>
+
+<p>Untuk merubah kolom/field duration dari tipe data time menjadi integer, saya melakukan migration seperti ini.</p>
+
+<pre><span class="cmd">$ </span><b>rails g migration alter_experiences_duration_to_integer</b><br /></pre>
+
+<p>Kemudian menuliskan manual, masing-masing method up dan down-nya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/migrate/20191122060352_alter_experiences_duration_to_integer.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">AlterExperiencesDurationToInteger</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">5.2</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">up</span>
+    <span class="n">remove_column</span> <span class="ss">:experiences</span><span class="p">,</span> <span class="ss">:duration</span><span class="p">,</span> <span class="ss">:time</span>
+    <span class="n">add_column</span> <span class="ss">:experiences</span><span class="p">,</span> <span class="ss">:duration</span><span class="p">,</span> <span class="ss">:integer</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">down</span>
+    <span class="n">remove_column</span> <span class="ss">:experiences</span><span class="p">,</span> <span class="ss">:duration</span><span class="p">,</span> <span class="ss">:integer</span>
+    <span class="n">add_column</span> <span class="ss">:experiences</span><span class="p">,</span> <span class="ss">:duration</span><span class="p">,</span> <span class="ss">:time</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Perlu diketahui, saya melakukan perintah <code class="language-plaintext highlighter-rouge">remove_column</code> karena web aplikasi yang saya bangun, belum memiliki data sungguhan. Apabila sudah memiliki data sungguhan, sangat dihindari untuk melakukan penghapusan kolom/field. Lebih baik membuat kolom/field yang baru.</p>
+
+<p>Berikut ini adalah contoh dari skema tabel experiences yang saya miliki.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/schema.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="n">create_table</span> <span class="s2">"experiences"</span><span class="p">,</span> <span class="ss">force: :cascade</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+  <span class="n">t</span><span class="p">.</span><span class="nf">integer</span> <span class="s2">"duration"</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya menggunakan seed untuk membuat data-data dummy, saya perlu merubah formatnya dari format time menjadi total menit.</p>
+
+<p><strong>Sebelum</strong>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>duration: ['01:30', '03:00', '06:30', '08:00'].sample
+</code></pre></div></div>
+
+<p><strong>Sesudah</strong>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>duration: [90, 180, 390, 480].sample
+</code></pre></div></div>
+
+<p>Karena data sudah disimpan dalam bentuk integer dan dalam satuan menit, maka saya perlu bantuan helper method untuk mengkonversi bentuk dari “hanya menit” menjadi “jam dan menit”.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/helpers/experiences_helper.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">formatted_duration</span><span class="p">(</span><span class="n">total_minute</span><span class="p">)</span>
+  <span class="n">hours</span> <span class="o">=</span> <span class="n">total_minute</span> <span class="o">/</span> <span class="mi">60</span>
+  <span class="n">minutes</span> <span class="o">=</span> <span class="n">total_minute</span> <span class="o">%</span> <span class="mi">60</span>
+  <span class="k">if</span> <span class="n">minutes</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">pluralize</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span> <span class="n">hours</span> <span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"hour"</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="n">pluralize</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span> <span class="n">hours</span> <span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"hour"</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">pluralize</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span> <span class="n">minutes</span> <span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"minute"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Dengan begini, saya memiliki helper method bernama <code class="language-plaintext highlighter-rouge">formatted_duration()</code> yang dapat saya manfaatkan untuk mengkonversi tampilan data duration yang hanya dalam satuan menit, menjadi bentuk jam dan menit.</p>
+
+<p>Kira-kira seperti ini contoh penggunaannya dalam view template.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/experiences/index.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row no-gutters"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-time1 mr-1"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span&gt;</span>Duration: <span class="cp">&lt;%=</span> <span class="n">formatted_duration</span><span class="p">(</span><span class="n">experience</span><span class="p">.</span><span class="nf">duration</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, sekarang bagian input field.</p>
+
+<p>Pada bagian ini, harus saya akui, cukup merepotkan. Saya menghabiskan banyak sekali percobaan untuk membuat <code class="language-plaintext highlighter-rouge">time_select</code> dapat berfungsi seperti tujuan saya.</p>
+
+<p>Pertama-tama pada view template dulu.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/experiences/new.html.erb,app/views/experiences/edit.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre></td><td class="code"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group row no-gutters form-custom mb-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-md-3 col-form-label p-sm-0 d-flex align-items-center"</span><span class="nt">&gt;</span>Duration<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-9"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row no-gutters"</span><span class="nt">&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">controller_name</span> <span class="o">==</span> <span class="s2">"experiences"</span> <span class="o">&amp;&amp;</span> <span class="n">action_name</span> <span class="o">==</span> <span class="s2">"edit"</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%</span> <span class="n">hours</span>   <span class="o">=</span> <span class="n">experience</span><span class="p">.</span><span class="nf">duration</span> <span class="o">/</span> <span class="mi">60</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%</span> <span class="n">minutes</span> <span class="o">=</span> <span class="n">experience</span><span class="p">.</span><span class="nf">duration</span> <span class="o">%</span> <span class="mi">60</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">hidden_field_tag</span> <span class="s1">'duration-hours'</span><span class="p">,</span> <span class="n">hours</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">hidden_field_tag</span> <span class="s1">'duration-minutes'</span><span class="p">,</span> <span class="n">minutes</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">time_select</span> <span class="ss">:duration</span><span class="p">,</span>
+            <span class="p">{</span> <span class="ss">start_hour: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">end_hour: </span><span class="mi">12</span><span class="p">,</span> <span class="ss">minute_step: </span><span class="mi">10</span><span class="p">,</span> <span class="ss">time_separator: </span><span class="s1">' '</span><span class="p">,</span>
+            <span class="ss">prompt: </span><span class="p">{</span> <span class="ss">hour: </span><span class="s2">"Choose hour"</span><span class="p">,</span> <span class="ss">minute: </span><span class="s2">"Choose minute"</span><span class="p">},</span> <span class="ss">ignore_date: </span><span class="kp">true</span><span class="p">},</span>
+            <span class="ss">class: </span><span class="s2">"form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2"</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="p">.</span><span class="nf">time_select</span> <span class="ss">:duration</span><span class="p">,</span>
+            <span class="p">{</span> <span class="ss">start_hour: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">end_hour: </span><span class="mi">12</span><span class="p">,</span> <span class="ss">minute_step: </span><span class="mi">10</span><span class="p">,</span> <span class="ss">time_separator: </span><span class="s1">' '</span><span class="p">,</span>
+            <span class="ss">prompt: </span><span class="p">{</span> <span class="ss">hour: </span><span class="s2">"Choose hour"</span><span class="p">,</span> <span class="ss">minute: </span><span class="s2">"Choose minute"</span><span class="p">},</span> <span class="ss">ignore_date: </span><span class="kp">true</span><span class="p">},</span>
+            <span class="ss">class: </span><span class="s2">"form-control col-md-2 px-2 mr-md-2 mb-md-0 mb-2"</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Algoritma dari kode di atas adalah:</p>
+
+<ol>
+  <li>Jika data baru, maka masuk ke dalam blok else, yang akan digunakan oleh <code class="language-plaintext highlighter-rouge">experiences#new</code>.</li>
+  <li>Jika data edit, maka masuk de dalam blok if, yang artinya data duration yang berupa menit, akan dipecah menjadi dua variabel, <code class="language-plaintext highlighter-rouge">hours</code> dan <code class="language-plaintext highlighter-rouge">minutes</code>. Kemudian dimasukkan ke dalam <code class="language-plaintext highlighter-rouge">hidden_field_tag</code> masing-masing, dan akan dikrimkan ke <code class="language-plaintext highlighter-rouge">experiences#edit</code>.</li>
+</ol>
+
+<p>Nah, berikut ini isi dari <code class="language-plaintext highlighter-rouge">experiences_controller.rb</code> yang akan menerima data dari kedua inputan pada view template di atas.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/experiences_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">ExperiencesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+    <span class="vi">@experience</span> <span class="o">=</span> <span class="no">Experience</span><span class="p">.</span><span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@experience</span> <span class="o">=</span> <span class="no">Experience</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">experience_params</span><span class="p">)</span>
+
+    <span class="vi">@hours</span>   <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:experience</span><span class="p">][</span><span class="s1">'duration(4i)'</span><span class="p">]).</span><span class="nf">to_i</span>
+    <span class="vi">@minutes</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:experience</span><span class="p">][</span><span class="s1">'duration(5i)'</span><span class="p">]).</span><span class="nf">to_i</span>
+    <span class="vi">@experience</span><span class="p">.</span><span class="nf">duration</span> <span class="o">=</span> <span class="vi">@hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="vi">@minutes</span>
+
+    <span class="k">if</span> <span class="vi">@experience</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">redirect_to</span> <span class="n">experience_path</span><span class="p">(</span><span class="vi">@experience</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:new</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">edit</span>
+    <span class="vi">@experience</span> <span class="o">=</span> <span class="no">Experience</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="vi">@experience</span> <span class="o">=</span> <span class="no">Experience</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+
+    <span class="vi">@hours</span>   <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:experience</span><span class="p">][</span><span class="s1">'duration(4i)'</span><span class="p">]).</span><span class="nf">to_i</span>
+    <span class="vi">@minutes</span> <span class="o">=</span> <span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:experience</span><span class="p">][</span><span class="s1">'duration(5i)'</span><span class="p">]).</span><span class="nf">to_i</span>
+    <span class="vi">@experience</span><span class="p">.</span><span class="nf">duration</span> <span class="o">=</span> <span class="vi">@hours</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="vi">@minutes</span>
+    <span class="vi">@duration</span> <span class="o">=</span> <span class="vi">@experience</span><span class="p">.</span><span class="nf">duration</span>
+
+    <span class="k">if</span> <span class="vi">@experience</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">experience_params</span><span class="p">)</span>
+      <span class="vi">@experience</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">duration: </span><span class="vi">@duration</span><span class="p">)</span>
+      <span class="n">redirect_to</span> <span class="n">experience_path</span><span class="p">(</span><span class="vi">@experience</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">:edit</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">experience_params</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:experience</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">.</span><span class="nf">,</span> <span class="ss">:duration</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selesai!</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sekian, mudah-mudahan catatan saya yang masih banyak kurangnya ini dapat bermanfaat buat teman-teman.</p>
+
+<p>Mungkin pada kesempatan yang lain, akan saya buatkan repo khusus agar teman-teman langsung merasakan fiturnya.</p>
+
+<p>Terima kasih (^_^)v</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://api.rubyonrails.org/v5.2.1/classes/ActionView/Helpers/DateHelper.html" target="_blank">api.rubyonrails.org/v5.2.1/classes/ActionView/Helpers/DateHelper.html</a>
+<br />Diakses tanggal: 2019/12/04</p>
+  </li>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/form_helpers.html#using-date-and-time-form-helpers" target="_blank">guides.rubyonrails.org/form_helpers.html#using-date-and-time-form-helpers</a>
+<br />Diakses tanggal: 2019/12/04</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

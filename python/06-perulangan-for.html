@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>06 Perulangan Menggunakan For | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="06 Perulangan Menggunakan For" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/python/06-perulangan-for" />
+<meta property="og:url" content="https://bandithijo.dev/python/06-perulangan-for" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-31T02:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/python/06-perulangan-for"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/python/06-perulangan-for","@type":"BlogPosting","headline":"06 Perulangan Menggunakan For","dateModified":"2018-03-31T02:00:00+08:00","datePublished":"2018-03-31T02:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="06 Perulangan Menggunakan For"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/python/06-perulangan-for">06 Perulangan Menggunakan For</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/31</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/python/">Python</a>
+  
+
+  
+    / 06 perulangan for
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toga.svg">Silabus Kelas
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/00-pengenalan-python" class="">00 Berkenalan dengan Python</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/01-hal-yang-harus-dipersiapkan" class="">01 Hal yang Perlu Dipersiapkan</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/02-print-function-dan-strings" class="">02 Print Function dan Strings</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/03-matematika-dasar" class="">03 Matematika Dasar</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/04-variabel-dan-tipe-data" class="">04 Variabel dan Tipe Data</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/05-perulangan-while" class="">05 Perulangan Menggunakan While</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/06-perulangan-for" class="current">06 Perulangan Menggunakan For</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:5px 0 5px 0;"></div>
+  <p style="text-align:left;color:#00603C;"><i>Masih dalam proses penulisan...</i></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#intro">Intro</a></li>
+  <li><a href="#penerapan">Penerapan</a>
+    <ul>
+      <li><a href="#bongkar-kode">Bongkar Kode</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Setelah sebelunya kita membahas perulangan menggunakan <strong>while</strong> (<em>while loop</em>), perulangan selanjutnya yang akan kita bahas adalah perulangan menggunakan <strong>for</strong> (<em>for loop</em>).</p>
+
+<p>Prinsip dari pengulangan menggunakan <em>for loop</em> adalah perulangan yang berdasarkan sesuatu.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">setiapHal</span> <span class="ow">in</span> <span class="n">halIni</span><span class="p">:</span>    <span class="c1"># kondisi
+</span>    <span class="n">jalankanPernyataanIni</span>   <span class="c1"># pernyataan
+</span></code></pre></div></div>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<p>Misalkan, di dalam sebuah tim basket terdapat 5 anggota. Kita akan memberikan setiap anggotanya botol air. Kira-kira bentuk kodenya akan seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timBasket</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Irvan'</span><span class="p">,</span> <span class="s">'Ichsan'</span><span class="p">,</span> <span class="s">'Wisnu'</span><span class="p">,</span> <span class="s">'Cebe'</span><span class="p">,</span> <span class="s">'Bly'</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">anggota</span> <span class="ow">in</span> <span class="n">timBasket</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Berikan botol air ke'</span><span class="p">,</span><span class="n">anggota</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Berikan botol air ke Irvan    <span class="c"># timBasket[0]</span>
+Berikan botol air ke Ichsan   <span class="c"># timBasket[1]</span>
+Berikan botol air ke Wisnu    <span class="c"># timBasket[2]</span>
+Berikan botol air ke Cebe     <span class="c"># timBasket[3]</span>
+Berikan botol air ke Bly      <span class="c"># timBasket[4]</span>
+</code></pre></div></div>
+<h2 id="bongkar-kode">Bongkar Kode</h2>
+
+<p>Saya rasa, temen-temen pasti sudah paham mengenai konsep dari perulangan, seperti yang sudah dibahas pada materi <em>while loop</em>.</p>
+
+<p><em>for loop</em> pun juga digunakan untuk menyelesaikan permasalahan yang membutuhkan perulangan agar lebih efisien. <em>for loop</em> biasanya digunakan untuk melakukan perulangan yang banyaknya telah diketahui sebelumnya.</p>
+
+<p>Seperti contoh di atas. Kita telah mengetahui banyaknya indeks pada variable <code class="language-plaintext highlighter-rouge">timBasket</code> berjumlah lima. Sehingga, kita sudah mengetahui bahwa perulangan akan bermula dari indeks ke 0 dan berhenti pada indeks ke 4.</p>
+
+<p><br />
+<strong>Contoh lain</strong></p>
+
+<p>Terdapat contoh lain dari penggunaan <em>for loop</em> yang pernah saya temui. Seperti ini.</p>
+
+<p>Misalkan, kita ingin membuat perualngan sebanyak 10 kali, sambil menampilkan <em>output</em> dari urutan perulangan yang sudah terjadi ke dalam <em>console</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre></div></div>
+
+<p>range() adalah sebuah <em>built-in function</em> dalam Python yang berguna untuk menghasilkan sebuah <em>object</em> dalam tipe data integer yang berurutan dari <em>start</em> sampai <em>stop</em> dengan <em>step</em> tertentu.</p>
+
+<p>Rumus dari fungsi <em>range</em> adalah,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Dapat kita lihat bahwa fungsi range() memiliki 3 buah <em>parameter</em>. <em>Parameter</em> adalah syarat yang diperlukan oleh sebuah fungsi agar dapat melakukan tugasnya. Pembahasan lebih lanjut mengenai <em>parameter</em> akan kita bahas pada materi yang lain.</p>
+
+<p>Secara <em>default</em>, range() memiliki nilai <em>parameter start</em> = 0. Dan memiliki minimal 1 <em>parameter</em> yang harus kita penuhi. Hal ini membuat kita dapat menuliskan fungsi range() seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Artinya, <code class="language-plaintext highlighter-rouge">range(start=0, stop=4, step=0)</code>. Sehingga akan menghasilkan output berupa.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0
+1
+2
+3
+</code></pre></div></div>
+
+<p>Atau,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">31</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</code></pre></div></div>
+
+<p>Atau,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1
+3
+5
+7
+9
+11
+</code></pre></div></div>
+<p>Atau,</p>
+
+<p>Misalkan kita ingin menghitung berapakah total hasil penjumlahan yang ada pada sebuah list.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">daftarHarga</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">5200</span><span class="p">,</span> <span class="mi">7600</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">hargaSatuan</span> <span class="ow">in</span> <span class="n">daftarHarga</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">hargaSatuan</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>16600
+</code></pre></div></div>
+<p>Mudah kan ?</p>
+
+<p>Lebih asik lagi, kalo soal matematika, Python gak kalah deh. <em>For youth info</em>, ada cara yang lebih cepat untuk menghitung total dari suatu list seperti di atas. Yaitu dengan menggunakan <em>built-in function</em> yang bernama <strong>sum()</strong>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">daftarHarga</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">2300</span><span class="p">,</span> <span class="mi">5200</span><span class="p">,</span> <span class="mi">7600</span><span class="p">]</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">daftarHarga</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>16600
+</code></pre></div></div>
+
+<p>Meskipun <em>out of topic</em> pada <em>post</em> ini, yang seharusnya kita hanya membahasa <em>for loop</em>, tetapi gak papa, sekedar informasi saja.</p>
+
+<p>Jadi, mas Bro. Jangan khawatir kalo nilai matematika kamu jelek. Biar Python yang mengerjakan urusan matematika kamu. Hohoho.</p>
+
+<p><br />
+Saya rasa, cukup seperti ini dulu, pembahasan kita mengenai <em>for loop</em>.</p>
+
+<p>Masih ada pembahasan mengenai <em>for loop</em> yang belum ter- <em>cover</em> oleh <em>post</em> ini. Seperti: <em>nested for</em>, bagaimana melakukan <em>for loop</em> dengan banyak variable, dll.</p>
+
+<p>Mungkin akan saya tambahkan lain waktu.</p>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/05-perulangan-while"><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/python.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

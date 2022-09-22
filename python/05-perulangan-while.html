@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>05 Perulangan Menggunakan While | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="05 Perulangan Menggunakan While" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/python/05-perulangan-while" />
+<meta property="og:url" content="https://bandithijo.dev/python/05-perulangan-while" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-31T01:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/python/05-perulangan-while"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/python/05-perulangan-while","@type":"BlogPosting","headline":"05 Perulangan Menggunakan While","dateModified":"2018-03-31T01:00:00+08:00","datePublished":"2018-03-31T01:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="05 Perulangan Menggunakan While"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/python/05-perulangan-while">05 Perulangan Menggunakan While</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/31</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/python/">Python</a>
+  
+
+  
+    / 05 perulangan while
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toga.svg">Silabus Kelas
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/00-pengenalan-python" class="">00 Berkenalan dengan Python</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/01-hal-yang-harus-dipersiapkan" class="">01 Hal yang Perlu Dipersiapkan</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/02-print-function-dan-strings" class="">02 Print Function dan Strings</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/03-matematika-dasar" class="">03 Matematika Dasar</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/04-variabel-dan-tipe-data" class="">04 Variabel dan Tipe Data</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/05-perulangan-while" class="current">05 Perulangan Menggunakan While</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/06-perulangan-for" class="">06 Perulangan Menggunakan For</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:5px 0 5px 0;"></div>
+  <p style="text-align:left;color:#00603C;"><i>Masih dalam proses penulisan...</i></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#intro">Intro</a></li>
+  <li><a href="#penerapan">Penerapan</a>
+    <ul>
+      <li><a href="#bongkar-kode">Bongkar Kode</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Kamu pernah merasa jenuh untuk melakukan pekerjaan yang berulang-ulang ? Untungnya dalam bahasa pemrograman kita dapat membuat proses perulangan itu berjalan secara otomatis. Pada dasarnya, kita hanya perlu mengatur dan menentukan kapan perulangan itu dimulai dan kapan harus berhenti berulang, bahkan kita bisa menentukan pola perulangannya.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<p>Misalnya kita ingin menampilkan nama-nama pemain basket yang ada di dalam tim inti.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Irvan'</span><span class="p">,</span> <span class="s">'Ichsan'</span><span class="p">,</span> <span class="s">'Wisnu'</span><span class="p">,</span> <span class="s">'Cebe'</span><span class="p">,</span> <span class="s">'Bly'</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Irvan
+Ichsan
+Winsu
+Cebe
+Bly
+</code></pre></div></div>
+
+<p>Ini adalah cara menampilkan isi dari variable Python list dengan cara manual. Dapat kita lihat bersama, bahwa kita melakukan print() <em>function</em> sebanyak lima kali.</p>
+
+<p>Dalam bahasa pemrograman Python, teradapat dua cara perulangan (<em>loop</em>) yang dapat kita gunakan untuk menyelesaikan masalah mengenai perulangan. <strong>while</strong> dan <strong>for</strong>. Kedua-duanya memiliki tujuan akhir yang sama, yaitu untuk menyelesaikan masalah perulangan. Keduanya juga dapat dipakai secara bergantian. Tergantung pada preferensi masing-masing dari programmer atau efisiensi. Pada umumnya <em>for loop</em> selalu lebih efisien dibandingkan dengan <em>while loop</em>, namun tidak selalu.</p>
+
+<p>Pada topik ini, kita akan terlebih dahulu membahas mengenai <em>while loop</em>.</p>
+
+<p>Ide dari <em>while loop</em> adalah, ketika sesuatu kondisi sesuai dengan fakta yang ada, lakukan sesuatu sesuai dengan yang telah ditentukan.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="mi">1</span>                             <span class="c1"># fakta
+</span>
+<span class="k">while</span> <span class="n">umurBalita</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>                     <span class="c1"># kondisi
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>     <span class="c1"># pernyataan 1
+</span>    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>                        <span class="c1"># pernyataan 2
+</span></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Umur Balita = 1
+Umur Balita = 2
+Umur Balita = 3
+Umur Balita = 4
+Umur Balita = 5
+</code></pre></div></div>
+
+<h2 id="bongkar-kode">Bongkar Kode</h2>
+
+<p>Ayo kita <em>breakdown</em> kode di atas sama-sama.</p>
+
+<p><br />
+Untuk baris pertama,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umurBalita = 1
+</code></pre></div></div>
+<p>Pasti kamu sudah paham maksud dari baris ini adalah kita mendeklarasikan / memberikan nilai sebesar <code class="language-plaintext highlighter-rouge">1</code> (tipe data: integer) kepada variable <code class="language-plaintext highlighter-rouge">umurBalita</code>.</p>
+
+<p><br />
+Untuk baris kedua,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while umurBalita &lt;= 5:
+</code></pre></div></div>
+<p>Ini adalah bentuk sebuah kondisi perbandingan. Mungkin, kita dapat membacanya seperti ini, <strong>saat <code class="language-plaintext highlighter-rouge">umurBalita</code> kurang dari sama dengan <code class="language-plaintext highlighter-rouge">5</code>, maka ?</strong>.</p>
+
+<p>Kemudian, kita sudah mempunya variable <code class="language-plaintext highlighter-rouge">umurBalita</code> yang bernilai <code class="language-plaintext highlighter-rouge">1</code> yang akan dibandingkan dengan kondisi pada baris kedua <code class="language-plaintext highlighter-rouge">umurBalita &lt;= 5</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Apakah 1 &lt;= 5 ?
+</code></pre></div></div>
+
+<p>Apakah perbandingan ini bernilai benar ?</p>
+
+<p>Benar! 1 lebih kecil daripada 5.</p>
+
+<p>Apabila kondisi yang menjadi syarat bernilai <strong>benar</strong> / <strong>True</strong>, maka pernyataan yang ada di dalam kondisi tersebut akan di jalankan.</p>
+
+<p><br />
+Untuk baris ketiga dan keempat,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="o">...</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Nah, ini adalah dua buah pernyataan yang ada di dalam blok <em>while loop</em> pada baris kedua. Pada baris sebelumnya sudah menghasilkan kondisi yang bernilai <strong>True</strong>, maka kedua baris ini akan di jalankan secara berurutan dimulai dari atas.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Teman-teman pasti sudah paham baris ini digunakan untuk apa dan akan menghasilkan <em>output</em> seperti apa. Ya, print() digunakan untuk menampilkan <em>output</em> ke dalam <em>console</em>.</p>
+
+<p>Kemudian, pernyataan kedua,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Ini adalah bentuk pendeklarasian variable yang mengandung proses di dalamnya. Seperti yang sudah disinggung pada materi tentang variable pada <em>post</em> sebelumnya. Bentuk operasi penjumlahan seperti di atas, dapat kita uraikan menjadi bentuk seperti ini.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="n">umurBalita</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Pada awal dari kode, variabel <code class="language-plaintext highlighter-rouge">umurBalita</code> sudah di deklarasikan bernilai <code class="language-plaintext highlighter-rouge">1</code>. Yang berarti variable ini adalah variable dengna tipe data integer. Sehingga dapat kita baca seperti ini.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+<p>Maka setelah melewati pernyataan ini, variabel <code class="language-plaintext highlighter-rouge">umurBalita</code> akan berubah nilainya, dari semula bernilai <code class="language-plaintext highlighter-rouge">1</code>, akan berubah menjadi <code class="language-plaintext highlighter-rouge">2</code>.</p>
+
+<p>Kemudian, setelah semua pernyataan yang ada di dalam blok kode_ while loop_ telah habis di baca oleh Python <em>interpreter</em>, maka pembacaan akan di mulai kembali ke baris yang menyatakan perulangan, yaitu baris yang mengandung sintaks <em>while loop</em>.</p>
+
+<p>Pada saat ini, variable <code class="language-plaintext highlighter-rouge">umurBalita</code> sudah berubah nilainya menjadi <code class="language-plaintext highlighter-rouge">2</code>. Kemudian, akan dibandingkan dengan kondisi yang telah ditentukan, <code class="language-plaintext highlighter-rouge">umurBalita &lt;= 5</code>, hasil dari perbandingna ini adalah <strong>True</strong>, maka pernyataan di dalam blok kode <em>while loop</em> akan di jalankan persis sama seperti sebelumnya.</p>
+
+<p>Proses yang berulang ini akan berhenti sampai, kondisi yang sudah ditentukan oleh <em>while loop</em> mendapatkan nilai <strong>False</strong>. Yaitu, dimana variable <code class="language-plaintext highlighter-rouge">umurBalita</code> sudah mencapai nilai <code class="language-plaintext highlighter-rouge">6</code>. Maka tahap ini, kondisi akan bernilai False. Apabila telah mencapai kondisi yang salah, maka pernyataan di dalam blok kode <em>while loop</em>, tidak akan dijalankan.</p>
+
+<p>Untuk memudahkan kita melihat apa yang dilakukan oleh Python <em>interpreter</em> dalam melakukan proses perulangan, mungkin kita bisa buatkan tabel perulangannya.</p>
+
+<p><strong>Tabel Perulangan</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">umurBalita</th>
+      <th style="text-align: center">print(‘Umur Balita =’,umurBalita)</th>
+      <th style="text-align: center">umurBalita += 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">Umur Balita = 1</td>
+      <td style="text-align: center">2</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">Umur Balita = 2</td>
+      <td style="text-align: center">3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">Umur Balita = 3</td>
+      <td style="text-align: center">4</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td style="text-align: center">Umur Balita = 4</td>
+      <td style="text-align: center">5</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">5</td>
+      <td style="text-align: center">Umur Balita = 5</td>
+      <td style="text-align: center">6</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">-</td>
+      <td style="text-align: center">-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Nah, gimana kalo dengan tabel perulangan seperti di atas ?</p>
+
+<p>Dengan menggunakan tabel perulangan seperti ini akan lebih mudah untuk kita mendapatkan gambaran bagaimana proses perulangan dari kode perulangan seperti <em>while loop</em> dan <em>for loop</em>.</p>
+
+<p><br />
+<strong>Contoh kasus lain</strong></p>
+
+<p><em>While loop</em> juga akan dapat membantu dalam kasus-kasus seperti ini, misalkan, kalian memiliki sebuah alat, robot, atau mesin yang dapat mendeteksi sesuatu, misalkan hujan.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="n">diluarHujan</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Di luar hujan! Segera angkat Jemuran !'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Jadi, rumus dari <em>while loop</em>, dapat kita tuliskan secara sederhana seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">something</span>
+</code></pre></div></div>
+
+<p>Kode di atas akan menghasilkan perulangan tanpa batas (<em>infinite loop</em>). Kalo kamu terjebak dalam kondisi seperti ini di <em>console</em>, kamu dapat menghentikan proses perulangan ini dengan menekan kombinasi tombol <kbd>Ctrl</kbd> + <kbd>C</kbd>.</p>
+
+<p>Kita juga dapat mengatur kapan perulangan harus dimulai, berhenti, dan bagaimana cara berulangnya. Saya akan mengambil contoh kode perulangan umur balita di atas.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">umurBalita</span> <span class="o">=</span> <span class="mi">1</span>                          <span class="c1"># awalan
+</span>
+<span class="k">while</span> <span class="n">umurBalita</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>                  <span class="c1"># akhiran (kondisi)
+</span>    <span class="k">print</span><span class="p">(</span><span class="s">'Umur Balita ='</span><span class="p">,</span><span class="n">umurBalita</span><span class="p">)</span>
+    <span class="n">umurBalita</span> <span class="o">+=</span> <span class="mi">1</span>                     <span class="c1"># langkah
+</span></code></pre></div></div>
+<p>Apabila kita tidak menentukan awalan, maka perulangan tidak akan berjalan.</p>
+
+<p>Apabila kita tidak menentukan kondisi, maka perulangan tidak akan berjalan.</p>
+
+<p>Apabila kita tidak mengatur langkah dari perulangan, maka perulangan tidak akan pernah berhenti karena kondisi selalu bernilai <strong>True</strong>.</p>
+
+<p>Ketentuan di atas sangat tergantun dari kebutuhan perulangan yang akan kita buat. Jadi tidak harus selalu seperti contoh di atas.</p>
+
+<p><br />
+Saya rasa, untuk saat ini, pembahasa perulangan menggunakan <strong>while</strong> cukup seperti ini dulu.</p>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/04-variabel-dan-tipe-data"><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/06-perulangan-for"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/python.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

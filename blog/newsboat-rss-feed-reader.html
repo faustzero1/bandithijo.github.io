@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="terminal, tools, tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Newsboat adalah salah satu RSS feed reader yang sederhana dan berjalan dengan Terminal User Interface. Sangat cocok untuk teman-teman yang lebih sering berinteraksi dengan Terminal." />
+<meta property="og:description" content="Newsboat adalah salah satu RSS feed reader yang sederhana dan berjalan dengan Terminal User Interface. Sangat cocok untuk teman-teman yang lebih sering berinteraksi dengan Terminal." />
+<link rel="canonical" href="https://bandithijo.dev/blog/newsboat-rss-feed-reader" />
+<meta property="og:url" content="https://bandithijo.dev/blog/newsboat-rss-feed-reader" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-12-12T06:44:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/newsboat-rss-feed-reader"},"description":"Newsboat adalah salah satu RSS feed reader yang sederhana dan berjalan dengan Terminal User Interface. Sangat cocok untuk teman-teman yang lebih sering berinteraksi dengan Terminal.","url":"https://bandithijo.dev/blog/newsboat-rss-feed-reader","@type":"BlogPosting","headline":"Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website","dateModified":"2018-12-12T06:44:00+08:00","datePublished":"2018-12-12T06:44:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/newsboat-rss-feed-reader">Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/12/12</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Newsboat rss feed reader
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#terminal">Terminal</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#membuat-file-konfigurasi">Membuat File Konfigurasi</a></li>
+      <li><a href="#membuat-file-url-rss-feeds">Membuat File URL RSS Feeds</a></li>
+    </ul>
+  </li>
+  <li><a href="#bagaimana-mendapatkan-rss-feed-url">Bagaimana Mendapatkan RSS Feed URL?</a></li>
+  <li><a href="#tampilan-newsboat">Tampilan Newsboat</a></li>
+  <li><a href="#lokasi-cache-data-dari-newsboat">Lokasi Cache Data dari Newsboat</a></li>
+  <li><a href="#mengapa-memilih-newsboat">Mengapa Memilih Newsboat?</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="" onerror="imgError(this);" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sejak di rumah sudah dipasang akses internet, saya mulai konstan untuk menjelajah berbagai macam website. Terkadang ada beberapa website menarik yang selalu saya ikuti. Semakin lama, jumlah website yang saya kunjungi semakin banyak, dan sangat melelahkan membukanya satu-persatu. Terkadang saat saya berkunjung, tidak terdapat informasi terbaru (biasanya pada blog/news). Misalkan ada 10 saja website yang ingin kita kunjungi satu per satu, namun sayangnya tidak dari semuanya sudah memiliki artikel baru. Tidak efisien bukan? Bayangkan bila 10, 20, 50 website yang harus kita kunjungi.</p>
+
+<p>Dari masalah di atas, tentu saja saya menggunakan <em>bookmark</em> yang ada di <em>browser</em> untuk mencatat alamat-alamat website favorit saya. Hanya saja, lama-kelamaan menjadi kegiatan yang tidak efektif karena saya harus membuka dulu website serta me-<em>load</em> konten-konten yang ada di dalamnya, namun tidak menemukan update artikel terbaru.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Kita dapat menggunakan fitur <strong>RSS</strong> (<em>RDF Site Summary</em>/<em>Rich Site Summary</em>/<em>Really Simple Syndication</em>). RSS adalah salah satu tipe dari web feed yang memungkinkan pengguna untuk mendapatkan akses dari update konten online. Dengan menggunakan RSS reader kita akan dengan mudah mendapatkan pemberitahuan mengenai artikel terbaru dari website yang kita favoritkan.</p>
+
+<p><strong>Hari gini siapa yang masih menggunakan RSS?</strong></p>
+
+<p>Entahlah, namun saya masih menggunakannya karena sangat memudahkan aktifitas saya dalam hal memanajemen aset-aset informasi dari blog/website yang banyak.</p>
+
+<p>Setelah melihat beberapa YouTuber yang <em>concent</em> terhadap GNU/Linux memanfaatkan fitur RSS feed reader untuk memanajeman daftar website yang mereka ikuti, saya pun baru mengerti kegunaan dari RSS feed ini.</p>
+
+<p>Saya sendiri termasuk yang <em>aware</em> terhadap keberadaan RSS feed pada sebuah blog/website.</p>
+
+<p><strong>Kenapa?</strong></p>
+
+<p>Keuntungan dalam menggunakan RSS feed bagi Blog author dan Pengguna RSS feed, menurut saya adalah kita, baik Blog author maupun Blog reader, sama-sama memiliki kebebasan dalam hal waktu mempublish dan membaca artikel.</p>
+
+<p><strong>Maksudnya gimana?</strong></p>
+
+<p>Maksud saya, dengan adanya platform media sosial yang dimanfaatkan untuk menulis sebuah artikel terkadang membuat Blog author harus menentukan kapan waktu yang tepat untuk mempublish tulisan mereka. Karena apabila tidak pada waktu yang tepat, maka target pembaca atau pengunjung akan sangat kurang.</p>
+
+<p><strong>Mengapa bisa begitu?</strong></p>
+
+<p>Karena sosial media menggunakan <strong><em>Timeline</em></strong>.</p>
+
+<p><em>Timeline</em> inilah yang akan menggeser tulisan-tulisan kalian dengan postingan orang lain yang lebih baru. Kecuali, si pembaca menggunakan fitur “<em>Turn on notifications for post</em>”.</p>
+
+<p>Bagaimanapun juga hal ini tidak akan dialami oleh Blog apabila memanfaatkan fitur Rss feed. Blog author dapat mempublish artikel kapanpun, Blog reader pun dapat membaca artikel kapanpun. Tidak akan tergeser atau tergusur oleh artikel Blog yang lain. Sudah memiliki porsi dan tempatnya masing-masing.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Kita membutuhkan aplikasi RSS feed reader untuk mengumpulkan semua daftar RSS dari website yang kita favoritkan.</p>
+
+<p>Aplikasi yang saya rekomendasikan adalah <a href="https://www.archlinux.org/packages/community/x86_64/newsboat/" target="_blank"><code class="language-plaintext highlighter-rouge">newsboat</code></a>. Newsboat adalah aplikasi yang berjalan di atas Terminal.</p>
+
+<ol>
+  <li>
+    <p>Pasang aplikasi <code class="language-plaintext highlighter-rouge">newsboat</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>sudo pacman -S newsboat</b><br /></pre>
+
+    <p>Sesuaikan dengan distribusi sistem operasi GNU/Linux masing-masing.</p>
+  </li>
+  <li>
+    <p>Karena aplikasi ini berjalan di atas Terminal dan belum tersedia <em>application launcher</em>-nya, maka kita perlu membuatnya sendiri.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/newsboat.desktop</b><br /></pre>
+
+    <div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/applications/newsboat.desktop</code></div>
+    <pre class="caption">[Desktop Entry]<br />Name=newsboat<br />Comment=Newsbeuter is an open-source RSS/Atom feed reader for text terminals.<br /><mark>Exec=urxvt -e newsboat</mark><br />Icon=liferea<br />Terminal=false<br />Type=Application<br />StartupNotify=true<br />Categories=Network;News;<br />Keywords=news;feed;aggregator;blog;podcast;<br /></pre>
+
+    <p>Pada bagian <code class="language-plaintext highlighter-rouge">Exec=</code>, Terminal emulator <code class="language-plaintext highlighter-rouge">urxvt</code> mungkin ingin diganti dengan Terminal emulator yang teman-teman gunakan, misal: <code class="language-plaintext highlighter-rouge">gnome-terminal</code>, <code class="language-plaintext highlighter-rouge">xfce4-terminal</code>, <code class="language-plaintext highlighter-rouge">termite</code>, <code class="language-plaintext highlighter-rouge">konsole</code>, dan lain sebagainya. Perhatikan <code class="language-plaintext highlighter-rouge">-e</code> tidak berlaku untuk semua Terminal Emulator. Beberapa diantara yang lainnya menggunakan <code class="language-plaintext highlighter-rouge">-x</code>.</p>
+  </li>
+</ol>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<p>Sebelum kita jalankan, sebaiknya kita konfigurasi terlebih dahulu. Karena newsboat tidak dapat menjalankan apa-apa tanpa ada alamat RSS feed di dalamnya. Kalian dapat meletakkan file konfigurasi pada direktori <code class="language-plaintext highlighter-rouge">~/.newsboat/</code>, namun saya lebih menyukai meletakkan file konfigurasi pada direktori <code class="language-plaintext highlighter-rouge">~/.config/newsboat/</code>.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir -p ~/.config/newsboat</b><br /></pre>
+
+<p>Setelah itu di dalam direktori <code class="language-plaintext highlighter-rouge">~/.config/newsboat/</code> ini, kita perlu membuat 2 buah file, yaitu <code class="language-plaintext highlighter-rouge">config</code> dan <code class="language-plaintext highlighter-rouge">urls</code>.</p>
+
+<p>File <code class="language-plaintext highlighter-rouge">config</code> diperlukan untuk pengaturan dari newsboat, seperti: <em>keyboard shortcuts</em>, <em>colorscheme</em>, dll. Sedangkan file <code class="language-plaintext highlighter-rouge">urls</code> diperlukan untuk menempakatan semua koleksi alamat RSS feed yang kita favoritkan.</p>
+
+<h2 id="membuat-file-konfigurasi">Membuat File Konfigurasi</h2>
+
+<p>Kita akan membuat file konfigurasi. Pada tahap ini teman-teman dapat mencontoh konfigurasi yang saya miliki.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/newsboat/config</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/newsboat/config</code></div>
+<pre class="caption">auto-reload yes<br />datetime-format "%Y/%m/%d, %R"<br /><br />external-url-viewer "urlview"<br /><br /># ----------------------------------------------------------------------------<br /># Shortcut Keys<br /># ----------------------------------------------------------------------------<br />bind-key j down<br />bind-key k up<br />bind-key J next-feed articlelist<br />bind-key K prev-feed articlelist<br />bind-key g home<br />bind-key G end<br />bind-key u pageup<br />bind-key d pagedown<br />bind-key l open<br />bind-key a toggle-article-read<br />bind-key A mark-feed-read<br />bind-key n next-unread<br />bind-key N prev-unread<br />bind-key U show-urls<br />bind-key o open-in-browser<br />bind-key D delete-article<br />bind-key E edit-urls<br />bind-key r reload<br />bind-key q quit<br /># ----------------------------------------------------------------------------<br /><br /># ----------------------------------------------------------------------------<br /># Highlights<br /># ----------------------------------------------------------------------------<br />highlight article "^(Title):.*$" blue default<br />highlight article "https?://[^ ]+" red default<br />highlight article "\\[image\\ [0-9]+\\]" green default<br /># ----------------------------------------------------------------------------<br /><br /># ----------------------------------------------------------------------------<br /># Browser Linkhandler<br /># ----------------------------------------------------------------------------<br />browser "/usr/lib/firefox/firefox %u"<br />macro . open-in-browser<br /># ----------------------------------------------------------------------------<br /><br /># ----------------------------------------------------------------------------<br /># c copies the link to the clipboard<br /># ----------------------------------------------------------------------------<br /># The line below is probably the skiddiest lien i've ever writer.<br />macro c set browser "copy(){ echo $1 | xclip ;}; copy "; open-in-browser ; set browser linkhandler<br /># ----------------------------------------------------------------------------<br /><br /><br /># ----------------------------------------------------------------------------<br /># Dark solarized color scheme for newsbeuter, based on<br /># Ethan Schoonover's Solarized.<br />#<br /># In order to use this color scheme, you must first configure<br /># your terminal emulator to use the Solarized palette.<br /># See &lt;http://ethanschoonover.com/solarized/&gt; for more information.<br /># ----------------------------------------------------------------------------<br />color background         default   default<br />color listnormal         default   default<br />color listnormal_unread  default   default bold<br />color listfocus          black     yellow<br />color listfocus_unread   black     yellow bold<br />color info               yellow    black<br />color article            default   default<br /># ----------------------------------------------------------------------------<br /></pre>
+
+<p>Selesai.</p>
+
+<p>Langkah konfigurasi file <code class="language-plaintext highlighter-rouge">config</code> hanya seperti ini saja.</p>
+
+<p>Silahkan disesuaikan dengan preferensi masing-masing.</p>
+
+<h2 id="membuat-file-url-rss-feeds">Membuat File URL RSS Feeds</h2>
+
+<p>Selanjutnya, kita akan membuat file <code class="language-plaintext highlighter-rouge">urls</code> yang digunakan untuk mendaftar link dari RSS feed favorit kita.</p>
+
+<pre><span class="cmd">$ </span><b>vim ~/.config/newsboat/urls</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/newsboat/urls</code></div>
+<pre class="caption">--------------------------------------------------------------------DOTFRIENDS<br />https://bandithijo.com/feed/blog.xml "~BanditHijo Blog" "dotfriends"<br />https://bandithijo.com/feed/vlog.xml "~BanditHijo Vlog" "dotfriends"<br /><br />---------------------------------------------------------------LINUX_MAGAZINES<br />https://www.archlinux.org/feeds/news/ "Tech News"<br />https://kabarlinux.id/feed/ "Tech News"<br />https://fedoramagazine.org/feed/ "Tech News"<br />http://planet.gnome.org/atom.xml "Tech News"<br /></pre>
+
+<p>Selesai.</p>
+
+<p>Langkah konfigurasi file <code class="language-plaintext highlighter-rouge">urls</code> hanya seperti ini saja.</p>
+
+<p>Untuk format penulisan file <code class="language-plaintext highlighter-rouge">urls</code> ini, seperti di bawah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://rss-feed-url "~custom feed name" "tag"
+https://rss-feed-url "~custom feed name"
+https://rss-feed-url "tag"
+</code></pre></div></div>
+
+<p>Silahkan diisi sesuai dengan daftar RSS feed masing-masing.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Untuk mengedit URL di dalam Newsboat (pada saat Newsboat sedang terbuka), gunakan <kbd>Shift</kbd>+<kbd>E</kbd>.</p>
+  </div></div>
+
+<h1 id="bagaimana-mendapatkan-rss-feed-url">Bagaimana Mendapatkan RSS Feed URL?</h1>
+
+<p>Biasanya pemilik blog/website tanpa sadar atau dengan sengaja meletakkan icon/tulisan RSS.</p>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/nzRT1sRY/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 0 - Icon dari RSS Feed</p>
+
+<p>Teman-teman bisa mencari dan menelusuri <em>layout</em> dari blog/website yang teman-teman incar.</p>
+
+<p>Atau kita dapat menggunakan add-ons untuk mendeteksi dan membaca format RSS feed yang terdapat pada sebuah blog/website. Tinggal cari saja untuk <em>browser</em> masing-masing.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Bertepatan dengan artikel ini saya tulis, Firefox baru-baru saja mengeluarkan update versi <b>64.0</b>. Dan sangat disayangkan pada update versi ini, Firefox memutuskan untuk <a href="https://support.mozilla.org/en-US/kb/feed-reader-replacements-firefox" target="_blank">menghentikan dukungan terhadap fitur <b>web feeds</b> dan <b>Live Bookmarks</b></a>.</p>
+    <p>Fitur ini yang biasanya saya manfaatkan untuk menangkap RSS feed yang terdapat pada sebuah blog/website.</p>
+  </div></div>
+
+<p>Untuk mengatasi hal tersebut di atas, saya biasa menggunakan add-ons juga apabila menggunakan Google Chrome. Maka tidak ada jalan lain selain menambahkan add-ons pada Firefox.</p>
+
+<p>Firefox add-ons yang saya pergunakan adalah <a href="https://addons.mozilla.org/en-US/firefox/addon/easy-to-rss" target="_blank"><strong>Easy to RSS</strong></a>. Add-ons ini juga saya pergunakan di Google Chrome. Fungsinya sederhana, untuk mengambil RSS feed dari website. Tanpa Web Interface.</p>
+
+<p>Namun, cara di atas tidak sepenuhnya berhasil. Hanya berhasil terhadap blog/website yang meletakkan RSS feed pada head markup html. Sebagai contoh, add-ons Easy to RSS tidak dapat mendeteksi RSS feed milik saya, karena saya letakkan di bagian footer.</p>
+
+<h1 id="tampilan-newsboat">Tampilan Newsboat</h1>
+
+<!-- IMAGE CAPTION -->
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/Vs3fvJ7t/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Tampilan Depan, daftar RSS feed</p>
+
+<p><br />
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/fW3WMcvZ/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Daftar Artikel dari Salah Satu Blog</p>
+
+<p><br />
+<!-- IMAGE CAPTION -->
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/DyL2X7DM/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Tampilan Isi</p>
+
+<h1 id="lokasi-cache-data-dari-newsboat">Lokasi Cache Data dari Newsboat</h1>
+
+<p>Ada satu lagi lokasi yang perlu teman-teman ketahui. Yaitu, lokasi di mana data-data seperti cache dan history disimpan. Newsboat secara default meletakkan pada direktori <code class="language-plaintext highlighter-rouge">~/.local/share/newsboat/</code>. Tujuannya, tidak lain dan tidak bukan, “Jangan lupakan aku saat proses backup.” Hahahaha. Karena tidak semua RSS feed akan terdownload semua apabila kita memasang Newsboat pada sistem yang baru atau yang lain. Terkadang terdapat RSS feed yang membatasi hanya 10 judul artikel saja. Meskipun ada juga yang semua RSS feed dari waktu ke waktu.</p>
+
+<h1 id="mengapa-memilih-newsboat">Mengapa Memilih Newsboat?</h1>
+
+<p><em>Resource</em> yang kecil. Meskipun laptop saya i5, 8 GB of RAM, 480 GB of SSD, tapi menggunakan aplikasi di atas Terminal apabila semua tujuan kita sudah tercapai, maka sudah lebih dari cukup.</p>
+
+<p>Saya sudah pernah menggunakan RSS feed reader tipe web apps, yaitu <strong>Commafeed</strong>. Sudah juga menggunakan GTK+ apps yaitu <strong>Liferea</strong>. Sehingga saat menemukan newsboat, saya suda mengetahui apa-apa kebutuhan yang saya perlukan dari sebuah RSS feed reader.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Saya melihat masih banyak potensi yang dapat dimanfaatkan dari tools RSS feed reader ini. Namun, saya hanya menggunakan sebatas untuk mengetahui update terbaru artikel dari website favorit saya.</p>
+
+<p>Dokumentasi lebih lengkap dapat dilihat pada <code class="language-plaintext highlighter-rouge">man newsboat</code>. Coba periksa, banyak hal-hal menarik yang belum saya bahasa karena keterbatasan waktu dan ilmu saya saat ini.</p>
+
+<p>Oh iya, apabila kamu punya blog juga, saya sangat mengharapkan untuk tetap mempertahankan RSS feed urlnya. Saya yakin, pasti ada yang memanfaatkan RSS feed tersebut. Seperti saya contohnya. (^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/RSS" target="_blank">en.wikipedia.org/wiki/RSS</a>
+<br />Diakses tanggal: 2018/12/12</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Newsboat" target="_blank">wiki.archlinux.org/index.php/Newsboat</a>
+<br />Diakses tanggal: 2018/12/12</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

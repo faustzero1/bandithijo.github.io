@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>04 Variabel dan Tipe Data | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="04 Variabel dan Tipe Data" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/python/04-variabel-dan-tipe-data" />
+<meta property="og:url" content="https://bandithijo.dev/python/04-variabel-dan-tipe-data" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-30T02:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/python/04-variabel-dan-tipe-data"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/python/04-variabel-dan-tipe-data","@type":"BlogPosting","headline":"04 Variabel dan Tipe Data","dateModified":"2018-03-30T02:00:00+08:00","datePublished":"2018-03-30T02:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="04 Variabel dan Tipe Data"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/python/04-variabel-dan-tipe-data">04 Variabel dan Tipe Data</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/30</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/python/">Python</a>
+  
+
+  
+    / 04 variabel dan tipe data
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toga.svg">Silabus Kelas
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/00-pengenalan-python" class="">00 Berkenalan dengan Python</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/01-hal-yang-harus-dipersiapkan" class="">01 Hal yang Perlu Dipersiapkan</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/02-print-function-dan-strings" class="">02 Print Function dan Strings</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/03-matematika-dasar" class="">03 Matematika Dasar</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/04-variabel-dan-tipe-data" class="current">04 Variabel dan Tipe Data</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/05-perulangan-while" class="">05 Perulangan Menggunakan While</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/06-perulangan-for" class="">06 Perulangan Menggunakan For</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:5px 0 5px 0;"></div>
+  <p style="text-align:left;color:#00603C;"><i>Masih dalam proses penulisan...</i></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#intro">Intro</a></li>
+  <li><a href="#variable-dengan-1-nilai">Variable dengan 1 Nilai</a>
+    <ul>
+      <li><a href="#string">String</a></li>
+      <li><a href="#integer-atau-float">Integer atau Float</a></li>
+      <li><a href="#boolean">Boolean</a></li>
+    </ul>
+  </li>
+  <li><a href="#variable-dengan-banyak-nilai">Variable dengan Banyak Nilai</a>
+    <ul>
+      <li><a href="#tuples">Tuples</a></li>
+      <li><a href="#python-lists">Python Lists</a></li>
+      <li><a href="#dictionary">Dictionary</a></li>
+    </ul>
+  </li>
+  <li><a href="#variable-yang-mengandung-proses">Variable yang Mengandung Proses</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="intro">Intro</h1>
+<p>Hampir di setiap program Python yang nanti kamu tulis, kamu akan menggunakan <strong>variable</strong>. Variable dapat diibaratkan sebuah ember yang digunakan untuk menampung data. Variable dalam Python dapat menampun bermacam-macam data. Data yang ditampung dapat berupa string, integer, float, boolean, array, function, dan mungkin masih banyak lagi.</p>
+
+<p>Variable membantu program dapat lebih dinamis dan dapat membantu programmer mereferensikan sebuah nilai yang panjang di dalam sebuah wadah, ketimbang harus mengetik nilai yang panjang berulang kali.</p>
+
+<p>Kamu dapat membuat variable dengan nama apapun kecuali nama yang sama dengan nama sintaks dan function pada Python. Hal ini dapat menyebabkan sebuah konflik. Variable juga tidak dapat ditulis dengan awalan angka dan simbol, kecuali simbol <code class="language-plaintext highlighter-rouge">_</code> (baca: <em>underscore</em>).</p>
+
+<p>Sebagai contoh, kamu tidak dapat memberikan nama sebuah variable dengan nama <code class="language-plaintext highlighter-rouge">print</code> karena akan terjadi konflik dengan <code class="language-plaintext highlighter-rouge">print()</code> function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span> <span class="o">=</span> <span class="k">print</span><span class="p">(</span><span class="s">'Ini tidak dapat dilakukan !'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Apabila ini dilakukan, maka hasil dari <code class="language-plaintext highlighter-rouge">print('Ini tidak dapat dilakukan !')</code> tetap akan tampil pada <em>console</em>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ini tidak dapat dilakukan !
+</code></pre></div></div>
+
+<p>Namun, saat kita akan memanggil atau menggunakan variable yang bernama <code class="language-plaintext highlighter-rouge">print</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: 'NoneType' object is not callable
+</code></pre></div></div>
+
+<p>Akan terjadi kegagalan.</p>
+
+<h1 id="variable-dengan-1-nilai">Variable dengan 1 Nilai</h1>
+
+<h2 id="string">String</h2>
+<p>Nah sekarang yang benernya. Kita sudah mempelajari print() function pada materi pertama. Sekarang, Yuk! Kita coba kombinasikan print() function dengan variable.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaDepan</span> <span class="o">=</span> <span class="s">'Devika'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">namaDepan</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Devika
+</code></pre></div></div>
+
+<p>Kamu juga tidak dapat mengisi nilai dari sebuah variable seperti di bawah ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="n">Devika</span> <span class="n">Marina</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;stdin&gt;", line 1
+    namaLengkap = Devika Marina
+                              ^
+SyntaxError: invalid syntax
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Devika Marina</code> bukan merupakan tipe data yang tepat. Apabila kamu bermaksud membuat <code class="language-plaintext highlighter-rouge">Devika Marina</code> menjadi sebuah string, maka kamu harus menuliskannya dengan mengawali dan mengakhiri dengan tanda petik (<code class="language-plaintext highlighter-rouge">'...'</code> atau <code class="language-plaintext highlighter-rouge">"..."</code>).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="s">'Devika Marina'</span>
+<span class="k">print</span><span class="p">(</span><span class="n">namaLengkap</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Devika Marina
+</code></pre></div></div>
+
+<p>Atau, kamu dapat menerapkan <em>concatenation</em> yang sudah kita pelajari pada materi pertama.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaLengkap</span> <span class="o">=</span> <span class="s">'Devika Marina'</span>   <span class="c1"># string
+</span><span class="n">umur</span>        <span class="o">=</span> <span class="s">'18'</span>              <span class="c1"># string
+</span><span class="k">print</span><span class="p">(</span><span class="s">'Nama Lengkap :'</span><span class="p">,</span><span class="n">namaLengkap</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Umur         :'</span><span class="p">,</span><span class="n">umur</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama Lengkap : Devika Marina
+Umur         : 18
+</code></pre></div></div>
+
+<h2 id="integer-atau-float">Integer atau Float</h2>
+<p>Selain bernilai string, variable juga dapat bernilai integer maupun float.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jmlhRoda</span>   <span class="o">=</span> <span class="mi">10</span>         <span class="c1"># integer
+</span><span class="n">jmlhSolar</span>  <span class="o">=</span> <span class="mf">100.0</span>      <span class="c1"># float
+</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Banyak Roda     : '</span><span class="p">,</span><span class="n">jmlhRoda</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Kapasitas Solar : '</span><span class="p">,</span><span class="n">jmlhSolar</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Banyak Roda     : 10
+Kapasitas Solar : 100.0
+</code></pre></div></div>
+
+<h2 id="boolean">Boolean</h2>
+<p>Variable dapat pula bertipe data boolean, yaitu <strong>True</strong> atau <strong>False</strong>. Penulisan nilai boolean harus di awali dengan huruf besar.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sudahMenikah</span> <span class="o">=</span> <span class="bp">True</span>     <span class="c1"># boolean
+</span><span class="n">jomblo</span>       <span class="o">=</span> <span class="bp">False</span>    <span class="c1"># boolean
+</span>
+<span class="n">sudahMenikah</span>
+<span class="n">jomblo</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>True
+False
+</code></pre></div></div>
+
+<h1 id="variable-dengan-banyak-nilai">Variable dengan Banyak Nilai</h1>
+
+<h2 id="tuples">Tuples</h2>
+<p><strong>Tuple</strong> adalah variable yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan oleh tanda koma <code class="language-plaintext highlighter-rouge">,</code> yang membuatnya mirip dengan <strong>list</strong> (list, dalam bahasa pemrograman lain disebut array). Namun, yang menjadikan tuple berbeda dengan list adalah tuple memiliki sifat <strong>immutable</strong> yang artinya kekal atau tidak dapat diubah-ubah.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">perangkatKeras</span> <span class="o">=</span> <span class="s">'Keyboard'</span><span class="p">,</span> <span class="s">'Mouse'</span><span class="p">,</span> <span class="s">'Monitor'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">perangkatKeras</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Keyboard
+Mouse Monitor
+</code></pre></div></div>
+<p>Pada contoh di atas, saya menggunakan contoh pemanggilan isi dari variable tuple dengan menggunakan urutan dari indeksnya. <code class="language-plaintext highlighter-rouge">[0]</code> dibaca <strong>indeks ke nol</strong>.</p>
+
+<p>Indeks pada bahasa pemrograman Python dimulai dari 0, selanjutnya diikuti 1, 2, 3, 4, 5, dst…</p>
+
+<p>Contoh lain,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mobil1</span><span class="p">,</span> <span class="n">mobil2</span><span class="p">,</span> <span class="n">mobil3</span> <span class="o">=</span> <span class="s">'Kijang'</span><span class="p">,</span> <span class="s">'Avanza'</span><span class="p">,</span> <span class="s">'Innova'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mobil1</span><span class="p">,</span> <span class="n">mobil2</span><span class="p">,</span> <span class="n">mobil3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mobil2</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kijang Avanza Innova
+Avanza
+</code></pre></div></div>
+
+<p>Contoh lain,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">45</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>120
+120 90 45
+</code></pre></div></div>
+
+<p>Contoh lain, kamu dapat melihat isi dari sebuah tuple dengan cara seperti ini.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">timInti</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4)
+22
+</code></pre></div></div>
+
+<p>Kamu dapat menuliskan sebuah variable tuple dengan mengawali dengan tanda kurung <code class="language-plaintext highlighter-rouge">(</code> dan menutupnya dengan <code class="language-plaintext highlighter-rouge">)</code>.</p>
+
+<p>Seperti ini <code class="language-plaintext highlighter-rouge">(..., ..., ...)</code>. Namun, tidak menggunakan tanda kurung <code class="language-plaintext highlighter-rouge">(...)</code> juga tidak masalah. Seperti ini <code class="language-plaintext highlighter-rouge">..., ..., ...</code></p>
+
+<p>Sehingga secara <em>default</em>, apabila kamu mendeklarasikan sebuah variable yang memiliki banyak nilai dan dipisahkan dengan tanda koma, maka Python akan mengenalinya sebagai variable dengan tipe data tuple.</p>
+
+<h2 id="python-lists">Python Lists</h2>
+<p>Selanjutnya kita memiliki variable yang lebih populer dibandingkan tuple, yaitu Python list.</p>
+
+<p><strong>Lists</strong> adalah variable struktur data yang berisi / bernilai bermacam-macam data / tipe data yang dipisahkan dengan tanda koma <code class="language-plaintext highlighter-rouge">,</code> yang membuatnya mirip dengan <strong>tuple</strong>. Namun, yang membedakannya denga tuple adalah kita mendeklarasikan sebuah variable bertipe data list dengan mengapit data tersebut menggunakan tanda kurung kotak <code class="language-plaintext highlighter-rouge">[..., ..., ...]</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">timInti</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Anggota Tim Inti : '</span><span class="p">,</span><span class="n">timInti</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Penjaga Gawang   : '</span><span class="p">,</span><span class="n">timInti</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Anggota Tim Inti : [15, 11, 10, 9, 1, 6, 5, 7, 8, 22, 4]
+Penjaga Gawang   : 1
+</code></pre></div></div>
+
+<p>Python list ini <strong>tidak bersifat immutable</strong> sehingga memungkinkan kita untuk dapat memodifikasinya, seperti: <em>append</em>, <em>extend</em>, <em>insert</em>, <em>count</em>, <em>remove</em>, <em>reverse</em>, <em>sort</em>, dll.</p>
+
+<p>Nanti akan ada pembahasan tersendiri untuk modifikasi Python list.</p>
+
+<h2 id="dictionary">Dictionary</h2>
+<p><strong>Python Dictionary</strong> adalah sebuah variable struktur data yang hampir mirip dengan array. <em>Dictionary</em> kalo diartikan secara bahasa akan bermakna <strong>kamus</strong>. Ya! Persis selayaknya kamus, yang isinya terdapat kata kunci dan setiap kata kunci memiliki arti yang dapat lebih dari satu arti.</p>
+
+<p>Dictionary tidak diurutkan berdasarkan sesuatu. Karakteristik yang khas dari Python dictionary adalah memiliki <strong>kunci</strong> dan <strong>nilai</strong> (<code class="language-plaintext highlighter-rouge">kunci:nilai</code>). Setiap kunci berbentuk unik dan hanya satu. Sedangkan nilainya dapat mengandung lebih dari satu data / tipe data, baik dalam bentuk tipe data apapun seperti: string, integer, float, tuple, list, bahkan dictionary juga.</p>
+
+<p>Untuk mendeklarasikan sebuah variable dengan tipe struktur data dictionary, kita perlu mengawalinya dengan menggunakan tanda kurung kurawal<code class="language-plaintext highlighter-rouge">{</code> dan menutupnya dengan <code class="language-plaintext highlighter-rouge">}</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nomorPunggung</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Cebe'</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s">'Bly'</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="s">'Davy'</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s">'Haris'</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">nomorPunggung</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'Cebe': 10, 'Bly': 11, 'Davy': 4, 'Haris': 9}
+</code></pre></div></div>
+
+<p>Apabila kita ingin mengetahui berapakah nomor punggung dari Davy, maka kita cukup memanggil kuncinya saja.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">nomorPunggung</span><span class="p">[</span><span class="s">'Davy'</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Berapakah nomor punggung Davy ?'</span><span class="p">,</span><span class="n">nomorPunggung</span><span class="p">[</span><span class="s">'Davy'</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4
+Berapakah nomor punggung Andi ? 4
+</code></pre></div></div>
+
+<p>Perlu diperhatikan, pemanggilan kunci berupa string, haruslah sama persis dengan kunci yang sudah di deklarasikan di dalam variable dictionary. Namanya saja kunci, kalo kuncinya tidak sama, maka pintu tidak akan dapat dibuka.</p>
+
+<p>Selain kunci yang berbentuk string, kunci dapat pula berupa integer.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">juaraLomba</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s">'Irvan'</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="s">'Ichsan'</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="s">'Wisnu'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="s">'Gigon'</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span><span class="s">'Dika'</span><span class="p">}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">juaraLomba</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">Pemenang</span> <span class="n">Kejuaraan</span> <span class="n">Lari</span> <span class="p">:</span> <span class="s">',juaraLomba[3])</span><span class="err">
+</span></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Wisnu
+Pemenang Kejuaraan Lari : Wisnu
+</code></pre></div></div>
+
+<p>Contoh di atas, adalah contoh dictionary yang memiliki satu nilai. Berikut ini adalah dictionary yang dapat meiliki nilai (<em>value</em>) lebih dari satu.</p>
+
+<p>Misalkan, kita memiliki daftar identitas yang berisi nama, tinggi badan, warna kulit. Kemudian kita akan membuat nama sebagai kunci.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">identitas</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Irvan'</span><span class="p">:[</span><span class="mi">172</span><span class="p">,</span><span class="s">'Putih'</span><span class="p">],</span> <span class="s">'Ichsan'</span><span class="p">:[</span><span class="mi">170</span><span class="p">,</span><span class="s">'Cokelat'</span><span class="p">],</span> <span class="s">'Wisnu'</span><span class="p">:[</span><span class="mi">168</span><span class="p">,</span><span class="s">'Kuning'</span><span class="p">]}</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">identitas</span><span class="p">[</span><span class="s">'Irvan'</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">identitas</span><span class="p">[</span><span class="s">'Wisnu'</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[172, 'Putih']
+168
+</code></pre></div></div>
+<p>Dalam contoh di atas, saya menggunakan Python list sebagai nilai. Seperti yang sudah saya sebutkan di atas, nilai dapat berupa apa saja. Asik sekali bukan ?</p>
+
+<p>Untuk modifikasi dictionary akan saya tulis pada pembahasan yang lain.</p>
+
+<h1 id="variable-yang-mengandung-proses">Variable yang Mengandung Proses</h1>
+<p>Variable tidak melulu mengandung nilai-nilai. Variable juga dapat kita manfaatkan untuk menyimpan proses.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">penjumlahan</span> <span class="o">=</span> <span class="mi">25</span> <span class="o">+</span> <span class="mi">45</span>        <span class="c1"># int + int
+</span><span class="n">pengurangan</span> <span class="o">=</span> <span class="mf">32.6</span> <span class="o">-</span> <span class="mf">13.8</span>    <span class="c1"># float - float
+</span><span class="n">perkalian</span>   <span class="o">=</span> <span class="mi">21</span> <span class="o">*</span> <span class="mf">3.5</span>       <span class="c1"># int * float
+</span>
+<span class="k">print</span><span class="p">(</span><span class="n">penjumlahan</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">pengurangan</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">perkalian</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>70          <span class="c"># int</span>
+18.8        <span class="c"># float</span>
+73.5        <span class="c"># float</span>
+</code></pre></div></div>
+
+<p>Sepertinya, pembahasan mengenai variable kita cukupkan sampai disini dulu.</p>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/03-matematika-dasar"><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/05-perulangan-while"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/python.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

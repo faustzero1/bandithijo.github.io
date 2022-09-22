@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, security">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG) | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="GnuPG adalah implementasi dari OpenPGP Standard (PGP) yang juga dikenal dengan nama GPG, yang dapat kita gunakan untuk melakukan enkripsi dan menandatangani data. Kita akan menggunakan GnuPG untuk mengenkripsi file atau dokumen." />
+<meta property="og:description" content="GnuPG adalah implementasi dari OpenPGP Standard (PGP) yang juga dikenal dengan nama GPG, yang dapat kita gunakan untuk melakukan enkripsi dan menandatangani data. Kita akan menggunakan GnuPG untuk mengenkripsi file atau dokumen." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-20T06:46:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg"},"description":"GnuPG adalah implementasi dari OpenPGP Standard (PGP) yang juga dikenal dengan nama GPG, yang dapat kita gunakan untuk melakukan enkripsi dan menandatangani data. Kita akan menggunakan GnuPG untuk mengenkripsi file atau dokumen.","url":"https://bandithijo.dev/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg","@type":"BlogPosting","headline":"Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)","dateModified":"2022-08-20T06:46:00+08:00","datePublished":"2022-08-20T06:46:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2022/08/20</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mudah mengenkripsi file dokumen dengan gnupg
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#security">Security</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#tujuan">Tujuan</a></li>
+  <li><a href="#penggunaan">Penggunaan</a>
+    <ul>
+      <li><a href="#tentukan-target-file-yang-akan-dienkripsi">Tentukan target file yang akan dienkripsi</a></li>
+      <li><a href="#enkripsi">Enkripsi</a>
+        <ul>
+          <li><a href="#enkripsi-dengan-default-secret-gpg-key">Enkripsi dengan default secret GPG key</a></li>
+          <li><a href="#enkripsi-dengan-symmetric-key">Enkripsi dengan symmetric key</a></li>
+          <li><a href="#enkripsi-dengan-gpg-public-key-si-penerima">Enkripsi dengan gpg public key si penerima</a></li>
+        </ul>
+      </li>
+      <li><a href="#dekripsi">Dekripsi</a>
+        <ul>
+          <li><a href="#mengintip-isi-file-yang-terenkripsi-dengan-less">Mengintip isi file yang terenkripsi dengan less</a></li>
+          <li><a href="#membuka-file-yang-terenkripsi-dalam-bentuk-file">Membuka file yang terenkripsi dalam bentuk file</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#tips--trick">Tips &amp; Trick</a>
+    <ul>
+      <li><a href="#mudah-mengintip-file-terenkripsi-dari-ranger">Mudah mengintip file terenkripsi dari Ranger</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>GnuPG adalah implementasi dari OpenPGP Standard (PGP) yang juga dikenal dengan nama GPG, yang dapat kita gunakan untuk melakukan enkripsi dan menandatangani data. Kita akan menggunakan GnuPG untuk mengenkripsi file atau dokumen.</p>
+
+<h1 id="tujuan">Tujuan</h1>
+
+<p>Kenapa kita perlu mengenkripsi file atau dokumen?</p>
+
+<ol>
+  <li>Memberikan pengamanan ganda terhadap file atau dokumen yang kita simpan di laptop atau komputer kita. Misal: file-file kantor yang bersifat rahasia</li>
+  <li>Mengamankan file atau dokumen yang akan didistribusikan ke orang lain. Misal: via email, flashdrive atu WA/Telegram</li>
+  <li>dst.</li>
+</ol>
+
+<h1 id="penggunaan">Penggunaan</h1>
+
+<p>Penggunaan dari GPG sangat kompleks sekali. Di catatan kali ini, saya hanya akan menunjukkan beberapa perintah-perintah yang sering saya pergunakan.</p>
+
+<h2 id="tentukan-target-file-yang-akan-dienkripsi">Tentukan target file yang akan dienkripsi</h2>
+
+<p>Target file bisa apa saja, misal: gambar, video, file dari Miscrosoft Word, archive (zip, tar, dst.), dll.</p>
+
+<p>Sebagai contoh file atau dokumen yang akan saya enkripsi adalah sebuah file bertipe plain text dengan ekstension Markdown.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>tabel_users.md</code></div>
+
+<figure class="highlight"><pre><code class="language-markdown" data-lang="markdown"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre>| id  | email                                | password                           |
+|-----|--------------------------------------|------------------------------------|
+| 1   | kyle_kunde@predovic-gorczany.com     | mjvfPFh9E1WCUMPY2H5uLNRxvw42MdJRSH |
+| 2   | dorene_berge@bogisich.info           | mhRudkNp1QyM3bpqxCq3tJzKVuQJHcsLZT |
+| 3   | kimberlie@mueller.info               | mxiHi8kUAvrt2c4HsCcR5diZnBy26wHnzg |
+| 4   | royce.marks@bauch.com                | msk7nRPFfckdpxePKurzXNCPNUtkej5pnn |
+| 5   | billie@armstrong.net                 | msGDzgvmyqY1UqybAB4ujv595qRNEWi16D |
+| 6   | gina@reynolds-klein.org              | mmGKEBk99QwgcdCwuUjtHzJYXESF96uRNP |
+| 7   | shon.batz@kiehn.name                 | mut88wKf8GhKoijTLAXkoVNgUTscark4Uu |
+| 8   | minh@lubowitz-walsh.io               | mx8Qort7MR4RrjNfCsY4dnu9meQrSB6ChF |
+| 9   | jonah@reinger.io                     | mjoFeZ7BUrhiwF4PkcrqfUT1CUBJbSonBw |
+| 10  | trey_zemlak@wisozk.info              | mg99BBN2Y6S7YCsVa8wDK6yqZNEKvjwTUq |
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah menentukan target file, kita lanjut ke tahap enkripsi.</p>
+
+<h2 id="enkripsi">Enkripsi</h2>
+
+<p>Ada banyak sekali cara metode enkripsi yang dapat kita lakukan dengan gpg.</p>
+
+<p>Di catatan ini saya membatasi hanya menulis cara yang sering saya gunakan saja.</p>
+
+<p>Untuk metode-metode lain, teman-teman dapat membaca sendiri di <code class="language-plaintext highlighter-rouge">man gpg</code>.</p>
+
+<h3 id="enkripsi-dengan-default-secret-gpg-key">Enkripsi dengan default secret GPG key</h3>
+
+<p>Syarat: Kita sudah memiliki default secret gpg key.</p>
+
+<p>Artinya bentuk enkripsi ini hanya dapat dibuka oleh orang yang memiliki signature dari gpg key tersebut. Yang berarti saya sendiri.</p>
+
+<p>Cara mengetahuinya.</p>
+
+<pre><span class="cmd">$ </span><b>gpg --list-secret-keys</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sec   rsa4096 2022-08-20 [SC]
+      AE706A616B252A6822635041560691E942A02F91
+uid           [ultimate] Rizqi Nur Assyaufi &lt;bandithijo@gmail.com&gt;
+uid           [ultimate] Rizqi Nur Assyaufi &lt;rizqiassyaufi@gmail.com&gt;
+uid           [ultimate] Rizqi Nur Assyaufi &lt;rizqinurassyaufi@gmail.com&gt;
+ssb   rsa4096 2022-08-20 [E]
+</code></pre></div></div>
+
+<p>Saya memiliki 1 buah gpg key.</p>
+
+<p>Nah, kita bisa langsung mengenkripsi file dengan menandatanganinya (<em>sign</em>) dengan gpg secret key yang kita miliki.</p>
+
+<pre><span class="cmd">$ </span><b>gpg --sign tabel_users.md</b><br /></pre>
+
+<p>Outputnya akan berupa file <code class="language-plaintext highlighter-rouge">tabel_users.md.gpg</code>.</p>
+
+<pre>
+tabel_users.md <mark>tabel_users.md.gpg</mark>
+</pre>
+
+<h3 id="enkripsi-dengan-symmetric-key">Enkripsi dengan symmetric key</h3>
+
+<p>Ketika membuat gpg key, kita akan membuat 2 kunci, public key &amp; secret key. Inilah yang disebut assymmetric key, karena key yang digunakan untuk menguncinya tidak sama dengan kunci yang digunakan untuk membuka.</p>
+
+<p>Namun, kita tetap bisa mengunci file secara symmetric dengan gpg.</p>
+
+<pre><span class="cmd">$ </span><b>gpg --symmetric tabel_users.md</b><br /></pre>
+
+<p>Setelah itu, kita akan diminta memasukkan password sebanyak 2x.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/0jhyjs0t/gambar-01.png" onerror="imgerror(this);" class="myImg" /></p>
+
+<p>Outputnya akan berupa file <code class="language-plaintext highlighter-rouge">tabel_users.md.gpg</code>.</p>
+
+<pre>
+tabel_users.md <mark>tabel_users.md.gpg</mark>
+</pre>
+
+<h3 id="enkripsi-dengan-gpg-public-key-si-penerima">Enkripsi dengan gpg public key si penerima</h3>
+
+<p>Metode enkripsi ini saya gunakan untuk berkirim file kepada orang yang gpg public key nya saya simpan.</p>
+
+<p>Misal, saya ingin berkirim file yang terenkripsi kepada om Linus Torvalds. Kebetulan saya punya gpg public key om Linus.</p>
+
+<pre><span class="cmd">$ </span><b>gpg --list-key torvalds@linux-foundation.org</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2011-09-20 [SC]
+      ABAF11C65A2970B130ABE3C479BE3E4300411886
+uid           [ unknown] Linus Torvalds &lt;torvalds@kernel.org&gt;
+uid           [ unknown] Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+sub   rsa2048 2011-09-20 [E]
+</code></pre></div></div>
+
+<p>Oke, tinggal kita enkripsi file nya dengan gpg public key punya om Linus.</p>
+
+<pre><span class="cmd">$ </span><b>gpg --encrypt --recipient torvalds@linux-foundation.org tabel_users.md</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg: 88BCE80F012F54CA: There is no assurance this key belongs to the named user
+
+sub  rsa2048/88BCE80F012F54CA 2011-09-20 Linus Torvalds &lt;torvalds@linux-foundation.org&gt;
+ Primary key fingerprint: ABAF 11C6 5A29 70B1 30AB  E3C4 79BE 3E43 0041 1886
+      Subkey fingerprint: AEE4 16F7 DCCB 753B B3D5  609D 88BC E80F 012F 54CA
+
+It is NOT certain that the key belongs to the person named
+in the user ID.  If you *really* know what you are doing,
+you may answer the next question with yes.
+
+Use this key anyway? (y/N) y
+</code></pre></div></div>
+
+<p>Outputnya akan menjadi file <code class="language-plaintext highlighter-rouge">tabel_users.md.gpg</code>.</p>
+
+<pre>
+tabel_users.md  <mark>tabel_users.md.gpg</mark>
+</pre>
+
+<p>Nah, sudah jadi. Tinggal dikirim ke om Linus.</p>
+
+<p>Hanya om Linus yang dapat membuka file terenkripsi tersebut dengan gpg secret key milik om Linus, karena file tersebut dienkripsi dengan gpg public key miliknya.</p>
+
+<h2 id="dekripsi">Dekripsi</h2>
+
+<p>Cara untuk mendekrip file atau dokumen yang dienkripsi dengan gpg, biasanya, saya menggunakan 2 flow.</p>
+
+<h3 id="mengintip-isi-file-yang-terenkripsi-dengan-less">Mengintip isi file yang terenkripsi dengan less</h3>
+
+<pre><span class="cmd">$ </span><b>gpg --decrypt tabel_users.md.gpg | less</b><br /></pre>
+
+<h3 id="membuka-file-yang-terenkripsi-dalam-bentuk-file">Membuka file yang terenkripsi dalam bentuk file</h3>
+
+<pre><span class="cmd">$ </span><b>gpg --output tabel_users.md --decrypt tabel_users.md.gpg</b><br /></pre>
+
+<h1 id="tips--trick">Tips &amp; Trick</h1>
+
+<h2 id="mudah-mengintip-file-terenkripsi-dari-ranger">Mudah mengintip file terenkripsi dari Ranger</h2>
+
+<p>Tambahkan baris di bawah ini pada salah satu file configurasi ranger <code class="language-plaintext highlighter-rouge">~/.config/ranger/rifle.conf</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>~/.config/ranger/rifle.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-conf" data-lang="conf"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="c"># gnupg
+</span><span class="n">ext</span> <span class="n">gpg</span>, <span class="n">has</span> <span class="n">gpg</span> = <span class="n">gpg</span> --<span class="n">decrypt</span> <span class="s2">"$1"</span> | <span class="n">less</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Arti dari baris di atas:</p>
+
+<ol>
+  <li>Untuk file dengan extension <code class="language-plaintext highlighter-rouge">.gpg</code></li>
+  <li>Apabila sudah terpasang GnuPG dengan command <code class="language-plaintext highlighter-rouge">gpg</code></li>
+  <li>Execute file terpilih dengan command <code class="language-plaintext highlighter-rouge">gpg --decrypt "$1" | less</code></li>
+  <li>Dimana <code class="language-plaintext highlighter-rouge">$1</code> adalah file yang terseleksi</li>
+</ol>
+
+<p><br />
+Saya menggunakan <code class="language-plaintext highlighter-rouge">less</code> untuk mengintip file terenkripsi tersebut.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Penggunaan lebih lanjut saya serahkan pada imajinasi dan kreatifitas teman-teman.</p>
+
+<p>Terima kasih sudah mampir yaa.</p>
+
+<p><br />
+Saya juga pernah menulis terkait GnuPG di catatan sebelumnya.</p>
+
+<ol>
+  <li><a href="/blog/memperbaiki-gpg-permissions-on-homedir" target="_blank">Memperbaiki GPG: Warning: Unsafe Permissions on Homedir</a></li>
+  <li><a href="/blog/generate-gpg-key" target="_blank">Generate Private dan Public GPG Key Sendiri</a></li>
+  <li><a href="/blog/menambahkan-email-lain-kedalam-gpgkey" target="_blank">Menambahkan Email Kedua ke dalam GPG Key</a></li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://www.gnupg.org/" target="_blank">https://www.gnupg.org/</a>
+<br />Diakses tanggal: 2022/08/20</p>
+  </li>
+  <li>
+    <p><a href="https://www.gnupg.org/gph/en/manual/x110.html" target="_blank">https://www.gnupg.org/gph/en/manual/x110.html</a>
+<br />Diakses tanggal: 2022/08/20</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

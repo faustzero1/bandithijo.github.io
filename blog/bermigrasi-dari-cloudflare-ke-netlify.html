@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="jekyll, tips, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver." />
+<meta property="og:description" content="Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver." />
+<link rel="canonical" href="https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify" />
+<meta property="og:url" content="https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-28T01:18:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify"},"description":"Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver.","url":"https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify","@type":"BlogPosting","headline":"BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify","dateModified":"2019-01-28T01:18:00+08:00","datePublished":"2019-01-28T01:18:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/bermigrasi-dari-cloudflare-ke-netlify">BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/01/28</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Bermigrasi dari cloudflare ke netlify
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jekyll">Jekyll</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#proses-migrasi">Proses Migrasi</a>
+    <ul>
+      <li><a href="#github">GitHub</a>
+        <ul>
+          <li><a href="#menghapus-github-page">Menghapus GitHub Page</a></li>
+          <li><a href="#mengganti-nama-direktori-root">Mengganti Nama Direktori Root</a></li>
+          <li><a href="#mengganti-alamat-git-remote">Mengganti Alamat Git Remote</a></li>
+          <li><a href="#menghapus-cname">Menghapus CNAME</a></li>
+        </ul>
+      </li>
+      <li><a href="#netlify">Netlify</a>
+        <ul>
+          <li><a href="#tambah-site-baru">Tambah Site Baru</a></li>
+          <li><a href="#konfigurasi-custom-domain">Konfigurasi Custom Domain</a></li>
+          <li><a href="#mengganti-default-domain-netlify">Mengganti Default Domain Netlify</a></li>
+          <li><a href="#redirect-default-subdomain-netlify-ke-primary-domain">Redirect Default Subdomain Netlify ke Primary Domain</a></li>
+        </ul>
+      </li>
+      <li><a href="#dewaweb">Dewaweb</a>
+        <ul>
+          <li><a href="#menambahkan-netlify-nameservers">Menambahkan Netlify Nameservers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#konfigurasi-https">Konfigurasi HTTPS</a></li>
+  <li><a href="#tips">Tips</a>
+    <ul>
+      <li><a href="#www-or-not-www">WWW or not WWW?</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#terima-kasih">Terima Kasih</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Bermigrasi? Sepertinya untuk kasus saya, lebih pas kalau saya sebut “mencoba”. Ya, belajar mencoba menggunakan platform lain.</p>
+
+<p>Awalnya hanya ingin coba-coba, namun setelah berhasil dan merasakan ada “<em>something</em>” yang saya rasakan lebih baik dari Netlify ketimbang menggunakan Cloudflare, saya pun memutuskan untuk tetap menggunakan Netlify.</p>
+
+<p>Kedua platform ini tidak dapat dibandingkan karena memiliki definisi dan fungsi yang berbeda.</p>
+
+<p><a href="https://www.cloudflare.com/" target="_blank">Apa itu Cloudflare?</a>
+<span style="font-size:14px;"><i>Cloudflare, Inc. is a U.S. company that provides content delivery network services, DDoS mitigation, Internet security and distributed domain name server services. Cloudflare’s services sit between the visitor and the Cloudflare user’s hosting provider, acting as a reverse proxy for websites. - Wikipedia</i></span></p>
+
+<p><a href="https://www.netlify.com/" target="_blank">Apa itu Netlify?</a>
+<span style="font-size:14px;"><i>Netlify is a San Francisco-based cloud computing company that offers hosting and serverless backend services for static websites. It features continuous deployment from Git across a global application delivery network, serverless form handling,support for AWS Lambda functions, and full integration with Let’s Encrypt. - Wikipedia</i></span></p>
+
+<p>Pokoknya, saat ini, saya hanya butuh konfigurasi DNS dan Nameservers-nya saja untuk dapat menghubungkan GitHub/GitLab dengan domain name yang saya beli dari Dewaweb.</p>
+
+<h1 id="proses-migrasi">Proses Migrasi</h1>
+
+<p>Proses-proses di bawah ini <del>tidak</del> harus berurutan. Saya mencoba menyusun dan mengurutkan berdasarkan sekenario yang saya alami.</p>
+
+<h2 id="github">GitHub</h2>
+
+<h3 id="menghapus-github-page">Menghapus GitHub Page</h3>
+
+<p>Sebenarnya langkah ini tidak diperlukan. Ini hanya preferensi saya saja.</p>
+
+<ol>
+  <li>
+    <p>Buka tab <strong>Settings</strong> pada repository GitHub.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/kgV8Y97C/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Scrolling ke bawah, pada bagian “GitHub Pages”. Ganti <strong>Source</strong> dari <strong>master branch</strong> menjadi <strong>None</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/6QnZw071/gambar-02.png" onerror="imgError(this);" class="myImg" />
+Kemudian, <strong>Save</strong>.</p>
+
+    <p>Karena saya memiliki <strong>custom domain</strong> maka saya hapus dahulu isian dari <strong>Custom domain</strong>. Setelah itu, baru merubah <strong>Source</strong> menjadi <strong>None</strong>.</p>
+
+    <p>Dengan begini, repository <strong>bandithijo.github.io</strong> sudah tidak lagi menjadi GitHub page.</p>
+  </li>
+  <li>
+    <p>Selanjutnya, rename repository dari <strong>bandithijo.github.io</strong> menjadi <strong>bandithijo.com</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/0QCJKy0Y/gambar-03.png" onerror="imgError(this);" class="myImg" />
+Kemudian <strong>Rename</strong>.</p>
+
+    <p>Setelah berhasil, nama dari repositori saya akan berubah.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/wvzmBmLx/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p>Tujuannya hanya untuk menyamakan presepsi saja, bahwa sudah tidak ada lagi repositori yang bernama <strong>bandithijo.github.io</strong>.</p>
+
+    <p>Agar dikemudian hari tidak menimbulkan ambigu.</p>
+  </li>
+</ol>
+
+<h3 id="mengganti-nama-direktori-root">Mengganti Nama Direktori Root</h3>
+
+<ol>
+  <li>
+    <p>Saya juga perlu mengganti nama direktori root yang ada di laptop.</p>
+
+    <pre><span class="cmd">$ </span><b>mv bandithijo.github.io bandithijo.com</b><br /></pre>
+
+    <p>Tujuannya masih sama, agar tidak menimbulkan ambigu di kemudian hari.</p>
+  </li>
+</ol>
+
+<h3 id="mengganti-alamat-git-remote">Mengganti Alamat Git Remote</h3>
+
+<ol>
+  <li>
+    <p>Ganti alamat GitHub <strong>remote</strong> yang lama dengan yang baru.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .git/config</b><br /></pre>
+
+    <p>Ganti pada section <code class="language-plaintext highlighter-rouge">[remote "origin"]</code>, <code class="language-plaintext highlighter-rouge">/bandithijo.github.io.git</code> menjadi <code class="language-plaintext highlighter-rouge">/bandithijo.com.git</code>.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="o">[</span>remote <span class="s2">"origin"</span><span class="o">]</span>
+ url <span class="o">=</span> git@github.com:bandithijo/&lt;mark&gt;bandithijo.com&lt;/mark&gt;.git
+ fetch <span class="o">=</span> +refs/heads/<span class="k">*</span>:refs/remotes/origin/<span class="k">*</span>
+
+<span class="c"># ...</span>
+<span class="c"># ...</span>
+</code></pre></div>    </div>
+
+    <p>Perubahan alamat remote ini adalah hal yang direkomendasikan oleh perintah <code class="language-plaintext highlighter-rouge">git</code> saat saya melakukan <code class="language-plaintext highlighter-rouge">git push -u origin master</code>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/jS5Cdr51/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+</ol>
+
+<h3 id="menghapus-cname">Menghapus CNAME</h3>
+
+<ol>
+  <li>
+    <p>Hapus <strong>CNAME</strong> yang ada pada root direktori.</p>
+
+    <pre>
+bandithijo.com
+├── _drafts/
+├── _includes/
+├── _layouts/
+├── _posts/
+├── _site/
+├── assets/
+├── pages/
+├── _config.yml
+├── 404.html
+├── <mark>CNAME</mark>  &lt;-- Hapus aku
+├── Gemfile
+├── Gemfile.lock
+└── index.html</pre>
+
+    <pre><span class="cmd">$ </span><b>rm CNAME</b><br /></pre>
+  </li>
+</ol>
+
+<h2 id="netlify">Netlify</h2>
+
+<h3 id="tambah-site-baru">Tambah Site Baru</h3>
+
+<ol>
+  <li>
+    <p>Setelah login dan otomatis di arahkan ke alamat <a href="https://app.netlify.com/" target="_blank">app.netlify.com/</a>. Saya menambahkan site baru.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://i.postimg.cc/8PS526Mt/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Karena saya menggunakan GitHub repo, maka pada langkah 1, ini saya memilih GitHub.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/RFhfnnXc/gambar-07.png" onerror="imgError(this);" class="myImg" />
+Asiknya dengan Netlify, saya dapat berganti-ganti <strong>resource</strong>.</p>
+
+    <p>Jadi meskipun saya memilih GitHub saat ini, nanti saya masih dapat berubah ke resource yang lain, GitLab misalnya.</p>
+  </li>
+  <li>
+    <p>Saya akan diminta untuk memberikan hak autorisasi Netlify dengan akun GitHub. (Saya tidak memiliki gambarnya)</p>
+  </li>
+  <li>
+    <p>Pada tahap ini, saya diminta untuk memilih repository GitHub.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_8" data-echo="https://i.postimg.cc/6QvVHZdt/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Padah tahap ini saya diminta untuk melakukan setting untuk mendeploy repository.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_9" data-echo="https://i.postimg.cc/26KQM9bb/gambar-09.png" onerror="imgError(this);" class="myImg" />
+Saya menambahkan <code class="language-plaintext highlighter-rouge">;rm _site/feed.xml</code> karena saya tidak menggunakan <code class="language-plaintext highlighter-rouge">feed.xml</code>.</p>
+
+    <p>Pada langkah ini, sebenarnya di laptop (<em>local</em>/<em>development</em>), saya membuild Jekyll dengan menggunakan <em>custom command</em>.</p>
+
+    <pre><span class="cmd">$ </span><b>JEKYLL_ENV=production jekyll build; rm _site/feed.xml</b><br /></pre>
+
+    <p>Terdapat <code class="language-plaintext highlighter-rouge">JEKYLL_ENV=production</code> yang mendefiniskan bahwa build ini untuk <strong>production environment</strong>.</p>
+
+    <p>Kegunaan dari <em>variabels</em> ini adalah saya membagi <em>environment</em> menjadi dua, <em>development</em> dan <em>production</em>. Yang mana terdapat beberapa elemen yang tidak akan ditampilkan pada <em>development environment</em> seperti: Disqus, Google Analytics, dan SEO support.</p>
+
+    <p>Netlify menyediakan <a href="https://www.netlify.com/docs/build-settings/" target="_blank">Build Environment Variables</a>, namun tidak support untuk Jekyll, hanya mensupport: Node, NPM, dan Yarn.</p>
+
+    <p>Untuk mengatasi hal ini pada Netlify, saya perlu menambahkan gem bernama <code class="language-plaintext highlighter-rouge">jekyll-netlify</code>.</p>
+
+    <p>Tambahkan pada jajaran plugins di <code class="language-plaintext highlighter-rouge">gemfile</code>.</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'jekyll-netlify'</span><span class="p">,</span> <span class="s1">'~&gt; 0.2.0'</span>
+</code></pre></div>    </div>
+    <p>Kemudian, tambahkan pada jajaran plugins di <code class="language-plaintext highlighter-rouge">_config.yaml</code>.</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="ss">plugins:
+  </span><span class="o">-</span> <span class="n">jekyll</span><span class="o">-</span><span class="n">netlify</span>
+</code></pre></div>    </div>
+
+    <p>Dengan begini, saya tetap dapat menggunakan dua <em>environment</em>. Saat dibuild di Netlify, akan menjadi <em>production environment</em>.</p>
+
+    <p>Namun, apabila repositori GitHub/GitLab kita sudah berupa hasil build (_site), maka kosongkan saja dua input box di atas.</p>
+
+    <p>Kalau sudah yakin, klik <strong>Deploy site</strong>.</p>
+  </li>
+  <li>
+    <p>Akan keluar tampilan seperti ini.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_10" data-echo="https://i.postimg.cc/JntfdM1b/gambar-10.png" onerror="imgError(this);" class="myImg" />
+Saat ini statusnya project kita sedang di build dan di deploy oleh Netlify.</p>
+  </li>
+</ol>
+
+<h3 id="konfigurasi-custom-domain">Konfigurasi Custom Domain</h3>
+
+<ol>
+  <li>
+    <p>Sembari menunggu proses deploy selesai, saya melakukan <strong>Domain settings</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_11" data-echo="https://i.postimg.cc/7PFFXFj2/gambar-11.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Karena saya memiliki domain sendiri, yaitu <strong>bandithijo.com</strong>, maka saya melakukan konfigurasi custom domain, pilih <strong>Add custom domain</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_12" data-echo="https://i.postimg.cc/vB3WDw9S/gambar-12.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Saya mengisikan “bandithijo.com”, lebih direkomendasikan untuk menggunakan “www”. Namun pada tulisan kali ini saya akan menunjukkan mudahnya konfigurasi custom domain pada Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_13" data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png" onerror="imgError(this);" class="myImg" />
+Tekan <strong>Verify</strong>.</p>
+  </li>
+  <li>
+    <p>Netlify akan mengkonfirmasi bahwa “bandithijo.com” sudah ada yang punya, apakah pemiliknya adalah saya?</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_14" data-echo="https://i.postimg.cc/Y00QWDz2/gambar-14.png" onerror="imgError(this);" class="myImg" />
+Tentu saja, <strong>Yes, add domain</strong>.</p>
+  </li>
+  <li>
+    <p>Akan tampil domain “bandithijo.com” dan “www.bandithijo.com” yang memiliki status <strong>Check DNS configuration</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_15" data-echo="https://i.postimg.cc/76zY5gpG/gambar-15.png" onerror="imgError(this);" class="myImg" />
+Pilih salah satu dari kedua warning tersebut.</p>
+  </li>
+  <li>
+    <p>Akan terbuka popup window yang berisi tentang rekomendasi konfigurasi DNS. Untuk melakukan <em>pointing root domain</em> ke Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_16" data-echo="https://i.postimg.cc/T1qd9T2T/gambar-16.png" onerror="imgError(this);" class="myImg" />
+Namun, saya hiraukan saja, karena saya hanya ingin praktis dengan menggunakan DNS dari Netlify.</p>
+  </li>
+  <li>
+    <p>Scrolling ke bawah, untuk menemukan bantuan dalam menggunakan DNS dari Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_17" data-echo="https://i.postimg.cc/8cVkM7Sy/gambar-17.png" onerror="imgError(this);" class="myImg" />
+Saat ini, saya memilih menggunakan Netlify DNS agar lebih praktis.</p>
+  </li>
+  <li>
+    <p>Sekali lagi saya diminta untuk memastikan apakah domain <strong>bandithijo.com</strong> benar saya miliki atau tidak.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_18" data-echo="https://i.postimg.cc/vZ1R8QRD/gambar-18.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_13" data-echo="https://i.postimg.cc/NFnm78d6/gambar-13.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Bagian menambahkan DNS record yang lain, saya <strong>continue</strong> saja.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_19" data-echo="https://i.postimg.cc/j5bBhPDJ/gambar-19.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Copy paste domain Nameserver milik Netlify yang nanti akan saya letakkan pada konfigurasi Nameserver di Dewaweb.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_20" data-echo="https://i.postimg.cc/fbX6XBRN/gambar-20.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dns1.p06.nsone.net
+dns2.p06.nsone.net
+dns3.p06.nsone.net
+dns4.p06.nsone.net
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="mengganti-default-domain-netlify">Mengganti Default Domain Netlify</h3>
+
+<ol>
+  <li>
+    <p>Saya perlu mengganti Default subdomain yang diberikan secara random oleh Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_21" data-echo="https://i.postimg.cc/LX5Lw0gd/gambar-21.png" onerror="imgError(this);" class="myImg" />
+Pilih <strong>Edit site name</strong>. Untuk merubahnya.</p>
+  </li>
+  <li>
+    <p>Saya isikan sesuai nama domain yang saya miliki. <strong>bandithijo</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_22" data-echo="https://i.postimg.cc/W179PCzt/gambar-22.png" onerror="imgError(this);" class="myImg" />
+Pilih <strong>Save</strong>.</p>
+  </li>
+  <li>
+    <p>Lakukan pengecekan. <strong>Go to DNS panel</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_23" data-echo="https://i.postimg.cc/YqHfqRJF/gambar-23.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_24" data-echo="https://i.postimg.cc/m2y3cMs5/gambar-24.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p>Maka target dari DNS record sudah di arahkan ke alamat Default domain yang baru.</p>
+  </li>
+</ol>
+
+<h3 id="redirect-default-subdomain-netlify-ke-primary-domain">Redirect Default Subdomain Netlify ke Primary Domain</h3>
+
+<ol>
+  <li>
+    <p>Untuk melakukan redirect secara otomatis saat pengunjung mengakses <strong>bandithijo.netlify.com</strong> akan langsung diarahkan ke <strong>bandithijo.com</strong>, saya perlu melakukan konfigurasi tambahan untuk ini.</p>
+  </li>
+  <li>
+    <p>Netlify sudah menyarankan untuk membuat file <code class="language-plaintext highlighter-rouge">_redirects</code> pada direktori root dari direktori site saya.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_25" data-echo="https://i.postimg.cc/sDgxcZW8/gambar-25.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p>Namun, saya lebih memilih cara lain.</p>
+  </li>
+  <li>
+    <p>Saya memilih menambahkan file <code class="language-plaintext highlighter-rouge">netlify.toml</code> pada direktori root Jekyll saya. Yang isinya mirip seperti file <code class="language-plaintext highlighter-rouge">_redirects</code> yang disarankan oleh Netlify.</p>
+
+    <pre><span class="cmd">$ </span><b>vim netlify.toml</b><br /></pre>
+
+    <pre>
+[[redirects]]
+  from = "https://bandithijo.netlify.com/*"
+  to = "https://bandithijo.com/:splat"
+  status = 301
+  force = true</pre>
+
+    <p>Saya menggunakan cara ini karena, saat menggunakan file <code class="language-plaintext highlighter-rouge">_redirects</code>, pada bagian <strong>Settings</strong> &gt; <strong>GitHub page</strong>, dikatakan bahwa isi dari file <code class="language-plaintext highlighter-rouge">_redirects</code> tidak sesuai dengan semestinya.</p>
+
+    <p>Maka dari itu saya menggunakan cara file <code class="language-plaintext highlighter-rouge">netlify.toml</code> yang sudah saya coba dan ternyata berhasil dijalankan pada kedua repository GitHub dan GitLab.</p>
+
+    <p>Sekarang, apabila ada pengunjung yang dengan atau tanpa sengaja mengakses alamat <strong>bandithijo.netlify.com</strong> akan otomatis didirect ke <strong>bandithijo.com</strong>.</p>
+  </li>
+</ol>
+
+<h2 id="dewaweb">Dewaweb</h2>
+
+<h3 id="menambahkan-netlify-nameservers">Menambahkan Netlify Nameservers</h3>
+
+<ol>
+  <li>
+    <p>Buka Client Area pada Dewaweb.</p>
+  </li>
+  <li>
+    <p>Saya hanya perlu mengganti default Dewaweb Nameserver dengan 4 buah Nameserver yang sudah diberikan oleh Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_26" data-echo="https://i.postimg.cc/4dMGQmTC/gambar-26.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_27" data-echo="https://i.postimg.cc/brthCpzZ/gambar-27.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Pastikan berhasil memasukkan Nameserver Netlify.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_28" data-echo="https://i.postimg.cc/GhRL7Tyr/gambar-28.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p>Apabila gagal, ulangi sampai Nameserver benar-benar tersimpan.</p>
+  </li>
+  <li>
+    <p>Pada Dewaweb, saya tidak perlu melakukan konfigurasi <strong>DNS Management</strong>.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_29" data-echo="https://i.postimg.cc/qM2tgd8B/gambar-29.png" onerror="imgError(this);" class="myImg" /></p>
+
+    <p>Karena saya sudah menggunakan DNS management milik Netlify.</p>
+  </li>
+</ol>
+
+<h1 id="konfigurasi-https">Konfigurasi HTTPS</h1>
+
+<p>Sebenarnya tahap ini tidak perlu saya lakukan.</p>
+
+<p>Karena apabila langkah di atas (konfigurasi Nameservers) sudah benar, secara otomatis saya akan mendapatkan SSL/TLS certificate.</p>
+
+<p>Namun untuk mencatat prosedur manualnya, saya akan tetap menuliskan langkah-langkahnya di bawah ini.</p>
+
+<ol>
+  <li>
+    <p>Kembali lagi ke Netlify</p>
+  </li>
+  <li>
+    <p>Scrolling ke bagian paling bawah dari halaman Settings Domain.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_30" data-echo="https://i.postimg.cc/7L6jtw9q/gambar-30.png" onerror="imgError(this);" class="myImg" />
+Pilih <strong>Verify DNS configuration</strong>.</p>
+  </li>
+  <li>
+    <p>Apabila berhasil.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_31" data-echo="https://i.postimg.cc/J05LVKk8/gambar-31.png" onerror="imgError(this);" class="myImg" />
+Tinggal menunggu (paling lama 24 jam) hingga Netlify memberikan sertifikat Let’s Encrypt (TLS/SSL certificate) untuk mendapatkan HTTPS.</p>
+  </li>
+  <li>
+    <p>Yak! Tidak sampai 5 menit, SSL/TLS certificate dari Let’s Encrypt saya sudah jadi.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_32" data-echo="https://i.postimg.cc/VsW5XP7K/gambar-32.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Saya coba cek di browser.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_33" data-echo="https://i.postimg.cc/63N5GMCs/gambar-33.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+</ol>
+
+<h1 id="tips">Tips</h1>
+
+<h2 id="www-or-not-www">WWW or not WWW?</h2>
+
+<p>Untuk masalah ini, Belum akan saya bahas di sini.</p>
+
+<p>Namun apabila ingin berpindah dari “tanpa WWW (apex domain)” dan ingin menggunakan “WWW (subdomain)” caranya sangat mudah.</p>
+
+<p>Cukup klik menu pada domain <strong>www.bandithijo.com</strong>.
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_34" data-echo="https://i.postimg.cc/T3QG7R8P/gambar-34.png" onerror="imgError(this);" class="myImg" />
+Lalu klik <strong>Set as primary domain</strong>.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Masih banyak yang saya dapat eksplorasi dari Netlify. Namun untuk saat ini, saya hanya menggunakan Netlify sebagai DNS management saja sebagai ganti dari Cloudflare yang saya pergunakan sebelumnya.</p>
+
+<p>Sangat terasa sekali perbedaan dalam hal kecepatan akses. Meskipun saya tidak melakukan pencatatan secara angka, namun secara rasa, mengunjungi bandithijo.com pasca menggunakan Netlify, sama cepatnya seperti yang saya rasakan saat mengakses bandithijo.com pada <em>development environment</em>.</p>
+
+<p>Migrasi ke Netlify ini juga membawa semangat baru untuk saya, karena melihat (meskipun belum memahami) dari sepintas membaca menu dan fitur-fitur yang terdapat di dalam Netlify, seperti dapat menjadi hal yang baik bagi bandithijo.com ke depannya.</p>
+
+<p>Oke, rasanya sudah cukup seperti ini dulu.</p>
+
+<p>Ini adalah catatan yang sangat panjang. Mudah-mudahan pengalaman saya dapat bermanfaat bagi teman-teman yang memerlukan.</p>
+
+<h1 id="terima-kasih">Terima Kasih</h1>
+
+<ol>
+  <li>
+    <p><a href="https://blog.aflasio.com/" target="_blank">Aflasio</a></p>
+  </li>
+  <li>
+    <p><a href="https://okitavera.me/" target="_blank">Nanda Okitavera</a></p>
+  </li>
+  <li>
+    <p>Beserta teman-teman di group <a href="https://t.me/JAMstackID" target="_blank">JAMstack Indonesia</a> yang telah banyak menginspirasi saya (memberikan observation value) bagi saya untuk bermigrasi menggunakan Netlify.</p>
+  </li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://www.netlify.com/docs/continuous-deployment/" target="_blank">www.netlify.com/docs/continuous-deployment/</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.netlify.com/docs/custom-domains/" target="_blank">www.netlify.com/docs/custom-domains/</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.netlify.com/docs/dns/" target="_blank">www.netlify.com/docs/dns/</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.netlify.com/docs/redirects/" target="_blank">www.netlify.com/docs/redirects/</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.netlify.com/docs/netlify-toml-reference/" target="_blank">www.netlify.com/docs/netlify-toml-reference/</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/jayvdb/jekyll-netlify" target="_blank">github.com/jayvdb/jekyll-netlify</a>
+<br />Diakses tanggal: 2019/01/28</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://addy-dclxvi.github.io" target="_blank">addy-dclxvi</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

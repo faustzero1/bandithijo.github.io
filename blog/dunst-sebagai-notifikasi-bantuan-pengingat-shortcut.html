@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, i3wm">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap." />
+<meta property="og:description" content="Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap." />
+<link rel="canonical" href="https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut" />
+<meta property="og:url" content="https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-20T10:45:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut"},"description":"Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap.","url":"https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut","@type":"BlogPosting","headline":"Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut","dateModified":"2019-02-20T10:45:00+08:00","datePublished":"2019-02-20T10:45:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/02/20</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Dunst sebagai notifikasi bantuan pengingat shortcut
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#i3wm">I3WM</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#sekenario">Sekenario</a></li>
+  <li><a href="#eksekusi">Eksekusi</a>
+    <ul>
+      <li><a href="#membuat-script-file-browser">Membuat Script File Browser</a></li>
+      <li><a href="#membuat-script-dunstify">Membuat Script Dunstify</a></li>
+      <li><a href="#membuat-daftar-keyboard-shortcut">Membuat Daftar Keyboard Shortcut</a></li>
+    </ul>
+  </li>
+  <li><a href="#hasilnya">Hasilnya</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Sudah ada versi yang lebih baru dari topik ini.</p>
+    <p>Silahkan mengunjungi alamat di bawah.</p>
+    <p>"<a href="https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2">Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)</a>"</p>
+  </div></div>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sebenarnya agak malu menuliskan dokumentasi kali ini. Karena merasa algoritma pemecahan solusinya terlalu bertele-tele. Hihihi. Tapi ah sudahlah! Namanya juga belajar.</p>
+
+<p>Mungkin sebagian dari teman-teman yang menggunakan <em>environment</em> sistem yang mirip seperti saya, pernah mengalami “lupa” terhadap beberapa <em>keyboard shortcut</em> yang jarang digunakan.</p>
+
+<p>Hal ini sangat wajar – setidaknya menurut saya. Karena <em>environment</em> kami dalam menggunakan aplikasi mengharuskan untuk menggunakan <em>keyboard shortcut</em>.</p>
+
+<p>Sebentar…</p>
+
+<p>Mungkin ada beberapa dari teman-teman yang belum mengerti. <em>Environment</em> seperti apa sih itu?</p>
+
+<ol>
+  <li><strong>i3 Window Manager</strong></li>
+  <li><strong>Tmux</strong></li>
+  <li><strong>Vim</strong></li>
+  <li><strong>Ranger</strong></li>
+  <li><strong>Neomutt</strong></li>
+  <li><strong>Newsboat</strong></li>
+  <li><strong>MPV</strong></li>
+  <li><strong>st Terminal</strong></li>
+  <li>dst…</li>
+</ol>
+
+<p>Di atas adalah contoh dari beberapa aplikasi yang memiliki konfigurasi <em>keyboard shortcut</em> agar dapat digunakan.</p>
+
+<p>Memang tidak semua kita gunakan dan kita perlukan.</p>
+
+<p>Maka dari itu, tujuan tulisan kali ini adalah untuk memecahkan permasalahan <strong>apabila kita mengalami kelupaan dan tidak ingin repot membuka <code class="language-plaintext highlighter-rouge">man</code> (manual) dari aplikasi tersebut</strong>. Cukup dengan membuat <em>script</em> sederhana untuk memanggil “catatan” berisi <em>keyboard shortcut</em> yang sudah kita rangkum sebelumnya.</p>
+
+<p>Sangat memudahkan sekali (menurut saya). Hehe.</p>
+
+<h1 id="sekenario">Sekenario</h1>
+
+<p>Ada banyak sekali <em>blueprint</em> yang terpikirkan, namun untuk saat ini, saya menggunakan cara yang akan saya tuliskan ini terlebih dahulu.</p>
+
+<p>Karena daripada menunggu sampai berhasil menerapkan rancangan yang ideal namun tidak sempat menuliskan proses awalnya. Saya memutuskan untuk langsung menuliskan catatan di blog ini.</p>
+
+<p>Sekenarionya secara sederhana akan seperti ini:</p>
+
+<ol>
+  <li>Membuat Shell <em>script</em> yang digunakan untuk menampilkan isi dari sebuah direktori, sekaligus dapat mengeksekusi isi file yang ada di dalamnya apabila dipilih.</li>
+  <li>Membuat Shell <em>script</em> yang digunakankan untuk memanggil <code class="language-plaintext highlighter-rouge">dunstify</code> yang akan menampilkan file text yang berisi daftar <em>keyboard shortcut</em>.</li>
+  <li>Membuat file text berisi daftar <em>keyboard shortcut</em>.</li>
+</ol>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<h2 id="membuat-script-file-browser">Membuat Script File Browser</h2>
+
+<p>Pada tahap ke-1 ini, saya menyebut ini sebagai <strong>file browser</strong> karena secara global memang menggunakan perintah <code class="language-plaintext highlighter-rouge">ls</code> yang berarti <em>list</em> atau daftar. Namun dengan menambahkan kemampuan untuk eksekusi file yang dipilih.</p>
+
+<ol>
+  <li>
+    <p>Buat file bernama <code class="language-plaintext highlighter-rouge">help-script-browser.sh</code>.</p>
+
+    <p>Saya memilih untuk meletakannya pada direktori <code class="language-plaintext highlighter-rouge">~/.config/rofi/</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>cd ~/.config/rofi</b><br /><span class="cmd">$ </span><b>touch help-script-browser.sh</b><br /><span class="cmd">$ </span><b>chmod +x help-script-browser.sh</b><br /><span class="cmd">$ </span><b>vim help-script-browser.sh</b><br /></pre>
+
+    <p>Isikan di dalamnya seperti ini.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/env sh</span>
+
+<span class="c"># direktori target tempat script dunstify berada</span>
+<span class="nv">helpDir</span><span class="o">=</span>~/.config/rofi-help
+
+<span class="c"># untuk menghandle argument</span>
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+</span><span class="nv">helpDir</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">/</span><span class="nv">$@</span><span class="s2">"</span>
+<span class="k">fi</span>
+
+<span class="c"># untuk menghandle apabila argument bukan merupakan direktori</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span>coproc <span class="o">(</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> &amp; <span class="o">&gt;</span> /dev/null  2&gt;&amp;1 <span class="o">)</span>
+    <span class="nb">exit</span><span class="p">;</span>
+<span class="k">fi</span>
+
+<span class="c"># proses direktori target</span>
+<span class="nv">helpDir</span><span class="o">=</span><span class="si">$(</span><span class="nb">readlink</span> <span class="nt">-e</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span><span class="si">)</span>
+<span class="nb">pushd</span> <span class="s2">"</span><span class="k">${</span><span class="nv">helpDir</span><span class="k">}</span><span class="s2">"</span> <span class="o">&gt;</span>/dev/null
+
+<span class="c"># tampilkan hanya shell script kecuali file text</span>
+<span class="nb">ls</span> <span class="nt">--group-directories-first</span> <span class="nt">--hide</span><span class="o">=</span><span class="s2">"keybinds-*"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Apabila teman-teman menggunakan <strong>i3wm</strong> dan <strong>Rofi</strong>, tinggal kita buatkan konfigurasi <code class="language-plaintext highlighter-rouge">bindkey</code> nya saja. Pada konfigurasi i3wm.</p>
+
+    <pre><span class="cmd">$ </span><b>vim ~/.config/i3/config</b><br /></pre>
+
+    <p>Tambahkan seperti ini, kira-kira.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ...</span>
+<span class="c"># ...</span>
+
+<span class="c"># Keybind Bantuan</span>
+bindsym <span class="nv">$mod</span>+F10 <span class="nb">exec</span> <span class="nt">--no-startup-id</span> rofi <span class="nt">-modi</span> <span class="s2">"KEYBINDS:~/.config/rofi/help-script-browser.sh"</span> <span class="nt">-show</span> KEYBINDS <span class="nt">-lines</span> 6 <span class="nt">-width</span> 300
+</code></pre></div>    </div>
+
+    <p>Dapat dilihat bahwa saya meletakkannya pada <kbd>SUPER</kbd>+<kbd>F10</kbd>.</p>
+
+    <p>Silahkan menyesuaikan dengan preferensi masing-masing.</p>
+
+    <p>Tahap ke-1, telah selesai.</p>
+  </li>
+</ol>
+
+<h2 id="membuat-script-dunstify">Membuat Script Dunstify</h2>
+
+<p>Pada tahap ke-2, saya akan membuat Shell <em>script</em> yang akan berpasangan dengan file text berisi daftar <em>keyboard shortcut</em>.</p>
+
+<p>Jadi, pada tahap ini, satu Shell <em>script</em> mewakili satu file text.</p>
+
+<p>Misalnya,</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><center>Shell Script</center></th>
+      <th style="text-align: left"><center>File Text</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">i3 Window Manager.sh</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">keybinds-i3.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">MPV Video Player.sh</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">keybinds-mpv.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">VIM Text Editor.sh</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">keybinds-vim.txt</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dst…</td>
+      <td style="text-align: left">dst…</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>
+    <p>Buat direktori khusus untuk menyimpan Shell <em>script</em> ini. Saya akan memilih membuat direktori baru dengan nama <code class="language-plaintext highlighter-rouge">~/.config/rofi-help/</code>.</p>
+
+    <pre><span class="cmd">$ </span><b>mkdir -p ~/.config/rofi-help</b><br /></pre>
+  </li>
+  <li>
+    <p>Buat file Shell <em>script</em> dari <em>keyboard shortcut</em> yang akan kita gunakan.</p>
+
+    <p>Misalkan i3wm. Namun, jangan berikan ekstensi <code class="language-plaintext highlighter-rouge">.sh</code> agar tampilannya lebih rapi.</p>
+
+    <pre><span class="cmd">$ </span><b>cd ~/.config/rofi-help</b><br /><span class="cmd">$ </span><b>touch "I3WM Window Manager"</b><br /><span class="cmd">$ </span><b>chmod +x "I3WM Window Manager"</b><br /><span class="cmd">$ </span><b>vim "I3 Window Manager"</b><br /></pre>
+
+    <p>Kemudian isikan seperti ini.</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/env sh</span>
+dunstify <span class="s2">"i3WM KEYBINDS:"</span> <span class="s2">"</span><span class="sb">`</span><span class="nb">tail</span> <span class="nt">-n</span> 50 <span class="nv">$HOME</span>/.config/rofi-help/keybinds-i3<span class="sb">`</span><span class="s2">"</span>
+</code></pre></div>    </div>
+
+    <p>Shell <em>script</em> di atas, memanggil file text dengan nama <code class="language-plaintext highlighter-rouge">keybinds-i3</code> yang akan kita buat setelah ini.</p>
+  </li>
+</ol>
+
+<h2 id="membuat-daftar-keyboard-shortcut">Membuat Daftar Keyboard Shortcut</h2>
+
+<p>Pada tahap ke-3, kita perlu membuat file text yang berisi daftar dari <em>keyboard shortcut</em>.</p>
+
+<p>Saya akan melanjutkan proses di atas. Yaitu membuat file text untuk daftar <em>keyboard shortcut</em> dari i3wm.</p>
+
+<ol>
+  <li>
+    <p>Masih pada direktori sebelumnya, yaitu di <code class="language-plaintext highlighter-rouge">~/.config/rofi-help/</code>.</p>
+
+    <p>Buat file text dengan nama yang relevan dengan Shell <em>script</em> yang kita buat di atas.</p>
+
+    <p>Dalam konteks ini, kita sedang membuat untuk daftar <em>keyboard shortcut</em> dari i3wm.</p>
+
+    <pre><span class="cmd">$ </span><b>touch keybinds-i3</b><br /></pre>
+
+    <p><strong>Perhatian!</strong> Saya menggunakan aturan penamaan yang sama pada setiap file text. Yaitu, dengan memberikan awalan <code class="language-plaintext highlighter-rouge">keybinds-</code>.</p>
+
+    <p>Tujuannya agar saat dipanggil dengan program <code class="language-plaintext highlighter-rouge">help-script-browser.sh</code>, semua file yang tidak berawalan <code class="language-plaintext highlighter-rouge">keybinds-</code>, tidak ikut ditampilkan di dalam rofi.</p>
+  </li>
+  <li>
+    <p>Selanjutnya tinggal mengisi daftar dari <em>keyboard shortcut</em> dari i3wm yang kita perlukan.</p>
+
+    <p>Sebagai contoh, ini adalah beberapa daftar <em>keyboard shortcut</em> i3wm yang saya perlukan.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;b&gt;LAUNCHER--------------------------------&lt;/b&gt;
+mod+Enter          Terminal
+mod+Shift+End      Sessions Dialog
+mod+Shift+x        Lock Screen
+mod+Shift+q        Kill Window Focus
+mod+Shift+r        Restart i3 Config
+mod+d              Rofi: App Launcher
+mod+Tab            Rofi: Window Switcher
+mod+/              Rofi: Help
+mod+p              Rofi: Clipboard
+mod+Shift+p        Clipboard Cleared
+mod+Print          Screenshot Silently
+mod+Shift+Print    Screenshot GUI
+mod+F7             Arandr
+mod+F8             Wifi ON/OFF [T]
+&lt;b&gt;LAYOUT----------------------------------&lt;/b&gt;
+mod+s              Layout: Stacking
+mod+w              Layout: Tabbed
+mod+e              layout: Split [T]
+mod+b              Split Horizontal
+mod+v              Split Vertical
+mod+o              Blank Space
+&lt;b&gt;WINDOW----------------------------------&lt;/b&gt;
+mod+f              Fullscreen Window [T]
+mod+r              Resize Window
+mod+Shift+Plus     Sticky Window [T]
+mod+Shift+Minus    Scratchpad Mode [T]
+mod+Minus          Scratchpad Show [T]
+mod+Shift+Space    Floating Window [T]
+mod+Space          Change Focus [T]
+mod+a              Focus Parent
+mod+Shidt+a        Focus Child
+&lt;b&gt;BORDER----------------------------------&lt;/b&gt;
+mod+t              Border Normal 1
+mpd+shift+t        Border Normal 0
+mod+y              Border None
+mod+shift+y        Border Pixer 1
+&lt;b&gt;WALLPAPER-------------------------------&lt;/b&gt;
+mod+F5             Blogging Mode
+mod+F6             Unixporn Mode
+</code></pre></div>    </div>
+
+    <p>Tinggi dari notifikasi ini tidak kurang dari 50 baris dan lebarnya tidak lebih dari 40 karakter.</p>
+
+    <p>Pengaturan lebar dari notifikasi <strong>Dunst</strong> ini akan berbeda setiap dari teman-teman. Bergantung pada konfigurasi lebar notifikasi dunst yang teman-teman pergunakan (pada <code class="language-plaintext highlighter-rouge">dunstrc</code> bagian <code class="language-plaintext highlighter-rouge">geometry = </code>).</p>
+
+    <p>Contoh-contoh daftar <em>keboard shortcut</em> yang saya pergunakan dapat di lihat pada dotfiles milik saya, <a href="https://github.com/bandithijo/dotfiles/tree/master/.config/rofi-help" target="_blank">di sini</a>.</p>
+  </li>
+</ol>
+
+<p><br />
+Silahkan menambahkan menambahkan sendiri untuk membuat daftar <em>keyboard shortcut</em> aplikasi yang lain. Dengan mengulang tahap ke-2 dan ke-3.</p>
+
+<h1 id="hasilnya">Hasilnya</h1>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/vZsSj7b9/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Demonstrasi hasil akhir dari semua proses di atas</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Saya menyadari bahwa masih terdapat banyak kekurangan dari metode yang saya gunakan untuk membuat “bantuan pengingat <em>keyboard shortcut</em>” ini. Sehingga tidak menutup kemungkinan pada kesempatan berikutnya akan ada metode lain yang saya tulisakan kembali.</p>
+
+<p>Mudah-mudahan catatan saya yang sederhana ini dapat memberikan inspirasi kepada teman-teman untuk membuat metode yang lebih baik.</p>
+
+<p>Saya rasa, seperti ini saja.</p>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="arch linux, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Menyeragamkan Theme Qt dan GTK+ pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Menyeragamkan Theme Qt dan GTK+ pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?" />
+<meta property="og:description" content="Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?" />
+<link rel="canonical" href="https://bandithijo.dev/blog/menyeragamkan-theme-qt-gtk-arch-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/menyeragamkan-theme-qt-gtk-arch-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-04T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/menyeragamkan-theme-qt-gtk-arch-linux"},"description":"Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?","url":"https://bandithijo.dev/blog/menyeragamkan-theme-qt-gtk-arch-linux","@type":"BlogPosting","headline":"Menyeragamkan Theme Qt dan GTK+ pada Arch Linux","dateModified":"2018-01-04T00:00:00+08:00","datePublished":"2018-01-04T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Menyeragamkan Theme Qt dan GTK+ pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/menyeragamkan-theme-qt-gtk-arch-linux">Menyeragamkan Theme Qt dan GTK+ pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/01/04</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Menyeragamkan theme qt gtk arch linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#prasyarat">Prasyarat</a></li>
+  <li><a href="#penerapan">Penerapan</a>
+    <ul>
+      <li><a href="#global">Global</a>
+        <ul>
+          <li><a href="#gtk">GTK+</a></li>
+          <li><a href="#qt5">Qt5</a></li>
+        </ul>
+      </li>
+      <li><a href="#specific-apps">Specific Apps</a>
+        <ul>
+          <li><a href="#gtk3">GTK+3</a></li>
+          <li><a href="#gtk2">GTK+2</a></li>
+          <li><a href="#qt5-1">Qt5</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://3.bp.blogspot.com/-rVnxY2exXrI/WmWg56pxTKI/AAAAAAAAG8w/_9tne4RcflQOM7Y0g_WXL_EhKQ7iWmZzQCLcBGAs/s1600/Default%2BHeader%2BTemplate%2BPost%2B2X.png" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Sebagai pengguna GNU/Linux, tentu pernah mendapati beberapa aplikasi membawa <em>default theme</em> yang terkadang tidak sesuai dengan <em>theme</em> yang sedang kita gunakan. Sekedar informasi sedikit, tampilan <em>engine</em> untuk GUI (<em>Graphical User Interface</em>) pada GNU/Linux yang banyak digunakan biasanya <strong>GTK+</strong> atau <strong>Qt</strong>. GTK+ biasanya digunakan oleh aplikasi yang dipaketkan bersama Gnome, sedangkan Qt biasanya digunakan oleh aplikasi yang dipaketkan bersama KDE.</p>
+
+<p>Sekitar tahun 2005, saya masih merasakan KDE sebelum versi KDE 4. Disaat itu , saya benar-benar jatuh cinta dengan <em>Desktop Environment</em> ini. Namun begitu memasuki KDE 4, yang saya masih ingat disaat itu adalah kepopuleran UI (<em>User Interface</em>) yang berdesain <em>glass look</em>. Saya tidak begitu menyukai desain-desain bergaya <em>glass look</em> ini. Sekitar tahun 2009, saya mulai beralih menggunakan Ubuntu dengan Gnome yang menggunakan <em>engine</em> GTK+, saya merasa cocok dengan tampilan UI dari GTK+ ini, hingga sekarang (2018). Meskipun saat ini saya sudah tidak menggunakan Gnome, tapi saya masih lebih memilih menggunakan paket-paket program aplikasi yang menggunakan GTK+.</p>
+
+<p>Karena alasan tersebut di atas yang mendorong saya untuk menuliskan dokumentasi ini, bagaimana saya mengadaptasikan apikasi yang menggunakan <em>engine</em> Qt agar terlihat seperti aplikasi <em>native</em> GTK+. Sekaligus juga bagaimana mengganti <em>theme</em> hanya pada aplikasi tertentu saja.</p>
+
+<h1 id="prasyarat">Prasyarat</h1>
+<p>Ada beberapa paket yang perlu kita sediakan untuk menunjang pengaturan ini. Beberapa paket ini mungkin tidak langsung dipasang secara <em>default</em> pada distro Arch Linux kalian. Paket-paket tersebut adalah :</p>
+<ol>
+  <li><a href="https://aur.archlinux.org/packages/adwaita-qt4/" target="_blank"><code class="language-plaintext highlighter-rouge">adwaita-qt4</code></a> (AUR) *</li>
+  <li><a href="https://aur.archlinux.org/packages/adwaita-qt5/" target="_blank"><code class="language-plaintext highlighter-rouge">adwaita-qt5</code></a> (AUR) *</li>
+  <li><a href="https://www.archlinux.org/packages/community/x86_64/qt5ct/" target="_blank"><code class="language-plaintext highlighter-rouge">qt5ct</code></a></li>
+</ol>
+
+<p>Paket <em>optional</em> ( * ), tidak wajib dipasang.</p>
+
+<p>Kalian dapat melihat bahwa saya juga memasang <em>theme</em> <code class="language-plaintext highlighter-rouge">adwaita-qt4</code> dan <code class="language-plaintext highlighter-rouge">adwaita-qt5</code>, karena saya menyukai <em>theme</em> Adwaita. Jadi untuk kedua paket ini bersifat <em>optional</em>.</p>
+
+<p>Sedangkan paket <code class="language-plaintext highlighter-rouge">qt5ct</code> adalah paket wajib yang akan kita gunakan untuk mengatur <em>environtment</em> GUI untuk semua aplikasi yang menggunakan Qt5. Untuk aplikasi yang menggunakan Qt4, terdapat aplikasi bernama <code class="language-plaintext highlighter-rouge">qtconfig-qt4</code>, namun sepertinya palikasi ini sudah jadi satu <em>bundle</em> apabila memasang <em>engine</em> Qt4. Saya kurang begitu paham.</p>
+
+<p>Pasang paket-paket yang dibutuhkan. Paket wajib,</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S qt5ct</b><br /></pre>
+
+<p>Paket tambahan,</p>
+
+<pre><span class="cmd">$ </span><b>pacaur -S adwaita-qt4 adwaita-qt5</b><br /></pre>
+
+<p>Atau</p>
+
+<pre><span class="cmd">$ </span><b>yaourt adwaita-qt4; yaourt adwaita-qt5</b><br /></pre>
+
+<h1 id="penerapan">Penerapan</h1>
+<p>Kita dapat melakukan dua macam konfigurasi. Penerapan konfigurasi secara global atau penerapan hanya pada aplikasi tertentu.</p>
+
+<h2 id="global">Global</h2>
+<h3 id="gtk">GTK+</h3>
+<p>Karena saya sudah menggunakan <em>desktop environment</em> yang mayoritas menggunakan <em>engine</em> GTK+, baik 2 maupun 3, makan untuk konfigurasi global, saya cukup menggunakan <em>Settings</em> atau <em>Preferences</em> yang disediakan oleh <em>desktop environment</em> untuk mengganti <em>theme</em> yang saya mau. Selain itu juga dapan menggunakan aplikasi bernama <a href="https://www.archlinux.org/packages/community/x86_64/lxappearance/" target="_blank"><code class="language-plaintext highlighter-rouge">lxappearance</code></a>.</p>
+
+<h3 id="qt5">Qt5</h3>
+<p>Untuk penerapan konfigurasi ini, dampaknya adalah semua aplikasi yang menggunakan <em>engine</em> Qt5 akan terpengaruh.</p>
+
+<p>Konfigurasinya cukup mudah karena kita menggunakan aplikasi GUI yang bernama Qt5 Settings (<code class="language-plaintext highlighter-rouge">qt5ct</code>).</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://1.bp.blogspot.com/-qTQQ9JJm6JU/WmWjOErMKhI/AAAAAAAAG9I/1-Ny_Rsw5i8IhlsqRTytmPH8MAh1qilwwCLcBGAs/s1600/Screenshot%2Bfrom%2B2018-01-21%2B18-56-24.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Qt5 Settings</p>
+
+<p>Tampilan GUI Qt5 Settings seperti pada Gambar 1. Kalian dapat melihat pada bagian “<em>Style</em>” saya menggunakan Adwaita <em>theme</em>.</p>
+
+<p>Dengan menggunakan Qt5 Settings, kalian dapat mengatur <em>Appearance</em>, <em>Fonts</em>, <em>Icon Theme</em>, <em>Interface</em>, dan <em>Style Sheets</em>.</p>
+
+<p>Qt5 Settings ini sendiri menggunakan <em>engine</em> Qt5, sehingga juga akan ikut terpengaruh terhadap perubahan pengaturan yang dilakukan.</p>
+
+<h2 id="specific-apps">Specific Apps</h2>
+<p>Untuk penerapan konfigurasi pada aplikasi spesifik yang kita inginkan, kita dapat mengaturnya dengan mengedit nilai dari parameter <code class="language-plaintext highlighter-rouge">Exec=</code> pada file <code class="language-plaintext highlighter-rouge">.desktop</code> dari aplikasi tersebut.</p>
+
+<p>Kita perlu menyesuaikan nilai yang kita tulis pada parameter <code class="language-plaintext highlighter-rouge">Exec=</code> sesuai dengan <em>engine</em> yang digunakan oleh aplikasi tersebut. Apakah menggunakan GTK+2, GTK+3, atau Qt5?</p>
+
+<p>Langkah-langkah awalnya sebagai berikut.</p>
+
+<ol>
+  <li>
+    <p><strong>Cek lokasi .desktop</strong></p>
+
+    <p><em>Launcher</em> dari aplikasi biasanya tersimpan pada dua lokasi yang berbeda. Global dan lokal.</p>
+
+    <ul>
+      <li>Global tersimpan pada <code class="language-plaintext highlighter-rouge">/usr/share/applications/</code></li>
+      <li>Lokal tersimpan pada <code class="language-plaintext highlighter-rouge">.local/share/applications/</code></li>
+    </ul>
+
+    <p>Yang akan kita modifikasi adalah <code class="language-plaintext highlighter-rouge">.desktop</code> yang ada pada lokal, jadi kita lakukan pengecekan pada direktori <code class="language-plaintext highlighter-rouge">.local/share/applications/</code> apakah terdapat file bernama <code class="language-plaintext highlighter-rouge">org.gnome.Nautilus.desktop</code>.</p>
+
+    <p>Apabila tidak ditemukan, kita lanjut melakukan pencarian ke lokasi global di <code class="language-plaintext highlighter-rouge">/usr/share/applications/</code>.</p>
+  </li>
+  <li>
+    <p><strong>Copy ke direktori lokal</strong></p>
+
+    <p>Setelah ketemu, <em>copy</em> file <code class="language-plaintext highlighter-rouge">org.gnome.Nautilus.desktop</code> ke direktori lokal yaitu di <code class="language-plaintext highlighter-rouge">.local/share/applications/</code>.</p>
+
+    <!-- PERTANYAAN -->
+    <div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+        <p><b>Mengapa harus dicopy ke direktori local?</b></p>
+        <p>Agar apabila sewaktu-waktu apabila kita memerlukan kembali, kita dapat mengeditnya kembali tanpa memerlukan _sudo permission_. Dengan mecopy ke dalam direktori lokal, maka tidak akan merusak pengaturan `.desktop` asli yang tersimpan pada direktori global.</p>
+        <p>Saya lebih merekomendasikan cara ini.</p>
+      </div></div>
+  </li>
+</ol>
+
+<h3 id="gtk3">GTK+3</h3>
+
+<p>Saya mencontohkan dengan menggunakan aplikasi <code class="language-plaintext highlighter-rouge">nautilus</code>. Kalian dapat mencoba pada aplikasi yang lain. Tentu saja yang juga menggunakan GTK+3.</p>
+
+<p>Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pada baris <a href="/posts/mengatur-theme-qt-gtk-arch-linux#specific-apps">di atas</a>.</p>
+
+<ol>
+  <li>
+    <p><strong>Edit isi .dekstop</strong></p>
+
+    <p>Untuk dapat mengubah pengaturan <em>theme</em> secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari <code class="language-plaintext highlighter-rouge">.desktop</code> aplikasi yang kita ingin ubah.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/org.gnome.Nautilus.desktop</b><br /></pre>
+  </li>
+  <li>
+    <p><strong>Modifikasi nilai dari parameter Exec=</strong></p>
+
+    <p>Cari baris yang berawalan <code class="language-plaintext highlighter-rouge">Exec=</code>, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan <em>engine</em> yang digunakan oleh aplikasi tersebut.</p>
+
+    <blockquote>
+      <p>Untuk aplikasi yang menggunakan GTK+3 tambahkan,</p>
+
+      <p><code>Exec=<mark>env GTK_THEME=namatema</mark> ...</code></p>
+    </blockquote>
+
+    <p>Karena Nautilus adalah aplikasi yang menggunakan GTK+3, maka akan seperti di bawah ini hasilnya.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/org.gnome.Nautilus.desktop</b><br /></pre>
+
+    <div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/applications/org.gnome.Nautilus.desktop</code></div>
+    <pre class="caption">#!/usr/bin/env xdg-open<br />[Desktop Entry]<br />Name=Nautilus<br />...<br />...<br />Exec=<mark>env GTK_THEME=Adwaita</mark> nautilus --new-window %U<br />...<br />...<br /></pre>
+
+    <p>Adwaita juga memiliki <em>dark theme</em>, kita dapat menggunakannya dengan cara seperti ini.</p>
+
+    <pre><span class="cmd">$ </span><b>Exec=<mark>env GTK_THEME=Adwaita-dark</mark> nautilus --new-window %U</b><br /></pre>
+  </li>
+</ol>
+
+<h3 id="gtk2">GTK+2</h3>
+
+<p>Saya mencontohkan dengan menggunakan aplikasi <code class="language-plaintext highlighter-rouge">inkscape</code>. Kalian dapat mencoba pada aplikasi yang lain. Tentu saja yang juga menggunakan GTK+2 seperti <code class="language-plaintext highlighter-rouge">gimp</code> atau <code class="language-plaintext highlighter-rouge">dia</code>.</p>
+
+<p>Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pada baris <a href="/posts/mengatur-theme-qt-gtk-arch-linux#specific-apps">di atas</a>.</p>
+
+<ol>
+  <li>
+    <p><strong>Edit isi .dekstop</strong></p>
+
+    <p>Untuk dapat mengubah pengaturan <em>theme</em> secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari <code class="language-plaintext highlighter-rouge">.desktop</code> aplikasi yang kita ingin ubah.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/inkscape.desktop</b><br /></pre>
+  </li>
+  <li>
+    <p><strong>Modifikasi nilai dari parameter Exec=</strong></p>
+
+    <p>Cari baris yang berawalan <code class="language-plaintext highlighter-rouge">Exec=</code>, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan <em>engine</em> yang digunakan oleh aplikasi tersebut.</p>
+
+    <blockquote>
+      <p>Untuk aplikasi yang menggunakan GTK+2 tambahkan,</p>
+
+      <p><code>Exec=<mark>env GTK2_RC_FILES=/tema_yang_mempunyai/gtkrc</mark> ...</code></p>
+    </blockquote>
+
+    <p>Karena Inkscape adalah aplikasi yang menggunakan GTK+2, maka akan seperti di bawah ini hasilnya.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/inkscape.desktop</b><br /></pre>
+
+    <div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/applications/inkscape.desktop</code></div>
+    <pre class="caption">[Desktop Entry]<br />Name=Inkscape<br />...<br />...<br />Exec=<mark>env GTK2_RC_FILES=/usr/share/themes/NumixSolarizedLightBlue/gtk-2.0/gtkrc</mark> inkscape %F<br />...<br />...<br /></pre>
+  </li>
+</ol>
+
+<h3 id="qt5-1">Qt5</h3>
+
+<p>Saya akan mencontohkan dengan menggunakan aplikasi <code class="language-plaintext highlighter-rouge">vokoscreen</code>. Kalian dapat mencoba pada aplikasi yang lain. Tentu saja yang juga menggunakan Qt5.</p>
+
+<p>Untuk langkah awal, dapat di lihat pada langkah 1 dan 2 yang sudah dijelaskan pada baris <a href="/posts/mengatur-theme-qt-gtk-arch-linux#specific-apps">di atas</a>.</p>
+
+<ol>
+  <li>
+    <p><strong>Edit isi .dekstop</strong></p>
+
+    <p>Untuk dapat mengubah pengaturan <em>theme</em> secara spesifik pada aplikasi tertentu, kita akan mengedit isi dari <code class="language-plaintext highlighter-rouge">.desktop</code> aplikasi yang kita ingin ubah.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/vokoscreen.desktop</b><br /></pre>
+  </li>
+  <li>
+    <p><strong>Modifikasi nilai dari parameter Exec=</strong></p>
+
+    <p>Cari baris yang berawalan <code class="language-plaintext highlighter-rouge">Exec=</code>, kemudian tambahkan nilai seperti contoh di bawah, sesuai dengan <em>engine</em> yang digunakan oleh aplikasi tersebut.</p>
+
+    <blockquote>
+      <p>Untuk aplikasi yang menggunakan Qt5 tambahkan,</p>
+
+      <p><code>Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> ...</code></p>
+    </blockquote>
+
+    <p>Karena Vokoscreen adalah aplikasi yang menggunakan Qt5, maka akan seperti di bawah ini hasilnya.</p>
+
+    <pre><span class="cmd">$ </span><b>vim .local/share/applications/vokoscreen.desktop</b><br /></pre>
+
+    <div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.local/share/applications/vokoscreen.desktop</code></div>
+    <pre class="caption">[Desktop Entry]<br />Name=vokoscreen<br />...<br />...<br />Exec=<mark>env QT_STYLE_OVERRIDE=Adwaita</mark> vokoscreen<br />...<br />...<br /></pre>
+
+    <!-- PERHATIAN -->
+    <div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+        <p>Saya menggunakan tema Adwaita yang khusus untuk Qt, maka dari itu di awal dokumentasi ini, paket <code class="language-plaintext highlighter-rouge">adwaita-qt4</code> dan <code class="language-plaintext highlighter-rouge">adwaita-qt5</code>, saya ikut sertakan untuk dipasang.</p>
+        <p>Untuk penggunaan tema lain, mungkin bisa menggunakan <code class="language-plaintext highlighter-rouge">breeze</code> atau tema Qt yang lain, saya kurang begitu paham untuk tema-tema yang digunakan pada Qt.</p>
+      </div></div>
+  </li>
+</ol>
+
+<p><br />
+Nah, mudah bukan ?</p>
+
+<p>Kebebasan seperti ini yang membuat saya betah menggunakan sistem operasi GNU/Linux.</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications" target="_blank">wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications</a>
+<br />Diakses tanggal: 2018/01/22</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

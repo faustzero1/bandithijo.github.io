@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Catatan Daftar Terminal Tools | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Catatan Daftar Terminal Tools" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan ini merupakan kumpulan dari daftar nama-nama CLI dan TUI tools yang dapat memudahkan pekerjaan kita sehari-hari." />
+<meta property="og:description" content="Catatan ini merupakan kumpulan dari daftar nama-nama CLI dan TUI tools yang dapat memudahkan pekerjaan kita sehari-hari." />
+<link rel="canonical" href="https://bandithijo.dev/note/catatan-daftar-terminal-tools" />
+<meta property="og:url" content="https://bandithijo.dev/note/catatan-daftar-terminal-tools" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-04T04:17:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/note/catatan-daftar-terminal-tools"},"description":"Catatan ini merupakan kumpulan dari daftar nama-nama CLI dan TUI tools yang dapat memudahkan pekerjaan kita sehari-hari.","url":"https://bandithijo.dev/note/catatan-daftar-terminal-tools","@type":"BlogPosting","headline":"Catatan Daftar Terminal Tools","dateModified":"2021-05-04T04:17:00+08:00","datePublished":"2021-05-04T04:17:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Catatan Daftar Terminal Tools"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="active">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/note/catatan-daftar-terminal-tools"><span class="wiptag_title">WIP:</span> Catatan Daftar Terminal Tools</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/05/04</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/note/">Note</a>
+  
+
+  
+    / Catatan daftar terminal tools
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#system-monitor">System Monitor</a>
+    <ul>
+      <li><a href="#htop">htop</a></li>
+      <li><a href="#gotop">gotop</a></li>
+      <li><a href="#gtop">gtop</a></li>
+      <li><a href="#vtop">vtop</a></li>
+      <li><a href="#ytop">ytop</a></li>
+      <li><a href="#bottom-btm">bottom (btm)</a></li>
+      <li><a href="#bashtop">bashtop</a></li>
+      <li><a href="#bpytop">bpytop</a></li>
+      <li><a href="#glances">glances</a></li>
+      <li><a href="#nmon">nmon</a></li>
+    </ul>
+  </li>
+  <li><a href="#disk-monitor">Disk Monitor</a>
+    <ul>
+      <li><a href="#vizex">vizex</a></li>
+    </ul>
+  </li>
+  <li><a href="#network-monitor">Network Monitor</a>
+    <ul>
+      <li><a href="#iftop">iftop</a></li>
+      <li><a href="#nethogs">nethogs</a></li>
+      <li><a href="#gping">gping</a></li>
+      <li><a href="#prettyping">prettyping</a></li>
+      <li><a href="#wavemon">wavemon</a></li>
+    </ul>
+  </li>
+  <li><a href="#torrent-client">Torrent Client</a>
+    <ul>
+      <li><a href="#tremc">tremc</a></li>
+    </ul>
+  </li>
+  <li><a href="#git-client">Git Client</a>
+    <ul>
+      <li><a href="#lazygit">lazygit</a></li>
+      <li><a href="#tig">tig</a></li>
+    </ul>
+  </li>
+  <li><a href="#docker-client">Docker Client</a>
+    <ul>
+      <li><a href="#lazydocker">lazydocker</a></li>
+    </ul>
+  </li>
+  <li><a href="#font">Font</a>
+    <ul>
+      <li><a href="#fontpreview-ueberzug">fontpreview-ueberzug</a></li>
+    </ul>
+  </li>
+  <li><a href="#science">Science</a>
+    <ul>
+      <li><a href="#periodic-table-tui">periodic-table-tui</a></li>
+    </ul>
+  </li>
+  <li><a href="#messaging">Messaging</a>
+    <ul>
+      <li><a href="#weechat-irc-client">Weechat (IRC Client)</a></li>
+    </ul>
+  </li>
+  <li><a href="#audio-mixer">Audio Mixer</a>
+    <ul>
+      <li><a href="#ncpamixer">ncpamixer</a></li>
+      <li><a href="#pulsemixer">pulsemixer</a></li>
+    </ul>
+  </li>
+  <li><a href="#audio-player">Audio Player</a>
+    <ul>
+      <li><a href="#cmus">cmus</a></li>
+      <li><a href="#ncmpcpp">ncmpcpp</a></li>
+      <li><a href="#mpd">mpd</a></li>
+    </ul>
+  </li>
+  <li><a href="#video-player">Video Player</a>
+    <ul>
+      <li><a href="#youtube-dl">youtube-dl</a></li>
+      <li><a href="#youtube-viewer">youtube-viewer</a></li>
+      <li><a href="#ytfzf">ytfzf</a></li>
+    </ul>
+  </li>
+  <li><a href="#battery-monitor">Battery Monitor</a>
+    <ul>
+      <li><a href="#battop">battop</a></li>
+    </ul>
+  </li>
+  <li><a href="#rss-reader">RSS Reader</a>
+    <ul>
+      <li><a href="#newsboat">newsboat</a></li>
+    </ul>
+  </li>
+  <li><a href="#email-client">Email Client</a>
+    <ul>
+      <li><a href="#neomutt">neomutt</a></li>
+    </ul>
+  </li>
+  <li><a href="#file-manager">File Manager</a>
+    <ul>
+      <li><a href="#ranger">ranger</a></li>
+      <li><a href="#lf">lf</a></li>
+      <li><a href="#nnn">nnn</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="prakata">Prakata</h1>
+
+<p>Seperti yang teman-teman ketahui, sebenarnya ada banyak sekali nama-nama CLI dan TUI tools yang dapat kita gunakan untuk mempermudah pekerjaan kita sehari-hari, tidak hanya dalam hal monitoring.</p>
+
+<p>Yang sangat terkenal dan sangat serig kita lihat dipajang di setiap desktop-desktop yang melakukan “show-off” adalah <strong>htop</strong>, <strong>neofetch</strong>, <strong>ranger</strong>, <strong>pipes</strong>, <strong>cmatrix</strong>, dan masih banyak lagi. Nama-nama tersebut, baru sebagian kecil saja.</p>
+
+<p>Catatan ini hadir, dari penulis untuk teman-teman, sebagai catatan untuk mengingatkan penulis akan nama-nama tools-tools tersebut. Karena, apabila tidak sering digunakan, mesti akan terlupakan, dan ketika diperlukan, perlu waktu untuk mengingatnya kembali.</p>
+
+<h1 id="system-monitor">System Monitor</h1>
+
+<h2 id="htop">htop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-htop" data-echo="https://i.postimg.cc/bwj3RHrR/gambar-htop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>An interactive process viewer</p>
+
+<p>htop is a cross-platform interactive process viewer.</p>
+
+<p>htop allows scrolling the list of processes vertically and horizontally to see their full command lines and related information like memory and CPU consumption.</p>
+
+<p>The information displayed is configurable through a graphical setup and can be sorted and filtered interactively.</p>
+
+<p>Tasks related to processes (e.g. killing and renicing) can be done without entering their PIDs.</p>
+
+<p><a href="https://github.com/htop-dev/htop" target="_blank">https://github.com/htop-dev/htop</a></p>
+
+<h2 id="gotop">gotop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-gotop" data-echo="https://i.postimg.cc/15gDNgKr/gambar-gotop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Another terminal based graphical activity monitor, inspired by gtop and vtop, this time written in Go!</p>
+
+<p><a href="https://github.com/xxxserxxx/gotop" target="_blank">https://github.com/xxxserxxx/gotop</a></p>
+
+<h2 id="gtop">gtop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-gtop" data-echo="https://i.postimg.cc/Wbr6HFJb/gambar-gtop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>System monitoring dashboard for terminal.</p>
+
+<p><a href="https://github.com/aksakalli/gtop" target="_blank">https://github.com/aksakalli/gtop</a></p>
+
+<h2 id="vtop">vtop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-vtop" data-echo="https://i.postimg.cc/yYzSWfks/gambar-vtop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Wow such top. So stats. More better than regular top.</p>
+
+<p>A graphical activity monitor for the command line.</p>
+
+<p><a href="https://github.com/MrRio/vtop" target="_blank">https://github.com/MrRio/vtop</a></p>
+
+<h2 id="ytop">ytop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-ytop" data-echo="https://i.postimg.cc/W4J2GvHK/gambar-ytop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>A TUI system monitor written in Rust.</p>
+
+<p><a href="https://github.com/cjbassi/ytop" target="_blank">https://github.com/cjbassi/ytop</a></p>
+
+<p>NO LONGER MAINTAINED. For a similar program, check out.<br />
+<a href="https://github.com/ClementTsang/bottom" target="_blank">https://github.com/ClementTsang/bottom</a></p>
+
+<h2 id="bottom-btm">bottom (btm)</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-bottom" data-echo="https://i.postimg.cc/59mfqpsx/gambar-bottom.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Yet another cross-platform graphical process/system monitor.</p>
+
+<p>A cross-platform graphical process/system monitor with a customizable interface and a multitude of features. Supports Linux, macOS, and Windows. Inspired by both gtop and gotop.</p>
+
+<p><a href="https://github.com/ClementTsang/bottom" target="_blank">https://github.com/ClementTsang/bottom</a></p>
+
+<h2 id="bashtop">bashtop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-bashtop" data-echo="https://i.postimg.cc/pL3vXSLB/gambar-bashtop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Linux/OSX/FreeBSD resource monitor.</p>
+
+<p>Notice, python version released! (<a href="https://github.com/aristocratos/bpytop" target="_blank">bpytop</a>) Please get this instead.</p>
+
+<p><a href="https://github.com/aristocratos/bashtop" target="_blank">https://github.com/aristocratos/bashtop</a></p>
+
+<h2 id="bpytop">bpytop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-bpytop" data-echo="https://i.postimg.cc/nzZ6Xfbq/gambar-bpytop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Linux/OSX/FreeBSD resource monitor.</p>
+
+<p>Resource monitor that shows usage and stats for processor, memory, disks, network and processes.</p>
+
+<p>Python port and continuation of bashtop.</p>
+
+<p><a href="https://github.com/aristocratos/bpytop" target="_blank">https://github.com/aristocratos/bpytop</a></p>
+
+<h2 id="glances">glances</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-galnces" data-echo="https://i.postimg.cc/yxp5pJJT/gambar-glances.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Glances an Eye on your system. A top/htop alternative for GNU/Linux, BSD, Mac OS and Windows operating systems.</p>
+
+<p>Glances is a cross-platform monitoring tool which aims to present a large amount of monitoring information through a curses or Web based interface. The information dynamically adapts depending on the size of the user interface.</p>
+
+<p><a href="https://github.com/nicolargo/glances" target="_blank">https://github.com/nicolargo/glances</a></p>
+
+<h2 id="nmon">nmon</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-nmon-01" data-echo="https://i.postimg.cc/cJWDm79S/gambar-nmon-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-nmon-02" data-echo="https://i.postimg.cc/FKxTnf8J/gambar-nmon-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>nmon is short for Nigel’s performance Monitor for Linux on POWER, x86, x86_64, Mainframe &amp; now ARM (Raspberry Pi).</p>
+
+<p>This systems administrator, tuner, benchmark tool gives you a huge amount of important performance information in one go. It can output the data in two ways:</p>
+
+<ol>
+  <li>
+    <p><strong>On screen</strong> (console, telnet, VNC, putty or X Windows) using curses for low CPU impact which is updated once every two seconds.</p>
+  </li>
+  <li>
+    <p><strong>Save the data to a comma separated file</strong> for analysis and longer term data capture.</p>
+  </li>
+</ol>
+
+<p><a href="http://nmon.sourceforge.net/pmwiki.php" target="_blank">http://nmon.sourceforge.net/pmwiki.php</a></p>
+
+<h1 id="disk-monitor">Disk Monitor</h1>
+
+<h2 id="vizex">vizex</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-vizex" data-echo="https://i.postimg.cc/1zDSjKr5/gambar-vizex.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Visualize disk space and disk usage in your UNIX\Linux terminal</p>
+
+<p>vizex is the terminal program for the UNIX/Linux systems which helps the user to visualize the disk space usage for every partition and media on the user’s machine. vizex is highly customizable and can fit any user’s taste and preferences.</p>
+
+<p><a href="https://github.com/bexxmodd/vizex" target="_blank">https://github.com/bexxmodd/vizex</a></p>
+
+<h1 id="network-monitor">Network Monitor</h1>
+
+<h2 id="iftop">iftop</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-iftop" data-echo="https://i.postimg.cc/rmPrFhT1/gambar-iftop.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Display bandwidth usage on an interface.</p>
+
+<p>iftop does for network usage what top(1) does for CPU usage. It listens to network traffic on a named interface and displays a table of current bandwidth usage by pairs of hosts. Handy for answering the question “why is our ADSL link so slow?”.</p>
+
+<p><a href="http://www.ex-parrot.com/pdw/iftop/" target="_blank">http://www.ex-parrot.com/pdw/iftop/</a></p>
+
+<p><a href="https://code.blinkace.com/pdw/iftop" target="_blank">https://code.blinkace.com/pdw/iftop</a></p>
+
+<h2 id="nethogs">nethogs</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gmabar-htop" data-echo="https://i.postimg.cc/L6Pxf09X/gambar-nethogs.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Net top tool grouping bandwidth per process.</p>
+
+<p>NetHogs is a small ‘net top’ tool. Instead of breaking the traffic down per protocol or per subnet, like most tools do, it groups bandwidth by process.</p>
+
+<p><a href="https://github.com/raboof/nethogs" target="_blank">https://github.com/raboof/nethogs</a></p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Untuk “unknown TCP” dapat dibaca di sini.</p>
+
+    <p>The “Nethogs” package will always show a fake process called “unknown TCP”, that corresponds to everything it can’t identify. Notice that it doesn’t have a process ID, and the amount of data is shown as 0, indicating that there isn’t any unknown traffic.</p>
+
+    <p>Here’s the line from the nethogs source code where that line gets initialised:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unknowntcp = new Process (0, "", "unknown TCP");
+</code></pre></div>    </div>
+
+    <p>(<a href="http://archive.ubuntu.com/ubuntu/pool/universe/n/nethogs/nethogs_0.8.0-1.debian.tar.gz" target="_blank">Source code download </a>, look in process.cpp)
+&lt;/p&gt;</p>
+  </div></div>
+
+<h2 id="gping">gping</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-gping" data-echo="https://i.postimg.cc/85sHCZXT/gambar-gping.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Ping, but with a graph.</p>
+
+<p><a href="https://github.com/orf/gping" target="_blank">https://github.com/orf/gping</a></p>
+
+<h2 id="prettyping">prettyping</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-prettyping" data-echo="https://i.postimg.cc/rwqVqFR3/gambar-prettyping.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>prettyping is a wrapper around the standard ping tool with the objective of making the output prettier, more colorful, more compact, and easier to read.</p>
+
+<p><a href="https://github.com/denilsonsa/prettyping" target="_blank">https://github.com/denilsonsa/prettyping</a></p>
+
+<h2 id="wavemon">wavemon</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-wavemon-01" data-echo="https://i.postimg.cc/N08h4jQK/gambar-wavemon-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-wavemon-02" data-echo="https://i.postimg.cc/k5P3KbPr/gambar-wavemon-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-wavemon-03" data-echo="https://i.postimg.cc/9Mc6NHfJ/gambar-wavemon-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>wavemon is an ncurses-based monitoring application for wireless network devices on Linux.</p>
+
+<p>wavemon is a wireless device monitoring application that allows you to watch signal and noise levels, packet statistics, device configuration and network parameters of your wireless network hardware. It should work (though with varying features) with all devices supported by the Linux kernel.</p>
+
+<p><a href="https://github.com/uoaerg/wavemon" target="_blank">https://github.com/uoaerg/wavemon</a></p>
+
+<h1 id="torrent-client">Torrent Client</h1>
+
+<h2 id="tremc">tremc</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tremc-01" data-echo="https://i.postimg.cc/13xYj1Cw/gambar-tremc-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tremc-02" data-echo="https://i.postimg.cc/K8nsXpwV/gambar-tremc-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tremc-03" data-echo="https://i.postimg.cc/rpjns08N/gambar-tremc-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tremc-04" data-echo="https://i.postimg.cc/Dznp7dKz/gambar-tremc-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Curses interface for transmission</p>
+
+<p>A console client for the BitTorrent client Transmission.</p>
+
+<p>tremc is the python3 fork of transmission-remote-cli.</p>
+
+<p><a href="https://github.com/tremc/tremc" target="_blank">https://github.com/tremc/tremc</a></p>
+
+<h1 id="git-client">Git Client</h1>
+
+<h2 id="lazygit">lazygit</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-lazygit" data-echo="https://i.postimg.cc/prwk4KZR/gambar-lazygit.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>A simple terminal UI for git commands, written in Go with the gocui library.</p>
+
+<p><a href="https://github.com/jesseduffield/lazygit" target="_blank">https://github.com/jesseduffield/lazygit</a></p>
+
+<h2 id="tig">tig</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tig-01" data-echo="https://i.postimg.cc/ZRg1YBcD/gambar-tig-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-tig-02" data-echo="https://i.postimg.cc/qRgPdX83/gambar-tig-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Text-mode interface for git</p>
+
+<p>Tig is an ncurses-based text-mode interface for git. It functions mainly as a Git repository browser, but can also assist in staging changes for commit at chunk level and act as a pager for output from various Git commands.</p>
+
+<p><a href="https://github.com/jonas/tig" target="_blank">https://github.com/jonas/tig</a></p>
+
+<h1 id="docker-client">Docker Client</h1>
+
+<h2 id="lazydocker">lazydocker</h2>
+
+<h1 id="font">Font</h1>
+
+<h2 id="fontpreview-ueberzug">fontpreview-ueberzug</h2>
+
+<h1 id="science">Science</h1>
+
+<h2 id="periodic-table-tui">periodic-table-tui</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-periodic-table" data-echo="https://i.postimg.cc/5NqptQ9K/gambar-periodic-table-tui.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>A periodic table for the command line.</p>
+
+<p><a href="https://github.com/pryme-svg/periodic-table-tui" target="_blank">https://github.com/pryme-svg/periodic-table-tui</a></p>
+
+<h1 id="messaging">Messaging</h1>
+
+<h2 id="weechat-irc-client">Weechat (IRC Client)</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-weechat-01" data-echo="https://i.postimg.cc/J0bw07t3/gambar-weechat-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-weechat-02" data-echo="https://i.postimg.cc/RCfxXdG3/gambar-weechat-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>WeeChat (Wee Enhanced Environment for Chat) is a free chat client, fast and light, designed for many operating systems. It is highly customizable and extensible with scripts.</p>
+
+<p><a href="https://weechat.org" target="_blank">https://weechat.org</a></p>
+
+<p><a href="https://github.com/weechat/weechat" target="_blank">https://github.com/weechat/weechat</a></p>
+
+<h1 id="audio-mixer">Audio Mixer</h1>
+
+<h2 id="ncpamixer">ncpamixer</h2>
+
+<h2 id="pulsemixer">pulsemixer</h2>
+
+<p><a href="https://github.com/GeorgeFilipkin/pulsemixer" target="_blank">https://github.com/GeorgeFilipkin/pulsemixer</a></p>
+
+<h1 id="audio-player">Audio Player</h1>
+
+<h2 id="cmus">cmus</h2>
+
+<h2 id="ncmpcpp">ncmpcpp</h2>
+
+<h2 id="mpd">mpd</h2>
+
+<h1 id="video-player">Video Player</h1>
+
+<h2 id="youtube-dl">youtube-dl</h2>
+
+<h2 id="youtube-viewer">youtube-viewer</h2>
+
+<h2 id="ytfzf">ytfzf</h2>
+
+<h1 id="battery-monitor">Battery Monitor</h1>
+
+<h2 id="battop">battop</h2>
+
+<h1 id="rss-reader">RSS Reader</h1>
+
+<h2 id="newsboat">newsboat</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-newsboat" data-echo="https://i.postimg.cc/ryKZJNGB/gambar-newsboat.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Newsboat is an RSS/Atom feed reader for the text console. It’s an actively maintained fork of Newsbeuter.</p>
+
+<p>A feed reader pulls updates directly from sites like blogs and news agencies, and lets you review them in a single interface. Many times, the feed includes the full text of the update, so you don’t even need to start a web browser! You can learn more about feed readers <a href="https://en.wikipedia.org/wiki/News_aggregator" target="_blank">on Wikipedia</a>.</p>
+
+<p><a href="https://github.com/newsboat/newsboat" target="_blank">https://github.com/newsboat/newsboat</a></p>
+
+<h1 id="email-client">Email Client</h1>
+
+<h2 id="neomutt">neomutt</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-neomutt" data-echo="https://i.postimg.cc/vHSQKzC5/gambar-neomutt.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Teaching an Old Dog New Tricks</p>
+
+<p><strong>What is NeoMutt?</strong></p>
+
+<ol>
+  <li>NeoMutt is a project of projects.</li>
+  <li>A place to gather all the patches against Mutt.</li>
+  <li>A place for all the developers to gather.</li>
+</ol>
+
+<p>Hopefully this will build the community and reduce duplicated effort.</p>
+
+<p>NeoMutt was created when Richard Russon (@FlatCap) took all the old Mutt patches, sorted through them, fixed them up and documented them.</p>
+
+<p><a href="https://neomutt.org/" target="_blank">https://neomutt.org/</a></p>
+
+<p><a href="https://github.com/neomutt/neomutt" target="_blank">https://github.com/neomutt/neomutt</a></p>
+
+<h1 id="file-manager">File Manager</h1>
+
+<h2 id="ranger">ranger</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_gambar-ranger" data-echo="https://i.postimg.cc/ryfcdjV7/gambar-ranger.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>ranger is a console file manager with VI key bindings. It provides a minimalistic and nice curses interface with a view on the directory hierarchy. It ships with rifle, a file launcher that is good at automatically finding out which program to use for what file type.</p>
+
+<p><a href="https://ranger.github.io/" target="_blank">https://ranger.github.io/</a></p>
+
+<p><a href="https://github.com/ranger/ranger" target="_blank">https://github.com/ranger/ranger</a></p>
+
+<h2 id="lf">lf</h2>
+
+<h2 id="nnn">nnn</h2>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+            <p class='font-latin' style='padding-top:20px;text-align:left;'>Sedang dalam proses penulisan... </p>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Note Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    <li><a href="/note/catatan-post-installation-opensuse-tumbleweed">Catatan Post Installation openSUSE Tumbleweed</a></li>
+  
+    <li><a href="/note/catatan-post-installation-fedora-workstation">Catatan Post Installation Fedora Workstation</a></li>
+  
+    <li><a href="/note/catatan-daftar-terminal-tools">Catatan Daftar Terminal Tools</a></li>
+  
+    <li><a href="/note/catatan-perihal-emacs-tutorial">Catatan dalam Berinteraksi dengan Emacs Tutorial</a></li>
+  
+    <li><a href="/note/catatan-perihal-pacman">Catatan dalam Berinteraksi dengan Pacman</a></li>
+  
+    <li><a href="/note/catatan-perihal-git">Catatan dalam Berinteraksi dengan Git</a></li>
+  
+    <li><a href="/note/catatan-perihal-vboxmanage">Catatan dalam Berinteraksi dengan VBoxManage</a></li>
+  
+    <li><a href="/note/catatan-perihal-tmux">Catatan dalam Berinteraksi dengan Tmux</a></li>
+  
+    <li><a href="/note/catatan-perihal-disk-dan-partition">Catatan dalam Berinteraksi dengan Disk dan Partition</a></li>
+  
+    <li><a href="/note/catatan-perihal-command-line-shell">Catatan dalam Menggunakan Command Line Shell</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/vlog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/note.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

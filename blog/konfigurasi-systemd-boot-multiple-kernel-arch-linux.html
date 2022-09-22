@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="arch linux, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan." />
+<meta property="og:description" content="Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan." />
+<link rel="canonical" href="https://bandithijo.dev/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-13T23:30:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux"},"description":"Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan.","url":"https://bandithijo.dev/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux","@type":"BlogPosting","headline":"Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux","dateModified":"2019-02-13T23:30:00+08:00","datePublished":"2019-02-13T23:30:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux">Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/02/13</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Konfigurasi systemd boot multiple kernel arch linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a>
+     -  <a href="#alasan-menggunakan-systemd-boot">Alasan menggunakan systemd-boot?</a>
+     -  <a href="#apa-yang-menjadi-kekurangan-dari-systemd-boot">Apa yang menjadi kekurangan dari systemd-boot?</a></li>
+  <li><a href="#konfigurasi">Konfigurasi</a>
+    <ul>
+      <li><a href="#satu-kernel">Satu Kernel</a></li>
+      <li><a href="#menambahkan-pilihan-kernel">Menambahkan Pilihan Kernel</a></li>
+    </ul>
+  </li>
+  <li><a href="#cara-menggunakannya">Cara Menggunakannya</a></li>
+  <li><a href="#tips-menambah-kernel">Tips Menambah Kernel</a>
+    <ul>
+      <li><a href="#jangan-sekedar-menambahkan-kernel">Jangan Sekedar Menambahkan Kernel</a>
+        <ul>
+          <li><a href="#kernel-headers">Kernel Headers</a></li>
+          <li><a href="#virtualbox-host-module">VirtualBox Host Module</a></li>
+          <li><a href="#acpi-module">ACPI Module</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sejak masih menggunakan Arch Linux pada Macbook Pro 8.1, saya sudah tidak menggunakan <strong>GRUB</strong> sebagai <em>bootloader</em>, melainkan <strong>Gummiboot</strong>. Ini adalah kali pertama saya menggunakan <em>bootloader</em> ini, karena selama menggunakan distribusi sistem operasi yang lain, selalu menggunakan GRUB sebagai <em>default bootloader</em>.</p>
+
+<p>Setelah menggunakan Thinkpad X260, saya pun memutuskan untuk menggunakan kembali <em>gummiboot</em> yang saat ini sudah berganti nama menjadi <strong>systemd-boot</strong>.</p>
+
+<h3 id="alasan-menggunakan-systemd-boot">Alasan menggunakan systemd-boot?</h3>
+
+<p>Mudah untuk saya konfigurasi. Karena sudah pernah mencobanya saat masih menggunakan Macbook Pro 8.1.</p>
+
+<p>Sudah terdapat bersama paket <strong>systemd</strong>, tidak perlu menambahkan paket yang lain, seperti halnya GRUB. Jadi, kenapa tidak digunakan saja. Hehe. Mengikuti filosofi dari Arch Linux, <em>Keep It Simple Stupid</em>.</p>
+
+<h3 id="apa-yang-menjadi-kekurangan-dari-systemd-boot">Apa yang menjadi kekurangan dari systemd-boot?</h3>
+
+<p>Hanya dapat membaca/menjalankan EFI excutable seperti: Linux Kernel EFISTUB, UEFI Shell, GRUB, dan Windows Boot Manager.</p>
+
+<h1 id="konfigurasi">Konfigurasi</h1>
+
+<h2 id="satu-kernel">Satu Kernel</h2>
+
+<p>Saat proses instalasi Arch Linux, saya hanya menggunakan satu buah kernel, yaitu kernel vanilla.</p>
+
+<p>Saya akan menunjukkan isi dari konfigurasi file <code class="language-plaintext highlighter-rouge">/boot/loader/loader.conf</code> yang saya meiliki.</p>
+
+<pre><span class="cmd">$ </span><b>cat /boot/loader/loader.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/boot/loader/loader.conf</code></div>
+<pre class="caption">timeout 0<br />editor 0<br />default <mark>arch</mark><br /></pre>
+
+<p>Terlihat pada tanda yang saya <em>marking</em>, bahwa file loader ini akan memanggil file konfigurasi lain yang bernama <code class="language-plaintext highlighter-rouge">arch</code> yang merupakan kependekan dari <code class="language-plaintext highlighter-rouge">arch.conf</code>.</p>
+
+<p>File ini berada pada <code class="language-plaintext highlighter-rouge">/boot/loader/entries/arch.conf</code>.</p>
+
+<p>Saya akan menunjukkan isi dari konfigurasi file <code class="language-plaintext highlighter-rouge">arch.conf</code> yang saya gunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/boot/loader/entries/arch.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-lang" data-lang="lang">title    Arch Linux
+linux    /vmlinuz-linux
+initrd	 /intel-ucode.img
+initrd   /initramfs-linux.img
+options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disable</code></pre></figure>
+
+<p>Di sini, saya hanya menggunakan satu buah kernel untuk dipanggil. Dapat dilihat pada bagian <code class="language-plaintext highlighter-rouge">initrd /initramfs-linux.img</code>.</p>
+
+<p>Lantas bisa tidak apabila kita memasang dua kernel, misalkan kernel <code class="language-plaintext highlighter-rouge">linux-lts</code> dan menampilkan pilihannya pada <strong>systemd-boot</strong>?</p>
+
+<p>Jawabannya, tentu saja bisa.</p>
+
+<h2 id="menambahkan-pilihan-kernel">Menambahkan Pilihan Kernel</h2>
+
+<p>Untuk menambahkan pilihan kernel pada systemd-boot caranya cukup mudah.</p>
+
+<p>Hanya tinggal membuat file konfigurasi satu lagi pada direktori <code class="language-plaintext highlighter-rouge">/boot//loader/entries</code>. Misalnya file ini akan saya beri nama <code class="language-plaintext highlighter-rouge">arch-lts.conf</code>.</p>
+
+<p>Saya asumsikan teman-teman sudah memasang linux kernel satu lagi. Misal dalam kasus saya <code class="language-plaintext highlighter-rouge">linux-lts</code>.</p>
+
+<p>Kita tinggal mengambil contekan dasarnya dari file <code class="language-plaintext highlighter-rouge">arch.conf</code></p>
+
+<pre><span class="cmd">$ </span><b>cd /boot/loader/entries</b><br /><span class="cmd">$ </span><b>sudo cp arch.conf arch-lts.conf</b><br /></pre>
+
+<p>Nanti, akan terbuat file baru dengan nama <code class="language-plaintext highlighter-rouge">arch-lts.conf</code>.</p>
+
+<p>Selanjutnya kita perlu memodifikasi nama dari beberapa value yang ada di dalam file konfigurasi ini.</p>
+
+<pre><span class="cmd">$ </span><b>sudo vim </b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/boot/loader/entries/arch-lts.conf</code></div>
+<pre class="caption"><mark>title    Arch Linux LTS</mark><br /><mark>linux    /vmlinuz-linux-lts</mark><br />initrd	 /intel-ucode.img<br /><mark>initrd   /initramfs-linux-lts.img</mark><br />options	 root=PARTUUID=327fd9bc-2e55-4649-b801-2b66819fe70b rw irqpoll hpet=disable<br /></pre>
+
+<p>Pada bagian yang saya <em>marking</em>, adalah bagian-bagian yang saya rubah dengan nama kernel yang saya gunakan. Dalam hal ini <code class="language-plaintext highlighter-rouge">linux-lts</code>.</p>
+
+<pre>
+/boot/loader/
+.
+├── entries
+│   ├── <mark>arch.conf</mark>
+│   └── <mark>arch-lts.conf</mark>
+└── loader.conf
+</pre>
+
+<p>Apabila kita ingin menggunakan kernel <code class="language-plaintext highlighter-rouge">zen</code>, tinggal diganti atau ditambahkan lagi file konfigurasinya saja.</p>
+
+<p>Sangat <em>easy busy</em> bukan?</p>
+
+<!-- PERTANYAAN -->
+<div class="blockquote-yellow"><div class="blockquote-yellow-title"><img src="/assets/img/logo/logo_tanya.svg" />Pertanyaan</div><div>
+    <p><b>Apakah Maksud dari RW, IRQPOLL, dll yang Berada pada Akhir Baris Options?</b></p>
+    <p>Maksud dari nilai-nilai tersebut adalah, <b>Kernel Parameters</b>.</p>
+    <p>Sangat mudah sekali untuk menambahkan kernel parameter pada systemd-boot.</p>
+    <p>Hanya seperti itu saja, dengan menambahkan nilai-nilai parameter yang ingin kita gunakan pada akhir dari baris <code>options</code>.</p>
+  </div></div>
+
+<h1 id="cara-menggunakannya">Cara Menggunakannya</h1>
+
+<p>Karena saya menggunkaan nilai <code class="language-plaintext highlighter-rouge">timeout</code> pada konfigurasi <code class="language-plaintext highlighter-rouge">/boot/loader/loader.conf</code> bernilai <code class="language-plaintext highlighter-rouge">0</code>. Hal ini menyebabkan menu dari pilihan kernel tidak akan ditampilkan. Saya melakukan ini karena saya tidak memerlukan untuk selalu melihat pilihan ini.</p>
+
+<p>Lantas, untuk melihat pilihan menu kernel dari systemd-boot, cukup dengan menekan berulang-kali tombol <kbd>SPACE</kbd>.</p>
+
+<h1 id="tips-menambah-kernel">Tips Menambah Kernel</h1>
+
+<p>Beberapa bulan terakhir ini banyak dari teman-teman yang saya dapati baru bermigrasi menggunakan Arch Linux.</p>
+
+<p>Saya akan membagikan tips sebagai pengguna yang lebih dahulu mencicipi Arch Linux sejak pertengahan 2016.</p>
+
+<h2 id="jangan-sekedar-menambahkan-kernel">Jangan Sekedar Menambahkan Kernel</h2>
+
+<p>Apabila teman-teman ingin menggunakan kernel selain kernel <code class="language-plaintext highlighter-rouge">linux</code>, jangan sekedar menambahkan paket kernelnya saja. Ada beberapa hal yang setidaknya perlu teman-teman perhatiakan.</p>
+
+<h3 id="kernel-headers">Kernel Headers</h3>
+
+<p>Apabila teman-teman menggukanan VirtualBox, aplikasi ini membutuhkan <strong>Kernel Headers</strong>. Tentu saja VirtualBox akan menampilkan pesan-pesan merah pada proses <em>booting</em> apabila teman-teman tidak memasang kernel headers.</p>
+
+<p>Setiap dari paket kernel, memiliki kernel headers masing-masing.</p>
+
+<p>Misal:</p>
+<ol>
+  <li>Kernel: <code class="language-plaintext highlighter-rouge">linux</code>, Headers: <code class="language-plaintext highlighter-rouge">linux-headers</code></li>
+  <li>Kernel: <code class="language-plaintext highlighter-rouge">linux-lts</code>, Headers: <code class="language-plaintext highlighter-rouge">linux-lts-headers</code></li>
+  <li>dll.</li>
+</ol>
+
+<p>Jadi, <mark>jangan lupa!</mark> untuk memasang paket kernel headers nya juga.</p>
+
+<h3 id="virtualbox-host-module">VirtualBox Host Module</h3>
+
+<p>Masih berhubungan dengan aplikasi VirtualBox. Apabila teman-teman menggunakan Arch Linux sebagai host untuk VirtualBox, jangan lupa untuk menambahkan paket bernama <code class="language-plaintext highlighter-rouge">virtualbox-host-modules-arch</code>, ini untuk teman-teman yang menggunakan kernel <code class="language-plaintext highlighter-rouge">linux</code>.</p>
+
+<p>Namun, untuk yang menggunakan kernel <mark>selain</mark> <code class="language-plaintext highlighter-rouge">linux</code>, misal <code class="language-plaintext highlighter-rouge">linux-lts</code>, <code class="language-plaintext highlighter-rouge">linux-zen</code>, <code class="language-plaintext highlighter-rouge">linux-ck</code>, dll. Paket host module yang digunakan adalah <code class="language-plaintext highlighter-rouge">virtualbox-host-dkms</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><center>VirtualBox Host Modules</center></th>
+      <th style="text-align: left"><center>Kernel yang Digunakan</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">virtualbox-host-modules-arch</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">linux</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">virtualbox-host-dkms</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">linux-lts</code>, <code class="language-plaintext highlighter-rouge">linux-zen</code>, <code class="language-plaintext highlighter-rouge">linux-ck</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="acpi-module">ACPI Module</h3>
+
+<p>Tidak hanya paket VirtualBox saja yang membutuhkan module yang berbeda apabila kita menggunakan kernel selain <code class="language-plaintext highlighter-rouge">linux</code>. ACPI juga memmerlukan module yang berbeda.</p>
+
+<p>Langsung saja saya berikan tabelnya agar mudah dipahami.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"><center>ACPI Modules</center></th>
+      <th style="text-align: left"><center>Kernel yang Digunakan</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">acpi_call</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">linux</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">acpi_call-dkms</code></td>
+      <td style="text-align: left"><code class="language-plaintext highlighter-rouge">linux-lts</code>, <code class="language-plaintext highlighter-rouge">linux-zen</code>, <code class="language-plaintext highlighter-rouge">linux-ck</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Tidak bosan-bosan saya mengingatkan,</p>
+
+<p>Sebaik-baik dokumentasi adalah dokumentasi yang ditulis/dibuat langsung oleh developer pengembang dari aplikasi/distribusi yang bersangkutan.</p>
+
+<p>Tulisan ini bukan untuk memberikan tandingan dari dokumentasi resmi yang sudah ada, melainkan sebagai ulasan dan catatan pribadi hasil berekplorasi saya terhadap aplikasi/distribusi yang saya pergunakan sehari-hari.</p>
+
+<p>Apabila terdapat kekeliruan pada tulisan ini, silahkan merujuk pada sumber-sumber referensi yang sudah saya sertakan di bawah.</p>
+
+<p>Sepertinya segini saja catatan mengenai <strong>systemd-boot</strong>.</p>
+
+<p>Mudah-mudahan dapat bermanfaat bagi teman-teman yang memerlukan.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Arch_boot_process#Boot_loader" target="_blank">wiki.archlinux.org/index.php/Arch_boot_process#Boot_loader</a>
+<br />Diakses tanggal: 2019/02/13</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/Systemd-boot" target="_blank">wiki.archlinux.org/index.php/Systemd-boot</a>
+<br />Diakses tanggal: 2019/02/13</p>
+  </li>
+</ol>
+
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

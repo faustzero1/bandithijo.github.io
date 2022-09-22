@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, database, arch linux">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mudah Memasang PostgreSQL pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mudah Memasang PostgreSQL pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production)." />
+<meta property="og:description" content="Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production)." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mudah-memasang-postgresql-pada-arch-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mudah-memasang-postgresql-pada-arch-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-25T06:45:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mudah-memasang-postgresql-pada-arch-linux"},"description":"Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production).","url":"https://bandithijo.dev/blog/mudah-memasang-postgresql-pada-arch-linux","@type":"BlogPosting","headline":"Mudah Memasang PostgreSQL pada Arch Linux","dateModified":"2019-11-25T06:45:00+08:00","datePublished":"2019-11-25T06:45:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mudah Memasang PostgreSQL pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mudah-memasang-postgresql-pada-arch-linux">Mudah Memasang PostgreSQL pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/11/25</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mudah memasang postgresql pada arch linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#database">Database</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#eksekusi">Eksekusi</a>
+    <ul>
+      <li><a href="#instalasi-postgresql">Instalasi PostgreSQL</a></li>
+      <li><a href="#konfigurasi-awal">Konfigurasi Awal</a>
+        <ul>
+          <li><a href="#berpindah-user-postgres">Berpindah User Postgres</a></li>
+          <li><a href="#initialisasi-database-cluster">Initialisasi Database Cluster</a></li>
+          <li><a href="#jalankan-postgresql-service">Jalankan PostgreSQL Service</a></li>
+          <li><a href="#membuat-user">Membuat User</a></li>
+          <li><a href="#membuat-database-untuk-user">Membuat Database untuk User</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#tambahan">Tambahan</a>
+    <ul>
+      <li><a href="#menghapus-database-dan-user">Menghapus Database dan User</a></li>
+    </ul>
+  </li>
+  <li><a href="#upgrade">Upgrade</a>
+    <ul>
+      <li><a href="#upgrade-minor">Upgrade Minor</a></li>
+      <li><a href="#upgrade-major">Upgrade Major</a></li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Beberapa kali saya mendapati pertanyaan dari teman-teman seputar bagaimana cara memasang dan mengkonfigurasi PostgreSQL pada Arch Linux.</p>
+
+<p>Sudah mengikuti Arch Wiki, namun tetap tidak mengerti.</p>
+
+<p>Umm, saya mengerti, memang agak sedikit membingungkan membaca Arch Wiki, terutama bagi yang benar-benar tidak tahu alur dari konfigurasi PostgreSQL yang diperlukan hingga siap untuk digunakan.</p>
+
+<p>Mungkin juga kebingungan, perintah (<em>command</em>) mana yang dijalankan, karena terlalu banyak tulisan yang terdapat pada panduan PostgreSQL pada Arch Wiki tersebut. Hehe.</p>
+
+<p>Jujur saja, saya pertama kali dulu juga begitu. Bahkan sampai beberapa kali setiap melakukan instalasi PostgreSQL pada Arch Linux merupakan hal yang menantang dan bikin deg-degan.</p>
+
+<p>Namun, setelah hampir setiap hari bergelut dengan PostgreSQL karena tuntutan pekerjaan, saya mulai terbiasa dengan proses pemasangan dan konfigurasi, yang ternyata sangat mudah sekali.</p>
+
+<h1 id="eksekusi">Eksekusi</h1>
+
+<p>Pada catatan kali ini saya akan menuliskan tentang:</p>
+
+<ol>
+  <li>Bagaimana cara memasang PostgreSQL pada Arch Linux</li>
+  <li>Bagaimana cara mengkonfigurasi agar dapat digunakan</li>
+</ol>
+
+<p>Dalam point kedua ini, bisa jadi akan sedikit banyak berbeda dengan konfigurasi yang sudah pernah teman-teman ketahui.</p>
+
+<p>Menurut saya ini cara yang paling mudah, untuk mengkonfigurasi PostgreSQL yang <mark> hanya kita gunakan pada sistem pribadi kita</mark> (baca: bukan untuk level <em>production</em> yaa).</p>
+
+<p>Pada catatan ini tidak akan jauh berbeda dengan Arch Wiki pada saat tulisan ini dibuat.</p>
+
+<h2 id="instalasi-postgresql">Instalasi PostgreSQL</h2>
+
+<p>Pasang paket PostgreSQL yang sudah terdapat pada <em>official repo</em> Arch.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S postgresql</b><br /></pre>
+
+<p>Ikuti proses instalasi sampai selesai.</p>
+
+<p>Pada proses instalasi tersebut juga akan dibuatkan secara otomatis <em>system user</em> yang bernama <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
+
+<p>User ini yang nantinya akan kita gunakan untuk melakukan konfigurasi awal seperti membuat user dan database atas nama username kita sendiri.</p>
+
+<h2 id="konfigurasi-awal">Konfigurasi Awal</h2>
+
+<p>Setelah instalasi PostgreSQL, biasanya tidak dapat langsung digunakan. Karena kita perlu untuk mengkonfigurasi user dan database mana yang akan kita pergunakan.</p>
+
+<p>Anggaplah saya akan menggunakan user dengan nama yang sama dengan username Linux yang kita gunakan. Maka kita perlu membuatnya terlebih dahulu. Karena pada saat proses instalasi PostgreSQL yang kita lakukan sebelumnya, hanya dibuat <em>system user</em> yang bernama <code class="language-plaintext highlighter-rouge">postgresql</code>. Akun inilah yang akan kita gunakan untuk melakukan konfigurasi awal.</p>
+
+<h3 id="berpindah-user-postgres">Berpindah User Postgres</h3>
+<p>Sekarang, kita perlu berpindah menggunkaan aku <code class="language-plaintext highlighter-rouge">postgres</code> ini dengna cara.</p>
+
+<pre><span class="cmd">$ </span><b>sudo -iu postgres</b><br /></pre>
+
+<p>Saya anggap mayoritas dari teman-teman pasti menggunakan <code class="language-plaintext highlighter-rouge">sudo</code>.</p>
+
+<p>Apabila berhasil, akan menampilkan shell akan diawali dengan bentuk seperti di bawah ini.</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>_</b>
+</pre>
+
+<p>Atau, apabila teman-teman sudah pernah mengkonfigurasi nama hostname pada Arch, akan menjadi seperti ini.</p>
+
+<pre>
+<span class="cmd">[postgres@THINKPAD-X61]$ </span><b>_</b>
+</pre>
+
+<p>Intinya adalah kita sudah berpindah menggunakan user <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
+
+<h3 id="initialisasi-database-cluster">Initialisasi Database Cluster</h3>
+
+<p>Kita perlu mengeset <em>default data directory</em>, biar mudah tidak usah <em>custom</em> deh, ikutin <em>default</em>-nya saja, seperti yang dicontohkan oleh Arch Wiki.</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>initdb -D /var/lib/postgres/data</b>
+</pre>
+
+<p><code class="language-plaintext highlighter-rouge">-D</code> menunjukkan lokasi <em>default</em> dimana <em>database cluster</em> harus disimpan.</p>
+
+<p>Secara <em>default</em> inisialisasi di atas akan menggunakan <em>default locale</em> dan <em>encoding</em> (<code class="language-plaintext highlighter-rouge">$ echo $LANG</code>) yang kita gunakan.</p>
+
+<p>Namun, kalau teman-teman merasa tidak pernah mengesetnya dan tidak mengerti, sebaiknya gunakan cara di bawah ini saja untuk berjaga-jaga. Karena saya khawatir beberapa diantara teman-teman ada yang belum mengkonfigrasi <em>locale</em> secara benar karena hanya ikut-ikutan memasang Arch Linux.</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>initdb --locale=en_US.UTF-8 -E UTF8 -D /var/lib/postgres/data</b>
+</pre>
+
+<p>Setelah kita tekan tombol <kbd>ENTER</kbd>, makan akan keluar <em>output</em> seperti di bawah ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.UTF-8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgres/data ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgres/ -l logfile start
+</code></pre></div></div>
+
+<p>Apabila berhasil, kira-kira <em>output</em> yang ditampilkan akan seperti di atas.</p>
+
+<p>Langkah selanjutnya kita perlu menjalankan service dari PostgreSQL.</p>
+
+<p>Keluar dari user <code class="language-plaintext highlighter-rouge">postgres</code> dengan perintah</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>exit</b>
+</pre>
+
+<h3 id="jalankan-postgresql-service">Jalankan PostgreSQL Service</h3>
+
+<p>Pastikan kita sudah keluar dari user <code class="language-plaintext highlighter-rouge">postgres</code> seperti perintah di atas.</p>
+
+<p>Kemudian jalankan perintah di bawah, untuk menjalankan service dari PostgreSQL.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl start postgresql.service</b><br /></pre>
+
+<p>Apabila teman-teman ingin membuat service ini berjalan otomatis saat sistem kita dinyalakan/dijalankan, gunakan perintah <code class="language-plaintext highlighter-rouge">enable</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl enable postgresql.service</b><br /></pre>
+
+<p>Apabila berhasil akan menampilkan <em>output</em> seperti di bawah ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created symlink /etc/systemd/system/multi-user.target.wants/postgresql.service → /usr/lib/systemd/system/postgresql.service.
+</code></pre></div></div>
+
+<p>Namun, saya lebih memilih untuk tidak menjalankannya secara otomatis saat sistem pertama kali dinyalakan. Karena saya tidak selalu membutuhkan service dari PostgreSQL.</p>
+
+<p>Saya hanya menjalankan PostgreSQL service apabila akan bekerja atau ada beberapa tools yang memerlukan PostgreSQL service.</p>
+
+<p>Tujuannya adalah agar sistem saya tidak perlu menjalankan service-service yang tidak diperlukan.</p>
+
+<p>Untuk melihat apakah postgresql.serive sudah berhasil dijalankan, gunakan perintah di bawah ini.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl status postgresql.service</b><br /></pre>
+
+<p>Apabila, service berhasil dijalankan, akan menampilkan output seperti ini.</p>
+
+<pre>
+● postgresql.service - PostgreSQL database server
+   Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
+   Active: <span style="font-weight:bold;color:#859900;">active (running)</span> since Mon 2019-11-25 08:53:31 WITA; 2s ago
+  Process: 1084469 ExecStartPre=/usr/bin/postgresql-check-db-dir ${PGROOT}/data (code=exited, status=0/SUCCESS)
+ Main PID: 1084471 (postgres)
+    Tasks: 7 (limit: 4600)
+   Memory: 21.3M
+   CGroup: /system.slice/postgresql.service
+           ├─1084471 /usr/bin/postgres -D /var/lib/postgres/data
+           ├─1084473 postgres: checkpointer
+           ├─1084474 postgres: background writer
+           ├─1084475 postgres: walwriter
+           ├─1084476 postgres: autovacuum launcher
+           ├─1084477 postgres: stats collector
+           └─1084478 postgres: logical replication launcher
+
+Nov 25 08:53:30 BANDITHIJO-X61 systemd[1]: Starting PostgreSQL database server...
+Nov 25 08:53:31 BANDITHIJO-X61 postgres[1084471]: 2019-11-25 08:53:31.099 WITA [1084471] LOG:  listening on IPv6 address "::1", port 5432
+Nov 25 08:53:31 BANDITHIJO-X61 postgres[1084471]: 2019-11-25 08:53:31.099 WITA [1084471] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+Nov 25 08:53:31 BANDITHIJO-X61 postgres[1084471]: 2019-11-25 08:53:31.101 WITA [1084471] LOG:  listening on Unix socket "/run/postgresql/.s.PGSQL.5432"
+Nov 25 08:53:31 BANDITHIJO-X61 postgres[1084471]: 2019-11-25 08:53:31.132 WITA [1084472] LOG:  database system was shut down at 2019-11-24 19:20:26 WITA
+Nov 25 08:53:31 BANDITHIJO-X61 postgres[1084471]: 2019-11-25 08:53:31.144 WITA [1084471] LOG:  database system is ready to accept connections
+</pre>
+
+<h3 id="membuat-user">Membuat User</h3>
+
+<p>Kalau saya pribadi, saya tidak suka menggunakan user <code class="language-plaintext highlighter-rouge">postgres</code>, karena tentu saja akan memiliki keterbatasan ruang gerak dalam hal <em>permission</em>.</p>
+
+<p>Saya akan membuat user dengan nama yang sama seperti user Linux yang saya pergunakan. Dengan begini, saya tidak perlu pusing untuk mengakses PostgreSQL shell (<code class="language-plaintext highlighter-rouge">psql</code>) karena sudah memiliki username yang sama seperti user Linux.</p>
+
+<p>Kita memerlukan bantuan user <code class="language-plaintext highlighter-rouge">postgres</code> lagi.</p>
+
+<pre><span class="cmd">$ </span><b>sudo -iu postgres</b><br /></pre>
+
+<p>Kemudian, buat user baru.</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>createuser --interactive</b>
+</pre>
+
+<p>Kita akan disuguhkan 2 buah pertanyaan mengenai nama user dan role.</p>
+
+<p>Isikan saja seperti contoh di bawah ini.</p>
+
+<pre>
+Enter name of role to add: <mark>bandithijo</mark>
+Shall the new role be a superuser? (y/n) y
+</pre>
+
+<p>Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.</p>
+
+<h3 id="membuat-database-untuk-user">Membuat Database untuk User</h3>
+
+<p>Kita <strong>HARUS</strong> membuat database untuk user yang baru saja kita buat. Kalau tidak, tentu saja tidak akan dapat kita gunakan.</p>
+
+<pre>
+<span class="cmd">[postgres]$ </span><b>createdb <mark>bandithijo</mark></b>
+</pre>
+
+<p>Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.</p>
+
+<p>Proses tersebut akan membuat database baru dengan nama yang sama seperti username Linux yang kita gunakan.</p>
+
+<p>Sekarang <code class="language-plaintext highlighter-rouge">exit</code> dan coba masuk ke dalam PostgreSQL shell menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>psql</b><br /></pre>
+
+<p>Kalau berhasil, akan seperti ini tampilan dari PostgreSQL shell.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>psql (11.5)
+Type "help" for help.
+
+bandithijo=# _
+</code></pre></div></div>
+
+<p>Mantap!</p>
+
+<p><br />
+Langkah selanjutnya, kita perlu merubah kepemilikan (<em>owner</em>) dari database atas nama username yang tadi kita buat menggunakan user <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
+
+<p>Cek dulu dengan perintah,</p>
+
+<pre>
+bandithijo=# <b>\l</b>
+</pre>
+
+<pre>
+                                            List of databases
+        Name        |   Owner    | Encoding |   Collate   |    Ctype    |   Access privileges
+--------------------+------------+----------+-------------+-------------+-----------------------
+<mark> bandithijo         | postgres   </mark>| UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres           | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0          | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                    |            |          |             |             | postgres=CTc/postgres
+ template1          | postgres   | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                    |            |          |             |             | postgres=CTc/postgres
+(4 rows)
+</pre>
+
+<p>Lihat, pada bagian yang saya <em>marking</em>, database <code class="language-plaintext highlighter-rouge">bandithijo</code> masih dimiliki oleh user <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
+
+<p>Rubah kepemilikannya menjadi milik kita dengan perintah sql seperti ini,</p>
+
+<pre>
+bandithijo=# <b>ALTER DATABASE <mark>bandithijo</mark> OWNER TO <mark>bandithijo</mark>;</b>
+</pre>
+
+<p>Perhatikan bagian yang saya <mark><i>marking</i></mark>! Ganti dengan username Linux teman-teman.</p>
+
+<p>Contoh perintah SQL-nya seperti ini,</p>
+
+<pre class="url">
+<b>ALTER DATABASE target_database OWNER TO new_onwer;</b>
+</pre>
+
+<p>Kalau berhasil, akan menampilkan <em>output</em> seperti ini,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALTER DATABASE
+</code></pre></div></div>
+
+<p>Selanjutnya periksa lagi, apakah database kita sudah berubah kepemilikan.</p>
+
+<pre>
+bandithijo=# <b>\l</b>
+</pre>
+
+<pre>
+                                            List of databases
+        Name        |    Owner     | Encoding |   Collate   |    Ctype    |   Access privileges
+--------------------+--------------+----------+-------------+-------------+-----------------------
+<mark> bandithijo         | bandithijo   </mark>| UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres           | postgres     | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0          | postgres     | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                    |              |          |             |             | postgres=CTc/postgres
+ template1          | postgres     | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+                    |              |          |             |             | postgres=CTc/postgres
+(4 rows)
+</pre>
+
+<p>Mantap!</p>
+
+<p>Sekarang database kita sudah menjadi milik kita.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p><strong>Cara alternatif membuat user</strong></p>
+    <p>Untuk membuat <strong>user</strong> dan <strong>database</strong>, selain menggunakan cara di atas (postgres user shell), kita juga dapat membuatnya dengan <strong>psql</strong>.</p>
+    <p>Masuk ke dalam psql interaktif shell dengan user postgres.</p>
+    <pre><span class="cmd">$ </span><b>psql -U postgres</b><br /></pre>
+    <p>Jalankan query-query di bawah ini satu persatu secara urut.</p>
+    <pre>
+<span class="cmd">postgres=# </span><b>CREATE USER <mark>username</mark> SUPERUSER CREATEDB;</b>
+<span class="cmd">postgres=# </span><b>CREATE DATABASE <mark>username</mark> OWNER <mark>username</mark>;</b>
+</pre>
+    <p>*Ganti <em>username</em> dengan username teman-teman.</p>
+    <p>Dengan begini, kita telah membuat user dan database atas nama username kita.</p>
+  </div></div>
+
+<h1 id="tambahan">Tambahan</h1>
+
+<h2 id="menghapus-database-dan-user">Menghapus Database dan User</h2>
+
+<p>Untuk menghapus database dan menghapus role (user), gunakan perintah ini.</p>
+
+<p>Masuk menggunakan user <code class="language-plaintext highlighter-rouge">postgres</code>.</p>
+
+<pre><span class="cmd">$ </span><b>psql -U postgres</b><br /></pre>
+
+<p>Lalu jalankan perintah <code class="language-plaintext highlighter-rouge">DROP DATABASE</code> dan <code class="language-plaintext highlighter-rouge">DROP USER</code>.</p>
+
+<pre>
+psql (11.5)
+Type "help" for help.
+
+postgres=# <b>DROP DATABASE bandithijo;</b>
+DROP DATABASE
+
+postgres=# <b>DROP USER bandithijo;</b>
+DROP ROLE
+</pre>
+
+<h1 id="upgrade">Upgrade</h1>
+
+<p>Salah satu hal merepotkan lain adalah proses upgrade.</p>
+
+<p>Sejauh pengalaman saya, terdapat 2 jenis upgrade, yaitu upgrade minor dan upgrade major.</p>
+
+<h2 id="upgrade-minor">Upgrade Minor</h2>
+
+<p>Apabila teman-teman mengupdate repo Arch dan mendapati versi upgrade Postgres 11.4 ke 11.5, ini diseut upgrade minor.</p>
+
+<p>Untuk upgrade minor, seperti dari versi Postgres 11.4 ke 11.5, tidak memerlukan konfigurasi apapun. Semua berjalan otomatis dan tidak memerlukan konfigurasi apapun.</p>
+
+<h2 id="upgrade-major">Upgrade Major</h2>
+
+<p>Namun, apabila teman-teman menemukan versi major yang berbeda saat melakukan update repo.</p>
+
+<p>Seperti Postgres versi 11.5 ke 12.1, ini disebut upgrade major.</p>
+
+<p>Proses upgrade versi major untuk Postgres versi 11 ke versi 12, akan saya bahas pada catatan yang lain.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Saat tulisan ini dibuat, PostgreSQL sudah memasuki versi 12.1</p>
+    <p>Bagi teman-teman yang masih ingin menggunakan versi sebelumnya (11.5), sebaiknya perlu memasukkan kedalam <code>IgnorePkg=</code> pada konfigurasi <code>/etc/pacman.conf</code>.</p>
+    <pre>
+IgnorePkg = postgresql postgresql-libs
+</pre>
+  </div></div>
+
+<p>Sekian catatan mengenai proses instalasi dan konfigurasi awal dari PostgreSQL pada Arch Linux.</p>
+
+<p>Mudah-mudahan dapat membantu teman-teman yang memerlukan.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/PostgreSQL" target="_blank">wiki.archlinux.org/index.php/PostgreSQL</a>
+<br />Diakses tanggal: 2019/11/25</p>
+  </li>
+  <li>
+    <p><a href="http://www.postgresqltutorial.com/postgresql-alter-database/" target="_blank">postgresqltutorial.com/postgresql-alter-database</a>
+<br />Diakses tanggal: 2019/11/25</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

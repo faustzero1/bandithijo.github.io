@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>00 Berkenalan dengan Python | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="00 Berkenalan dengan Python" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/python/00-pengenalan-python" />
+<meta property="og:url" content="https://bandithijo.dev/python/00-pengenalan-python" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-27T01:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/python/00-pengenalan-python"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/python/00-pengenalan-python","@type":"BlogPosting","headline":"00 Berkenalan dengan Python","dateModified":"2018-03-27T01:00:00+08:00","datePublished":"2018-03-27T01:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="00 Berkenalan dengan Python"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/python/00-pengenalan-python">00 Berkenalan dengan Python</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/27</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/python/">Python</a>
+  
+
+  
+    / 00 pengenalan python
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toga.svg">Silabus Kelas
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/00-pengenalan-python" class="current">00 Berkenalan dengan Python</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/01-hal-yang-harus-dipersiapkan" class="">01 Hal yang Perlu Dipersiapkan</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/02-print-function-dan-strings" class="">02 Print Function dan Strings</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/03-matematika-dasar" class="">03 Matematika Dasar</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/04-variabel-dan-tipe-data" class="">04 Variabel dan Tipe Data</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/05-perulangan-while" class="">05 Perulangan Menggunakan While</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/06-perulangan-for" class="">06 Perulangan Menggunakan For</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:5px 0 5px 0;"></div>
+  <p style="text-align:left;color:#00603C;"><i>Masih dalam proses penulisan...</i></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pre-class">Pre-Class</a></li>
+  <li><a href="#apa-yang-dapat-dilakukan-python">Apa yang Dapat Dilakukan Python?</a></li>
+  <li><a href="#apakah-python-sulit-dipelajari">Apakah Python Sulit Dipelajari?</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="pre-class">Pre-Class</h1>
+
+<p>Hello, mas Bro!</p>
+
+<p>Selamat datang di kelas <strong>Belajar Python Dasar</strong>. Pada kelas ini, kita akan berkenalan dengan hal-hal dasar yang perlu kamu ketahui tentang bahasa pemrograman Python.</p>
+
+<p>Selayaknya orang yang sedang belajar sebuah bahasa, kita memerlukan pengetahuan tentang kata-kata, struktur kata agar menjadi sebuah kalimat, bentuk-bentuk kalimat, dll. Dalam mempelajari bahasa pemrograman pun demikian. Kita akan mengenal apa itu <em>variable</em>, tipe data, kondisi, perulangan, <em>function</em>, dll.</p>
+
+<p>Saya menulis <em>post</em> ini juga sembari belajar bahasa pemrograman Python. Saya belajar dari banyak sekali literatur dalam bahasa Inggris. Tapi saya menuliskan dokumentasi belajar bahasa pemrograman Python dasar berbahasa Indonesia ini khusus untuk kamu.</p>
+
+<p><em>Post</em> ini pun adalah tulisan pertama saya bertema bahasa pemrograman. Sebelumnya, saya sama sekali tidak pernah menulis tentang topik bahasa pemrograman, karena tidak percaya diri. Namun, ini adalah langkah kecil saya untuk memberanikan diri menulis topik bahasa pemrograman. Jadi, apapun latar belakang kamu, berapapun umur kamu, tidak ada kata terlambat untuk belajar mengetahui hal yang baru.</p>
+
+<p>Yuk ! kita belajar sama-sama.</p>
+
+<p><br /></p>
+<h1 id="apa-yang-dapat-dilakukan-python">Apa yang Dapat Dilakukan Python?</h1>
+
+<p>Saya akan menampilkan daftar-daftar <em>success stories</em> yang saya ambil dari <a href="https://www.python.org/about/success/">Python.org</a>.</p>
+
+<pre style="width:100%; height:200px; border-radius:4px; resize:none; white-space:wrap;">
+Software Development
+    * Accessibility
+    * Assistive Technologies
+    * Code Generation
+    * Computer Graphics
+    * Configuration
+    * Cross-platform Development
+    * Databases
+    * Data Mining
+    * Documentation Development
+    * Email
+    * Embedded Systems
+    * Functional Testing
+    * Game Development
+    * Groupware
+    * High Availability
+    * Java and Python
+    * Legacy System Integration
+    * Network Development
+    * Product Development
+    * Python on Windows
+    * Rapid Application Development
+    * Real Time
+    * Reuse
+    * RSS aggregator
+    * Scalability
+    * Systems Administration
+    * Testing
+    * Unit Testing
+    * Unix/Linux Developers
+    * User Interface
+    * Visual Effects
+    * Web Development
+    * Web2.0
+    * XML
+
+Arts
+    * Film
+
+Business
+    * Apparel Industry
+    * Aviation
+    * Business Information
+    * Customer Relationship Management (CRM)
+    * Collaboration Support
+    * Content Management
+    * Document Management
+    * Energy Efficiency
+    * E-Commerce
+    * Enterprise Resource Planning (ERP)
+    * Financial Services
+    * Fortune 500
+    * GIS and Mapping
+    * Hosting
+    * Human Resources
+    * Knowledge Management
+    * Manufacturing
+    * Product Development
+    * Project Management
+    * Quality Control, Six Sigma, Lean Manufacturing
+    * Relational Online Analytical Processing (ROLAP)
+    * Risk Management
+    * ROI Case Study
+
+Education
+    * Post Secondary
+
+Government
+    * Administration
+    * Homeland Security
+    * Public Safety
+    * Traffic Control, Urban Infrastructure
+
+Scientific
+    * Biology
+    * Bioinformatics
+    * Computational Chemistry
+    * Data Visualization
+    * Drug Discovery
+    * GIS and Mapping
+    * Scientific Programming
+    * Simulation
+    * Weather
+
+Engineering
+    * Energy Efficiency
+    * GIS and Mapping
+    * Lighting
+    * Marine
+    * Simulation
+</pre>
+
+<p>Dapat kita lihat, Python hampir ada pada semua bidang yang sudah berkaitan dengan teknologi.</p>
+
+<p>Python adalah bahasa pemrograman yang memiliki banyak sekali kegunaan. Hampir semua yang dapat dilakukan bahasa pemrograman lain, Python dapat melakukannya.</p>
+
+<p>Python mampu mengolah dan memproses GPU sama seperti bahasa pemrograman yang lain. Sebagian besar <strong>modul</strong> pengolahan data, sebenarnya adalah sebuah <strong>Python wrapper</strong> yang dibuat untuk berinteraksi dengan bahasa C/C++.</p>
+
+<p><strong>Module</strong> adalah sekumpulan Python <em>scripts</em> yang memiliki kegunaan spesifik yang dapat kita manfaatkan dengan cara melakukan <em>import</em> ke dalam program Python yang kita buat.</p>
+
+<p>Cara melakukan <em>import</em> terhadap suatu <em>module</em> seperti ini.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">Math</span>
+</code></pre></div></div>
+
+<p><strong>Kegunaannya untuk apa ?</strong></p>
+
+<p>Karena biasanya seorang <em>programmer</em> dalam menyelesaikan sebuah masalah memiliki banyak sekali hal yang harus dipikirkan, dengan menggunakan modul maka tidak perlu lagi menulis ulang sebuah <em>function</em> untuk melakukan suatu hal. Kita cukup memanggil dan menggunakan modul yang sudah tersedia ke dalam program Python yang kita kerjakan.</p>
+
+<p><strong>Python wrapper</strong> adalah sebuah pembungkus kode Python di atas bahasa pemrograman lain. Misalnya, apabila kamu memiliki Python <em>wrapper</em> untuk C++ artinya seseorang telah menulis beberapa kode Python yang dapat berinteraksi dengan bahasa C++, sehingga kamu dapat menggunakannya selayaknya menggunakan kemampuan bahasa C++ tanpa benar-benar perlu mengetahui atau memahami bahasa C++.</p>
+
+<p>Karena hal tersebut, Python dapat digunakan untuk membuat berbagai macam hal, seperti: membuat game, melakukan analisis data, mengontrol robot dan perangkat keras, mengautomatisasi sebuah pekerjaan,  membuat aplikasi <em>desktop</em> dengan <em>console</em> maupun GUI, atau bahkan membuat sebuat website. Asik bukan ?</p>
+
+<p>Masih banyak lagi contoh-contoh penerapan Python yang tentunya apabila saya menuliskanya di sini, akan menjadi sebuah perkenalan yang panjang. Teman-teman bisa mencarinya sendiri di <em>search engine</em> dan artikel maupun video-video terkait dengan penerapan Python.</p>
+
+<p><br /></p>
+<h1 id="apakah-python-sulit-dipelajari">Apakah Python Sulit Dipelajari?</h1>
+
+<p>Menurut saya, Python adalah bahasa pemrograman yang mudah dan ramah untuk dipelajari. Kenapa ? karena sintaks (kata dan struktur penulisan) yang sangat sederhana dan <em>simple</em> untuk dapat dibaca dan dimengerti, hampir semua sintaksnya dapat dipahami bahkan apabila kamu belum mengerti satupun bahasa pemrograman.</p>
+
+<p><strong>Masa sih ?</strong></p>
+
+<p>Mari saya tunjukkan buktinya.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">garasi</span> <span class="o">=</span> <span class="s">"Toyota"</span><span class="p">,</span> <span class="s">"Honda"</span><span class="p">,</span> <span class="s">"Suzuki"</span><span class="p">,</span> <span class="s">"Daihatsu"</span><span class="p">,</span> <span class="s">"Ford"</span>
+
+<span class="k">for</span> <span class="n">mobil</span> <span class="ow">in</span> <span class="n">garasi</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">mobil</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>akan menghasilkan Output:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Toyota
+Honda
+Suzuki
+Daihatsu
+Ford
+</code></pre></div></div>
+
+<p>Gimana ? Kira-kira sudah kebayang cara baca kodenya ?</p>
+
+<p>Mari kita bongkar kodenya.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">garasi</span> <span class="o">=</span> <span class="s">"Toyota"</span><span class="p">,</span> <span class="s">"Honda"</span><span class="p">,</span> <span class="s">"Suzuki"</span><span class="p">,</span> <span class="s">"Daihatsu"</span><span class="p">,</span> <span class="s">"Ford"</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">garasi</code> adalah sebuah variabel, <strong>variabel adalah tempat untuk menampung data</strong>, nanti akan kita pelajari pada materi khusus tentang variable.</p>
+
+<p>Nah, dalam program sederhana ini, nama variabelnya adalah <code class="language-plaintext highlighter-rouge">garasi</code>, yang menampung merek-merek mobil bernama: Toyota, Honda, Suzuki, Daihatsu, Ford.</p>
+
+<p>Lalu kita begerak menuju baris selanjutnya.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">mobil</span> <span class="ow">in</span> <span class="n">garasi</span><span class="p">:</span>
+</code></pre></div></div>
+<p>Sudah dapat ditebak, bahwa baris ini menyatakan sebuah <strong>kondisi</strong>, lebih tepatnya kondisi perulangan. Dapat dibaca seperti ini, <strong>untuk setiap mobil yang ada di garasi</strong>.</p>
+
+<p>Apabila kondisi tersebut sesuai dengan data yang ada (nama <code class="language-plaintext highlighter-rouge">mobil</code> yang ada dalam variabel <code class="language-plaintext highlighter-rouge">garasi</code>), maka</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">mobil</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Kita akan menampilkan setiap <code class="language-plaintext highlighter-rouge">mobil</code> yang ada pada <code class="language-plaintext highlighter-rouge">garasi</code> ke <em>console</em>.</p>
+
+<p><strong>print()</strong> adalah sebuah <em>built-in function</em> atau fungsi bawaan dari Python yang berguna untuk menampilkan <em>output</em> berupa <em>text</em> ke dalam <em>console</em>, <em>console</em> disini dapat diartikan <em>command prompt</em> (CMD.exe) pada Windows, atau Terminal pada Linux.</p>
+
+<p>Gimana ? Jawaban kalian mirip-mirip dengan ini ?</p>
+
+<p>Saya bisa mengartikan bahwa sintaks dan struktur dari bahasa Python ini mudah untuk dipahami karena mudah untuk dibaca.</p>
+
+<p>Apabila teman-teman tertarik untuk belajar dasar-dasar bahasa pemrograman Python, yuk ! kita belajar bersama-sama.</p>
+
+<p><br /></p>
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://www.python.org/about/success/">https://www.python.org/about/success/</a>
+<br />Diakses tanggal: 2018/03/27</li>
+</ol>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l disabled" href=""><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/01-hal-yang-harus-dipersiapkan"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/python.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

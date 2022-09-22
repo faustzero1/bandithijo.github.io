@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, artix linux">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Membuat Recovery Partition Artix Linux ISO dengan GRUB2 | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Membuat Recovery Partition Artix Linux ISO dengan GRUB2" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda." />
+<meta property="og:description" content="Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda." />
+<link rel="canonical" href="https://bandithijo.dev/blog/membuat-recovery-partition-artix-iso-dengan-grub2" />
+<meta property="og:url" content="https://bandithijo.dev/blog/membuat-recovery-partition-artix-iso-dengan-grub2" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-01T09:14:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/membuat-recovery-partition-artix-iso-dengan-grub2"},"description":"Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda.","url":"https://bandithijo.dev/blog/membuat-recovery-partition-artix-iso-dengan-grub2","@type":"BlogPosting","headline":"Membuat Recovery Partition Artix Linux ISO dengan GRUB2","dateModified":"2021-03-01T09:14:00+08:00","datePublished":"2021-03-01T09:14:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Membuat Recovery Partition Artix Linux ISO dengan GRUB2"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/membuat-recovery-partition-artix-iso-dengan-grub2">Membuat Recovery Partition Artix Linux ISO dengan GRUB2</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/03/01</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Membuat recovery partition artix iso dengan grub2
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#artix-linux">Artix Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang-masalah">Latar Belakang Masalah</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#membuat-partisi-recovery">Membuat Partisi Recovery</a></li>
+      <li><a href="#masukkan-file-artix-iso">Masukkan File Artix ISO</a></li>
+      <li><a href="#membuat-grub2-menuentry">Membuat GRUB2 Menuentry</a></li>
+      <li><a href="#update-grub2">Update GRUB2</a></li>
+    </ul>
+  </li>
+  <li><a href="#demonstrasi">Demonstrasi</a></li>
+  <li><a href="#tips">Tips</a>
+    <ul>
+      <li><a href="#menyembunyikan-recovery-partition">Menyembunyikan Recovery Partition</a></li>
+      <li><a href="#memperbaharui-file-iso">Memperbaharui File ISO</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Sebelumnya, saya sudah membuat catatan dengan judul serupa, <a href="/blog/booting-ke-iso-linux-menggunakan-grub" target="_blank"><strong>Booting ke Linux ISO menggunakan GRUB2 (Tanpa Bootable FlashDrive) a.k.a RecoveryHD</strong></a>.</p>
+
+<p>Namun, ternyata setelah saya gunakan untuk melakukan <strong>arch-chroot</strong>, partisi tidak dapat di-mounting ke <strong>/mnt</strong>.</p>
+
+<p>Saya menduga hal ini diakibatkan oleh, saya menjalankan Arch ISO dari dalam filesystem yang akan saya mounting. Melakukan mounting ke filesystem yang sudah dimounting oleh Arch ISO. Karena Arch ISO disimpan pada partisi <strong>/dev/sda1</strong>, yaitu pada direktori <strong>/root/iso/archlinux.iso</strong>. Sedangkan, saya ingin memounting <strong>/dev/sda1</strong> ke <strong>/mnt</strong> untuk melakukan arch-chroot. Lucu kan 😄.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Dari kasus tersebut, sudah terlihat solusi sederhana yang dapat saya lakukan adalah, membuat partisi sendiri khusus untuk menyimpan file ISO.</p>
+
+<h2 id="membuat-partisi-recovery">Membuat Partisi Recovery</h2>
+
+<p>Cara untuk membuat partisi, bebas saja, teman-teman dapat menggunakan tools favorit teman-teman.</p>
+
+<p>Saya pribadi mengguakan <a href="https://gparted.org/download.php" target="_blank"><strong>GParted LiveUSB</strong></a> agar lebih mudah dalam mevisualisasikan partisi.</p>
+
+<p>Kira-kira, seperti di bawah ini.</p>
+
+<pre>
+NAME   FSTYPE   SIZE TYPE LABEL    MOUNTPOINT
+sda           447.1G disk
+├─sda1 ext4   446.1G part ROOT     /
+└─<mark>sda2 ext4    1023M part RECOVERY</mark>
+</pre>
+
+<p>Saya membuat partisi <strong>/dev/sda2</strong> sebesar 1 GiB dan saya beri label <strong>RECOVERY</strong> degan filesystem <strong>ext4</strong>.</p>
+
+<p>Ukuran partisi hanya 1 GiB karena tujuan saya membuat partisi ini adalah untuk menyimpan file ISO dari Artix Linux Base OpenRC yang hanya sebesar 600an MiB</p>
+
+<h2 id="masukkan-file-artix-iso">Masukkan File Artix ISO</h2>
+
+<p>Kemudian, masukkan file Artix Linux ISO ke dalam partisi recovery.</p>
+
+<p>Agar tidak ribet karena harus menggunakan root permission, saya akan buat direktori dengan user permission yang akan saya berinama <strong>iso/</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo mkdir iso</b><br /></pre>
+
+<p>Kemduian, ubar kepemilikan direktori <strong>iso/</strong> ke user yang kita gunakan.</p>
+
+<pre><span class="cmd">$ </span><b>sudo chown -R bandithijo:bandithijo iso</b><br /></pre>
+
+<p>Kemudian, tinggal masukkan Artix Linux ISO ke dalam direktori <strong>iso/</strong> ini.</p>
+
+<pre>
+└── iso
+    └── artix-base-openrc-20210101-x86_64.iso
+</pre>
+
+<h2 id="membuat-grub2-menuentry">Membuat GRUB2 Menuentry</h2>
+
+<p>Selanjutnya, kita perlu membuat menuentry pada GRUB2, untuk mengarahkan boot ke dalam partisi recovery yang di dalamnya sudah berisi Artix Linux ISO.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/grub.d/40_custom</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+<span class="nb">exec tail</span> <span class="nt">-n</span> +3 <span class="nv">$0</span>
+<span class="c"># This file provides an easy way to add custom menu entries.  Simply type the</span>
+<span class="c"># menu entries you want to add after this comment.  Be careful not to change</span>
+<span class="c"># the 'exec tail' line above.</span>
+
+menuentry <span class="s2">"ArtixLinux ISO (OpenRC)"</span> <span class="o">{</span>
+  <span class="nv">iso_drv</span><span class="o">=(</span>hd0,msdos2<span class="o">)</span>
+  <span class="nv">iso_path</span><span class="o">=</span><span class="s2">"/iso/artix-base-openrc-20210101-x86_64.iso"</span>
+  <span class="nb">export </span>iso_path
+  search <span class="nt">--set</span><span class="o">=</span>root <span class="nt">--file</span> <span class="s2">"</span><span class="nv">$iso_path</span><span class="s2">"</span>
+  probe <span class="nt">-u</span> <span class="nv">$root</span> <span class="nt">--set</span><span class="o">=</span>rootuuid
+  <span class="nb">export </span>rootuuid
+  loopback loop <span class="s2">"</span><span class="nv">$iso_drv$iso_path</span><span class="s2">"</span>
+  <span class="nv">root</span><span class="o">=(</span>loop<span class="o">)</span>
+  configfile /boot/grub/loopback.cfg
+  loopback <span class="nt">--delete</span> loop
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><strong>Yang harus diperhatikan!</strong></p>
+
+<p><strong>iso_drv</strong>, adalah path yang mengarahkan ke partisi yang kita siapkan khusus untuk recovery. <strong>hd0</strong> berarti disk pertama, <strong>msdos2</strong> berarti partisi kedua. (<strong>/dev/sda2</strong>).</p>
+
+<p><strong>iso_path</strong>, adalah letak dimana Artix ISO kita letakkan di dalam partisi recovery.</p>
+
+<p>Kedua variable di atas, perlu teman-teman sesuaikan sendiri dengan kondisi sistem yang teman-teman miliki.</p>
+
+<h2 id="update-grub2">Update GRUB2</h2>
+
+<p>Kalau sudah, tinggal update GRUB2.</p>
+
+<pre><span class="cmd">$ </span><b>sudo update-grub</b><br /></pre>
+
+<p>Atau,</p>
+
+<pre><span class="cmd">$ </span><b>sudo grub-mkconfig -o /boot/grub/grub.cfg</b><br /></pre>
+
+<p>Agar custom menuentry yang baru saja kita buat/modifikasi, digenerate ke dalam GRUB2 menuentry.</p>
+
+<p>Mantap!</p>
+
+<p>Kalau sudah begini tinggal mencobanya.</p>
+
+<h1 id="demonstrasi">Demonstrasi</h1>
+
+<div class="embed-container"><iframe style="display:block;margin:0 auto;" src="/assets/img/logo/logo_blank_banner.svg" data-echo="//www.youtube.com/embed/1WImC1ge40c" onerror="imgError(this);" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="tips">Tips</h1>
+
+<h2 id="menyembunyikan-recovery-partition">Menyembunyikan Recovery Partition</h2>
+
+<p>Karena kita membuat partisi recovery, otomatis oleh GVFS, partisi ini akan terbaca di File Manager.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_01" data-echo="https://i.postimg.cc/xCzxJx9k/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Untuk menyembunyikan partisi RECOVERY, kita dapat memberikan rules di udev.</p>
+
+<p>Recovery partisi saya berada pada <strong>/dev/sda2</strong>.</p>
+
+<pre>
+NAME   FSTYPE   SIZE TYPE LABEL    MOUNTPOINT
+sda           447.1G disk
+├─sda1 ext4   445.1G part ROOT     /
+└─<mark>sda2 ext4       2G part RECOVERY</mark>
+</pre>
+
+<p>Blok partisi inilah yang akan saya sembunyikan.</p>
+
+<p>Buat file udev rule dengan text editor favorit teman-teman, dengan root permission.</p>
+
+<p>Tambahkan seperti rule di bawah.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/udev/rules.d/99-hide-partitions.rules</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">"sda2"</span>,ENV<span class="o">{</span>UDISKS_IGNORE<span class="o">}=</span><span class="s2">"1"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah itu, jalankan perintah:</p>
+
+<pre><span class="cmd">$ </span><b>sudo udevadm trigger --verbose</b><br /></pre>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_02" data-echo="https://i.postimg.cc/nrK3TXjp/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Nah, sekarag partisi RECOVERY sudah tidak terlihat.</p>
+
+<p>Namun, masih dapat kita lihat pada <code class="language-plaintext highlighter-rouge">$ lsblk</code>.</p>
+
+<h2 id="memperbaharui-file-iso">Memperbaharui File ISO</h2>
+
+<p>Kalau ingin memperbaharui file ISO, tinggal dimount saja sengan <strong>udisksctl</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>udisksctl mount -b /dev/sda2</b><br /></pre>
+
+<p>Unmount dengan,</p>
+
+<pre><span class="cmd">$ </span><b>udisksctl unmount -b /dev/sda2</b><br /></pre>
+
+<p><br /></p>
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Selanjutnya, saya serahkan kepada imajinasi dan kreatifitas teman-teman. Hehe.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://forum.artixlinux.org/index.php/topic,1669.0.html" target="_blank">forum.artixlinux.org/index.php/topic,1669.0.html</a>
+<br />Diakses tanggal: 2021/03/01</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

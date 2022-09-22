@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="terminal, arch linux, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Memasang Powerline pada Terminal Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Memasang Powerline pada Terminal Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/blog/memasang-powerline-pada-terminal-arch" />
+<meta property="og:url" content="https://bandithijo.dev/blog/memasang-powerline-pada-terminal-arch" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-06-15T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/memasang-powerline-pada-terminal-arch"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/blog/memasang-powerline-pada-terminal-arch","@type":"BlogPosting","headline":"Memasang Powerline pada Terminal Arch Linux","dateModified":"2016-06-15T00:00:00+08:00","datePublished":"2016-06-15T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Memasang Powerline pada Terminal Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/memasang-powerline-pada-terminal-arch">Memasang Powerline pada Terminal Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2016/06/15</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Memasang powerline pada terminal arch
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#terminal">Terminal</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#info">Info</a></li>
+  <li><a href="#step-by-step">Step by Step</a>
+    <ul>
+      <li><a href="#instalasi-pip-dan-git">Instalasi Pip dan Git</a></li>
+      <li><a href="#unduh-powerline-font-dan-powerline-symbols">Unduh Powerline Font dan Powerline Symbols</a></li>
+      <li><a href="#bash-prompt-shell">BASH Prompt Shell</a></li>
+      <li><a href="#zsh-prompt-shell">ZSH Prompt Shell</a></li>
+      <li><a href="#vim-statusline">Vim Statusline</a></li>
+      <li><a href="#tmux-statusline">Tmux Statusline</a></li>
+    </ul>
+  </li>
+  <li><a href="#kesimpulan">Kesimpulan</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://1.bp.blogspot.com/-KF2Kx7Lid-A/V2F0WfmSFnI/AAAAAAAADTs/xQ1Xu0qqI74ckHyXueXOgPD_4VL9lECNACPcB/s1600/Default%2BHeader%2BTemplate%2BPost%2B21.1.png" onerror="imgError(this);" alt="banner" /></p>
+
+<blockquote>
+  <p>Powerline adalah plugin vim yang menyediakan statusline dan prompts dan juga untuk beberapa aplikasi lainnya, termasuk zsh, bash, tmux, IPython, Awesome, i3, dan Qtile.</p>
+
+  <p style="text-align:left;">– diterjemahkan secara bebas oleh penulis dari <a href="https://github.com/powerline/powerline" target="_blank">https://github.com/powerline/powerline</a></p>
+</blockquote>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>Dalam keseharian saya menggunakan Linux tentunya saya tidak akan pernah bisa lepas menggunakan Terminal. Oleh karena itu saya berusaha untuk membuat aktifitas pada Terminal saya menjadi menarik (bagi saya) dan terlihat menarik (bagi orang lain yang melihat).</p>
+
+<p>Beberapa tahun yang lalu, saya mempelajari <em>Web Developing</em> dan menemukan hal yang menarik dari Terminal yang digunakan oleh Mentor tempat saya belajar. Akhirnya saya tahu kalau beliau menggunakan semacam <em>plugin</em> yang disebut <a href="https://wiki.archlinux.org/index.php/Powerline" target="_blank"><strong>Powerline</strong></a>.</p>
+
+<p>Yang saya suka dari tampilan Powerline ini adalah model seperti “<em>Breadcums</em>” nya itu, hehe yang membuat tampilan Terminal menjadi lebih <em>simple</em> dan mudah dipahami.</p>
+
+<p>Selain dengan Powerline, saya juga memadukannya dengan <a href="https://wiki.archlinux.org/index.php/Zsh" target="_blank"><strong>zsh</strong></a> shell. Zsh adalah salah satu jenis Shell di Linux selain bash shell. Menurut saya zsh lebih mudah dalam hal pemakaian karena mempunyai fitur <em>auto completion</em> yang lebih baik.</p>
+
+<h1 id="info">Info</h1>
+<p>Terdapat banyak cara untuk dapat memasang Poerline pada Terminal kita. Mulai dari memasang menggunakan <em>package manager</em> dari masing-masing distribusi sistem operasi GNU/Linux, sampai dengan cara yang lebih universal. Namun pada dokumentasi saya hanya akan menuliskan cara yang lebih universal dan bisa diterapkan pada distribusi apa saja.</p>
+
+<h1 id="step-by-step">Step by Step</h1>
+
+<h2 id="instalasi-pip-dan-git">Instalasi Pip dan Git</h2>
+<p>Pasang paket bernama <code class="language-plaintext highlighter-rouge">python-pip</code> dan <code class="language-plaintext highlighter-rouge">git</code>. Pip adalah salah satu <em>package manager Python</em> untuk memasang paket-pake Python secara online. Penggunaannya sangat mudah dan memudahkan.</p>
+
+<p>Buka Terminal dan <code class="language-plaintext highlighter-rouge">copy paste</code> kode di bawah ini.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S python-pip git</b><br /></pre>
+
+<p>Untuk teman-teman yang menggunakan distribusi lain, bisa menyesuaikan dengan <em>package manager</em> sesuai distribusi yang digunakan. Saya rasa nama paketnya tidak terlalu jauh berbeda.</p>
+
+<h2 id="unduh-powerline-font-dan-powerline-symbols">Unduh Powerline Font dan Powerline Symbols</h2>
+<p>Setelah itu kita perlu mengunduh <strong>Powerline</strong> dari repositori GitHub sekaligus melakukan instalasi.</p>
+
+<pre><span class="cmd">$ </span><b>su -c 'pip install git+git://github.com/Lokaltog/powerline'</b><br /></pre>
+
+<p>Unduh juga <strong>Powerline symbols</strong> untuk mendukung Powerline.</p>
+
+<pre><span class="cmd">$ </span><b>wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf</b><br /></pre>
+
+<p>Setelah diunduh, kemudian kita pindahkan <strong>Powerline symbols font</strong> ke direktori <code class="language-plaintext highlighter-rouge">/etc/share/fonts</code> tempat dimana <em>system fonts</em> tersimpan. Dan konfigurasi file konfigurasinya ke dalam direktori <code class="language-plaintext highlighter-rouge">/etc/fonts/conf.d</code>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo mv PowerlineSymbols.otf /usr/share/fonts/</b><br /></pre>
+
+<pre><span class="cmd">$ </span><b>sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/</b><br /></pre>
+
+<p>Setelah kita pindahkan <em>file font</em> dan <em>file config</em> tersebut, selanjutnya kita melakukan <em>update font cahce</em>. Lamanya proses ini tergantung dari banyaknya <em>font</em> yang kalian miliki.</p>
+
+<pre><span class="cmd">$ </span><b>sudo fc-cache -vf</b><br /></pre>
+
+<p>Langkah selanjutnya adalah menghubungkan Powerline dengan Terminal, bash shell, zsh shell, vim, dan tmux. Kalian tidak harus menggunakan semuanya, cukup gunakan sesuai dengan yang kalian pakai saja.</p>
+
+<p>Tapi sebelum itu…</p>
+
+<p><br />
+<strong>Hal pertama</strong>, terlebih dahulu kalian harus mengetahui Python versi berapa yang terpsang pada distribusi kalian. Apakah Python versi <strong>2.7</strong> atau Python versi <strong>3.6</strong>, atau biasa disebut Python 2 dan Python 3.</p>
+
+<p>Distribusi sistem operasi saya sudah secara <em>default</em> beralih menggunakan Python 3 yang pengembangannya masih aktif dan meninggalkan Python 2 yang sudah <em>deprecated</em>.</p>
+
+<p><br />
+<strong>Hal kedua</strong>, yang harus diperhatikan adalah lokasi dimana Python terpasang di dalam sistem. Setiap distribusi mungkin berbeda atau bahkan sama tergantung dari turunan dan filosofi desain dari sistem mereka. Sebagai contoh untuk Arch Linux, Python terdapat pada <code class="language-plaintext highlighter-rouge">/usr/lib/python2.7</code> (Python 2) dan <code class="language-plaintext highlighter-rouge">/usr/lib/python3.6</code> (Python 3). Untuk distribusi turunan Debian, seperti Ubuntu, Linux Mint, kalau saya tidak salah ingat berada pada direktori <code class="language-plaintext highlighter-rouge">/usr/local/lib/python2.7</code> atau <code class="language-plaintext highlighter-rouge">/usr/local/lib/python3.6</code>.</p>
+
+<p>Lakukan pengecekan dengan,</p>
+
+<pre><span class="cmd">$ </span><b>python -c "import sys; print(sys.path[2])"</b><br /></pre>
+
+<p>*thx to: <a href="https://github.com/yuune" target="_blank">Nanda Vera</a></p>
+
+<p><br />
+<strong>Hal ketiga</strong>, adalah setelah di dalam direktori Pyhton tersebut terdapat direktori tempat menyimpan <em>modul</em> atau <em>library</em>. Penamaan direktori ini pada masing-masing distribusi bisa jadi berbeda, ada yang menamakan <code class="language-plaintext highlighter-rouge">site-packages</code>, ada yang menamakan <code class="language-plaintext highlighter-rouge">dist-packages</code>.</p>
+
+<p>Lakukan pengecekan dengan,</p>
+
+<pre><span class="cmd">$ </span><b>python -c "import sys; print(sys.path[4])"</b><br /></pre>
+
+<p>*thx to: <a href="https://github.com/yuune" target="_blank">Nanda Vera</a></p>
+
+<p><br />
+Informasi yang kita dapatkan, akan kita pakai untuk tahap selanjutnya. Sesuaikan <em>command line</em> yang saya contohkan di bawah dengan informasi yang kalian dapatkan dari <em>script</em> di atas.</p>
+
+<h2 id="bash-prompt-shell">BASH Prompt Shell</h2>
+<p>Tambahkan <em>script</em> di bawah pada file <code class="language-plaintext highlighter-rouge">~/.bashrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.bashrc</code></div>
+<pre class="caption"><br /># Powerline on BASH<br />if [ -f /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh ]; then<br />       source /usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh<br />fi<br /></pre>
+
+<h2 id="zsh-prompt-shell">ZSH Prompt Shell</h2>
+<p>Tambahkan <em>script</em> di bawah pada <code class="language-plaintext highlighter-rouge">~/.zshrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.zshrc</code></div>
+<pre class="caption"><br /># Powerline on ZSH<br />if [[ -r /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then<br />     source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh<br />fi<br /></pre>
+
+<h2 id="vim-statusline">Vim Statusline</h2>
+<p>Tambahkan <em>script</em> di bawah pada <code class="language-plaintext highlighter-rouge">~/.vimrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+<pre class="caption"><br />" Powerline for Vim Statusline<br />set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim/<br /><br />" Always show statusline<br />set laststatus=2<br /><br />" Use 256 colours (Use this setting only if your terminal supports 256 colours)<br />set t_Co=256<br /></pre>
+
+<h2 id="tmux-statusline">Tmux Statusline</h2>
+<p>Tambahkan <em>script</em> di bawah pada <code class="language-plaintext highlighter-rouge">~/.tmux.conf</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.tmux.conf</code></div>
+<pre class="caption"><br /># Powerline for Tmux Statusline<br />source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf<br /></pre>
+
+<h1 id="kesimpulan">Kesimpulan</h1>
+<p>Cara yang saya tuliskan di atas, telah saya gunakan saat saya masih pada masa-masa dimana saya mencari distribusi yang cocok dengan prinsip saya. Fedora, Debian, Manjaro, dan terakhir Arch Linux.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin" target="_blank">askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin</a>
+<br />Diakses tanggal: 12/07/2016</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://se7entime.wordpress.com" target="_blank">se7entime</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

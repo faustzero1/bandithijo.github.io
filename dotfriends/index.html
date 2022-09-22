@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="bandithijo, rizqi nur assyaufi, arch linux, vim, i3wm, jekyll, thinkpad">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>dotFriends | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="dotFriends" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/dotfriends/" />
+<meta property="og:url" content="https://bandithijo.dev/dotfriends/" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/dotfriends/","@type":"WebPage","headline":"dotFriends","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="dotFriends"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post" style="padding-bottom:0;">
+        <div class="post-body" style="margin-bottom:0;">
+          <h1 class="post-title noselect">
+            <a href="/dotfriends/">dotFriends</a>
+          </h1>
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar" style="margin-top:0;">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">Daftar dotFriends
+  </h1>
+  <div style="margin-top:5px;"></div>
+  <div class="toc">
+      
+      <ul>
+  <li><a href="#sucipto">Sucipto</a></li>
+  <li><a href="#agung setiawan">Agung Setiawan</a></li>
+  <li><a href="#epsi">Epsi</a></li>
+  <li><a href="#fikri omar">Fikri Omar</a></li>
+  <li><a href="#nanda okitavera">Nanda Okitavera</a></li>
+  <li><a href="#aflasio">Aflasio</a></li>
+  <li><a href="#addy">Addy</a></li>
+  <li><a href="#rania amina">Rania Amina</a></li>
+  <li><a href="#fathurhoho">Fathurhoho</a></li>
+  <li><a href="#muktazam hasbi ashidiqi">Muktazam Hasbi Ashidiqi</a></li>
+  <li><a href="#muhammad yuga">Muhammad Yuga</a></li>
+  <li><a href="#yunindyo prabowo">Yunindyo Prabowo</a></li>
+  <li><a href="#habib mustofa">Habib Mustofa</a></li>
+  <li><a href="#se7entime">Se7entime</a></li>
+  <li><a href="#didik wicaksono">Didik Wicaksono</a></li>
+  <li><a href="#tsara fatma">Tsara Fatma</a></li>
+  <li><a href="#galih wisnuaji">Galih Wisnuaji</a></li>
+  <li><a href="#dicha zelianivan arkana">Dicha Zelianivan Arkana</a></li>
+  <li><a href="#harry kurn">Harry Kurn</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="markdown-body">
+            <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+            <p>
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/suciptoid.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/suciptoid.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="sucipto">Sucipto</h3>
+      <p><p>Hello, I am a Web Developer. Writes about tech and my stories in my blog and Medium.</p></p>
+      
+        <p><a href="https://sucipto.id" target="_blank">https://sucipto.id</a></p>
+        <p><a href="https://github.com/suciptoid" target="_blank">https://github.com/suciptoid</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/agungsetiawan.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/agungsetiawan.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="agung setiawan">Agung Setiawan</h3>
+      <p><p>Saya bekerja sebagai software developer di BukaLapak.</p> <p>Sehari-hari saya bekerja dengan tools Sublime Text, Vim, github dan GIT.</p> <p>Sedangkan untuk teknologi pemrograman yang saya gunakan adalah utamanya bahasa Ruby dan framework Ruby on Rails.</p></p>
+      
+        <p><a href="https://agung-setiawan.com" target="_blank">https://agung-setiawan.com</a></p>
+        <p><a href="https://www.idrails.com" target="_blank">https://www.idrails.com</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/epsi-rns.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/epsi-rns.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="epsi">Epsi</h3>
+      <p><p>Hello, my name is Epsi. I’m an open source enthusiast. Although I like command line, I’m not a hacker.</p> <p>You can read a glance about my journey on my Blog.</p> <p>I know nothing. Nothing at all.</p></p>
+      
+        <p><a href="https://epsi-rns.github.io" target="_blank">https://epsi-rns.github.io</a></p>
+        <p><a href="https://epsi-rns.gitlab.io" target="_blank">https://epsi-rns.gitlab.io</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/fikriomar16.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/fikriomar16.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="fikri omar">Fikri Omar</h3>
+      <p><p>Hi all…My name is Fikri, also u can call me Omar.</p> <p>I came from Indonesia, and i use Ubuntu as my favorite OS.</p> <p>In this blog, i’ll post my Linux Daily Shot.</p> <p>Hope you like it.</p></p>
+      
+        <p><a href="https://github.com/fikriomar16" target="_blank">https://github.com/fikriomar16</a></p>
+        <p><a href="https://www.deviantart.com/fikriomar16" target="_blank">https://www.deviantart.com/fikriomar16</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/okitavera.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/okitavera.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="nanda okitavera">Nanda Okitavera</h3>
+      <p><p>I am an Indonesian UX Designer and Kotlin-Android Developer.</p> <p>Honestly, I do code for fun, just an another hobbies afterworks besides watching videos or plays some melodic decadence metal music.</p> <p>Primarily use Kotlin for Android development, but also do a bash and python for scripting.</p> <p>Also I am the master of mixing chocolate and coffee.</p></p>
+      
+        <p><a href="https://okitavera.me" target="_blank">https://okitavera.me</a></p>
+        <p><a href="https://github.com/okitavera" target="_blank">https://github.com/okitavera</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://aflasio.art/static/3024da22847c4984306a77fcde4b9c40/f5a2d/profile.jpg.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://aflasio.art/static/3024da22847c4984306a77fcde4b9c40/f5a2d/profile.jpg" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="aflasio">Aflasio</h3>
+      <p><p>Aflasio is just an acronym of “<b>Argia Flat Design Motion</b>” because i was learning about graphic motion that time. But now, i’m just doing digital painting artwork.</p>
+<p>The only reason that i’m not change that name is because i love it and easy to find on google.</p>
+</p>
+      
+        <p><a href="https://aflasio.art" target="_blank">https://aflasio.art</a></p>
+        <p><a href="https://aflasio.art/gallery" target="_blank">https://aflasio.art/gallery</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/addy-dclxvi.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/addy-dclxvi.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="addy">Addy</h3>
+      <p><p>Hi! I’m Addy.</p> <p>Just a student, a worker, and a Linux Enthusiast. I love metal, cat, linux, playing guitar, design, customizing desktop, more metal, reading, climbing mountain, fishing, watching movie, anime, and even more metal.</p></p>
+      
+        <p><a href="https://addy-dclxvi.github.io" target="_blank">https://addy-dclxvi.github.io</a></p>
+        <p><a href="https://github.com/addy-dclxvi" target="_blank">https://github.com/addy-dclxvi</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/raniaamina.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/raniaamina.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="rania amina">Rania Amina</h3>
+      <p><p>Jatuh cinta dengan dunia Free/Libre Open Source Software sejak masih duduk di bangku SMP dan sekarang mencoba untuk aktif berkontribusi di bidang FLOSS.</p> <p>Bergabung dengan tim pengembang BlankOn Linux divisi kesenian, kontributor artwork Ubuntu Budgie, Gimpscape, dan beberapa kegiatan FLOSS lainnya.</p></p>
+      
+        <p><a href="https://raniaamina.id" target="_blank">https://raniaamina.id</a></p>
+        <p><a href="https://github.com/raniaamina" target="_blank">https://github.com/raniaamina</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://3.bp.blogspot.com/-irLdkJt9Yr4/WcJ3EJDCq6I/AAAAAAAABGA/K4fNuF64WdIEI6GKmEkI49whnuuWhekkwCPcBGAYYCw/s200/fathurhoho.png.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://3.bp.blogspot.com/-irLdkJt9Yr4/WcJ3EJDCq6I/AAAAAAAABGA/K4fNuF64WdIEI6GKmEkI49whnuuWhekkwCPcBGAYYCw/s200/fathurhoho.png" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="fathurhoho">Fathurhoho</h3>
+      <p><p>Berasal dari nama alay ketika SMA. Sengaja saya jadikan nama untuk blog personal saya.</p> <p>Tidak ada yang menarik dari blog gado-gado ini. Sebagian besar berisi tentang pengalaman dan opini saya.</p></p>
+      
+        <p><a href="https://www.fathurhoho.id" target="_blank">https://www.fathurhoho.id</a></p>
+        <p><a href="https://ngonfig.net" target="_blank">https://ngonfig.net</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/reorr.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/reorr.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="muktazam hasbi ashidiqi">Muktazam Hasbi Ashidiqi</h3>
+      <p><p>Hello, I am Muktazam Hasbi. I writes about tech, mainly linux stuff and my stories in this blog and Medium.</p> <p>Recently interesting with JAMstack technologies, so I migrate my blog from Wordpress to Hexo.</p></p>
+      
+        <p><a href="https://muktazam.me" target="_blank">https://muktazam.me</a></p>
+        <p><a href="https://github.com/reorr" target="_blank">https://github.com/reorr</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/myugan.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/myugan.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="muhammad yuga">Muhammad Yuga</h3>
+      <p><p>I’m a humble person, good workers, diligently, cooperated, happy to learn new things and learn quickly.</p> <p>Have an experience in UNIX/Linux system, a researcher in the field of security especially Infrastructure and skilled as DevOps engineer and System Administrator with hands on experience supporting, automation and optimizing a server.</p></p>
+      
+        <p><a href="https://github.com/myugan" target="_blank">https://github.com/myugan</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/ypraw.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/ypraw.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="yunindyo prabowo">Yunindyo Prabowo</h3>
+      <p><p>Noob Programmer , always getting errors everywhere when typing the codes.</p> <p>Darkworld enthusiast (terminal and coffe) | Pythonist | Want to be frontend develepoer.</p></p>
+      
+        <p><a href="https://ypraw.github.io/" target="_blank">https://ypraw.github.io/</a></p>
+        <p><a href="https://github.com/ypraw" target="_blank">https://github.com/ypraw</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/habibmustofa.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/habibmustofa.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="habib mustofa">Habib Mustofa</h3>
+      <p><p>Hi, saya Habib Mustofa, salam kenal. Saya menyukai teknologi komputer, banyak meluangkan waktu belajar bahasa pemrograman komputer (Java & JavaScript), halaman ini saya bangun menggunakan JavaScript.</p> <p>Saya menyukai OS berbasis Linux. KDE Neon merupakan OS utama yang saya gunakan sehari-hari. Saya tidak begitu pandai menulis. Beberapa hal yang saya pelajari tentang bahasa pemrograman & Linux saya tulis di blog saya.</p></p>
+      
+        <p><a href="https://www.habib-mustofa.com" target="_blank">https://www.habib-mustofa.com</a></p>
+        <p><a href="https://github.com/habibmustofa" target="_blank">https://github.com/habibmustofa</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/se7entime.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/se7entime.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="se7entime">Se7entime</h3>
+      <p><p>“Tak perlu menjelaskan tentang dirimu pada siapapun. Karena yang menyukaimu tidak membutuhkannya. Dan yang membencimu tidak akan mempercayainya.”<br>(Ali bin Abi Thalib)</p> <p>Mau Stalking saya? <a href="https://lmddgtfy.net/?q=%22se7entime%22" target="_blank">Silahkan</a>.</p></p>
+      
+        <p><a href="https://se7entime.wordpress.com" target="_blank">https://se7entime.wordpress.com</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/firewalker06.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/firewalker06.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="didik wicaksono">Didik Wicaksono</h3>
+      <p><p>Makanan, kodingan, dan kehidupan.</p> <p>I believe that good food with good music can bring you happiness. CTO & doorkeeper at Cookpad Indonesia</p></p>
+      
+        <p><a href="https://didik.id" target="_blank">https://didik.id</a></p>
+        <p><a href="https://github.com/firewalker06" target="_blank">https://github.com/firewalker06</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/tsara27.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/tsara27.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="tsara fatma">Tsara Fatma</h3>
+      <p><p>I am a mom, a wife, and also a programmer who is trying to improve and spread good things for others.</p> <p>I am a full stack Ruby on Rails developer with more than 4 years experience and have contributed/developed various web application and RESTful API. I have worked with many clients around the world and helped building and maintaining various products.</p></p>
+      
+        <p><a href="https://tsarafatma.com/" target="_blank">https://tsarafatma.com/</a></p>
+        <p><a href="https://github.com/tsara27" target="_blank">https://github.com/tsara27</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/galihx11.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/galihx11.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="galih wisnuaji">Galih Wisnuaji</h3>
+      <p><p>Saya sangat tertaik dengan linux dan programming. Saya masih fresh gradiate walaupun begitu tapi yakin bisa belajar dengan cepat karena saya sudah terbiasa belajar otodidak. Saat ini saya menggunakan linux (manjaro) sebagai sistem operasi utama saya dalam belajar programming dan membuat web (https://linuxisekai.site) sebagai tempat untuk menulis catatan dari apa yang saya pelajari.</p></p>
+      
+        <p><a href="https://www.linuxisekai.site" target="_blank">https://www.linuxisekai.site</a></p>
+        <p><a href="https://github.com/galihx11" target="_blank">https://github.com/galihx11</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/elianiva.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/elianiva.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="dicha zelianivan arkana">Dicha Zelianivan Arkana</h3>
+      <p><p>Hello internet people! My real name is Dicha Zelianivan Arkana. I'm a self taught front end web developer and Linux enthusiast. I do some random project just for a hobby for now.</p></p>
+      
+        <p><a href="https://elianiva.my.id/" target="_blank">https://elianiva.my.id/</a></p>
+        <p><a href="https://github.com/elianiva" target="_blank">https://github.com/elianiva</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+
+  <div class="dotfriends-page noselect">
+
+    <div class="dotfriends-page-img">
+    <!-- <img src="/assets/img/logo/logo_blank.svg" data&#45;echo="/assets/img/dotfriends/https://github.com/owl4ce.png?size=200.jpg" alt="profile_picture"> -->
+      <img src="/assets/img/logo/logo_blank.svg" data-echo="https://github.com/owl4ce.png?size=200" onerror="imgError(this);" alt="">
+    </div><!-- dotfriends-box-img -->
+
+    <div class="dotfriends-page-detail">
+      <h3 style="font-weight:bold;font-size:22pt;margin-top:10px;" id="harry kurn">Harry Kurn</h3>
+      <p><p>It's right for me, but not for you. Either way, the concept of "right" means no more than that.</p></p>
+      
+        <p><a href="https://violet-ia.github.io/id" target="_blank">https://violet-ia.github.io/id</a></p>
+        <p><a href="https://github.com/owl4ce" target="_blank">https://github.com/owl4ce</a></p>
+      
+      <div style="margin-bottom:30px;"></div>
+    </div><!-- dotfriends-box-detail -->
+
+    <div style="clear:both;"></div>
+  </div><!-- dotfriends-box -->
+
+
+</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

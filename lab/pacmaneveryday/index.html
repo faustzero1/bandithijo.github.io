@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="bandithijo, rizqi nur assyaufi, arch linux, vim, i3wm, jekyll, thinkpad">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>#PacmanEveryday | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="#PacmanEveryday" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/lab/pacmaneveryday/" />
+<meta property="og:url" content="https://bandithijo.dev/lab/pacmaneveryday/" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/lab/pacmaneveryday/","@type":"WebPage","headline":"#PacmanEveryday","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="#PacmanEveryday"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="active">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post" style="padding-bottom:0;">
+        <div class="post-body" style="margin-bottom:0;">
+          <h1 class="post-title noselect">
+            <a href="/lab/pacmaneveryday/">#PacmanEveryday</a>
+          </h1>
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar" style="margin-top:0;">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_about_blog.svg">Tentang PacmanEveryday
+  </h1>
+  <p><b>Idea:</b><br>
+  Mulai 2022/08/17, saya akan melakukan perekaman layar berupa vlog (video log), untuk setiap proses system update di Arch Linux dengan menggunakan Pacman via Terminal, 1x setiap hari, selama 1 tahun (hingga 2023/08/17).</p>
+  <p><b>Objective:</b><br>
+  <ol style="margin-top:0;">
+    <li>Apakah aman melakukan update system di Arch Linux setiap hari?</li>
+    <li>Apakah Arch Linux adalah distro yang stabil untuk digunakan sehari-hari* sepanjang tahun?</li>
+  </ol>
+  </p>
+  <p>*Pekerjaan sehari-hari saya:<br>
+  Software Engineer di perusahaan swasta, Jakarta (remote)</p>
+  <p><b>Environment:</b><br>
+  <ol style="margin-top:0;">
+    <li>Laptop: ThinkPad X260 | Intel i5-6300U | RAM: 8GB | SSD: 450GB</li>
+  </ol>
+  </p>
+  <p><b>Contact me:</b><br>
+  Jika ada kritik dan saran, bisa melalui alamat email di bawah ini yaa.
+  <ol style="margin-top:0;">
+    <li>Email: bandithijo@duck.com</li>
+  </ol>
+  </p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="markdown-body">
+            <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+            <p><div class="post-body noselect">
+
+  
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">001</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #001<br>
+        Evidence: <a href="https://youtu.be/QAOXZOsxuyI" target="_blank">https://youtu.be/QAOXZOsxuyI</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220817]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">002</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #002<br>
+        Evidence: <a href="https://youtu.be/z4WwI1grsuU" target="_blank">https://youtu.be/z4WwI1grsuU</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220818]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">003</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #003<br>
+        Evidence: <a href="https://youtu.be/PHsv_zydwm4" target="_blank">https://youtu.be/PHsv_zydwm4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220819]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">004</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #004<br>
+        Evidence: <a href="https://youtu.be/-jS-Gcf1VhI" target="_blank">https://youtu.be/-jS-Gcf1VhI</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220820]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">005</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #005<br>
+        Evidence: <a href="https://youtu.be/Ckp75QQzfQM" target="_blank">https://youtu.be/Ckp75QQzfQM</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220821]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">006</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #006<br>
+        Evidence: <a href="https://youtu.be/Fzr575SjZII" target="_blank">https://youtu.be/Fzr575SjZII</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220822]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">007</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #007<br>
+        Evidence: <a href="https://youtu.be/EdWRykgSV_4" target="_blank">https://youtu.be/EdWRykgSV_4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220823]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">008</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #008<br>
+        Evidence: <a href="https://youtu.be/_lSczRjReyY" target="_blank">https://youtu.be/_lSczRjReyY</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220824]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">009</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #009<br>
+        Evidence: <a href="https://youtu.be/PCN5NuIaz_8" target="_blank">https://youtu.be/PCN5NuIaz_8</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220825]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">010</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #010<br>
+        Evidence: <a href="https://youtu.be/qPsWPLGlj3Y" target="_blank">https://youtu.be/qPsWPLGlj3Y</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220826]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">011</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #011<br>
+        Evidence: <a href="https://youtu.be/UyUGeyaE0Io" target="_blank">https://youtu.be/UyUGeyaE0Io</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220827]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">012</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #012<br>
+        Evidence: <a href="https://youtu.be/hS6f6ry-bno" target="_blank">https://youtu.be/hS6f6ry-bno</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220828]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">013</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #013<br>
+        Evidence: <a href="https://youtu.be/pFxuu-b1ieI" target="_blank">https://youtu.be/pFxuu-b1ieI</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220829]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">014</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #014<br>
+        Evidence: <a href="https://youtu.be/NriOnicsdlY" target="_blank">https://youtu.be/NriOnicsdlY</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220830]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">015</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #015<br>
+        Evidence: <a href="https://youtu.be/sPMBzgqrmlk" target="_blank">https://youtu.be/sPMBzgqrmlk</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220831]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">016</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #016<br>
+        Evidence: <a href="https://youtu.be/TT7CY5MSZKU" target="_blank">https://youtu.be/TT7CY5MSZKU</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220901]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">017</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #017<br>
+        Evidence: <a href="https://youtu.be/E3iR8ONVYC4" target="_blank">https://youtu.be/E3iR8ONVYC4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220902]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">018</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #018<br>
+        Evidence: <a href="https://youtu.be/fj2BaZBTA_4" target="_blank">https://youtu.be/fj2BaZBTA_4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220903]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">019</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #019<br>
+        Evidence: <a href="https://youtu.be/gRyB7pCsRpg" target="_blank">https://youtu.be/gRyB7pCsRpg</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220904]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">020</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #020<br>
+        Evidence: <a href="https://youtu.be/zGiu7XjtiuM" target="_blank">https://youtu.be/zGiu7XjtiuM</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220905]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">021</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #021<br>
+        Evidence: <a href="https://youtu.be/jb7-N_NlK00" target="_blank">https://youtu.be/jb7-N_NlK00</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220906]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">022</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #022<br>
+        Evidence: <a href="https://youtu.be/UHdHtU48J6c" target="_blank">https://youtu.be/UHdHtU48J6c</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220907]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">023</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #023<br>
+        Evidence: <a href="https://youtu.be/-hpmTkCaknY" target="_blank">https://youtu.be/-hpmTkCaknY</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220908]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">024</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #024<br>
+        Evidence: <a href="https://youtu.be/Klf7rjURn50" target="_blank">https://youtu.be/Klf7rjURn50</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220909]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">025</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #025<br>
+        Evidence: <a href="https://youtu.be/NFVC7q8hVdM" target="_blank">https://youtu.be/NFVC7q8hVdM</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220910]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">026</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #026<br>
+        Evidence: <a href="https://youtu.be/VWmow614TC4" target="_blank">https://youtu.be/VWmow614TC4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220911]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">027</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #027<br>
+        Evidence: <a href="https://youtu.be/SabXDqrawK4" target="_blank">https://youtu.be/SabXDqrawK4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220912]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">028</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #028<br>
+        Evidence: <a href="https://youtu.be/EdXOcJGImoA" target="_blank">https://youtu.be/EdXOcJGImoA</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220913]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">029</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #029<br>
+        Evidence: <a href="https://youtu.be/GE2F8xUC6-8" target="_blank">https://youtu.be/GE2F8xUC6-8</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220914]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">030</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #030<br>
+        Evidence: <a href="https://youtu.be/jF3vLJIq_tY" target="_blank">https://youtu.be/jF3vLJIq_tY</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220915]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">031</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #031<br>
+        Evidence: <a href="https://youtu.be/ika4btHTwn4" target="_blank">https://youtu.be/ika4btHTwn4</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220916]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">032</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #032<br>
+        Evidence: <a href="https://youtu.be/YItQnW1W1sk" target="_blank">https://youtu.be/YItQnW1W1sk</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220917]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">033</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #033<br>
+        Evidence: <a href="https://youtu.be/5AwSV7K8hPY" target="_blank">https://youtu.be/5AwSV7K8hPY</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220918]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">034</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #034<br>
+        Evidence: <a href="https://youtu.be/DJBcwNmWGn0" target="_blank">https://youtu.be/DJBcwNmWGn0</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220919]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">035</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #035<br>
+        Evidence: <a href="https://youtu.be/IEBiKY82PAM" target="_blank">https://youtu.be/IEBiKY82PAM</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220920]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">036</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #036<br>
+        Evidence: <a href="https://youtu.be/fPCFfjaCb6U" target="_blank">https://youtu.be/fPCFfjaCb6U</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220921]</p>
+  
+    <p type="button" class="post-title-index collapsible-title"><span class="mono">037</span>&nbsp;|&nbsp;
+      
+      
+        
+          <span class="status-ok">OK</span>
+        
+      
+    </p>
+    <div class="content-title">
+        <p>
+        Experiment Name: #PacmanEveryday<br>
+        Experiment No. : #037<br>
+        Evidence: <a href="https://youtu.be/o9pv-3jwtHI" target="_blank">https://youtu.be/o9pv-3jwtHI</a><br>
+        Note: -
+        </p>
+    </div>
+    <div class="post-title-tags">
+      <span class="notag"></span>
+    </div>
+    <p class="post-details-index">[20220922]</p>
+  
+
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible-title");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+</p>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

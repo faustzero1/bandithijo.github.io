@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tools, tips">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini." />
+<meta property="og:description" content="Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini." />
+<link rel="canonical" href="https://bandithijo.dev/blog/evince-pdf-reader-yang-saya-gunakan" />
+<meta property="og:url" content="https://bandithijo.dev/blog/evince-pdf-reader-yang-saya-gunakan" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-04T23:24:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/evince-pdf-reader-yang-saya-gunakan"},"description":"Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini.","url":"https://bandithijo.dev/blog/evince-pdf-reader-yang-saya-gunakan","@type":"BlogPosting","headline":"Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama","dateModified":"2019-02-04T23:24:00+08:00","datePublished":"2019-02-04T23:24:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/evince-pdf-reader-yang-saya-gunakan">Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/02/04</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Evince pdf reader yang saya gunakan
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#fitur-fitur">Fitur-fitur</a>
+    <ul>
+      <li><a href="#user-interface-yang-sederhana">User Interface yang Sederhana</a></li>
+      <li><a href="#last-page-read">Last Page Read</a></li>
+      <li><a href="#keyboard-shortcut-yang-mudah">Keyboard Shortcut yang Mudah</a></li>
+    </ul>
+  </li>
+  <li><a href="#tambahan-konfigurasi">Tambahan Konfigurasi</a></li>
+  <li><a href="#autoupdate-konten">Autoupdate Konten</a></li>
+  <li><a href="#kekurangan">Kekurangan</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prakata">Prakata</h1>
+<p>PDF reader adalah salah satu aplikasi yang sudah menjadi kebutuhan saya selain Terminal dan Browser. Saya juga cukup sering menghabiskan waktu sembari membaca-baca <em>ebook</em> melalui aplikasi PDF reader.</p>
+
+<p>Setiap dari pengguna distribusi sistem operasi GNU/Linux biasanya memiliki PDF reader favorit masin-masing. Saya pun demikian, memiliki satu PDF reader yang menjadi andalan, yaitu <strong>Evince</strong>.</p>
+
+<p>Apapun <em>Desktop Environment</em> yang saya gunakan, seperti: GNOME, XFCE, maupun <em>Window Manager</em>, seperti: i3wm, saya tetap menggunakan Evince sebagai PDF reader.</p>
+
+<p>Evince, yang sekarang lebih dikenal dengan <strong>GNOME/Document viewer</strong> adalah salah satu aplikasi pendukung GNOME desktop yang dapat kita pergunakan untuk membuka/membaca dokumen dengan banyak format, yaitu: PDF, PostScript, DjVu, tiff, dvi, XPS, Comic (cbr, cbz, cbt). Untuk daftar lebih lengkap dapat mengunjungi <a href="https://wiki.gnome.org/Apps/Evince/SupportedDocumentFormats" target="_blank"><em>Supported Document Formats</em></a>.</p>
+
+<p>Saya sendiri lebih sering memanfaatkan Evince untuk membuka file dengan format PDF.</p>
+
+<p>Untuk dapat mendukung format PDF, Evince menggunakan <em>backend</em> <strong>Poppler</strong>. Poppler adalah kepustakaan yang digunakan untuk merender file PDF yang berbasiskan <code class="language-plaintext highlighter-rouge">xpdf-3.0</code>.</p>
+
+<p>Meskipun Evince saat ini lebih dikenal dengan <b>Document viewer</b>, namun penggunaan nama <b>evince</b> masih diterapkan dalam beberapa hal seperti: <i>excutable name</i> (<code>Exec=evince</code>), <i>nama paket</i>, dll.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Untuk memasang <strong>Evince</strong>, biasaya sudah terdapat pada daftar paket-paket yang ada pada <strong>Gnome Desktop</strong>. Namun, kita dapat memasangnya secara independen.</p>
+
+<p>Pilih saja salah satu mana dari paket Evince di bawah yang sesuai untuk teman-teman.</p>
+
+<ol>
+  <li><a href="https://www.archlinux.org/packages/extra/x86_64/evince/" target="_blank">extra/evince</a></li>
+  <li><a href="https://aur.archlinux.org/packages/evince-no-gnome" target="_blank">aur/evince-no-gnome</a></li>
+</ol>
+
+<p><strong>extra/evince</strong></p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S evince</b><br /></pre>
+
+<p><strong>aur/evince-no-gnome</strong></p>
+<pre><span class="cmd">$ </span><b>yay -S evince-no-gnome</b><br /></pre>
+
+<h1 id="fitur-fitur">Fitur-fitur</h1>
+
+<p>Apa keunggulan dari Evince yang membuat saya menjadikan Evince sebagai PDF reader andalan?</p>
+
+<h2 id="user-interface-yang-sederhana">User Interface yang Sederhana</h2>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/pX1kRpZp/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Dual Page</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/HLbtw3Cy/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Single Page</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/GhpzWkvW/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Side Pane: Thumbnails (kiri), Outline(tengah), Annotations(kanan)</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/sgkcGqbz/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Night Mode</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://i.postimg.cc/XYGLJ4Hx/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 5 - Highlight (Membuat dan Menghapus)</p>
+
+<h2 id="last-page-read">Last Page Read</h2>
+
+<p>Evince akan menyimpan halaman terakhir yang kita baca. Sehingga memungkinkan saat kita buka file PDF tersebut, Evince akan menampilkan halaman dimana kita terkahir membaca.</p>
+
+<h2 id="keyboard-shortcut-yang-mudah">Keyboard Shortcut yang Mudah</h2>
+
+<p><strong>Navigasi</strong></p>
+
+<p>Pada area kertas, kita dapat menggunakan navigasi yang mirip seperti Vim.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Tombol</th>
+      <th style="text-align: left">Fungsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><kbd>J</kbd></td>
+      <td style="text-align: left">Scrolling kertas ke bawah</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>K</kbd></td>
+      <td style="text-align: left">Scrolling kertas ke atas</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>H</kbd></td>
+      <td style="text-align: left">Membuka halaman sebelumnya</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>L</kbd></td>
+      <td style="text-align: left">Membuka halaman selanjutnya</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Zoom in/out</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Tombol</th>
+      <th style="text-align: left">Fungsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><kbd>+</kbd></td>
+      <td style="text-align: left">Zoom in</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>-</kbd></td>
+      <td style="text-align: left">Zoom out</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>CTRL</kbd>+<kbd>0</kbd></td>
+      <td style="text-align: left">Zoom 1:1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>F</kbd></td>
+      <td style="text-align: left">Zoom Fit page</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>W</kbd></td>
+      <td style="text-align: left">Zoom Fit width</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Fungsi Lain-lain</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Tombol</th>
+      <th style="text-align: left">Fungsi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><kbd>C</kbd></td>
+      <td style="text-align: left">Contiuous scrolling</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>D</kbd></td>
+      <td style="text-align: left">Toggle single/dual page</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>F9</kbd></td>
+      <td style="text-align: left">Toggle open/close side pane</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>CTRL</kbd>+<kbd>i</kbd></td>
+      <td style="text-align: left">Toggle Night Mode</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>CTRL</kbd>+<kbd>L</kbd></td>
+      <td style="text-align: left">Go to Page Number</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>CTRL</kbd>+<kbd>F</kbd></td>
+      <td style="text-align: left">Menampilkan Search bar</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><kbd>CTRL</kbd>+<kbd>H</kbd></td>
+      <td style="text-align: left">Hightlihgt text</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Touchpad Gesture</strong></p>
+<div style="clear:both;"></div>
+<p><img style="float:left;" alt="gambar_6" src="/assets/img/logo/logo_blank.svg" data-echo="https://i.postimg.cc/4x5RNvYX/gambar-06.png" onerror="imgError(this);" /></p>
+<div style="clear:both;"></div>
+
+<h1 id="tambahan-konfigurasi">Tambahan Konfigurasi</h1>
+
+<p>Apabila teman-teman ingin mengatur konfigurasi default Evince dapat menggunakan aplikasi <code class="language-plaintext highlighter-rouge">dconf-editor</code>.</p>
+
+<p>Alamatnya ada di:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/org/gnome/evince/default
+</code></pre></div></div>
+
+<p>Di dalam sini terdapat beberapa konfigurasi <em>default</em> yang bisa kita atur seprti:</p>
+<ol>
+  <li>continuous</li>
+  <li>dual-page</li>
+  <li>show-sidebar</li>
+  <li>sidebar-size</li>
+  <li>show-toolbar</li>
+  <li>dll.</li>
+</ol>
+
+<p>Maksud dari “<em>default</em>” di sini adalah konfigurasi yang akan diterapkan kepada Evince saat pertama kali di jalankan.</p>
+
+<h1 id="autoupdate-konten">Autoupdate Konten</h1>
+
+<p>Apabila teman-teman berurusan dengan edit-mengedit file PDF, misalkan seperti LaTeX yang kemudian dikonversi ke PDF menggunakan <code class="language-plaintext highlighter-rouge">pdflatex</code>. Maka setelah proses kompilasi <code class="language-plaintext highlighter-rouge">.tex</code> menjadi <code class="language-plaintext highlighter-rouge">.pdf</code> selesai, Evince akan langsung mengupdate isi dari file PDF tersebut secara otomatis.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_7" data-echo="https://i.postimg.cc/6QMYz3K4/gambar-22.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 7 - Vim (kiri) sebagai LaTeX editor dengan Evince (kanan)</p>
+
+<h1 id="kekurangan">Kekurangan</h1>
+
+<p>Kekurangan yang sampai saat ini masih saya rasakan adalah, pada sistem saya, Evince masih belum dapat digunakan untuk <em>push to print</em> (ngeprint langsung dari Evince, <kbd>CTRL</kbd>+<kbd>P</kbd>) – Print Settings Window terbuka, namun tidak berdampak apa-apa saat kita menekan tombol print.</p>
+
+<p>Untuk mengakali ini, saya biasa membuka PDF di Firefox, kemudian baru memanfaatkan fitur print dari PDF reader yang dimiliki oleh Firefox.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Apabila dari teman-teman mempunyai PDF reader favorit boleh banget direkomendasikan kepada saya. Tentunya yang memiliki fitur setidaknya sama atau ada fitur lebih yang tidak dimiliki oleh Evince.</p>
+
+<p>Saya sudah pernah mencoba <strong>Okular</strong>, namun karena aplikasi Qt, saya kurang begitu senang dengan interface yang terlalu banyak icon. <strong>xpdf</strong>, <strong>mupdf</strong>, terlalu sederhana, tidak ada fitur-fitur yang saya perlukan seperti membuat da menghapus <em>highlight</em>.</p>
+
+<p>Sepertinya segini dulu, mudah-mudahan bermanfaat.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/GNOME/Document_viewer" target="_blank">wiki.archlinux.org/index.php/GNOME/Document_viewer</a>
+<br />Diakses tanggal: 2019/02/04</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.gnome.org/Apps/Evince" target="_blank">wiki.gnome.org/Apps/Evince</a>
+<br />Diakses tanggal: 2019/02/04</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.gnome.org/Apps/Evince/SupportedDocumentFormats" target="_blank">wiki.gnome.org/Apps/Evince/SupportedDocumentFormats</a>
+<br />Diakses tanggal: 2019/02/04</p>
+  </li>
+  <li>
+    <p><a href="https://poppler.freedesktop.org/" target="_blank">poppler.freedesktop.org/</a>
+<br />Diakses tanggal: 2019/02/04</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

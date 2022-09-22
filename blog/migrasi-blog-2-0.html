@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="jekyll, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Migrasi Blog 2.0 | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Migrasi Blog 2.0" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll." />
+<meta property="og:description" content="Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll." />
+<link rel="canonical" href="https://bandithijo.dev/blog/migrasi-blog-2-0" />
+<meta property="og:url" content="https://bandithijo.dev/blog/migrasi-blog-2-0" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-23T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/migrasi-blog-2-0"},"description":"Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll.","url":"https://bandithijo.dev/blog/migrasi-blog-2-0","@type":"BlogPosting","headline":"Migrasi Blog 2.0","dateModified":"2018-03-23T00:00:00+08:00","datePublished":"2018-03-23T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Migrasi Blog 2.0"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/migrasi-blog-2-0">Migrasi Blog 2.0</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/23</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Migrasi blog 2 0
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#jekyll">Jekyll</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a>
+    <ul>
+      <li><a href="#cms">CMS</a>
+        <ul>
+          <li><a href="#wordpress">WordPress</a></li>
+          <li><a href="#blogspot">Blogspot</a></li>
+        </ul>
+      </li>
+      <li><a href="#static-site-generator">Static Site Generator</a>
+        <ul>
+          <li><a href="#hexo">Hexo</a></li>
+          <li><a href="#hugo">Hugo</a></li>
+          <li><a href="#jekyll">Jekyll</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#template-yang-saya-gunakan">Template yang Saya Gunakan</a>
+    <ul>
+      <li><a href="#old-template">Old Template</a></li>
+      <li><a href="#new-template">New Template</a></li>
+    </ul>
+  </li>
+  <li><a href="#akhir-kata">Akhir Kata</a></li>
+  <li><a href="#ucapan-terima-kasih">Ucapan Terima Kasih</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<h2 id="cms">CMS</h2>
+
+<h3 id="wordpress">WordPress</h3>
+
+<p>Website: <a href="https://www.wordpress.com" target="_blank">wordpress.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_wordpress" data-echo="https://s20.postimg.cc/jf83v1r3x/gambar_08.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>“Migrasi Blog 2.0”. Ya, sesuai judul dari post ini, <strong>BanditHijo (R)-Chive</strong>, bukan yang pertama kali saya migrasikan. Pertama kali saya menulis blog, saya memilih menggunakan WordPress sebagai <em>platform</em> yang saya percayakan untuk menampung tulisan-tulisan saya. Saya perkirakan mungkin sejak 2010 saya mulai membuat <em>post</em> pertama saya dengan WordPress.</p>
+
+<p>Dengan menggunakan WordPress, saya belajar mengenal berbagai macam hal yang berkaitan dengan teknologi web, seperti pengguaan CMS (<em>Content Management System</em>), belajar mengenal <em>shared hosting</em> dan <em>custom domain</em>.</p>
+
+<p>Dengan WordPress, tidak begitu kesulitan bagi saya untuk memodifikasi WordPress <em>theme</em> yang saya unduh dari <em>official website</em> karena sebelum-sebelumnya saya memang sudah mengenal HTML dan CSS sejak masih SMA.</p>
+
+<h3 id="blogspot">Blogspot</h3>
+
+<p>Website: <a href="https://www.blogger.com" target="_blank">blogger.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_blogspot" data-echo="https://s20.postimg.cc/l712pxv19/gambar_09.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Singkat cerita, tahun 2012, saya berkeinginan untuk mencoba <em>platform</em> lain. Saya memutuskan untuk berpindah <em>platform</em> dari WordPress dan beralih menggunakan Blogger atau yang lebih dikenal dengan Blogspot, sebuah CMS yang dipayungin oleh Google. Saya cukup lama menggunakan Blogspot, hingga 2018 Maret, tepat dimana saya pun bermigrasi untuk yang kedua kalinya.</p>
+
+<h2 id="static-site-generator">Static Site Generator</h2>
+
+<p>Sejak 2017, saya mendengar beberapa teman-teman di komunitas GNU/Linux, menulis artikel-artikel mereka menggunakan <em>Static Site Generator</em>. Saya pun tertarik dan mulai mencari tahu sendiri dengan modal percakapan yang pernah saya tangkap, yaitu “menggunakan Hexo”. Saya pun mencoba mencari tahu <em>platform</em> <em>static site generator</em> yang bernama Hexo. Dan mulai saat inilah keinginan untuk bermigrasi ke <em>platform</em> lain dimulai. Terlebih lagi dengan menggunakan <em>statis site generator</em> kita dapat meletakkan <em>source</em> dari blog kita di GitHub dan membuatnya menjadi GitHub <em>page</em> yang berdomain <code class="language-plaintext highlighter-rouge">username.github.io</code>.</p>
+
+<p>Ketertarikan saya dengan <em>Static Site Generator</em> karena :</p>
+<ol>
+  <li>Kita dapat memproduksi tulisan dengan cepat sekaligus memiliki <em>layout</em> yang sudah otomatis rapi, karena ditulis menggunakan Markdown <em>format</em>.</li>
+  <li>Saya berkesempatan untuk membuat template saya sendiri dari nol.</li>
+  <li>Dengan <em>static site generator</em> saya dapat menggunakan GitHub sebagai <em>hosting</em> dan berganti <em>sub domain</em>, yang menurut saya <code class="language-plaintext highlighter-rouge">username.github.io</code> lebih keren ketimbang <code class="language-plaintext highlighter-rouge">username.blogspot.com</code> atau <code class="language-plaintext highlighter-rouge">username.wordpress.com</code>. Hehe =)</li>
+  <li>Semua orang <del>tidak</del> dapat membuatnya dengan mudah.</li>
+</ol>
+
+<h3 id="hexo">Hexo</h3>
+
+<p>Language: JavaScript</p>
+
+<p>Templates: EJS, Pug, Haml, Swig, Nunjucks, Mustache, Handlebars, Twig, Marko</p>
+
+<p>Website: <a href="https://hexo.io/" target="_blank">hexo.io</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_hexo" data-echo="https://s20.postimg.cc/8seapmb8t/gambar_10.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><em>Static Site Generator</em> ini, adalah yang pertama kali memperkenalkan saya tentang konsep dari <em>Static Site Generator</em>. Saya belajar dari berbagai macam sumber, mulai dari YouTube, hingga artikel-artikel di internet. Proses saya belajar memakan waktu lama, hahaha, saya juga tidak begitu mengerti kenapa saya sangat malas dikala itu. Hingga 2018 Januari, saya memutuskan untuk serius mendalami Hexo.</p>
+
+<p>Untuk proses produksi, seperti penerbitan tulisan saya tidak mengalami kendala, karena saya sudah terbiasa menulis menggunakan format Markdown. Konvensi lain seperti pengaturan <em>page</em>, <em>post</em>, <em>draft</em>, <em>assets</em>, dll, tidak membuat saya kebingungan. Namun, begitu sampai tahap “<em>Build your own theme from scratch</em>”, inilah tahap dimana saya mulai kebingungan dengan <em>layout convention</em> yang dimiliki oleh Hexo. Saya yakin, saya kebingungan karena ini pertama kalinya saya mengenal <em>layout formating</em> menggunakan EJS (<em>Embedded JavaScript</em>). Karena kesulitan ini saya mencoba untuk beralih mencoba <em>static site generator</em> lain, yaitu Hugo.</p>
+
+<h3 id="hugo">Hugo</h3>
+
+<p>Language: Go</p>
+
+<p>Templates: Go</p>
+
+<p>Website: <a href="https://gohugo.io/" target="_blank">gohugo.io</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_hugo" data-echo="https://s20.postimg.cc/gxwcnsex9/gambar_11.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Selain Hexo, saya juga sudah mengenal nama lain, yaitu Hugo, namun karena saya belum pernah sama sekali belajar bahasa pemrograman Go, saya pikir akan sulit, sehingga saya memutuskan untuk tetap menggunakan Hexo.</p>
+
+<p>2018 Maret 18, tepat siang hari, setelah semalaman saya mengalami frustasi dengan Hexo, saya pun langsung berpindah menggunakan Hugo, mencari tutorial-tutorial di YouTube yang dapat saya pelajari dengan cepat. Sekitar jam 10 malam, saya sudah berhasil membuat template saya sendiri. Rasa senang pun menggerogoti, sambil bersantai-santai mencari literatur-literatur yang saya bisa jadikan rujukan untuk menambah pengetahuan saya membuat Hugo <em>layout</em> yang menggunakan Go <em>template</em>. Hingga, akhirnya menemukan sebuah website yang menampilkan statistik terhadap <em>static site generator</em> yang populer, <a href="https://www.staticgen.com/" target="_blank">staticgen.com</a> - <em>Top Open-Source Static Site Generators</em>. Website ini menggambarkan statistik bahwa Hugo menduduki peringkat kedua setelah Jekyll, <em>static site generator</em> yang menggunakan bahasa pemrograman Ruby. Lantas saya pun penasaran, karena sebelumnya pun saya sudah pernah belajar Ruby. Saya berfikir, kenapa tidak menggunakan Ruby yang sudah pernah saya pelajari, mungkin akan lebih mudah ketimbang melanjutkan menggunakan Hugo yang menggunakan bahasa Go, yang belum pernah saya pelajarin dasarnya. Tepat tengah malam 2018 Maret 19, saya pun mencari tahu tentang Jekyll.</p>
+
+<h3 id="jekyll">Jekyll</h3>
+
+<p>Language: Ruby</p>
+
+<p>Templates: Liquid</p>
+
+<p>Website: <a href="https://jekyllrb.com/" target="_blank">jekyllrb.com</a></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_jekyll" data-echo="https://s20.postimg.cc/oqn0frsm5/gambar_12.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Karena sudah mengenal <em>static site generator</em> dari Hexo dan Hugo, saya tidak begitu kesulitan untuk beradaptasi menggunakan Jekyll dalam memproduksi konten. Terlebih lagi saat membuat Jekyll <em>layout</em>, Jekyll menggunakan <a href="https://shopify.github.io/liquid/" target="_blank">Liquid</a>, dimana Liquid ini hampir mirip seperti <a href="http://jinja.pocoo.org/" target="_blank">Jinja</a> <em>template</em> dalam mengambil <em>variable</em> atau <em>filters</em> yang diperlukan, sehingga saya tidak membutuhkan waktu lama untuk mengerti dan beradaptasi.</p>
+
+<p>Seperti ini contoh penggunaan Liquid.</p>
+
+<p><strong>Tags</strong></p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="p">%}</span>
+  Hello <span class="p">{{</span><span class="w"> </span><span class="nv">user</span><span class="p">.</span><span class="nv">name</span><span class="w"> </span><span class="p">}}</span>!
+<span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</code></pre></div></div>
+
+<p><strong>Filters</strong></p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="s2">"adam!"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">capitalize</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nf">prepend</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello "</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></div>
+
+<p><strong>Variabels</strong></p>
+
+<div class="language-liquid highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">title</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">content</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">url</span><span class="w"> </span><span class="p">}}</span>
+<span class="p">{{</span><span class="w"> </span><span class="nv">page</span><span class="p">.</span><span class="nv">date</span><span class="w"> </span><span class="p">}}</span>
+</code></pre></div></div>
+
+<p>Tepat tengah malam, <em>layout</em> yang saya <em>develop</em> sudah berhasil dan sesuai dengan yang saya inginkan. Saya juga dengan mudah memahami struktur dan konvensi-konvensi dalam Jekyll <em>layout</em>. Saya merasa Jekyll <em>layout</em> memberikan saya kebebasan yang sangat banyak untuk saya mengatur sendiri mau seperti apa struktur direktori dan penamaan dari <em>layout</em> yang saya bangun. Mungkin karena aspek ini, saya dapat memahami mengapa Jekyll ada diperingkat teratas pada statistik <strong>staticgen.com</strong>.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Serunya lagi, kita dapat membuat sendiri Liquid tags sesuai dengan kebutuhan kita.</p>
+    <p>Simak catatannya di sini, <a href="/blog/membuat-tampilan-command-prompt-dengan-jekyll-liquid-tags" target="_blank"><strong>Membuat Tampilan Command Prompt untuk Blog dengan Jekyll Liquid Tags</strong></a></p>
+  </div></div>
+
+<h1 id="template-yang-saya-gunakan">Template yang Saya Gunakan</h1>
+
+<h2 id="old-template">Old Template</h2>
+<p>Dari cerita-cerita di atas, saya berkali-kali menyinggung kata “<em>layout</em>”. Kenapa saya begitu bersikeras untuk membangun <em>layout</em> saya sendiri ? Karena dengan membangun <em>layout</em> sendiri, kita dapat dengan mudah memodifikasinya, karena kita memahami dengan baik bagaimana struktur dari <em>layout</em> yang kita bangun.</p>
+
+<p>Saya mengadopsi desain dari blog lama saya, yang menggunakan template buatan <a href="https://www.styleshout.com/" target="_blank">StyleShout</a>. Yang menurut saya, desain <em>template</em> ini mirip dengan <em>default template</em> Blogspot di awal-awal kemunculannya, hal ini sangat membuat saya bernostalgia dan betah berlama-lama memandangi <em>template</em> ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://s20.postimg.cc/62rxouut9/gambar_01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Sederhana dan <em>old school</em> sekali bukan?</p>
+
+<p>Saya memiliki kesan yang sangat baik terhadap bentuk desain <em>template</em> seperti ini. Namun sayangnya, <em>template</em> ini belum menggunakan prinsip <em>responsive design</em>. Sehingga sangat kaku dan tidak fleksibel apabila diakses menggunakan <em>smartphone</em> atau <em>tablet</em>. Hal tersebut dikarenakan <em>template</em> ini sebagian besar mengguanakn <em>element</em> gambar untuk membangun tampilannya, mulai dari <em>header</em> hingga <em>footer</em>.</p>
+
+<h2 id="new-template">New Template</h2>
+<p>Atas dasar kecintaan saya terhadap warna, desain, dan <em>layout</em> dari template sebelumnya, saya memutuskan untuk mencoba meniru desain dari <em>template</em> tersebut. Tentunya sudah menggunakan prinsip <em>responsive design</em>. Dari cerita di atas, saya berhasil membuat <em>template</em> ini dengan menggunakan Go <em>template</em>, namun saya kurang mengerti untuk mengembangkannya lebih jauh, sehingga saya memutuskan untuk mencoba Jekyll yang menggunakan Liquid untuk membangun <em>layout</em>. Dan, jadilah <em>layout</em> yang saya inginkan. Hampir menyerupai <em>template</em> buatan StyleShout.</p>
+
+<p><strong>HomePage</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://s20.postimg.cc/ttrb6yfkt/gambar_03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Blog (Post List)</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://s20.postimg.cc/iu63vcwvh/gambar_04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Page</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://s20.postimg.cc/fnbkbqrv1/gambar_02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Post</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_5" data-echo="https://s20.postimg.cc/y8mrg0on1/gambar_05.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Mobile Device Wide</strong>
+<img src="/assets/img/logo/logo_blank.svg" alt="gambar_6" data-echo="https://s20.postimg.cc/966fxw8wt/gambar_06.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><br />
+Hohoho, sejujurnya saya sangat menyukai <em>layout</em> ini. Karena saya bisa melakukan apa saja, meletakkan apa saja, dan memindahkan apa saja.</p>
+
+<p>Struktur dari <em>layout</em> ini adalah :</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>├── _drafts
+│
+├── _includes
+│   ├── _sidebar
+│   │   ├── sidebar_1.html
+│   │   ├── sidebar_2.html
+│   │   ├── sidebar_3.html
+│   │   └── sidebar_toc.html
+│   │
+│   ├── analytics.html
+│   ├── disqus.html
+│   ├── footer.html
+│   ├── head.html
+│   ├── header.html
+│   ├── scripts.html
+│   └── sidebar.html
+│
+├── _layouts
+│   ├── baseof.html
+│   ├── default.html
+│   ├── home.html
+│   ├── page.html
+│   └── post.html
+│
+├── _posts
+│   ├── blog
+│   │   └── 2016-12-04-post.md
+│   │
+│   └── opini
+│       └── 2016-12-04-opini.md
+│
+├── _site
+├── .sass-cache
+│
+├── assets
+│   ├── css
+│   │   ├── github-markdown.css
+│   │   └── style.css
+│   │
+│   ├── img
+│   │   ├── favicon
+│   │   │   └── favicon.png
+│   │   └── logo
+│   │       └── logo_bandithijo.png
+│   │
+│   └── js
+│       ├── jquery.min.js
+│       └── toc.js
+│
+├── pages
+│   ├── about.md
+│   ├── blog.md
+│   └── conact.md
+│
+├── _config.yml
+├── 404.html
+├── Gemfile
+├── Gemfile.lock
+└── index.html
+</code></pre></div></div>
+
+<p>Seperti yang kalian dapat lihat dari struktur di atas, bahwa <em>template</em> ini hanya menggunakan satu buah <em>element</em> gambar untuk dijadikan sebagai logo, dan <em>element</em> lain dikerjakan oleh CSS3. Dengan ini diharapkan dapat membuat <em>template</em> menjadi lebih cepat saat dimuat oleh <em>browser</em>.</p>
+
+<p><em>Layout</em> yang saya buat ini juga sudah saya obrak-abrik mengikuti kemauan saya, mungkin saja struktur dari <em>layout</em> ini tidak mengikuti aturan atau <em>convention</em> yang ada. Tapi saya senang karena dengan Jekyll, saya bisa mengeksplorasi Jekyll sebebas yang saya mau.</p>
+
+<p>Mungkin soal <em>layout</em> ini akan saya buatkan <em>post</em> tersendiri. Agar lebih mendalam, karena judul dari <em>post</em> ini hanya sekedar memberi tahu bahwa BanditHijo (R)-Chive sudah menggunakan <em>static site generator</em> juga untuk membangun blog.</p>
+
+<h1 id="akhir-kata">Akhir Kata</h1>
+<p>Rumah baru sudah nyaman, sekarang tinggal mengukir kenangan-kenangan di dalamnya.</p>
+
+<p>Saya benar-benar merasakan kemudahan dalam memproduksi tulisan-tulisan dengan menggunakn Markdown <em>format</em> yang nantinya akan di <em>generated</em> oleh Jekyll untuk menjadi sebuat <em>static site</em>. Kemudian saya <em>push</em> ke GitHub agar bisa <em>Online</em>.</p>
+
+<p>Terima kasih, untuk teman-teman yang sudah mampir dan membaca sepenggal kisah mengenai proses migrasi blog saya =)</p>
+
+<h1 id="ucapan-terima-kasih">Ucapan Terima Kasih</h1>
+<p>Berikut ini adalah nama-nama yang telah menginspirasi saya untuk bermigrasi menggunakan <em>static site generator</em> :</p>
+
+<ol>
+  <li><a href="https://sucipto.net/" target="_blank">sucipto.net</a></li>
+  <li><a href="http://epsi-rns.github.io" target="_blank">epsi-rns.github.io</a></li>
+  <li><a href="https://raniaamina.github.io/" target="_blank">raniaamina.github.io</a></li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://elianiva.my.id/" target="_blank">manusia_bernapas</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

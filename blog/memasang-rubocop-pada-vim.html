@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, vim, ruby">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Memasang Rubocop (Ruby linter) pada Vim | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Memasang Rubocop (Ruby linter) pada Vim" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Linter merupakan tools untuk mengecek aturan menulis kode program dari bahasa yang kita pergunakan. Menggunakan linter sudah menjadi kewajiban kalau kita membangun program secara kolaborasi. Agar baris kode yang kita tulis dapat seragam dengan programer yang lain. Ruby memiliki salah satunya linter yang cukup banyak digunakan yaitu Rubocop. Catatan kali ini mungin dapat membantu teman-teman untuk mengkonfigurasi Rubocop dengan Vim text editor." />
+<meta property="og:description" content="Linter merupakan tools untuk mengecek aturan menulis kode program dari bahasa yang kita pergunakan. Menggunakan linter sudah menjadi kewajiban kalau kita membangun program secara kolaborasi. Agar baris kode yang kita tulis dapat seragam dengan programer yang lain. Ruby memiliki salah satunya linter yang cukup banyak digunakan yaitu Rubocop. Catatan kali ini mungin dapat membantu teman-teman untuk mengkonfigurasi Rubocop dengan Vim text editor." />
+<link rel="canonical" href="https://bandithijo.dev/blog/memasang-rubocop-pada-vim" />
+<meta property="og:url" content="https://bandithijo.dev/blog/memasang-rubocop-pada-vim" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-25T05:17:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/memasang-rubocop-pada-vim"},"description":"Linter merupakan tools untuk mengecek aturan menulis kode program dari bahasa yang kita pergunakan. Menggunakan linter sudah menjadi kewajiban kalau kita membangun program secara kolaborasi. Agar baris kode yang kita tulis dapat seragam dengan programer yang lain. Ruby memiliki salah satunya linter yang cukup banyak digunakan yaitu Rubocop. Catatan kali ini mungin dapat membantu teman-teman untuk mengkonfigurasi Rubocop dengan Vim text editor.","url":"https://bandithijo.dev/blog/memasang-rubocop-pada-vim","@type":"BlogPosting","headline":"Memasang Rubocop (Ruby linter) pada Vim","dateModified":"2020-08-25T05:17:00+08:00","datePublished":"2020-08-25T05:17:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Memasang Rubocop (Ruby linter) pada Vim"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/memasang-rubocop-pada-vim">Memasang Rubocop (Ruby linter) pada Vim</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/08/25</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Memasang rubocop pada vim
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ruby">Ruby</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#vim">Vim</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang-masalah">Latar Belakang Masalah</a></li>
+  <li><a href="#apa-itu-rubocop">Apa itu Rubocop?</a></li>
+  <li><a href="#instalasi">Instalasi</a>
+    <ul>
+      <li><a href="#pasang-rubocop-gem">Pasang Rubocop Gem</a></li>
+      <li><a href="#ale">ALE</a></li>
+      <li><a href="#pasang-vim-rubocop--ale">Pasang vim-rubocop &amp; ALE</a></li>
+      <li><a href="#konfigurasi-vim-rubocop">Konfigurasi vim-rubocop</a>
+        <ul>
+          <li><a href="#pembuatan-file-rubocopyml">Pembuatan File rubocop.yml</a></li>
+          <li><a href="#definisikan-file-rubocopyml-yang-digunakan">Definisikan File rubocop.yml yang Digunakan</a></li>
+        </ul>
+      </li>
+      <li><a href="#konfigurasi-ale">Konfigurasi ALE</a></li>
+    </ul>
+  </li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Sejak 2019 saya memulai memprogram menggunakan bahasa Ruby, baru sekarang saya merasa perlu untuk menerapkan <em>code formater</em>. Tujuannya agar code yang kita tulis minim dari kesalahan akibat dari kesalahan penulisan stuktur dari sintaks sekaligus untuk menyeragamkan format code yang ditulis oleh tim member yang lain yang juga menggunakan <em>code formater</em>.</p>
+
+<p><em>Code formater</em> biasanya dalam text editor akan di-<em>bundle</em> bersama <em>code analyzer</em> yang biasa disebut dengan <strong>linter</strong>. Pengalaman saya berinteraksi dengan linter adalah saat belajar menggunakan bahasa Python dengan vim plugin <strong>python-mode</strong>. Saat itu, saya mendapat pengalaman dan kesan yang sangat bagus. Karena saya dipaksa untuk menulis sintaks kode berdasarkan format yang sudah disepakati. Kalau tidak, maka akan terdapat beberapa <em>warning</em> yang menandakan bahwa baris kode yang kita tulis tidak mengikuti kaidah atau format yang sesuai.</p>
+
+<p>Dalam bahasa Python, saya mengenal beberapa linter diantaranya: pylint, pylama, pycodestyle, pyflake, flake8, pep8, dll. Dalam bahasa Ruby, saya mengenal beberapa linter diantaranya: Rubocop –mungkin masih banyak lagi, namun hanya satu itu saja yang sering saya dengar.</p>
+
+<p>Maka, pada kesempatan kali ini, saya merasa sudah waktunya untuk menulis kode Ruby menggunakan <em>code formater</em> agar format penulisan kode lebih rapi. <em>Code formater</em> yang akan saya pergunakan adalah <strong>Rubocop</strong>.</p>
+
+<h1 id="apa-itu-rubocop">Apa itu Rubocop?</h1>
+
+<p>Secara sederhana, Rubocop adalah <em>static code analyzer</em> (linter) dan juga <em>code formater</em> untuk bahasa pemrograman Ruby. Apabila kita menggunakan Rubocop, secara otomatis, Rubocop akan memaksa kita untuk menulis sintaks Ruby dengan mengikuti kaidah-kaidah penulisan Ruby code yang ada di dalam <a href="https://rubystyle.guide/" target="_blank">Ruby Style Guide</a>.</p>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Tanpa berlama-lama, saya akan langsung saya <em>to the point</em> pada hal-hal teknik yang perlu dilakukan.</p>
+
+<h2 id="pasang-rubocop-gem">Pasang Rubocop Gem</h2>
+
+<p>Sebelum memasang Rubocop pada Vim, kita perlu memasang Rubocop pada Ruby environment kita. Kenapa saya katakan Ruby environment? Karena biasanya sebagai programmer Ruby, kita sangat direkomendasikan untuk menggunakan Ruby environment seperti RVM atau Rbenv. Saya sendiri menggunakan Rbenv.</p>
+
+<p>Terlebih dahulu saya melakukan pengecekan versi Ruby yang saat ini sedang saya pergunakan. Tujuannya agar saya mengetahui bahwa saya pernah memasang Rubocop pada Ruby versi tertentu.</p>
+
+<pre><span class="cmd">$ </span><b>ruby -v</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux]
+</code></pre></div></div>
+
+<p>Setelah itu pasang Rubocop gem terbaru.</p>
+
+<pre><span class="cmd">$ </span><b>gem install rubocop</b><br /></pre>
+
+<p>Tunggu proses instalasinya hingga selesai.</p>
+
+<p>Apabila telah selesai, artinya kita telah berhasil memasang Rubocop pada versi Ruby 2.7.1. Jika kita memiliki project dengan versi Ruby yang berbeda, kita perlu memasang Rubocop kembali pada versi Ruby tersebut.</p>
+
+<h2 id="ale">ALE</h2>
+
+<p>Saya juga menggunakan <a href="https://github.com/dense-analysis/ale" target="_blank"><strong>ALE</strong></a> (Asynchronous Lint Engine) adalah Vim plugin yang menyediakan linting (syntax checking dan semantic errors) untuk NeoVim 0.2.0+ dan Vim 8 saat kita mengedit text dan berperilaku seperti Vim Language Server Protocol client.</p>
+
+<p>ALE mendukung cukup banyak language dan linter. Nantinya, kita akan mengkonfigurasi ALE agar menggunakan Rubocop sebagai linter saat kita mengerjakan file Ruby.</p>
+
+<h2 id="pasang-vim-rubocop--ale">Pasang vim-rubocop &amp; ALE</h2>
+
+<p>Saya menggunakan <strong>vim-plug</strong> sebagai plugin manager.</p>
+
+<p>Untuk memasang Rubocop, kita akan menggunakan bantuan plugin yang bernama <a href="https://github.com/ngmy/vim-rubocop" target="_blank"><strong>ngmy/vim-rubocop</strong></a>.</p>
+
+<p>Dan juga, untuk Asynchronous Lint Engine, kita akan menggunakan <a href="https://github.com/dense-analysis/ale" target="_blank"><strong>ALE</strong></a></p>
+
+<p>Tambahkan pada <code class="language-plaintext highlighter-rouge">.vimrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="c">" A The Vim RuboCop plugin runs RuboCop and displays the results in Vim</span>
+Plug <span class="s1">'ngmy/vim-rubocop'</span>
+
+<span class="c">" A Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support</span>
+Plug <span class="s1">'dense-analysis/ale'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kemudian refresh dulu vimrc dengan melakukan source ke vimrc agar plugin yang baru saja kita tambahkan dapat dikenali.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:source $MYVIMRC
+</code></pre></div></div>
+
+<p>Lalu instal vim-rubocop yang baru saja kita tambahkan, dengan menggunakan perintah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:PlugInstall
+</code></pre></div></div>
+
+<p>Tunggu proses instalasinya sampai selesai.</p>
+
+<h2 id="konfigurasi-vim-rubocop">Konfigurasi vim-rubocop</h2>
+
+<p>Untuk mengkonfigurasi vim-rubocop, yang paling penting adalah kita perlu mendefinisikan dimana letak file <code class="language-plaintext highlighter-rouge">rubocop.yml</code> berada.</p>
+
+<p>File <strong>rubocop.yml</strong> ini berisi aturan-aturan yang akan digunkan oleh Rubocop untuk menilai kode yang kita tulis.</p>
+
+<p>Kita dapat meng-enable atau men-disable sesuai dengan keperluan kita.</p>
+
+<p>Letak dari file <strong>rubocop.yml</strong> ini dapat kita letakkan secara global atau project root direktori (local).</p>
+
+<p>Secara urutan, proses pembacaan file rubocop.yml akan seperti di bawah ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[1] /path/to/project/lib/utils/.rubocop.yml
+
+[2] /path/to/project/lib/.rubocop.yml
+
+[3] /path/to/project/.rubocop.yml
+
+[4] /.rubocop.yml
+
+[5] ~/.rubocop.yml
+
+[6] ~/.config/rubocop/config.yml
+
+[7] RuboCop’s default configuration
+</code></pre></div></div>
+<p>Pada konfigurasi kali ini saya akan menggunakan yang global karena saya tidak selalu mendifinisikan file rubocop.yml untuk project yang sedang saya kerjakan.</p>
+
+<p>Saya menggunakan nomor 6 dan akan membuat symbolic link untuk nomor 5. 😁</p>
+
+<h3 id="pembuatan-file-rubocopyml">Pembuatan File rubocop.yml</h3>
+
+<p>Pertama buat dahulu direktori config untuk Rubocop dan masuk ke dalam direktori tersebut.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir -p $HOME/.config/rubocop</b><br /><span class="cmd">$ </span><b>cd $HOME/.config/rubocop</b><br /></pre>
+
+<p>Kemudian download dulu aturan-aturan Rubocop yang default dari alamat di bawah ini.</p>
+
+<p><a href="https://raw.githubusercontent.com/rubocop-hq/rubocop/master/config/default.yml" target="_blank"><strong>RuboCop’s default configuration</strong></a></p>
+
+<p>Ganti nama filenya menjadi <code class="language-plaintext highlighter-rouge">rubocop.yml.example</code>.</p>
+
+<pre><span class="cmd">$ </span><b>mv default.yml rubocop.yml.example</b><br /></pre>
+
+<p>Selanjutnya, saya akan membuat file <strong>config.yml</strong> yang berisi aturan-aturan yang akan meng-override aturan default untuk saya disable.</p>
+
+<p>Jadi fungsi dari file <strong>config.yml</strong> ini saya pergunakan hanya untuk men-disable aturan yang saya tidak inginkan.</p>
+
+<pre><span class="cmd">$ </span><b>touch $HOME/.config/rubocop/config.yml</b><br /></pre>
+
+<p>Apabila saya melakukan list direktori akan seperti ini hasilnya</p>
+
+<pre>
+<span class="cmd">$ </span><b>ls</b>
+config.yml  rubocop.yml.example
+</pre>
+
+<p>Buka file <strong>config.yml</strong> dengan text editor dan tambahkan beberapa aturan yang ingin di-disable.</p>
+
+<p>Contoh beberapa aturan yang saya disable.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.config/rubocop/config.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yml" data-lang="yml"><span class="s">Style/Documentation</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Document</span><span class="nv"> </span><span class="s">classes</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">non-namespace</span><span class="nv"> </span><span class="s">modules.'</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="s">Metrics/MethodLength</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Avoid</span><span class="nv"> </span><span class="s">methods</span><span class="nv"> </span><span class="s">longer</span><span class="nv"> </span><span class="s">than</span><span class="nv"> </span><span class="s">10</span><span class="nv"> </span><span class="s">lines</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">code.'</span>
+  <span class="na">StyleGuide</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#short-methods'</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">CountComments</span><span class="pi">:</span> <span class="no">false</span>  <span class="c1"># count full line comments?</span>
+  <span class="na">Max</span><span class="pi">:</span> <span class="m">10</span>
+  <span class="na">CountAsOne</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">ExcludedMethods</span><span class="pi">:</span> <span class="pi">[]</span>
+
+<span class="s">Style/GlobalVars</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Do</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">introduce</span><span class="nv"> </span><span class="s">global</span><span class="nv"> </span><span class="s">variables.'</span>
+  <span class="na">StyleGuide</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#instance-vars'</span>
+  <span class="na">Reference</span><span class="pi">:</span> <span class="s1">'</span><span class="s">https://www.zenspider.com/ruby/quickref.html'</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="c1"># Built-in global variables are allowed by default.</span>
+  <span class="na">AllowedVariables</span><span class="pi">:</span> <span class="pi">[]</span>
+
+<span class="s">Style/FrozenStringLiteralComment</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+                 <span class="s">Add the frozen_string_literal comment to the top of files</span>
+                 <span class="s">to help transition to frozen string literals by default.</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">EnforcedStyle</span><span class="pi">:</span> <span class="s">always</span>
+  <span class="na">SupportedStyles</span><span class="pi">:</span>
+    <span class="c1"># `always` will always add the frozen string literal comment to a file</span>
+    <span class="c1"># regardless of the Ruby version or if `freeze` or `&lt;&lt;` are called on a</span>
+    <span class="c1"># string literal. It is possible that this will create errors.</span>
+    <span class="pi">-</span> <span class="s">always</span>
+    <span class="c1"># `always_true` will add the frozen string literal comment to a file,</span>
+    <span class="c1"># similarly to the `always` style, but will also change any disabled</span>
+    <span class="c1"># comments (e.g. `# frozen_string_literal: false`) to be enabled.</span>
+    <span class="pi">-</span> <span class="s">always_true</span>
+    <span class="c1"># `never` will enforce that the frozen string literal comment does not</span>
+    <span class="c1"># exist in a file.</span>
+    <span class="pi">-</span> <span class="s">never</span>
+  <span class="na">SafeAutoCorrect</span><span class="pi">:</span> <span class="no">false</span>
+
+<span class="s">Metrics/PerceivedComplexity</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+                 <span class="s">A complexity metric geared towards measuring complexity for a</span>
+                 <span class="s">human reader.</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">IgnoredMethods</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">Max</span><span class="pi">:</span> <span class="m">10</span> <span class="c1"># default: 8</span>
+
+<span class="c1"># Avoid complex methods.</span>
+<span class="s">Metrics/CyclomaticComplexity</span><span class="pi">:</span>
+  <span class="na">Description</span><span class="pi">:</span> <span class="pi">&gt;-</span>
+                 <span class="s">A complexity metric that is strongly correlated to the number</span>
+                 <span class="s">of test cases needed to validate a method.</span>
+  <span class="na">Enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">IgnoredMethods</span><span class="pi">:</span> <span class="pi">[]</span>
+  <span class="na">Max</span><span class="pi">:</span> <span class="m">10</span> <span class="c1"># default: 7</span></code></pre></figure>
+
+<p>Saya mendisable:</p>
+
+<ol>
+  <li><strong>Style/Documentation</strong>, untuk Class documentation yang biasanya ada di bagian atas dari Class.</li>
+  <li><strong>Metrics/MethodLength</strong>, untuk membatasi jumlah baris pada method yang tidak lebih dari 10 baris.</li>
+  <li><strong>Style/GlobalVars</strong>, untuk menghindari menggunakan global variabel.</li>
+  <li><strong>Style/FrozenStringLiteralComment</strong>, untuk mewajibkan menulis magic string.</li>
+  <li><strong>Metrics/PerceivedComplexity</strong> &amp; <strong>Metrics/CyclomaticComplexity</strong>, untuk mengatur penulisan method yang mudah dipahami, dan tidak berbelit-belit.</li>
+</ol>
+
+<p>Kemudian, saya akan membuat symbolic link file <strong>config.yml</strong> untuk saya letakkan di $HOME direktori secara hidden.</p>
+
+<pre><span class="cmd">$ </span><b>ln -sf $HOME/.config/rubocop/config.yml $HOME/.rubocop.yml</b><br /></pre>
+
+<p>Dengan begini, saya memiliki file <code class="language-plaintext highlighter-rouge">~/.rubocop.yml</code> yang isinya akan sama dengan file <code class="language-plaintext highlighter-rouge">~/.config/rubocop/config.yml</code>.</p>
+
+<p><strong>Kenapa saya buat menjadi symbolic seperti ini?</strong></p>
+
+<p>Agar path yang digunakan lebih pendek. 😁</p>
+
+<h3 id="definisikan-file-rubocopyml-yang-digunakan">Definisikan File rubocop.yml yang Digunakan</h3>
+
+<p>Setelah kita mendifinikan aturan-aturan apa saja, kita perlu mendifinisikan file aturan mana yang akan kita pergunakan.</p>
+
+<p>Tambahkan pada <code class="language-plaintext highlighter-rouge">.vimrc</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><span class="k">let</span> <span class="nv">g:vimrubocop_config</span> <span class="p">=</span> <span class="s1">'~/.rubocop.yml'</span></code></pre></figure>
+
+<p>Saya mendefinisikan file <code class="language-plaintext highlighter-rouge">~/.rubocop.yml</code> yang merupakan symbolic link dari file <code class="language-plaintext highlighter-rouge">~/.config/rubocop/config.yml</code>.</p>
+
+<h2 id="konfigurasi-ale">Konfigurasi ALE</h2>
+
+<p>Setelah kita mengkonfigurasi vim-rubocop, kita juga perlu mengkonfigurasi ALE untuk mendifinisikan linter apa yang akan kita gunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><span class="k">let</span> <span class="nv">g:ale_linters</span> <span class="p">=</span> <span class="p">{</span>
+<span class="se">\</span>   <span class="s1">'ruby'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'rubocop'</span><span class="p">],</span>
+<span class="se">\</span><span class="p">}</span></code></pre></figure>
+
+<p>Kemudian, definisikan juga fixer yang akan digunakan.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><span class="k">let</span> <span class="nv">g:ale_fixers</span> <span class="p">=</span> <span class="p">{</span>
+<span class="se">\</span>   <span class="s1">'ruby'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'rubocop'</span><span class="p">],</span>
+<span class="se">\</span><span class="p">}</span></code></pre></figure>
+
+<p>Untuk mengaktifkan ALE fixer kita dapat menggunakan perintah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:ALEFix
+</code></pre></div></div>
+
+<p>Selain menggunakan Rubocop sebagai fixer, kita dapat mengecek saran penggunaan fixer yang lain dengan menggunakan perintah.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:ALEFixSuggest
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Try the following fixers appropriate for the filetype:
+
+'rubocop' - Fix ruby files with rubocop --auto-correct.
+'rufo' - Fix ruby files with rufo
+'sorbet' - Fix ruby files with srb tc --autocorrect.
+'standardrb' - Fix ruby files with standardrb --fix
+
+Try the following generic fixers:
+
+'remove_trailing_lines' - Remove all blank lines at the end of a file.
+'trim_whitespace' - Remove all trailing whitespace characters at the end of every line.
+
+See :help ale-fix-configuration
+
+Press q to close this window
+</code></pre></div></div>
+
+<p>Tambahkan juga beberapa dekorasi.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><span class="k">let</span> <span class="nv">g:ale_sign_error</span>   <span class="p">=</span> <span class="s1">'❌'</span>
+<span class="k">let</span> <span class="nv">g:ale_sign_warning</span> <span class="p">=</span> <span class="s1">'⚠️ '</span></code></pre></figure>
+
+<p>Saya tidak mengaktifkan fix pada saat save.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>$HOME/.vimrc</code></div>
+
+<figure class="highlight"><pre><code class="language-viml" data-lang="viml"><span class="k">let</span> <span class="nv">g:ale_fix_on_save</span> <span class="p">=</span> <span class="m">0</span></code></pre></figure>
+
+<p>Untuk melihat Linter Variable gunakan perintah:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:ALEInfo
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Current Filetype: ruby
+Available Linters: ['brakeman', 'debride', 'rails_best_practices', 'reek', 'rubocop', 'ruby', 'solargraph', 'sorbet', 'standardrb']
+   Linter Aliases:
+'sorbet' -&gt; ['srb']
+  Enabled Linters: ['rubocop']
+ Suggested Fixers:
+  'remove_trailing_lines' - Remove all blank lines at the end of a file.
+  'rubocop' - Fix ruby files with rubocop --auto-correct.
+  'rufo' - Fix ruby files with rufo
+  'sorbet' - Fix ruby files with srb tc --autocorrect.
+  'standardrb' - Fix ruby files with standardrb --fix
+  'trim_whitespace' - Remove all trailing whitespace characters at the end of every line.
+ Linter Variables:
+let g:ale_ruby_rails_best_practices_executable = 'rails_best_practices'
+let g:ale_ruby_rails_best_practices_options = ''
+let g:ale_ruby_rubocop_executable = 'rubocop'
+let g:ale_ruby_rubocop_options = ''
+ Global Variables:
+let g:ale_cache_executable_check_failures = v:null
+let g:ale_change_sign_column_color = 0
+let g:ale_command_wrapper = ''
+...
+...
+</code></pre></div></div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Pada saat ini, saya hanya mendifinisikan untuk bahasa Ruby, namun sebenarnya, saya juga mendifinisikan untuk bahasa yang lain seperi JavaScript dan Python.</p>
+  </div></div>
+
+<p>Meskipun saat ini, saya hanya berhasil menjalankan fixer untuk <code class="language-plaintext highlighter-rouge">remove_trailing_lines</code>.</p>
+
+<p>Saya masih akan terus mencoba-coba agar fungsi fixer secara otomatis benar-benar dapat digunakan.</p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://github.com/rubocop-hq/rubocop" target="_blank">github.com/rubocop-hq/rubocop</a>
+<br />Diakses tanggal: 2020/08/25</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/ngmy/vim-rubocop" target="_blank">github.com/ngmy/vim-rubocop</a>
+<br />Diakses tanggal: 2020/08/25</p>
+  </li>
+  <li>
+    <p><a href="https://www.vimfromscratch.com/articles/vim-for-ruby-and-rails-in-2019/" target="_blank">Vim for Ruby and Rails in 2019</a>
+<br />Diakses tanggal: 2020/08/25</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/dense-analysis/ale" target="_blank">github.com/dense-analysis/ale</a>
+<br />Diakses tanggal: 2020/08/25</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

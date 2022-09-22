@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, rails">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Navigation Bar Global Menu Preferences pada Rails | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Navigation Bar Global Menu Preferences pada Rails" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Catatan kali ini mengenai cara membuat navbar yang memiliki menu yang pilihannya hanya terdapat pada controller tertentu, namun menjadi dapat digunakan pada semua halaman." />
+<meta property="og:description" content="Catatan kali ini mengenai cara membuat navbar yang memiliki menu yang pilihannya hanya terdapat pada controller tertentu, namun menjadi dapat digunakan pada semua halaman." />
+<link rel="canonical" href="https://bandithijo.dev/blog/navbar-global-menu-preference-rails" />
+<meta property="og:url" content="https://bandithijo.dev/blog/navbar-global-menu-preference-rails" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-21T10:23:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/navbar-global-menu-preference-rails"},"description":"Catatan kali ini mengenai cara membuat navbar yang memiliki menu yang pilihannya hanya terdapat pada controller tertentu, namun menjadi dapat digunakan pada semua halaman.","url":"https://bandithijo.dev/blog/navbar-global-menu-preference-rails","@type":"BlogPosting","headline":"Navigation Bar Global Menu Preferences pada Rails","dateModified":"2019-12-21T10:23:00+08:00","datePublished":"2019-12-21T10:23:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Navigation Bar Global Menu Preferences pada Rails"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/navbar-global-menu-preference-rails">Navigation Bar Global Menu Preferences pada Rails</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2019/12/21</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Navbar global menu preference rails
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#rails">Rails</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#prakata">Prakata</a></li>
+  <li><a href="#permasalahan">Permasalahan</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#schema">Schema</a></li>
+      <li><a href="#controller">Controller</a></li>
+      <li><a href="#route">Route</a></li>
+      <li><a href="#view">View</a></li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<!-- <img class="post&#45;body&#45;img" src="/assets/img/logo/logo_blank_banner.svg" data&#45;echo="#" alt="banner"> -->
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.3</code> <code class="language-plaintext highlighter-rouge">Rails 5.2.4</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 11.5</code></p>
+
+<h1 id="prakata">Prakata</h1>
+
+<p>Sebenarnya saya kurang memahami harus memberikan judul seperti apa untuk catatan kali ini.</p>
+
+<p>Tapi, mudah-mudahan judul yang saya berikan saat ini, dapat mewakili isi dari tulisan yang ingin saya dokumentasikan.</p>
+
+<p>Mungkin saya akan mulai dengan memberikan ilustrasi gambar.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/jdv4sB52/gambar-01.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Navigation Bar dengan Menu Language dan Currency Preferences</p>
+
+<p>Nah, sudah sedikit terbayang kan.</p>
+
+<p>Jadi, dropdown menu tersebut mempunyai fungsi seperti ini:</p>
+
+<ol>
+  <li>Dapat mengganti language dan currency di setiap halaman.</li>
+  <li>Berfungsi pada user maupun guest</li>
+  <li>Apabila guest melakukan registrasi, maka language atau currency yang mereka pilih juga akan ikut tersimpan.</li>
+</ol>
+
+<h1 id="permasalahan">Permasalahan</h1>
+
+<p>Awalnya saya berfikir, “Bagaimana bisa mengganti language dan currency yang merupakan field atau entitas dari tabel users pada setiap halaman?”</p>
+
+<p>Selama ini, saya hanya melakukan action edit pada controller dan view yang bersangkutan dengan dimana field atau entitas tersebut berada.</p>
+
+<p>Misal, pada halaman edit user. Di dalamnya terdapat input field untuk mengganti language dan currency.</p>
+
+<p>Sedangkan, fungsi navbar ini harus dapat melakukan update data saat language dan currency dipilih pada semua halaman di dalam web.</p>
+
+<p>Bagi Junior Rails Developer seperti saya yang masih anak kemarin sore, ini merupakan hal yang sangat baru.</p>
+
+<p>Saking bersemangatnya, rasanya seperti ada tablet Redoxon yang di larutkan di dalam dada. Wkwkwk</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Sebagai sekenario, saya sudah memiliki tabel <code class="language-plaintext highlighter-rouge">users</code> dengan field <code class="language-plaintext highlighter-rouge">locales:string</code> untuk menyimpan data language dan field <code class="language-plaintext highlighter-rouge">rate:string</code> untuk menyimpan data currency.</p>
+
+<h2 id="schema">Schema</h2>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/schema.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="n">create_table</span> <span class="s2">"users"</span><span class="p">,</span> <span class="ss">force: :cascade</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+  <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="s2">"locale"</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">"en"</span>
+  <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="s2">"rate"</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">"MYR"</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="controller">Controller</h2>
+
+<p>Karena <code class="language-plaintext highlighter-rouge">locale</code> dan <code class="language-plaintext highlighter-rouge">rate</code> terdapat pada tabel <code class="language-plaintext highlighter-rouge">users</code> maka kita akan menambahkan kedua controller tersebut untuk users.</p>
+
+<p>Saya akan menggunakan struktur seperti yang pada catatan sebelum-sebelumnya, yaitu “Controller Namespaes and Routing”.<a href="#referensi"><sup>1</sup></a> dengan tujuan untuk memisahkan Admin dan User.</p>
+
+<p>Oh ya, pada catatan kali ini, <code class="language-plaintext highlighter-rouge">application_controller.rb</code> yang akan menghandle users. Tidak seperti catatan sebelumnya yang saya pisahkan. Tujuannya agar proses pencatatan menjadi lebih ringkas. Wkwkwk</p>
+
+<p>Masukkan kedua controller yang akan kita buat ke dalam direktori <code class="language-plaintext highlighter-rouge">users/</code> agar nantinya mudah untuk di-<em>maintain</em>.</p>
+
+<p>Kira-kira seperti ini struktur file dan direktorinya.</p>
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  ├─ channels/
+│  ├─ controllers/
+│  │  ├─ admins/
+│  │  ├─ concerns/
+│  │  ├─ <mark>users/</mark>
+│  │  │  ├─ <mark>locales_controller.rb</mark>
+│  │  │  └─ <mark>rates_controller.rb</mark>
+│  │  ├─ admins_controller.rb
+│  │  └─ application_controller.rb
+│  ├─ ...
+│  ...
+├─ ...
+...
+</pre>
+
+<p>Berikut ini isi dari file-file tersebut.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/users/locales_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">LocalesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:authenticate_user!</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">locale_param</span><span class="p">)</span>
+      <span class="n">redirect_to</span> <span class="n">request</span><span class="p">.</span><span class="nf">referer</span><span class="p">,</span> <span class="ss">notice: </span><span class="n">t</span><span class="p">(</span><span class="s1">'navbar.locale_updated'</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">redirect_to</span> <span class="n">request</span><span class="p">.</span><span class="nf">referer</span><span class="p">,</span> <span class="ss">notice: </span><span class="n">t</span><span class="p">(</span><span class="s1">'navbar.locale_failed_updated'</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">locale_param</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:locale</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/users/rates_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Users</span><span class="o">::</span><span class="no">RatesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:authenticate_user!</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">rate_param</span><span class="p">)</span>
+      <span class="n">redirect_back</span> <span class="n">request</span><span class="p">.</span><span class="nf">referer</span><span class="p">,</span> <span class="ss">notice: </span><span class="n">t</span><span class="p">(</span><span class="s1">'navbar.rate_updated'</span><span class="p">)</span>
+    <span class="k">else</span>
+      <span class="n">redirect_back</span> <span class="n">request</span><span class="p">.</span><span class="nf">referer</span><span class="p">,</span> <span class="ss">notice: </span><span class="n">t</span><span class="p">(</span><span class="s1">'navbar.rate_failed_updated'</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">rate_param</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:rate</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Oh iya, karena catatan kali ini berhubungan dengan bahasa (<em>locale</em>), maka saya akan menyinggung sedikit penggunaan <strong>Rails Internationalization (I18n) API</strong> <a href="#referensi"><sup>2</sup></a> untuk fungsi language preferences.</p>
+
+<p>Pada dua controller di atas. Saya sudah menggunakan helper i18n pada object <code class="language-plaintext highlighter-rouge">:notice</code>, <code class="language-plaintext highlighter-rouge">t('...')</code>, yang nantinya akan memberikan notifikasi apakah proses perubahan berhasil atau tidak.</p>
+
+<p>Oke langsung saja, saya buat dulu file <code class="language-plaintext highlighter-rouge">en.yml</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/locales/en.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="na">en</span><span class="pi">:</span>
+  <span class="na">navbar</span><span class="pi">:</span>
+    <span class="na">rate_updated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">currency</span><span class="nv"> </span><span class="s">rate</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">been</span><span class="nv"> </span><span class="s">updated"</span>
+    <span class="na">rate_failed_update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Failed</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">update</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">currency</span><span class="nv"> </span><span class="s">rate"</span>
+    <span class="na">locale_updated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Your</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">language</span><span class="nv"> </span><span class="s">has</span><span class="nv"> </span><span class="s">been</span><span class="nv"> </span><span class="s">updated"</span>
+    <span class="na">locale_failed_update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Failed</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">update</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">language"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Karena saya juga menggunakan bahasa Mandarin, maka saya akan buat juga file <code class="language-plaintext highlighter-rouge">ch.yml</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/locales/ch.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="na">en</span><span class="pi">:</span>
+  <span class="na">navbar</span><span class="pi">:</span>
+    <span class="na">rate_updated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">您的货币汇率已更新"</span>
+    <span class="na">rate_failed_update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">无法更新您的货币汇率"</span>
+    <span class="na">locale_updated</span><span class="pi">:</span> <span class="s2">"</span><span class="s">您的默认语言已更新"</span>
+    <span class="na">locale_failed_update</span><span class="pi">:</span> <span class="s2">"</span><span class="s">无法更新您的默认语言"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, saya akan mendifinisikan dimana <strong>translation load path</strong>, <strong>permit available locale</strong>, dan <strong>default locale</strong> yang digunakan di <code class="language-plaintext highlighter-rouge">config/initializers/locale.rb</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/initializers/locale.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c1"># Where the I18n library should search for translation files</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">load_path</span> <span class="o">+=</span> <span class="no">Dir</span><span class="p">[</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'lib'</span><span class="p">,</span> <span class="s1">'locale'</span><span class="p">,</span> <span class="s1">'*.{rb,yml}'</span><span class="p">)]</span>
+
+<span class="c1"># Permitted locales available for the application</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'en'</span><span class="p">,</span> <span class="s1">'ch'</span><span class="p">]</span>
+
+<span class="c1"># Set default locale to something other than :en</span>
+<span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span> <span class="o">=</span> <span class="s1">'en'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, saya akan mengkonfigurasi locale pada <code class="language-plaintext highlighter-rouge">application_controller.rb</code> untuk menangani semua permintaan terhadap locale.</p>
+
+<p>Oh ya, sekalian untuk rate preferences juga.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/controllers/application_controller.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">before_action</span> <span class="ss">:set_rate</span>
+  <span class="n">around_action</span> <span class="ss">:set_locale</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">set_rate</span>
+    <span class="vi">@rate</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:rate</span><span class="p">]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">set_locale</span><span class="p">(</span><span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+    <span class="n">locale</span> <span class="o">=</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">try</span><span class="p">(</span><span class="ss">:locale</span><span class="p">)</span> <span class="o">||</span> <span class="n">params</span><span class="p">[</span><span class="ss">:locale</span><span class="p">]</span> <span class="o">||</span> <span class="no">I18n</span><span class="p">.</span><span class="nf">default_locale</span>
+    <span class="no">I18n</span><span class="p">.</span><span class="nf">with_locale</span><span class="p">(</span><span class="n">locale</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">action</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">default_url_options</span>
+    <span class="n">current_user</span> <span class="p">?</span> <span class="p">{</span><span class="ss">locale: </span><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="ss">locale: </span><span class="no">I18n</span><span class="p">.</span><span class="nf">locale</span><span class="p">,</span> <span class="ss">rate: </span><span class="vi">@rate</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">current_user</code> adalah object yang disediakan oleh Devise gem untuk user yang sudah loginmelakukan login.</p>
+
+<p>Saya menggunakan helper <code class="language-plaintext highlighter-rouge">default_url_options</code> untuk membuat url form menjadi lebih mudah dibaca.</p>
+
+<pre class="url">
+http://localhost:3000/en/users
+</pre>
+
+<p>Kalau saya tidak menggunakan helper tersebut, maka url secara default akan seperti ini.</p>
+
+<pre class="url">
+http://localhost:3000/users?locale=en
+</pre>
+
+<p>Nah, pasti akan lebih memilih url form yang atas.</p>
+
+<h2 id="route">Route</h2>
+
+<p>Kemudian pada bagian routing, tinggal mengikuti controller.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>config/routes.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">scope</span> <span class="s2">"(:locale)"</span><span class="p">,</span> <span class="ss">locale: </span><span class="sr">/</span><span class="si">#{</span><span class="no">I18n</span><span class="p">.</span><span class="nf">available_locales</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span> <span class="k">do</span>
+    <span class="c1"># ...</span>
+    <span class="c1"># ...</span>
+
+    <span class="n">namespace</span> <span class="ss">:users</span> <span class="k">do</span>
+      <span class="c1"># ...</span>
+      <span class="c1"># ...</span>
+      <span class="n">resources</span> <span class="ss">:rates</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%w[update]</span>
+      <span class="n">resources</span> <span class="ss">:locales</span><span class="p">,</span> <span class="ss">only: </span><span class="sx">%w[update]</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">namespace</span> <span class="ss">:admins</span> <span class="k">do</span>
+    <span class="c1"># ...</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Blok <code class="language-plaintext highlighter-rouge">scope "(:locale)", locale: ...</code> dimaksudkan untuk membuat url form menjadi seperti yang saya sebutkan di atas.</p>
+
+<p>Sehingga blok-blok routing yang lain, harus dimasukkan ke dalam blok ini agar memiliki url form yang sama.</p>
+
+<p>Karena Admin tidak memerlukan url form yang bagus, maka saya keluarkan saja dari blok tersebut.</p>
+
+<p>Selanjutnya, tinggal membuat view template.</p>
+
+<h2 id="view">View</h2>
+
+<p>Seperti biasa, stylesheet pada catatan ini hanya sebagai contoh dan merupakan <em>dummy</em>. Jadi, akan tidak sesuai dengan yang ada pada ilustrasi gambar.</p>
+
+<p>Hal ini dimaksudkan agar kode hanya terkonsentrasi pada blok <strong>erb</strong> yang berhubungan dengan topik yang sedang saya bahas.</p>
+
+<p>Seperti yang tertulis pada judul, saya akan membuat menu ini pada navigation bar yang biasanya ada pada posisi atas dari halaman.</p>
+
+<p>Struktur file dan direktorinya seperti ini.</p>
+
+<pre>
+├─ app/
+│  ├─ assets/
+│  ├─ channels/
+│  ├─ controllers/
+│  ├─ helpers/
+│  ├─ jobs/
+│  ├─ mailers/
+│  ├─ models/
+│  └─ views/
+│     ├─ admins/
+│     ├─ layouts/
+│     │  ├─ admins/
+│     │  ├─ <mark>users/</mark>
+│     │  │  ├─ <mark>navbar/</mark>
+│     │  │  │  ├─ <mark>_locale.html.erb</mark>
+│     │  │  │  └─ <mark>_rate.html.erb</mark>
+│     │  │  ├─ <mark>_flash_message.html.erb</mark>
+│     │  │  └─ <mark>_navbar.html.erb</mark>
+│     │  ├─ admins.html.erb
+│     │  ├─ admins_devise.html.erb
+│     │  ├─ application.html.erb
+│     │  ├─ mailer.html.erb
+│     │  └─ mailer.text.erb
+│     └─ users/
+├─ ...
+...
+</pre>
+
+<p>Saya mulai dari membuat render partial dari navigation bar pada <code class="language-plaintext highlighter-rouge">application.html.erb</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/application.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>BANDITHIJO.COM<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csrf_meta_tags</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">csp_meta_tag</span> <span class="cp">%&gt;</span>
+
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span>    <span class="s1">'application'</span><span class="p">,</span> <span class="ss">media: </span><span class="s1">'all'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="s1">'application'</span><span class="p">,</span> <span class="s1">'data-turbolinks-track'</span><span class="p">:</span> <span class="s1">'reload'</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/navbar'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/flash_message'</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="k">yield</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Berikut ini isi dari file <code class="language-plaintext highlighter-rouge">_navbar.html.erb</code>.</p>
+
+<p>Saya membuat render partial untuk blok language dan currency.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users/_navbar.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+</pre></td><td class="code"><pre><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-xl"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Right Menu --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse navbar-collapse"</span> <span class="na">id=</span><span class="s">"navbar4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"navbar-nav ml-auto justify-content-end flex-grow-1 font-family-medium"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item d-flex"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Community menu --&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item d-flex"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Promo menu --&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item d-flex"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Help menu --&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+
+      <span class="c">&lt;!-- Dropdown Language Icon --&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"nav-item d-flex dropdown"</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- For user --&gt;</span>
+        <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">user_signed_in?</span> <span class="cp">%&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">locale</span> <span class="o">==</span> <span class="s2">"ch"</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link align-self-center"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"dropdown-language"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/us.svg"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+              ENG
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-dropdown align-middle"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link align-self-center"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"dropdown-language"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/ch.svg"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+              CNY
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-dropdown"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+        <span class="c">&lt;!-- For Guest --&gt;</span>
+        <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">unless</span> <span class="n">current_page?</span><span class="p">(</span><span class="ss">locale: </span><span class="s2">"ch"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link align-self-center"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"dropdown-language"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/us.svg"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+              ENG
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-dropdown"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"nav-link align-self-center"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">id=</span><span class="s">"dropdown-language"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+              <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/ch.svg"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+              CNY
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"icon-dropdown"</span><span class="nt">&gt;&lt;/span&gt;</span>
+            <span class="nt">&lt;/a&gt;</span>
+          <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+        <span class="c">&lt;!-- END Dropdown Language Icon --&gt;</span>
+
+        <span class="c">&lt;!-- Content of Dropdown List Language and Currency --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-menu border-0 rounded"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row no-gutters"</span><span class="nt">&gt;</span>
+
+            <span class="c">&lt;!-- Language Preferences --&gt;</span>
+            <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/navbar/locale'</span> <span class="cp">%&gt;</span>
+            <span class="c">&lt;!-- END Language Preferences --&gt;</span>
+
+            <span class="c">&lt;!-- Currency Preferences --&gt;</span>
+            <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'layouts/users/navbar/rate'</span> <span class="cp">%&gt;</span>
+            <span class="c">&lt;!-- END Currency Preferences --&gt;</span>
+
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="c">&lt;!-- END Dropdown Language Icon --&gt;</span>
+
+      <span class="c">&lt;!-- Dropdown User Menu --&gt;</span>
+      ...
+      ...
+
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="c">&lt;!-- END Right Menu --&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users/navbar/_locale.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-auto border-bottom"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span&gt;</span>Language<span class="nt">&lt;/span&gt;</span>
+  <span class="c">&lt;!-- Change language for user --&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">user_signed_in?</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">button_to</span> <span class="n">users_locale_path</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="ss">locale: </span><span class="s2">"en"</span><span class="p">),</span> <span class="ss">method: :put</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"dropdown-item"</span><span class="p">,</span> <span class="ss">style: </span><span class="s2">"outline:none"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">locale</span> <span class="o">==</span> <span class="s2">"en"</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-selected"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-none"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/us.svg"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"mr-1"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+        English
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">button_to</span> <span class="n">users_locale_path</span><span class="p">(</span><span class="n">current_user</span><span class="p">,</span> <span class="ss">locale: </span><span class="s2">"ch"</span><span class="p">),</span> <span class="ss">method: :put</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"dropdown-item"</span><span class="p">,</span> <span class="ss">style: </span><span class="s2">"outline:none"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">locale</span> <span class="o">==</span> <span class="s2">"ch"</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-selected"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-none"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/ch.svg"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"mr-1"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+        Chinese
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="c">&lt;!-- Change language for guest --&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">({</span><span class="ss">locale: </span><span class="s2">"en"</span><span class="p">},</span> <span class="ss">class: </span><span class="s2">"dropdown-item </span><span class="si">#{</span><span class="s2">"active"</span> <span class="k">if</span> <span class="n">current_page?</span><span class="p">(</span><span class="ss">locale: </span><span class="s2">"en"</span><span class="p">)</span> <span class="o">||</span> <span class="n">current_page?</span><span class="p">(</span><span class="ss">locale: </span><span class="s2">""</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/us.svg"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"mr-1"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+      English
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">({</span><span class="ss">locale: </span><span class="s2">"ch"</span><span class="p">},</span> <span class="ss">class: </span><span class="s2">"dropdown-item </span><span class="si">#{</span><span class="s2">"active"</span> <span class="k">if</span> <span class="n">current_page?</span><span class="p">(</span><span class="ss">locale: </span><span class="s2">"ch"</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">image_tag</span><span class="p">(</span><span class="s2">"label/flag/ch.svg"</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"mr-1"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"20"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"20"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+      Chinese
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users/navbar/_rate.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+</pre></td><td class="code"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-auto px-2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span&gt;</span><span class="cp">&lt;%=</span> <span class="n">t</span><span class="p">(</span><span class="s2">"navbar_menu.currency_title"</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="nt">&lt;/span&gt;</span>
+  <span class="c">&lt;!-- Change currency for user --&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">user_signed_in?</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">button_to</span> <span class="n">users_rate_path</span><span class="p">(</span><span class="n">current_user</span><span class="p">),</span> <span class="ss">params: </span><span class="p">{</span><span class="ss">:rate</span> <span class="o">=&gt;</span> <span class="s2">"MYR"</span><span class="p">},</span> <span class="ss">method: :put</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"dropdown-item"</span><span class="p">,</span> <span class="ss">style: </span><span class="s2">"outline:none"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">rate</span> <span class="o">==</span> <span class="s2">"MYR"</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-selected"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-none"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      MYR
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        Malaysian Ringgit
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">button_to</span> <span class="n">users_rate_path</span><span class="p">(</span><span class="n">current_user</span><span class="p">),</span> <span class="ss">params: </span><span class="p">{</span><span class="ss">:rate</span> <span class="o">=&gt;</span> <span class="s2">"USD"</span><span class="p">},</span> <span class="ss">method: :put</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"dropdown-item"</span><span class="p">,</span> <span class="ss">style: </span><span class="s2">"outline:none"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">rate</span> <span class="o">==</span> <span class="s2">"USD"</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-selected"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-none"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      USD
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        US Dollar
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">button_to</span> <span class="n">users_rate_path</span><span class="p">(</span><span class="n">current_user</span><span class="p">),</span> <span class="ss">params: </span><span class="p">{</span><span class="ss">:rate</span> <span class="o">=&gt;</span> <span class="s2">"CNY"</span><span class="p">},</span> <span class="ss">method: :put</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"dropdown-item"</span><span class="p">,</span> <span class="ss">style: </span><span class="s2">"outline:none"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">if</span> <span class="n">current_user</span><span class="p">.</span><span class="nf">rate</span> <span class="o">==</span> <span class="s2">"CNY"</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-selected"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"icon-check-none"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+      RMB
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        Chinese Yuan
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="c">&lt;!-- Change currency for guest --&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">else</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">({</span><span class="ss">rate: </span><span class="s2">"MYR"</span><span class="p">},</span> <span class="ss">class: </span><span class="s2">"dropdown-item </span><span class="si">#{</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:rate</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'USD'</span> <span class="o">||</span> <span class="n">params</span><span class="p">[</span><span class="ss">:rate</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'CNY'</span><span class="p">)</span>  <span class="p">?</span> <span class="s1">''</span> <span class="p">:</span> <span class="s1">'active'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      MYR
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        Malaysian Ringgit
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">({</span><span class="ss">rate: </span><span class="s2">"USD"</span><span class="p">},</span> <span class="ss">class: </span><span class="s2">"dropdown-item </span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:rate</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'USD'</span> <span class="p">?</span> <span class="s1">'active'</span> <span class="p">:</span> <span class="s1">''</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      USD
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        US Dollar
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">link_to</span><span class="p">({</span><span class="ss">rate: </span><span class="s2">"CNY"</span><span class="p">},</span> <span class="ss">class: </span><span class="s2">"dropdown-item </span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:rate</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'CNY'</span> <span class="p">?</span> <span class="s1">'active'</span> <span class="p">:</span> <span class="s1">''</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+      RMB
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"text-normal"</span><span class="nt">&gt;</span>
+        Chinese Yuan
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya, isi dari file <code class="language-plaintext highlighter-rouge">_flash_message.html.erb</code></p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/views/layouts/users/_flash_message.html.erb</code></div>
+
+<figure class="highlight"><pre><code class="language-eruby" data-lang="eruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="cp">&lt;%</span> <span class="n">flash</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="p">,</span> <span class="n">msg</span><span class="o">|</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert bg-</span><span class="cp">&lt;%=</span> <span class="nb">name</span> <span class="o">==</span> <span class="s1">'error'</span> <span class="p">?</span> <span class="s1">'secondary'</span> <span class="p">:</span> <span class="s1">'primary'</span> <span class="cp">%&gt;</span><span class="s"> text-center text-white"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-exclamation-triangle mr-1"</span><span class="nt">&gt;&lt;/i&gt;</span><span class="cp">&lt;%=</span> <span class="n">msg</span> <span class="cp">%&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"close-button fa fa-times fa-2x"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selesai!</p>
+
+<p>Mudah kan?</p>
+
+<p>Kelihatannya saja banyak. Mungkin dikesempatan yang lain akan saya sederhanakan lagi.</p>
+
+<p>Untuk kali ini, seperti ini dulu.</p>
+
+<p>Mudah-mudahan dapat bermanfaat buat teman-teman.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/routing.html#controller-namespaces-and-routing" target="_blank">guides.rubyonrails.org/routing.html#controller-namespaces-and-routing</a>
+<br />Diakses tanggal: 2019/12/21</p>
+  </li>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/i18n.html" target="_blank">guides.rubyonrails.org/i18n.html</a>
+<br />Diakses tanggal: 2019/12/21</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://didik.id" target="_blank">Didik Wicaksono</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

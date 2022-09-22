@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="arch linux, tools, network">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Instal dan Konfigurasi GNS3 pada Arch Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Instal dan Konfigurasi GNS3 pada Arch Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa." />
+<meta property="og:description" content="Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa." />
+<link rel="canonical" href="https://bandithijo.dev/blog/gns3-arch-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/gns3-arch-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-16T04:22:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/gns3-arch-linux"},"description":"Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa.","url":"https://bandithijo.dev/blog/gns3-arch-linux","@type":"BlogPosting","headline":"Instal dan Konfigurasi GNS3 pada Arch Linux","dateModified":"2018-04-16T04:22:00+08:00","datePublished":"2018-04-16T04:22:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Instal dan Konfigurasi GNS3 pada Arch Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/gns3-arch-linux">Instal dan Konfigurasi GNS3 pada Arch Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/04/16</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Gns3 arch linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#arch-linux">Arch Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#network">Network</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#komponen-yang-diperlukan">Komponen yang Diperlukan</a></li>
+  <li><a href="#prasyarat">Prasyarat</a></li>
+  <li><a href="#instalasi--konfigurasi-komponen">Instalasi &amp; Konfigurasi Komponen</a>
+    <ul>
+      <li><a href="#dynamips">Dynamips</a></li>
+      <li><a href="#vpcs">VPCS</a></li>
+      <li><a href="#iouyap">IOUYAP</a></li>
+      <li><a href="#ubridge">uBridge</a></li>
+      <li><a href="#docker">Docker</a></li>
+      <li><a href="#virtualbox">VirtualBox</a></li>
+      <li><a href="#gns3">GNS3</a></li>
+    </ul>
+  </li>
+  <li><a href="#upgrade-gns3-to-latest-version">Upgrade GNS3 to Latest Version</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- BANNER OF THE POST -->
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/yln43s5fh/banner_post_03.png" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Beberapa waktu yang lalu saya mengikuti webminar (web seminar) tentang <em>Network Automation</em> menggunakan Python. Aplikasi yang digunakan pada webminar tersebut adalah GNS3. Saya sudah mengenal aplikasi ini sejak 2016, namun belum pernah sama sekali menggunakannya.</p>
+
+<p>Kebanyakan tutorial untuk melakukan instalasi GNS3 diperuntukkan untuk sistem operasi GNU/Linux yang berbasiskan Debian dan RedHat. Lantas bagaimana dengan Arch ?</p>
+
+<p>Sebenarnya GNS3 sudah terdapat pada AUR (<em>Arch User Repository</em>) namun saya kesulitan untuk mengkonfigurasinya. Kemudian saya melakukan pencarian hingga menemukan dokumentasi yang langsung diarahkan oleh GNS3 untuk instalasi dan konfigurasi GNS3 pada Arch Linux, <a href="https://gns3.com/news/article/install-and-configure-gns3-on-ar" target="_blank">di sini</a>.</p>
+
+<h1 id="komponen-yang-diperlukan">Komponen yang Diperlukan</h1>
+
+<p>Pada dokumentasi ini akan dibahas mengenai proses instalasi:</p>
+
+<ol>
+  <li><a href="http://www.gns3.com/" target="_blank">GNS3</a></li>
+  <li><a href="https://aur.archlinux.org/packages/dynamips/" target="_blank">Dynampis</a></li>
+  <li><a href="https://aur.archlinux.org/packages/vpcs/" target="_blank">Virtual PC Simulator (VPCS)</a></li>
+  <li><a href="https://www.archlinux.org/packages/community/x86_64/docker/" target="_blank">Docker</a></li>
+  <li><a href="https://www.archlinux.org/packages/community/x86_64/virtualbox/" target="_blank">VirtualBox</a></li>
+</ol>
+
+<h1 id="prasyarat">Prasyarat</h1>
+
+<p>Syarat minimal yang diperlukan adalah tentu saja distribusi sistem operasi Arch Linux.</p>
+
+<h1 id="instalasi--konfigurasi-komponen">Instalasi &amp; Konfigurasi Komponen</h1>
+
+<h2 id="dynamips">Dynamips</h2>
+
+<p>Pasang dependensi untuk <strong>Dynamips</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S libelf libcap cmake</b><br /></pre>
+
+<p>Kemudian pasang <strong>Dynamips</strong> versi terbaru. Pada tulisan ini dibuat versi paling baru adalah <strong>0.2.18</strong>. Kamu dapat melakukan pengecekan versi paling baru <a href="https://github.com/GNS3/dynamips/releases" target="_blank">di sini</a>.</p>
+
+<pre><span class="cmd">$ </span><b>cd /tmp</b><br /><span class="cmd">$ </span><b>curl -L https://github.com/GNS3/dynamips/archive/v0.2.18.tar.gz | tar -xz</b><br /><span class="cmd">$ </span><b>cd dynamips*</b><br /><span class="cmd">$ </span><b>mkdir build &amp;&amp; cd $_</b><br /><span class="cmd">$ </span><b>cmake ..</b><br /><span class="cmd">$ </span><b>sudo make install</b><br /><span class="cmd">$ </span><b>sudo setcap cap_net_admin,cap_net_raw=ep $(which dynamips)</b><br /></pre>
+
+<p>Kamu dapat mengganti versi dari <strong>Dynamips</strong> ke versi paling baru atau ke versi yang spesifik kamu inginkan. Pada contoh <em>command</em> di atas, saya menggunakan versi 0.2.18.</p>
+
+<p>Kemudian, setelah berhasil dipasang, kita perlu melakukan verifikasi untuk memastikan apakah proses instalasi berjalan semestinya. Cek versi dari Dynampis yang terpasang.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME</b><br /><span class="cmd">$ </span><b>dynamips 2&gt; /dev/null | grep version</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cisco Router Simulation Platform (version 0.2.18-amd64/Linux stable)
+</code></pre></div></div>
+
+<p>Cek <em>capabilities</em> Dynampis.</p>
+
+<pre><span class="cmd">$ </span><b>getcap $(which dynamips)</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/dynamips = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+
+<p>Apabila tampil <em>output</em> seperti di atas, artinya proses instalasi <strong>Dynamips</strong> telah berhasil.</p>
+
+<h2 id="vpcs">VPCS</h2>
+
+<p>Saya akan menggunakan <code class="language-plaintext highlighter-rouge">subversion</code> <em>checkout</em> dari branch utama Virtual PC Simulator (VPCS).</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S subversion</b><br /><span class="cmd">$ </span><b>cd /tmp</b><br /><span class="cmd">$ </span><b>svn checkout svn://svn.code.sf.net/p/vpcs/code/trunk vpcs-code</b><br /><span class="cmd">$ </span><b>cd vpcs-code/src</b><br /><span class="cmd">$ </span><b>rgetopt='int getopt(int argc, char *const *argv, const char *optstr);'</b><br /><span class="cmd">$ </span><b>sed -i "s/^int getopt.*/$rgetopt/" getopt.h</b><br /><span class="cmd">$ </span><b>unset -v rgetopt</b><br /><span class="cmd">$ </span><b>sed -i 's/i386/x86_64/' Makefile.linux</b><br /><span class="cmd">$ </span><b>sed -i 's/-s -static//' Makefile.linux</b><br /><span class="cmd">$ </span><b>make -f Makefile.linux</b><br /><span class="cmd">$ </span><b>strip --strip-unneeded vpcs</b><br /><span class="cmd">$ </span><b>sudo mv vpcs /usr/local/bin</b><br /></pre>
+
+<p>Kemudian, lakukan verifikasi proses instalasi yang sudah kita lakukan tadi. Kita akan melakukan pengecekan lokasi.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME</b><br /><span class="cmd">$ </span><b>type vpcs</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpcs is /usr/local/bin/vpcs
+</code></pre></div></div>
+
+<p>Dan versi dari VPCS.</p>
+
+<pre><span class="cmd">$ </span><b>vpcs -v | grep version</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to Virtual PC Simulator, version 0.8c
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, artinya proses instalasi VPCS telah berhasil.</p>
+
+<h2 id="iouyap">IOUYAP</h2>
+
+<p>Pasang paket <code class="language-plaintext highlighter-rouge">iniparser</code> yang menjadi dependensi bagi IOUYAP.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S iniparser</b><br /></pre>
+
+<p>Saya akan memasang versi terbaru dari IOUYAP. Pada dokumentasi ini dibuat, versi paling baru adalah <strong>0.97</strong>. Kamu dapat melakukan pengecekan <a href="https://github.com/GNS3/iouyap/releases" target="_blank">di sini</a>.</p>
+
+<pre><span class="cmd">$ </span><b>cd /tmp</b><br /><span class="cmd">$ </span><b>curl -L https://github.com/GNS3/iouyap/archive/v0.97.tar.gz | tar -xz</b><br /><span class="cmd">$ </span><b>cd iouyap*</b><br /><span class="cmd">$ </span><b>bison -ydv netmap_parse.y</b><br /><span class="cmd">$ </span><b>flex netmap_scan.l</b><br /><span class="cmd">$ </span><b>gcc -Wall -g *.c -o iouyap -liniparser -lpthread</b><br /><span class="cmd">$ </span><b>strip --strip-unneeded iouyap</b><br /><span class="cmd">$ </span><b>sudo mv iouyap /usr/local/bin</b><br /></pre>
+
+<p>Kemudian kita perlu mengeset <em>capabilities</em> dari IOUYAP.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME</b><br /><span class="cmd">$ </span><b>sudo setcap cap_net_admin,cap_net_raw=ep $(which iouyap)</b><br /></pre>
+
+<p>Lakukan pengecekan versi.</p>
+
+<pre><span class="cmd">$ </span><b>iouyap -V</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iouyap version 0.97.0
+</code></pre></div></div>
+
+<p>Dan <em>capabilities</em> dari IOYUAP.</p>
+
+<pre><span class="cmd">$ </span><b>getcap $(which iouyap)</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/iouyap = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, maka kita telah sukses memasang IOYUAP.</p>
+
+<h2 id="ubridge">uBridge</h2>
+
+<p>Saya akan memasang versi terbaru dari uBridge. Pada dokumentasi ini dibuat, versi paling baru adalah <strong>0.9.14</strong>. Kamu dapat melakukan pengecekan <a href="https://github.com/GNS3/ubridge/releases" target="_blank">di sini</a>.</p>
+
+<p>Pilih uBridge yang sama dengan versi GNS3 dan Dynampis yang ingin kamu pasang.</p>
+
+<pre><span class="cmd">$ </span><b>cd /tmp</b><br /><span class="cmd">$ </span><b>curl -L https://github.com/GNS3/ubridge/archive/v0.9.13.tar.gz | tar -xz</b><br /><span class="cmd">$ </span><b>cd ubridge*</b><br /><span class="cmd">$ </span><b>make</b><br /><span class="cmd">$ </span><b>sudo make install</b><br /></pre>
+
+<p>Lakukan verifikasi versi.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME</b><br /><span class="cmd">$ </span><b>ubridge -v</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubridge version 0.9.13
+</code></pre></div></div>
+<p>Dan <em>capabilities</em> dari uBridge yang baru kita pasang.</p>
+
+<pre><span class="cmd">$ </span><b>getcap $(which ubridge)</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/ubridge = cap_net_admin,cap_net_raw+ep
+</code></pre></div></div>
+<p>Apabila tampil <em>output</em> seperti di atas, maka kita telah sukses memasang uBridge.</p>
+
+<h2 id="docker">Docker</h2>
+
+<p>Paket <code class="language-plaintext highlighter-rouge">docker</code> sudah terdapat pada <em>Official Repository</em> Arch Linux.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S docker</b><br /></pre>
+
+<p>Setelah itu kita perlu mengaktifkan <em>service</em> dari <strong>Docker</strong>. Apabila kalian ingin membuat service Docker dijalankan setiap kali sistem dijalankan, maka gunakan parameter <code class="language-plaintext highlighter-rouge">enable</code>, namun apabila hanya ingin dijalankan saat dibutuhkan saja, gunakan parameter <code class="language-plaintext highlighter-rouge">start</code>, maka setiap kali kita membutuhkan service Docker, kita perlu menjalankan servicenya terlebih dahulu.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl enable docker.service</b><br /><span class="cmd">$ </span><b>sudo systemctl start docker.service</b><br /></pre>
+
+<p>Tambahkan user kita kedalam <code class="language-plaintext highlighter-rouge">docker</code> group.</p>
+
+<pre><span class="cmd">$ </span><b>sudo gpasswd -a $(id -un) docker</b><br /></pre>
+
+<p><strong>LOGOUT</strong> and <strong>LOGIN</strong> kembali untuk mendapatkan efek dari penambahan user kita ke dalam <code class="language-plaintext highlighter-rouge">docker</code> group.</p>
+
+<p>Verifikasi apakah user kita sudah termasuk di dalam <code class="language-plaintext highlighter-rouge">docker</code> group.</p>
+
+<pre><span class="cmd">$ </span><b>id -Gn</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>users wheel network storage input power docker
+</code></pre></div></div>
+<p>Perhatikan <em>output</em> yang ditampilkan, terdapat tambahan <code class="language-plaintext highlighter-rouge">docker</code> pada akhir dari baris.</p>
+
+<p>Untuk menampilkan <em>system-wide information</em> dari Docker.</p>
+
+<pre><span class="cmd">$ </span><b>docker info</b><br /></pre>
+
+<h2 id="virtualbox">VirtualBox</h2>
+
+<p>Untuk proses instalasi VirtualBox, saya akan merujuk pada dokumentasi yang terdapat pada Arch Wiki <a href="https://wiki.archlinux.org/index.php/VirtualBox" target="_blank">di sini</a>.</p>
+
+<p>Instalasi <em>core packages</em>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S virtualbox</b><br /></pre>
+
+<p>Kita membutuhkan paket yang bertugas menyediakan <em>host modules</em> karena sistem kita bertindak sebagai <em>host</em>.</p>
+
+<p>Untuk yang menggunakan <code class="language-plaintext highlighter-rouge">linux</code> vanilla kernel, dapat menggunakan,</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman virtualbox-host-modules-arch</b><br /></pre>
+
+<p>Sedangkan untuk yang menggunakan <a href="https://wiki.archlinux.org/index.php/Kernels" target="_blank">kernel yang lain</a>, dapat menggunakan,</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S virtualbox-host-dkms</b><br /></pre>
+
+<p>Untuk <em>custom kernel</em> terdapat tambahan konfigurasi yang dapat langsung dilihat pada Arch Wiki.</p>
+
+<p>Selanjutnya, kita perlu melakukan <em>load</em> semua VirtualBox modules agar dapat dijalankan secara otomatis saat proses <em>booting</em> berlangsung.</p>
+
+<pre><span class="cmd">$ </span><b>systemd-modules-load.service</b><br /></pre>
+
+<p>Setelah itu, kita perlu melakukan <em>reboot</em> system untuk dapat menjalankan semua module tersebut.</p>
+
+<p>Nah, untuk menjalankan secara manual kita dapat menjalankan satu persatu module tersebut, seperti tahapan yang akan dijelaskan di bawah.</p>
+
+<p>Selain kernel module, VirtualBox juga menggunakan mandatory module yang bernama <code class="language-plaintext highlighter-rouge">vboxdrv</code> yang perlu di jalankan sebelum <em>virtual machine</em> di jalankan.</p>
+
+<pre><span class="cmd">$ </span><b>sudo modprobe vboxdrv</b><br /></pre>
+
+<p>Selain module <code class="language-plaintext highlighter-rouge">vboxdrv</code>, module-module berikut ini bersifat opsional tetapi direkomendasikan jika kamu tidak ingin mengalami kendala saat melakukan konfigurasi tingkat lanjut. Module-module tersebut adalah, <code class="language-plaintext highlighter-rouge">vboxnetadp</code>, <code class="language-plaintext highlighter-rouge">vboxnetflt</code>, <code class="language-plaintext highlighter-rouge">vboxpci</code>.</p>
+
+<p><code class="language-plaintext highlighter-rouge">vboxnetadp</code> dan <code class="language-plaintext highlighter-rouge">vboxnetflt</code>, keduanya dibutuhkan saat kamu ingin menggunakan fitur <strong>Network</strong> berupa <strong>Bridge</strong> atau <strong>Host-Only</strong>. Sedangkan <code class="language-plaintext highlighter-rouge">vboxpci</code> diperlukan saat <em>virtual machine</em> harus menggunakan perangkan PCI pada mesin kamu.</p>
+
+<p>Selanjutnya, hanya opsional saja, yaitu pengaturan port USB. Untuk dapat menghubungkan USB pada sistem kita (sebagai Host) dengan sistem virtual (sebagai Client) kita perlu menambahkan user kita kedalam <code class="language-plaintext highlighter-rouge">vboxusers</code> group.</p>
+
+<pre><span class="cmd">$ </span><b>sudo gpasswd -a $(id -un) vboxusers</b><br /></pre>
+
+<p><strong>LOGOUT</strong> and <strong>LOGIN</strong> kembali untuk mendapatkan efek dari penambahan user kita ke dalam <code class="language-plaintext highlighter-rouge">vboxusers</code> group.</p>
+
+<p>Verifikasi apakah user kita sudah termasuk di dalam <code class="language-plaintext highlighter-rouge">vboxusers</code> group.</p>
+
+<pre><span class="cmd">$ </span><b>id -Gn</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>users wheel network storage input power docker vboxusers
+</code></pre></div></div>
+<p>Perhatikan <em>output</em> yang ditampilkan, terdapat tambahan <code class="language-plaintext highlighter-rouge">vboxusers</code>.</p>
+
+<h2 id="gns3">GNS3</h2>
+
+<p>Pasang dependensi untuk GNS3.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S qt5-svg qt5-websockets python-pip python-pyqt5 python-sip</b><br /></pre>
+
+<p>Kita memerlukan Git untuk memasang paket-paket paling baru dari GNS3 yang terdapat pada GitHub dari GNS3.</p>
+
+<p>Pasang <strong>Git</strong> dan <em>create</em>/<em>set Git working directory</em>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S git</b><br /><span class="cmd">$ </span><b>mkdir -p $HOME/GNS3-Dev &amp;&amp; cd $_</b><br /></pre>
+
+<p>Pasang <strong>GNS3 Server</strong> dari GitHub.</p>
+
+<pre><span class="cmd">$ </span><b>git clone https://github.com/GNS3/gns3-server.git</b><br /><span class="cmd">$ </span><b>cd gns3-server</b><br /><span class="cmd">$ </span><b>git tag --list 'v2.1.*'</b><br /><span class="cmd">$ </span><b>git checkout v2.1.4</b><br /><span class="cmd">$ </span><b>sudo pip3 install -r requirements.txt</b><br /><span class="cmd">$ </span><b>sudo python3 setup.py install</b><br /></pre>
+
+<p>Pasang <strong>GNS3 GUI</strong> dari GitHub.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME/GNS3-Dev</b><br /><span class="cmd">$ </span><b>git clone https://github.com/GNS3/gns3-gui.git</b><br /><span class="cmd">$ </span><b>cd gns3-gui</b><br /><span class="cmd">$ </span><b>git tag --list 'v2.1.*'</b><br /><span class="cmd">$ </span><b>git checkout v2.1.4</b><br /><span class="cmd">$ </span><b>sudo pip3 install -r requirements.txt</b><br /><span class="cmd">$ </span><b>sudo python3 setup.py install</b><br /></pre>
+
+<p>Verifikasi apakah paket GNS3 sudah berhasil dipasang.</p>
+
+<pre><span class="cmd">$ </span><b>pip3 list | grep gns3</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gns3-gui (2.1.4)
+gns3-server (2.1.4)
+</code></pre></div></div>
+
+<p>Selanjutnya, kita perlu membuat <em>desktop dhosrtcut</em> agar GNS3 lebih mudah di aksis via <em>Desktop Environment</em>.</p>
+
+<pre>
+<span class="cmd">$</span> <b>sudo tee -a /usr/share/applications/gns3.desktop &gt; /dev/null &lt;&lt; EOL
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=GNS3
+Comment=Graphical Network Simulator 3
+Exec=/usr/bin/gns3
+Icon=gns3
+Terminal=false
+Categories=Application;Network;Qt;
+EOL</b>
+</pre>
+
+<p><em>Script</em> di atas bertujuan untuk membuat file <code class="language-plaintext highlighter-rouge">gns3.desktop</code>. Ini merupakan file <em>launcher</em> untuk memanggil aplikasi melalui <em>desktop environment</em>.</p>
+
+<h1 id="upgrade-gns3-to-latest-version">Upgrade GNS3 to Latest Version</h1>
+
+<p>Karena kita menggunakan GNS3 dari GitHub, maka kita perlu melakukan <em>upgrade</em> secara manual. Jangan khawatir, karena proses <em>upgrade</em> ini tidak begitu rumit. Tinggal mengikuti <em>command</em> yang sudah ditulis di sini.</p>
+
+<p>Langkah awal terntu saja kita perlu <em>uninstall</em> versi GNS3 saat ini.</p>
+
+<pre><span class="cmd">$ </span><b>pip3 list | grep gns3</b><br /><span class="cmd">$ </span><b>sudo pip3 uninstall -yv gns3-gui</b><br /><span class="cmd">$ </span><b>sudo pip3 uninstall -yv gns3-server</b><br /><span class="cmd">$ </span><b>pip3 list | grep gns3</b><br /></pre>
+
+<p>Selanjutnya, pasang <strong>GNS3 Server</strong> yang paling baru. Keuntungannya kita menggunakan Git adalah kita cukup melakukan <em>git pull</em> untuk membuat repository Git yang sudah pernah kita <em>clone</em> memperbaharui paket-paket yang berada pada repositori asli yang ada di GitHub.</p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME/GNS3-Dev/gns3-server</b><br /><span class="cmd">$ </span><b>git pull</b><br /><span class="cmd">$ </span><b>git tag --list 'v2.1.*'</b><br /><span class="cmd">$ </span><b>git checkout v2.1.5</b><br /><span class="cmd">$ </span><b>sudo python3 setup.py install</b><br /></pre>
+
+<p>Pasang <strong>GNS3 GUI</strong></p>
+
+<pre><span class="cmd">$ </span><b>cd $HOME/GNS3-Dev/gns3-gui</b><br /><span class="cmd">$ </span><b>git pull</b><br /><span class="cmd">$ </span><b>git tag --list 'v2.1.*'</b><br /><span class="cmd">$ </span><b>git checkout v2.1.5</b><br /><span class="cmd">$ </span><b>sudo python3 setup.py install</b><br /></pre>
+
+<p>Verifikasi proses <em>upgrade</em> GNS3.</p>
+
+<pre><span class="cmd">$ </span><b>pip3 list | grep gns3</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gns3-gui (2.1.5)
+gns3-server (2.1.5)
+</code></pre></div></div>
+
+<p><br />
+Saya rasa cukup seperti ini saja proses instal dan konfigurasi GNS3 pada distribusi sistem operas Arch Linux. Dengan demikian proses instalasi dan konfigurasi ini telah selesai.</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="http://binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html" target="_blank">binarynature.blogspot.com/2015/11/install-configure-gns3-arch-linux.html</a>
+<br />Diakses tanggal: 2018/04/16</p>
+  </li>
+  <li>
+    <p><a href="http://sourceforge.net/projects/vpcs/" target="_blank">sourceforge.net/projects/vpcs/</a>
+<br />Diakses tanggal: 2018/04/16</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/VirtualBox" target="_blank">wiki.archlinux.org/index.php/VirtualBox</a>
+<br />Diakses tanggal: 2018/04/19</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://aflasio.art" target="_blank">Aflasio</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

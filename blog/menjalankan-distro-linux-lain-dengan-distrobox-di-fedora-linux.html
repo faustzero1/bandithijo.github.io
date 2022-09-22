@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="container">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Dengan adanya teknologi container, untuk menggunakan distribusi lain langsung dari dalam Terminal Emulator distro yang kita gunakan tidak lagi rumit. Mudahnya seperti berpindah shell dengan SSH. Distrobox adalah tool yang akan menjembatani kita masuk ke dalam distribusi lain dalam bentuk container. Cara ini, dapat saya manfaatkan untuk memasang paket yang tidak tersedia di distro yang saya gunakan." />
+<meta property="og:description" content="Dengan adanya teknologi container, untuk menggunakan distribusi lain langsung dari dalam Terminal Emulator distro yang kita gunakan tidak lagi rumit. Mudahnya seperti berpindah shell dengan SSH. Distrobox adalah tool yang akan menjembatani kita masuk ke dalam distribusi lain dalam bentuk container. Cara ini, dapat saya manfaatkan untuk memasang paket yang tidak tersedia di distro yang saya gunakan." />
+<link rel="canonical" href="https://bandithijo.dev/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux" />
+<meta property="og:url" content="https://bandithijo.dev/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-21T17:41:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux"},"description":"Dengan adanya teknologi container, untuk menggunakan distribusi lain langsung dari dalam Terminal Emulator distro yang kita gunakan tidak lagi rumit. Mudahnya seperti berpindah shell dengan SSH. Distrobox adalah tool yang akan menjembatani kita masuk ke dalam distribusi lain dalam bentuk container. Cara ini, dapat saya manfaatkan untuk memasang paket yang tidak tersedia di distro yang saya gunakan.","url":"https://bandithijo.dev/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux","@type":"BlogPosting","headline":"Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux","dateModified":"2022-01-21T17:41:00+08:00","datePublished":"2022-01-21T17:41:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2022/01/21</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Menjalankan distro linux lain dengan distrobox di fedora linux
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#container">Container</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#pendahuluan">Pendahuluan</a>
+    <ul>
+      <li><a href="#sekilas-tentang-distrobox">Sekilas tentang Distrobox</a></li>
+    </ul>
+  </li>
+  <li><a href="#target">Target</a></li>
+  <li><a href="#instalasi">Instalasi</a></li>
+  <li><a href="#penggunaan">Penggunaan</a>
+    <ul>
+      <li><a href="#membuat-container">Membuat Container</a>
+        <ul>
+          <li><a href="#tanpa-nama-image">Tanpa nama image</a></li>
+          <li><a href="#dengan-nama-image">Dengan nama image</a></li>
+        </ul>
+      </li>
+      <li><a href="#melihat-daftar-container">Melihat daftar container</a></li>
+      <li><a href="#masuk-ke-dalam-container">Masuk ke dalam container</a></li>
+      <li><a href="#konfigurasi-package-manager">Konfigurasi Package Manager</a></li>
+      <li><a href="#pasang-aplikasi">Pasang Aplikasi</a>
+        <ul>
+          <li><a href="#aplikasi-yang-berjalan-di-terminal">Aplikasi yang berjalan di Terminal</a>
+            <ul>
+              <li><a href="#case-1-neofetch">Case 1: neofetch</a></li>
+              <li><a href="#case-2-gping">Case 2: gping</a></li>
+              <li><a href="#case-3-yay">Case 3: yay</a></li>
+            </ul>
+          </li>
+          <li><a href="#aplikasi-gui">Aplikasi GUI</a>
+            <ul>
+              <li><a href="#case-1-spotify-electron">Case 1: Spotify (Electron)</a></li>
+              <li><a href="#case-2-beekeeper-studio-appimage">Case 2: Beekeeper Studio (AppImage)</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#ekspor-aplikasi-dari-container-ke-host">Ekspor Aplikasi dari Container ke Host</a>
+        <ul>
+          <li><a href="#gui-application">GUI Application</a></li>
+          <li><a href="#terminal-application">Terminal Application</a></li>
+        </ul>
+      </li>
+      <li><a href="#menghapus-container">Menghapus Container</a></li>
+      <li><a href="#menghapus-image-container">Menghapus Image Container</a></li>
+      <li><a href="#menghapus-unused-data">Menghapus Unused Data</a></li>
+    </ul>
+  </li>
+  <li><a href="#tambahan">Tambahan</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="pendahuluan">Pendahuluan</h1>
+
+<p>Dengan adanya teknologi container, untuk menggunakan distribusi lain langsung dari dalam Terminal Emulator distro yang kita gunakan tidak lagi rumit.</p>
+
+<p>Mudahnya seperti berpindah shell dengan SSH.</p>
+
+<p>Distrobox adalah tool yang akan menjembatani kita masuk ke dalam distribusi lain dalam bentuk container. Cara ini, dapat saya manfaatkan untuk memasang paket yang tidak tersedia di distro yang saya gunakan.</p>
+
+<h2 id="sekilas-tentang-distrobox">Sekilas tentang Distrobox</h2>
+
+<p>Project Distrobox digaungi oleh <a href="https://github.com/89luca89/" target="_blank"><strong>Lucas Di Maio (89luca89)</strong></a> seorang Computer Scientist yang tertarik dengan unix sistem, devops, machine learning dan cyber security dari Universitas of Rome, La Sapienza. [1]</p>
+
+<p>Distrobox menggunakan <strong>podman</strong> atau <strong>docker</strong> untuk membantu kita dalam mempermudah proses membuat container menggunakan image container dari distribusi yang tersedia. Container yang dibuat bukan sembarang container. Namun, container yang dibuat dengan Distrobox akan memiliki integrasi yang baik dengan host sistem (distribusi yang kita gunakan). Seperti: sharing HOME direktori, external storage, external USB devices, and graphical apps (X11/Wayland), dan juga audio. [2]</p>
+
+<p>Praktis dan tidak perlu konfigurasi tambahan. Cukup buat distro container yang diinginkan, cari aplikasi yang ingin dipasang, dan voila! aplikasi dapat dinikmati dari host sistem. Semudah dan sepraktis itu!</p>
+
+<h1 id="target">Target</h1>
+
+<p>Objektif atau tujuan catatan ini adalah untuk mencoba memasang aplikasi-aplikasi Terminal &amp; GUI yang tidak tersedia pada distribusi Fedora Linux.</p>
+
+<p>Maka, untuk menyelesaikan objektif dari catatan ini, saya memilih menggunakan container Arch Linux. Untuk mempermudah saya dalam mendapatkan aplikasi yang saya inginkan. Sebagaimana yang <del>kita</del> saya tahu, Arch Linux memiliki koleksi paket yang cukup luas, mulai dari yang tersedia di official repo maupun resep-resep yang tersedia di AUR (Arch User Repository).</p>
+
+<p>Beberapa dari aplikasi tersebut, antara lain:</p>
+
+<ol>
+  <li><a href="https://aur.archlinux.org/packages/spotify/" target="_blank"><strong>Spotify</strong></a>, A proprietary music streaming service</li>
+  <li><a href="https://aur.archlinux.org/packages/beekeeper-studio-bin/" target="_blank"><strong>Beekeeper Studio</strong></a>, Modern and easy to use SQL client for MySQL, Postgres, SQLite, SQL Server, and more</li>
+  <li><a href="https://aur.archlinux.org/packages/figma-linux/" target="_blank"><strong>Figma Linux</strong></a>, The collaborative interface design tool. Unofficial Figma desktop client for Linux</li>
+  <li><a href="https://aur.archlinux.org/packages/whatsapp-nativefier/" target="_blank"><strong>WhatsApp Nativevier</strong></a>, WhatsApp desktop built with nativefier (electron)</li>
+</ol>
+
+<h1 id="instalasi">Instalasi</h1>
+
+<p>Pada distribusi Fedora Linux, sudah terpasang <strong>Podman</strong>. Kita tinggal memasang <strong>Distrobox</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>sudo dnf in distrobox</b><br /></pre>
+
+<h1 id="penggunaan">Penggunaan</h1>
+
+<p>Distrobox menyediakan 6 perintah yang dapat kita gunakan.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-create</code>, untuk membuat container</li>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-enter</code>, untuk masuk (mengakses) ke dalam container</li>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-list</code>, untuk daftar container yang ada (pernah dibuat)</li>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-rm</code>, untuk menghapus container yang ada (pernah dibuat)</li>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-init</code>, ini adalah <em>entrypoint</em> dari container (tidak ditujukan untuk digunakan secara manual)</li>
+  <li><code class="language-plaintext highlighter-rouge">distrobox-export</code>, ini ditujukan untuk digunakan di dalam container, berguna untuk mengekspor apps dan service yang dipasang di dalam container ke host</li>
+</ol>
+
+<p><br />
+Selain menggunakan <em>single command</em> seperti di atas, dapat pula menggunakan <code class="language-plaintext highlighter-rouge">distrobox COMMAND</code>. Misal,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-list</b><br /></pre>
+
+<p>Akan memberikan hasil yang sama dengan,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox list</b><br /></pre>
+
+<h2 id="membuat-container">Membuat Container</h2>
+
+<p>Untuk membuat container, kita dapat menggunakan perintah <code class="language-plaintext highlighter-rouge">distrobox-create IMAGE</code>.</p>
+
+<h3 id="tanpa-nama-image">Tanpa nama image</h3>
+
+<p>Kalau digunakan tanpa parameter apapun,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-create</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Image not found.
+Do you want to pull the image now? [y/N]: y
+Trying to pull registry.fedoraproject.org/fedora-toolbox:35...
+</code></pre></div></div>
+
+<p>Maka, image yang dipilihkan akan menggunakan <strong>fedora-toolbox:35</strong> dari <strong>registry.fedoraproject.org</strong>.</p>
+
+<h3 id="dengan-nama-image">Dengan nama image</h3>
+
+<p>Apabila ingin menggunakan image lain, pada catatan ini saya menggunakan image Arch Linux Latest dari Docker Hub Registry.</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-create --name arch-distrobox --image archlinux:latest</b><br /></pre>
+
+<p><code class="language-plaintext highlighter-rouge">--name</code>, digunakan untuk memberikan nama container. Bebas mau memberikan nama apa saja.</p>
+
+<p><code class="language-plaintext highlighter-rouge">--image</code>, digunakan untuk mendefinisikan image yang akan kita gunakan. Kalau image tersebut belum ada di local, maka akan di-download-kan dari registry.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Untuk mengecek daftar images yang sudah pernah diunduh, dapat menggunakan perintah,</p>
+    <pre><span class="cmd">$ </span><b>podman images</b><br /></pre>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>REPOSITORY                                 TAG         IMAGE ID      CREATED      SIZE
+docker.io/library/archlinux                latest      2a4e5b8e6c26  2 weeks ago  397 MB
+registry.fedoraproject.org/fedora-toolbox  35          40b181c70b73  4 weeks ago  573 MB
+</code></pre></div>    </div>
+  </div></div>
+
+<h2 id="melihat-daftar-container">Melihat daftar container</h2>
+
+<p>Untuk melihat daftar container yang sudah pernah dibuat, gunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-list</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ID           | NAME                      | STATUS          | IMAGE
+ ba3ee7918d87 | arch-distrobox            | Created         | docker.io/library/archlinux:latest
+ 59b59d5dcabc | fedora-toolbox-35         | Created         | registry.fedoraproject.org/fedora-toolbox:35
+</code></pre></div></div>
+
+<h2 id="masuk-ke-dalam-container">Masuk ke dalam container</h2>
+
+<p>Untuk masuk ke dalam container, gunakan perintah,</p>
+
+<pre class="url">$ distrobox-enter --name NAMA_IMAGE<br /></pre>
+
+<p><code class="language-plaintext highlighter-rouge">NAMA_IMAGE</code> didapatkan dari perintah <code class="language-plaintext highlighter-rouge">distrobox-list</code>.</p>
+
+<p>Misal, saya ingin masuk ke dalam container bernama <code class="language-plaintext highlighter-rouge">arch-distrobox</code> yang sudah saya buat sebelumnya,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-enter --name arch-distrobox</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Starting container arch-distrobox
+run this command to follow along:
+        podman --remote logs -f arch-distrobox
+.
+done!
+[bandithijo@arch-distrobox ~]$ █
+</code></pre></div></div>
+
+<p>Perhatikan prompt shell bagian hostname sudah berubah dari <code class="language-plaintext highlighter-rouge">fedora-thinkpad</code> (Hostname sistem saya) menjadi <code class="language-plaintext highlighter-rouge">arch-distrobox</code> (Container name).</p>
+
+<p>Artinya, saat ini saya sudah berhasil memasuki container dengan nama <strong>arch-distrobox</strong>.</p>
+
+<p>Lakukan pengecekan dengan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>echo $HOSTNAME</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arch-distrobox.fedora-thinkpad
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">arch-distrobox</code> adalah nama container yang saat ini sedang digunakan.</p>
+
+<p><code class="language-plaintext highlighter-rouge">fedora-thinkpad</code> adalah hostname system yang saya pergunakan.</p>
+
+<h2 id="konfigurasi-package-manager">Konfigurasi Package Manager</h2>
+
+<p>Karena saya menggunakan Arch Linux, saya akan merubah beberapa konfigurasi default yang dibuat oleh Arch Linux image container.</p>
+
+<p>Namun, sebelumnya pasang dulu text editor seperti <code class="language-plaintext highlighter-rouge">vim</code> atau <code class="language-plaintext highlighter-rouge">nano</code> untuk memudahkan mengedit file config, karena text editor tidak terpasang secara default di Arch Linux image container.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo pacman -S vim</b><br /></pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Apabila terdapat warning atau pesan error seperti di bawah ini, dapat diabaikan saja.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Failed to check for chroot() environment: Permission denied
+  Skipped: Current root is not booted.
+</code></pre></div>    </div>
+    <p>Karena, sebenarnya paket sudah terpasang.</p>
+  </div></div>
+
+<p>Edit file konfigurasi pacman yang ada pada,</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo vim /etc/pacman.conf</b><br /></pre>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/pacman.conf</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+
+<span class="c">#</span>
+<span class="c"># GENERAL OPTIONS</span>
+<span class="c">#</span>
+<span class="o">[</span>options]
+<span class="c"># ...</span>
+
+<span class="c"># Misc options</span>
+<span class="c">#UseSyslog</span>
+Color
+<span class="c">#NoProgressBar</span>
+<span class="c"># We cannot check disk space from within a chroot environment</span>
+<span class="c">#CheckSpace</span>
+VerbosePkgLists
+ParallelDownloads <span class="o">=</span> 5
+
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya meng-enable <strong>Color</strong> dan men-disable <strong>NoProgressBar</strong>.</p>
+
+<p>Tujuannya agar tampilan pacman lebih berwarna dan juga terdapat progressbar agar proses unduhan paket dapat tervisualisasikan.</p>
+
+<h2 id="pasang-aplikasi">Pasang Aplikasi</h2>
+
+<h3 id="aplikasi-yang-berjalan-di-terminal">Aplikasi yang berjalan di Terminal</h3>
+
+<h4 id="case-1-neofetch">Case 1: neofetch</h4>
+
+<p>Saya akan coba pasang <code class="language-plaintext highlighter-rouge">neofetch</code>. Kebetulan <strong>neofetch</strong> tidak tersedia pada Arch Linux docker image yang kita pasang sebagai container.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>neofetch</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: neofetch: command not found
+</code></pre></div></div>
+
+<p>Nah, artinya <strong>neofetch</strong> memang belum tersedia pada container Arch Linux yang kita gunakan.</p>
+
+<p>Karena kita menggunakan Arch Linux, kita bisa melakukan pencarian terlebih dahulu, untuk paket <strong>neofetch</strong> apakah terdapat di official repositori, mungkin ada di <strong>community</strong> repo.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo pacman -Ss neofetch</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>community/neofetch 7.1.0-2
+    A CLI system information tool written in BASH that supports displaying images.
+</code></pre></div></div>
+
+<p>Oke, benar.</p>
+
+<p>Tinggal dipasang saja,</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo pacman -S neofetch</b><br /></pre>
+
+<p>Tunggu proses instalasi sampai selesai.</p>
+
+<p>Setelah selesai, kita bisa menjalankan <code class="language-plaintext highlighter-rouge">neofetch</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>neofetch</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                   -`
+                  .o+`
+                 `ooo/
+                `+oooo:                   Arch Linux x86_64
+               `+oooooo:                  5.15.16-200.fc35.x86_64
+               -+oooooo+:                 20F5S0W206 ThinkPad X260
+             `/:-:++oooo+:                Intel i5-6300U (4)
+            `/++++/+++++++:               Intel Skylake GT2 [HD Graphics 520]
+           `/++++++++++++++:              1366x768
+          `/+++ooooooooooooo/`            2477MiB / 7795MiB
+         ./ooosssso++osssssso+`           2 hours, 40 mins
+        .oossssso-````/ossssss+`          dwm
+       -osssssso.      :ssssssso.         en_US.UTF-8
+      :osssssss/        osssso+++.
+     /ossssssss/        +ssssooo/-
+   `/ossssso+/:-        -:/+osssso+-
+  `+sso+:-`                 `.-/+oso:
+ `++:.                           `-/+/
+ .`                                 `/
+
+[bandithijo@arch-distrobox ~]$ █
+</code></pre></div></div>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/d1b3L9P6/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Shell default host system (kiri) &amp; Shell pada arch-distrobox container (kanan)</p>
+
+<p><br /></p>
+<h4 id="case-2-gping">Case 2: gping</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>community/gping 1.2.7-1
+    Ping, but with a graph
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">gping</code> merupakan tool visualisasi ping yang belum tersedia di Fedora repositori. Sehingga sangat cocok untuk dijadikan contoh kasus untuk aplikasi terminal (TUI) yang dipasang dari dalam container yang diekspor ke host system.</p>
+
+<p>Langkah pertama, pasang paket <code class="language-plaintext highlighter-rouge">gping</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo pacaman -S gping</b><br /></pre>
+
+<p>Setelah dipasang, coba langsung jalankan, seharusnya berhasil.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>gping google.com</b><br /></pre>
+
+<p>Kemudian, tentunya akan sangat merepotkan kalau hanya untuk menjalankan gping, kita perlu masuk dulu ke dalam container.</p>
+
+<p>Maka, kita perlu mengekspor gping ke host system.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Pastikan kalau kamu sudah memiliki <strong>PATH</strong> yang berlokasi di <code class="language-plaintext highlighter-rouge">~/.local/bin</code>.</p>
+    <p>Kalau belum, coba Googling yaa.</p>
+  </div></div>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --bin /usr/bin/gping --export-path ~/.local/bin</b><br /></pre>
+
+<p>Kalau berhasil diekspor, akan menampilkan output seperti di bawah ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/gping from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+</code></pre></div></div>
+
+<p>Kalau sudah, bisa dicoba jalankan <code class="language-plaintext highlighter-rouge">gping</code> pada host system.</p>
+
+<pre><span class="cmd">$ </span><b>gping google.com</b><br /></pre>
+
+<p>Berikut ini demonstrasinya,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/9X8fsVnV/gambar-02.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Demonstrasi menjalankan gping hasil export dari distrobox-export</p>
+
+<p>Kalau file <code class="language-plaintext highlighter-rouge">gping</code> yang ada di <code class="language-plaintext highlighter-rouge">~/.local/bin/gping</code> kita buka, isiny akan seperti ini,</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>~/.local/bin/gping</code></div>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="c">#!/bin/sh</span>
+<span class="c"># distrobox_binary</span>
+<span class="c"># name: arch-distrobox</span>
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> /run/.containerenv <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    /usr/bin/distrobox-enter <span class="nt">-n</span> arch-distrobox <span class="nt">--</span>  /usr/bin/gping  <span class="nv">$@</span>
+<span class="k">else</span>
+    /usr/bin/gping <span class="nv">$@</span>
+<span class="k">fi</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><br /></p>
+<h4 id="case-3-yay">Case 3: yay</h4>
+
+<p>Salah satu alasan saya memilih Arch Linux agar dapat memanfaatkan AUR.</p>
+
+<p>Untuk mengakses AUR, kita memerlukan AUR helper untuk mempermudah bisnis kita. 😎</p>
+
+<p>Saya biasa menggunakan <strong>yay</strong>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>sudo pacman -S --needed git base-devel</b><br /><span class="cmd">[bandithijo@arch-distrobox] </span><b>git clone https://aur.archlinux.org/yay.git</b><br /><span class="cmd">[bandithijo@arch-distrobox] </span><b>cd yay</b><br /><span class="cmd">[bandithijo@arch-distrobox] </span><b>makepkg -si</b><br /></pre>
+
+<p>Setelah proses instalasinya selesai, kita dapat menjalankannya dari dalam container,</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>yay</b><br /></pre>
+
+<p>Atau, tinggal kita export untuk mempermudah menjalankannya dari host system.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --bin /usr/bin/yay --export-path ~/.local/bin</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/yay from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+</code></pre></div></div>
+
+<p>Coba test update Arch Linux dengan <code class="language-plaintext highlighter-rouge">yay</code> dari host.</p>
+
+<pre><span class="cmd">$ </span><b>yay -Syu</b><br /></pre>
+
+<p>Sip! Sekarang kita dapat memasang paket-paket dari AUR dengan menggunakan <code class="language-plaintext highlighter-rouge">yay</code> dari host system.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Direktori <strong>yay</strong> hasil git clone sebelumnya, dapat kita hapus.</p>
+  </div></div>
+
+<h3 id="aplikasi-gui">Aplikasi GUI</h3>
+
+<h4 id="case-1-spotify-electron">Case 1: Spotify (Electron)</h4>
+
+<p><code class="language-plaintext highlighter-rouge">spotify</code> dapat kita temukan di AUR, dan kebetulan ada beberapa nama paket yang memiliki nama yang mirip.</p>
+
+<p>Namun, yang ingin saya pasang adalah spotify yang memang bernama <code class="language-plaintext highlighter-rouge">spotify</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aur/spotify 1:1.1.72.439-3 (+2296 31.40)
+  A proprietary music streaming service
+</code></pre></div></div>
+
+<p>Tinggal dipasang menggunakan <code class="language-plaintext highlighter-rouge">yay</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>yay -S spotify</b><br /></pre>
+
+<p>Setelah instalasi selesai, kita dapat menjalankan langsung dari dalam container,</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>spotify</b><br /></pre>
+
+<p>Atau, lakukan export agar dapat dipanggil dengan mudah dari host system.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --app spotify</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Application spotify successfully exported.
+OK!
+spotify will appear in your applications list in a few seconds.
+</code></pre></div></div>
+
+<p>Perintah tersebut akan membuat file desktop entry spec pada <code class="language-plaintext highlighter-rouge">~/.local/share/applications/spotify.desktop</code> di host system.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>~/.local/share/applications/spotify.desktop</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="o">[</span>Desktop Entry]
+<span class="nv">Type</span><span class="o">=</span>Application
+<span class="nv">Name</span><span class="o">=</span>Spotify
+<span class="nv">GenericName</span><span class="o">=</span>Music Player
+<span class="nv">Icon</span><span class="o">=</span>spotify-client
+<span class="nv">TryExec</span><span class="o">=</span><span class="nb">true
+</span><span class="nv">Exec</span><span class="o">=</span>/usr/bin/distrobox-enter <span class="nt">-H</span> <span class="nt">-n</span> arch-distrobox <span class="nt">--</span> <span class="s2">"  spotify --uri= %U"</span>
+<span class="nv">Terminal</span><span class="o">=</span><span class="nb">false
+</span><span class="nv">MimeType</span><span class="o">=</span>x-scheme-handler/spotify<span class="p">;</span>
+<span class="nv">Categories</span><span class="o">=</span>Audio<span class="p">;</span>Music<span class="p">;</span>Player<span class="p">;</span>AudioVideo<span class="p">;</span>
+<span class="nv">StartupWMClass</span><span class="o">=</span>spotify
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Berikut ini demonstrasinya,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/dtG884Bz/gambar-03.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Demonstrasi pemasangan Spotify menggunakan yay dengan Distrobox</p>
+
+<p><br /></p>
+<h4 id="case-2-beekeeper-studio-appimage">Case 2: Beekeeper Studio (AppImage)</h4>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Paket yang menggunakan AppImage, memerlukan paket <code class="language-plaintext highlighter-rouge">fuse2</code> untuk dapat dijalankan.</p>
+    <pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>yay -S fuse2</b><br /></pre>
+    <p>Kalau belum dipasang, akan mengeluarkan warning error seperti ini,</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dlopen(): error loading libfuse.so.2
+
+AppImages require FUSE to run.
+You might still be able to extract the contents of this AppImage
+if you run it with the --appimage-extract option.
+See https://github.com/AppImage/AppImageKit/wiki/FUSE
+for more information
+</code></pre></div>    </div>
+    <p>Pasang terlebih dahulu paket <code class="language-plaintext highlighter-rouge">fuse2</code> sebelum memasang paket yang menggunakan AppImage.</p>
+  </div></div>
+
+<p>Terdapat 2 macam paket <code class="language-plaintext highlighter-rouge">beekeeper-studio</code> di AUR, namun yang saya ingin pasang adalah yang menggunakan AppImage.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aur/beekeeper-studio-appimage 3.0.9-1 (+1 0.18)
+  Cross platform SQL editor and database management app for Windows, Linux, and Mac
+</code></pre></div></div>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>yay -S beekeeper-studio-appimage</b><br /></pre>
+
+<p>Setelah selesai, kita dapat langsung menjalankan dari dalam container,</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>beekeeper-studio</b><br /></pre>
+
+<p>Atau, tinggal kita export agar dapat dipanggil lebih mudah dari host system.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --app beekeeper-studio</b><br /></pre>
+
+<p>Berikut ini demonstrasinya,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/WzWxSsT1/gambar-04.gif" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 4 - Demonstrasi pemasangan Beekeeper Studio menggunakan yay pada Distrobox</p>
+
+<h2 id="ekspor-aplikasi-dari-container-ke-host">Ekspor Aplikasi dari Container ke Host</h2>
+
+<p>Dari case-case pemasangan beberapa aplkasi di atas, saya sudah menunjukkan cara mengekspor aplikasi dari container ke host system.</p>
+
+<p>Kita dapat mengekspor aplikasi GUI, aplikasi terminal, bahkan systemd service.</p>
+
+<p>Untuk melakukan export, kita menggunakan perintah <code class="language-plaintext highlighter-rouge">distrobox-export</code> dari dalam container.</p>
+
+<h3 id="gui-application">GUI Application</h3>
+
+<p>Misal, mengekspor aplikasi chromium dari container ke host.</p>
+
+<p>Karena chromium merupakan aplikasi GUI, maka kita gunakan option <code class="language-plaintext highlighter-rouge">--app</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --app chromium</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Application chromium successfully exported.
+OK!
+chromium will appear in your applications list in a few seconds.
+</code></pre></div></div>
+
+<p>Nah, maka kita langsung dapat memanggil chromium dari application launcher host system yang kita gunakan.</p>
+
+<p>Untuk menghapusnya, tinggal jalankan perintah yang sama, namun dengan penambahan option <code class="language-plaintext highlighter-rouge">--delete</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --app chromium --delete</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Application chromium successfully un-exported.
+OK!
+chromium will disappear from your applications list in a few seconds.
+</code></pre></div></div>
+
+<p>Maka, chromium tidak lagi tersedia di host system kita.</p>
+
+<h3 id="terminal-application">Terminal Application</h3>
+
+<p>Misal, mengekspor aplikasi gping dari container ke host.</p>
+
+<p>Karena gping merupakan aplikasi terminal, maka kita gunakan option <code class="language-plaintext highlighter-rouge">--bin</code> diikuti dengan <code class="language-plaintext highlighter-rouge">--export-path</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --bin /usr/bin/gping --export-path ~/.local/bin</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/gping from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+</code></pre></div></div>
+
+<p>Nah, maka kita langsung dapat memanggil gping dari terminal host system yang kita gunakan.</p>
+
+<p>Untuk menghapusnya, tinggal jalankan perintah yang sama, namun dengan penambahan option <code class="language-plaintext highlighter-rouge">--delete</code>.</p>
+
+<pre><span class="cmd">[bandithijo@arch-distrobox] </span><b>distrobox-export --bin /usr/bin/gping --export-path ~/.local/bin --delete</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/gping from arch-distrobox exported successfully in /home/bandithijo/.local/bin/.
+OK!
+</code></pre></div></div>
+
+<p>Maka, gping tidak lagi tersedia di terminal host system kita.</p>
+
+<h2 id="menghapus-container">Menghapus Container</h2>
+
+<p>Untuk menghapus container, kita perlu memastikan bahwa container tidak sedang berjalan dengan menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>distrobox-list</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ID           | NAME                      | STATUS                 | IMAGE
+ 59b59d5dcabc | fedora-toolbox-35         | Created                | registry.fedoraproject.org/fedora-toolbox:35
+ 7cdc389dd7f4 | arch-distrobox            | Up 12 hours ago        | docker.io/library/archlinux:latest
+</code></pre></div></div>
+
+<p>Dalam kasus ini, saya ingin menghapus <strong>arch-distrobox</strong> container.</p>
+
+<p>Namun, container ini masih <em>running</em> karena memiliki <strong>STATUS Up 12 hours ago</strong>.</p>
+
+<p>Untuk menghentikan container yang sedang <em>running</em>, kita gunakan bantuan <strong>podman</strong> (atau docker).</p>
+
+<pre class="url">$ podman stop CONTAINER_NAME<br /></pre>
+
+<pre><span class="cmd">$ </span><b>podman stop arch-distrobox</b><br /></pre>
+
+<p>Kemudian cek kembali apakah container sudah tidak <em>running</em>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ID           | NAME                      | STATUS                         | IMAGE
+ 59b59d5dcabc | fedora-toolbox-35         | Created                        | registry.fedoraproject.org/fedora-toolbox:35
+ 7cdc389dd7f4 | arch-distrobox            | Exited (143) 6 seconds ago     | docker.io/library/archlinux:latest
+</code></pre></div></div>
+
+<p>Sip, statusnya sudah <strong>Exited</strong>.</p>
+
+<p>Sekarang container tersebut dapat kita hapus dengan menggunakan perintah,</p>
+
+<pre class="url">$ podman rm CONTAINER_NAME<br /></pre>
+
+<pre><span class="cmd">$ </span><b>podman rm arch-distrobox</b><br /></pre>
+
+<p>Proses menghapus container sudah selesai.</p>
+
+<p>Panduan lebih lengkapnya dapat dilihat di <code class="language-plaintext highlighter-rouge">$ podman rm --help</code>.</p>
+
+<h2 id="menghapus-image-container">Menghapus Image Container</h2>
+
+<p>Container yang kita gunakan dibuat dengan menggunakan image.</p>
+
+<p>Kita dapat melihat daftar image container yang kita miliki (yang pernah kita unduh) dengan menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>podman images</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>REPOSITORY                                 TAG         IMAGE ID      CREATED      SIZE
+docker.io/library/archlinux                latest      9f9b229575b2  4 days ago   392 MB
+registry.fedoraproject.org/fedora-toolbox  35          40b181c70b73  4 weeks ago  573 MB
+</code></pre></div></div>
+
+<p>Dalam kasus ini, saya ingin menghapus image <strong>docker.io/library/archlinux</strong> yang memiliki image ID <strong>9f9b229575b2</strong>.</p>
+
+<pre class="url">$ podman image rm IMAGE_ID<br /></pre>
+
+<pre><span class="cmd">$ </span><b>podman image rm 9f9b229575b2</b><br /></pre>
+
+<p>Kalau mendapati error seperti ini,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Error: Image used by 7cdc389dd7f46230e1afd0bebf54b224497a72433741220441392a6b15208442: image is in use by a container
+</code></pre></div></div>
+
+<p>Artinya, masih terdapat container yang menggunakan image tersebut, meskipun dalam keadaan Exited.</p>
+
+<p>Kalau memang sudah dipastikan tidak digunakan, dan kita ingin menghapus image beserta container yang menggunakan image tersebut, kita dapat mnambahkan option <code class="language-plaintext highlighter-rouge">-f</code> atau <code class="language-plaintext highlighter-rouge">--force</code>.</p>
+
+<pre><span class="cmd">$ </span><b>podman image rm 9f9b229575b2 -f</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Untagged: docker.io/library/archlinux:latest
+Deleted: 9f9b229575b2cb787cf104f4706142dcba61af1ed63f045e3bf7204a721de15f
+</code></pre></div></div>
+
+<p>Selesai, image beserta container yang menggunakan image tersebut telah berhasil dihapus.</p>
+
+<p>Panduan lebih lengkapnya dapat dilihat di <code class="language-plaintext highlighter-rouge">$ podman image rm --help</code>.</p>
+
+<h2 id="menghapus-unused-data">Menghapus Unused Data</h2>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Command ini cukup beresiko.</p>
+    <p>Perhatikan baik-baik instruksi yang ditampilkan oleh command yang dijalankan.</p>
+  </div></div>
+
+<p>Command ini digunakan untuk menghapus data-data baik container maupun image yang sudah tidak lagi digunakan.</p>
+
+<pre><span class="cmd">$ </span><b>podman system prune</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING! This command removes:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all dangling images
+        - all dangling build cache
+
+Are you sure you want to continue? [y/N] █
+</code></pre></div></div>
+
+<p>Atau,</p>
+
+<pre><span class="cmd">$ </span><b>podman system prune --all</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WARNING! This command removes:
+        - all stopped containers
+        - all networks not used by at least one container
+        - all images without at least one container associated with them
+        - all build cache
+
+Are you sure you want to continue? [y/N] █
+</code></pre></div></div>
+
+<p>Panduan lebih lengkapnya dapat dilihat di <code class="language-plaintext highlighter-rouge">$ podman system prune --help</code>.</p>
+
+<h1 id="tambahan">Tambahan</h1>
+
+<p>Tentu saja, catatan ini tidak dapat mengcover semua dari dokumentasi Distrobox:</p>
+
+<ol>
+  <li>
+    <p>untuk melihat tips-tips yang lain dapat mengunjungi halaman <a href="https://github.com/89luca89/distrobox/blob/main/docs/useful_tips.md" target="_blank"><strong>github:distrobox:useful tips</strong></a></p>
+  </li>
+  <li>
+    <p>untuk melihat beberapa contoh penggunaan yang lain dapat mengunjungi halaman <a href="https://github.com/89luca89/distrobox/blob/main/docs/usage/usage.md" target="_blank"><strong>github:distrobox:usage</strong></a></p>
+  </li>
+</ol>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://twitter.com/LucaDiMaio11" target="_blank">https://twitter.com/LucaDiMaio11</a>
+<br />Diakses tanggal: 2022/01/22</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/89luca89/distrobox" target="_blank">https://github.com/89luca89/distrobox</a>
+<br />Diakses tanggal: 2022/01/22</p>
+  </li>
+  <li>
+    <p><a href="https://fedoramagazine.org/run-distrobox-on-fedora-linux/" target="_blank">https://fedoramagazine.org/run-distrobox-on-fedora-linux/</a>
+<br />Diakses tanggal: 2022/01/22</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

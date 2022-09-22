@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="fedora, event">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Berkontribusi di Fedora Kernel Test Days 5.15 | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Berkontribusi di Fedora Kernel Test Days 5.15" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Serunya menggunakan distribusi sistem operasi GNU/Linux, kita dapat kesempatan untuk dapat berkontribusi. Terdapat cukup banyak ruang untuk berkontribusi. Fedora adalah salah satu distribusi yang memberikan ruang yang cukup banyak untuk berkontribusi serta dipandu dengan dokumentasi yang sangat baik. Salah satu bentuk kontribusi yang dapat kamu berikan adalah mengikuti Kernel Test Days event. Berikut ini adalah catatan saya dalam mengukuti kegiatan ini." />
+<meta property="og:description" content="Serunya menggunakan distribusi sistem operasi GNU/Linux, kita dapat kesempatan untuk dapat berkontribusi. Terdapat cukup banyak ruang untuk berkontribusi. Fedora adalah salah satu distribusi yang memberikan ruang yang cukup banyak untuk berkontribusi serta dipandu dengan dokumentasi yang sangat baik. Salah satu bentuk kontribusi yang dapat kamu berikan adalah mengikuti Kernel Test Days event. Berikut ini adalah catatan saya dalam mengukuti kegiatan ini." />
+<link rel="canonical" href="https://bandithijo.dev/blog/fedora-kernel-test-days-5-15-event" />
+<meta property="og:url" content="https://bandithijo.dev/blog/fedora-kernel-test-days-5-15-event" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-11-24T06:07:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/fedora-kernel-test-days-5-15-event"},"description":"Serunya menggunakan distribusi sistem operasi GNU/Linux, kita dapat kesempatan untuk dapat berkontribusi. Terdapat cukup banyak ruang untuk berkontribusi. Fedora adalah salah satu distribusi yang memberikan ruang yang cukup banyak untuk berkontribusi serta dipandu dengan dokumentasi yang sangat baik. Salah satu bentuk kontribusi yang dapat kamu berikan adalah mengikuti Kernel Test Days event. Berikut ini adalah catatan saya dalam mengukuti kegiatan ini.","url":"https://bandithijo.dev/blog/fedora-kernel-test-days-5-15-event","@type":"BlogPosting","headline":"Berkontribusi di Fedora Kernel Test Days 5.15","dateModified":"2021-11-24T06:07:00+08:00","datePublished":"2021-11-24T06:07:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Berkontribusi di Fedora Kernel Test Days 5.15"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/fedora-kernel-test-days-5-15-event">Berkontribusi di Fedora Kernel Test Days 5.15</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/11/24</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Fedora kernel test days 5 15 event
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#event">Event</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#fedora">Fedora</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a>
+    <ul>
+      <li><a href="#apa-itu-kernel-test-days">Apa itu Kernel Test Days?</a></li>
+    </ul>
+  </li>
+  <li><a href="#dari-mana-saya-dapat-informasi-tentang-kernel-test-days">Dari mana saya dapat informasi tentang Kernel Test Days?</a>
+    <ul>
+      <li><a href="#bagaimana-cara-kerja-kernel-test-days-ini">Bagaimana cara kerja Kernel Test Days ini?</a></li>
+      <li><a href="#apakah-media-yang-digunakan-untuk-melakukan-kernel-test">Apakah media yang digunakan untuk melakukan Kernel test?</a></li>
+    </ul>
+  </li>
+  <li><a href="#persiapkan-bahan-pengujian">Persiapkan Bahan Pengujian</a>
+    <ul>
+      <li><a href="#pasang-paket-koji">Pasang paket Koji</a></li>
+      <li><a href="#melihat-daftar-kernel-builds-yang-tersedia">Melihat daftar Kernel builds yang tersedia</a></li>
+      <li><a href="#download-kernel-builds">Download Kernel builds</a></li>
+      <li><a href="#update-kernel">Update kernel</a></li>
+    </ul>
+  </li>
+  <li><a href="#persiapan-alat-pengujian">Persiapan Alat Pengujian</a>
+    <ul>
+      <li><a href="#pasang-paket-yang-diperlukan">Pasang paket yang diperlukan</a></li>
+      <li><a href="#clone-kernel-tests-tools-dari-repositori">Clone kernel-tests tools dari repositori</a></li>
+      <li><a href="#allow-selinux-permission-untuk-heap-execution">Allow SELinux permission untuk heap execution</a></li>
+      <li><a href="#buat-salinan-konfigurasi">Buat salinan konfigurasi</a></li>
+      <li><a href="#edit-file-konfigurasi">Edit file konfigurasi</a></li>
+    </ul>
+  </li>
+  <li><a href="#pengujian">Pengujian</a>
+    <ul>
+      <li><a href="#default-test">Default test</a></li>
+      <li><a href="#performance-test-optional">Performance test (optional)</a></li>
+    </ul>
+  </li>
+  <li><a href="#submission-test-result">Submission Test Result</a></li>
+  <li><a href="#turn-selinux-boolean-selinuxuser_execheap-back-to-default-state">Turn SELinux boolean selinuxuser_execheap back to default state</a></li>
+  <li><a href="#upload-hasil-kernel-regression-test">Upload Hasil Kernel Regression Test</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Saya, sebagai penulis, <strong>tidak bertanggung jawab</strong> atas segala bentuk kejadian buruk yang menimpa sistem kalian.</p>
+    <p>Apabila kalian mengikuti catatan ini, berarti kalian <strong>telah menyetujui</strong> bahwa <strong>segala bentuk risiko atas masalah</strong> yang terjadi karena mengikuti catatan ini, adalah <strong>tanggung jawab kalian sepenuhnya</strong>.</p>
+    <p>Happy Testing!</p>
+  </div></div>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+
+<h2 id="apa-itu-kernel-test-days">Apa itu Kernel Test Days?</h2>
+
+<p>Kernel Test Days adalah kegiatan di mana siapa pun dapat membantu memastikan perubahan di Fedora dapat berfungsi dengan baik pada rilis mendatang. Anggota komunitas Fedora sering ikut berpartisipasi, dan menyambut baik acara ini. Jika kamu belum pernah berkontribusi sebelumnya, <em>event</em> ini adalah cara sempurna untuk memulai kontribusi pertama kamu.</p>
+
+<p>Apabila kamu berhasil mengikuti <em>event</em> ini, kamu akan diberikan <em>reward</em> berupa <em>badge</em> seperti ini,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://badges.fedoraproject.org/pngs/kernel-tester.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 1 - Science (Kernel Tester I): You completed a run of the kernel regression test suite</p>
+
+<p>Di dalam <em>badge</em> ini terdapat angkat, artinya <em>badge</em> ini bersifat <em>continue</em>. Setiap kelipatan 5 kali test, kamu akan mendapatkan <em>badge</em> ini dengan angka yang bertambah.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://badges.fedoraproject.org/pngs/kernel_tester_5.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 2 - Science (Kernel Tester II): You completed 5 runs of the kernel regression test suite</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://badges.fedoraproject.org/pngs/kernel_tester_10.png" onerror="imgError(this);" class="myImg" /></p>
+<p class="img-caption">Gambar 3 - Science (Kernel Tester III): You completed 10 runs of the kernel regression test suite</p>
+
+<p>Dan begitu seterusnya.</p>
+
+<h1 id="dari-mana-saya-dapat-informasi-tentang-kernel-test-days">Dari mana saya dapat informasi tentang Kernel Test Days?</h1>
+
+<p>Fedora Community memiliki beberapa portal informasi yang dapat kamu ikuti. Salah satu yang sering saya kunjungi adalah <a href="https://fedoramagazine.org" target="_blank">Fedora Magazine</a>. Biasanya, apabila ada informasi terkait <em>event</em>, akan diberitakan di Fedora Magazine. Biar tidak ketinggalan <em>event</em> atau artikel terbaru, kamu juga bisa berlangganan via email.</p>
+
+<p>Biasanya, pemberitahuan terkait Kernel Test Days akan diberitakan 2-4 hari sebelum <em>event</em> diselenggarakan.</p>
+
+<h2 id="bagaimana-cara-kerja-kernel-test-days-ini">Bagaimana cara kerja Kernel Test Days ini?</h2>
+
+<p>Sangat mudah. Untuk berkontribusi dalam <em>event</em> ini, kita hanya perlu melakukan hal-hal berikut:</p>
+
+<ol>
+  <li>Unduh materi uji, yang menyertakan beberapa file besar</li>
+  <li>Baca dan ikuti petunjuk langkah demi langkah</li>
+</ol>
+
+<p>Setiap Kernel Test Days, biasanya memiliki panduan yang didokumentasikan pada halaman wiki yang spesifik untuk kegiatan ini.</p>
+
+<p>Contohnya, untuk kegiatan Kernel Test Days 5.15 kali ini, <a href="https://fedoraproject.org/wiki/Test_Day:2021-11-14_Kernel_5.15_Test_Week" target="_blank"><strong>Test Day:2021-11-14 Kernel 5.15 Test Week</strong></a>.</p>
+
+<p>Jadi, pastikan bahwa kamu mengikuti panduan wiki yang sesuai.</p>
+
+<h2 id="apakah-media-yang-digunakan-untuk-melakukan-kernel-test">Apakah media yang digunakan untuk melakukan Kernel test?</h2>
+
+<p>Terdapat beberapa media yang dapat kamu pilih untuk melakukan Kernel test. Pilih yang sesuai dan tidak beresiko untuk sistem kamu.</p>
+
+<ol>
+  <li><a href="https://jforbes.fedorapeople.org/testweek/" target="_blank">F35 test day image</a> atau Fedora 34/35 Workstation/Server installation, yang akan dipasangkan pada bare metal atau VM, pastikan tidak terdapat data-data penting</li>
+  <li>Sistem dengan Kernel 5.15, yang dapat dipasang dari <a href="https://koji.fedoraproject.org/koji/buildinfo?buildID=1855177" target="_blank">F35 Koji</a> atau <a href="https://copr.fedorainfracloud.org/coprs/jforbes/kernel-stabilization/" target="_blank">Kernel-Stabilization Copr</a></li>
+  <li>Fedora Silverblue dan Kinoite dapat melakukan test menggunakan Koji Kernel (cara nomor 2)</li>
+</ol>
+
+<p>Dari ketiga pilihan tersebut, untuk catatan kali ini, saya memberanikan diri untuk mengambil pilihan kedua, yaitu langsung memasang Kernel 5.15 pada sistem yang sudah terpadang Fedora 35. Saya akan ambil Kernel 5.15 dari Koji.</p>
+
+<h1 id="persiapkan-bahan-pengujian">Persiapkan Bahan Pengujian</h1>
+
+<h2 id="pasang-paket-koji">Pasang paket Koji</h2>
+
+<p><em>Koji is a system for building and tracking RPMS.</em></p>
+
+<p>Karena saya memilih menggunakan Kernel 5.15 dari Koji, terlebih dahulu harus memasang paket Koji.</p>
+
+<pre><span class="cmd">$ </span><b>sudo dnf install koji</b><br /></pre>
+
+<h2 id="melihat-daftar-kernel-builds-yang-tersedia">Melihat daftar Kernel builds yang tersedia</h2>
+
+<p>Untuk melihat daftar dari Kernel builds yang tersedia. Gunakan flag <code class="language-plaintext highlighter-rouge">--after=</code>, lalu isi dengan format tanggal YYYY-MM-DD.</p>
+
+<pre><span class="cmd">$ </span><b>koji list-builds --package=kernel --after="2021-11-12" | grep "5.15"</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kernel-5.15.2-200.fc35                                   jforbes           COMPLETE
+kernel-5.15.3-200.fc35                                   jforbes           COMPLETE
+</code></pre></div></div>
+
+<h2 id="download-kernel-builds">Download Kernel builds</h2>
+
+<p>Saya pilih yang paling bawah dari daftar Kernel 5.15 yang tersedia untuk di download.</p>
+
+<pre><span class="cmd">$ </span><b>koji download-build --arch=x86_64 kernel-5.15.3-200.fc35</b><br /></pre>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Perhatikan pada bagian <em>release version</em> <code class="language-plaintext highlighter-rouge">.fc35</code>, pastikan kamu memilih <em>release version</em> yang sesuai dengan versi Fedora yang sedang digunakan. Biasanya juga terdapat versi Fedora sebelumnya <code class="language-plaintext highlighter-rouge">.fc34</code>.</p>
+  </div></div>
+
+<p>Perintah di atas akan mendownload semua paket terkait <code class="language-plaintext highlighter-rouge">kernel-5.15.3-200.fc35</code>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SIZE PACKAGES
+ 14K kernel-5.15.3-200.fc35.x86_64.rpm
+ 35M kernel-core-5.15.3-200.fc35.x86_64.rpm
+ 14K kernel-debug-5.15.3-200.fc35.x86_64.rpm
+ 37M kernel-debug-core-5.15.3-200.fc35.x86_64.rpm
+ 15M kernel-debug-devel-5.15.3-200.fc35.x86_64.rpm
+ 14K kernel-debug-devel-matched-5.15.3-200.fc35.x86_64.rpm
+ 34M kernel-debug-modules-5.15.3-200.fc35.x86_64.rpm
+2,1M kernel-debug-modules-extra-5.15.3-200.fc35.x86_64.rpm
+282K kernel-debug-modules-internal-5.15.3-200.fc35.x86_64.rpm
+8,0M kernel-devel-5.15.3-200.fc35.x86_64.rpm
+ 14K kernel-devel-matched-5.15.3-200.fc35.x86_64.rpm
+ 33M kernel-modules-5.15.3-200.fc35.x86_64.rpm
+2,0M kernel-modules-extra-5.15.3-200.fc35.x86_64.rpm
+254K kernel-modules-internal-5.15.3-200.fc35.x86_64.rpm
+</code></pre></div></div>
+
+<h2 id="update-kernel">Update kernel</h2>
+
+<p>Setelah proses download selesai, saatnya mengupdate kernel.</p>
+
+<pre><span class="cmd">$ </span><b>sudo dnf update kernel-*.rpm</b><br /></pre>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Pastikan! kita menjalankan perintah di atas pada direktori tempat paket-paket kernel tersebut berada.</p>
+  </div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===============================================================================================
+ Package                     Architecture  Version                   Repository           Size
+===============================================================================================
+Installing:
+ kernel                      x86_64        5.15.3-200.fc35           @commandline         14 k
+ kernel-modules              x86_64        5.15.3-200.fc35           @commandline         32 M
+ kernel-modules-extra        x86_64        5.15.3-200.fc35           @commandline        2.0 M
+Installing dependencies:
+ kernel-core                 x86_64        5.15.3-200.fc35           @commandline         35 M
+Installing weak dependencies:
+ kernel-devel                x86_64        5.15.3-200.fc35           @commandline         15 M
+
+Transaction Summary
+===============================================================================================
+Install  5 Packages
+
+Total size: 84 M
+Installed size: 171 M
+Is this ok [y/N]:
+</code></pre></div></div>
+
+<p>tekan <kbd>Y</kbd> dan <kbd>Enter</kbd>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Downloading Packages:
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                       1/1
+  Installing       : kernel-core-5.15.3-200.fc35.x86_64                                    0/5
+  Running scriptlet: kernel-core-5.15.3-200.fc35.x86_64                                    0/5
+  Installing       : kernel-modules-5.15.3-200.fc35.x86_64                                 2/5
+  Running scriptlet: kernel-modules-5.15.3-200.fc35.x86_64                                 2/5
+  Installing       : kernel-5.15.3-200.fc35.x86_64                                         3/5
+  Installing       : kernel-modules-extra-5.15.3-200.fc35.x86_64                           4/5
+  Running scriptlet: kernel-modules-extra-5.15.3-200.fc35.x86_64                           4/5
+  Installing       : kernel-devel-5.15.3-200.fc35.x86_64                                   5/5
+  Running scriptlet: kernel-devel-5.15.3-200.fc35.x86_64                                   5/5
+  Running scriptlet: kernel-core-5.15.3-200.fc35.x86_64                                    5/5
+  Running scriptlet: kernel-devel-5.15.3-200.fc35.x86_64                                   5/5
+  Verifying        : kernel-5.15.3-200.fc35.x86_64                                         0/5
+  Verifying        : kernel-core-5.15.3-200.fc35.x86_64                                    2/5
+  Verifying        : kernel-devel-5.15.3-200.fc35.x86_64                                   3/5
+  Verifying        : kernel-modules-5.15.3-200.fc35.x86_64                                 4/5
+  Verifying        : kernel-modules-extra-5.15.3-200.fc35.x86_64                           5/5
+
+Installed:
+  kernel-5.15.3-200.fc35.x86_64                     kernel-core-5.15.3-200.fc35.x86_64
+  kernel-devel-5.15.3-200.fc35.x86_64               kernel-modules-5.05.3-200.fc35.x86_64
+  kernel-modules-extra-5.15.3-200.fc35.x86_64
+
+Complete!
+</code></pre></div></div>
+
+<p>Setelah kernel berhasil dipasang, saatnya <strong>reboot</strong>.</p>
+
+<h1 id="persiapan-alat-pengujian">Persiapan Alat Pengujian</h1>
+
+<h2 id="pasang-paket-yang-diperlukan">Pasang paket yang diperlukan</h2>
+
+<p>Pastikan paket <code class="language-plaintext highlighter-rouge">gcc</code>, <code class="language-plaintext highlighter-rouge">git</code>, dan <code class="language-plaintext highlighter-rouge">python3-fedora</code> sudah terpasang.</p>
+
+<pre><span class="cmd">$ </span><b>sudo dnf install gcc git python3-fedora</b><br /></pre>
+
+<p>Paket <code class="language-plaintext highlighter-rouge">python3-fedora</code> diperlukan untuk mengirimkan hasil pengujian.</p>
+
+<p>Kita juga memerlukan paket-paket di bawah ini untuk menjalankan test.</p>
+
+<pre><span class="cmd">$ </span><b>sudo dnf install make libtirpc libtirpc-devel policycoreutils-python-utils</b><br /></pre>
+
+<h2 id="clone-kernel-tests-tools-dari-repositori">Clone kernel-tests tools dari repositori</h2>
+
+<pre><span class="cmd">$ </span><b>git clone https://pagure.io/kernel-tests.git</b><br /></pre>
+
+<p>Masuk ke dalam direktori <code class="language-plaintext highlighter-rouge">kernel-tests</code>.</p>
+
+<pre><span class="cmd">$ </span><b>cd kernel-tests</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> kernel-tests/
+│  default/
+│  destructive/
+│  include/
+│  minimal/
+│  performance/
+│  secureboot/
+│  stress/
+│  thirdparty/
+│  utils/
+│  config.example
+│  documentation.txt
+│  fedora_submit.py
+│  LICENSE
+└  runtests.sh
+</code></pre></div></div>
+
+<h2 id="allow-selinux-permission-untuk-heap-execution">Allow SELinux permission untuk heap execution</h2>
+
+<p>Before running tests, we need to allow the testsuite to make their heap memory executable with this command,</p>
+
+<pre><span class="cmd">$ </span><b>sudo semanage boolean -m --on selinuxuser_execheap</b><br /></pre>
+
+<p>* Setelah proses pengujian selesai, kita akan me-nonaktifkan-nya kembali.</p>
+
+<h2 id="buat-salinan-konfigurasi">Buat salinan konfigurasi</h2>
+
+<p>Salin contoh konfigurasi default, karena kita akan membuat konfigurasi kita sendiri.</p>
+
+<pre><span class="cmd">$ </span><b>cp config.example .config</b><br /></pre>
+
+<p>* <strong>Perhatikan!</strong> terdapat tanda titik di depan nama <code class="language-plaintext highlighter-rouge">.config</code>.</p>
+
+<h2 id="edit-file-konfigurasi">Edit file konfigurasi</h2>
+
+<p>Kita akan mengedif file <code class="language-plaintext highlighter-rouge">.config</code> untuk memasukkan beberapa nilai-nilai credential seperti username dan password FAS kita.</p>
+
+<p>Ubah isi dari beberapa bagian, seperti yang saya contohkan di bawah.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>.config</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+
+<span class="c"># submit=none</span>
+<span class="c"># submit=anonymous</span>
+<span class="nv">submit</span><span class="o">=</span>authenticated
+
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Kita akan menggunakan metode submit authenticated.</p>
+
+<p>Isi juga username dan password pada bagian di bawahnya.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>.config</code></div>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="c"># ...</span>
+
+<span class="c"># FAS User credentials.</span>
+<span class="c"># Storing your FAS password here is technically possible, but is not</span>
+<span class="c"># advisable for security reasons.</span>
+
+<span class="nv">username</span><span class="o">=</span><span class="s1">'your-username-FAS'</span>
+<span class="nv">password</span><span class="o">=</span><span class="s1">'your-password-FAS'</span>
+
+<span class="c"># ...</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>File <code class="language-plaintext highlighter-rouge">.config</code> ini sudah masuk ke dalam <code class="language-plaintext highlighter-rouge">.gitignore</code>.</p>
+    <p>Setelah pengujian selesai, jangan lupa untuk membersihkan/mengoosongkan/menghapus file <code class="language-plaintext highlighter-rouge">.config</code> untuk tujuan keamanan data <em>credential</em>.</p>
+  </div></div>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Optionally, if you use the proprietary Nvidia driver, look for the line “thirdparty=y” and uncomment it.</p>
+  </div></div>
+
+<h1 id="pengujian">Pengujian</h1>
+
+<p>Di dalam file <code class="language-plaintext highlighter-rouge">runtests.sh</code> terdapat fungsi yang menunjukkan beberapa macam jenis test yang dapat kita lakukan, seperti: minimal, default, stress, destructive, performance test.</p>
+
+<p>Yang benar-benar dibutuhkan hanya menjalankan default test.</p>
+
+<p>Namun, sesuai dokumentasi yang ditulis <a href="https://fedoraproject.org/wiki/QA:Testcase_kernel_regression" target="_blank">QA:Testcase kernel regression</a>, dicontohkan melakukan 2 test. 1 default test dan 1 optional test, dalam wiki tersebut disebutkan performance test.</p>
+
+<h2 id="default-test">Default test</h2>
+
+<pre><span class="cmd">$ </span><b>sudo ./runtests.sh</b><br /></pre>
+
+<details style="width:100%;">
+  <summary style="cursor:pointer;">Default test result</summary>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date: Sun Nov 14 06:20:01 PM WITA 2021
+Test set: default
+Kernel: 5.15.3-200.fc35.x86_64
+Release: Fedora release 35 (Thirty Five)
+Result: PASS
+Failed Tests: None
+Warned Tests: None
+============================================================
+Starting test ./default/modsign
+Successfully loaded signed module
+Successfully loaded unsigned module
+Starting test ./default/stack-randomness
+Starting test ./default/timer-overhead
+memfd: CREATE
+memfd: BASIC
+memfd: SEAL-WRITE
+memfd: SEAL-SHRINK
+memfd: SEAL-GROW
+memfd: SEAL-RESIZE
+memfd: SHARE-DUP
+memfd: SHARE-MMAP
+memfd: SHARE-OPEN
+memfd: SHARE-FORK
+memfd: SHARE-DUP (shared file-table)
+memfd: SHARE-MMAP (shared file-table)
+memfd: SHARE-OPEN (shared file-table)
+memfd: SHARE-FORK (shared file-table)
+memfd: DONE
+Starting test ./default/insert_leap_second
+Setting time to speed up testing
+Running for 1 iterations. Press ctrl-c to stop
+
+Setting time to Mon Nov 15 07:59:50 2021
+Scheduling leap second for Mon Nov 15 08:00:00 2021
+Mon Nov 15 07:59:57 2021 +     88 us (37)	TIME_INS
+Mon Nov 15 07:59:57 2021 + 500275 us (37)	TIME_INS
+Mon Nov 15 07:59:58 2021 +    392 us (37)	TIME_INS
+Mon Nov 15 07:59:58 2021 + 500491 us (37)	TIME_INS
+Mon Nov 15 07:59:59 2021 +    638 us (37)	TIME_INS
+Mon Nov 15 07:59:59 2021 + 500792 us (37)	TIME_INS
+Mon Nov 15 07:59:59 2021 +   2443 us (38)	TIME_OOP
+Mon Nov 15 07:59:59 2021 + 502593 us (38)	TIME_OOP
+Mon Nov 15 08:00:00 2021 +   2702 us (38)	TIME_WAIT
+Mon Nov 15 08:00:00 2021 + 502818 us (38)	TIME_WAIT
+Mon Nov 15 08:00:01 2021 +   2938 us (38)	TIME_WAIT
+Mon Nov 15 08:00:01 2021 + 503111 us (38)	TIME_WAIT
+Mon Nov 15 08:00:02 2021 +   3257 us (38)	TIME_WAIT
+Leap complete
+
+Starting test ./default/paxtest
+Starting test ./default/mq-memory-corruption
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Test PASSED 
+Starting test ./default/posix_timers
+Testing posix timers. False negative may happen on CPU execution 
+based timers if other threads run on the CPU...
+Check itimer virtual... [OK]
+Check itimer prof... [OK]
+Check itimer real... [OK]
+Check timer_create() per thread... [OK]
+Check timer_create() per process... [OK]
+Starting test ./default/libhugetlbfs
+Starting test ./default/cachedrop
+100+0 records in
+100+0 records out
+104857600 bytes (105 MB, 100 MiB) copied, 0.0360544 s, 2.9 GB/s
+10+0 records in
+10+0 records out
+10485760 bytes (10 MB, 10 MiB) copied, 0.00400567 s, 2.6 GB/s
+TestPASS: /proc/sys/vm/drop_caches PASS
+Starting test ./default/sysfs-perms
+</code></pre></div>  </div>
+
+</details>
+
+<h2 id="performance-test-optional">Performance test (optional)</h2>
+
+<pre><span class="cmd">$ </span><b>sudo ./runtests.sh -t performance</b><br /></pre>
+
+<details style="width:100%;">
+  <summary style="cursor:pointer;">Performance test result</summary>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date: Sun Nov 14 06:21:51 PM WITA 2021
+Test set: performance
+Kernel: 5.15.3-200.fc35.x86_64
+Release: Fedora release 35 (Thirty Five)
+Result: PASS
+Failed Tests: None
+Warned Tests: None
+============================================================
+Starting test ./performance/lmbench3
+cd src &amp;&amp; make
+make[1]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_tcp.c -o ../bin/x86_64-linux-gnu/lib_tcp.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_udp.c -o ../bin/x86_64-linux-gnu/lib_udp.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_unix.c -o ../bin/x86_64-linux-gnu/lib_unix.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_timing.c -o ../bin/x86_64-linux-gnu/lib_timing.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_mem.c -o ../bin/x86_64-linux-gnu/lib_mem.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_stats.c -o ../bin/x86_64-linux-gnu/lib_stats.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_debug.c -o ../bin/x86_64-linux-gnu/lib_debug.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c getopt.c -o ../bin/x86_64-linux-gnu/getopt.o
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -c lib_sched.c -o ../bin/x86_64-linux-gnu/lib_sched.o
+/bin/rm -f ../bin/x86_64-linux-gnu/lmbench.a
+ar cr ../bin/x86_64-linux-gnu/lmbench.a ../bin/x86_64-linux-gnu/lib_tcp.o ../bin/x86_64-linux-gnu/lib_udp.o ../bin/x86_64-linux-gnu/lib_unix.o ../bin/x86_64-linux-gnu/lib_timing.o ../bin/x86_64-linux-gnu/lib_mem.o ../bin/x86_64-linux-gnu/lib_stats.o ../bin/x86_64-linux-gnu/lib_debug.o ../bin/x86_64-linux-gnu/getopt.o ../bin/x86_64-linux-gnu/lib_sched.o
+ranlib ../bin/x86_64-linux-gnu/lmbench.a
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_file_rd bw_file_rd.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_mem bw_mem.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_mmap_rd bw_mmap_rd.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_pipe bw_pipe.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_tcp bw_tcp.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/bw_unix bw_unix.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/hello hello.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_select lat_select.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_pipe lat_pipe.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_rpc lat_rpc.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_syscall lat_syscall.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_tcp lat_tcp.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_udp lat_udp.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_mmap lat_mmap.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/mhz mhz.c ../bin/x86_64-linux-gnu/lmbench.a -lm -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_proc lat_proc.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_pagefault lat_pagefault.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_connect lat_connect.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_fs lat_fs.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_sig lat_sig.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_mem_rd lat_mem_rd.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_ctx lat_ctx.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_sem lat_sem.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/memsize memsize.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_unix lat_unix.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lmdd lmdd.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/timing_o timing_o.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/enough enough.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/msleep msleep.c
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/loop_o loop_o.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_fifo lat_fifo.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lmhttp lmhttp.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_http lat_http.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_fcntl lat_fcntl.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/disk disk.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_unix_connect lat_unix_connect.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -DMAIN -o ../bin/x86_64-linux-gnu/flushdisk flushdisk.c
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_ops lat_ops.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/line line.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/tlb tlb.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/par_mem par_mem.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/par_ops par_ops.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/stream stream.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+rm -f ../bin/x86_64-linux-gnu/lmbench
+sed -e "s/&lt;version&gt;/`cat bk.ver`/g" &lt; ../scripts/lmbench &gt; ../bin/x86_64-linux-gnu/lmbench
+chmod +x ../bin/x86_64-linux-gnu/lmbench
+gmake[2]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/cache cache.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_dram_page lat_dram_page.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_pmake lat_pmake.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_rand lat_rand.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_usleep lat_usleep.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gcc -O -I/usr/include/tirpc -DRUSAGE -DHAVE_uint=1 -DHAVE_int64_t=1 -DHAVE_DRAND48 -DHAVE_SCHED_SETAFFINITY=1  -ltirpc -o ../bin/x86_64-linux-gnu/lat_cmd lat_cmd.c ../bin/x86_64-linux-gnu/lmbench.a -lm
+gmake[2]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+make[1]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+cd src &amp;&amp; make results
+make[1]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Nothing to be done for 'all'.
+gmake[2]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Entering directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+gmake[2]: Nothing to be done for 'opt'.
+gmake[2]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+=====================================================================
+
+		L M B E N C H   C ON F I G U R A T I O N
+		----------------------------------------
+
+You need to configure some parameters to lmbench.  Once you have configured
+these parameters, you may do multiple runs by saying
+
+	"make rerun"
+
+in the src subdirectory.
+
+NOTICE: please do not have any other activity on the system if you can
+help it.  Things like the second hand on your xclock or X perfmeters
+are not so good when benchmarking.  In fact, X is not so good when
+benchmarking.
+
+=====================================================================
+
+Hang on, we are calculating your timing granularity.
+OK, it looks like you can time stuff down to 5000 usec resolution.
+
+Hang on, we are calculating your timing overhead.
+OK, it looks like your gettimeofday() costs 0 usecs.
+
+Hang on, we are calculating your loop overhead.
+OK, it looks like your benchmark loop costs 0.00000004 usecs.
+
+=====================================================================
+
+If you are running on an MP machine and you want to try running
+multiple copies of lmbench in parallel, you can specify how many here.
+
+Using this option will make the benchmark run 100x slower (sorry).
+
+NOTE:  WARNING! This feature is experimental and many results are 
+	known to be incorrect or random!
+
+MULTIPLE COPIES [default 1] Options to control job placement
+1) Allow scheduler to place jobs
+2) Assign each benchmark process with any attendent child processes
+   to its own processor
+3) Assign each benchmark process with any attendent child processes
+   to its own processor, except that it will be as far as possible
+   from other processes
+4) Assign each benchmark and attendent processes to their own
+   processors
+5) Assign each benchmark and attendent processes to their own
+   processors, except that they will be as far as possible from
+   each other and other processes
+6) Custom placement: you assign each benchmark process with attendent
+   child processes to processors
+7) Custom placement: you assign each benchmark and attendent
+   processes to processors
+
+Note: some benchmarks, such as bw_pipe, create attendent child
+processes for each benchmark process.  For example, bw_pipe
+needs a second process to send data down the pipe to be read
+by the benchmark process.  If you have three copies of the
+benchmark process running, then you actually have six processes;
+three attendent child processes sending data down the pipes and 
+three benchmark processes reading data and doing the measurements.
+
+Job placement selection: =====================================================================
+
+Several benchmarks operate on a range of memory.  This memory should be
+sized such that it is at least 4 times as big as the external cache[s]
+on your system.   It should be no more than 80% of your physical memory.
+
+The bigger the range, the more accurate the results, but larger sizes
+take somewhat longer to run the benchmark.
+
+MB [default 5456] Checking to see if you have 5456 MB; please wait for a moment...
+Hang on, we are calculating your cache line size.
+OK, it looks like your cache line is  bytes.
+
+=====================================================================
+
+lmbench measures a wide variety of system performance, and the full suite
+of benchmarks can take a long time on some platforms.  Consequently, we
+offer the capability to run only predefined subsets of benchmarks, one
+for operating system specific benchmarks and one for hardware specific
+benchmarks.  We also offer the option of running only selected benchmarks
+which is useful during operating system development.
+
+Please remember that if you intend to publish the results you either need
+to do a full run or one of the predefined OS or hardware subsets.
+
+SUBSET (ALL|HARWARE|OS|DEVELOPMENT) [default all] =====================================================================
+
+This benchmark measures, by default, file system latency.  That can
+take a long time on systems with old style file systems (i.e., UFS,
+FFS, etc.).  Linux' ext2fs and Sun's tmpfs are fast enough that this
+test is not painful.
+
+If you are planning on sending in these results, please don't do a fast
+run.
+
+If you want to skip the file system latency tests, answer "yes" below.
+
+SLOWFS [default no] =====================================================================
+
+If you are running on an idle network and there are other, identically
+configured systems, on the same wire (no gateway between you and them),
+and you have rsh access to them, then you should run the network part
+of the benchmarks to them.  Please specify any such systems as a space
+separated list such as: ether-host fddi-host hippi-host.
+
+REMOTE [default none] =====================================================================
+
+Calculating mhz, please wait for a moment...
+I think your CPU mhz is 
+
+	-1 System too busy
+	
+but I am frequently wrong.  If that is the wrong Mhz, type in your
+best guess as to your processor speed.  It doesn't have to be exact,
+but if you know it is around 800, say 800.  
+
+Please note that some processors, such as the P4, have a core which
+is double-clocked, so on those processors the reported clock speed
+will be roughly double the advertised clock rate.  For example, a
+1.8GHz P4 may be reported as a 3592MHz processor.
+
+Processor mhz [default -1 System too busy] =====================================================================
+
+We need a place to store a 5456 Mbyte file as well as create and delete a
+large number of small files.  We default to /usr/tmp.  If /usr/tmp is a
+memory resident file system (i.e., tmpfs), pick a different place.
+Please specify a directory that has enough space and is a local file
+system.
+
+FSDIR [default /usr/tmp] =====================================================================
+
+lmbench outputs status information as it runs various benchmarks.
+By default this output is sent to /dev/tty, but you may redirect
+it to any file you wish (such as /dev/null...).
+
+Status output file [default /dev/tty] =====================================================================
+
+There is a database of benchmark results that is shipped with new
+releases of lmbench.  Your results can be included in the database
+if you wish.  The more results the better, especially if they include
+remote networking.  If your results are interesting, i.e., for a new
+fast box, they may be made available on the lmbench web page, which is
+
+	http://www.bitmover.com/lmbench
+
+Mail results [default yes] OK, no results mailed.
+=====================================================================
+
+Confguration done, thanks.
+
+There is a mailing list for discussing lmbench hosted at BitMover. 
+Send mail to majordomo@bitmover.com to join the list.
+
+make[1]: Leaving directory '/home/bandithijo/Fedora/kernel-tests/performance/lmbench3/src'
+
+                 L M B E N C H  3 . 0   S U M M A R Y
+                 ------------------------------------
+		 (Alpha software, do not distribute)
+
+
+Processor, Processes - times in microseconds - smaller is better
+------------------------------------------------------------------------------
+Host                 OS  Mhz null null      open slct sig  sig  fork exec sh  
+                             call  I/O stat clos TCP  inst hndl proc proc proc
+--------- ------------- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+fedora-th Linux 5.15.3-   -1 0.46 0.60 1.50 2.76 5.61 0.54 1.26 400. 1853 2851
+
+Context switching - times in microseconds - smaller is better
+-------------------------------------------------------------------------
+Host                 OS  2p/0K 2p/16K 2p/64K 8p/16K 8p/64K 16p/16K 16p/64K
+                         ctxsw  ctxsw  ctxsw ctxsw  ctxsw   ctxsw   ctxsw
+--------- ------------- ------ ------ ------ ------ ------ ------- -------
+fedora-th Linux 5.15.3- 2.6000 2.6200 2.8800 3.3300 3.6700 3.55000 3.89000
+
+*Local* Communication latencies in microseconds - smaller is better
+---------------------------------------------------------------------
+Host                 OS 2p/0K  Pipe AF     UDP  RPC/   TCP  RPC/ TCP
+                        ctxsw       UNIX         UDP         TCP conn
+--------- ------------- ----- ----- ---- ----- ----- ----- ----- ----
+fedora-th Linux 5.15.3- 2.600 7.860 10.9  14.9        18.0        40.
+
+File &amp; VM system latencies in microseconds - smaller is better
+-------------------------------------------------------------------------------
+Host                 OS   0K File      10K File     Mmap    Prot   Page   100fd
+                        Create Delete Create Delete Latency Fault  Fault  selct
+--------- ------------- ------ ------ ------ ------ ------- ----- ------- -----
+fedora-th Linux 5.15.3-   11.1 6.7300   20.8   10.5   44.3K 0.884 0.06010 1.533
+
+*Local* Communication bandwidths in MB/s - bigger is better
+-----------------------------------------------------------------------------
+Host                OS  Pipe AF    TCP  File   Mmap  Bcopy  Bcopy  Mem   Mem
+                             UNIX      reread reread (libc) (hand) read write
+--------- ------------- ---- ---- ---- ------ ------ ------ ------ ---- -----
+fedora-th Linux 5.15.3- 2925 5304 1707 4933.3  11.8K 6614.1 4496.1 10.K 6313.
+</code></pre></div>  </div>
+
+</details>
+
+<h1 id="submission-test-result">Submission Test Result</h1>
+
+<p>Kalau kita sudah mengkonfigurasi FAS akun pada file <code class="language-plaintext highlighter-rouge">.config</code>, setiap selesai melakukan <em>test</em>, hasil akan otomatis di submit ke <a href="https://apps.fedoraproject.org/kerneltest/" target="_blank">Fedora Kernel Test Results</a>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_1" data-echo="https://i.postimg.cc/XvhXwZpF/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Untuk melihat hasil pengujian kita, pilih nama kernel yang sesuai dengan yang kita test.</p>
+
+<p>Hasil pengujian kita akan berada di dalam daftar (gambar di bawah). Coba buka saja satu persatu. Salah satunya pasti milik kalian. Yang paling baru, berada di paling atas.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_2" data-echo="https://i.postimg.cc/1tqXM9qd/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="turn-selinux-boolean-selinuxuser_execheap-back-to-default-state">Turn SELinux boolean selinuxuser_execheap back to default state</h1>
+
+<pre><span class="cmd">$ </span><b>sudo semanage boolean -m --off selinuxuser_execheap</b><br /></pre>
+
+<h1 id="upload-hasil-kernel-regression-test">Upload Hasil Kernel Regression Test</h1>
+
+<p>Setiap Kernel Test Days event, akan ada thread tersendiri untuk melakukan submit test result.</p>
+
+<p>Kita bisa lihat daftar event tersebut pada halaman <a href="https://testdays.fedoraproject.org/events" target="_blank">Fedora Testdays: Upcoming &amp; Current Events</a></p>
+
+<p>Kita akan melihat event paling baru, yaitu berkenaan dengan Kernel Test Week.</p>
+
+<p>Kalau kita buka, akan ketemu halaman seperti ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_3" data-echo="https://i.postimg.cc/CMbdqxYB/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Contoh submission datanya seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_4" data-echo="https://i.postimg.cc/ZnLTD0Kw/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Dengan ini proses Kernel Regression Test sudah selesai.</p>
+
+<p>Kamu akan mendapatkan email pemberitahuan, bahwa kamu telah menyelesaikan Kernel Test Regression.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date: Tue, 16 Nov 2021 11:49:04 +0000 (GMT)
+From: notifications@fedoraproject.org
+To: bandithijo@gmail.com
+Subject: bandithijo ran a test of 5.15.3-200.fc35.x86_64 (PASS)
+
+Notification time stamped 2021-11-14 10:21:18 UTC
+
+bandithijo ran a test of 5.15.3-200.fc35.x86_64 (PASS)
+        https://apps.fedoraproject.org/kerneltest/kernel/5.15.3-200.fc35.x86_64
+</code></pre></div></div>
+
+<p>Kamu juga akan mendapatkan email pemberitahuan, bahwa kamu telah mendapatkan Badge.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date: Tue, 16 Nov 2021 11:49:05 +0000 (GMT)
+From: notifications@fedoraproject.org
+To: bandithijo@gmail.com
+Subject: bandithijo has been awarded the "Science (Kernel Tester I)" badge
+
+Notification time stamped 2021-11-14 10:21:20 UTC
+
+You completed a run of the kernel regression test suite
+        https://badges.fedoraproject.org/user/bandithijo
+</code></pre></div></div>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://fedoramagazine.org/contribute-at-the-fedora-linux-36-test-week-for-kernel-5-15/" target="_blank">https://fedoramagazine.org/contribute-at-the-fedora-linux-36-test-week-for-kernel-5-15/</a>
+<br />Diakses tanggal: 2021/11/24</p>
+  </li>
+  <li>
+    <p><a href="https://fedoraproject.org/wiki/Test_Day:2021-11-14_Kernel_5.15_Test_Week" target="_blank">https://fedoraproject.org/wiki/Test_Day:2021-11-14_Kernel_5.15_Test_Week</a>
+<br />Diakses tanggal: 2021/11/24</p>
+  </li>
+  <li>
+    <p><a href="https://fedoraproject.org/wiki/QA:Testcase_kernel_regression" target="_blank">https://fedoraproject.org/wiki/QA:Testcase_kernel_regression</a>
+<br />Diakses tanggal: 2021/11/24</p>
+  </li>
+  <li>
+    <p><a href="https://docs.fedoraproject.org/en-US/quick-docs/kernel/howto-kernel-testday/" target="_blank">https://docs.fedoraproject.org/en-US/quick-docs/kernel/howto-kernel-testday/</a>
+<br />Diakses tanggal: 2021/11/24</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

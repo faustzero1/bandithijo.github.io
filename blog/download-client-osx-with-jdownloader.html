@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="osx, tools, ulasan">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Aplikasi Download Alternatif untuk OSX dengan JDownloader | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Aplikasi Download Alternatif untuk OSX dengan JDownloader" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Post ini sudah tidak up to date !" />
+<meta property="og:description" content="Post ini sudah tidak up to date !" />
+<link rel="canonical" href="https://bandithijo.dev/blog/download-client-osx-with-jdownloader" />
+<meta property="og:url" content="https://bandithijo.dev/blog/download-client-osx-with-jdownloader" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2013-07-03T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/download-client-osx-with-jdownloader"},"description":"Post ini sudah tidak up to date !","url":"https://bandithijo.dev/blog/download-client-osx-with-jdownloader","@type":"BlogPosting","headline":"Aplikasi Download Alternatif untuk OSX dengan JDownloader","dateModified":"2013-07-03T00:00:00+08:00","datePublished":"2013-07-03T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Aplikasi Download Alternatif untuk OSX dengan JDownloader"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/download-client-osx-with-jdownloader">Aplikasi Download Alternatif untuk OSX dengan JDownloader</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2013/07/03</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Download client osx with jdownloader
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#osx">OSX</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tools">Tools</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ulasan">Ulasan</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#jdownloader">JDownloader</a></li>
+  <li><a href="#step-by-step">Step by Step</a></li>
+  <li><a href="#jangan-lupa">Jangan Lupa</a></li>
+  <li><a href="#error-no-connection-">Error No Connection !</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p class="notif-post">Post ini sudah tidak up to date !</p>
+
+<p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://3.bp.blogspot.com/-Rwnz4BKPMJA/UdMVgTfGWeI/AAAAAAAABAM/8QDqK8DfU08/s1600/Default+Header+Template+Post+10.jpg" onerror="imgError(this);" alt="banner" /></p>
+
+<h1 id="latar-belakang">Latar Belakang</h1>
+<p>Sudah beralih ke OS X dan masih berharap bisa download video di Youtube, donwload kontent-kontetn di website yang tidak terdapat menu download, download dari situs-situs yang membutuhkan account premium, ketergantungan dengan IDM (Internet Download Manager) di Windows ? Tapi sudah benar-benar terpojok dengan OS X ? Jangan khawatir. Saya akan memperkenalkan sebuah software sebagai alternatif bagi anda sebagai pengganti IDM di Windows.</p>
+
+<h1 id="jdownloader">JDownloader</h1>
+<p>Adalah software gratis, open-source download manajemen tool yang di tulis dengan bahasa pemrograman Java, dengan komunitas pengembang yang besar, yang membuat download menjadi mudah dan secepat seharusnya. Pengguna dapat memulai, menghentikan atau memberikan jeda, menetapkan batasan bandwidth, arsip auto-ekstrak dan banyak lagi. Termasuk dapat mendownload dari website bertipe One-Click Hoster seperti Rapidshare.com atau Megaupload.com -tidak hanya untuk pengguna dengan account premium, tetapi juga untuk pengguna yang gak bayar.</p>
+
+<p>Bagaimana ? Tertarik untuk menggunakannya ? Kalau anda sudah pernah menggunakannya pasti sangat menyukai software ini. Apalagi bagi user yang suka berselancar ke website-website “zona merah”.</p>
+
+<p>Ada lagi kelebihan pada JDownloader yaitu semua link yang kita copy, akan otomatis terdeteksi pada JDownloader. Hahaha entah ini kelebihan atau kekurangan.</p>
+
+<p>Bagi pengguna Ubuntu &amp; Windows, tutorial pada artikel ini bisa digunakan untuk memandu anda menggunakan JDownloader.</p>
+
+<h1 id="step-by-step">Step by Step</h1>
+<ol>
+  <li>
+    <p>Download dulu aplikasinya <a href="http://jdownloader.org/download/index" target="_blank">di sini</a> (link ini tidak langsung dapat mendownload aplikasi JDownloader. Tetapi anda diarahkan untuk memilih platform yang sesuai dengan yang anda gunakan berikut dengan update Java-nya).</p>
+  </li>
+  <li>
+    <p>Saya anggap anda sudah selesai menginstal JDownloader di komputer anda. Sekarang buka JDownloader yang sudah anda instal. Harap maklum, starting up aplikasi ini memang agak sedikit lambat. Namanya juga aplikasi hebat. (ngeles)</p>
+  </li>
+  <li>
+    <p>Setelah terbuka, maka cuekin saja nih aplikasinya dulu. Sekarang kita balik lagi ke browser kita.</p>
+  </li>
+  <li>
+    <p>Copy &amp; paste link yang ada di address bar browser kita. Sebagai contoh tutorial kali ini saya meng-copy link dari Youtube.com</p>
+  </li>
+  <li>
+    <p>Maka pada JDownloader, akan terdapat proses decrypt yang dapat dilihat pada progress bar di bagian bawah window JDownloader (bagian yang di kotak merah).</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar1" data-echo="https://3.bp.blogspot.com/-8GjrfW_D_7E/UdMYhKSgqnI/AAAAAAAABAc/PK07SOvT12Y/s320/Screen+Shot+2013-07-03+at+1.09.19+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Ini memerlukan proses agak lama. Setelah selesai, makan akan secara otomatis berpidah ke tab “LinkGrabber” dan keluarlah file-file yang available untuk kita donwload. Seperti gambar di bawah.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar2" data-echo="https://2.bp.blogspot.com/-nQKf7O2eafc/UdMZcBDF8fI/AAAAAAAABAo/GWIVNCrG-ww/s320/Screen+Shot+2013-07-03+at+1.17.00+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Perhatikan gambar di atas. Sama seperti IDM bukan ? Apabila website tersebut menyediakan banyak format dan ukuran file maka akan ditampilakan juga di JDownloader.</p>
+  </li>
+  <li>
+    <p>Selanjutnya, pilih satu atau lebih (bisa menggunakan <kbd>Command</kbd> pada Apple atau <kbd>Ctrl</kbd> pada Windows) file yang akan anda download, dan klik kanan</p>
+  </li>
+  <li>
+    <p>Pada tahap pemilihan, perhatikan besar dan ukuran file yang anda inginkan.</p>
+  </li>
+  <li>
+    <p>Lalu pilih “Continue with selected item”</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar3" data-echo="https://1.bp.blogspot.com/-zlxWJkkNd1Q/UdMa1-B-rzI/AAAAAAAABA4/ezFy7D37y5U/s320/Screen+Shot+2013-07-03+at+1.22.49+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Maka secara otomatis akan berpindah ke tab “Download” dimana proses download sedang berlangsung.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar4" data-echo="https://3.bp.blogspot.com/-I381ubNLUCE/UdMeLyUpCGI/AAAAAAAABBI/A6acYnZslJM/s320/Screen+Shot+2013-07-03+at+1.28.34+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Disini kita dapat melihat kecepatan bandwidth yang digunakan (lihat kotak nomer 1), melihat progress bar besar file yang sudah ter-download dan estimasi waktunya (lihat kotak nomer 2), mengatur banyaknya part donwload dalam satu file (lihat kotak nomer 3), mengatur maksimal jumlah file download dalam sekali download (lihat kotak nomer 3), dan mengatur kecepatan download apabila kita sedang menggunakan koneksi kita untuk buffering (lihat kotak nomer 3)</p>
+  </li>
+</ol>
+
+<h1 id="jangan-lupa">Jangan Lupa</h1>
+<ol>
+  <li>
+    <p>Pada tab “Linkgrabber” masih terdapat sisa link yang tadi tidak kita pilih</p>
+  </li>
+  <li>
+    <p>Tentu saja link ini akan merepotkan apabila kita meng-copy link baru dan akan bertumpuk pada tab Linkgrabber. Jadi kita harus menghapusnya agar memudahkan proses pemilihan file pada link selanjutnya.</p>
+  </li>
+  <li>
+    <p>Cara menghapusnya cukup mudah</p>
+  </li>
+  <li>
+    <p>Pilih tombol pojok kanan bawah “Clear List” untuk menghapus semua.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar5" data-echo="https://3.bp.blogspot.com/-IDN9DQ3ylNo/UdMhYcEZfqI/AAAAAAAABBY/6DGTZBT7JPE/s320/Screen+Shot+2013-07-03+at+1.45.50+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Atau jika ingin menghapus yang kita pilih saja caranya</p>
+  </li>
+  <li>
+    <p>Klik kanan file link yang mau dihapus (bisa di pilihin juga pake command pada  atau ctrl pada windows) lalu pilih Remove &gt; Remove seperti pada gambar</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar6" data-echo="https://1.bp.blogspot.com/-Guq_Fd42OAk/UdMhleo5FiI/AAAAAAAABBg/dAV94eAikRE/s320/Screen+Shot+2013-07-03+at+1.48.58+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Jadi dengan kata lain kita bisa men-nahan dahulu untuk mendownload dan mengumpulkan file-file link lalu mendownload setelah semua file yang kita inginkan terkumpul.</p>
+  </li>
+</ol>
+
+<h1 id="error-no-connection-">Error No Connection !</h1>
+<ol>
+  <li>
+    <p>Banyak faktor, bisa jadi server situsnya sedang trouble, atau</p>
+  </li>
+  <li>
+    <p>Yang paling menyebalkan terjadi Error No Connection kalau internet kita “LEMODDD” seperti punya saya.</p>
+
+    <p><img src="/assets/img/logo/logo_blank.svg" alt="gambar7" data-echo="https://2.bp.blogspot.com/-nvLri5xZWBE/UdMiz2aNyII/AAAAAAAABBw/QUAa2J2FF2s/s320/Screen+Shot+2013-07-03+at+1.40.58+AM.png" onerror="imgError(this);" class="myImg" /></p>
+  </li>
+  <li>
+    <p>Kalau terjadi hal ini apa yang kita lakukan ?</p>
+  </li>
+  <li>
+    <p>Coba saja klik kanan dan Resume</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga, coba Close dulu JDownloadernya, lalu buka kembali dan Start download lagi</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga coba link grab ulang</p>
+  </li>
+  <li>
+    <p>Kalau tidak bisa juga, jongkok gan sapa tahu nemu ide bagus. Hehehe</p>
+  </li>
+</ol>
+
+<p>Demikian tutorial mengenai cara penggunaan aplikasi JDownloader ini. Yaa tentu saja setiap aplikasi ada kelebihan dan kekurangannya masing-masing. Ribet ? Ini cuman salah satu trik kok. Sebenarnya sudah ada fasilitas terintegrasi dengan Flashget untuk browser Mozilla Firefox. Tapi saya lebih suka dengan gaya seperti ini. jadi, tutorial ini saya persembahkan untuk mereka-mereka yang mau ribet sedikit. Hehehe</p>
+
+<h1 id="referensi">Referensi</h1>
+<ol>
+  <li><a href="http://jdownloader.org/" target="_blank">jdownloader.org/</a>
+<br />Diakses tanggal: 2013/07/03</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://tsarafatma.com/" target="_blank">Tsara Fatma</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/myugan" target="_blank">myugan</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://www.linuxisekai.site" target="_blank">Galih Wisnuaji</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, artix linux">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Mudah Manajemen Service dengan OpenRC | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Mudah Manajemen Service dengan OpenRC" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC." />
+<meta property="og:description" content="Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC." />
+<link rel="canonical" href="https://bandithijo.dev/blog/mudah-manajemen-service-dengan-openrc" />
+<meta property="og:url" content="https://bandithijo.dev/blog/mudah-manajemen-service-dengan-openrc" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-06T06:45:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/mudah-manajemen-service-dengan-openrc"},"description":"Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC.","url":"https://bandithijo.dev/blog/mudah-manajemen-service-dengan-openrc","@type":"BlogPosting","headline":"Mudah Manajemen Service dengan OpenRC","dateModified":"2021-01-06T06:45:00+08:00","datePublished":"2021-01-06T06:45:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Mudah Manajemen Service dengan OpenRC"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/mudah-manajemen-service-dengan-openrc">Mudah Manajemen Service dengan OpenRC</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/01/06</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Mudah manajemen service dengan openrc
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#artix-linux">Artix Linux</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang">Latar Belakang</a></li>
+  <li><a href="#cara-penggunaan">Cara Penggunaan</a>
+    <ul>
+      <li><a href="#1-melihat-daftar-service-yang-tersedia-rc-service8">1. Melihat Daftar Service yang Tersedia; RC-SERVICE(8)</a></li>
+      <li><a href="#2-menambahkan-service-ke-runlevel-rc-update8">2. Menambahkan Service ke runlevel; RC-UPDATE(8)</a></li>
+      <li><a href="#3-menjalankan-menghentikan-merestart-service-rc-service8">3. Menjalankan, Menghentikan, Merestart Service; RC-SERVICE(8)</a></li>
+      <li><a href="#4-menghapus-service-dari-runlevel-rc-update8">4. Menghapus Service dari runlevel; RC-UPDATE(8)</a></li>
+      <li><a href="#5-melihat-service-pada-runlevel-rc-update8">5. Melihat Service pada runlevel; RC-UPDATE(8)</a></li>
+      <li><a href="#6-melihat-service-status-rc-status8">6. Melihat Service Status; RC-STATUS(8)</a></li>
+      <li><a href="#7-direktori-config">7. Direktori Config</a></li>
+    </ul>
+  </li>
+  <li><a href="#head-to-head-table">Head to Head Table</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang">Latar Belakang</h1>
+
+<p>Akhir Desember 2020, saya memigrasikan Arch Linux yang sudah saya pakai sejak April 2020 – karena Maret 2020, saya bermigrasi ke FreeBSD – ke Artix Linux OpenRC.</p>
+
+<p>Teman-teman dapat membaca catatan migrasi saya di sini, <a href="/blog/memigrasikan-arch-ke-artix-openrc" target="_blank"><strong>Memigrasikan Arch Linux ke Artix Linux (OpenRC)</strong></a>.</p>
+
+<p>Menggunakan init system, selain <strong>systemd</strong> merupakan hal yang baru bagi saya. Karena sejak Desember 2014 – awal migrasi saya menggunakan GNU/Linux dengan distribusi sistem operasi <strong>Fedora Linux</strong>, sudah menggunakan <strong>systemd</strong>.</p>
+
+<p>Catatan kali ini saya ingin menyimpan bagaimana cara menggunakan OpenRC dalam memanajemen service.</p>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Catatan ini bukan merupakan panduan atau tutorial.</p>
+  </div></div>
+
+<h1 id="cara-penggunaan">Cara Penggunaan</h1>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Selama proses catatan ini, saya akan menggunakan <strong>sshd</strong> sebagai contoh service.</p>
+    <p>Di Artix Linux, paket <strong>openssh</strong> harus dipasang sesuai init yang digunakan.</p>
+    <p>Misal, saya menggunakan OpenRC.</p>
+    <pre><span class="cmd">$ </span><b>sudo pacman -S openssh openssh-openrc</b><br /></pre>
+  </div></div>
+
+<h2 id="1-melihat-daftar-service-yang-tersedia-rc-service8">1. Melihat Daftar Service yang Tersedia; RC-SERVICE(8)</h2>
+
+<pre class="whiteboard">
+NAME
+     rc-service — locate and run an OpenRC service with the given arguments
+
+DESCRIPTION
+     Service scripts could be in different places on different systems.
+     rc-service locates the specified service and runs it with the given argu‐
+     ments.  If -i, --ifexists is given then rc-service returns 0 even if the
+     service does not exist.  If -I, --ifinactive or -N, --ifnotstarted is given
+     then rc-service returns 0 if the service exists but is in the wrong state.
+
+     If given the -l, --list argument then rc-service will list all available
+     services.
+</pre>
+
+<p>Untuk melihat daftar service apa saja yang tersedia, kita dapat menggunakan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>rc-service -l</b><br /></pre>
+
+<p>Atau,</p>
+
+<pre><span class="cmd">$ </span><b>rc-service --list</b><br /></pre>
+
+<pre>
+acpid
+agetty
+agetty.tty1
+agetty.tty2
+agetty.tty3
+agetty.tty4
+agetty.tty5
+agetty.tty6
+--- dipotong ---
+udev
+udev-settle
+udev-trigger
+urandom
+virtlockd
+virtlogd
+wpa_supplicant
+xinetd
+</pre>
+
+<p>Atau kombinasikan dengan <strong>grep</strong>.</p>
+
+<p>Misal, ingin mencari <strong>wpa_supplicant</strong> service.</p>
+
+<pre><span class="cmd">$ </span><b>rc-service --list | grep wpa_supplicant</b><br /></pre>
+
+<pre>
+<span style="color:red;">wpa_supplicant</span>
+</pre>
+
+<h2 id="2-menambahkan-service-ke-runlevel-rc-update8">2. Menambahkan Service ke runlevel; RC-UPDATE(8)</h2>
+
+<pre class="whiteboard">
+NAME
+     rc-update — add and remove services to and from a runlevel
+
+DESCRIPTION
+     OpenRC uses named runlevels.  Rather than editing some obscure file or man‐
+     aging a directory of symlinks, rc-update exists to quickly add or delete
+     services to and from from different runlevels.  All services must reside in
+     the /etc/init.d or /usr/local/etc/init.d directories.  They must also be
+     standard OpenRC scripts, meaning they must use openrc-run.
+
+     add service             Add the service to the runlevel or the current one
+                             if none given.  Services added to the boot runlevel
+                             must exist in /etc/init.d.
+
+     delete service          Delete the service from the runlevel or the current
+                             one if none given.
+
+     show                    Show all enabled services and the runlevels they be‐
+                             long to.  If you specify runlevels to show, then
+                             only those will be included in the output.
+</pre>
+
+<p><strong>runlevel</strong> adalah level dimana service akan dijalankan.</p>
+
+<p><strong>runlevel</strong> merupakan direktori yang berlokasi di <strong>/etc/runlevel/</strong>.</p>
+
+<p>Terdapat 3 internal runlevel dan 4 user defined runlevel.</p>
+
+<p><br />
+<strong>Internal runlevel</strong>:</p>
+
+<ol>
+  <li><strong>sysinit</strong></li>
+  <li><strong>shutdown</strong></li>
+  <li><strong>reboot</strong></li>
+</ol>
+
+<p><br />
+<strong>User Defined runlevel</strong>:</p>
+
+<ol>
+  <li><strong>boot</strong>, Starts all system-necessary services for other runlevels</li>
+  <li><strong>default</strong>, Used for day-to-day-operations</li>
+  <li><strong>nonetwork</strong>, Used when no network connectivity is required</li>
+  <li><strong>single</strong>, Single-user mode</li>
+</ol>
+
+<p><br />
+Contoh:</p>
+
+<pre>
+Runlevel: shutdown
+ killprocs                                                            [  <span class="is-danger">stopped</span>  ]
+ ...
+ ...
+Runlevel: default
+ agetty.tty1                                     [  <span class="is-success">started 2 day(s) 06:11:21 (0)</span> ]
+ agetty.tty2                                     [  <span class="is-success">started 2 day(s) 06:11:21 (0)</span> ]
+ ...
+ ...
+Runlevel: nonetwork
+ local                                                                [  <span class="is-success">started</span>  ]
+Runlevel: sysinit
+ dmesg                                                                [  <span class="is-success">started</span>  ]
+ ...
+ ...
+Runlevel: boot
+ root                                                                 [  <span class="is-success">started</span>  ]
+ ...
+ ...
+</pre>
+
+<p>Biasanya, service-service yang kita tambahkan, apabila tidak diberikan argument spesifik runlevel apa yang akan digunakan, akan diletakkan di runlevel <strong>default</strong>.</p>
+
+<p>Proses menambahkan service ke runlevel ini, mirip dengan proses pada systemd yang menggunakan option <strong>enable</strong>.</p>
+
+<pre class="url">
+sudo rc-service add &lt;nama_service&gt;
+</pre>
+
+<p>Misal, saya ingin menjalankan service SSH.</p>
+
+<p>Service SSH memiliki service name bernama <strong>sshd</strong>.</p>
+
+<p>Cara menambahkan ke runlevel,</p>
+
+<pre><span class="cmd">$ </span><b>sudo rc-update add sshd</b><br /></pre>
+
+<pre>
+<span class="is-success">*</span> service sshd added to runlevel default
+</pre>
+
+<p>Service <strong>sshd</strong> telah berhasil ditambahka ke runlevel <strong>default</strong>.</p>
+
+<pre>
+Runlevel: default
+ sshd                                                                 [  <span class="is-danger">stopped</span>  ]
+</pre>
+
+<p>Tapi, statusnya masih <strong>stopped</strong>, kita akan jalankan di section selanjutnya.</p>
+
+<h2 id="3-menjalankan-menghentikan-merestart-service-rc-service8">3. Menjalankan, Menghentikan, Merestart Service; RC-SERVICE(8)</h2>
+
+<p><strong>Kok pakai <code class="language-plaintext highlighter-rouge">rc-service</code> lagi?</strong></p>
+
+<p>Yak, benar! Selain kita gunakan untuk melihat daftar service, kita juga dapat gunakan untuk memanipulasi service, seperti:</p>
+
+<p>Kalau pada systemd, proses ini mirip dengan <strong>start</strong>, <strong>stop</strong>, <strong>reload</strong>, <strong>status</strong>.</p>
+
+<p><br />
+<strong>Start Service</strong></p>
+
+<pre class="url">
+sudo rc-service &lt;nama_service&gt; start
+</pre>
+
+<pre><span class="cmd">$ </span><b>sudo rc-service sshd start</b><br /></pre>
+
+<pre>
+sshd              | * Starting sshd ...                                       [ <span class="is-success">ok</span> ]
+</pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Kita dapat menjalankan service tanpa perlu menambahkan ke dalam runlevel.</p>
+    <p>Kalau kita jalankan tanpa terlebih dulu memasukkannya ke dalam runlevel <strong>default</strong>, maka akan dimasukkan ke runlevel <strong>manual</strong>.</p>
+  </div></div>
+
+<p><br />
+<strong>Stop Service</strong></p>
+
+<pre class="url">
+sudo rc-service &lt;nama_service&gt; stop
+</pre>
+
+<pre><span class="cmd">$ </span><b>sudo rc-service sshd stop</b><br /></pre>
+
+<pre>
+sshd              | * Stopping sshd ...                                       [ <span class="is-success">ok</span> ]
+</pre>
+
+<p><br />
+<strong>Restart Service</strong></p>
+
+<pre class="url">
+sudo rc-service &lt;nama_service&gt; restart
+</pre>
+
+<pre><span class="cmd">$ </span><b>sudo rc-service sshd restart</b><br /></pre>
+
+<pre>
+sshd              | * Stopping sshd ...                                       [ <span class="is-success">ok</span> ]
+sshd              | * Starting sshd ...                                       [ <span class="is-success">ok</span> ]
+</pre>
+
+<p><br />
+<strong>Status Service</strong></p>
+
+<pre class="url">
+sudo rc-service &lt;nama_service&gt; status
+</pre>
+
+<pre><span class="cmd">$ </span><b>sudo rc-service sshd status</b><br /></pre>
+
+<pre>
+<span class="is-success">*</span> status: started
+</pre>
+
+<p>atau,</p>
+
+<pre>
+<span class="is-success">*</span> status: stopped
+</pre>
+
+<h2 id="4-menghapus-service-dari-runlevel-rc-update8">4. Menghapus Service dari runlevel; RC-UPDATE(8)</h2>
+
+<p>Untuk menghapus service dari runlevel, sangat mudah sekali.</p>
+
+<p>Biasanya hal ini kita lakukan apabila ada service yang ingin kita hentikan secara permanent.</p>
+
+<p>Misalnya, saya tidak memerlukan service SSH untuk berjalan terus menerus. Maka saya akan disable dari runlevel default.</p>
+
+<p>Pada systemd, proses ini mirip seperti <strong>disable</strong> service.</p>
+
+<pre class="url">
+rc-update del &lt;nama_service&gt;
+</pre>
+
+<pre><span class="cmd">$ </span><b>sudo rc-update del sshd</b><br /></pre>
+
+<pre>
+<span clas="is-success">*</span> service sshd removed from runlevel default
+</pre>
+
+<h2 id="5-melihat-service-pada-runlevel-rc-update8">5. Melihat Service pada runlevel; RC-UPDATE(8)</h2>
+
+<p>Kita dapat gunakan perintah ini untuk melihat service tertentu ada pada runlevel apa saja.</p>
+
+<pre><span class="cmd">$ </span><b>rc-update show</b><br /></pre>
+
+<pre>
+          agetty.tty1 |      default
+          agetty.tty2 |      default
+              cgroups |                                 sysinit
+               cronie |      default
+                 dbus |      default
+                devfs |                                 sysinit
+               dhcpcd |      default
+                dmesg |                                 sysinit
+       dnscrypt-proxy |      default
+              elogind | boot
+                 fsck | boot
+---------------------------- dipotong -------------------------
+                 sshd |      default
+                 swap | boot
+               sysctl | boot
+                sysfs |                                 sysinit
+         termencoding | boot
+                  tlp |      default
+                 udev |                                 sysinit
+         udev-trigger |                                 sysinit
+              urandom | boot
+       wpa_supplicant |      default
+</pre>
+
+<p><br />
+Kita juga dapat menggunakan untuk melihat service yang ada pada runlevel tertentu, misal runlevel <strong>default</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>rc-update show default</b><br /></pre>
+
+<pre>
+          agetty.tty1 | default
+          agetty.tty2 | default
+            alsasound | default
+               cronie | default
+                 dbus | default
+               dhcpcd | default
+       dnscrypt-proxy | default
+                local | default
+           postgresql | default
+                 sshd | default
+                  tlp | default
+       wpa_supplicant | default
+</pre>
+
+<h2 id="6-melihat-service-status-rc-status8">6. Melihat Service Status; RC-STATUS(8)</h2>
+
+<pre class="whiteboard">
+NAME
+     rc-status — show status info about runlevels
+
+DESCRIPTION
+     rc-status gathers and displays information about the status of services in
+     different runlevels.  The default behavior is to show information about the
+     current runlevel and any unassigned services that are not stopped, but any
+     runlevel can be quickly examined.
+
+     If an active service is being supervised by supervise-daemon(8,) the amount
+     of time the daemon has been active along with the number of times it has
+     been respawned in the current respawn period will be displayed.
+</pre>
+
+<p>Option yang tersedia:</p>
+
+<pre class="whiteboard">
+     The options are as follows:
+
+     -a, --all             Show all runlevels and their services.
+
+     -c, --crashed         List all services that have crashed.
+
+     -f, --format          Select a format for the output. Currently, the only
+                           one that can be specified is ini, which outputs in
+                           *.ini format.
+
+     -l, --list            List all defined runlevels.
+
+     -m, --manual          Show all manually started services.
+
+     -r, --runlevel        Print the current runlevel name.
+
+     -S, --supervised      Show all supervised services.
+
+     -s, --servicelist     Show all services.
+
+     -u, --unused          Show services not assigned to any runlevel.
+
+     -C, --nocolor         Disable color output.
+
+     runlevel              Show information only for the named runlevel.
+</pre>
+
+<p>Sudah sangat jelas yaa, <strong>rc-status</strong> kita gunakan untuk melihat service status.</p>
+
+<p>Kalau kita hanya menjalankan tanpa option, akan ditampilkan runlevel default, manual, hotplugged, needed/wanted.</p>
+
+<pre><span class="cmd">$ </span><b>rc-status</b><br /></pre>
+
+<pre>
+Runlevel: default
+ local                                                                 [  started  ]
+ agetty.tty1                                      [  started 2 day(s) 10:15:05 (0) ]
+ agetty.tty2                                      [  started 2 day(s) 10:15:05 (0) ]
+ ...
+ ...
+Dynamic Runlevel: hotplugged
+Dynamic Runlevel: needed/wanted
+ virtlogd                                                              [  started  ]
+Dynamic Runlevel: manual
+ libvirtd                                                              [  started  ]
+</pre>
+
+<p><br />
+Kalau ingin melihat service status dari semua runlevel, gunakan option <code class="language-plaintext highlighter-rouge">--all</code>.</p>
+
+<h2 id="7-direktori-config">7. Direktori Config</h2>
+
+<p>Untuk file-file konfigurasi dari init script, dapat dilihat pada direktori <strong>/etc/conf.d/</strong></p>
+
+<p>Misal,</p>
+
+<p>Untuk konfigurasi dari <strong>dnscrypt-proxy</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/conf.d/dnscrypt-proxy</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="c">#rc_use="tor"</span>
+<span class="c">#DNSCRYPT_PROXY_OPTS="-config /etc/dnscrypt-proxy/dnscrypt-proxy.toml"</span>
+<span class="c">#DNSCRYPT_PROXY_USER="dnscrypt"</span>
+<span class="c">#DNSCRYPT_PROXY_GROUP="dnscrypt"</span>
+<span class="nv">DNSCRYPT_PROXY_USER</span><span class="o">=</span><span class="s2">"root"</span>
+<span class="nv">DNSCRYPT_PROXY_GROUP</span><span class="o">=</span><span class="s2">"root"</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selayaknya file config, isinya berupa variabel-variabel yang akan digunakan di init script.</p>
+
+<p>Kita akan lihat init script dari <strong>dnscrypt-proxy</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>/etc/init.d/dnscrypt-proxy</code></div>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="c">#!/usr/bin/openrc-run</span>
+<span class="c"># Copyright 1999-2019 Gentoo Authors</span>
+<span class="c"># Distributed under the terms of the GNU General Public License v2</span>
+
+<span class="nb">command</span><span class="o">=</span><span class="s2">"/usr/bin/dnscrypt-proxy"</span>
+<span class="nv">command_args</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">DNSCRYPT_PROXY_OPTS</span><span class="k">:-</span><span class="p">-config /etc/dnscrypt-proxy/dnscrypt-proxy.toml</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">command_user</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">DNSCRYPT_PROXY_USER</span><span class="k">:-</span><span class="nv">dnscrypt</span><span class="k">}</span><span class="s2">:</span><span class="k">${</span><span class="nv">DNSCRYPT_PROXY_GROUP</span><span class="k">:-</span><span class="nv">dnscrypt</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">pidfile</span><span class="o">=</span><span class="s2">"/run/</span><span class="k">${</span><span class="nv">RC_SVCNAME</span><span class="k">}</span><span class="s2">.pid"</span>
+<span class="nv">retry</span><span class="o">=</span><span class="s2">"SIGTERM/5/SIGTERM/5/SIGKILL/5"</span>
+<span class="nv">start_stop_daemon_args</span><span class="o">=</span><span class="s2">"--background --make-pidfile"</span>
+
+depend<span class="o">()</span> <span class="o">{</span>
+	use logger net
+	provide dns
+<span class="o">}</span>
+
+<span class="c"># start_pre() {</span>
+<span class="c"># 	checkpath -q -d -m 0775 -o "${command_user}" /var/cache/"${RC_SVCNAME}"</span>
+<span class="c"># 	checkpath -q -d -m 0775 -o "${command_user}" /var/log/"${RC_SVCNAME}"</span>
+<span class="c"># }</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Nah, teman-teman dapat melihat variabel-variabel pada file config tersebut digunakan pada init script.</p>
+
+<h1 id="head-to-head-table">Head to Head Table</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">systemd</th>
+      <th style="text-align: left">OpenRC</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>systemctl list-units</code></td>
+      <td style="text-align: left"><code>rc-status</code></td>
+      <td style="text-align: left">List running services status</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>systemctl --failed</code></td>
+      <td style="text-align: left"><code>rc-status --crashed</code></td>
+      <td style="text-align: left">Check failed services</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>systemctl --all</code></td>
+      <td style="text-align: left"><code>rc-update -v show</code></td>
+      <td style="text-align: left">Display all available services.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>systemctl (start, stop, restart, status) daemon.service</code></td>
+      <td style="text-align: left"><code>rc-service daemon (start, stop, restart, status)</code></td>
+      <td style="text-align: left">Change service state.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>systemctl (enable, disable) daemon.service</code></td>
+      <td style="text-align: left"><code>rc-update (add, del) daemon</code></td>
+      <td style="text-align: left">Turn service on or off.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>systemctl daemon-reload</code></td>
+      <td style="text-align: left">-</td>
+      <td style="text-align: left">Create or modify configuration.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Sumber: <a href="https://wiki.archlinux.org/index.php/OpenRC#Usage" target="_blank">Arch Wiki: OpenRC - Usage</a></p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://wiki.gentoo.org/wiki/OpenRC" target="_blank">Gentoo Wiki: OpenRC</a>
+<br />Diakses tanggal: 2021/01/06</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.artixlinux.org/Main/OpenRC" target="_blank">Artix Wiki: OpenRC</a>
+<br />Diakses tanggal: 2021/01/06</p>
+  </li>
+  <li>
+    <p><a href="https://wiki.archlinux.org/index.php/OpenRC" target="_blank">Arch Wiki: OpenRC</a>
+<br />Diakses tanggal: 2021/01/06</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/OpenRC/openrc/blob/master/user-guide.md" target="_blank">GitHub/OpenRC/openrc: OpenRC Users Guide</a>
+<br />Diakses tanggal: 2021/01/06</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://epsi-rns.github.io" target="_blank">Paman Epsi</a></p>
+    
+        <p>+&nbsp;<a href="https://ypraw.github.io/" target="_blank">ypraw</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+        <p>+&nbsp;<a href="https://github.com/fikriomar16" target="_blank">Fikri Omar</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

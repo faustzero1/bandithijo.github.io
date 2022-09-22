@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="tips, virt-manager, kvm, qemu">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Memiliki akses Home direktori yang dimiliki oleh Host dari dalam Guest, sangat memudahkan sekali untuk proses tukar menukar data. Tidak perlu repot-repot harus menggunakan aplikasi semacam Filezilla, scp, atau semacamnya. Semuanya cukup dilakukan dengan File Explorer di Linux dan Explorer Guest Windows." />
+<meta property="og:description" content="Memiliki akses Home direktori yang dimiliki oleh Host dari dalam Guest, sangat memudahkan sekali untuk proses tukar menukar data. Tidak perlu repot-repot harus menggunakan aplikasi semacam Filezilla, scp, atau semacamnya. Semuanya cukup dilakukan dengan File Explorer di Linux dan Explorer Guest Windows." />
+<link rel="canonical" href="https://bandithijo.dev/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager" />
+<meta property="og:url" content="https://bandithijo.dev/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-06T00:40:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager"},"description":"Memiliki akses Home direktori yang dimiliki oleh Host dari dalam Guest, sangat memudahkan sekali untuk proses tukar menukar data. Tidak perlu repot-repot harus menggunakan aplikasi semacam Filezilla, scp, atau semacamnya. Semuanya cukup dilakukan dengan File Explorer di Linux dan Explorer Guest Windows.","url":"https://bandithijo.dev/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager","@type":"BlogPosting","headline":"Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu","dateModified":"2021-05-06T00:40:00+08:00","datePublished":"2021-05-06T00:40:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager">Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2021/05/06</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Sharing direktori antara host dan guest pada virt manager
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#kvm">KVM</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#qemu">Qemu</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#tips">Tips</a></span>
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#virt-manager">Virt-Manager</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#latar-belakang-masalah">Latar Belakang Masalah</a></li>
+  <li><a href="#pemecahan-masalah">Pemecahan Masalah</a>
+    <ul>
+      <li><a href="#pasang-samba">Pasang Samba</a></li>
+      <li><a href="#jalankan-samba-service">Jalankan Samba Service</a></li>
+      <li><a href="#buat-samba-user">Buat Samba User</a></li>
+      <li><a href="#membuat-virtual-network">Membuat Virtual Network</a></li>
+      <li><a href="#attach-vm-dengan-virtual-network">Attach VM dengan Virtual Network</a></li>
+      <li><a href="#buat-network-location-di-guest-os">Buat Network Location di Guest OS</a></li>
+    </ul>
+  </li>
+  <li><a href="#demo">Demo</a></li>
+  <li><a href="#pesan-penulis">Pesan Penulis</a></li>
+  <li><a href="#terima-kasih">Terima Kasih</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><h1 id="latar-belakang-masalah">Latar Belakang Masalah</h1>
+
+<p>Saat membuat VM baru pada virt-manager, biasanya sharing Home direktori antara Host OS –dalam hal ini adalah GNU/Linux– dan Guest OS –dalam hal ini adalah Windows– tidak langsung tersedia. Kita perlu mengkonfigurasi secara manual.</p>
+
+<p><strong>Bang, yang seperti apa sih “Sharing Home Direktori” itu?</strong></p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_04" data-echo="https://i.postimg.cc/VkvRMH60/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Bisa dilihat di <strong>My Computer</strong>, pada kategori <strong>Network Location</strong> seperti yang saya kotakin merah.</p>
+
+<p>Kalau kita buka, isinya adalah Home direktori dari Host OS.</p>
+
+<h1 id="pemecahan-masalah">Pemecahan Masalah</h1>
+
+<p>Untu memecahkan masalah di atas, teradapat beberapa prasyarat yang harus terpenuhi, diantaranya:</p>
+
+<ol>
+  <li>Mengaktifkan Samba service pada Host OS</li>
+  <li>Perlu membuat virtual network yang dapat diakses oleh Host OS (Bridge)</li>
+  <li>Menambahkan “Network Location” pada Guest OS yang dialamatkan pada IP address Host OS</li>
+</ol>
+
+<p>Oke, saya akan jabarkan langkah-langkah di atas.</p>
+
+<h2 id="pasang-samba">Pasang Samba</h2>
+
+<p>Pasang Samba dulu apabila belum terinstal.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S samba</b><br /></pre>
+
+<p>Kalau di Artix Linux, ikutkan dengan paket initnya, misal untuk OpenRC.</p>
+
+<pre><span class="cmd">$ </span><b>sudo pacman -S samba samba-openrc</b><br /></pre>
+
+<h2 id="jalankan-samba-service">Jalankan Samba Service</h2>
+
+<p>Sebelum dapat digunakan, tentunya Samba service harus dijalankan terlebih dahulu.</p>
+
+<p><strong>systemd</strong></p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl start smb</b><br /></pre>
+
+<p><strong>OpenRC</strong></p>
+
+<pre><span class="cmd">$ </span><b>sudo rc-service smb start</b><br /></pre>
+
+<h2 id="buat-samba-user">Buat Samba User</h2>
+
+<p>Buat Samba user terlebih dahulu, saya merekomendasikan, agar mudah diingat, buat Samba user dengan credential yang sama dengan Guest OS yang digunakan.</p>
+
+<p>Misal, di Guest OS (Windows), saya memiliki user:</p>
+
+<pre class="whiteboard">username: bandithijo<br />password: hijobandit<br /></pre>
+
+<p>Sekarang, buat Samba user,</p>
+
+<pre><span class="cmd">$ </span><b>smbpasswd -a bandithijo</b><br /></pre>
+
+<pre>
+New SMB password:
+Retype new SMB password:
+</pre>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Sekedar catatan saja, agar tidak perlu repot-repot mencari-cari.</p>
+    <p><strong>Mengganti Password</strong></p>
+    <pre><span class="cmd">$ </span><b>smbpasswd bandithijo</b><br /></pre>
+    <p><strong>Menghapus Samba User</strong></p>
+    <pre><span class="cmd">$ </span><b>smbpasswd -x bandithijo</b><br /></pre>
+  </div></div>
+
+<h2 id="membuat-virtual-network">Membuat Virtual Network</h2>
+
+<!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Harap dimaklumi, karena saya tidak begitu mahir dengan Networking. 😄</p>
+  </div></div>
+
+<p><strong>Virtual Network yang dibuat harus memiliki network yang sama dengan Host OS</strong>.</p>
+
+<p>Misal, Host OS memiliki IP address, 192.168.1.7/24, artinya Host OS berada pada network 192.168.1.0/24 dengan jumlah IP address yang tersedia adalah 254. Mulai dari rentang 192.168.1.2 - 192.168.1.254</p>
+
+<p>Kita akan mengambil sebagian IP address yang tersedia tersebut.</p>
+
+<p>Misal, dari ip 192.168.1.100 dengan netmask /28.</p>
+
+<p>Untuk membuat Virtual Network, buka menu <strong>Edit &gt; Connection Details</strong>.</p>
+
+<p>Pergi ke tab <strong>Virtual Networks</strong>.</p>
+
+<p>Tambahkan network baru dengan menu <strong>+</strong> di pojok kiri bawah.</p>
+
+<p>Nanti akan terbuka window seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_01" data-echo="https://i.postimg.cc/pLrwTCMq/gambar-01.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Isi bagian-bagian yang saya kotak merah.</p>
+
+<pre class="whiteboard">Name: network-bridge<br />Mode: NAT<br />IPv5:<br />  Network: 192.168.1.100/28<br /></pre>
+
+<p>Lalu tekan <strong>Finish</strong>.</p>
+
+<p>Nanti virt-manager secara pintar, akan mengalokasikan IP address yang tersedia untuk kita gunakan.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_02" data-echo="https://i.postimg.cc/QxQQ7ZhM/gambar-02.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Dapat dilihat pada gambar di atas, kita mendapatkan network 192.168.1.96/28, dengan alokasi IP address yang dapat kita gunakan pada rentang 192.168.1.104 - 192.168.1.110</p>
+
+<p>Jadi, nanti ketika kita membuat Vitual Machine, IP address yang akan diambil dari rentang tersebut apabila kita gunakan Virtual Network <strong>network-bridge</strong>.</p>
+
+<h2 id="attach-vm-dengan-virtual-network">Attach VM dengan Virtual Network</h2>
+
+<p>Anggaplah kita sudah memiliki Virtual Machine yang berisi Windows.</p>
+
+<p>Pasang/attach Network Interface Controller (NIC) dengan Virtual Network yang kita buat di atas dengan nama <strong>network-bridge</strong>.</p>
+
+<p>Seperti ini ilustrasinya,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_03" data-echo="https://i.postimg.cc/qM1f4YSN/gambar-03.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Dapat dilihat pada gambar di atas, Virtual Machine saya mendapatkan IP address 192.168.1.105, yang mana IP address ini masih dalam rentang yang kita bahas di atas (.104 - .110).</p>
+
+<p>Karena Virtual Machinve (Guest OS) memiliki IP yang berada pada rentang Host OS, maka keduaya dapat saling berkomunikasi.</p>
+
+<pre class="whiteboard">Host  OS IP Address : 192.168.1.7<br />Guest OS IP Address : 192.168.1.105<br /></pre>
+
+<p>Coba lakukan pengetesan dengan mengirimkan sinyal <strong>ping</strong>.</p>
+
+<p><strong>Host OS (Linux) ping ke Guest OS (Windows)</strong></p>
+
+<pre><span class="cmd">$ </span><b>ping -c 3 192.168.1.105</b><br /></pre>
+
+<pre>
+PING 192.168.1.105 (192.168.1.105) 56(84) bytes of data.
+64 bytes from 192.168.1.105: icmp_seq=1 ttl=128 time=0.312 ms
+64 bytes from 192.168.1.105: icmp_seq=2 ttl=128 time=0.341 ms
+64 bytes from 192.168.1.105: icmp_seq=3 ttl=128 time=0.353 ms
+
+--- 192.168.1.105 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2016ms
+rtt min/avg/max/mdev = 0.312/0.335/0.353/0.017 ms
+</pre>
+
+<p>Di sisi lain,</p>
+
+<p><strong>Guest OS (Windows) ping ke Host OS (Linux)</strong></p>
+
+<pre><span class="cmd">$ </span><b>ping 192.168.1.7</b><br /></pre>
+
+<pre>
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\bandithijo&gt;ping 192.168.1.7
+
+Pinging 192.168.1.7 with 32 bytes of data:
+Reply from 192.168.1.7: bytes=32 time=1ms TTL=64
+Reply from 192.168.1.7: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.1.7: bytes=32 time&lt;1ms TTL=64
+Reply from 192.168.1.7: bytes=32 time&lt;1ms TTL=64
+
+Ping statistics for 192.168.1.7:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+</pre>
+
+<p>Oke, kita sudah punya network yang sesuai dengan prasyarat yang ditentukan.</p>
+
+<h2 id="buat-network-location-di-guest-os">Buat Network Location di Guest OS</h2>
+
+<p>Buka Guest OS –dalam hal ini adalah Windows, kemudian buka <strong>My Computer</strong>.</p>
+
+<p>Klik kanan dan pilih <strong>Add a network location</strong>.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_05" data-echo="https://i.postimg.cc/63NkcGyZ/gambar-05.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Next-next aja, sampai ketemu halaman seperti di bawah ini.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_06" data-echo="https://i.postimg.cc/j2MBRgv6/gambar-06.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Isi dengan format seperti yang saya kotakin merah.</p>
+
+<pre class="url"><b>\\192.168.1.7\bandithijo</b><br /></pre>
+
+<p>Dapat dilihat bahwa formulanya adalah,</p>
+
+<pre class="whiteboard">\\host_ip_address\host_username<br /></pre>
+
+<p>Halaman selanjutnya adalah memberikan nama,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_07" data-echo="https://i.postimg.cc/CLKWc0Lc/gambar-07.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p>Finish!</p>
+
+<p>Kalau berhasil, akan ada Home dari Host OS di my computer.</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_04" data-echo="https://i.postimg.cc/VkvRMH60/gambar-04.png" onerror="imgError(this);" class="myImg" /></p>
+
+<p><strong>Bang, saya tidak mau Home direktori yang dishare, tapi direktori tertentu. Bisa tidak?</strong></p>
+
+<p>Tetu saja, Bisa!</p>
+
+<p>Misal, direktori yang mau dishare ada di <strong>/home/bandithijo/Documents/</strong>.</p>
+
+<p>Tinggal buat saja locationnya seperti ini.</p>
+
+<pre class="url"><b>\\192.168.1.7\bandithijo\Documents</b><br /></pre>
+
+<p>Hasilnya,</p>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_08" data-echo="https://i.postimg.cc/MHpr30xn/gambar-08.png" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="demo">Demo</h1>
+
+<p><img src="/assets/img/logo/logo_blank.svg" alt="gambar_09" data-echo="https://i.postimg.cc/NfCPpGDp/gambar-09.gif" onerror="imgError(this);" class="myImg" /></p>
+
+<h1 id="pesan-penulis">Pesan Penulis</h1>
+
+<p>Sepertinya, segini dulu yang dapat saya tuliskan.</p>
+
+<p>Selanjutnya, saya serahkan kepada imajinasi dan kreatifitas teman-teman. Hehe.</p>
+
+<p>Mudah-mudahan dapat bermanfaat.</p>
+
+<p>Terima kasih.</p>
+
+<p>(^_^)</p>
+
+<h1 id="terima-kasih">Terima Kasih</h1>
+
+<ol>
+  <li>Arya Pramudika, atas informasi membuat Virtual Network Bridge.</li>
+</ol>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li><a href="https://wiki.archlinux.org/title/Samba" target="_blank">wiki.archlinux.org/title/Samba</a>
+<br />Diakses tanggal: 2021/05/06</li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://bandithijo.github.io" target="_blank">bandithijo</a></p>
+    
+        <p>+&nbsp;<a href="https://muktazam.me" target="_blank">reorr</a></p>
+    
+        <p>+&nbsp;<a href="https://www.habib-mustofa.com" target="_blank">habibmustofa</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+        <p>+&nbsp;<a href="https://sucipto.id" target="_blank">Sucipto</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

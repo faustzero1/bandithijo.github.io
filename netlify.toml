@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://bandithijo.netlify.app/*"
+  to = "https://bandithijo.dev/:splat"
+  status = 301
+  force = true

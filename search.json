@@ -1,0 +1,2227 @@
+[
+  
+    
+      {
+        "title"       : "Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)",
+        "description" : "GnuPG adalah implementasi dari OpenPGP Standard (PGP) yang juga dikenal dengan nama GPG, yang dapat kita gunakan untuk melakukan enkripsi dan menandatangani data. Kita akan menggunakan GnuPG untuk mengenkripsi file atau dokumen.",
+        "url"         : "https://bandithijo.dev/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg",
+        "category"    : "blog",
+        "date"        : "2022.08.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis",
+        "description" : "dmenu-websearch ini saya buat karena kemalasan saya dalam melakukan pencarian kata/frasa tertentu namun harus membuka website terkait. Tidak praktis. Saya ingin kata/frasa tersebut cukup saya inputkan dari menu di desktop kemudian browser akan menuntun saya ke halaman hasil pencarian di website terkait.",
+        "url"         : "https://bandithijo.dev/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis",
+        "category"    : "blog",
+        "date"        : "2022.08.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull",
+        "description" : "Simple or Small or Suckless, X Image Viewer (sxiv), adalah aplikasi image viewer yang sudah saya pergunakan sejak sekitar Maret 2019. Catatan ini adalah tentang review singkat dari sxiv dan kenapa saya memutuskan untuk migrasi ke nsxiv.",
+        "url"         : "https://bandithijo.dev/blog/sxiv-simple-x-image-viewer-yang-praktis",
+        "category"    : "blog",
+        "date"        : "2022.08.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)",
+        "description" : "Presentation Mode. Beberapa teman-teman yang menggunakan XFCE pasti pernah menggunakan fitur ini. Fitur yang membuat system kita tidak bisa melakukan sleep/standby. Biasanya kita gunakan ditengah presentasi atau sedang menonton film. Pada catatan kali ini, kita akan meniru Presentation Mode tersebut tanpa menggunakan xfce4-power-manager, melainkan menggunakan DPMS (Display Power Management Signal) yang dapat kita on dan off kan melalui xset.",
+        "url"         : "https://bandithijo.dev/blog/presentation-mode-dengan-dpms-di-linux",
+        "category"    : "blog",
+        "date"        : "2022.07.31"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Bluetooth Headset Battery Status",
+        "description" : "Selama menggunakan Bluetooth Headset di Linux, saya tidak mengetahui berapa persentase battery yang tersisa. Ternyata kita perlu mengaktifkan flag experimental pada bluetoothd service agar status bluetooth headset battery dapat dibaca oleh UPower API",
+        "url"         : "https://bandithijo.dev/blog/bluetooth-headset-battery-status",
+        "category"    : "blog",
+        "date"        : "2022.05.23"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!",
+        "description" : "Catatan kali ini, saya ingin membagikan pengalaman berdonasi ke beberapa project open source yang saya pergunakan. Mudah-mudahan pengalaman ini dapat memberikan informasi dan semangat kepada teman-teman untuk dapat ikut berdonasi juga.",
+        "url"         : "https://bandithijo.dev/blog/berdonasi-ke-project-open-source-yang-digunakan",
+        "category"    : "blog",
+        "date"        : "2022.04.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux",
+        "description" : "Dengan adanya teknologi container, untuk menggunakan distribusi lain langsung dari dalam Terminal Emulator distro yang kita gunakan tidak lagi rumit. Mudahnya seperti berpindah shell dengan SSH. Distrobox adalah tool yang akan menjembatani kita masuk ke dalam distribusi lain dalam bentuk container. Cara ini, dapat saya manfaatkan untuk memasang paket yang tidak tersedia di distro yang saya gunakan.",
+        "url"         : "https://bandithijo.dev/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux",
+        "category"    : "blog",
+        "date"        : "2022.01.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6",
+        "description" : "Konsistensi UI di setiap browser yang digunakan oleh user untuk membuka web aplikasi yang kita bangun, merupakan hal yang penting. Date time picker sudah disediakan oleh browser modern, namun baik Google Chrome maupun Firefox memiliki tampilan yang berbeda. Kita perlu menyeragamkannya dengan menggunakan date time picker pihak ketiga. Kita akan gunakan Javascript library yang bernama Tempus Dominus Bootstrap 4 pada web aplikasi yang dibangun dengan Ruby on Rails 6. Dan juga mengunakan simple_form gem untuk mempermudah membuat form.",
+        "url"         : "https://bandithijo.dev/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails",
+        "category"    : "blog",
+        "date"        : "2022.01.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6",
+        "description" : "Konsistensi UI di setiap browser yang digunakan oleh user untuk membuka web aplikasi yang kita bangun, merupakan hal yang penting. Date time picker sudah disediakan oleh browser modern, namun baik Google Chrome maupun Firefox memiliki tampilan yang berbeda. Kita perlu menyeragamkannya dengan menggunakan date time picker pihak ketiga. Kita akan gunakan Javascript library yang bernama Tempus Dominus Bootstrap 4 pada web aplikasi yang dibangun dengan Ruby on Rails 6.",
+        "url"         : "https://bandithijo.dev/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails",
+        "category"    : "blog",
+        "date"        : "2022.01.19"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan Post Installation openSUSE Tumbleweed",
+        "description" : "Catatan ini merupakan kumpulan packages dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi openSUSE Tumbleweed.",
+        "url"         : "https://bandithijo.dev/note/catatan-post-installation-opensuse-tumbleweed",
+        "category"    : "note",
+        "date"        : "2022.01.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Lazygit, Terminal User Interface untuk Git Commands",
+        "description" : "Lazygit adalah Git Tools berupa Terminal User Interface yang dapat kita manfaatkan sebagai alat bantu yang mempermudah kita dalam berinteraksi dengan perintah-perintah Git. Saya lebih prefer menggunakan veri TUI ketimbang Git Tools lain yang menggunakan GUI karena dengan menggunakan TUI, saya masih dapat memanfaatkan keyboard shortcut untuk mengoperasikan tools tersebut.",
+        "url"         : "https://bandithijo.dev/blog/lazygit-terminal-user-interface-untuk-git",
+        "category"    : "blog",
+        "date"        : "2021.12.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Banget! Pasang MySQL dengan Podman untuk Development",
+        "description" : "Memasang service database seperti MySQL merupakan sebuah tantangan tersendiri di setiap distribusi sistem operasi GNU/Linux. Yang merepotkan, terkadang cara yang sebelumnya kita lakukan berhasil, namun tidak berhasil pada versi distribusi yang terbaru. Sudah saatnya kita gunakan cara modern, khususnya untuk development, yaitu menggunakan kontainerisasi. Catatan kali ini, kita akan menjalankan MySQL service dari container dengan bantuan Podman.",
+        "url"         : "https://bandithijo.dev/blog/mysql-dengan-podman-untuk-development",
+        "category"    : "blog",
+        "date"        : "2021.11.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Berkontribusi di Fedora Kernel Test Days 5.15",
+        "description" : "Serunya menggunakan distribusi sistem operasi GNU/Linux, kita dapat kesempatan untuk dapat berkontribusi. Terdapat cukup banyak ruang untuk berkontribusi. Fedora adalah salah satu distribusi yang memberikan ruang yang cukup banyak untuk berkontribusi serta dipandu dengan dokumentasi yang sangat baik. Salah satu bentuk kontribusi yang dapat kamu berikan adalah mengikuti Kernel Test Days event. Berikut ini adalah catatan saya dalam mengukuti kegiatan ini.",
+        "url"         : "https://bandithijo.dev/blog/fedora-kernel-test-days-5-15-event",
+        "category"    : "blog",
+        "date"        : "2021.11.24"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Banget! Pasang PostgreSQL dengan Podman untuk Development",
+        "description" : "Memasang service database seperti PostgreSQL merupakan sebuah tantangan tersendiri di setiap distribusi sistem operasi GNU/Linux. Yang merepotkan, terkadang cara yang sebelumnya kita lakukan berhasil, namun tidak berhasil pada versi distribusi yang terbaru. Sudah saatnya kita gunakan cara modern, khususnya untuk development, yaitu menggunakan kontainerisasi. Catatan kali ini, kita akan menjalankan PostgreSQL service dari container dengan bantuan Podman.",
+        "url"         : "https://bandithijo.dev/blog/postgresql-dengan-podman-untuk-development",
+        "category"    : "blog",
+        "date"        : "2021.11.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan Post Installation Fedora Workstation",
+        "description" : "Catatan ini merupakan kumpulan packages dan beberapa konfigurasi yang saya lakukan setelah melakukan proses instalasi Fedora Workstation.",
+        "url"         : "https://bandithijo.dev/note/catatan-post-installation-fedora-workstation",
+        "category"    : "note",
+        "date"        : "2021.06.10"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Downgrade Paket di Artix Linux",
+        "description" : "Menggunakan distribusi yang menggunakan metode rilis &#39;rolling&#39; mungkin merupakan kekhawatiran bagi sebagian besar GNU/Linux user. Mereka sering menyebut distro yang memiliki paket-paket yang tidak stabil. Apakah benar? Saya senyumin aja. Apakah saya pernah memiliki masalah dengan paket terbaru? Tentu. Bagaimana cara saya mengatasinya? Downgrade. Catatan ini adalah tips menggunakan tool yang bernama &#39;downgrade&#39; yang defaultnya untuk Arch Linux pada Artix Linux.",
+        "url"         : "https://bandithijo.dev/blog/mudah-downgrade-paket-di-artix-linux",
+        "category"    : "blog",
+        "date"        : "2021.05.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Sharing Direktori Antara Host Linux dan Guest Windows pada Virt-Manager/KVM/Qemu",
+        "description" : "Memiliki akses Home direktori yang dimiliki oleh Host dari dalam Guest, sangat memudahkan sekali untuk proses tukar menukar data. Tidak perlu repot-repot harus menggunakan aplikasi semacam Filezilla, scp, atau semacamnya. Semuanya cukup dilakukan dengan File Explorer di Linux dan Explorer Guest Windows.",
+        "url"         : "https://bandithijo.dev/blog/sharing-direktori-antara-host-dan-guest-pada-virt-manager",
+        "category"    : "blog",
+        "date"        : "2021.05.06"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan Daftar Terminal Tools",
+        "description" : "Catatan ini merupakan kumpulan dari daftar nama-nama CLI dan TUI tools yang dapat memudahkan pekerjaan kita sehari-hari.",
+        "url"         : "https://bandithijo.dev/note/catatan-daftar-terminal-tools",
+        "category"    : "note",
+        "date"        : "2021.05.04"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan Emacs Tutorial",
+        "description" : "Catatan ini merupakan snippets atau cheatsheet atau dapat pula disebut sebagai rangkuman untuk keyboard shortcut yang dijelaskan di dalam Emacs Tutorial.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-emacs-tutorial",
+        "category"    : "note",
+        "date"        : "2021.04.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan Pacman",
+        "description" : "Bagi teman-teman yang menggunakan Arch Linux, pasti sudah tidak asing lagi mendengar nama &#39;Pacman&#39;. Pacman adalah package manager yang digunakan oleh Arch Linux. Sebenarnya ada banyak sekali fitur-fitur yang dapat kita manfaatkan untuk mempermudah masalah atau kebutuhan yang terkadang kita perlukan. Karena kebutuhan atau masalah yang muncul tidak setiap waktu, maka beberapa parameter dari Pacman mungkin tidak sering kita gunakan dan terlupakan.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-pacman",
+        "category"    : "note",
+        "date"        : "2021.04.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Authorization dengan Pundit untuk Nested Controller dan User Turunan pada Rails",
+        "description" : "Catatan ini mengenai bagaimana cara membuat authorization dengan bantuan gem Pundit pada controller bertingkat, misal Authors::Articles. Author merupakan turunan dari User, karena User memiliki lebih dari satu user type. Tujuannya adalah untuk membatasi Author hanya dapat mengedit &amp; menghapus Article miliknya saja.",
+        "url"         : "https://bandithijo.dev/blog/authorization-dengan-pundit-untuk-nested-controller-dan-user-turunan-pada-rails",
+        "category"    : "blog",
+        "date"        : "2021.04.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan Git",
+        "description" : "Catatan ini berisi hal-hal terkait dengan Git. Beberapa hal mungkin terlupakan karena tidak terlalu sering digunakan. Saya merasa perlu untuk menyimpan dan merangkumnya pada sebuah catatan.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-git",
+        "category"    : "note",
+        "date"        : "2021.04.08"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan VBoxManage",
+        "description" : "Hal-hal terkait command line memang sering terlupakan apabila tidak selalu digunakan. Catatan ini hadir untuk mempermudah teman-teman apabila sedang berkepentigan dengan vboxmanage.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-vboxmanage",
+        "category"    : "note",
+        "date"        : "2021.04.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rails UJS dan AJAX, serta Button Animation Loading",
+        "description" : "Catatan kali ini tentang bagaimana membuat sebuah fitur update value pada sebuah halaman tanpa perlu refresh halaman. Sekaligus membuat animasi loading pada link/button tersebut.",
+        "url"         : "https://bandithijo.dev/blog/rails-ujs-dan-ajax-serta-button-animation-loading",
+        "category"    : "blog",
+        "date"        : "2021.04.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan Tmux",
+        "description" : "Hal-hal terkait Tmux, cukup banyak sekali yang saya lupakan. Seperti beberapa kombinasi keyboard dan command tertentu. Apabila diperlukan, saya harus Googling kembali. Agar tidak membuang waktu mencari kembali, saya akan mencatatnya saja di sini.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-tmux",
+        "category"    : "note",
+        "date"        : "2021.03.31"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rails Seeding dengan Spesifik Single atau Multiple Seed File (Modularisasi Seeds)",
+        "description" : "Catatan kali ini, saya akan mencatatat tentang bagaimana mendiferensiasi seeds sesuai kategori tertentu dan juga menjalankan rails db:seed untuk single ataupun multiple spesifik file.",
+        "url"         : "https://bandithijo.dev/blog/rails-seeding-dengan-spesifik-single-atau-multiple-seed-file",
+        "category"    : "blog",
+        "date"        : "2021.03.29"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Notifikasi User Sign Up ke Email Admin dengan ActionMailer Rails",
+        "description" : "Catatan kali ini, saya akan mencatatat tentang bagaimana membuat email notifikasi yang dikirimakan ke email admin, apabila terdapat user yang baru mendaftar (signup) ke web aplikasi yang kita develop. Kita dapat menggunakan Rails ActionMailer untuk fitur ini.",
+        "url"         : "https://bandithijo.dev/blog/notifikasi-user-signup-ke-email-admin-degan-actionmailer-rails",
+        "category"    : "blog",
+        "date"        : "2021.03.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Devise Registration Tanpa Password, Set Password Setelah Confirmation",
+        "description" : "Catatan kali ini tentang pemanfaatan Devise gem untuk registration tanpa menginputkan password, password akan diminta setelah user membuka link konfirmasi yang dikirimkan via email.",
+        "url"         : "https://bandithijo.dev/blog/devise-registration-tanpa-password-set-password-after-confirmation",
+        "category"    : "blog",
+        "date"        : "2021.03.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Ruby on Rails ActionMailer pada Local Environment dengan MailCatcher",
+        "description" : "Sebelumnya, saya sudah pernah mencatat tentang konfigurasi ActionMailer dengan memanfaatkan Gmail SMTP protokol untuk mengirimkan email confirmation. Untuk testing di lokal, kita dapat memanfaatkan tools MailCatcher.",
+        "url"         : "https://bandithijo.dev/blog/ruby-on-rails-actionmailer-local-mailcatcher",
+        "category"    : "blog",
+        "date"        : "2021.03.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Berinteraksi dengan Disk dan Partition",
+        "description" : "Berinteraksi dengan disk partition mungkin merupakan pekerjaan harian bagi sebagian teman-teman, namun tidak dengan saya dan sebagian teman-teman yang lain. Catatan ini hadir untuk menyimpan beberapa &#39;Best Practice&#39; yang dapat kita gunakan, apabila sewaktu-waktu kita berurusan dengan partition.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-disk-dan-partition",
+        "category"    : "note",
+        "date"        : "2021.03.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Recovery Partition Artix Linux ISO dengan GRUB2",
+        "description" : "Sebelumnya, saya sudah pernah mencatat tentang bagaimana booting ke ISO Linux dari GRUB2, ternyata, terdapat keterbatasan, karena ISO berada pada partisi yang sama dengan partisi sistem yang akan direcovery, sehingga kita tidak dapat melakukan intervansi terhadap sistem. Catatan ini adalah modifikasi, ISO diletakkan pada partisi berbeda.",
+        "url"         : "https://bandithijo.dev/blog/membuat-recovery-partition-artix-iso-dengan-grub2",
+        "category"    : "blog",
+        "date"        : "2021.03.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan dalam Menggunakan Command Line Shell",
+        "description" : "Menggunakan command line shell, mungkin merupakan mimpi buruk bagi sebagian orang. Jangan khawatir, terkadang memang terasa mengerikan memasuki dunia baru yang kita belum mengenalnya. Belum terbiasa. Saya pun, terkadang masih sering lupa perintah-perintah yang akan digunakan. Untuk itulah catatan ini saya dokumentasikan.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-command-line-shell",
+        "category"    : "note",
+        "date"        : "2021.03.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengakses VirtualBox Instance dengan SSH via NAT",
+        "description" : "Apabila kita memasang sistem operasi server yang hanya menjalankan CLI pada VirtualBox, saya lebih memilih untuk mengaksesnya menggunakan SSH ketimbang harus menggunakan UI dari VirtualBox. Alasannya karena, saya lebih familiar dengan Terminal Emulator yang saya gunakan.",
+        "url"         : "https://bandithijo.dev/blog/akses-ssh-ke-virtualbox-via-nat",
+        "category"    : "blog",
+        "date"        : "2021.02.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Catatan Instalasi OpenBSD",
+        "description" : "Migrasi ke OpenBSD mungkin akan menjadi perjalaan yang panjang dan penuh persiapan. Karena proses pengerjaannya diwaktu luang dan tidak sekali waktu langsung selesai, saya merasa perlu untuk mendokumentasikan catatan, agar tidak lupa begitu saja.",
+        "url"         : "https://bandithijo.dev/note/catatan-perihal-instalasi-openbsd",
+        "category"    : "note",
+        "date"        : "2021.02.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memberikan Label Temperature pada ThinkPad Sensors",
+        "description" : "Kalau kita mengecek temperature ThinkPad laptop dengan menggunakan perintah sensors, kita akan mendapati label-label seperti temp1, temp2, temp3, dst. Bagaimana kita tahu, kalau label-label tersebut menujuk pada objek-objek seperti CPU, GPU, dll? Nah, catatan kali ini, kita akan memberikan label terhadap sensor-sensor tersebut.",
+        "url"         : "https://bandithijo.dev/blog/memberikan-label-temperature-pada-thinkpad-sensors",
+        "category"    : "blog",
+        "date"        : "2021.02.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Relasi dengan Hanya Salah Satu Type pada Single Table Inheritance Model di Rails",
+        "description" : "Menyambung catatan tentang Single Table Inheritance, namun kali ini mengenai relasi salah satu type dari model yang dipasang STI.",
+        "url"         : "https://bandithijo.dev/blog/relasi-dengan-salah-satu-type-pada-sti-pada-rails",
+        "category"    : "blog",
+        "date"        : "2021.02.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Go To Next dan Previous Post Menu pada Blog Post yang Dibangun dengan Rails",
+        "description" : "Mungkin teman-teman pernah melihat sebuah blog yang memiliki fitur go to next dan previous post? Nah, kita akan membuat fitur yang sama seperti itu, apabila teman-teman memiliki web aplikasi dalam bentuk blog yang dibangun menggunakan Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/membuat-next-dan-prev-menu-pada-rails",
+        "category"    : "blog",
+        "date"        : "2021.02.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Selected Menu Item pada Rails View Template",
+        "description" : "Membuat menu item untuk menampilkan menu yang aktif dan yang tidak mungkin akan menjadi hal yang sedikit menyulitkan. Catatan kali ini, saya akan sedikit mencatat berbagai macam cara yang pernah saya lakukan untuk membuat fitur menu item yang dapat menampilkan indikator aktif (selected).",
+        "url"         : "https://bandithijo.dev/blog/selected-menu-item-pada-rails-view-template",
+        "category"    : "blog",
+        "date"        : "2021.02.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Visualisasi Data Wilayah dengan Datamaps pada Rails",
+        "description" : "Mungkin teman-teman pernah melihat interaktif peta yang memvisualisasikan data tertentu, misal data jumlah penduduk setiap provinsi yang ditampilkan dalam bentuk peta. Catatan kali ini saya akan membahas bagaimana cara membuat hal tersebut dengan datamaps Javascript library pada Rails.",
+        "url"         : "https://bandithijo.dev/blog/visualisasi-data-wilayah-dengan-datamaps-pada-rails",
+        "category"    : "blog",
+        "date"        : "2021.02.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengganti Zona Waktu pada Heroku",
+        "description" : "Kamu punya web aplikasi yang dideploy di Heroku? Dan tarnyata zona waktu Heroku berbeda dengan zona waktu konsumen dari web aplikasi kamu. Pada catatan kali ini, saya akan menunjukkan bagaimana cara mengganti zona waktu pada Heroku.",
+        "url"         : "https://bandithijo.dev/blog/mengganti-timezone-pada-heroku",
+        "category"    : "blog",
+        "date"        : "2021.02.06"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Bootstrap 4 Custom File Input dengan bs-custom-file-input Javascript pada Rails 6",
+        "description" : "Bootstrap 4 menyediakan component untuk custom file input, namun component ini memiliki dependensi Javascript library yang bernama bs-custom-file-input. Catatan kali ini, saya akan membahas bagaimana cara memasang bs-custom-file-input pada Rails 6 yang menggunakan Webpacker.",
+        "url"         : "https://bandithijo.dev/blog/bootstrap-4-custom-file-inpu-pada-rails-6",
+        "category"    : "blog",
+        "date"        : "2021.02.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Jekyll Custom Tags dengan Liquid Tags",
+        "description" : "Menulis teknikal blog cukup merepotkan apabila kita tidak menghandle dengan baik cara untuk memasukkan command prompt, karena akan banyak sekali command prompt yang akan digunakan pada teknikal blog. Catatan ini akan membahas bagaimana BanditHijo dalam menghandle command prompt di blog.",
+        "url"         : "https://bandithijo.dev/blog/membuat-jekyll-custom-tags-dengan-liquid-tags",
+        "category"    : "blog",
+        "date"        : "2021.01.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Menggunakan Bluetoothctl",
+        "description" : "Bluetoothctl adalah interaktif shell yang dapat kita gunakan untuk berinteraksi dengan bluetooth device tanpa perlu menggunakan GUI tool seperti Blueman Manager atau Blueman applet (trayicon). Cukup dengan bermodalkan Terminal, kita dapat melakukan power on, scan on, pairing, connecting dan disconnecting.",
+        "url"         : "https://bandithijo.dev/blog/mudah-menggunakan-bluetoothctl",
+        "category"    : "blog",
+        "date"        : "2021.01.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang PostgreSQL dengan Docker untuk Local Development",
+        "description" : "Saya sedang memanfaatkan docker untuk memasang beberapa komponen-komponen pendukuk web development. Kali ini, yang saya coba pasang adalah PostgreSQL.",
+        "url"         : "https://bandithijo.dev/blog/postgresql-dengan-docker-untuk-local-development",
+        "category"    : "blog",
+        "date"        : "2021.01.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membedakan Jekyll Gemfile antar Level Environment (Production atau Development)",
+        "description" : "Semakin bertambahnya jumlah artikel di BanditHijo blog, mungkin akan memperlambat proses generate static blog ini. Maka dari itu, saya memilih untuk memisahkan beberapa gem yang hanya akan saya gunakan saat di local development, sebagiannya saya jalankan hanya di level production.",
+        "url"         : "https://bandithijo.dev/blog/membedakan-jekyll-gemfile-antar-environment",
+        "category"    : "blog",
+        "date"        : "2021.01.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Manajemen Service dengan OpenRC",
+        "description" : "Sedikit catatan-catatan kecil dalam memanajemen service dengan OpenRC. Mungkin cukup membantu untuk teman-teman yang baru bermigrasi ke init system OpenRC.",
+        "url"         : "https://bandithijo.dev/blog/mudah-manajemen-service-dengan-openrc",
+        "category"    : "blog",
+        "date"        : "2021.01.06"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memigrasikan Arch Linux ke Artix Linux (OpenRC)",
+        "description" : "Saya sudah hampir menyerah dengan ThinkPad X61, si laptop tua produksi tahun 2007 silam yang menggunakan Arch Linux dengan systemd yang terkadang temperature CPU sudah sering mencapai rata-rata 70-80°C. Hingga akhirnya saya memigrasikan ke Artix Linux dengan OpenRC. Ternyata sangat signifikan perbedaan temperaturenya. Lebih adem!",
+        "url"         : "https://bandithijo.dev/blog/memigrasikan-arch-ke-artix-openrc",
+        "category"    : "blog",
+        "date"        : "2021.01.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Mengkonfigurasi Wi-Fi dengan iwd (iwctl)",
+        "description" : "iwd adalah perkakas wireless daemon yang dikembangkan oleh Intel. Digadang-gadang akan menjadi replacement bagi wpa_supplicant. Arch installer pun sudah menggunakan iwd secara default. Catatan ini mungkin bisa memandu teman-teman dalam menggunakan iwd dengan interaktif shell yang bernama iwctl.",
+        "url"         : "https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-iwd",
+        "category"    : "blog",
+        "date"        : "2021.01.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Mengkonfigurasi Wi-Fi dengan wpa_supplicant",
+        "description" : "Saya jarang sekali menggunakan comprehensive network manager seperti NetworkManager atau ConnMan. Terhubung ke jaringan juga hanya lewat Wi-Fi. Maka saya putuskan untuk menghapus NetworkManager dan hanya menggunakan wpa_supplicant. Ternyata tidak semengerikan yang saya bayangkan. wpa_supplicant juga memiliki interaktif shell yang bernama wpa_cli. Sangat memudahkan untuk digunakan memanajemen jaringan konektifitas Wi-Fi di sistem kita.",
+        "url"         : "https://bandithijo.dev/blog/mudah-mengkonfigurasi-wifi-dengan-wpa_supplicant",
+        "category"    : "blog",
+        "date"        : "2020.12.31"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengembalikan Nama Interface Menjadi Traditional Interface Name (eth0, wlan0, etc.)",
+        "description" : "Saya ingin kembali menggunakan traditional network interface name, seperti sebelumnya eth0 &amp; wlan0. Toh juga ini laptop sendiri. Biar gak ribet aja. Hehehe.",
+        "url"         : "https://bandithijo.dev/blog/mengembalikan-nama-interface-ke-traditional-interface-name",
+        "category"    : "blog",
+        "date"        : "2020.12.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menjaga Sistem Tetap Bersih di Arch Linux",
+        "description" : "Kita mungkin gak sadar, kalau banyak cache yang menumpuk di sistem kita. Apalagi kalau kita tidak pernah membersihkannya, bisa mencapai ukuran Giga, loh! Berikut ini catatan yang mungkin dapat membantu teman-teman membersihkan cache agar sistem kita tetap bersih dan masih banyak space yang dapat kita gunakan. Sayang kan, kalau space bergiga-giga hanya untuk cache yang beberapa diantaranya mungkin sudah tidak kita perlukan.",
+        "url"         : "https://bandithijo.dev/blog/menjaga-sistem-tetap-bersih-di-arch",
+        "category"    : "blog",
+        "date"        : "2020.12.24"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Ruby on Rails ActionMailer dengan Gmail",
+        "description" : "Pada umumnya, tutorial ActionMailer pasti mendemonstrasikan penggunaan SendGrid dengan Heroku. Sudah terlalu mainstream, dan juga sejak SendGrid diakuisisi, jadi lebih sering gagal. Catatan kali ini mungkin dapat membantu teman-teman agar dapat menggunakan layanan Gmail saja. Hari gini, siapa yang gak pakai Gmail?",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-rails-actionmailer-dengan-gmail",
+        "category"    : "blog",
+        "date"        : "2020.12.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Bootstrap 4 pada Rails 6 dengan Yarn",
+        "description" : "Mungkin belum ada gem yang menyediakan integrasi Bootstrap 4 dengan Rails 6. Jangan khawatir, karena kita tetap dapat memasang Bootstrap 4 dengan menggunakan Yarn. Caranya juga sangat mudah sekali!",
+        "url"         : "https://bandithijo.dev/blog/memasang-bootstrap-pada-rails-menggunakan-yarn",
+        "category"    : "blog",
+        "date"        : "2020.12.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menambahkan Email Kedua ke dalam GPG Key",
+        "description" : "Memiliki email yang banyak tidak berarti juga memiliki GPG key yang banyak. Kita dapat membuat alias untuk masing-masing email agar menggunakan GPG key kita yang sudah ada. Simak caranya di catatan berikut ini. Mudah banget!",
+        "url"         : "https://bandithijo.dev/blog/menambahkan-email-lain-kedalam-gpgkey",
+        "category"    : "blog",
+        "date"        : "2020.12.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Footer Stay on Bottom but Not Fixed pada Bootstrap",
+        "description" : "Footer yang menempel pada body content memang mengesalkan. Terutama bila content masih sedikit. Maka footer akan menempel pada body dengan sangat manja. Catatan ini adalah solusi bagaimana agar footer tetap berada di bagian paling bawah dari halaman meskipun content yang tersedia masih sedikit.",
+        "url"         : "https://bandithijo.dev/blog/footer-stay-on-bottom-but-not-fixed-bootstrap",
+        "category"    : "blog",
+        "date"        : "2020.12.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Form&#39;s Output dengan AJAX",
+        "description" : "Membuat output hasil akan ditampilkan tanpa perlu merefresh halaman. Tentu saja di Ruby on Rails juga dapat mengimplementasikan ini. Kita dapat menggunakan AJAX.",
+        "url"         : "https://bandithijo.dev/blog/membuat-output-dari-form-dengan-ajax",
+        "category"    : "blog",
+        "date"        : "2020.12.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Table dengan Rounded Corner pada Bootstrap 4",
+        "description" : "Hal yang masih menjadi misteri buat saya saat menggunakan Bootstrap adalah, hampir semua elemen seperti button, input field, card, alerts, dan lain-lain, sudah menggunakan rounded corner. Tapi kenapa tabel masih belum? Catatan kali ini adalah cara yang saya lakukan untuk membuat Bootstrap tabel memiliki rounded corner.",
+        "url"         : "https://bandithijo.dev/blog/membuat-table-rounded-corner-bootstrap-4",
+        "category"    : "blog",
+        "date"        : "2020.11.29"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Meremote Windows dengan FreeRDP",
+        "description" : "Meremote desktop bukan lagi hal asing kalau kita menggunakan GNU/Linux. Saya pun juga sering menggunakan remote desktop untuk mengakses laptop Windows yang ada di ruangan lain. Dengan cara ini, saya tidak perlu repot-repot membawa dan memindahkan laptop tersebut ke ruangan saya. Cukup akses secara remote dengan RDP.",
+        "url"         : "https://bandithijo.dev/blog/mudah-meremote-windows-dengan-freerdp",
+        "category"    : "blog",
+        "date"        : "2020.11.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Cara Aman Menyimpan Credentials di Rails",
+        "description" : "Menyimpan credentials merupakan hal yang wajib sebagai seorang developer atau sistem administrator. Ada banyak sekali cara yang dapat diimplementasikan. Catatan kali ini mungkin hanya salah satu cara yang mungkin dapat teman-teman gunakan.",
+        "url"         : "https://bandithijo.dev/blog/cara-aman-menyimpan-credentials-di-rails",
+        "category"    : "blog",
+        "date"        : "2020.11.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menambahkan Custom Resolution pada GNU/Linux",
+        "description" : "Saya tidak menyangka, kalau di GNU/Linux, kita dapat dengan bebas membuat dan mengatur resolusi dari monitor. Baik external maupun internal. Kalau di sistem operasi lain, mungkin harus menggunakan tools yang berbayar.",
+        "url"         : "https://bandithijo.dev/blog/menambahkan-custom-resolution-gnu-linux",
+        "category"    : "blog",
+        "date"        : "2020.11.06"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Tremc, Terminal Torrent Client yang Praktis dan Mudah Digunakan",
+        "description" : "Sebelumnya, saya sering menggunakan torrent client favorit saya sejak masih menggunakan OSX, yaitu Transmission. Namun, ternyata transmission memiliki daemon yang berjalan di background, lantas saya terpikir, kenapa tidak menggunakan user interface yang lebih sederhana, bukan dengan GUI melainkan dengan TUI. Tremc adalah salah satu user interface alternatif untuk transmission daemon yang dapat kita operasikan cukup menggunakan Terminal.",
+        "url"         : "https://bandithijo.dev/blog/tremc-terminal-torrent-client-praktis",
+        "category"    : "blog",
+        "date"        : "2020.11.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Beberapa Color Picker yang Pernah Saya Gunakan di GNU/Linux",
+        "description" : "Mengetahui sebuah warna yang ada pada objek merupakan kebutuhan seorang desainer. Tidak juga graphic desainer, seorang ricer juga memerlukannya. Berikut ini adalah beberapa color picker tools yang pernah saya cicipi sepanjang menggunakan GNU/Linux.",
+        "url"         : "https://bandithijo.dev/blog/beberapa-color-picker-yang-pernah-saya-gunakan-linux",
+        "category"    : "blog",
+        "date"        : "2020.10.31"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Lightline, Alternatif Vim Statusline Bagian 2 (feat. Defx, Tagbar)",
+        "description" : "Pembaharuan konfig dari catatan sebelumnya. Kali ini dengan perubahan beberapa komponen untuk Defx dan juga Tagbar.",
+        "url"         : "https://bandithijo.dev/blog/lightline-alternatif-vim-statusline-part-2",
+        "category"    : "blog",
+        "date"        : "2020.10.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Defx, Alternatif Vim File Explorer selain NERDTree",
+        "description" : "Alternatif Vim file explorer selain NERDTree yang dapat teman-teman jadikan pilihan untuk memanajemen file saat menggunakan Vim.",
+        "url"         : "https://bandithijo.dev/blog/defx-alternatif-file-explorer-selain-nerdtree",
+        "category"    : "blog",
+        "date"        : "2020.10.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Crow-translate, Translator Online yang Dapat Menerjemahkan Di Mana Saja",
+        "description" : "Aplikasi translator ini sangat convenient untuk digunakan. Karena kita dapat menerjemahkan kata/kalimat apa saja yang kita temui di desktop, selama kata/kalimat tersebut dapat diseleksi.",
+        "url"         : "https://bandithijo.dev/blog/crow-translate-translator-yang-menerjemahkan-dimana-saja",
+        "category"    : "blog",
+        "date"        : "2020.10.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Memberikan Screen Annotation Di Mana Saja dengan Gromit-MPX",
+        "description" : "Mencoret-coret layar untuk memberikan atensi kepada lawan bicara, kini sudah tidak lagi sulit. Dengan Gromit-MPX kita dapat mencoret-coret di mana saja.",
+        "url"         : "https://bandithijo.dev/blog/mudah-memberikan-screen-annotation-dengan-gromit-mpx",
+        "category"    : "blog",
+        "date"        : "2020.10.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menonaktifkan URL Escaping di ZSH (Oh-My-ZSH)",
+        "description" : "Backslash yang tersisipi apabila kita mempaste URL di Terminal dengan Z Shell, cukup mengganggu. Catatan kali ini mungkin dapat dijadikan solusi untuk mengatasi hal tersebut.",
+        "url"         : "https://bandithijo.dev/blog/menonaktifkan-url-escaping-zsh",
+        "category"    : "blog",
+        "date"        : "2020.10.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Mount &amp; Unmount File ISO Image dengan Ruby Script (feat. udisksctl)",
+        "description" : "Mount file ISO mungkin merupakan hal yang sangat mudah kalau kita menggunakan File Manager GUI seperti Nautilus, Dolphin dan Thunar apabila kita telah memasang tools tambahan seperti disk mounter. Namun, bagaimana kalau kita ingin melakukan mounting hanya lewat Terminal? Ternyata caranya sangat mudah!",
+        "url"         : "https://bandithijo.dev/blog/mudah-mount-iso-dengan-ruby-script",
+        "category"    : "blog",
+        "date"        : "2020.10.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Translate-shell, Translator CLI Online yang Praktis",
+        "description" : "Tools ini dapat kita operasikan dari dalam Terminal. Sangat praktis untuk menerjemahkan kata maupun kalimat. Untuk yang sehari-harinya bekerja dengan di dalam Terminal, mungkin aplikasi ini sangat cocok untuk digunakan. Tidak perlu lagi harus membuka Browser untuk mencari translasi dari kata/kalimat.",
+        "url"         : "https://bandithijo.dev/blog/translate-shell-translator-cli-mudah",
+        "category"    : "blog",
+        "date"        : "2020.10.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "SXHKD, Simple X Hotkey Daemon",
+        "description" : "Tools untuk mengatur kombinasi keyboard (keybind) yang independent. Dapat kita gunakan pada Window Manager atau Desktop Environment apa pun. Konfigurasinya juga menggunakan Bash, dan sangat mudah untuk dikonfigurasi. Cukup fleksibel untuk bermain-main dengan berbagai macam bentuk kombinasi keyboard shortcut. Dengan begini, kita tidak perlu lagi pusing dengan keybind apabila kita ingin mencoba-coba Window Manager yang berbeda.",
+        "url"         : "https://bandithijo.dev/blog/sxhkd-simple-x-hotkey-daemon",
+        "category"    : "blog",
+        "date"        : "2020.10.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Ruby Installation Script dengan Auto Create Option for Selection",
+        "description" : "Saya membuat sebuah Ruby script untuk shell wraper dalam memudahkan proses copy paste asset modifikasi dari user direktori ke root direktori. Isi dari menu akan otomatis berubah (bertambah/berkurang) sesuai dengan isi dari direktori.",
+        "url"         : "https://bandithijo.dev/blog/ruby-installation-script-auto-detect-option-for-select",
+        "category"    : "blog",
+        "date"        : "2020.09.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Kustomisasi IRB Prompt (Pry)",
+        "description" : "Mengkonstumisasi IRB prompt agar menjadi lebih sederhana (sesuai degan yang kita inginkan).",
+        "url"         : "https://bandithijo.dev/blog/custom-irb-prompt",
+        "category"    : "blog",
+        "date"        : "2020.09.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Custom Template GitHub Page untuk GitHub Repositori dengan Jekyll",
+        "description" : "Saat membuat repositori di GitHub kita dapat membuat GitHub Pages dari repositori tersebut. Sayangnya theme yang disediakan mungkin tidak cocok dengan kemauan kita. Dan sejauh yang saya tahu, belum ada fitur untuk membuat theme sendiri. Catatan kali ini mungkin dapat membantu teman-teman untuk merancang GitHub Pages themes sendiri.",
+        "url"         : "https://bandithijo.dev/blog/custom-template-github-page-untuk-github-repositori-jekyll",
+        "category"    : "blog",
+        "date"        : "2020.09.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Booting ke Linux ISO menggunakan GRUB2 (Tanpa Bootable FlashDrive) a.k.a RecoveryHD",
+        "description" : "Kita dapat memanfatkan GRUB untuk melakukan booting ke dalam ISO yang berada di dalam HardDrive. Dengan begini, kita dapat memanfaatkannya sebagai recovery sistem, apabila sewaktu-waktu sistem kita error dan kita memerlukan ISO dari distribusi yang kita gunakan untuk melakukan chroot. Jadi, tidak perlu lagi menggunakan FlashDrive.",
+        "url"         : "https://bandithijo.dev/blog/booting-ke-iso-linux-menggunakan-grub",
+        "category"    : "blog",
+        "date"        : "2020.08.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Rubocop (Ruby linter) pada Vim",
+        "description" : "Linter merupakan tools untuk mengecek aturan menulis kode program dari bahasa yang kita pergunakan. Menggunakan linter sudah menjadi kewajiban kalau kita membangun program secara kolaborasi. Agar baris kode yang kita tulis dapat seragam dengan programer yang lain. Ruby memiliki salah satunya linter yang cukup banyak digunakan yaitu Rubocop. Catatan kali ini mungin dapat membantu teman-teman untuk mengkonfigurasi Rubocop dengan Vim text editor.",
+        "url"         : "https://bandithijo.dev/blog/memasang-rubocop-pada-vim",
+        "category"    : "blog",
+        "date"        : "2020.08.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Web Scraper dengan Ruby (Output: HTML) Level 2",
+        "description" : "Catatan ini adalah modifikasi untuk tulisan sebelumnya, dimana script sebelumnya sudah tidak dapat digunakan kembali, karea web target belajar merubah layout dari web mereka.",
+        "url"         : "https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-html-level-2",
+        "category"    : "blog",
+        "date"        : "2020.08.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memodifikasi Hasil ScreenShot dari Flameshot dengan ImageMagick",
+        "description" : "Ide untuk mempercantik hasil screenshot dari Flameshot ini terinspirasi dari gambar-gambar hasil screenshot yang diproduksi oleh sistem operasi OSX. Jangan khawatir, di GNU/Linux, kita juga dapat membuat hal serupa, malah bisa lebih keren karena kita dapat dengan bebas memodifikasinya. Dengan begini, hasil screenshot setiap orang, akan jadi unik dan khas, sesuai dengan karakter masing-masing.",
+        "url"         : "https://bandithijo.dev/blog/memodifikasi-screenshot-dari-flameshot-dengan-imagemagick",
+        "category"    : "blog",
+        "date"        : "2020.08.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengedit dengan Vim pada Nautilus dan Thunar pada Window Manager",
+        "description" : "Bukan berarti Vim hanya dapat dipanggil dari dalam Terminal saja. Tapi Vim juga dapat dipanggil untuk melakukan &#39;Open with...&#39; dari dalam File Manager GUI seperti Nautilus dan Thunar.",
+        "url"         : "https://bandithijo.dev/blog/mengedit-dengan-vim-pada-nautilus-thunar",
+        "category"    : "blog",
+        "date"        : "2020.08.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Hasil ScreenShot pada GNU/Linux seperti Milik macOS",
+        "description" : "Ide untuk mempercantik hasil screenshot ini terinspirasi dari gambar-gambar hasil screenshot yang diproduksi oleh sistem operasi OSX. Jangan khawatir, di GNU/Linux, kita juga dapat membuat hal serupa, malah bisa lebih keren karena kita dapat dengan bebas memodifikasinya. Dengan begini, hasil screenshot setiap orang, akan jadi unik dan khas, sesuai dengan karakter masing-masing.",
+        "url"         : "https://bandithijo.dev/blog/membuat-hasil-screenshot-linux-seperti-pada-macos",
+        "category"    : "blog",
+        "date"        : "2020.07.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mendapatkan ADB Authorized pada Layar Android yang Rusak (TWRP) di GNU/Linux &amp; Windows",
+        "description" : "Ide tulisan ini, bermula dari keinginan saya untuk menggambil data yang ada di dalam Smartphone Android yang telah rusak layarnya.",
+        "url"         : "https://bandithijo.dev/blog/authorized-adb-tanpa-menyentuh-layar",
+        "category"    : "blog",
+        "date"        : "2020.07.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menambahkan Frame pada Hasil ScreenShot dengan ImageMagick",
+        "description" : "Ide untuk memberikan framing ini muncul saat saya ingin membuat thumbnails di YouTube untuk video dengan resolusi layar saya yang berukuran 4:3, sedangkan thumbnail setidaknya memiliki resolusi berukuran 16:9.",
+        "url"         : "https://bandithijo.dev/blog/menambahkan-frame-pada-screenshot-dengan-imagemagick",
+        "category"    : "blog",
+        "date"        : "2020.07.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Exclude Spesifik Value pada Jekyll Collection",
+        "description" : "Mengecualikan value tertentu dari sebuah data collection.",
+        "url"         : "https://bandithijo.dev/blog/exclude-spesifik-value-pada-jekyll-collection",
+        "category"    : "blog",
+        "date"        : "2020.07.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat IP Address Static pada KVM libvirt (virt-manager)",
+        "description" : "IP address yang dimiliki guest instance selalu berubah-ubah. Akibatnya, setiap ingin melakukan ssh session, kita harus mengubah tujuan dari IP address yang dimiliki oleh guest instance. Permasalahan ini dapat diatasi dengan membuat IP address yang dimiliki oleh setiap guest instance menjadi static.",
+        "url"         : "https://bandithijo.dev/blog/static-ip-address-pada-kvm-libvrit",
+        "category"    : "blog",
+        "date"        : "2020.07.19"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbesar Gambar dengan Modal Menggunakan JavaScript (Tanpa JQuery)",
+        "description" : "Membuat fitur image fullscreen apabila diklik, dengan element modal menggunakan JavaScript, tanpa JQuery.",
+        "url"         : "https://bandithijo.dev/blog/memperbesar-gambar-dengan-modal-menggunakan-javascript",
+        "category"    : "blog",
+        "date"        : "2020.07.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mendeploy Jekyll ke GitHub Pages dengan Travis CI",
+        "description" : "Terdapat whitelist plugin yang dapat digunakan apabila kita hanya menggunakan GitHub Pages untuk membuild Jekyll blog. Maka, saya memanfaatkan Travis-CI agar dapat bebas menggunakan Jekyll plugin sesuka hati. Termasuk plugin yang saya buat sendiri untuk membantu proses penulisan artikel.",
+        "url"         : "https://bandithijo.dev/blog/deploy-gh-page-dengan-travis-ci",
+        "category"    : "blog",
+        "date"        : "2020.07.10"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rails Server Dapat Diakses oleh Perangkat dalam Satu LAN",
+        "description" : "Kita dapat membuat Rails aplikasi yang kita bangun di local environment sistem kita membuka akes broadcast ke local network. Sehingga, semua perangkat yang berada pada satu network yang sama, dapat mengakses Rails aplikasi yang ada di local sistem kita.",
+        "url"         : "https://bandithijo.dev/blog/rails-server-diakses-dalam-satu-lan",
+        "category"    : "blog",
+        "date"        : "2020.07.10"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Jekyll Server Dapat Diakses oleh Perangkat dalam Satu LAN",
+        "description" : "Kita dapat membuat Jekyll blog yang kita bangun di local environment sistem kita, membuka akes broadcast ke local network. Sehingga, semua perangkat yang berada pada satu network yang sama, dapat mengakses Jekyll blog yang ada di local sistem kita.",
+        "url"         : "https://bandithijo.dev/blog/jekyll-server-diakses-dalam-satu-lan",
+        "category"    : "blog",
+        "date"        : "2020.07.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Export Data ke CSV pada Rails",
+        "description" : "Saya memeiliki sejumlah data yang ingin saya eksport ke dalam bentuk CSV. Apakah saya dapat melakukannya pada Ruby on Rails?",
+        "url"         : "https://bandithijo.dev/blog/export-data-ke-csv-pada-rails",
+        "category"    : "blog",
+        "date"        : "2020.07.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Export Data ke XLSX (SpreadSheet) pada Rails",
+        "description" : "Saya memeiliki sejumlah data yang ingin saya eksport ke dalam bentuk spreadshet dengan format XLSX. Apakah saya dapat melakukannya dengan Ruby on Rails?",
+        "url"         : "https://bandithijo.dev/blog/export-data-ke-xlsx-spreadsheet-pada-rails",
+        "category"    : "blog",
+        "date"        : "2020.07.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Membuat JavaScript Diagram dengan ChartKick pada Rails",
+        "description" : "Mudah membuat grafik diagram pada Ruby on Rails dengan menggunakan ChartKick gem.",
+        "url"         : "https://bandithijo.dev/blog/mudah-membuat-diagram-dengan-chartkick-pada-rails",
+        "category"    : "blog",
+        "date"        : "2020.07.08"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Penjadwalan Tasks dengan Cron Menggunakan Whenever Gem pada Ruby/Rails",
+        "description" : "Saya memiliki sebuah rake task atau ruby script yang ingin saya jalankan secara otomatis di belakang layar tanpa perlu saya harus panggil terlebih dahulu. Bagaimana cara saya melakukannya pada Ruby on Rails?",
+        "url"         : "https://bandithijo.dev/blog/penjadwalan-tasks-dengan-whenever-gem-pada-rails",
+        "category"    : "blog",
+        "date"        : "2020.07.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menangani Redirect ke Website Lain pada Jekyll",
+        "description" : "Cara ini, biasa saya gunakan untuk mempercantik alamat URL yang kurang ramah untuk diingat.",
+        "url"         : "https://bandithijo.dev/blog/menangani-redirect-ke-website-lain-pada-jekyll",
+        "category"    : "blog",
+        "date"        : "2020.07.06"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menampilkan Code Block Tertentu Hanya di Environment Production pada Rails",
+        "description" : "Saya ingin menampilkan code block tertentu hanya pada environment tertentu. Misalkan, code block tersebut hanya akan dijalankan pada environment production. Dan tidak akan dijalankan pada environment development. Bagaimana saya melakukannya pada web aplikasi yang dibangun dengan Ruby on Rails?",
+        "url"         : "https://bandithijo.dev/blog/menampilkan-code-block-tertentu-hanya-di-rails-production",
+        "category"    : "blog",
+        "date"        : "2020.07.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Bagaimana Menulis Rake Task Buatan Sendiri",
+        "description" : "Rake dapat kita manfaatkan untuk menggabungkan beberapa baris perintah menjadi satu baris perintah. Sehingga membuat proses developing kita menjadi lebih efisien.",
+        "url"         : "https://bandithijo.dev/blog/bagaimana-menulis-rake-task-sendiri",
+        "category"    : "blog",
+        "date"        : "2020.06.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengkonfigurasi Fitur Hibernasi pada Arch Linux",
+        "description" : "Hibernasi terkadang memang tidak langsung berjalan out of the box, kita perlu untuk mengaturnya sendiri. Catatan ini mungkin dapat membantu teman-teman mengkonfigurasi hibernasi di Arch Linux.",
+        "url"         : "https://bandithijo.dev/blog/mengkonfigurasi-fitur-hibernasi-pada-arch-linux",
+        "category"    : "blog",
+        "date"        : "2020.06.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Restart PulseAudio Dummy Output Tanpa Perlu Logout",
+        "description" : "Sistem tiba-tiba tidak terdengar suara. Jangan panik, segera jalankan protokol pertolongan pertama untuk mengatasi audio yang hilang pada pulseaudio!",
+        "url"         : "https://bandithijo.dev/blog/restart-pulseaudio-dummy-output-tanpa-logout",
+        "category"    : "blog",
+        "date"        : "2020.06.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD)",
+        "description" : "Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis.",
+        "url"         : "https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-with-activerecord",
+        "category"    : "blog",
+        "date"        : "2020.06.18"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: COPY FROM CSV)",
+        "description" : "Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis.",
+        "url"         : "https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-copy-from-csv",
+        "category"    : "blog",
+        "date"        : "2020.06.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: INSERT INTO)",
+        "description" : "Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis.",
+        "url"         : "https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-insert-into",
+        "category"    : "blog",
+        "date"        : "2020.06.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Web Scraper dengan Ruby (Output: HTML)",
+        "description" : "Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis.",
+        "url"         : "https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-output-html",
+        "category"    : "blog",
+        "date"        : "2020.06.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Vimrc yang Modular",
+        "description" : "Mengelola dan mengkonfigurasi vimrc yang sudah sangat panjang (ribuan baris) mungkin akan membingungkan. Kita bisa membuat vimrc yang modular untuk memisahkan beberapa komponen-komponen sesuai dengan fungsinya. Dengan begini, diharapkan akan lebih mudah untuk dikelola.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-vimrc-yang-modular",
+        "category"    : "blog",
+        "date"        : "2020.06.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rebuild ThinkPad X61 Battery",
+        "description" : "Dalam project ini, saya iseng merakit battery untuk ThinkPad X61. Tujuannya agar saya dapat terbebas dari cekikan vendor jualan ThinkPad Battery. Dengan begini, saya tetap dapat menggunakan ThinkPad X61 dalam waktu yang lama tanpa khawatir tercekik dengan biaya battery replacement.",
+        "url"         : "https://bandithijo.dev/blog/rebuild-thinkpad-x61-battery",
+        "category"    : "blog",
+        "date"        : "2020.05.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Module Sederhana untuk Status Bar GNU/Linux dan FreeBSD",
+        "description" : "Module-module bash script ini dapat digunakan untuk status bar. Saya menggunakannya untuk dwm status saya. Bukan yang terbaik tapi cukup untuk memenuhi kebutuhan saya akan status indikator.",
+        "url"         : "https://bandithijo.dev/blog/module-sederhana-untuk-status-bar",
+        "category"    : "blog",
+        "date"        : "2020.05.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki Blank Putih pada Aplikasi Berbasis Java di GNU/Linux",
+        "description" : "Saya mendapati beberapa aplikasi berbasis Java, apabila dibuka, hanya menampilkan *canvas* putih dan tidak merender *asset* seperti form, menu, button, text, gambar dan lain-lain.",
+        "url"         : "https://bandithijo.dev/blog/blank-putih-pada-aplikasi-java-di-gnu-linux",
+        "category"    : "blog",
+        "date"        : "2020.05.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "DWM, Window Manager yang Gak Pake Ribet",
+        "description" : "Saya memulai perjalanan ke dunia Window Manager mulai dari i3WM. Namun, sebenarnya Window Manager yang pertama kali membuat saya semakin gregetan ingin menggunakan Window Manager adalah DWM. Memang bukan yang paling fancy.",
+        "url"         : "https://bandithijo.dev/blog/dwm-window-manager-anti-ribet",
+        "category"    : "blog",
+        "date"        : "2020.04.24"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Pagination pada Jekyll",
+        "description" : "Kalau kita memiliki banyak sekali posting, rasanya kurang pas secara user experience jika menampilkan semua posting dalam satu halaman. Apabila ada ribuan posting akan sangat panjang sekali halamannya. Solusinya adalah membatasi jumlah post dalam satu halaman dengan pagination.",
+        "url"         : "https://bandithijo.dev/blog/membuat-pagination-pada-jekyll",
+        "category"    : "blog",
+        "date"        : "2020.04.19"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Navigasi Post (Next Prev) pada Jekyll",
+        "description" : "Navigasi next &amp; previouse dalam sebuah post mungkin diperlukan untuk memudahkan pengunjung menelusuri blog.",
+        "url"         : "https://bandithijo.dev/blog/membuat-post-navigasi-pada-jekyll",
+        "category"    : "blog",
+        "date"        : "2020.04.18"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Heroku-CLI pada FreeBSD",
+        "description" : "Heroku adalah Cloud Application Platform (PAAS - Platform as a Service) dimana kita sebagai web developer dapat dengan mudah mengkonfigurasi aplikasi yang kita buat agar dapat diakses di internet. Apakah CLI yang disediakan, dapat digunakan pada FreeBSD?",
+        "url"         : "https://bandithijo.dev/blog/memasang-heroku-cli-pada-freebsd",
+        "category"    : "blog",
+        "date"        : "2020.04.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Vim Mengingat Posisi Terakhir Cursor",
+        "description" : "Ketika kita mengerjakan sebuah proyek, akan sangat membantu apabila cursor dapat tersimpan di posisi terakhir kita meninggalkannya. Apakah ini mungkin dilakukan oleh Vim? Tentu saja!",
+        "url"         : "https://bandithijo.dev/blog/membuat-vim-mengingat-posisi-terakhir-cursor",
+        "category"    : "blog",
+        "date"        : "2020.03.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Sleep/Standby Ketika Lid Laptop Ditutup pada FreeBSD",
+        "description" : "Apakah kita dapat mengkonfigurasi FreeBSD untuk melakukan sleep/standby ketika lid laptop di tutup?",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-sleep-saat-lid-closed-freebsd",
+        "category"    : "blog",
+        "date"        : "2020.03.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi DNSCrypt-proxy di FreeBSD",
+        "description" : "Kali ini adalah catatan mengenai konfigurasi dnscrypt-proxy pada lingkungan FreeBSD.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-freebsd",
+        "category"    : "blog",
+        "date"        : "2020.03.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menghandle Pengarsipan pada FreeBSD dengan 7-Zip",
+        "description" : "Selama ini, saya selalu menggunkan tools pengarsipan GUI. Ternyata dengan 7zip, pengarsipan di Terminal juga jadi lebih mudah. Ada banyak sekali option dan parameter yang dapat kita gunakan. Tapi saya hanya mencatat sebagian kecil yang saya perlukan.",
+        "url"         : "https://bandithijo.dev/blog/menghandle-pengarsipan-pada-freebsd-dengan-7-zip",
+        "category"    : "blog",
+        "date"        : "2020.03.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengenal Single Table Inheritance dengan Devise pada Rails (Contoh 2)",
+        "description" : "Mengimplementasikan Single Table Inheritance pada web apps yang menggunakan Device gem.",
+        "url"         : "https://bandithijo.dev/blog/rails-single-table-inheritance-dengan-devise-contoh-2",
+        "category"    : "blog",
+        "date"        : "2020.02.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengenal Single Table Inheritance pada Rails (Contoh 1)",
+        "description" : "Mengimplementasikan Single Table Inheritance pada web apps yang dibangun dengan Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-single-table-inheritance-contoh-1",
+        "category"    : "blog",
+        "date"        : "2020.02.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Pagination dengan Pagy pada Rails",
+        "description" : "Bagaimana memasangkan pagination pada web aplikasi yang dibangun menggunakan Ruby on Rails. Kali ini, saya akan menggunakan gem yang mengklaim dirinya sebagai salah satu gem tercepat dan teringan diantara gem-gem pagination yang lain. yaitu, Pagy.",
+        "url"         : "https://bandithijo.dev/blog/rails-pagination-dengan-pagy",
+        "category"    : "blog",
+        "date"        : "2020.02.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Image Derivatives dengan Shrine pada Rails",
+        "description" : "Membuat turunan dari original image dapat mempermudah kita membuat diferensiasi terhadap ukuran image yang akan kita gunakan pada masing-msing kebutuhan yang berbeda pada sis frontend. Misalkan, ukuran image untuk thumbnails, menggunakan image dengan ukuran yang lebih kecil dari pada image untuk gallery. Catatan kali ini, akan membahas bagaimana cara membuat image derivatives dengan Shrine gem pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-image-derivatives-with-shrine",
+        "category"    : "blog",
+        "date"        : "2020.02.19"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Fitur Pertemanan dengan Referral Link pada Rails",
+        "description" : "Catatan kali ini adalah mengenai cara membuat fitur pertemanan sederhana dengan menggunakan referral link saat melakukan invitation pada web aplikasi yang dibangun dengan Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-inviting-friends",
+        "category"    : "blog",
+        "date"        : "2020.02.10"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Collection of Checkbox yang Berbasis Rentang pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat daftar checkbox yang berbasis rentang (range) pada web aplikasi yang dibabgun dengan Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-collection-of-checkboxes-based-on-range",
+        "category"    : "blog",
+        "date"        : "2020.02.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Input Select yang Berbasis Rentang pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat input selection yang berbasis rentang (range) pada web aplikasi yang dibangun dengan Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-input-select-based-on-range",
+        "category"    : "blog",
+        "date"        : "2020.01.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Barrier, Mengoperasikan Banyak Komputer hanya dengan Sebuah Mouse dan Keyboard",
+        "description" : "Mungkin gak sih mengoperasikan banyak komputer hanya dengan satu keyboard dan mouse? Sangat mungkin! Kita dapat menggunakan tools bernama Barrier. Barrier ini mirip dengan aplikasi berbayar Synergy. Kita dapat membuat 1 komputer menjadi server dan komputer-komputer lain sebagai client. Dengan begini, kita dapat mengontrol kursor dan keyboard hanya dari komputer server.",
+        "url"         : "https://bandithijo.dev/blog/berbagi-mouse-keyboard-dengan-barrier",
+        "category"    : "blog",
+        "date"        : "2020.01.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Seed Data dari Hash pada Rails",
+        "description" : "Catatan kali ini tentang cara membuat seed data dari data yang berbentuk hash pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/seed-data-dari-hash-pada-rails",
+        "category"    : "blog",
+        "date"        : "2020.01.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mempertahankan Data pada Form ketika User Belum Melakukan Authentication",
+        "description" : "Catatan ini mengenai cara memperhankan data (persistent) pada sebuah form ketika user belum melakukan authentication atau registration pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/persistent-form-data-saat-user-belum-login",
+        "category"    : "blog",
+        "date"        : "2020.01.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Berbagi WiFi Tethering dengan create_ap pada GNU/Linux",
+        "description" : "Fitur tethering Wi-Fi mungkin mudah didapatkan apabila menggunakan Desktop Environment tertentu. Karena biasanya sudah menyediakan menu untuk berbagi network dengan Wi-Fi. Namun, bagaimana apabila kita menggunakan Window Manager? comprehensive network manager seperti NetworkManager sejauh yang saya tahu, belum memiliki fitur ini, namun ConnMan sudah memiliki fitur Wi-F- tethering. Namun, jangan khawatir, sudah ada tools yang standalone yang dapat menyediakan layanan Wi-Fi tethering, yaitu create_ap.",
+        "url"         : "https://bandithijo.dev/blog/wifi-tethering-dengan-create-ap-linux",
+        "category"    : "blog",
+        "date"        : "2019.12.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Navigation Bar Global Menu Preferences pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat navbar yang memiliki menu yang pilihannya hanya terdapat pada controller tertentu, namun menjadi dapat digunakan pada semua halaman.",
+        "url"         : "https://bandithijo.dev/blog/navbar-global-menu-preference-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat User dan Admin Terpisah pada Rails yang menggunakan Devise",
+        "description" : "Catatan kali ini tentang cara membuat user dan admin yang memiliki tabel terpisah pada Rails yang menggunakan Devise gem.",
+        "url"         : "https://bandithijo.dev/blog/user-dan-admin-terpisah-pada-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Select Menu dengan Short Description Menggunakan jQuery pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat select menu dengan keterangan kecil yang berada di bagian bawah dari menu menggunaka jQuery pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/select-menu-short-description-dengan-jquery",
+        "category"    : "blog",
+        "date"        : "2019.12.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rails Counter Cache pada Satu Model",
+        "description" : "Catatan kali ini mengenai cara membuat counter cache pada model yang sama (self).",
+        "url"         : "https://bandithijo.dev/blog/rails-counter-cache-pada-satu-model",
+        "category"    : "blog",
+        "date"        : "2019.12.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Checkbox dengan Multiple Selection pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat checkbox dengan multiple selection pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/checkbox-multiple-selection-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.10"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Fitur Search dengan Ransack dan EasyAutocomplete pada Rails",
+        "description" : "Catatan kali ini mengenai cara membuat fitur pencari dengan memanfaatkan Rasack gem dan EasyAutocomplete javascript library pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/search-dengan-ransack-dan-easyautocomplete-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.08"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Tab Filter by Category dengan Ransack pada Rails",
+        "description" : "Catatan ini mengenai cara membuat filter by category menggunakan Ransack gem pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/tab-filter-by-category-dengan-ransack-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Autcomplete Tag dengan ActsAsTaggable, Select2, dan simple_form pada Rails",
+        "description" : "Catatan ini mengenai cara membuat autocomplete tag dengan ActsAsTaggable, Select2, dan SimpleForm pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/actsastaggable-select2-simpleform-autocomplete-tag-rails",
+        "category"    : "blog",
+        "date"        : "2019.12.07"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Pertama Kali Mencoba RSpec",
+        "description" : "Catatan kali ini mengenai pertama kalinya mencoba RSpec.",
+        "url"         : "https://bandithijo.dev/blog/pertama-kali-mencoba-rspec",
+        "category"    : "blog",
+        "date"        : "2019.12.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Rails time_select dengan Integer",
+        "description" : "Catatan kali ini mengenai cara menggunakan input time_select namun dengan tupe data integer pada Ruby on Rails.",
+        "url"         : "https://bandithijo.dev/blog/rails-time-select-dengan-integer",
+        "category"    : "blog",
+        "date"        : "2019.12.04"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Memasang PostgreSQL pada Arch Linux",
+        "description" : "Mengkonfigurasi database mungkin cukup menjadi momok sebagian orang. Termasuk saya. Rasanya sangat mengerikan kalau harus kembali mengknfigurasi database dari awal. Catatan ini saya buat agar saya tidak lupa, bagaimana cara untuk mengkonfigurasi database di Arch Linux untuk keperluan development (bukan production).",
+        "url"         : "https://bandithijo.dev/blog/mudah-memasang-postgresql-pada-arch-linux",
+        "category"    : "blog",
+        "date"        : "2019.11.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengupgrade Versi Ruby di dalam Rbenv",
+        "description" : "Versi Ruby sudah mencapai versi tertentu, tapi kenapa saya tidak mendapat pembaharuan? Bagaimana cara mengupgrade versi Ruby yang ada di dalam Rbenv? Catatan kali ini, saya akan membahas tentang hal itu.",
+        "url"         : "https://bandithijo.dev/blog/upgrade-ruby-di-dalam-rbenv",
+        "category"    : "blog",
+        "date"        : "2019.10.21"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat CPU Temperature Alert dengan Ruby",
+        "description" : "Kadang saya memerlukan sebuah pananda yang benar-benar dapat menarik perhatian saya saat CPU temperature mencapai suhu tinggi. Tujuannya agar saya dapat mengambil tindakan antisipasi. Saya memang sudah memiliki status indikator. Namun, masih belum cukup menarik perhatian saya, terutama saat saya tidak sedang berada di depan laptop dan laptop sedang digunakan untuk mengcompile.",
+        "url"         : "https://bandithijo.dev/blog/cpu-temperature-alert-with-ruby",
+        "category"    : "blog",
+        "date"        : "2019.10.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Mengupgrade Jekyll 4",
+        "description" : "Cerita proses upgrde Jekyll 3.8.6 ke 4.0.0 dari BanditHijo (R)-Chive.",
+        "url"         : "https://bandithijo.dev/blog/upgrade-jekyll-4",
+        "category"    : "blog",
+        "date"        : "2019.10.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Perbedaan Ruby Class Method dengan Instance Method",
+        "description" : "Catatan kali ini mengenai perbedaan antara Method class dengan Instance class pada bahasa pemrograman Ruby.",
+        "url"         : "https://bandithijo.dev/blog/perbedaan-ruby-class-method-dengan-instance-method",
+        "category"    : "blog",
+        "date"        : "2019.10.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menambahkan Database pada Rails Project",
+        "description" : "Catatan kali ini mengenai cara menambahkan atau mengganti database pada Ruby on Rails project yang sudah ada.",
+        "url"         : "https://bandithijo.dev/blog/menambahkan-database-pada-rails-project",
+        "category"    : "blog",
+        "date"        : "2019.10.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Rails Project tanpa Database",
+        "description" : "Catatan kali ini mengenai cara membuat Ruby on Rails project tanpa menggunakan database.",
+        "url"         : "https://bandithijo.dev/blog/rails-project-tanpa-database",
+        "category"    : "blog",
+        "date"        : "2019.10.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut (ver. 2)",
+        "description" : "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap.",
+        "url"         : "https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut-2",
+        "category"    : "blog",
+        "date"        : "2019.06.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengganti Password User dari Home Direktori yang Terenkripsi",
+        "description" : "Memiliki Home direktori yang terenkripsi bukan berarti kita hanya dapat mengeset password hanya pada saat pertama kali enkripsi dibuat dan tidak dapat menggantinya. Tentu saja kita dapat menggantinya. Catatan berikut ini mudah-mudahan dapat membantu kalian memberikan gambaran, tentang bagaimana mengganti password terhadap home direktori yang terenkripsi.",
+        "url"         : "https://bandithijo.dev/blog/mengganti-password-user-dari-home-direktori-yang-terenkripsi",
+        "category"    : "blog",
+        "date"        : "2019.06.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengenkripsi Home Direktori pada GNU/Linux",
+        "description" : "Home direktori merupakan direktori yang sangat personal untuk kita. Ketika laptop saya hilang, mungkin orang lain akan dapat mengakses home direktori tersebut. Maka dari itu, saya memutuskan untuk mengenkripsi home direktori. Dan membuat proses decrypt dan encrypt berjalan secara otomatis saat session login. Sehingga, kita hanya perlu memasukkan password sekali saat login, dan enkripsi dari home direktori akan terbuka.",
+        "url"         : "https://bandithijo.dev/blog/mengenkripsi-home-direktori-pada-gnu-linux",
+        "category"    : "blog",
+        "date"        : "2019.06.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Custom Domain GitHub Pages dengan Amazon Route 53",
+        "description" : "Catatan ini mengenai cara mengkonfigurasi custom domain dengan GitHub Pages dan Amazon Route 53.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-custom-domain-github-pages-dengan-amazon-route53",
+        "category"    : "blog",
+        "date"        : "2019.06.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Polybar, Bar yang Mudah Dikonfig, Praktis, dan Mudah Dikustomisasi",
+        "description" : "Polybar adalah salah satu standalone bar yang cukup banyak difavoritkan oleh pengguna Window Manager termasuk saya. Catatan kali ini, saya akan berbagi, bagaimana cara saya mengkonfigurasi Polybar yang saya pergunakan.",
+        "url"         : "https://bandithijo.dev/blog/polybar-mudah-dikonfig-dan-praktis",
+        "category"    : "blog",
+        "date"        : "2019.05.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mulai Bermain-main dengan Ruby",
+        "description" : "Catatan ini adalah awal pertama kali saya mulai menekuni bahasa pemrograman Ruby.",
+        "url"         : "https://bandithijo.dev/blog/mulai-bermain-main-dengan-ruby",
+        "category"    : "blog",
+        "date"        : "2019.05.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki systemd-timesyncd Failed to Start Saat Booting pada Arch Linux",
+        "description" : "Catatan ini mengenai memperbaiki systemd-timesyncd yang mengalami kegagalan saat proses booting.",
+        "url"         : "https://bandithijo.dev/blog/memperbaiki-systemd-timesyncd-failed-to-start",
+        "category"    : "blog",
+        "date"        : "2019.04.24"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki Font Rendering pada Jitsi - VoIP dan IM Client pada GNU/Linux",
+        "description" : "Catatan kali ini mengenai cara memperbaiki font rendering yang jelek pada aplikasi Jitsi di GNU/Linux.",
+        "url"         : "https://bandithijo.dev/blog/memperbaiki-font-rendering-jitsi",
+        "category"    : "blog",
+        "date"        : "2019.04.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Window Title untuk Simple/Suckless Terminal",
+        "description" : "Simple Terminal (ST) adalah terminal yang sangat minimalis. Sampai-sampai untuk membuat window title menampilkan isi dari ST, kita perlu mengkonfigurasinya sendiri. Ya, memang beginilah tujuan dari ST. Apabila ada fitur lain yang ingin digunakan, user perlu menambahkan sendiri. Karena kebutuhan masing-masing user dapat berbeda satu dengan yang lain.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-window-title-st-terminal",
+        "category"    : "blog",
+        "date"        : "2019.04.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Melokalisasi File .lnk yang Dihasilkan oleh Microsoft Office pada Arch Linux",
+        "description" : "File .lnk dapat benar-benar membuat kotor direktori home kalian apabila tidak dilokalisasi dengan benar.",
+        "url"         : "https://bandithijo.dev/blog/melokalisasi-file-lnk-dari-microsoft-office-pada-gnu-linux",
+        "category"    : "blog",
+        "date"        : "2019.03.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Membuat Multiple User pada GNU/Linux dengan Python Script",
+        "description" : "Catatan ini mengenai cara membuat user dalam jumlah banyak sekaligus menggunakan Python script.",
+        "url"         : "https://bandithijo.dev/blog/membuat-multiple-user-dengan-python-script",
+        "category"    : "blog",
+        "date"        : "2019.03.18"
+      } ,
+    
+  
+    
+      {
+        "title"       : "SLiM, Display Manager yang Sudah Lama Ditinggalkan",
+        "description" : "SLiM Display Manager termasuk display manager favorit yang banyak digunkan oleh para ricer. Karena sangat mudah untuk dimofifikasi. Catatan kali ini, saya ingin berbagi bagaimana cara saya dalam mengkonfigurasi SLiM.",
+        "url"         : "https://bandithijo.dev/blog/slim-display-manager-yang-sudah-ditinggalkan",
+        "category"    : "blog",
+        "date"        : "2019.02.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "i3WM, Window Manager yang Taktis namun Praktis",
+        "description" : "i3WM disebut-sebut sebagai Window Manager yang cocok untuk kalian yang baru ingin memulai mengenal dan menggunakan Window Manager. Hal tersebut tidak lain karena i3wm memiliki file configurasi dalam bentuk plain text, sehingga dapat dimengerti meski tanpa pengetahuan tentang bahasa pemrograman. Selain itu, i3wm juga memiliki dokumentasi yang sangat lengkap yang berada di website resminya. Catatan kali ini, saya ingin mencoba membagikan, bagaimana cara saya mengkonfigurasi i3wm.",
+        "url"         : "https://bandithijo.dev/blog/i3wm-window-manager-yang-taktis-namun-praktis",
+        "category"    : "blog",
+        "date"        : "2019.02.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memanfaatkan Dunst Sebagai PopUp Notifikasi Bantuan Keyboard Shortcut",
+        "description" : "Dunst adalah replacement untuk standalone notification daemon yang ringan. Biasanya digunakan oleh pengguna Window Manager. Catatan kali ini, saya akan memanfaatkan dunst untuk menampilkan daftar keybind keymap.",
+        "url"         : "https://bandithijo.dev/blog/dunst-sebagai-notifikasi-bantuan-pengingat-shortcut",
+        "category"    : "blog",
+        "date"        : "2019.02.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Zgen, ZSH Plugin Manager",
+        "description" : "Z Shell juga memiliki plugin-plugin yang dapat kita manfaatkan untuk menambah fitur yang ingin kita gunakan. Untuk memanajemen plugin-plugin tersebut, saya memilih untuk menggunakan plugin manager yang bernama Zgen.",
+        "url"         : "https://bandithijo.dev/blog/zgen-zsh-plugin-manager",
+        "category"    : "blog",
+        "date"        : "2019.02.18"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memanfaatkan Vim Sebagai NoteTaking",
+        "description" : "Sebagai seorang vimers tentu saja lebih senang menulis di atas Vim. Catatan kali ini saya ingin berbagi pengalaman saya dalam memanajeman Vim untuk digunakan sebagai notetaking.",
+        "url"         : "https://bandithijo.dev/blog/memanfaatkan-vim-sebagai-notetaking",
+        "category"    : "blog",
+        "date"        : "2019.02.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi systemd-boot untuk Multiple Kernel pada Arch Linux",
+        "description" : "Saya memilih menggunakan systemd-boot untuk laptop EFI saya. Saya sudah menggunakan systemd-boot sejak masih menggunakan MacbookPro. Namun, selama ini saya hanya memiliki satu buat pilihan untuk memilih sistem operasi yang ingin digunakan. Dengan catatan ini, saya akan memanfaatkan systemd-boot untuk manampilkan pilihan kernel yang akan digunakan.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-systemd-boot-multiple-kernel-arch-linux",
+        "category"    : "blog",
+        "date"        : "2019.02.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Comprehensive Network Manager yang Saya Pergunakan pada Arch Linux",
+        "description" : "Terdapat banyak sekali tools yang dapat kita gunakan untuk mengatur jaringan di GNU/Linux. Perkakas-perkakas ini sering diistilahkan dengan Comprehensive Network Manager, atau Network Manager saja. Tapi jangan salah paham yaa, karena salah satu Network Manager tersebut ada yang bernama NetworkManager.",
+        "url"         : "https://bandithijo.dev/blog/pilihan-network-manager-pada-arch-linux",
+        "category"    : "blog",
+        "date"        : "2019.02.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "St, Simple/Suckless Terminal yang Sudah Lama Saya Dambakan",
+        "description" : "ST sangat saya inginkan karena kesederhanannya. Karena minimalisnya inilah saya ingin menjadikannya basis untuk meracik terminal yang sesuai dengan yang saya inginkan.",
+        "url"         : "https://bandithijo.dev/blog/st-simple-terminal-dari-suckless",
+        "category"    : "blog",
+        "date"        : "2019.02.08"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Evince, PDF Reader yang Menjadi Favorit Saya Sejak Lama",
+        "description" : "Saya adalah Gnome user sejak GNOME2. Sayangnya, laptop saya saat ini sudah tidak dapat menggunakan GNOME3. Namun, meski demikian, keuntungan dari GNU/Linux adalah kita bebas menggunakan komponen aplikasi yang ada di dalamnya. Evince adalah salah PDF reader yang menjadi default PDF reader di GNOME yang meski saat ini saya sudah menggunakan Window Manager, namun masih tetap saya gunakan. Apa alasannya? Simak catatan dan ulasannya pada artikel ini.",
+        "url"         : "https://bandithijo.dev/blog/evince-pdf-reader-yang-saya-gunakan",
+        "category"    : "blog",
+        "date"        : "2019.02.04"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menyeragamkan Tema GTK Root dengan Tema User",
+        "description" : "Bicara tentang tampilan desktop, setidaknya terdapat 2 library yang banyak digunakna oleh aplikasi-aplikasi GUI di lingkungan GNU/Linux, yaitu GTK+ dan Qt. Kedua library ini mungkin memiliki default theme mereka sendiri. Mungkin gak kalau kita seragamkan? Sangat mungkin! Beberapa teman-teman yang sering melihat screenshot atau video-video pendek yang sering saya share di Telegram mungkin pernah melihat dan memperhatikan.",
+        "url"         : "https://bandithijo.dev/blog/menyeragamkan-tema-gtk-root-dengan-user",
+        "category"    : "blog",
+        "date"        : "2019.02.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "BanditHijo.com, Bermigrasi dari Cloudflare ke Netlify",
+        "description" : "Awalmula bandithijo berpindah domain ke .com menggunakan CLoudflare sebagai DNS resolver. Kali ini, kita akan coba menggunakan Netlify yang bertugas dsebagai CI dan juga DNS resolver.",
+        "url"         : "https://bandithijo.dev/blog/bermigrasi-dari-cloudflare-ke-netlify",
+        "category"    : "blog",
+        "date"        : "2019.01.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Kesenangan Dalam Menggunakan Arch Linux Pt. 1",
+        "description" : "Pada catatan ini saya sedikit bercerita kemudahan dalam menelusuri sebuah paket di repositori Arch Linux.",
+        "url"         : "https://bandithijo.dev/blog/kesenangan-menggunakan-arch-linux-pt-1",
+        "category"    : "blog",
+        "date"        : "2019.01.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Lightline, Alternatif Vim Statusline selain Vim-Airline",
+        "description" : "Sudah mulai merasakan kalau vim-airline terasa berat atau terasa bloated? Hihihi, mungkin ini saatnya kamu mencoba mencicipi Lightline.",
+        "url"         : "https://bandithijo.dev/blog/lightline-alternatif-vim-statusline",
+        "category"    : "blog",
+        "date"        : "2019.01.26"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Unified Remote, Mengontrol Mouse Cursor GNU/Linux dari Android",
+        "description" : "Siapa yang tidak kagum dengan remote control? Menggerakkan benda jarak jauh? Keren sekali yaa! Catatan kali ini saya akan membahasa dan mengulas tentang sebuah perkakas untuk mengontrol mouse cursor GNU/Linux dari Smartphone Android.",
+        "url"         : "https://bandithijo.dev/blog/unified-remote-mengontrol-cursor-linux-dari-android",
+        "category"    : "blog",
+        "date"        : "2019.01.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengganti BIOS Logo ThinkPad pada GNU/Linux",
+        "description" : "Saya kurang menyukai tampilan BIOS logo ThinkPad X260 bawaan. Karena hanya bertuliskan kata &#39;Lenovo&#39; di dalam kota merah. Beda dengan ThinkPad generasi sebelumnya, yang memiliki Tulisan &#39;ThinkPad&#39; dengan desain logo BIOS khas ThinkPad generasi awal. Apakah gambar BIOS tersebut bisa diganti? Tentu saja! Mudah sekali! Catatan kali ini, saya akan mendemonstrasikan cara untuk memodifikasi gambar untuk BIOS ThinkPad.",
+        "url"         : "https://bandithijo.dev/blog/custom-bios-logo-thinkpad",
+        "category"    : "blog",
+        "date"        : "2019.01.13"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Merubah Nama-nama Direktori pada Home",
+        "description" : "Apabila kamu merasa nama-nama direktori yang kamu miliki di Home terlalu panjang, seperti Documents, Desktop, Pictures, Vidoes, Sound, dll. Kita dapat merubahnya menjadi lebih singkat. Saya lebih senang dengan 3 huruf.",
+        "url"         : "https://bandithijo.dev/blog/merubah-nama-direktori-pada-home",
+        "category"    : "blog",
+        "date"        : "2019.01.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "MPV, Bukan Pemutar Video Biasa",
+        "description" : "Sebelum mengenal MPV, saya selalu merasa bahwa QuickTime (OSX Video Player) adalah Video Player Favorit saya. Sampai saya mengetahui MPV. Keyakinan sayapun goyah dan berubah. Catatan kali ini, saya akan bercerita ulasan dan bagaimana cara saya mengkonfigurasi MPV.",
+        "url"         : "https://bandithijo.dev/blog/mpv-bukan-video-player-biasa",
+        "category"    : "blog",
+        "date"        : "2019.01.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menjalankan Python Virtualenv Versi Python yang Spesifik pada Arch Linux",
+        "description" : "Catatan ini mengenai trik membuat dan menjalankan Python Virtualenv dengan versi yang spesifik pada Arch Linux.",
+        "url"         : "https://bandithijo.dev/blog/menjalankan-python-virtualenv-versi-tertentu",
+        "category"    : "blog",
+        "date"        : "2019.01.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Scrcpy, Menampilkan dan Mengontrol Android Device dari Komputer",
+        "description" : "Dengan menggunakan Scrcpy, kita dengan mudah dapat mengendalikan smartphone dari komputer.",
+        "url"         : "https://bandithijo.dev/blog/scrcpy-menampilkan-dan-mengontrol-android-dari-komputer",
+        "category"    : "blog",
+        "date"        : "2018.12.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Ranger, Terminal Based File Manager yang Ternyata Sangat Memudahkan",
+        "description" : "Ranger adalah TUI (*Terminal User Interface*) file manager yang ditulis dengan bahasa pemrograman Python. Kalau yang pernah tahu MC (Midnight Commander), nah serupa, sama-sama file manager. Menggunakian ranger sangat mendongkrak efektifitas saya dalam melakukan eksplorasi terhadap file-file yang terdapat di sistem saya.",
+        "url"         : "https://bandithijo.dev/blog/ranger-file-manager",
+        "category"    : "blog",
+        "date"        : "2018.12.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Manajemen Clipboard dengan Clipmenu pada i3wm",
+        "description" : "Clipboard manajemen mungkin merupakan kebutuhan sebagian temen-temen. Saya pun juga menggunakannya. Ternyata sangat praktis sekali, kalau kita menggunakan clipboard manajemen, tidak perlu melakukan copy paste berulang-ulang perihal yang sama. Clipmenu adalah salah satu clipboard manajemen yang simple. Karena kebanyakan kebutuhan clipboard saya adalah text, saya merasa clipmenu sudah lebih dari cukup untuk memenuhi kebutuhan saya.",
+        "url"         : "https://bandithijo.dev/blog/manajemen-clipboard-dengan-clipmenu",
+        "category"    : "blog",
+        "date"        : "2018.12.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengkonfigurasi Irssi, IRC Client Berbasis Terminal",
+        "description" : "Jaman sekarang sudah sangat jarang orang menggunakan IRC. Namun bukan berarti IRC sudah mati. Masih ada beberapa user yang masih menggunakan IRC. Bahkan beberapa distribusi yang besar, memiliki official channel yang terpelihara, seperti #archlinux. Untuk dapat masuk ke dalam layanan IRC, kita memerlukan IRC client. Saya ingin yang simple, salah satunya adalah Irssi.",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-irssi",
+        "category"    : "blog",
+        "date"        : "2018.12.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Newsboat, Mendapatkan Info Update Artikel Terbaru Blog/Website",
+        "description" : "Newsboat adalah salah satu RSS feed reader yang sederhana dan berjalan dengan Terminal User Interface. Sangat cocok untuk teman-teman yang lebih sering berinteraksi dengan Terminal.",
+        "url"         : "https://bandithijo.dev/blog/newsboat-rss-feed-reader",
+        "category"    : "blog",
+        "date"        : "2018.12.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Reflector, Python Script untuk Memfilter Pacman Mirrorlist Arch Linux",
+        "description" : "Masih ribet memilih-milih mirror yang cepat sesuai dengan network yang kita gunakan? Saya lebih memilih menggunakan script yang dapat melakukan profiling (penilaian) mana-mana saja mirror yang cepat untuk network saya. Reflector adalah salah satu tools yang dapat kita gunakan untuk menentukan mana saja mirror yang cepat untuk kita.",
+        "url"         : "https://bandithijo.dev/blog/reflector-tools-rankmirror-archlinux",
+        "category"    : "blog",
+        "date"        : "2018.12.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Generate Private dan Public GPG Key Sendiri",
+        "description" : "Catatan ini hanya sekedar catatan praktis tentang bagaimana cara membuat GPG key sendiri.",
+        "url"         : "https://bandithijo.dev/blog/generate-gpg-key",
+        "category"    : "blog",
+        "date"        : "2018.12.09"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Fan pada ThinkPad Tidak Terdeteksi Setelah Power Adapter Dicabut",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-fanspeed-thinkpad",
+        "category"    : "blog",
+        "date"        : "2018.12.08"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menggunakan Udiskctl untuk Mount, Unmount, dan Power Off Drive",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/menggunakan-udiskctl",
+        "category"    : "blog",
+        "date"        : "2018.12.05"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Vokoscreen, Aplikasi Screen Recorder yang Praktis",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/vokoscreen-aplikasi-perekam-desktop-yang-praktis",
+        "category"    : "blog",
+        "date"        : "2018.10.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Beberapa Command untuk Mengecek Kondisi Battery Laptop pada GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/beberapa-command-mengecek-laptop-battery",
+        "category"    : "blog",
+        "date"        : "2018.10.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi DNSCrypt di Arch Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/konfigurasi-dnscrypt-proxy-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.08.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menonaktifkan Tombol Keyboard Tertentu di GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/menonaktifkan-tombol-keyboard-tertentu-di-linux",
+        "category"    : "blog",
+        "date"        : "2018.08.02"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Beberapa Catatan Kaki Mengenai Perintah-perintah SSH",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/beberapa-catatan-perintah-ssh",
+        "category"    : "blog",
+        "date"        : "2018.07.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki GPG: Warning: Unsafe Permissions on Homedir",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memperbaiki-gpg-permissions-on-homedir",
+        "category"    : "blog",
+        "date"        : "2018.06.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mengaktifkan Presentation Mode XFCE4 dari Terminal",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/mengaktifkan-presentasion-mode-xfce4-dari-terminal",
+        "category"    : "blog",
+        "date"        : "2018.06.11"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menonaktifkan WebCam di GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/menonaktifkan-webcam-di-linux",
+        "category"    : "blog",
+        "date"        : "2018.06.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menghapus Aplikasi di dalam Wine",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/menghapus-aplikasi-di-dalam-wine",
+        "category"    : "blog",
+        "date"        : "2018.05.23"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menjalankan Macromedia Flash 8 di GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/menjalankan-macromedia-flash-8-linux",
+        "category"    : "blog",
+        "date"        : "2018.05.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Update BIOS Lenovo di GNU/Linux Tanpa Menggunakan Windows",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/update-lenovo-bios-dari-linux",
+        "category"    : "blog",
+        "date"        : "2018.05.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki Authentication is Required for Suspending the System XFCE",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memperbaiki-authentication-required-suspending-system",
+        "category"    : "blog",
+        "date"        : "2018.05.04"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Flash, Unlock Bootloader, dan Pasang TWRP Recovery XiaoMi pada GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/flash-unlock-recovery-xiaomi",
+        "category"    : "blog",
+        "date"        : "2018.04.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Merubah Open With Vim dari File Manager",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/merubah-open-with-vim-dari-file-manager",
+        "category"    : "blog",
+        "date"        : "2018.04.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Merubah Default Save Direktori pada GNOME-Screenshot",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/merubah-default-save-direktori-gnome-screenshot",
+        "category"    : "blog",
+        "date"        : "2018.04.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang WhatsApp Desktop pada GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memasang-whatsapp-desktop-linux",
+        "category"    : "blog",
+        "date"        : "2018.04.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Praktikum Multimedia Tugas 2",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/praktikum-multimedia-tugas-2",
+        "category"    : "blog",
+        "date"        : "2018.04.25"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Instal dan Konfigurasi WinBox pada GNU/Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/instal-dan-konfigurasi-winbox-linux",
+        "category"    : "blog",
+        "date"        : "2018.04.24"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Praktikum Data Warehouse",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/praktikum-data-warehouse",
+        "category"    : "blog",
+        "date"        : "2018.04.22"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Instal dan Konfigurasi GNS3 pada Arch Linux",
+        "description" : "Panduan dan catatan untuk memasang GNS3 mungkin lebih banyak untuk distribusi turunan Debian atau Ubuntu. Apakah tidak dapat dipasang di Arch Linux? Tentu saja bisa.",
+        "url"         : "https://bandithijo.dev/blog/gns3-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.04.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Merubah Default External Program Open Files pada Calibre",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/merubah-external-program-open-calibre",
+        "category"    : "blog",
+        "date"        : "2018.04.14"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Konfigurasi Custom Domain GitHub Page dengan Cloudflare dan Dewaweb",
+        "description" : "Menggunakan GitHub Pages bukan berarti tidak dapat menggunakan Custom Domain seperti .com, .net, .org. Tentu saja bisa. Berikut ini saya memberikan salah satu cara, yaitu dengan menggunakan layanan Cloudflare. Caranya mudah sekali!",
+        "url"         : "https://bandithijo.dev/blog/custom-domain-github",
+        "category"    : "blog",
+        "date"        : "2018.04.03"
+      } ,
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      {
+        "title"       : "Generate Random Password menggunakan PWGEN",
+        "description" : "pwgen adalah perkakas command line interface yang praktis digunakan untuk mengenerate password.",
+        "url"         : "https://bandithijo.dev/blog/generate-passowrd-dengan-pwgen",
+        "category"    : "blog",
+        "date"        : "2018.03.27"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Migrasi Blog 2.0",
+        "description" : "Memilih platform untuk ngeblog memang mumet-mumet asik. Ini adalah catatan perjalanan BanditHijo (R)-Chive hingga akhirnya menggunakan Jekyll.",
+        "url"         : "https://bandithijo.dev/blog/migrasi-blog-2-0",
+        "category"    : "blog",
+        "date"        : "2018.03.23"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Melakukan Extract &amp; Transform dari .CSV ke dalam Tabel Operasional ERD",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/database-extract-transform-dari-csv",
+        "category"    : "blog",
+        "date"        : "2018.03.20"
+      } ,
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      {
+        "title"       : "Mengatur Fungsi dari Fingerprint pada Arch Linux",
+        "description" : "Kelebihan memiliki ThinkPad adalah terdapat fingerprint scanner module. Apakah di GNU/Linux fingerprint scanner dapat kita gunakan? Tentu saja! Saya menggunakannya setiap hari untuk authentication sudo dan unlock screenlock.",
+        "url"         : "https://bandithijo.dev/blog/mengatur-fungsi-fingerprint-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.01.18"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki Font Rendering Netbeans pada Arch Linux",
+        "description" : "Netbeans merupakan aplikasi yang dibangun dengan bahasa Java. Java GUI Toolkit biasanya belum terkonfigurasi dengan baik agar memiliki tampilan yang mulus. Maka kita perlu untuk mengkonfigurasi agar tampilan Netbeans kita terlihat mulus.",
+        "url"         : "https://bandithijo.dev/blog/fix-font-rendering-netbeans-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.01.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Cisco Packet Tracer 7.1.1 pada Arch Linux",
+        "description" : "Catatan untuk memasang Packet Tracer dari AUR",
+        "url"         : "https://bandithijo.dev/blog/memasang-packet-tracer-7-1-1-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.01.12"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menyeragamkan Theme Qt dan GTK+ pada Arch Linux",
+        "description" : "Setidaknya terdapat dua library yang mengatur tampilan GUI di GNU/Linux, Gtk dan Qt. Masing-masing memiliki theme yang berbeda. Apakah mungkin untuk diseragamkan?",
+        "url"         : "https://bandithijo.dev/blog/menyeragamkan-theme-qt-gtk-arch-linux",
+        "category"    : "blog",
+        "date"        : "2018.01.04"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Cara Mudah Merotasi Video pada GNU/Linux",
+        "description" : "Merotasi video mungkin menjadi hal yang cukup memusingkan apabila kita tidak terbiasa menggunakan perkakas GUI. Namun, cukup dengan ffmpeg, kita dapat merotasi video sesuai dengan parameter yang tersedia. Caranya mudah sekali!",
+        "url"         : "https://bandithijo.dev/blog/merotasi-video-pada-gnu-linux",
+        "category"    : "blog",
+        "date"        : "2018.01.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Menggabungkan Banyak Gambar Menjadi Satu PDF dengan ImageMagick",
+        "description" : "Tidak perlu perkakas GUI untuk menggabungkan banyak file PDF menjadi satu. Cukup dengan ImageMagick. Caranya pun sangat mudah!",
+        "url"         : "https://bandithijo.dev/blog/menggabungkan-banyak-gambar-ke-pdf",
+        "category"    : "blog",
+        "date"        : "2018.01.01"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mudah Memasang Paket Aplikasi Fedora dengan Yumex-DNF",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/mudah-memasang-aplikasi-fedora-dengan-yumex-dnf",
+        "category"    : "blog",
+        "date"        : "2017.01.30"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Setelah Memasang Fedora 25 pada ThinkPad x260",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/post-instalasi-fedora-25-on-thinkpad-x260",
+        "category"    : "blog",
+        "date"        : "2017.01.20"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memasang Powerline pada Terminal Arch Linux",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memasang-powerline-pada-terminal-arch",
+        "category"    : "blog",
+        "date"        : "2016.06.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Upgrade Fedora 21 ke Fedora 22 dengan Fedup",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/upgrade-fedora-dengan-fedup",
+        "category"    : "blog",
+        "date"        : "2015.06.15"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Dokumentasi Instalasi Fedora 21 pada Macbook Pro 8.1",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/dokumentasi-instalasi-fedora-21-pada-macbook-pro-8-1",
+        "category"    : "blog",
+        "date"        : "2015.01.17"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Mereset Launchpad Icon Sesuai Abjad pada OSX Yosemite",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/reset-launchpad-icon-yosemite",
+        "category"    : "blog",
+        "date"        : "2015.01.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memory Cleaner untuk OSX",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memory-cleaner-osx",
+        "category"    : "blog",
+        "date"        : "2014.05.28"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Memperbaiki Trash OSX",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/memperbaiki-trash-osx",
+        "category"    : "blog",
+        "date"        : "2013.07.16"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Aplikasi Download Alternatif untuk Ubuntu dengan JDownloader",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/download-client-ubuntu-with-jdownloader",
+        "category"    : "blog",
+        "date"        : "2013.07.03"
+      } ,
+    
+  
+    
+      {
+        "title"       : "Aplikasi Download Alternatif untuk OSX dengan JDownloader",
+        "description" : "",
+        "url"         : "https://bandithijo.dev/blog/download-client-osx-with-jdownloader",
+        "category"    : "blog",
+        "date"        : "2013.07.03"
+      } 
+    
+  
+]

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="ruby">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD) | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD)" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis." />
+<meta property="og:description" content="Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis." />
+<link rel="canonical" href="https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-with-activerecord" />
+<meta property="og:url" content="https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-with-activerecord" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-18T11:06:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-with-activerecord"},"description":"Web scraping adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik secara otomatis.","url":"https://bandithijo.dev/blog/membuat-web-scraper-dengan-ruby-with-activerecord","@type":"BlogPosting","headline":"Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD)","dateModified":"2020-06-18T11:06:00+08:00","datePublished":"2020-06-18T11:06:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD)"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="active">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/blog/membuat-web-scraper-dengan-ruby-with-activerecord">Membuat Web Scraper dengan Ruby (Output: POSTGRESQL: ACTIVERECORD)</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2020/06/18</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/blog/">Blog</a>
+  
+
+  
+    / Membuat web scraper dengan ruby with activerecord
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+    <span class="tags"><a href="https://bandithijo.dev/tags/#ruby">Ruby</a></span>
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#prerequisite">Prerequisite</a></li>
+  <li><a href="#pendahuluan">Pendahuluan</a></li>
+  <li><a href="#objektif">Objektif</a></li>
+  <li><a href="#penerapan">Penerapan</a></li>
+  <li><a href="#demonstrasi-video">Demonstrasi Video</a></li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><!-- PERHATIAN -->
+<div class="blockquote-red"><div class="blockquote-red-title"><img src="/assets/img/logo/logo_warning.svg" />Perhatian</div><div>
+    <p>Data yang penulis gunakan adalah data yang bersifat <b><i>free public data</i></b>. Sehingga, siapa saja dapat mengakses dan melihat tanpa perlu melalui layer authentikasi.</p>
+    <p>Penyalahgunaan data, bukan merupakan tanggung jawab dari penulis seutuhnya.</p>
+  </div></div>
+
+<h1 id="prerequisite">Prerequisite</h1>
+
+<p><code class="language-plaintext highlighter-rouge">Ruby 2.6.6</code> <code class="language-plaintext highlighter-rouge">Rails 5.2.4</code> <code class="language-plaintext highlighter-rouge">PostgreSQL 12.3</code></p>
+
+<h1 id="pendahuluan">Pendahuluan</h1>
+
+<p><em>Web scraping</em> adalah teknik mengambil atau mengekstrak sebagian data dari suatu website secara spesifik, spesifik dalam arti hanya data tertentu saja yang diambil. Script atau program untuk melakukan hal tersebut, disebut dengan <em>web scraper</em>.</p>
+
+<h1 id="objektif">Objektif</h1>
+
+<p>Catatan kali ini saya akan mendokumentasikan proses dalam membuat <em>web scraper</em> dengan tujuan untuk mengambil data nama-nama dosen yang ada pada website resmi Biro Akademik Universitas Mulia Balikpapan yang ada pada halaman <a href="http://baak.universitasmulia.ac.id/dosen/" target="_blank">ini</a>.</p>
+
+<p>Hasil yang akan di dapatkan dari script yang akan kita buat adalah daftar nama-nama dosen beserta nidn dalam bentuk tabel di dalam database PostgreSQL. Kita akan memasukkan data menggunakan Active Record yang merupakan salah satu komponen dari Ruby on Rails yang digunakan untuk menghandle model.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<p>Langkah awal adalah persiapkan direktori untuk proyek.</p>
+
+<p>Saya akan beri nama <code class="language-plaintext highlighter-rouge">ruby-web-scraper-dosen</code>.</p>
+
+<p>Biasakan untuk memberi nama proyek tidak menggunakan karakter <strong>spasi</strong>.</p>
+
+<pre><span class="cmd">$ </span><b>mkdir ruby-web-scraper-dosen</b><br /></pre>
+
+<p>Kemudian masuk ke dalam direktori proyek.</p>
+
+<pre><span class="cmd">$ </span><b>cd ruby-web-scraper-dosen</b><br /></pre>
+
+<p>Buat file dengan nama <code class="language-plaintext highlighter-rouge">Gemfile</code>. dan kita akan memasang gem yang diperlukan di dalam file ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Gemfile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
+
+<span class="n">gem</span> <span class="s1">'httparty'</span><span class="p">,</span>              <span class="s1">'~&gt; 0.18.1'</span>
+<span class="n">gem</span> <span class="s1">'nokogiri'</span><span class="p">,</span>              <span class="s1">'~&gt; 1.10'</span><span class="p">,</span> <span class="s1">'&gt;= 1.10.9'</span>
+<span class="n">gem</span> <span class="s1">'byebug'</span><span class="p">,</span>                <span class="s1">'~&gt; 11.1'</span><span class="p">,</span> <span class="s1">'&gt;= 11.1.3'</span>
+<span class="n">gem</span> <span class="s1">'activerecord'</span><span class="p">,</span>          <span class="s1">'~&gt; 6.0'</span><span class="p">,</span> <span class="s1">'&gt;= 6.0.3.2'</span>
+<span class="n">gem</span> <span class="s1">'standalone_migrations'</span><span class="p">,</span> <span class="s1">'~&gt; 6.0'</span>
+<span class="n">gem</span> <span class="s1">'pg'</span><span class="p">,</span>                    <span class="s1">'~&gt; 1.2'</span><span class="p">,</span> <span class="s1">'&gt;= 1.2.3'</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah memasang gem pada Gemfile, kita perlu melakukan instalasi gem-gem tersebut.</p>
+
+<pre><span class="cmd">$ </span><b>bundle install</b><br /></pre>
+
+<p>Proses bundle install di atas akan membuat sebuah file baru bernama <code class="language-plaintext highlighter-rouge">Gemfile.lock</code> yang berisi daftar dependensi dari gem yang kita butuhkan –daftar requirements–.</p>
+
+<p>Pastikan kalau service dari PostgreSQL sudah berjalan.</p>
+
+<pre><span class="cmd">$ </span><b>sudo systemctl status postgresql.service</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>● postgresql.service - PostgreSQL database server
+     Loaded: loaded (/usr/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
+     Active: active (running) since Thu 2020-06-18 11:06:53 WITA; 1m ago
+   Main PID: 36698 (postgres)
+      Tasks: 8 (limit: 4610)
+     Memory: 28.9M
+     CGroup: /system.slice/postgresql.service
+             ├─ 36698 /usr/bin/postgres -D /var/lib/postgres/data
+             ├─ 36700 postgres: checkpointer
+             ├─ 36701 postgres: background writer
+             ├─ 36702 postgres: walwriter
+             ├─ 36703 postgres: autovacuum launcher
+             ├─ 36704 postgres: stats collector
+             ├─ 36705 postgres: logical replication launcher
+             └─397565 postgres: bandithijo web_scraper [local] idle
+</code></pre></div></div>
+
+<p>Selanjutnya, untuk melihat database dan table, teman-tema dapat mengguakan <strong>PostBird</strong> (Database Management GUI) atau <strong>pgcli</strong>, saya akan menggunakan <strong>pgcli</strong>.</p>
+
+<p>Jalankan <strong>pgcli</strong>,</p>
+
+<pre><span class="cmd">$ </span><b>pgcli</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server: PostgreSQL 12.3
+Version: 3.0.0
+Chat: https://gitter.im/dbcli/pgcli
+Home: http://pgcli.com
+bandithijo&gt;
+</code></pre></div></div>
+<p>Pada tahap ini, kita <strong>tidak perlu membuat database secara manual</strong>, kita akan membuat database dengan bantuan <strong>rake</strong>.</p>
+
+<p>Langkah pertama adalah membuat <code class="language-plaintext highlighter-rouge">Rakefile</code> di root direktori kita.</p>
+
+<pre>
+ruby-web-scraper-dosen/
+├── Gemfile
+├── Gemfile.lock
+└── <mark>Rakefile</mark>
+</pre>
+
+<p>Isi <code class="language-plaintext highlighter-rouge">Rakefile</code> seperti di bawah ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>Rakefile</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="code"><pre><span class="nb">require</span> <span class="s1">'standalone_migrations'</span>
+<span class="no">StandaloneMigrations</span><span class="o">::</span><span class="no">Tasks</span><span class="p">.</span><span class="nf">load_tasks</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Selanjutnya kita perlu membuat database konfiguration <code class="language-plaintext highlighter-rouge">config.yml</code> pada direktori <code class="language-plaintext highlighter-rouge">db/</code>.</p>
+
+<pre>
+ruby-web-scraper-dosen/
+├── db/
+│   └── <mark>config.yml</mark>
+├── Gemfile
+├── Gemfile.lock
+└── Rakefile
+</pre>
+
+<p>Lalu isikan <code class="language-plaintext highlighter-rouge">config.yml</code> seperti di bawah.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/config.yml</code></div>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="na">development</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">postgresql</span>
+  <span class="na">database</span><span class="pi">:</span> <span class="s">web_scraper_development</span>
+  <span class="na">pool</span><span class="pi">:</span> <span class="m">5</span>
+  <span class="na">timeout</span><span class="pi">:</span> <span class="m">5000</span>
+  <span class="na">host</span><span class="pi">:</span> <span class="s">localhost</span>
+  <span class="na">encoding</span><span class="pi">:</span> <span class="s">unicode</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">web_scraper_development</code> adalah nama database yang akan kita gunakan.</p>
+
+<p>Kalau sudah, sekarang kita akan membuat database dengan cara, buka Terminal dan jalankan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>rake db:create</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created database 'web_scraper_development'
+</code></pre></div></div>
+
+<p>Perintah di atas akan menjalankan <strong>rake</strong> untuk membuat database dengan nama <code class="language-plaintext highlighter-rouge">web_scraper_development</code> seperti yang sudah kita definisikan pada file <code class="language-plaintext highlighter-rouge">config.yml</code>.</p>
+
+<!-- INFORMATION -->
+<div class="blockquote-blue"><div class="blockquote-blue-title"><img src="/assets/img/logo/logo_note.svg" />Informasi</div><div>
+    <p>Untuk menghapus database, gunakan perintah:</p>
+    <pre>
+$ <b>rake db:drop</b>
+</pre>
+    <pre>
+Dropped database 'web_scraper_development'
+</pre>
+  </div></div>
+
+<p>Setelah database dibuat, kita perlu membuat tabel untuk menyimpan data-data yang sudah kita parsing dari wbesite target.</p>
+
+<p>Untuk membuat tabel, kita akan menggunakan migration.</p>
+
+<p>Buat migration dengan cara seperti di bawah, dan berikan nama, seperti:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">CreateDaftarDosens</code> (CamelCase), atau</li>
+  <li><code class="language-plaintext highlighter-rouge">create_daftar_dosens</code> (snake_case)</li>
+</ol>
+
+<pre><span class="cmd">$ </span><b>rake db:new_migration name=CreateDaftarDosens</b><br /></pre>
+
+<p><strong>atau</strong>,</p>
+
+<pre><span class="cmd">$ </span><b>rake db:new_migration name=create_daftar_dosens</b><br /></pre>
+
+<p>Perintah migrasi di atas akan membuat sebuah file migrasi.</p>
+
+<pre>
+created db/migration/20200618031037_create_daftar_dosens.rb
+</pre>
+
+<pre>
+ruby-web-scraper-dosen/
+├── db/
+│   ├── config.yml
+│   └── migrate/
+│       └── <mark>20200618031037_create_daftar_dosens.rb</mark>
+│
+├── Gemfile
+├── Gemfile.lock
+└── Rakefile
+</pre>
+
+<p>Apabila kita membuat migrasi lagi, maka file-file migrasi akan terdapat pada direktori <code class="language-plaintext highlighter-rouge">db/migrate/</code>.</p>
+
+<p>Migrasi yang kita buat di atas, dari namanya tentu sudah terbayang fungsinya adalah untuk membuat tabel dengan nama <code class="language-plaintext highlighter-rouge">daftar_dosens</code>. Penamanan tabel yang berbentuk jamak merupakan <em>convention</em> dari Ruby on Rails.</p>
+
+<p>Pemberian awalan <code class="language-plaintext highlighter-rouge">Create</code> atau <code class="language-plaintext highlighter-rouge">create_</code> pada awal migrasi memiliki maksud tertentu, yaitu untuk membuat tabel/schema. Dengan menambahkan awalan tersebut maka, isi dari file migrasi akan otomatis berbentuk seperti di bawah ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/migrate/20200618031037_create_daftar_dosens.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">CreateDaftarDosens</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">6.0</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:daftar_dosens</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Bari ke 3 &amp; 4 adalah baris yang secara pintar dibuatkan apabila kita menambahkan awalan <code class="language-plaintext highlighter-rouge">Create</code> atau <code class="language-plaintext highlighter-rouge">create_</code> pada nama migrasi. Enak banget yaa (^_^)</p>
+
+<p>Selanjutnya, kita perlu menyempurnakan file migrasi. Kita perlu menambahkan nama kolom yang kita perlukan, yaitu kolom <strong>nama_dosen</strong> dan <strong>nidn_dosen</strong>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>db/migrate/20200618031037_create_daftar_dosens.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">CreateDaftarDosens</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">6.0</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">create_table</span> <span class="ss">:daftar_dosens</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:nama_dosen</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:nidn_dosen</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah kita memodifikasi file migrasi <code class="language-plaintext highlighter-rouge">..._create_daftar_dosens.rb</code>, selanjutnya adalah menjalankan migrasi tersebut.</p>
+
+<pre><span class="cmd">$ </span><b>rake db:migrate</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>== 20200618031037 CreateDaftarDosens: migrating ===============================
+-- create_table(:daftar_dosens)
+   -&gt; 0.0103s
+== 20200618031037 CreateDaftarDosens: migrated (0.0104s) ======================
+</code></pre></div></div>
+<p>Kalau migrasi berhasil, outputnya akan seperti di atas.</p>
+
+<p>Untuk mengecek status migrasi, gunakan perintah di bawah.</p>
+
+<pre><span class="cmd">$ </span><b>rake db:migrate:status</b><br /></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>database: web_scraper_development
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20200618031037  Create daftar dosens
+
+</code></pre></div></div>
+
+<p>Terlihat, bahwa status migrasi dari “Create daftar dosens” sudah <strong>up</strong>. Artinya, sekarang pada database <code class="language-plaintext highlighter-rouge">web_scraper_development</code> sudah terdapat tabel bernama <code class="language-plaintext highlighter-rouge">daftar_dosens</code>.</p>
+
+<p>Untuk mengeceknya, buka <strong>pgcli</strong> dan jalankan perintah di bawah.</p>
+
+<pre>
+<span class="cmd">web_scraper&gt; </span><b>\dt</b>
+</pre>
+
+<pre>
++----------+----------------------+--------+------------+
+| Schema   | Name                 | Type   | Owner      |
+|----------+----------------------+--------+------------|
+| public   | ar_internal_metadata | table  | bandithijo |
+<mark>| public   | daftar_dosens        | table  | bandithijo |</mark>
+| public   | schema_migrations    | table  | bandithijo |
++----------+----------------------+--------+------------+
+SELECT 3
+Time: 0.014s
+</pre>
+
+<p>Untuk melihat detail dari tabel, gunakan perintah di bawah.</p>
+
+<pre>
+<span class="cmd">web_scraper&gt; </span><b>\d daftar_dosens;</b>
+</pre>
+
+<pre>
++------------+-------------------+-------------------------------------------------------------+
+| Column     | Type              | Modifiers                                                   |
+|------------+-------------------+-------------------------------------------------------------|
+| id         | bigint            |  not null default nextval('daftar_dosens_id_seq'::regclass) |
+| nama_dosen | character varying |  not null                                                   |
+| nidn_dosen | character varying |                                                             |
++------------+-------------------+-------------------------------------------------------------+
+Indexes:
+    "daftar_dosens_pkey" PRIMARY KEY, btree (id)
+
+Time: 0.026s
+</pre>
+
+<p>Tentu saja tabel tersebut belum ada isinya.</p>
+
+<p>Langkah selanjutnya adalah membuat model.</p>
+
+<p>Sambil mdembuat model, saya akan merapikan struktur direktori saya dan mengganti nama dari aktor utama dari <code class="language-plaintext highlighter-rouge">scrapper.rb</code> menjadi <code class="language-plaintext highlighter-rouge">main.rb</code>.</p>
+
+<pre>
+ruby-web-scraper-dosen/
+├── app
+│   ├── <mark>main.rb</mark>
+│   └── models
+│       └── <mark>daftar_dosen.rb</mark>
+├── db
+│   ├── config.yml
+│   ├── migrate
+│   │   └── 20200618031037_create_daftar_dosens.rb
+│   └── schema.rb
+├── Gemfile
+├── Gemfile.lock
+└── Rakefile
+</pre>
+
+<p>Penamaan dari model <code class="language-plaintext highlighter-rouge">daftar_dosen.rb</code> menggunakan penamaan tunggal karena convention dari Ruby on Rails mengharuskan kita membuat model dengan penamaan singular.</p>
+
+<p>Buka file <code class="language-plaintext highlighter-rouge">app/models/daftar_dosen.rb</code> dan isi seperti di bawah ini.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/models/daftar_dosen.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">DaftarDosen</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">validates</span> <span class="ss">:nama_dosen</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Saya menambahkan validasi <code class="language-plaintext highlighter-rouge">presence</code> ke kolom nama_dosen. Teman-teman dapat mempelajari tentang validasi <a href="https://guides.rubyonrails.org/active_record_validations.html" target="_blank">di sini</a></p>
+
+<p>Setelah membuat model, sekarang kita akan membuat aktor utamanya.</p>
+
+<p>Buka file <code class="language-plaintext highlighter-rouge">app/main.rb</code>.</p>
+
+<div class="highlight-caption"><span class="label">FILE</span><code>app/main.rb</code></div>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+</pre></td><td class="code"><pre><span class="c1"># daftar gem yang diperlukan</span>
+<span class="nb">require</span> <span class="s1">'httparty'</span>
+<span class="nb">require</span> <span class="s1">'nokogiri'</span>
+<span class="nb">require</span> <span class="s1">'byebug'</span>
+<span class="nb">require</span> <span class="s1">'active_record'</span>
+<span class="nb">require_relative</span> <span class="s1">'./models/daftar_dosen'</span>
+<span class="nb">require</span> <span class="s1">'rake'</span>
+
+<span class="c1"># blok untuk menghubungkan project dengan postgresql</span>
+<span class="k">def</span> <span class="nf">db_configuration</span>
+  <span class="n">db_configuration_file</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="s1">'..'</span><span class="p">,</span> <span class="kp">__FILE__</span><span class="p">),</span> <span class="s1">'..'</span><span class="p">,</span> <span class="s1">'db'</span><span class="p">,</span> <span class="s1">'config.yml'</span><span class="p">)</span>
+  <span class="no">YAML</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="n">db_configuration_file</span><span class="p">))</span>
+<span class="k">end</span>
+
+<span class="c1"># blok untuk menghubungkan project dengan active record</span>
+<span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">establish_connection</span><span class="p">(</span><span class="n">db_configuration</span><span class="p">[</span><span class="s1">'development'</span><span class="p">])</span>
+
+<span class="k">def</span> <span class="nf">scraper</span>
+  <span class="c1"># blok ini bertugas untuk mengambil data dengan output berupa variabel array</span>
+  <span class="n">target_url</span> <span class="o">=</span> <span class="s2">"http://baak.universitasmulia.ac.id/dosen/"</span>
+  <span class="n">unparsed_page</span> <span class="o">=</span> <span class="no">HTTParty</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">target_url</span><span class="p">)</span>
+  <span class="n">parsed_page</span> <span class="o">=</span> <span class="no">Nokogiri</span><span class="o">::</span><span class="no">HTML</span><span class="p">(</span><span class="n">unparsed_page</span><span class="p">)</span>
+  <span class="n">dosens</span> <span class="o">=</span> <span class="no">Array</span><span class="p">.</span><span class="nf">new</span>
+  <span class="n">dosen_listings</span> <span class="o">=</span> <span class="n">parsed_page</span><span class="p">.</span><span class="nf">css</span><span class="p">(</span><span class="s1">'div.elementor-widget-wrap'</span><span class="p">)</span>
+  <span class="n">dosen_listings</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dosen_list</span><span class="o">|</span>
+    <span class="n">dosen</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="c1"># perlu mengganti ' dengan ` agar tidak mengacaukan proses input data nama</span>
+      <span class="ss">nama_dosen: </span><span class="n">dosen_list</span><span class="p">.</span><span class="nf">css</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">text</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/'/</span><span class="p">,</span> <span class="s2">"`"</span><span class="p">)</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">squeeze</span><span class="p">,</span>
+      <span class="ss">nidn_dosen: </span><span class="n">dosen_list</span><span class="p">.</span><span class="nf">css</span><span class="p">(</span><span class="s2">"h2"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">text</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="n">dosen</span><span class="p">[</span><span class="ss">:nama_dosen</span><span class="p">]</span> <span class="o">!=</span> <span class="kp">nil</span>
+      <span class="n">dosens</span> <span class="o">&lt;&lt;</span> <span class="n">dosen</span>   <span class="c1"># dosens, variable array yang menampung data para dosen</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="c1"># aktifkan byebug apabila diperlukan</span>
+  <span class="c1">#byebug</span>
+
+  <span class="c1"># blok ini bertugas untuk membuat membandingkan jumlah dosen dari target</span>
+  <span class="c1"># dengan jumlah dosen yang ada di lokal database</span>
+  <span class="c1"># apabila sama, maka tidak akan diinputkan ke database</span>
+  <span class="c1"># apabila berbeda, maka akan tabel akan dihapus dan data baru akan diinput</span>
+  <span class="k">if</span> <span class="n">dosens</span><span class="p">.</span><span class="nf">size</span> <span class="o">==</span> <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span>
+    <span class="nb">puts</span> <span class="s2">"INFO: Data Dosen sudah diparsing. Tidak ada data baru."</span>
+    <span class="nb">puts</span> <span class="s2">"TOTAL DOSEN: </span><span class="si">#{</span><span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="s2"> dosen"</span>
+  <span class="k">elsif</span> <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">nil?</span> <span class="o">||</span> <span class="n">dosens</span><span class="p">.</span><span class="nf">size</span> <span class="o">&gt;</span> <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span>
+    <span class="k">unless</span> <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span><span class="p">.</span><span class="nf">nil?</span>
+      <span class="n">total_dosen_lama</span> <span class="o">=</span> <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span>
+
+      <span class="c1"># blok ini untuk menjalankan rake task rollback &amp; migrasi untuk menghapus &amp; membuat tabel</span>
+      <span class="n">rake</span> <span class="o">=</span> <span class="no">Rake</span><span class="p">.</span><span class="nf">application</span>
+      <span class="n">rake</span><span class="p">.</span><span class="nf">init</span>
+      <span class="n">rake</span><span class="p">.</span><span class="nf">load_rakefile</span>
+      <span class="n">rake</span><span class="p">[</span><span class="s1">'db:rollback'</span><span class="p">].</span><span class="nf">invoke</span>
+      <span class="n">rake</span><span class="p">[</span><span class="s1">'db:migrate'</span><span class="p">].</span><span class="nf">invoke</span>
+    <span class="k">else</span>
+      <span class="n">total_dosen_lama</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">end</span>
+
+    <span class="c1"># blok ini untuk memasukkan data ke dalam tabel</span>
+    <span class="n">dosens</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dosen</span><span class="o">|</span>
+      <span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">nama_dosen: </span><span class="n">dosen</span><span class="p">[</span><span class="ss">:nama_dosen</span><span class="p">],</span> <span class="ss">nidn_dosen: </span><span class="n">dosen</span><span class="p">[</span><span class="ss">:nidn_dosen</span><span class="p">])</span>
+      <span class="nb">puts</span> <span class="s2">"Dosen: </span><span class="si">#{</span><span class="n">dosen</span><span class="p">[</span><span class="ss">:nama_dosen</span><span class="p">]</span><span class="si">}</span><span class="s2">, berhasil diinputkan!"</span>
+    <span class="k">end</span>
+
+    <span class="nb">puts</span> <span class="s2">"TOTAL DOSEN (remote): </span><span class="si">#{</span><span class="n">dosens</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="s2"> dosen"</span>
+    <span class="nb">puts</span> <span class="s2">"TOTAL DOSEN (local) : </span><span class="si">#{</span><span class="no">DaftarDosen</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">size</span><span class="si">}</span><span class="s2"> dosen"</span>
+    <span class="nb">puts</span> <span class="s2">"TOTAL DOSEN BARU    : </span><span class="si">#{</span><span class="n">dosens</span><span class="p">.</span><span class="nf">size</span> <span class="o">-</span> <span class="n">total_dosen_lama</span><span class="si">}</span><span class="s2"> dosen"</span> <span class="k">if</span> <span class="n">total_dosen_lama</span> <span class="o">!=</span> <span class="mi">0</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">scraper</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Setelah itu, jalankan dengan perintah,</p>
+
+<pre><span class="cmd">$ </span><b>ruby app/main.rb</b><br /></pre>
+
+<p>Apabila berhasil, akan keluar output di Terminal seperti ini.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>== 20200618031037 CreateDaftarDosens: reverting ===============================
+-- drop_table(:daftar_dosens)
+   -&gt; 0.0028s
+== 20200618031037 CreateDaftarDosens: reverted (0.0154s) ======================
+
+== 20200618031037 CreateDaftarDosens: migrating ===============================
+-- create_table(:daftar_dosens)
+   -&gt; 0.0144s
+== 20200618031037 CreateDaftarDosens: migrated (0.0145s) ======================
+
+Dosen: Abdul Fatah, berhasil diinputkan!
+Dosen: Abdul Hamid Kurniawan, S.kom., M.TI, berhasil diinputkan!
+Dosen: Abi Habibi, berhasil diinputkan!
+...
+...
+Dosen: Teguh Pribadi, S.H., M.H, berhasil diinputkan!
+Dosen: Sampara, S.H., M.H., berhasil diinputkan!
+Dosen: Candra Bagus Agung P, S.E., M.M., berhasil diinputkan!
+TOTAL DOSEN (remote): 138 dosen
+TOTAL DOSEN (local) : 138 dosen
+</code></pre></div></div>
+
+<p>nah, data sudah masuk ke dalam database.</p>
+
+<p>Sekarang coba cek ke database.</p>
+
+<p>Masuk terlebih dahulu ke databse <code class="language-plaintext highlighter-rouge">web_scraper</code>.</p>
+
+<pre>
+<span class="cmd">bandithijo&gt; </span><b>\c web_scraper;</b>
+</pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You are now connected to database "web_scraper" as user "bandithijo"
+Time: 0.012s
+web_scraper&gt;
+</code></pre></div></div>
+
+<p>Setelah kita berada di dalam database <code class="language-plaintext highlighter-rouge">web_scraper</code> kita dapat melihat hasil dari data-data yang sudah diinputkan dengan cara.</p>
+
+<pre>
+<span class="cmd">web_scraper&gt; </span><b>SELECT * FROM daftar_dosens</b>
+</pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+------+------------------------------------------------+--------------+
+| id   | nama_dosen                                     | nidn_dosen   |
+|------+------------------------------------------------+--------------|
+| 1    | Abdul Fatah                                    | 1114107001   |
+| 2    | Abdul Hamid Kurniawan, S.kom., M.TI            | 1114107001   |
+| 3    | Abi Habibi                                     | 1114107001   |
+| 4    | Abiratno, S.T., M.Sc.                          | 1107017201   |
+| 5    | Dr. Agung Sakti Pribadi, S.H., M.H.            | 1131036301   |
+| 6    | Alfa                                           | 9911002592   |
+...
+...
+| 133  | Zara Zerina Azizah, S.Pd.I, S.E., M.M          | 1103039301   |
+| 134  | Heru Zulkifli, S.Kom., M.Kom                   | 1115027501   |
+| 135  | M.Andhi Rohmat Basuki, S.Kom., M.Kom           | -            |
+| 136  | Teguh Pribadi, S.H., M.H                       | -            |
+| 137  | Sampara, S.H., M.H.                            | -            |
+| 138  | Candra Bagus Agung P, S.E., M.M.               | -            |
++------+------------------------------------------------+--------------+
+SELECT 138
+(END)
+</code></pre></div></div>
+
+<p>Kalau kita coba jalankan kembali, tapi tidak ada data baru dari website target, maka akan seperti ini hasil outputnya.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO: Data Dosen sudah diparsing. Tidak ada data baru.
+TOTAL DOSEN: 138 dosen
+</code></pre></div></div>
+
+<p>Selesai!</p>
+
+<h1 id="demonstrasi-video">Demonstrasi Video</h1>
+
+<div class="embed-container"><iframe style="display:block;margin:0 auto;" src="/assets/img/logo/logo_blank_banner.svg" data-echo="//www.youtube.com/embed/2zYDrEaj9EQ" onerror="imgError(this);" frameborder="0" allowfullscreen=""></iframe></div>
+
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://blog.teamtreehouse.com/its-time-to-httparty" target="_blank">It’s Time To HTTParty!</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+  <li>
+    <p><a href="https://nokogiri.org/" target="_blank">nokogiri.org</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+  <li>
+    <p><a href="https://www.pgcli.com/" target="_blank">pgcli</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/active_record_basics.html" target="_blank">Active Record Basics</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+  <li>
+    <p><a href="https://guides.rubyonrails.org/active_record_validations.html" target="_blank">Active Record Validations</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/thuss/standalone-migrations/" target="_blank">thuss/standalone-migrations</a>
+<br />Diakses tanggal: 2020/06/18</p>
+  </li>
+</ol>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+            
+              <div class="noselect">
+<h1 style="font-size:2em;">Lisensi</h1>
+<div class="ccbysa-img noselect"><img class="ccbysa-img-img" style="margin-top: 5px;" src="/assets/img/logo/cc-by-nc-sa.png" alt="logo_cc-by-nc-sa"/></div><!-- ccbysa -->
+<div class="ccbysa-text noselect">
+Tulisan ini dilisensikan dengan :<br>
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.id" target="_blank">Atribusi-NonKomersial-BerbagiSerupa 4.0 Internasional (CC BY-NC-SA 4.0)</a>
+</div><!-- ccbysa-text -->
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_terbaru.svg">Tulisan Terbaru
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+    
+      <li><a href="/blog/mudah-mengenkripsi-file-dokumen-dengan-gnupg">Mudah Mengenkripsi File dan Dokumen dengan GnuPG (GPG)</a></li>
+    
+  
+    
+      <li><a href="/blog/dmenu-websearch-jalan-pintas-pencari-kata-yang-praktis">dmenu-websearch, Jalan Pintas Pencari Kata yang Praktis</a></li>
+    
+  
+    
+      <li><a href="/blog/sxiv-simple-x-image-viewer-yang-praktis">sxiv, Simple X Image Viewer (sxiv) yang Praktis namun Powerfull</a></li>
+    
+  
+    
+      <li><a href="/blog/presentation-mode-dengan-dpms-di-linux">Membuat Presentation Mode tanpa XFCE4 Power Manager di GNU/Linux (Bonus! dmenu-presentationmode)</a></li>
+    
+  
+    
+      <li><a href="/blog/bluetooth-headset-battery-status">Bluetooth Headset Battery Status</a></li>
+    
+  
+    
+      <li><a href="/blog/berdonasi-ke-project-open-source-yang-digunakan">Hanya dengan 100 Ribu Rupiah, Bisa Berdonasi ke 6 Open Source Project!</a></li>
+    
+  
+    
+      <li><a href="/blog/menjalankan-distro-linux-lain-dengan-distrobox-di-fedora-linux">Menjalankan Distro Linux yang Lain dengan Distrobox di Fedora Linux</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-dan-simple-form-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 dan simple_form di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/datetimepicker-dengan-tempusdominus-bootstrap-4-di-rails">Date Time Picker dengan Tempus Dominus Bootstrap 4 di Ruby on Rails 6</a></li>
+    
+  
+    
+      <li><a href="/blog/lazygit-terminal-user-interface-untuk-git">Lazygit, Terminal User Interface untuk Git Commands</a></li>
+    
+  
+  </ul>
+  </div>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/blog/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_tags.svg"><a style="color:#000;border-bottom:none;" href="/tags/">Tags</a>
+  </h1>
+  <div class="toc">
+    
+    
+      
+        
+        <span class="tags"><a href="/tags/#android">Android</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#arch-linux">Arch Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#artix-linux">Artix Linux</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#bootstrap">Bootstrap</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#container">Container</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#database">Database</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#docker">Docker</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#event">Event</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#fedora">Fedora</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#freebsd">FreeBSD</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#git">Git</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#heroku">Heroku</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#i3wm">I3WM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#java">Java</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#javascript">Javascript</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jekyll">Jekyll</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#kvm">KVM</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#mysql">MySQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#network">Network</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#osx">OSX</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#podman">Podman</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#postgresql">PostgreSQL</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#python">Python</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#qemu">Qemu</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rspec">RSpec</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#rails">Rails</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ruby">Ruby</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#script">Script</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#security">Security</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#terminal">Terminal</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#thinkpad">ThinkPad</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tips">Tips</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#tools">Tools</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ulasan">Ulasan</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#vim">Vim</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#virt-manager">Virt-Manager</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#wine">Wine</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#xfce">XFCE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#jquery">jQuery</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#opensuse">openSUSE</a></span>
+      
+        
+        <span class="tags"><a href="/tags/#ssh">ssh</a></span>
+      
+    
+    
+  </div><!-- toc -->
+</div><!-- sidebar-body -->
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_dotfriends.svg">dotFriends
+  </h1>
+  <!-- untuk random dotfriends list sebanyak 8 -->
+  
+  
+    
+        <p>+&nbsp;<a href="https://raniaamina.id" target="_blank">Rania Amina</a></p>
+    
+        <p>+&nbsp;<a href="https://www.fathurhoho.id" target="_blank">Fathurhoho</a></p>
+    
+        <p>+&nbsp;<a href="https://okitavera.me" target="_blank">Nanda Okitavera</a></p>
+    
+        <p>+&nbsp;<a href="https://violet-ia.github.io/id" target="_blank">owl4ce</a></p>
+    
+        <p>+&nbsp;<a href="https://agung-setiawan.com" target="_blank">agungsetiawan</a></p>
+    
+  
+  <p style="font-size:10px;color:#00603C;margin-top:12px;text-align:left;">*5 daftar blog di atas digenerate secara random</p>
+  <div style="margin:10px 0 10px 0;border-bottom:1px dashed #9E9E9E;"></div>
+  <p style="text-align:left;"><a style="border-bottom:0;" href="/dotfriends/"><b>Selengkapnya >></b></a></p>
+</div>
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+    <div class="sidebar-body-rss">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_rss.svg">Berlangganan RSS
+  </h1>
+  <p>Untuk dapat berlangganan catatan/post terbaru, kamu dapat mengklik tombol RSS yang terdapat di <a href="#footer"><b>footer</b></a>.</p>
+  <p>Blog ini memiliki <del>dua</del> satu buah RSS feed, Blog dan <del>Vlog</del>.</p>
+  <p>Apabila kamu mengklik tombol RSS yang ada pada halaman yang berkategori Blog, maka RSS feed url yang keluar adalah untuk kategori Blog, begitu pula sebaliknya untuk halaman Vlog.</p>
+  <div style="margin:15px 0 10px 0;border-bottom:1px dashed #ACA573;"></div>
+  <p>Belum tahu tentang RSS? Yuk, <a href="https://bandithijo.dev/blog/newsboat-rss-feed-reader"><b>ke sini</b></a></p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/blog.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>

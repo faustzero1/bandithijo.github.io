@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Here's where I started writing some notes that someday I will call it, a book">
+<meta name="keywords" content="">
+<meta name="author" content="Rizqi Nur Assyaufi">
+<meta name="theme-color" content="#008352">
+<meta name="msapplication-navbutton-color" content="#008352">
+<meta name="apple-mobile-web-app-status-bar-style" content="#008352">
+<title>02 Print Function dan Strings | BanditHijo (R)-Chive</title>
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/github-markdown-bandit.css">
+<link rel="icon" href="/assets/img/favicon/favicon.png" type="image/png">
+<link rel="manifest" href="/manifest.json">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="02 Print Function dan Strings" />
+<meta name="author" content="BanditHijo" />
+<meta property="og:locale" content="id" />
+<meta name="description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<meta property="og:description" content="Here’s where I started writing some notes that someday I will call it, a book" />
+<link rel="canonical" href="https://bandithijo.dev/python/02-print-function-dan-strings" />
+<meta property="og:url" content="https://bandithijo.dev/python/02-print-function-dan-strings" />
+<meta property="og:site_name" content="BanditHijo (R)-Chive" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-28T00:00:00+08:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"BanditHijo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bandithijo.dev/python/02-print-function-dan-strings"},"description":"Here’s where I started writing some notes that someday I will call it, a book","url":"https://bandithijo.dev/python/02-print-function-dan-strings","@type":"BlogPosting","headline":"02 Print Function dan Strings","dateModified":"2018-03-28T00:00:00+08:00","datePublished":"2018-03-28T00:00:00+08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <meta property="og:country-name"   content="Indonesia"/>
+<meta property="og:image"          content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+<meta property="og:image:width"    content="460"/>
+<meta property="og:image:height"   content="230"/>
+
+<meta property="twitter:card"      content="summary_large_image"/>
+<meta property="twitter:title"     content="02 Print Function dan Strings"/>
+<meta property="twitter:author"    content="BanditHijo"/>
+<meta property="twitter:image:src" content="https://bandithijo.dev/assets/img/banner/bndt_banner.png"/>
+
+  <!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-116004889-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-688BWZGJ84"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-688BWZGJ84');
+</script>
+<!-- End Google tag (gtag.js) -->
+
+  <meta name="google-site-verification" content="qXp9Kgb5hIHVp5T9vFOa_motqUmNuF5STbkJKF70wLc">
+
+</head>
+
+
+<body>
+
+<header id="header" class="noselect">
+  <div class="container container-strip">
+    <div class="container-inner container-inner-strip">
+    <div class="logo">
+      <img src="/assets/img/logo/logo_bandithijo.png">
+    </div>
+
+    <div class="title">
+      <h1><span class="nobr">BanditHijo (R)-Chive</span></h1>
+    </div>
+    <div class="description">
+      <h2>Here's where I started writing some notes that someday <span class="nobr">I will call it, a book</span></h2>
+      <br>
+      <span class="emblem-f">TECHNICAL<span class="emblem-e">BLOG : JOURNAL</span></span>
+    </div>
+
+    <nav class="nav nav-strip">
+      <div class="toggle">
+        <div class="menu" onmouseover="this.style.cursor='pointer'" onclick="navBtn()">
+          <span class="menu-title">BANDITHIJO</span>
+          <img style="width:30px;" src="/assets/img/logo/logo_menu.svg" id="nav-btn">
+        </div><!-- menu -->
+      </div><!-- toggle -->
+      <ul id="menu-ul">
+        <li><a href="/">Home</a></li>
+        
+        
+        
+        <li><a href="/blog/" class="">Blog</a></li>
+        
+        
+        
+        <li><a href="/note/" class="">Note</a></li>
+        
+        
+        
+        <li><a href="https://www.youtube.com/c/BanditHijo" class="">Vlog</a></li>
+        
+        
+        
+        <li><a href="/book/" class="">Books</a></li>
+        
+        
+        
+        <li><a href="/lab/" class="">Lab</a></li>
+        
+        
+        
+        <li><a href="/about/" class="">About</a></li>
+        
+      </ul>
+    </nav>
+    </div><!-- container-inner -->
+  </div><!-- header container -->
+</header>
+
+
+<section id="main">
+  <div class="container">
+    <div class="container-edge-border">
+
+      
+
+      <article class="post-pre-title">
+        <div class="post-body">
+          
+            <h1 class="post-title"><a href="/python/02-print-function-dan-strings">02 Print Function dan Strings</a></h1>
+          
+          <label class="hideAside noselect" title="On/Off Sidebar" onclick="toggleShowHideSidebar()"><img style="width:20px;margin-top:5px;" src="/assets/img/logo/logo_menu.svg" alt=""></label>
+
+          
+          
+          
+            <span class="post-details noselect">Ditulis: 2018/03/28</span> <span class="post-details noselect">Diperbaharui: 2022/09/23</span>
+          
+
+          <div class="breadcrumbs noselect">
+
+<span style="color:#232323;">&#9654;</span>&nbsp;<a href="/">Home</a>
+
+  
+    / <a href="/python/">Python</a>
+  
+
+  
+    / 02 print function dan strings
+  
+
+</div>
+
+          <div class="tags-in-post noselect">
+  
+  
+</div>
+
+        </div>
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-head">
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toga.svg">Silabus Kelas
+  </h1>
+  <div class="toc">
+  <ul>
+  
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/00-pengenalan-python" class="">00 Berkenalan dengan Python</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/01-hal-yang-harus-dipersiapkan" class="">01 Hal yang Perlu Dipersiapkan</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/02-print-function-dan-strings" class="current">02 Print Function dan Strings</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/03-matematika-dasar" class="">03 Matematika Dasar</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/04-variabel-dan-tipe-data" class="">04 Variabel dan Tipe Data</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/05-perulangan-while" class="">05 Perulangan Menggunakan While</a></li>
+  
+  
+  
+    <li style="list-style:none;margin-left:-20px;"><a href="/python/06-perulangan-for" class="">06 Perulangan Menggunakan For</a></li>
+  
+  </ul>
+  </div>
+  <div style="margin:5px 0 5px 0;"></div>
+  <p style="text-align:left;color:#00603C;"><i>Masih dalam proses penulisan...</i></p>
+</div>
+
+    <div class="sidebar-body">
+  <h1 style="font-size:1.5em;border-bottom:1px dashed #9E9E9E;">
+    <img src="/assets/img/logo/logo_toc.svg">Daftar Isi
+  </h1>
+  <div class="toc">
+    
+    <ul>
+  <li><a href="#print-function">Print() Function</a></li>
+  <li><a href="#strings">Strings</a></li>
+  <li><a href="#penerapan">Penerapan</a>
+    <ul>
+      <li><a href="#print-single-line-print">Print: Single Line Print</a>
+        <ul>
+          <li><a href="#escape-character">Escape Character</a></li>
+          <li><a href="#concatenation">Concatenation</a></li>
+        </ul>
+      </li>
+      <li><a href="#print-multi-line-print">Print: Multi Line Print</a></li>
+      <li><a href="#strings-f-strings">Strings: f-strings</a></li>
+    </ul>
+  </li>
+  <li><a href="#referensi">Referensi</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+      <article class="post">
+        <div class="post-body">
+          <div class="doa-awal noselect">
+<p><img src="/assets/img/logo/logo_doa_awal.svg" alt="بسم الله الرحمن الرحيم" style="height:40px" align="right"></p>
+<div style="clear:both;"></div>
+</div>
+
+        </div>
+        <div class="markdown-body highlight">
+
+          <!-- The Modal -->
+<div class="modal">
+  <img class="modal-content">
+</div>
+
+
+          <p><p><img class="post-body-img" src="/assets/img/logo/logo_blank_banner.svg" data-echo="https://s20.postimg.cc/rjj46uizh/banner_python_00.png" alt="banner" /></p>
+
+<h1 id="print-function">Print() Function</h1>
+<p>Seperti yang sudah saya <em>mention</em> sedikit di <em>post</em> sebelumnya, <strong>print()</strong> <em>function</em> ini digunakan utnuk menampilkan <em>output</em> ke dalam <em>console</em>. <em>Console</em> disini tergantung dari sistem operasi yang kita gunakan. Dalam sistem operasi Windows dikenal dengan sebutan Command Prompt (CMD.exe) sedangkan dalam sistem operasi GNU/Linux dikenal dengan sebutan Terminal.</p>
+
+<p>Saat kita belajar tentang suatu bahasa pemrograman, biasanya kita diajarkan untuk menampilkan <em>output</em> dari <em>program</em> sederhana yang kita buat pada <em>console</em>. Maka dari itu dalam proses belajar Python ini kita akan banyak menggunakan fungsi print().</p>
+
+<p>print() function juga dapat kita gunakan sebagai “<em>debugging tool</em>” sederhana, yang dapat membantu kita mengetahui apakah <em>program</em> yang kita buat telah sesuai dengan hasil yang kita harapkan atau tidak.</p>
+
+<p>“<em>Debugging</em>” adalah istilah khusus dalam topik pemrograman yang merujuk pada kegiatan mencari, menghapus, dan memperbaiki <em>error</em> dan kesalahan yang ada pada <em>program</em>.</p>
+
+<p>Untuk menggunakan fungsi print(), kita akan gunakan pada pembahasan kali ini bersama dengan tipe data <strong>Strings</strong>.</p>
+
+<h1 id="strings">Strings</h1>
+<p>String adalah salah satu dari jenis <strong>tipe data</strong> yang berarti <em>text</em> atau tulisan. Beberapa jenis tipe data yang lain seperti: Integer, Boolean, Float, Double, Constant, dll. akan kita pelajari pada materi <strong>variable</strong>.</p>
+
+<p>Sebuah tipe data string, memiliki ciri-ciri sebuah kata atau kalimat yang di awali dan di akhiri dengan dengan tanda petik. Baik itu petik satu <code class="language-plaintext highlighter-rouge">'...'</code> maupun petik dua <code class="language-plaintext highlighter-rouge">"..."</code>.</p>
+
+<h1 id="penerapan">Penerapan</h1>
+
+<h2 id="print-single-line-print">Print: Single Line Print</h2>
+<p>Sekarang kita akan menampilkan sebuah <strong>Strings</strong> dengan nilai “Saya adalah Python Developer.” ke dalam <em>console</em> dengan bantuan fungsi <strong>print()</strong>.</p>
+
+<p>Contoh string dengan satu petik.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Saya adalah Python Developer.'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Saya adalah Python Developer.
+</code></pre></div></div>
+
+<p>Contoh string dengan dua petik</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Saya adalah Python Developer."</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Saya adalah Python Developer.
+</code></pre></div></div>
+
+<p>Kedua bentuk string di atas tidak menghasilkan <em>output</em> yang berbeda. Kamu dapat menggunakan <code class="language-plaintext highlighter-rouge">'</code> atau <code class="language-plaintext highlighter-rouge">"</code>.</p>
+
+<p>Hal yang harus diperhatikan adalah <strong>tanda petik tersebut harus digunakan secara berpasangan</strong>. Maksudnya adalah, apabila kamu mengawali sebuah string dengan <code class="language-plaintext highlighter-rouge">'</code> maka kamu harus menutup string tersebut dengan tanda <code class="language-plaintext highlighter-rouge">'</code> juga. Begitu juga untuk tanda <code class="language-plaintext highlighter-rouge">"</code>.</p>
+
+<p><strong>Bagaimana cara menampilkan tanda petik di dalam sebuah string ?</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Ibu berkata, 'Budi adalah seorang Python Developer'"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Ibu berkata, "Budi adalah seorang Python Developer"'</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"Sekarang adalah hari Jum'at"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Sekarang adalah hari Jum"at'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ibu berkata, 'Budi adalah seorang Python Developer'
+Ibu berkata, "Budi adalah seorang Python Developer"
+
+Sekarang adalah hari Jum'at
+Sekarang adalah hari Jum"at
+</code></pre></div></div>
+
+<h3 id="escape-character">Escape Character</h3>
+
+<p><em>Escape character</em> adalah karakter yang di awali dengan tanda \ (baca: <em>backslash</em>), dimana untuk masing-masing <em>escape character</em> memiliki makna sendiri-sendiri.</p>
+
+<p>Misalnya kita ingin menulis sebuah kalimat yang di dalamnya terdapat kata yang menggunakan tanda apostrof (<code class="language-plaintext highlighter-rouge">'</code>), seperti: Jum’at, AlQur’an, dll.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Sekarang adalah hari Jum'</span><span class="n">at</span><span class="s">')</span><span class="err">
+</span></code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;stdin&gt;", line 1
+    print('Sekarang adalah hari Jum'at')
+                                     ^
+SyntaxError: invalid syntax
+</code></pre></div></div>
+<p>Terjadi kesalahan berupa <strong><em>invalid syntax</em></strong> dengan pointer menunjuk pada huruf <strong>t</strong>.</p>
+
+<p>Kita dapat memperbaiki kesalah ini dengan mengganti satu petik <code class="language-plaintext highlighter-rouge">'</code> yang mengapit kalimat tersebut dengan dua petik <code class="language-plaintext highlighter-rouge">"</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Sekarang adalah hari Jum'at"</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sekarang adalah hari Jum'at
+</code></pre></div></div>
+<p>Namun, ini bukan penyelesaian dengan menggunakan <em>escape character</em>, karena bahasan kita adalah <em>escape character</em> maka kita akan menggunakan cara yang sesuai dengan topik ini. Seperti ini cara memperbikinya.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Sekarang adalah hari Jum</span><span class="se">\'</span><span class="s">at'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sekarang adalah hari Jum'at
+</code></pre></div></div>
+<p>Yaitu dengan menambahkan tanda <code class="language-plaintext highlighter-rouge">\</code> tepat sebelum tanda <code class="language-plaintext highlighter-rouge">'</code>, sehingga menjadi seperti ini <code class="language-plaintext highlighter-rouge">\'</code>.</p>
+
+<p>Dapat diartikan bahwa tanda <code class="language-plaintext highlighter-rouge">\</code> akan membuat tanda <code class="language-plaintext highlighter-rouge">'</code> yang seharusnya merupakan sintaks untuk membuka dan menutup sebuah string, menjadi terabaikan dan hanya akan ditampilkan berupa <code class="language-plaintext highlighter-rouge">'</code>.</p>
+
+<p>Contoh lain,</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Ibu berkata, "</span><span class="n">Budi</span> <span class="n">adalah</span> <span class="n">seorang</span> <span class="n">Python</span> <span class="n">Developer</span><span class="s">""</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  File "&lt;stdin&gt;", line 1
+    print("Ibu berkata, "Budi adalah seorang Python Developer"")
+                            ^
+SyntaxError: invalid syntax
+</code></pre></div></div>
+<p>Cara memperbaiki dengan menggunakan <em>escape character</em>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">"Ibu berkata, </span><span class="se">\"</span><span class="s">Budi adalah seorang Python Developer</span><span class="se">\"</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ibu berkata, "Budi adalah seorang Python Developer"
+</code></pre></div></div>
+
+<p><br />
+<strong>Tabel <em>Escape Character</em></strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Karakter</th>
+      <th>Kegunaan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\newline</td>
+      <td>Ignored</td>
+    </tr>
+    <tr>
+      <td>\\</td>
+      <td>Backslash (\)</td>
+    </tr>
+    <tr>
+      <td>\’</td>
+      <td>Single quote (‘)</td>
+    </tr>
+    <tr>
+      <td>\”</td>
+      <td>Double quote (“)</td>
+    </tr>
+    <tr>
+      <td>\a</td>
+      <td>ASCII Bell (BEL)</td>
+    </tr>
+    <tr>
+      <td>\b</td>
+      <td>ASCII Backspace (BS)</td>
+    </tr>
+    <tr>
+      <td>\f</td>
+      <td>ASCII Formfeed (FF)</td>
+    </tr>
+    <tr>
+      <td>\n</td>
+      <td>ASCII Linefeed (LF)</td>
+    </tr>
+    <tr>
+      <td>\r</td>
+      <td>ASCII Carriage Return (CR)</td>
+    </tr>
+    <tr>
+      <td>\t</td>
+      <td>ASCII Horizontal Tab (TAB)</td>
+    </tr>
+    <tr>
+      <td>\v</td>
+      <td>ASCII Vertical Tab (VT)</td>
+    </tr>
+    <tr>
+      <td>\ooo</td>
+      <td>ASCII character with octal value ooo</td>
+    </tr>
+    <tr>
+      <td>\xhh…</td>
+      <td>ASCII character with hex value hh…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="concatenation">Concatenation</h3>
+
+<p>Ketika ketia berbicara tentang string dan print function, akan sangat bermanfaat apabila kita juga mengetahui tentang <strong>concatenation</strong>. <em>Concatenation</em> apabila diartikan secara bahasa adalah <strong>rangkaian</strong>.</p>
+
+<p><br />
+<strong>Concatenation pada String</strong></p>
+
+<p>Kamu dapat menggunakan tanda <code class="language-plaintext highlighter-rouge">,</code> atau tanda <code class="language-plaintext highlighter-rouge">+</code> untuk merangkai dua buah string atau lebih, menjadi satu buah string yang utuh. Apabila kamu mengunakan <code class="language-plaintext highlighter-rouge">,</code>, kamu akan mendapatkan satu buah spasi di antara keduanya.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Nama :'</span><span class="p">,</span><span class="s">'Devika'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama : Devika
+</code></pre></div></div>
+
+<p>Sebaliknya, apabila menggunakan tanda <code class="language-plaintext highlighter-rouge">+</code>, string tersebut akan dirangkai tanpa disertakan spasi di antara keduanya.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Nama :'</span><span class="o">+</span><span class="s">'Devika'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama :Devika
+</code></pre></div></div>
+
+<p><br />
+<strong>Concatenation pada Integer atau Float</strong></p>
+
+<p>Jika kamu menggunakan <code class="language-plaintext highlighter-rouge">+</code> untuk merangkai/menggabungkan <strong>integer &amp; integer</strong>, <strong>float &amp; float</strong> atau <strong>integer &amp; float</strong>, maka yang terjadi adalah <strong>operasi aritmatika</strong> berupa <strong>penjumlahan</strong>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="mi">10</span><span class="o">+</span><span class="mi">4</span><span class="p">)</span>        <span class="c1"># int + int
+</span><span class="k">print</span><span class="p">(</span><span class="mf">5.2</span><span class="o">+</span><span class="mf">4.1</span><span class="p">)</span>     <span class="c1"># float + float
+</span><span class="k">print</span><span class="p">(</span><span class="mi">14</span><span class="o">+</span><span class="mf">2.5</span><span class="p">)</span>      <span class="c1"># int + float
+</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">14</span>                 <span class="c1"># int
+</span><span class="mf">9.3</span>                <span class="c1"># float
+</span><span class="mf">16.5</span>               <span class="c1"># float
+</span></code></pre></div></div>
+
+<p><br />
+<strong>Concatenation Tingkat Lanjut</strong></p>
+
+<p>Kamu <strong>dapat</strong> merangkai <strong>string</strong> dengan <strong>integer</strong> maupun <strong>float</strong> menggunakan <code class="language-plaintext highlighter-rouge">,</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Jumlah item yang dibeli : '</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Jumlah item yang dibeli : 10
+</code></pre></div></div>
+
+<p><br />
+Kamu <strong>tidak dapat</strong> merangkai <strong>string</strong> dengan <strong>integer</strong> atau <strong>float</strong> menggunakan <code class="language-plaintext highlighter-rouge">+</code>.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'Jumlah item yang dibeli : '</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: must be str, not int
+</code></pre></div></div>
+<p>Terjadi kesalahan (<em>error</em>) yang mengatakan <strong>TypeError: must be str not int</strong>. Karena nilai paling depan berupa string, sehingga apabila menggunakan <code class="language-plaintext highlighter-rouge">+</code> untuk merangkai dengan nilai kedua yang berupa integer, akan mengalami kegagalan. Dalam Matematika, operasi penjumlahan, integer dapat dijumlahkan dengan integer atau float, namun tidak dapat dijumlahkan dengan string.</p>
+
+<p><br />
+Kamu juga dapat menggunakan <em>concatenation</em> untuk dapat dirangkaikan dengan variabel.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nama</span> <span class="o">=</span> <span class="s">'Devika'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'Nama :'</span><span class="p">,</span><span class="n">nama</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'Nama : '</span><span class="o">+</span><span class="n">nama</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama : Devika
+Nama : Devika
+</code></pre></div></div>
+<p><br /></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jmlh_kucing</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">jmlh_kucing</span><span class="o">+</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">jmlh_kucing</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15
+5 10
+</code></pre></div></div>
+<p>Masih banyak lagi contoh kasus yang tidak dapat saya tuliskan di sini. Pokoknya kalo mau merangkai sesuatu, gunakan <em>concatenation</em>.</p>
+
+<p><strong><em>catatan: merangkai tidak sama dengan menggabungkan</em></strong></p>
+
+<p><br /></p>
+<h2 id="print-multi-line-print">Print: Multi Line Print</h2>
+
+<p>Untuk melakukan print() pada banyak baris, kita dapat melakukannya dengan sangat mudah. Kita cukup mengapitnya dengan tanda petik tiga <code class="language-plaintext highlighter-rouge">'''...'''</code> atau <code class="language-plaintext highlighter-rouge">"""..."""</code>. Hal ini sama seperti saat kita memberikan komentar pada banyak baris. Aturan mengenai cara pemberian komentar pada baris kode, akan kita bahas pada materi selanjutnya.</p>
+
+<p>Berikut ini adalah cara menampilkan print() pada banyak baris.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'''baris ke-1
+baris ke-2
+baris ke-3
+
+baris ke-5
+baris ke-6
+baris ke-7'''</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>baris ke-1
+baris ke-2
+baris ke-3
+
+baris ke-5
+baris ke-6
+baris ke-7
+</code></pre></div></div>
+
+<p>Atau,</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="s">'''
+|-------------------------------------|
+|         --- PYTHON MOTEL ----       |
+|-------------------------------------|
+|  TIPE KAMAR  | KAMAR |    HARGA     |
+|-------------------------------------|
+| (1) VIP      |   1   | Rp 1.000.000 |
+| (2) Menengah |   1   | Rp   700.000 |
+| (3) Ekonomi  |   1   | Rp   500.000 |
+|-------------------------------------|
+'''</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+|-------------------------------------|
+|         --- PYTHON MOTEL ----       |
+|-------------------------------------|
+|  TIPE KAMAR  | KAMAR |    HARGA     |
+|-------------------------------------|
+| (1) VIP      |   1   | Rp 1.000.000 |
+| (2) Menengah |   1   | Rp   700.000 |
+| (3) Ekonomi  |   1   | Rp   500.000 |
+|-------------------------------------|
+
+</code></pre></div></div>
+
+<p>Saya lebih sering menggunakan tanda petik <code class="language-plaintext highlighter-rouge">'</code> daripada <code class="language-plaintext highlighter-rouge">"</code>. Kapan menggunakan petik satu dan kapan harus petik dua, tergantung dari konten pada string. Apakah mengandung karakter petik (apostrof) seperti: Jum’at, AlQur’an, dsb. Seperti yang sudah dicontohkan pada pembahasan di awal.</p>
+
+<p><br /></p>
+<h2 id="strings-f-strings">Strings: f-strings</h2>
+
+<p>Python mendukung banyak cara untuk melakukan <em>formatted strings</em>. <em>Formatted strings</em> di sini artinya, “membentuk strings”. Jadi kita dapat membentuk <em>output</em> strings sesuai dengan yang kita inginkan. Metode-metode tersebut antara lain seperti menggunakan <a href="https://docs.python.org/3.4/library/string.html#format-examples"><strong>%-formatting</strong></a>, <a href="https://docs.python.org/3.4/library/string.html#format-string-syntax"><strong>str.format</strong></a>, dan <a href="https://docs.python.org/3.4/library/string.html#template-strings"><strong>string.Template</strong></a>.</p>
+
+<p><br />
+<strong>Penggunaan print() dengan %-format</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">kata1</span> <span class="o">=</span> <span class="s">'Python'</span>
+<span class="n">kata2</span> <span class="o">=</span> <span class="s">'Keren'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s memang </span><span class="si">%</span><span class="s">s !'</span> <span class="o">%</span><span class="p">(</span><span class="n">kata1</span><span class="p">,</span> <span class="n">kata2</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python memang Keren !
+</code></pre></div></div>
+
+<p><br />
+<strong>Penggunaan print() dengan str.format</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">kata1</span> <span class="o">=</span> <span class="s">'Python'</span>
+<span class="n">kata2</span> <span class="o">=</span> <span class="s">'Keren'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'{0} memang {1} !'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">kata1</span><span class="p">,</span> <span class="n">kata2</span><span class="p">))</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python memang Keren !
+</code></pre></div></div>
+
+<p><br />
+<strong>Penggunaan string.Template</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="n">kalimat</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="s">'$siapa memang $kenapa !'</span><span class="p">)</span>
+<span class="n">kalimat</span><span class="o">.</span><span class="n">substitute</span><span class="p">(</span><span class="n">siapa</span> <span class="o">=</span> <span class="s">'Python'</span><span class="p">,</span> <span class="n">kenapa</span> <span class="o">=</span> <span class="s">'Keren'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python memang Keren !
+</code></pre></div></div>
+
+<p><br />
+Setiap metode memiliki kelebihan masing-masing. Tetapi, juga memiliki kelemahan yang membuat metode-metode tersebut rumit untuk digunakan dalam prakteknya.</p>
+
+<p>Kemudian pada Python 3, pada <a href="https://www.python.org/dev/peps/pep-0498"><strong>PEP 498</strong></a> (<em>Python Enhancement Proposals</em>), mengusulkan mekanisme performatan string yang baru, yang bernama: <em>Literal String Interpolation</em>. Yang nantinya, format string ini akan disebut sebagai <strong>f-string</strong>, penamaan ini diambil dari karakter awalan yang digunakan untuk mengaktifkan format string ini, atau dapat juga disebut sebagai <strong>formatted strings</strong>. <strong>f-strings</strong> menyediakan cara untuk menanamkan ekspresi di dalam string dengan menggunakan sintaks yang minimal.</p>
+
+<p><br />
+<strong>Penggunaan f-strings pada single line print()</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaDepan</span> <span class="o">=</span> <span class="s">'Devika'</span>
+<span class="n">namaBelakang</span> <span class="o">=</span> <span class="s">'Marina '</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'Nama lengkap, {namaDepan} {namaBelakang}'</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nama lengkap, Devika Marina
+</code></pre></div></div>
+
+<p>Kalo kita bongkar kodenya, untuk f-strings pada single line print sendiri penulisannya sama seperti string biasa, namun dengan penambahan huruf <code class="language-plaintext highlighter-rouge">f</code> sebelum tanda petik pada string, baik petik satu <code class="language-plaintext highlighter-rouge">'</code> atau petik dua <code class="language-plaintext highlighter-rouge">"</code>. Kemudian, variable dapat kita sisipkan ke dalam string, dengan mengapit variable tersebut menggunakan tanda kurung kurawal <code class="language-plaintext highlighter-rouge">{namaVariable}</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="s">'Nama lengkap, {namaDepan} {namaBelakang}'</span>
+
+<span class="n">f</span><span class="s">"Nama lengkap, {namaDepan} {namaBelakang}"</span>
+</code></pre></div></div>
+
+<p><br />
+<strong>Penggunaan f-strings pada multi line print()</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">namaDepan</span> <span class="o">=</span> <span class="s">'Devika'</span>
+<span class="n">namaBelakang</span> <span class="o">=</span> <span class="s">'Marina'</span>
+<span class="n">bahasa</span> <span class="o">=</span> <span class="s">'Python'</span>
+<span class="n">textEditor</span> <span class="o">=</span> <span class="s">'Vim'</span>
+<span class="n">sistemOperasi</span> <span class="o">=</span> <span class="s">'GNU/Linux'</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'''
+Hi, perkenalkan nama saya adalah {namaDepan} {namaBelakang}.
+Saya adalah seorang WEB Developer yang menggunakan bahasa pemrograman {bahasa} untuk menyelesaikan proyek-proyek yang saya kerjakan.
+Tentu saja, sebagai seorang programmer tidak lepas dari aplikasi yang selalu menemani saya setiap saat, yaitu text editor.
+Saya menggunakan text editor yang tidak umum digunakan oleh kebanyakan developer wanita, yaitu {textEditor}.
+Yang berjalan di atas sistem operasi {sistemOperasi}.
+Alasan saya memilih {textEditor} adalah karena efisiensi.
+Menurut saya, mempelajari {textEditor} adalah sebuah investasi yang berharga.
+
+Hormat saya,
+{namaDepan} {namaBelakang}
+'''</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+Hi, perkenalkan nama saya adalah Devika Marina.
+Saya adalah seorang WEB Developer yang menggunakan bahasa pemrograman Python untuk menyelesaikan proyek-proyek yang saya kerjakan.
+Tentu saja, sebagai seorang programmer tidak lepas dari aplikasi yang selalu menemani saya setiap saat, yaitu text editor.
+Saya menggunakan text editor yang tidak umum digunakan oleh kebanyakan developer wanita, yaitu Vim.
+Yang berjalan di atas sistem operasi GNU/Linux.
+Alasan saya memilih Vim adalah karena efisiensi.
+Menurut saya, mempelajari Vim adalah sebuah investasi yang berharga.
+
+Hormat saya,
+Devika Marina
+
+</code></pre></div></div>
+
+<p>Bagaimana, sangat mudah sekali bukan penggunaan <strong>f-strings</strong> ini?</p>
+
+<p>Sintaksnya <em>minimal</em>, tidak sulit untuk diketik, tidak sulit untuk dibaca. Dengan kemudahan sintaks seperti ini tentu saja memudahkan kita dalam berekspresi dengan kode program.</p>
+
+<p>Saya rasa, untuk saat ini, pembahasan mengenai <em>strings</em> cukup seperti ini dulu. Mari kita lanjutkan ke topik yang lain yaa.</p>
+
+<p><br /></p>
+<h1 id="referensi">Referensi</h1>
+
+<ol>
+  <li>
+    <p><a href="https://docs.python.org/3.4/library/string.html">https://docs.python.org/3.4/library/string.html</a>
+<br />Diakses tanggal: 2018/03/28</p>
+  </li>
+  <li>
+    <p><a href="https://www.python.org/dev/peps/pep-0498">https://www.python.org/dev/peps/pep-0498</a>
+<br />Diakses tanggal: 2018/03/28</p>
+  </li>
+</ol>
+
+<!-- NEXT PREV BUTTON -->
+
+<div class="post-nav">
+<a class="btn-blue-l" href="/python/01-hal-yang-harus-dipersiapkan"><img class="btn-img" src="/assets/img/logo/logo_ap.png" /></a>
+<a class="btn-blue-c" href="/python/"><img class="btn-img" src="/assets/img/logo/logo_menu.svg" /></a>
+<a class="btn-blue-r" href="/python/03-matematika-dasar"><img class="btn-img" src="/assets/img/logo/logo_an.png" /></a>
+</div>
+</p>
+
+          <!-- wip -->
+          
+            <br>
+          
+
+          <!-- License -->
+          
+
+          <div style="clear:both;"></div>
+
+          <!-- Penulis -->
+          
+            <div style="text-align:center; margin:0 0 10px 0;"></div>
+
+            
+
+            
+              <div class="noselect">
+  <h1 style="font-size:2em;">Penulis</h1>
+  
+  
+    
+      <div class="penulis-img">
+        <img style="margin:0 auto;border-radius:50%;" src="https://github.com/bandithijo.png?size=200" alt="bandithijo" onerror="imgError(this);">
+      </div><!-- penulis-img -->
+
+      <div class="penulis-text">
+        <p><p><b>BanditHijo</b> adalah nama pena saya –meminjam istilah keren dari para penulis. Teman-teman menyebut saya sebagai GNU/Linux Enthusiast. Saya memang gemar mengutak-atik sistem operasi ini. Sistem operasi ini memberikan saya kebebasan untuk mengekspresikan ide-ide dalam membantu menyelesaikan pekerjaan saya sehari-hari.</p></p>
+        <p style="text-align:right;">- <b>Rizqi Nur Assyaufi</b></p>
+      </div><!-- penulis-text -->
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+</div>
+
+            
+          
+
+          <div style="clear:both;"></div>
+
+          
+
+        </div><!-- markdown-body -->
+      </article>
+
+      <article>
+        <div class="post-body-sidebar">
+          <aside class="sidebar noselect" id="sidebar-tail">
+
+    <div class="sidebar-body-rss"">
+  <h1 style="border-bottom:1px dashed #ACA573;margin-bottom:5px;">
+    <img src="/assets/img/logo/logo_bantuan.svg">Bantuan
+  </h1>
+   <p>Kebingungan dengan simbol-simbol yang terdapat pada halaman blog ini?</p>
+   <p>Kamu dapat mempelajari bagaimana cara membaca setiap komponen yang ada di dalam blog, <a href="/bantuan/"><b>di sini</b></a>.</p>
+</div>
+
+
+</aside>
+
+        </div>
+      </article>
+
+    </div><!-- container-edge-border -->
+  </div><!-- main container -->
+</section><!-- main -->
+
+
+<footer id="footer" class="noselect">
+  <div class="container">
+    <div class="container-inner">
+      <div class="footer-line">
+        <p style="font-size:20px;"><a href="/"><strong>BanditHijo (R)-Chive</strong></a> &copy; 2012 - 2022</p>
+        <p style="font-size:12px;margin-top:-35px;color:#404040;">
+          Source code dan artikel-artikel ditulis menggunakan <span class="nobr"><a href="http://vim.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Vim</a> text editor.</span><br>
+          Semua elemen gambar dikerjakan menggunakan <span class="nobr"><a href="https://inkscape.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Inkscape</a> dan <a href="https://gimp.org" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GIMP</a>.</span><br>
+          Menggunakan <a href="https://jekyllrb.com" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">Jekyll</a> sebagai Static Site Generator.<br>
+          Dihosting menggunakan <a href="https://github.com/bandithijo/bandithijo.github.io" target="_blank" rel="noreferrer" style="font-weight:bold;color:#404040;">GitHub</a>.<br>
+          Terakhir update: <b>23/09/2022</b>
+        </p>
+        <p class="footer-menu">
+          <br>
+          <a href="/contact/"><strong>Contact</strong></a> |&nbsp;
+          <a href="https://twitter.com/bandithijo" target="_blank" rel="noreferrer"><strong>Twitter</strong></a> |&nbsp;
+          <a rel="me" href="https://www.youtube.com/c/BanditHijo" target="_blank" rel="noreferrer"><strong>YouTube</strong></a> |&nbsp;
+          <a rel="me" href="https://github.com/bandithijo" target="_blank" rel="noreferrer"><strong>GitHub</strong></a> |&nbsp;
+          
+            <a href="/feed/python.xml" target="_blank"><strong>RSS</strong></a>
+          
+        </p>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div class="tech-i-used-desktop">
+          <a href="https://jekyllrb.com" target="_blank" rel="noopener">
+            <img class="footer-img-jekyll" src="/assets/img/logo/logo_jekyll.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">
+            <img class="footer-img-ruby" src="/assets/img/logo/logo_ruby.png">
+          </a>
+          <a href="https://netlify.app" target="_blank" rel="noopener">
+            <img class="footer-img-netlify" src="/assets/img/logo/logo_netlify.png">
+          </a>
+          
+          
+          
+          
+          
+          
+        </div><!-- tech-i-used-desktop -->
+
+        <div class="tech-i-used-mobile">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://netlify.app" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-netlify-mobile" src="/assets/img/logo/logo_netlify_mobile.png">
+          </a>
+          <a href="https://www.ruby-lang.org" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-ruby-mobile" src="/assets/img/logo/logo_ruby_mobile.png">
+          </a>
+          <a href="https://jekyllrb.com/" target="_blank" rel="noopener" rel="noreferrer">
+            <img class="footer-img-jekyll-mobile" src="/assets/img/logo/logo_jekyll_mobile.png">
+          </a>
+        </div><!-- tech-i-used-mobile -->
+      </div><!-- footer-line -->
+    </div><!-- container-innner -->
+  </div><!-- footer container -->
+</footer>
+
+<!-- site.git.build_version -->
+<div class="tech-i-used-desktop" style="text-align:center;font-size:9px;color:#8F8879;margin: -5px 0 10px 0;">
+  
+</div>
+<!-- END site.git.build_version -->
+
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script type="text/javascript" src="/assets/js/lazyload.js"></script>
+<script type="text/javascript" src="/assets/js/headings-permalink.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/aside.js"></script>
+
+
+<script type="text/javascript" src="/assets/js/enlarge-image-modal.js"></script>
+
+
+
+
+</body>
+</html>
